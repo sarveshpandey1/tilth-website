@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tilth - Marketing Agency, Bengaluru | Foundation-First</title>
+<meta name="description" content="Bengaluru marketing agency fixing broken tracking, targeting, and partnerships across paid ads, affiliates, SEO, and branding - before you spend a rupee.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#2C4A3A">
+<link rel="canonical" href="https://tilth.in/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tilth - Marketing Agency, Bengaluru | Foundation-First">
+<meta property="og:description" content="Most marketing budgets are wasted before the work even begins. Tilth fixes what's broken - across paid ads, affiliates, SEO, PR, and branding.">
+<meta property="og:url" content="https://tilth.in/">
+<meta property="og:image" content="https://tilth.in/og-image.jpg">
+<meta property="og:locale" content="en_IN">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tilth - Marketing Agency, Bengaluru | Foundation-First">
+<meta name="twitter:description" content="Most marketing budgets are wasted before the work even begins. Tilth fixes what's broken - across paid ads, affiliates, SEO, PR, and branding.">
+<meta name="twitter:image" content="https://tilth.in/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #2C4A3A;
+    --soil: #1A1814;
+    --terra: #C57A5C;
+    --cream: #F4EFE6;
+    --white: #FBF8F2;
+    --olive: #7A8A5A;
+    --rule: #D8CCBC;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Work Sans', Arial, sans-serif;
+    background: var(--cream);
+    color: var(--soil);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  .serif { font-family: 'Fraunces', Georgia, serif; }
+  em, .italic { font-family: 'Fraunces', Georgia, serif; font-style: italic; }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 5vw; }
+  .label {
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600;
+  }
+
+  /* ===================== MASTHEAD ===================== */
+  .masthead { border-bottom: 1px solid var(--rule); }
+  .masthead .wrap {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 5vw; flex-wrap: wrap; gap: 14px;
+  }
+  .masthead .word { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; letter-spacing: 5px; }
+  .masthead nav { display: flex; gap: 28px; font-size: 13px; font-weight: 500; }
+  .masthead nav a { border-bottom: 1px solid transparent; transition: border-color .15s; }
+  .masthead nav a:hover { border-color: var(--terra); }
+  .masthead .meta { color: var(--olive); font-size: 12px; letter-spacing: 1px; }
+
+  /* ===================== OPENING SPREAD ===================== */
+  .opening { padding: 70px 0 90px; }
+  .opening .label { color: var(--terra); margin-bottom: 22px; display: block; }
+  .opening-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+  @media (min-width: 900px) { .opening-grid { grid-template-columns: 7fr 3fr; align-items: end; } }
+  .opening h1 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(40px, 7vw, 84px); line-height: 1.08; letter-spacing: -1px;
+  }
+  .opening h1 .accent { font-style: italic; color: var(--terra); font-weight: 400; }
+  .opening .annotation { border-left: 1px solid var(--terra); padding-left: 22px; }
+  .opening .annotation p { font-size: 15.5px; color: #4a4540; margin-bottom: 18px; }
+  .opening .annotation a.cta {
+    font-weight: 600; color: var(--green);
+    border-bottom: 1.5px solid var(--terra); padding-bottom: 2px; font-size: 14.5px;
+  }
+  .channel-row {
+    margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--rule);
+    display: flex; flex-wrap: wrap; align-items: center; gap: 16px 22px;
+  }
+  .channel-row .label-small {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--olive); font-weight: 600; white-space: nowrap;
+  }
+  .channel-row .channels {
+    display: flex; flex-wrap: wrap; gap: 8px 16px;
+    font-family: 'Fraunces', serif; font-size: 15px; color: var(--soil);
+  }
+  .channel-row .channels .dot { color: var(--terra); }
+
+  /* ===================== GROUND DIVIDER ===================== */
+  .ground-divider { height: 2px; background: var(--terra); position: relative; }
+  .ground-divider span {
+    position: absolute; left: 5vw; top: -10px;
+    background: var(--cream); padding: 0 10px;
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--terra); font-weight: 600;
+  }
+
+  /* ===================== THE GAP (industry data, below ground) ===================== */
+  .gap-section { background: var(--soil); color: var(--cream); padding: 80px 0; }
+  .gap-section .label { color: var(--terra); margin-bottom: 14px; }
+  .gap-section > .wrap > h2 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(26px, 3.6vw, 38px);
+    max-width: 700px; margin-bottom: 50px; line-height: 1.25;
+  }
+  .gap-grid { display: grid; grid-template-columns: 1fr; gap: 36px; }
+  @media (min-width: 760px) { .gap-grid { grid-template-columns: repeat(3, 1fr); } }
+  .gap-card .stat {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(30px, 4.2vw, 42px); color: var(--terra);
+    margin-bottom: 10px; line-height: 1.15;
+  }
+  .gap-card p { font-size: 14.5px; color: #beb6a9; max-width: 280px; }
+  .gap-footnote {
+    margin-top: 56px; padding-top: 20px; border-top: 1px solid rgba(244,239,230,0.14);
+    font-size: 12px; letter-spacing: 1px; color: #75706a;
+  }
+
+  /* ===================== AUDIT GRID (above ground, six channels) ===================== */
+  .audit-section { padding: 90px 0; }
+  .audit-section .label { color: var(--terra); margin-bottom: 14px; }
+  .audit-section > .wrap > h2 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(26px, 3.6vw, 38px);
+    max-width: 700px; margin-bottom: 8px; line-height: 1.25;
+  }
+  .audit-section > .wrap > .sub {
+    font-family: 'Fraunces', serif; font-style: italic; color: var(--olive);
+    font-size: 15px; margin-bottom: 48px;
+  }
+  .audit-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  @media (min-width: 640px) { .audit-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 980px) { .audit-grid { grid-template-columns: 1fr 1fr 1fr; } }
+  .audit-card {
+    background: var(--white); border: 1px solid var(--rule); border-radius: 4px;
+    padding: 26px; display: flex; flex-direction: column;
+  }
+  .audit-card .n {
+    font-family: 'Fraunces', serif; font-style: italic; color: var(--terra);
+    font-size: 13px; margin-bottom: 10px;
+  }
+  .audit-card h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin-bottom: 10px; }
+  .audit-card .q {
+    font-family: 'Fraunces', serif; font-style: italic; color: #5a5550;
+    font-size: 14.5px; margin-bottom: 16px; line-height: 1.4;
+  }
+  .audit-card .chart-row { display: flex; align-items: center; gap: 14px; margin: 4px 0 14px; }
+  .audit-card .result {
+    font-size: 13.5px; color: var(--green); font-weight: 600; margin-top: auto;
+    padding-top: 14px; border-top: 1px solid var(--rule);
+  }
+  .audit-card .result.muted { color: var(--olive); }
+
+  /* ===================== SEASONS (Tilth Cycle, cards) ===================== */
+  .seasons { background: var(--green); color: var(--cream); padding: 90px 0; }
+  .seasons .label { color: #BFD0C4; margin-bottom: 14px; }
+  .seasons > .wrap > h2 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(26px, 3.6vw, 38px);
+    max-width: 680px; margin-bottom: 48px; line-height: 1.25;
+  }
+  .season-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  @media (min-width: 640px) { .season-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 980px) { .season-grid { grid-template-columns: 1fr 1fr 1fr; } }
+  .season-card {
+    background: rgba(244,239,230,0.05); border: 1px solid rgba(244,239,230,0.18);
+    border-radius: 4px; padding: 28px 26px;
+  }
+  .season-card .n {
+    font-family: 'Fraunces', serif; font-weight: 500; font-size: 32px;
+    color: var(--terra); line-height: 1; margin-bottom: 14px;
+  }
+  .season-card h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin-bottom: 8px; }
+  .season-card p { font-size: 14px; color: #cddbd2; }
+
+  /* ===================== INDUSTRIES STRIP ===================== */
+  .industries { padding: 80px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .industries .label { color: var(--terra); margin-bottom: 14px; }
+  .industries > .wrap > h2 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(26px, 3.6vw, 38px);
+    max-width: 680px; margin-bottom: 44px; line-height: 1.25;
+  }
+  .industry-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  @media (min-width: 760px) { .industry-grid { grid-template-columns: repeat(5, 1fr); } }
+  .industry-card {
+    border-top: 2px solid var(--terra); padding-top: 14px;
+  }
+  .industry-card h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; margin-bottom: 6px; }
+  .industry-card p { font-size: 13px; color: #6a655f; }
+
+  /* ===================== FIELD NOTES (founder) ===================== */
+  .fieldnotes { padding: 90px 0; }
+  .fn-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+  @media (min-width: 880px) { .fn-grid { grid-template-columns: 5fr 7fr; } }
+  .fn-card { border: 1px solid var(--rule); padding: 28px; border-radius: 2px; }
+  .fn-card .label { color: var(--terra); margin-bottom: 18px; }
+  .fn-card .photo { width: 100%; aspect-ratio: 4/5; background: var(--green); border-radius: 2px; margin-bottom: 18px; }
+  .fn-card h4 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; margin-bottom: 4px; }
+  .fn-card .role { color: var(--olive); font-size: 13px; letter-spacing: 1px; }
+  .fn-text h2 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(26px, 3.6vw, 38px); line-height: 1.25; margin-bottom: 18px;
+  }
+  .fn-text blockquote {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: clamp(24px, 3.4vw, 36px); line-height: 1.35; color: var(--soil);
+    margin-bottom: 24px; border-left: 2px solid var(--terra); padding-left: 24px;
+  }
+  .fn-text p { font-size: 15.5px; color: #4a4540; margin-bottom: 16px; max-width: 620px; }
+  .fn-text a.cta {
+    font-weight: 600; color: var(--green);
+    border-bottom: 1.5px solid var(--terra); padding-bottom: 2px; font-size: 14.5px;
+  }
+
+  /* ===================== CLOSING / CTA ===================== */
+  .closing { background: var(--soil); color: var(--cream); padding: 90px 0 70px; position: relative; overflow: hidden; }
+  .closing .wrap { position: relative; z-index: 2; }
+  .closing .label { color: var(--terra); margin-bottom: 18px; }
+  .closing h2 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(32px, 6vw, 60px); margin-bottom: 18px; line-height: 1.1; max-width: 700px;
+  }
+  .closing p { color: #beb6a9; max-width: 460px; margin-bottom: 24px; font-size: 15.5px; }
+  .closing a.cta {
+    font-family: 'Fraunces', serif; font-style: italic; font-size: 22px;
+    color: var(--cream); border-bottom: 1.5px solid var(--terra); padding-bottom: 3px;
+  }
+  .closing .seed-mark {
+    position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
+    opacity: 0.06; z-index: 1; pointer-events: none;
+  }
+
+  /* ===================== FOOTER ===================== */
+  footer { background: var(--soil); color: #b9b2a8; padding: 60px 0 30px; border-top: 1px solid #33302b; }
+  .footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+  @media (min-width: 720px) { .footer-grid { grid-template-columns: 1.6fr 1fr 1fr 1fr; } }
+  footer .word { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--cream); margin-bottom: 8px; }
+  footer .addr { font-size: 13px; color: #8f887d; line-height: 1.7; }
+  footer h3 {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--terra); margin-bottom: 14px; font-weight: 600;
+    font-family: 'Work Sans', sans-serif;
+  }
+  footer ul { list-style: none; font-size: 14px; }
+  footer li { margin-bottom: 9px; }
+  footer a { color: #b9b2a8; }
+  footer a:hover { color: var(--cream); }
+  .footer-bottom {
+    margin-top: 50px; padding-top: 22px; border-top: 1px solid #33302b;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px;
+    font-size: 12px; letter-spacing: 1.5px; color: #75706a; text-transform: uppercase;
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Tilth",
+  "description": "Performance marketing agency fixing broken tracking, targeting, and partnerships across paid ads, affiliates, SEO, PR, and branding - before clients spend on media.",
+  "url": "https://tilth.in",
+  "email": "hello@tilth.in",
+  "slogan": "Grow deep. Market smart.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bengaluru",
+    "addressRegion": "Karnataka",
+    "addressCountry": "IN"
+  },
+  "areaServed": "Worldwide"
+}
+</script>
+</head>
+<body>
+
+<!-- ===================== MASTHEAD ===================== -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="word">TILTH</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="meta">Vol. 01 - Bengaluru to Global</div>
+  </div>
+</header>
+
+<!-- ===================== OPENING SPREAD ===================== -->
+<section class="opening">
+  <div class="wrap">
+    <span class="label">Marketing, built on foundations</span>
+    <div class="opening-grid">
+      <h1>Most marketing budgets are <span class="accent">wasted</span> before the work even begins.</h1>
+      <div class="annotation">
+        <p>We fix what's broken - strategy, tracking, partnerships - across every channel, before a rupee is spent.</p>
+        <a href="#contact" class="cta">Request a free audit →</a>
+      </div>
+    </div>
+    <div class="channel-row">
+      <span class="label-small">What we do</span>
+      <div class="channels">
+        <span>Paid Ads</span><span class="dot">·</span>
+        <span>Affiliates</span><span class="dot">·</span>
+        <span>SEO</span><span class="dot">·</span>
+        <span>Influencer</span><span class="dot">·</span>
+        <span>PR &amp; Events</span><span class="dot">·</span>
+        <span>Branding</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GROUND LINE ===================== -->
+<div class="ground-divider"><span>- ground -</span></div>
+
+<!-- ===================== THE GAP : INDUSTRY DATA (below ground) ===================== -->
+<section class="gap-section">
+  <div class="wrap">
+    <span class="label">Below ground</span>
+    <h2>The gap most agencies don't talk about.</h2>
+    <div class="gap-grid">
+      <div class="gap-card">
+        <div class="stat">6 in 10</div>
+        <p>brands can't say with confidence which marketing channels are actually profitable.</p>
+      </div>
+      <div class="gap-card">
+        <div class="stat">42%</div>
+        <p>of marketers still track attribution by hand, in spreadsheets - not systems.</p>
+      </div>
+      <div class="gap-card">
+        <div class="stat">2 in 3</div>
+        <p>brands have no reliable way to connect ad spend to business results.</p>
+      </div>
+    </div>
+    <div class="gap-footnote">Based on industry research, 2024-2025. This is the gap Tilth exists to close - for every channel, not just one.</div>
+  </div>
+</section>
+
+<!-- ===================== AUDIT GRID : SIX CHANNELS (above ground) ===================== -->
+<section class="audit-section" id="services">
+  <div class="wrap">
+    <span class="label">Above ground</span>
+    <h2>One audit. Six channels. The same question every time.</h2>
+    <div class="sub">"Is this where the money actually goes - and does it come back?"</div>
+
+    <div class="audit-grid">
+
+      <div class="audit-card">
+        <div class="n">01 - Paid Ads, Google &amp; Meta</div>
+        <h3>Paid Ads</h3>
+        <div class="q">"Are campaigns optimised for clicks, or for revenue?"</div>
+        <div class="chart-row">
+          <svg viewBox="0 0 120 70" width="110" height="64" aria-hidden="true">
+            <rect x="14" y="50" width="22" height="14" fill="#D8CCBC"/>
+            <text x="25" y="68" font-size="8" fill="#9a9388" text-anchor="middle" font-family="Work Sans, sans-serif">Before</text>
+            <text x="25" y="46" font-size="11" fill="#5a5550" text-anchor="middle" font-family="Fraunces, serif" font-weight="500">1x</text>
+            <rect x="64" y="14" width="22" height="50" fill="#C57A5C"/>
+            <text x="75" y="68" font-size="8" fill="#7A8A5A" text-anchor="middle" font-family="Work Sans, sans-serif">After</text>
+            <text x="75" y="10" font-size="11" fill="#2C4A3A" text-anchor="middle" font-family="Fraunces, serif" font-weight="600">5x</text>
+          </svg>
+        </div>
+        <div class="result">Result: 5x return on ad spend, once tracking was rebuilt around revenue events.</div>
+      </div>
+
+      <div class="audit-card">
+        <div class="n">02 - Affiliates, Crypto</div>
+        <h3>Affiliates</h3>
+        <div class="q">"Is this partner paid for activity, or for revenue?"</div>
+        <div class="chart-row">
+          <svg viewBox="0 0 120 70" width="110" height="64" aria-hidden="true">
+            <rect x="14" y="63" width="22" height="1" fill="#D8CCBC"/>
+            <text x="25" y="68" font-size="8" fill="#9a9388" text-anchor="middle" font-family="Work Sans, sans-serif">Before</text>
+            <text x="25" y="59" font-size="11" fill="#5a5550" text-anchor="middle" font-family="Fraunces, serif" font-weight="500">0%</text>
+            <rect x="64" y="34" width="22" height="30" fill="#C57A5C"/>
+            <text x="75" y="68" font-size="8" fill="#7A8A5A" text-anchor="middle" font-family="Work Sans, sans-serif">After</text>
+            <text x="75" y="28" font-size="11" fill="#2C4A3A" text-anchor="middle" font-family="Fraunces, serif" font-weight="600">5-6%</text>
+          </svg>
+        </div>
+        <div class="result">Result: from 0% to 5-6% of total trading volume within a year.</div>
+      </div>
+
+      <div class="audit-card">
+        <div class="n">03</div>
+        <h3>SEO</h3>
+        <div class="q">"Is this keyword tied to revenue, or just traffic?"</div>
+        <div class="result muted">Approach: strategy rebuilt around terms that convert, planned with the tech team from day one.</div>
+      </div>
+
+      <div class="audit-card">
+        <div class="n">04</div>
+        <h3>Influencer Marketing</h3>
+        <div class="q">"Does this creator's audience actually match our customer?"</div>
+        <div class="result muted">Approach: smaller, faster tests - budget committed only once fit is proven.</div>
+      </div>
+
+      <div class="audit-card">
+        <div class="n">05</div>
+        <h3>PR &amp; Events</h3>
+        <div class="q">"Is this where the buyer actually pays attention?"</div>
+        <div class="result muted">Approach: outreach re-targeted to relevant rooms and publications, not the loudest ones.</div>
+      </div>
+
+      <div class="audit-card">
+        <div class="n">06</div>
+        <h3>Branding &amp; Creative</h3>
+        <div class="q">"Is the positioning clear enough for creative to work?"</div>
+        <div class="result muted">Approach: messaging locked before a single piece of creative gets made.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SEASONS : TILTH CYCLE (CARDS) ===================== -->
+<section class="seasons" id="approach">
+  <div class="wrap">
+    <span class="label">Our approach</span>
+    <h2>The Tilth Cycle - six seasons, never worked out of order.</h2>
+    <div class="season-grid">
+      <div class="season-card">
+        <div class="n">01</div>
+        <h3>The Survey</h3>
+        <p>Discovery &amp; strategy. Understanding the soil first.</p>
+      </div>
+      <div class="season-card">
+        <div class="n">02</div>
+        <h3>The Tilth</h3>
+        <p>Foundation. Tracking, identity, and systems - built before anything else.</p>
+      </div>
+      <div class="season-card">
+        <div class="n">03</div>
+        <h3>The Sowing</h3>
+        <p>Launch &amp; activation. The right channels, at the right time.</p>
+      </div>
+      <div class="season-card">
+        <div class="n">04</div>
+        <h3>The Tending</h3>
+        <p>Ongoing growth. Daily optimisation that compounds.</p>
+      </div>
+      <div class="season-card">
+        <div class="n">05</div>
+        <h3>The Harvest</h3>
+        <p>Measurement &amp; scale. Reporting on outcomes, not vanity.</p>
+      </div>
+      <div class="season-card">
+        <div class="n">06</div>
+        <h3>The Renewal</h3>
+        <p>Refresh &amp; evolve. Preparing the ground for the next season.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INDUSTRIES STRIP ===================== -->
+<section class="industries">
+  <div class="wrap">
+    <span class="label">Field experience</span>
+    <h2>Ten years, five industries, one pattern.</h2>
+    <div class="industry-grid">
+      <div class="industry-card">
+        <h3>Fitness</h3>
+        <p>Offers, community, offline activation.</p>
+      </div>
+      <div class="industry-card">
+        <h3>Tech (B2B → B2C)</h3>
+        <p>Performance marketing at scale.</p>
+      </div>
+      <div class="industry-card">
+        <h3>Fintech &amp; Crypto</h3>
+        <p>Affiliate ecosystems and partnerships.</p>
+      </div>
+      <div class="industry-card">
+        <h3>SaaS</h3>
+        <p>Lead generation and funnel efficiency.</p>
+      </div>
+      <div class="industry-card">
+        <h3>D2C</h3>
+        <p>Paid media and distribution partnerships.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FIELD NOTES : FOUNDER ===================== -->
+<section class="fieldnotes" id="founder">
+  <div class="wrap">
+    <div class="fn-grid">
+      <div class="fn-card">
+        <span class="label">Field notes</span>
+        <div class="photo"></div>
+        <h4>Anuja</h4>
+        <div class="role">Founder, Tilth</div>
+      </div>
+      <div class="fn-text">
+        <h2>Built by someone who's done the work.</h2>
+        <blockquote>Ten years, five industries, one mistake repeated every time.</blockquote>
+        <p>10+ years across fitness, tech, fintech, SaaS, and D2C - running paid ads, building affiliate programs, and watching the same foundational mistake repeat. Tilth exists to fix it first, every time.</p>
+        <a href="#" class="cta">Read the full story →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLOSING : CTA ===================== -->
+<section class="closing" id="contact">
+  <svg class="seed-mark" width="320" height="420" viewBox="0 0 160 210" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <ellipse cx="80" cy="100" rx="68" ry="92" stroke="#F4EFE6" stroke-width="3"/>
+    <rect x="40" y="56" width="80" height="18" rx="3" fill="#F4EFE6"/>
+    <rect x="68" y="74" width="24" height="62" rx="2" fill="#F4EFE6"/>
+    <circle cx="80" cy="158" r="10" fill="#C57A5C"/>
+  </svg>
+  <div class="wrap">
+    <span class="label">Start here</span>
+    <h2>Get a free foundation audit.</h2>
+    <p>We'll review your current setup and tell you, honestly, what's broken - no pitch attached.</p>
+    <a href="mailto:hello@tilth.in" class="cta">hello@tilth.in →</a>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="word">Grow deep. Market smart.</div>
+        <div class="addr">Tilth - Marketing Agency<br>Bengaluru, India<br>hello@tilth.in</div>
+      </div>
+      <div>
+        <h3>Navigate</h3>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#founder">Founder</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Social</h3>
+        <ul>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">X / Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tilth. All rights reserved.</span>
+      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
