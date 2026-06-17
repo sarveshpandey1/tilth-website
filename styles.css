@@ -84,6 +84,8 @@ body.mh-open .mh-menu{opacity:1;visibility:visible}
 .btn{position:relative;display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--bg);background:var(--glow);padding:15px 30px;border-radius:40px;font-size:14.5px;box-shadow:0 0 26px rgba(170,197,108,.4);transition:box-shadow .3s,transform .3s}
 .btn:hover{box-shadow:0 0 38px rgba(170,197,108,.65)}
 .text-cta{font-weight:600;color:var(--glow);border-bottom:1.5px solid var(--glow);padding-bottom:3px;font-size:14.5px}
+/* keep the solid button legible even inside prose (where links are sage-on-sage) */
+.prose a.btn,.prose a.btn:hover{color:var(--bg);border-bottom:0}
 
 /* ===================== GROUND DIVIDER ===================== */
 .ground-divider{height:1px;background:linear-gradient(90deg,transparent,var(--terra),transparent);position:relative;box-shadow:0 0 12px rgba(232,137,94,.4)}
