@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GA4 conversion tracking: the setup checklist before you scale ads | Tilth</title>
+<meta name="description" content="Most GA4 conversion setups quietly report the wrong numbers — so every ad decision downstream is wrong. A practical checklist to get conversion tracking right before you scale spend.">
+<link rel="canonical" href="https://tilth.in/insights/ga4-conversion-tracking">
+<meta name="robots" content="index, follow">
+<meta property="og:site_name" content="Tilth">
+<meta name="twitter:site" content="@Anuja_tilth">
+<meta name="geo.region" content="IN-KA">
+<meta name="geo.placename" content="Bengaluru">
+<meta name="theme-color" content="#15110B">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GA4 conversion tracking: the setup checklist before you scale ads">
+<meta property="og:description" content="Get conversion tracking right before you scale spend — a practical GA4 checklist for founders and marketers.">
+<meta property="og:url" content="https://tilth.in/insights/ga4-conversion-tracking">
+<meta property="og:image" content="https://tilth.in/anuja.jpg">
+<meta property="article:published_time" content="2026-06-17">
+<meta property="article:author" content="Anuja">
+<meta property="article:section" content="Tracking">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GA4 conversion tracking: the setup checklist before you scale ads">
+<meta name="twitter:description" content="Get conversion tracking right before you scale spend — a practical GA4 checklist.">
+<meta name="twitter:image" content="https://tilth.in/anuja.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .article { padding: 36px 0 40px; }
+  .crumb { font-size: 12px; letter-spacing: .5px; color: var(--olive); margin-bottom: 28px; }
+  .crumb a { color: var(--glow); }
+  .article-head .post-meta { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--glow); margin-bottom: 16px; }
+  .article-head .post-meta .dot { color: var(--terra); margin: 0 8px; }
+  .article-head h1 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(32px, 5vw, 54px); line-height: 1.08; letter-spacing: -1px; color: var(--ink); margin-bottom: 22px; }
+  .article-head .standfirst { font-size: 19px; color: var(--text); line-height: 1.6; max-width: 60ch; }
+  .byline { display: flex; align-items: center; gap: 14px; margin: 30px 0 0; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .byline img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
+  .byline .who { font-size: 14px; color: var(--ink); font-weight: 500; }
+  .byline .who span { display: block; color: var(--olive); font-weight: 400; font-size: 13px; }
+  .prose { margin-top: 44px; }
+  .prose h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(22px, 3vw, 30px); color: var(--ink); letter-spacing: -.5px; margin: 44px 0 14px; line-height: 1.2; }
+  .prose p { font-size: 17px; line-height: 1.75; color: var(--text); margin-bottom: 20px; }
+  .prose ul, .prose ol { margin: 0 0 20px 0; padding-left: 22px; }
+  .prose li { font-size: 17px; line-height: 1.7; color: var(--text); margin-bottom: 12px; }
+  .prose li strong { color: var(--ink); }
+  .prose a { color: var(--glow); border-bottom: 1px solid var(--glow); }
+  .prose blockquote { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(21px, 3vw, 28px); line-height: 1.4; color: var(--ink); border-left: 2px solid var(--terra); padding-left: 24px; margin: 34px 0; }
+  .article-cta { margin-top: 50px; padding: 34px; background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; }
+  .article-cta h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 24px; color: var(--ink); margin-bottom: 10px; }
+  .article-cta p { color: var(--text); margin-bottom: 20px; max-width: 52ch; }
+  .article-bio { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--rule); display: flex; gap: 18px; align-items: flex-start; }
+  .article-bio img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex: none; }
+  .article-bio p { font-size: 14.5px; color: var(--text); margin: 0; }
+  .article-bio strong { color: var(--ink); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tilth.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://tilth.in/insights" },
+        { "@type": "ListItem", "position": 3, "name": "GA4 conversion tracking", "item": "https://tilth.in/insights/ga4-conversion-tracking" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "GA4 conversion tracking: the setup checklist before you scale ads",
+      "description": "Most GA4 conversion setups quietly report the wrong numbers, so every ad decision downstream is wrong. A practical checklist to get conversion tracking right before you scale spend.",
+      "image": "https://tilth.in/anuja.jpg",
+      "datePublished": "2026-06-17",
+      "dateModified": "2026-06-17",
+      "inLanguage": "en-IN",
+      "url": "https://tilth.in/insights/ga4-conversion-tracking",
+      "mainEntityOfPage": "https://tilth.in/insights/ga4-conversion-tracking",
+      "articleSection": "Tracking",
+      "keywords": ["GA4 conversion tracking", "GA4 key events", "Google Analytics 4 setup", "purchase event GA4", "conversion tracking"],
+      "wordCount": 880,
+      "author": { "@type": "Person", "name": "Anuja", "jobTitle": "Founder", "url": "https://tilth.in/about" },
+      "publisher": { "@type": "Organization", "name": "Tilth", "url": "https://tilth.in/", "logo": { "@type": "ImageObject", "url": "https://tilth.in/favicon.svg" } }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a href="/" class="word">TILTH</a>
+    <nav>
+      <a href="/services">Services</a>
+      <a href="/approach">Approach</a>
+      <a href="/insights" class="active">Insights</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="meta">Vol. 01 — Bengaluru to Global</div>
+  </div>
+</header>
+
+<article class="wrap-narrow article">
+  <div class="crumb"><a href="/insights">Insights</a> &nbsp;/&nbsp; Tracking</div>
+
+  <header class="article-head">
+    <div class="post-meta">Tracking<span class="dot">·</span>6 min read<span class="dot">·</span>17 Jun 2026</div>
+    <h1>GA4 conversion tracking: the setup checklist before you scale ads</h1>
+    <p class="standfirst">If GA4 is reporting the wrong conversions, every decision downstream — which campaign to scale, which to cut — is built on a lie. Here's the checklist to get it right before you spend more.</p>
+    <div class="byline">
+      <img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">
+      <div class="who">Anuja<span>Founder, Tilth · 10+ years in performance marketing</span></div>
+    </div>
+  </header>
+
+  <div class="prose">
+    <p>GA4 confused almost everyone when it replaced Universal Analytics. The model changed from sessions to events, the labels moved, and a lot of accounts were migrated by clicking "accept defaults." The result: dashboards that look complete but count the wrong things. And because your ad platforms often import conversions <em>from</em> GA4, a quiet error here poisons every campaign decision you make.</p>
+    <p>Before you scale spend, walk this checklist.</p>
+
+    <h2>1. Mark the right events as key events</h2>
+    <p>In GA4, a "conversion" is now a <strong>key event</strong> — an event you've explicitly flagged as important. Many accounts mark too many: page views, scrolls, "engaged sessions." When everything is a conversion, nothing is. Pick the one or two events that represent real business value (a purchase, a qualified lead) and mark only those.</p>
+
+    <h2>2. Send the purchase event with value and currency</h2>
+    <p>A purchase event with no <code>value</code> and no <code>currency</code> tells you <em>that</em> someone bought, not <em>how much</em> they spent. Without value, you can't compute ROAS, and the ad platforms can't optimise toward revenue. Confirm your <strong>purchase event fires with the correct order value and currency (INR)</strong> on the real thank-you/confirmation step — not on a button click.</p>
+
+    <h2>3. Stop counting soft actions as conversions</h2>
+    <p>"Add to cart," "begin checkout," form views, and newsletter signups are useful events — but they are not conversions, and they should not be the event your ads optimise toward. Reward a soft action and the algorithm will happily buy you cheap soft actions all day while revenue stays flat.</p>
+
+    <blockquote>The platform isn't lying to you. It's giving you exactly what you told it to value.</blockquote>
+
+    <h2>4. Connect GA4 to Google Ads — and import the right conversion</h2>
+    <p>Link GA4 and Google Ads, but be deliberate about what you import. A common mistake is importing several GA4 key events into Ads <em>and</em> running Google's own conversion tag, so the same purchase is counted twice. Decide on one source of truth for the purchase conversion and optimise toward that single, de-duplicated event.</p>
+
+    <h2>5. Plan for the cookieless gaps</h2>
+    <p>Browser restrictions and consent banners mean client-side tags miss a meaningful share of conversions. For anything that matters, plan for <strong>server-side tracking</strong> (server-side GTM or the Measurement Protocol) so a purchase confirmed by your backend is still recorded even when the browser tag is blocked. You don't need this on day one, but you need a plan for it before you scale.</p>
+
+    <h2>6. Sanity-check GA4 against your backend</h2>
+    <p>The fastest way to catch a broken setup: take one day's orders from your actual backend (Shopify, your database, your payment gateway) and compare the count and total revenue to GA4 for the same day. If they're wildly different, your tracking is wrong — and you've just saved yourself from scaling on a fictional number.</p>
+
+    <h2>What good looks like</h2>
+    <p>A trustworthy GA4 setup has a small number of meaningful key events, a purchase event with accurate value, one de-duplicated conversion feeding your ads, a plan for the cookieless gap, and numbers that roughly reconcile with your backend. Get those right and your ad spend decisions stop being guesses.</p>
+
+    <div class="article-cta">
+      <h3>Not sure your tracking is telling the truth?</h3>
+      <p>A free foundation audit checks exactly this — your events, your conversions, and whether the number you're scaling on is real. No pitch attached.</p>
+      <a href="/contact" class="btn"><span>Request a free audit</span><span aria-hidden="true">→</span></a>
+    </div>
+
+    <div class="article-bio">
+      <img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">
+      <p><strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C — rebuilding tracking and scaling spend against numbers teams can actually trust. <a href="/about">Read her story →</a></p>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="word">Grow deep. Market smart.</div>
+        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br>anuja@tilth.in</div>
+      </div>
+      <div>
+        <h2 class="fcol">Navigate</h2>
+        <ul>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/approach">Approach</a></li>
+          <li><a href="/insights">Insights</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fcol">Legal</h2>
+        <ul>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/cookie-policy">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fcol">Social</h2>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tilth. All rights reserved.</span>
+      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/nav.js" defer></script>
+</body>
+</html>

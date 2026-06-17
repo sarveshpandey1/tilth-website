@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meta Ads not converting? A 7-point tracking audit | Tilth</title>
+<meta name="description" content="Before you blame the creative or the audience, rule out tracking. A 7-point audit of your Meta (Facebook/Instagram) Ads setup — pixel, Conversions API, events, and attribution.">
+<link rel="canonical" href="https://tilth.in/insights/meta-ads-not-converting">
+<meta name="robots" content="index, follow">
+<meta property="og:site_name" content="Tilth">
+<meta name="twitter:site" content="@Anuja_tilth">
+<meta name="geo.region" content="IN-KA">
+<meta name="geo.placename" content="Bengaluru">
+<meta name="theme-color" content="#15110B">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Meta Ads not converting? A 7-point tracking audit">
+<meta property="og:description" content="Before you blame the creative, rule out tracking. A 7-point audit of your Meta Ads pixel, Conversions API, events, and attribution.">
+<meta property="og:url" content="https://tilth.in/insights/meta-ads-not-converting">
+<meta property="og:image" content="https://tilth.in/anuja.jpg">
+<meta property="article:published_time" content="2026-06-17">
+<meta property="article:author" content="Anuja">
+<meta property="article:section" content="Paid Ads">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meta Ads not converting? A 7-point tracking audit">
+<meta name="twitter:description" content="Before you blame the creative, rule out tracking. A 7-point Meta Ads audit.">
+<meta name="twitter:image" content="https://tilth.in/anuja.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .article { padding: 36px 0 40px; }
+  .crumb { font-size: 12px; letter-spacing: .5px; color: var(--olive); margin-bottom: 28px; }
+  .crumb a { color: var(--glow); }
+  .article-head .post-meta { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--glow); margin-bottom: 16px; }
+  .article-head .post-meta .dot { color: var(--terra); margin: 0 8px; }
+  .article-head h1 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(32px, 5vw, 54px); line-height: 1.08; letter-spacing: -1px; color: var(--ink); margin-bottom: 22px; }
+  .article-head .standfirst { font-size: 19px; color: var(--text); line-height: 1.6; max-width: 60ch; }
+  .byline { display: flex; align-items: center; gap: 14px; margin: 30px 0 0; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .byline img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
+  .byline .who { font-size: 14px; color: var(--ink); font-weight: 500; }
+  .byline .who span { display: block; color: var(--olive); font-weight: 400; font-size: 13px; }
+  .prose { margin-top: 44px; }
+  .prose h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(22px, 3vw, 30px); color: var(--ink); letter-spacing: -.5px; margin: 44px 0 14px; line-height: 1.2; }
+  .prose p { font-size: 17px; line-height: 1.75; color: var(--text); margin-bottom: 20px; }
+  .prose ul, .prose ol { margin: 0 0 20px 0; padding-left: 22px; }
+  .prose li { font-size: 17px; line-height: 1.7; color: var(--text); margin-bottom: 12px; }
+  .prose li strong { color: var(--ink); }
+  .prose a { color: var(--glow); border-bottom: 1px solid var(--glow); }
+  .prose blockquote { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(21px, 3vw, 28px); line-height: 1.4; color: var(--ink); border-left: 2px solid var(--terra); padding-left: 24px; margin: 34px 0; }
+  .article-cta { margin-top: 50px; padding: 34px; background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; }
+  .article-cta h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 24px; color: var(--ink); margin-bottom: 10px; }
+  .article-cta p { color: var(--text); margin-bottom: 20px; max-width: 52ch; }
+  .article-bio { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--rule); display: flex; gap: 18px; align-items: flex-start; }
+  .article-bio img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex: none; }
+  .article-bio p { font-size: 14.5px; color: var(--text); margin: 0; }
+  .article-bio strong { color: var(--ink); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tilth.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://tilth.in/insights" },
+        { "@type": "ListItem", "position": 3, "name": "Meta Ads not converting? A 7-point tracking audit", "item": "https://tilth.in/insights/meta-ads-not-converting" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Meta Ads not converting? A 7-point tracking audit",
+      "description": "Before you blame the creative or the audience, rule out tracking. A 7-point audit of your Meta Ads setup: pixel, Conversions API, events, and attribution.",
+      "image": "https://tilth.in/anuja.jpg",
+      "datePublished": "2026-06-17",
+      "dateModified": "2026-06-17",
+      "inLanguage": "en-IN",
+      "url": "https://tilth.in/insights/meta-ads-not-converting",
+      "mainEntityOfPage": "https://tilth.in/insights/meta-ads-not-converting",
+      "articleSection": "Paid Ads",
+      "keywords": ["facebook ads not converting", "meta ads tracking", "conversions api", "meta pixel", "ad tracking audit"],
+      "wordCount": 900,
+      "author": { "@type": "Person", "name": "Anuja", "jobTitle": "Founder", "url": "https://tilth.in/about" },
+      "publisher": { "@type": "Organization", "name": "Tilth", "url": "https://tilth.in/", "logo": { "@type": "ImageObject", "url": "https://tilth.in/favicon.svg" } }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a href="/" class="word">TILTH</a>
+    <nav>
+      <a href="/services">Services</a>
+      <a href="/approach">Approach</a>
+      <a href="/insights" class="active">Insights</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="meta">Vol. 01 — Bengaluru to Global</div>
+  </div>
+</header>
+
+<article class="wrap-narrow article">
+  <div class="crumb"><a href="/insights">Insights</a> &nbsp;/&nbsp; Paid Ads</div>
+
+  <header class="article-head">
+    <div class="post-meta">Paid Ads<span class="dot">·</span>6 min read<span class="dot">·</span>17 Jun 2026</div>
+    <h1>Meta Ads not converting? A 7-point tracking audit</h1>
+    <p class="standfirst">When Meta Ads stop converting, the instinct is to change the creative or the audience. Half the time the ads are fine — Meta just can't see the conversions. Before you touch anything else, rule out tracking with these seven checks.</p>
+    <div class="byline">
+      <img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">
+      <div class="who">Anuja<span>Founder, Tilth · 10+ years in performance marketing</span></div>
+    </div>
+  </header>
+
+  <div class="prose">
+    <p>Meta's algorithm is only as good as the data you feed it. If purchases aren't being reported back accurately, the system can't find buyers — so it spends your budget on the wrong people, conversions dry up, and it looks like the ads "stopped working." Most of the time, it's a tracking problem wearing a creative problem's costume. Run this audit first.</p>
+
+    <h2>1. Is the Pixel firing the purchase event — with value?</h2>
+    <p>Use the Meta Pixel Helper or Events Manager to confirm a <strong>Purchase event fires on your confirmation page</strong>, with the correct <code>value</code> and <code>currency</code>. A purchase event with no value can't optimise toward revenue, and a pixel that fires on a button instead of the real confirmation will count abandoned checkouts as sales.</p>
+
+    <h2>2. Is the Conversions API (server-side) set up?</h2>
+    <p>Browser tracking alone now misses a large share of events to ad blockers, iOS, and consent rejections. <strong>The Conversions API (CAPI)</strong> sends events server-to-server, so Meta still sees the purchase your browser pixel missed. Without it, your reported conversions are systematically undercounted — and the algorithm is half-blind.</p>
+
+    <h2>3. Are pixel and CAPI events deduplicated?</h2>
+    <p>Run the pixel and CAPI together without a shared <code>event_id</code> and Meta double-counts every purchase — inflating ROAS until you trust a number that isn't real. Confirm <strong>event deduplication</strong> is working so each conversion is counted exactly once.</p>
+
+    <blockquote>An algorithm optimising on bad data doesn't fail loudly. It just quietly spends your money on the wrong people.</blockquote>
+
+    <h2>4. Have you verified your domain and prioritised events?</h2>
+    <p>Since Apple's privacy changes, Meta limits you to a set of prioritised events per <strong>verified domain</strong> (Aggregated Event Measurement). If your domain isn't verified or Purchase isn't ranked as a top event, conversion tracking and optimisation degrade for a big chunk of your audience.</p>
+
+    <h2>5. Are you optimising for the right event?</h2>
+    <p>If your campaign is set to optimise for "Add to Cart" or "Leads" because those fire more often and look better, Meta will buy you carts and leads — not customers. <strong>Optimise toward Purchase</strong> (or your true revenue event), even though the volume looks smaller. Smaller and real beats large and hollow.</p>
+
+    <h2>6. Do your attribution windows match reality?</h2>
+    <p>Meta's default is a 7-day-click / 1-day-view window. If you compare that to a last-click model in GA4 or your backend, the numbers will never agree — and you'll "fix" campaigns that were fine. Decide on one source of truth, know which window you're reading, and compare like with like.</p>
+
+    <h2>7. Only now, look at creative and audience</h2>
+    <p>Once tracking is verified — pixel and CAPI firing, deduplicated, optimising on Purchase, sane attribution — <em>then</em> a drop in conversions is a real signal worth chasing with new creative or audiences. Do it in that order and you'll stop rebuilding campaigns that were never broken.</p>
+
+    <div class="article-cta">
+      <h3>Want a second pair of eyes on your Meta setup?</h3>
+      <p>The free foundation audit checks your pixel, CAPI, events, and attribution — so you know whether it's the tracking or the ads before you spend another rupee. No pitch attached.</p>
+      <a href="/contact" class="btn"><span>Request a free audit</span><span aria-hidden="true">→</span></a>
+    </div>
+
+    <div class="article-bio">
+      <img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">
+      <p><strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has spent 10+ years running paid ads across edtech, fintech, SaaS, and D2C — and fixing the tracking that quietly breaks them. <a href="/about">Read her story →</a></p>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="word">Grow deep. Market smart.</div>
+        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br>anuja@tilth.in</div>
+      </div>
+      <div>
+        <h2 class="fcol">Navigate</h2>
+        <ul>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/approach">Approach</a></li>
+          <li><a href="/insights">Insights</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fcol">Legal</h2>
+        <ul>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/cookie-policy">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fcol">Social</h2>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tilth. All rights reserved.</span>
+      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/nav.js" defer></script>
+</body>
+</html>
