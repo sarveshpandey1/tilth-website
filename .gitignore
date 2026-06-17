@@ -1,0 +1,5 @@
+# local preview / tooling config (not part of the published site)
+.claude/
+
+# local backup of the original homepage (keep locally, don't publish)
+index.original.html

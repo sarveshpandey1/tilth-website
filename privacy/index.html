@@ -3,41 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy - Tilth</title>
-<meta name="description" content="How Tilth handles data on tilth.in. We keep data collection minimal - no analytics, no cookies set by us, contact by email only.">
+<title>Privacy Policy — Tilth</title>
+<meta name="description" content="How Tilth handles data on tilth.in. We keep data collection minimal — no analytics, no cookies set by us, contact by email only.">
 <link rel="canonical" href="https://tilth.in/privacy">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#2C4A3A">
+<meta name="theme-color" content="#15110B">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root { --green:#2C4A3A; --soil:#1A1814; --terra:#C57A5C; --cream:#F4EFE6; --olive:#7A8A5A; --rule:#D8CCBC; }
+  :root { --bg:#15110B; --surface:#241D14; --green:#2C4A36; --soil:#15110B; --terra:#E2885A; --glow:#AAC56C; --cream:#F4EFE6; --ink:#F5EEE1; --text:#D1C8B6; --olive:#9A8F7C; --rule:rgba(245,238,225,.12); }
+  :focus-visible{outline:2px solid var(--glow);outline-offset:3px}
   * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:'Work Sans',Arial,sans-serif; background:var(--cream); color:var(--soil); line-height:1.65; font-size:16px; }
-  a { color:var(--green); }
+  body { font-family:'Work Sans',Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.65; font-size:16px; -webkit-font-smoothing:antialiased; }
+  a { color:var(--glow); }
   .wrap { max-width:780px; margin:0 auto; padding:0 5vw; }
-  .masthead { border-bottom:1px solid var(--rule); }
-  .masthead .wrap { max-width:1200px; display:flex; justify-content:space-between; align-items:center; padding:22px 5vw; flex-wrap:wrap; gap:14px; }
-  .masthead .word { font-family:'Fraunces',serif; font-size:22px; font-weight:600; letter-spacing:5px; text-decoration:none; color:var(--soil); }
+  .masthead { border-bottom:1px solid var(--rule); position:sticky; top:0; background:rgba(12,11,9,.85); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); z-index:50; }
+  .masthead .wrap { max-width:1200px; display:flex; justify-content:space-between; align-items:center; padding:18px 5vw; flex-wrap:wrap; gap:14px; }
+  .masthead .word { font-family:'Fraunces',serif; font-size:21px; font-weight:600; letter-spacing:5px; text-decoration:none; color:var(--ink); }
   .masthead nav { display:flex; gap:28px; font-size:13px; font-weight:500; }
-  .masthead nav a { color:var(--soil); text-decoration:none; border-bottom:1px solid transparent; }
-  .masthead nav a:hover { border-color:var(--terra); }
-  .doc { padding:64px 0 80px; }
-  .doc .label { font-size:12px; letter-spacing:3px; text-transform:uppercase; font-weight:600; color:var(--terra); margin-bottom:14px; display:block; }
-  .doc h1 { font-family:'Fraunces',serif; font-weight:500; font-size:clamp(32px,5vw,46px); line-height:1.15; margin-bottom:10px; }
+  .masthead nav a { color:var(--text); text-decoration:none; border-bottom:1px solid transparent; transition:color .3s,border-color .3s; }
+  .masthead nav a:hover { border-color:var(--glow); color:var(--ink); }
+  .doc { padding:96px 0 80px; }
+  .doc .label { font-size:12px; letter-spacing:3px; text-transform:uppercase; font-weight:600; color:var(--glow); margin-bottom:14px; display:block; }
+  .doc h1 { font-family:'Fraunces',serif; font-weight:400; font-size:clamp(32px,5vw,48px); line-height:1.12; margin-bottom:10px; color:var(--ink); letter-spacing:-.5px; }
   .doc .updated { color:var(--olive); font-size:14px; margin-bottom:40px; }
-  .doc h2 { font-family:'Fraunces',serif; font-weight:500; font-size:22px; margin:36px 0 12px; }
-  .doc p { margin-bottom:14px; font-size:15.5px; color:#3f3a35; }
+  .doc h2 { font-family:'Fraunces',serif; font-weight:500; font-size:22px; margin:36px 0 12px; color:var(--ink); }
+  .doc p { margin-bottom:14px; font-size:15.5px; color:var(--text); }
   .doc ul { margin:0 0 14px; padding-left:22px; }
-  .doc li { margin-bottom:8px; font-size:15.5px; color:#3f3a35; }
-  .doc .note { background:#fff; border-left:3px solid var(--terra); border-radius:4px; padding:16px 20px; margin:20px 0; font-size:14.5px; }
-  footer { background:var(--soil); color:#b9b2a8; padding:40px 0; border-top:1px solid #33302b; margin-top:40px; }
+  .doc li { margin-bottom:8px; font-size:15.5px; color:var(--text); }
+  .doc .note { background:var(--surface); border-left:3px solid var(--terra); border-radius:8px; padding:16px 20px; margin:20px 0; font-size:14.5px; color:var(--text); }
+  footer { background:#080706; color:var(--olive); padding:40px 0; border-top:1px solid var(--rule); margin-top:40px; }
   footer .wrap { max-width:1200px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; font-size:13px; }
-  footer a { color:#b9b2a8; text-decoration:none; }
-  footer a:hover { color:var(--cream); }
-  .back { display:inline-block; margin-top:8px; color:var(--green); font-weight:600; font-size:14.5px; text-decoration:none; border-bottom:1.5px solid var(--terra); padding-bottom:2px; }
+  footer a { color:var(--olive); text-decoration:none; }
+  footer a:hover { color:var(--ink); }
+  .back { display:inline-block; margin-top:8px; color:var(--glow); font-weight:600; font-size:14.5px; text-decoration:none; border-bottom:1.5px solid var(--glow); padding-bottom:2px; }
 </style>
 </head>
 <body>
@@ -47,7 +48,8 @@
     <nav>
       <a href="/services">Services</a>
       <a href="/approach">Approach</a>
-      <a href="/about">Founder</a>
+      <a href="/insights">Insights</a>
+      <a href="/about">About</a>
       <a href="/contact">Contact</a>
     </nav>
   </div>
