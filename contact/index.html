@@ -3,6 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1MJEZ4VK26');
+</script>
 <title>Contact — Request a Free Audit | Tilth</title>
 <meta name="description" content="Get in touch with Tilth for a free marketing foundation audit. Email anuja@tilth.in — Bengaluru-based, working with brands in India and globally.">
 <link rel="canonical" href="https://tilth.in/contact">
@@ -255,6 +263,7 @@
       form.classList.add('sent');
       status.className = 'form-status success';
       status.textContent = 'Thank you — your request is in. We’ll reply within one working day.';
+      if(window.gtag){ gtag('event', 'generate_lead', { event_category: 'contact', event_label: 'free_audit_request', value: 1 }); }
     })
     .catch(function(){
       btn.disabled = false;
