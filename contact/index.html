@@ -64,11 +64,11 @@
   .field { margin-bottom: 20px; border: 0; padding: 0; min-width: 0; }
   .field label, .field legend { display: block; font-size: 13px; letter-spacing: .4px; color: var(--text); margin-bottom: 8px; font-weight: 500; padding: 0; }
   .field .opt { color: var(--olive); font-weight: 400; }
-  .audit-form input[type=text], .audit-form input[type=email], .audit-form textarea { width: 100%; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 13px 16px; color: var(--ink); font-family: inherit; font-size: 15.5px; transition: border-color .25s, box-shadow .25s; }
+  .audit-form input[type=text], .audit-form input[type=email], .audit-form input[type=tel], .audit-form textarea { width: 100%; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 13px 16px; color: var(--ink); font-family: inherit; font-size: 15.5px; transition: border-color .25s, box-shadow .25s; }
   .audit-form input:focus, .audit-form textarea:focus { outline: none; border-color: var(--glow); box-shadow: 0 0 0 3px rgba(170,197,108,.18); }
   .audit-form textarea { resize: vertical; min-height: 112px; }
-  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
-  .chip { position: relative; display: inline-flex; align-items: center; border: 1px solid var(--rule); border-radius: 40px; padding: 8px 16px; cursor: pointer; font-size: 14px; color: var(--text); transition: border-color .25s, background .25s, color .25s; }
+  .chips { display: flex; flex-wrap: wrap; gap: 9px; max-width: 100%; }
+  .chip { position: relative; display: inline-flex; align-items: center; max-width: 100%; border: 1px solid var(--rule); border-radius: 40px; padding: 7px 14px; cursor: pointer; font-size: 13.5px; line-height: 1.2; white-space: nowrap; color: var(--text); transition: border-color .25s, background .25s, color .25s; }
   .chip input { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
   .chip:hover { border-color: var(--glow); }
   .chip.on { background: var(--glow); border-color: var(--glow); color: var(--bg); font-weight: 600; }
@@ -149,11 +149,15 @@
           <input id="f-email" name="email" type="email" required autocomplete="email">
         </div>
         <div class="field">
-          <label for="f-brand">Brand or website <span class="opt">(optional)</span></label>
-          <input id="f-brand" name="brand" type="text" autocomplete="organization">
+          <label for="f-phone">Contact number</label>
+          <input id="f-phone" name="phone" type="tel" required minlength="7" autocomplete="tel" inputmode="tel">
+        </div>
+        <div class="field">
+          <label for="f-brand">Brand or website</label>
+          <input id="f-brand" name="brand" type="text" required autocomplete="organization">
         </div>
         <fieldset class="field">
-          <legend>Which channels are you running? <span class="opt">(optional)</span></legend>
+          <legend>Which channels are you running? <span class="opt">(select at least one)</span></legend>
           <div class="chips">
             <label class="chip"><input type="checkbox" name="channels" value="Paid Ads"><span>Paid Ads</span></label>
             <label class="chip"><input type="checkbox" name="channels" value="Affiliates"><span>Affiliates</span></label>
@@ -253,6 +257,12 @@
     // browser validates required fields first; this handler only runs when valid
     if(form.querySelector('.hp').value){ e.preventDefault(); return; } // spam honeypot
     e.preventDefault();
+    if(form.querySelectorAll('input[name="channels"]:checked').length === 0){
+      status.className = 'form-status error';
+      status.textContent = 'Please select at least one channel.';
+      form.querySelector('.chips').scrollIntoView({ block: 'center', behavior: 'smooth' });
+      return;
+    }
     status.className = 'form-status'; status.textContent = 'Sending…';
     btn.disabled = true;
     fetch('https://formsubmit.co/ajax/anuja@tilth.in', {
