@@ -37,6 +37,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <style>
   .contact-main { padding: 60px 0 90px; }
   .contact-grid { display: grid; grid-template-columns: 1fr; gap: 50px; }
@@ -81,7 +82,9 @@
   .form-status.success { color: var(--glow); }
   .form-alt { font-size: 14px; color: var(--olive); margin-top: 16px; }
   .form-alt a { color: var(--glow); border-bottom: 1px solid var(--glow); }
-  .audit-form.sent .field, .audit-form.sent .audit-submit, .audit-form.sent .form-alt { display: none; }
+  .captcha-field { margin: 8px 0 4px; }
+  @media (max-width: 360px) { .captcha-field { transform: scale(0.92); transform-origin: left top; } }
+  .audit-form.sent .field, .audit-form.sent .audit-submit, .audit-form.sent .form-alt, .audit-form.sent .captcha-field { display: none; }
 </style>
 <script type="application/ld+json">
 {
@@ -172,6 +175,7 @@
           <textarea id="f-msg" name="message" rows="4" required></textarea>
         </div>
 
+        <div class="captcha-field"><div class="g-recaptcha" data-sitekey="6LcQryYtAAAAAD4sriHh506KimRSj-0EpcciN8zO" data-theme="dark"></div></div>
         <button type="submit" class="btn audit-submit"><span>Request a free audit</span><span class="arrow" aria-hidden="true">→</span></button>
         <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         <p class="form-alt">Prefer email? Write to <a href="mailto:anuja@tilth.in?subject=Free%20foundation%20audit">anuja@tilth.in</a> directly.</p>
@@ -263,6 +267,11 @@
       form.querySelector('.chips').scrollIntoView({ block: 'center', behavior: 'smooth' });
       return;
     }
+    if(typeof grecaptcha === 'undefined' || !grecaptcha.getResponse()){
+      status.className = 'form-status error';
+      status.textContent = 'Please confirm you’re not a robot.';
+      return;
+    }
     status.className = 'form-status'; status.textContent = 'Sending…';
     btn.disabled = true;
     fetch('https://formsubmit.co/ajax/anuja@tilth.in', {
@@ -277,6 +286,7 @@
     })
     .catch(function(){
       btn.disabled = false;
+      if(window.grecaptcha){ grecaptcha.reset(); }
       status.className = 'form-status error';
       status.textContent = 'Couldn’t send just now. Please email anuja@tilth.in instead.';
     });
