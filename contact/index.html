@@ -153,7 +153,7 @@
         </div>
         <div class="field">
           <label for="f-phone">Contact number</label>
-          <input id="f-phone" name="phone" type="tel" required minlength="7" autocomplete="tel" inputmode="tel">
+          <input id="f-phone" name="phone" type="tel" required pattern="[0-9+() -]{7,18}" maxlength="18" title="Please enter a valid phone number — digits only (you may include +, spaces, hyphens or brackets)." autocomplete="tel" inputmode="tel">
         </div>
         <div class="field">
           <label for="f-brand">Brand or website</label>
@@ -257,6 +257,9 @@
     var sync = function(){ i.closest('.chip').classList.toggle('on', i.checked); };
     i.addEventListener('change', sync); sync();
   });
+  // contact number: allow only digits and phone punctuation (+, spaces, -, brackets)
+  var phone = document.getElementById('f-phone');
+  if(phone){ phone.addEventListener('input', function(){ this.value = this.value.replace(/[^0-9+() -]/g, ''); }); }
   form.addEventListener('submit', function(e){
     // browser validates required fields first; this handler only runs when valid
     if(form.querySelector('.hp').value){ e.preventDefault(); return; } // spam honeypot
