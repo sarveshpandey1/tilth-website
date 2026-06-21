@@ -188,11 +188,11 @@ em{font-family:'Fraunces',Georgia,serif;font-style:italic}
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:108px 6vw 72px;overflow:hidden;background:radial-gradient(120% 90% at 50% 8%,#15130D 0%,var(--bg) 55%)}
 .hero__roots{position:absolute;inset:0;z-index:0;pointer-events:none}
 .hero__roots svg{position:absolute;inset:0;width:100%;height:100%}
-.roots-base path{stroke:rgba(170,197,108,.13);fill:none;stroke-linecap:round}
-.roots-base .t{stroke:rgba(232,137,94,.13)}
-.roots-glow{-webkit-mask-image:radial-gradient(circle 270px at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.6) 44%,transparent 74%);mask-image:radial-gradient(circle 270px at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.6) 44%,transparent 74%)}
-.roots-glow path{stroke:var(--glow);fill:none;stroke-linecap:round;filter:drop-shadow(0 0 7px rgba(170,197,108,.85))}
-.roots-glow .t{stroke:var(--terra);filter:drop-shadow(0 0 7px rgba(232,137,94,.85))}
+.roots-base path{stroke:rgba(170,197,108,.06);fill:none;stroke-linecap:round}
+.roots-base .t{stroke:rgba(226,136,90,.06)}
+.roots-glow{-webkit-mask-image:radial-gradient(circle 230px at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.5) 46%,transparent 78%);mask-image:radial-gradient(circle 230px at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.5) 46%,transparent 78%)}
+.roots-glow path{stroke:var(--glow);fill:none;stroke-linecap:round;filter:drop-shadow(0 0 11px rgba(170,197,108,.4))}
+.roots-glow .t{stroke:var(--terra);filter:drop-shadow(0 0 11px rgba(226,136,90,.4))}
 .hero__light{position:absolute;width:580px;height:580px;left:0;top:0;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(170,197,108,.16) 0%,rgba(232,137,94,.08) 36%,transparent 66%);mix-blend-mode:screen;pointer-events:none;z-index:1;opacity:0;transition:opacity .5s}
 .hero.lit .hero__light{opacity:1}
 .hero__inner{position:relative;z-index:3;max-width:1280px;margin:0 auto;width:100%}
@@ -270,11 +270,14 @@ em{font-family:'Fraunces',Georgia,serif;font-style:italic}
 .scene__foot{position:absolute;bottom:24px;left:0;width:100%;z-index:6}
 .scene__foot .wrap{font-size:11px;letter-spacing:1px;color:var(--muted-2)}
 @media(max-width:760px){
-  .scene{height:300vh}
-  .stat{width:auto;max-width:82vw}
-  .stat--1{left:5vw;right:auto;top:54%}
-  .stat--2{display:none}
-  .stat--3{left:5vw;right:auto;top:73%;text-align:left;border-right:none;border-left:2px solid var(--glow)}
+  .scene{height:340vh}
+  .stat{width:auto;max-width:84vw;padding:15px 18px}
+  .stat .num{font-size:clamp(30px,8vw,42px)}
+  .stat p{font-size:13px}
+  .stat--1{left:5vw;right:auto;top:53%}
+  .stat--2{left:5vw;right:auto;top:67%;transform:translateY(24px);text-align:left;border-left:2px solid var(--glow)}
+  .stat--2.in{transform:translateY(0)}
+  .stat--3{left:5vw;right:auto;top:81%;text-align:left;border-right:none;border-left:2px solid var(--glow)}
   .scene__foot{display:none}
 }
 
@@ -285,7 +288,7 @@ em{font-family:'Fraunces',Georgia,serif;font-style:italic}
 .marquee__track span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--terra);margin:0 26px;flex:none}
 
 /* CHANNELS */
-.channels{position:relative;background:linear-gradient(180deg,var(--forest-deep),var(--bg));color:var(--ink);padding:120px 0 130px}
+.channels{position:relative;background:var(--bg);color:var(--ink);padding:120px 0 130px}
 .channels__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:54px}
 .channels .label{color:var(--glow);margin-bottom:16px;display:block}
 .channels h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(28px,4.6vw,56px);line-height:1.04;max-width:16ch;letter-spacing:-1px}
@@ -555,12 +558,12 @@ body.menu-open .navmenu a:nth-child(5){transition-delay:.34s}
       <p class="channels__sub">"Is this where the money actually goes — and does it come back?"</p>
     </div>
     <div class="chan-grid">
-      <a class="chan reveal" href="/services" data-magnetic><span class="chan__bg"></span><span class="chan__top"><span class="chan__n">01</span><span class="chan__arrow">↗</span></span><span class="chan__body"><span class="chan__name">Paid Ads</span><span class="chan__desc">Fix tracking and conversion events before scaling spend.</span></span></a>
-      <a class="chan reveal" href="/services" data-magnetic><span class="chan__bg"></span><span class="chan__top"><span class="chan__n">02</span><span class="chan__arrow">↗</span></span><span class="chan__body"><span class="chan__name">Affiliates</span><span class="chan__desc">Vet partners on revenue, not reach — payouts tied to results.</span></span></a>
-      <a class="chan reveal" href="/services" data-magnetic><span class="chan__bg"></span><span class="chan__top"><span class="chan__n">03</span><span class="chan__arrow">↗</span></span><span class="chan__body"><span class="chan__name">SEO</span><span class="chan__desc">Keyword strategy tied to revenue intent, not traffic volume.</span></span></a>
-      <a class="chan reveal" href="/services" data-magnetic><span class="chan__bg"></span><span class="chan__top"><span class="chan__n">04</span><span class="chan__arrow">↗</span></span><span class="chan__body"><span class="chan__name">Influencer</span><span class="chan__desc">Small, fast tests on clear fit — before committing budget.</span></span></a>
-      <a class="chan reveal" href="/services" data-magnetic><span class="chan__bg"></span><span class="chan__top"><span class="chan__n">05</span><span class="chan__arrow">↗</span></span><span class="chan__body"><span class="chan__name">PR &amp; Events</span><span class="chan__desc">Targeted where the buyer actually is, not where it's loudest.</span></span></a>
-      <a class="chan reveal" href="/services" data-magnetic><span class="chan__bg"></span><span class="chan__top"><span class="chan__n">06</span><span class="chan__arrow">↗</span></span><span class="chan__body"><span class="chan__name">Branding</span><span class="chan__desc">Positioning locked before a single piece of creative is made.</span></span></a>
+      <a class="chan reveal" href="/contact" data-magnetic><span class="chan__bg"></span><span class="chan__top"><span class="chan__n">01</span><span class="chan__arrow">↗</span></span><span class="chan__body"><span class="chan__name">Paid Ads</span><span class="chan__desc">Fix tracking and conversion events before scaling spend.</span></span></a>
+      <a class="chan reveal" href="/contact" data-magnetic><span class="chan__bg"></span><span class="chan__top"><span class="chan__n">02</span><span class="chan__arrow">↗</span></span><span class="chan__body"><span class="chan__name">Affiliates</span><span class="chan__desc">Vet partners on revenue, not reach — payouts tied to results.</span></span></a>
+      <a class="chan reveal" href="/contact" data-magnetic><span class="chan__bg"></span><span class="chan__top"><span class="chan__n">03</span><span class="chan__arrow">↗</span></span><span class="chan__body"><span class="chan__name">SEO</span><span class="chan__desc">Keyword strategy tied to revenue intent, not traffic volume.</span></span></a>
+      <a class="chan reveal" href="/contact" data-magnetic><span class="chan__bg"></span><span class="chan__top"><span class="chan__n">04</span><span class="chan__arrow">↗</span></span><span class="chan__body"><span class="chan__name">Influencer</span><span class="chan__desc">Small, fast tests on clear fit — before committing budget.</span></span></a>
+      <a class="chan reveal" href="/contact" data-magnetic><span class="chan__bg"></span><span class="chan__top"><span class="chan__n">05</span><span class="chan__arrow">↗</span></span><span class="chan__body"><span class="chan__name">PR &amp; Events</span><span class="chan__desc">Targeted where the buyer actually is, not where it's loudest.</span></span></a>
+      <a class="chan reveal" href="/contact" data-magnetic><span class="chan__bg"></span><span class="chan__top"><span class="chan__n">06</span><span class="chan__arrow">↗</span></span><span class="chan__body"><span class="chan__name">Branding</span><span class="chan__desc">Positioning locked before a single piece of creative is made.</span></span></a>
     </div>
     <div class="channels__cta reveal"><a href="/services" data-magnetic>See how each channel works <span class="arrow">→</span></a></div>
   </div>
@@ -696,10 +699,10 @@ body.menu-open .navmenu a:nth-child(5){transition-delay:.34s}
   function heroBranch(x,y,ang,len,depth,terra){
     var d='M'+x.toFixed(1)+','+y.toFixed(1),cx=x,cy=y,a=ang,segs=Math.round(len/70);
     for(var i=0;i<segs;i++){a+=sr(-0.30,0.30);var step=len/segs;var nx=cx+Math.cos(a)*step,ny=cy+Math.sin(a)*step;var mxp=cx+Math.cos(a-0.15)*step*0.5,myp=cy+Math.sin(a)*step*0.5;d+=' Q'+mxp.toFixed(1)+','+myp.toFixed(1)+' '+nx.toFixed(1)+','+ny.toFixed(1);if(depth>0&&i>0&&srnd()>0.5){heroBranch(cx,cy,a+(srnd()>0.5?1:-1)*sr(0.4,0.85),len*sr(0.4,0.6),depth-1,terra);}cx=nx;cy=ny;}
-    [rbase,rglow].forEach(function(svg){var p=document.createElementNS(SVGNS,'path');p.setAttribute('d',d);p.setAttribute('stroke-width',(0.7+depth*0.7).toFixed(1));if(terra)p.setAttribute('class','t');svg.appendChild(p);});
+    [rbase,rglow].forEach(function(svg){var p=document.createElementNS(SVGNS,'path');p.setAttribute('d',d);p.setAttribute('stroke-width',(0.45+depth*0.5).toFixed(2));if(terra)p.setAttribute('class','t');svg.appendChild(p);});
   }
   // filaments root from bottom, reach upward (mycelium seeking light)
-  for(var i=0;i<13;i++){var sx=120+i*100+sr(-30,30);heroBranch(sx,920,-Math.PI/2+sr(-0.5,0.5),sr(360,640),2,srnd()>0.7);}
+  for(var i=0;i<8;i++){var sx=150+i*165+sr(-22,22);heroBranch(sx,920,-Math.PI/2+sr(-0.32,0.32),sr(300,560),1,srnd()>0.72);}
   // cursor light reveals glowing roots
   if(!reduce && window.matchMedia('(hover:hover)').matches){
     var lx=-999,ly=-999,tlx=-999,tly=-999,lightRun=false;
