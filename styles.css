@@ -71,7 +71,7 @@ body.mh-open .mh-menu{opacity:1;visibility:visible}
 /* ===================== SHARED SECTION HEADERS ===================== */
 .page-head{padding:120px 0 10px}
 .page-head .label{color:var(--glow);margin-bottom:18px;display:block}
-.page-head h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(38px,6vw,72px);line-height:1.05;letter-spacing:-1px;max-width:16ch;color:var(--ink)}
+.page-head h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(36px,5.4vw,62px);line-height:1.06;letter-spacing:-1px;max-width:16ch;color:var(--ink)}
 .page-head h1 .accent{font-style:italic;color:var(--terra);font-weight:400}
 .page-head .standfirst{font-size:18px;color:var(--text);max-width:620px;margin-top:24px}
 @media(max-width:760px){
