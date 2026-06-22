@@ -99,6 +99,42 @@
       "name": "Tilth",
       "publisher": { "@id": "https://tilth.in/#org" },
       "inLanguage": "en-IN"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tilth.in/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is the foundation audit really free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — completely free, with no pitch attached. We review your current marketing setup and tell you honestly what's broken and what's worth fixing first. There's no obligation to work with us afterwards." }
+        },
+        {
+          "@type": "Question",
+          "name": "What does Tilth actually do?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We're a foundation-first marketing agency. Before you spend on media, we fix the tracking, attribution, targeting, and partnerships underneath your marketing — across paid ads, affiliates, SEO, influencer, PR, and branding — so every rupee can actually be measured." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it cost to work with Tilth?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Engagements are scoped after your free audit, so you only invest once you know what actually needs fixing. Agency fees are separate from the ad spend you pay platforms like Google and Meta." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you only work with brands in Bengaluru?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. We're based in Bengaluru and work with brands across India and globally. The work is fully remote-friendly — being local just means we know the Bengaluru startup and D2C ecosystem well." }
+        },
+        {
+          "@type": "Question",
+          "name": "What makes Tilth different from other marketing agencies?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Most agencies start spending on day one. We audit and fix the foundation first — so your spend is measurable from the start and you don't pay to scale guesswork. It's the difference behind the Tilth Cycle." }
+        },
+        {
+          "@type": "Question",
+          "name": "How soon will I hear back?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You'll usually hear back within one working day of requesting your free audit. You can also email anuja@tilth.in or call +91 70079 99306." }
+        }
+      ]
     }
   ]
 }
@@ -365,6 +401,30 @@ em{font-family:'Fraunces',Georgia,serif;font-style:italic}
 .founder p{font-size:16px;color:var(--text);max-width:54ch;margin-bottom:26px}
 .founder__cta{display:inline-flex;gap:10px;font-weight:600;color:var(--glow);border-bottom:1.5px solid var(--glow);padding-bottom:4px}
 
+/* FAQ */
+.faq{background:var(--bg);color:var(--ink);padding:120px 0 130px}
+.faq .label{color:var(--glow);margin-bottom:16px;display:block}
+.faq h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(28px,4.6vw,56px);line-height:1.04;letter-spacing:-1px;color:var(--ink);max-width:18ch;margin-bottom:50px}
+.faq h2 em{color:var(--terra);font-style:italic}
+.faq__list{max-width:840px}
+.faq__item{border-top:1px solid var(--line)}
+.faq__item:last-child{border-bottom:1px solid var(--line)}
+.faq__item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:28px;padding:26px 0;font-family:'Fraunces',serif;font-weight:400;font-size:clamp(19px,2.3vw,25px);line-height:1.25;color:var(--ink);transition:color .3s}
+.faq__item summary::-webkit-details-marker{display:none}
+.faq__item summary:hover{color:var(--glow)}
+.faq__item .ic{flex:none;position:relative;width:22px;height:22px;margin-top:4px}
+.faq__item .ic::before,.faq__item .ic::after{content:"";position:absolute;background:var(--glow);border-radius:2px;transition:transform .35s var(--ease),opacity .35s}
+.faq__item .ic::before{top:10px;left:0;width:22px;height:2px}
+.faq__item .ic::after{top:0;left:10px;width:2px;height:22px}
+.faq__item[open] .ic::after{transform:scaleY(0);opacity:0}
+.faq__item[open] summary{color:var(--glow)}
+.faq__ans{padding:0 0 28px;max-width:66ch}
+.faq__ans p{font-size:16px;line-height:1.7;color:var(--text)}
+.faq__ans a{color:var(--glow);border-bottom:1px solid var(--glow)}
+.faq__foot{margin-top:42px;font-size:16px;color:var(--text)}
+.faq__foot a{color:var(--glow);border-bottom:1.5px solid var(--glow);padding-bottom:3px;font-weight:600}
+@media(max-width:760px){.faq{padding:80px 0 90px}.faq h2{margin-bottom:36px}.faq__item summary{gap:18px}}
+
 /* CLOSING */
 .closing{position:relative;background:radial-gradient(120% 100% at 50% 120%,var(--forest) 0%,var(--bg) 60%);color:var(--ink);padding:150px 0;overflow:hidden;text-align:center}
 .closing::after{content:"";position:absolute;left:50%;bottom:-20%;width:70vw;height:70vw;max-width:760px;max-height:760px;transform:translateX(-50%);background:radial-gradient(circle,rgba(170,197,108,.16),transparent 60%);pointer-events:none}
@@ -620,6 +680,41 @@ body.menu-open .navmenu a:nth-child(5){transition-delay:.34s}
       <p class="reveal">Anuja has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C — running paid ads, building affiliate programs, and watching the same foundational mistake repeat. Tilth exists to fix it first, every time.</p>
       <a href="/about" class="founder__cta reveal" data-magnetic>Read the full story <span class="arrow">→</span></a>
     </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" data-theme="dark">
+  <div class="wrap">
+    <span class="label reveal">Questions</span>
+    <h2 class="reveal">Before you <em>reach out</em>.</h2>
+    <div class="faq__list">
+      <details class="faq__item reveal">
+        <summary><span>Is the foundation audit really free?</span><span class="ic" aria-hidden="true"></span></summary>
+        <div class="faq__ans"><p>Yes — completely free, with no pitch attached. We review your current marketing setup and tell you honestly what's broken and what's worth fixing first. There's no obligation to work with us afterwards.</p></div>
+      </details>
+      <details class="faq__item reveal">
+        <summary><span>What does Tilth actually do?</span><span class="ic" aria-hidden="true"></span></summary>
+        <div class="faq__ans"><p>We're a foundation-first marketing agency. Before you spend on media, we fix the tracking, attribution, targeting, and partnerships underneath your marketing — across paid ads, affiliates, SEO, influencer, PR, and branding — so every rupee can actually be measured.</p></div>
+      </details>
+      <details class="faq__item reveal">
+        <summary><span>How much does it cost to work with Tilth?</span><span class="ic" aria-hidden="true"></span></summary>
+        <div class="faq__ans"><p>Engagements are scoped after your free audit, so you only invest once you know what actually needs fixing. Agency fees are separate from the ad spend you pay platforms like Google and Meta.</p></div>
+      </details>
+      <details class="faq__item reveal">
+        <summary><span>Do you only work with brands in Bengaluru?</span><span class="ic" aria-hidden="true"></span></summary>
+        <div class="faq__ans"><p>No. We're based in <a href="/marketing-agency-bengaluru">Bengaluru</a> and work with brands across India and globally. The work is fully remote-friendly — being local just means we know the Bengaluru startup and D2C ecosystem well.</p></div>
+      </details>
+      <details class="faq__item reveal">
+        <summary><span>What makes Tilth different from other marketing agencies?</span><span class="ic" aria-hidden="true"></span></summary>
+        <div class="faq__ans"><p>Most agencies start spending on day one. We audit and fix the foundation first — so your spend is measurable from the start and you don't pay to scale guesswork. It's the difference behind <a href="/approach">the Tilth Cycle</a>.</p></div>
+      </details>
+      <details class="faq__item reveal">
+        <summary><span>How soon will I hear back?</span><span class="ic" aria-hidden="true"></span></summary>
+        <div class="faq__ans"><p>You'll usually hear back within one working day of requesting your free audit. You can also email <a href="mailto:anuja@tilth.in">anuja@tilth.in</a> or call <a href="tel:+917007999306">+91 70079 99306</a>.</p></div>
+      </details>
+    </div>
+    <p class="faq__foot reveal">Still have a question? <a href="/contact" data-magnetic>Ask us directly →</a></p>
   </div>
 </section>
 
