@@ -104,6 +104,29 @@ footer a{color:var(--olive);transition:color .3s}
 footer a:hover{color:var(--ink)}
 .footer-bottom{margin-top:50px;padding-top:22px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:11px;letter-spacing:1.5px;color:var(--olive);text-transform:uppercase}
 
+/* ===================== FAQ (shared component) ===================== */
+.faq{background:var(--bg);color:var(--ink);padding:96px 0 110px;border-top:1px solid var(--rule)}
+.faq .label{color:var(--glow);margin-bottom:16px;display:block}
+.faq h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(28px,4.6vw,48px);line-height:1.06;letter-spacing:-1px;color:var(--ink);max-width:20ch;margin-bottom:44px}
+.faq h2 em{color:var(--terra);font-style:italic}
+.faq__list{max-width:840px}
+.faq__item{border-top:1px solid var(--rule)}
+.faq__item:last-child{border-bottom:1px solid var(--rule)}
+.faq__item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:28px;padding:24px 0;font-family:'Fraunces',serif;font-weight:400;font-size:clamp(18px,2.2vw,23px);line-height:1.25;color:var(--ink);transition:color .3s}
+.faq__item summary::-webkit-details-marker{display:none}
+.faq__item summary:hover,.faq__item[open] summary{color:var(--glow)}
+.faq__item .ic{flex:none;position:relative;width:22px;height:22px;margin-top:4px}
+.faq__item .ic::before,.faq__item .ic::after{content:"";position:absolute;background:var(--glow);border-radius:2px;transition:transform .35s var(--ease),opacity .35s}
+.faq__item .ic::before{top:10px;left:0;width:22px;height:2px}
+.faq__item .ic::after{top:0;left:10px;width:2px;height:22px}
+.faq__item[open] .ic::after{transform:scaleY(0);opacity:0}
+.faq__ans{padding:0 0 26px;max-width:66ch}
+.faq__ans p{font-size:16px;line-height:1.7;color:var(--text)}
+.faq__ans a{color:var(--glow);border-bottom:1px solid var(--glow)}
+.faq__foot{margin-top:38px;font-size:16px;color:var(--text)}
+.faq__foot a{color:var(--glow);border-bottom:1.5px solid var(--glow);padding-bottom:3px;font-weight:600}
+@media(max-width:760px){.faq{padding:70px 0 80px}.faq h2{margin-bottom:30px}.faq__item summary{gap:18px}}
+
 /* skip link + reduced motion */
 .skip-link{position:fixed;top:10px;left:10px;z-index:100;background:var(--glow);color:var(--bg);padding:10px 18px;border-radius:6px;font-weight:600;font-size:14px;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 .skip-link:focus{width:auto;height:auto;overflow:visible;clip:auto;clip-path:none}
