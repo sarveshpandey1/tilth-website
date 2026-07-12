@@ -12,7 +12,7 @@
   if(meta) meta.style.display = 'none';
 
   var cta = document.createElement('a');
-  cta.href = '/contact';
+  cta.href = '/contact/';
   cta.className = 'mh-cta';
   cta.textContent = 'Free audit';
   wrap.appendChild(cta);
@@ -38,7 +38,7 @@
     menu.appendChild(l);
   });
   var menuCta = document.createElement('a');
-  menuCta.href = '/contact';
+  menuCta.href = '/contact/';
   menuCta.className = 'mh-menu-cta';
   menuCta.textContent = 'Request a free audit →';
   menu.appendChild(menuCta);
