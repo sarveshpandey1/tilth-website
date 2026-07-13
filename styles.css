@@ -152,7 +152,7 @@ html[data-theme="light"]{
   --terra:#C2673B;
   --glow:#5F7F37;--glow-soft:#5F7F37;
   --ink:#1A1510;--cream:#1A1510;--white:#FFFFFF;
-  --text:#4B4239;--olive:#8C8173;--muted:#8C8173;--soil:#F6F2EA;
+  --text:#4B4239;--olive:#6F665A;--muted:#6F665A;--soil:#F6F2EA;
   --rule:rgba(26,21,16,.14);
 }
 html[data-theme="light"] .masthead{background:rgba(250,247,241,.72)}
