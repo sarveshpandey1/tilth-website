@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1MJEZ4VK26');
+</script>
+<title>Marketing Attribution for Small Businesses, Explained Simply | Tilth</title>
+<meta name="description" content="What marketing attribution actually means, the common models explained without jargon, a worked example, and which model a small business should actually use.">
+<link rel="canonical" href="https://tilth.in/insights/marketing-attribution-explained-simply/">
+<meta name="robots" content="index, follow">
+<meta property="og:site_name" content="Tilth">
+<meta name="twitter:site" content="@Anuja_tilth">
+<meta name="geo.region" content="IN-KA">
+<meta name="geo.placename" content="Bengaluru">
+<meta name="theme-color" content="#15110B">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Marketing attribution for small businesses, explained simply">
+<meta property="og:description" content="The common attribution models explained without jargon, a worked example, and which model a small business should actually use.">
+<meta property="og:url" content="https://tilth.in/insights/marketing-attribution-explained-simply/">
+<meta property="og:image" content="https://tilth.in/og-image.png">
+<meta property="article:published_time" content="2026-05-18">
+<meta property="article:author" content="Anuja">
+<meta property="article:section" content="Attribution">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Marketing attribution for small businesses, explained simply">
+<meta name="twitter:description" content="What attribution actually means, without the jargon — plus a worked example.">
+<meta name="twitter:image" content="https://tilth.in/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .article { padding: 36px 0 40px; }
+  .crumb { font-size: 12px; letter-spacing: .5px; color: var(--olive); margin-bottom: 28px; }
+  .crumb a { color: var(--glow); }
+  .article-head .post-meta { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--glow); margin-bottom: 16px; }
+  .article-head .post-meta .dot { color: var(--terra); margin: 0 8px; }
+  .article-head h1 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(32px, 5vw, 54px); line-height: 1.08; letter-spacing: -1px; color: var(--ink); margin-bottom: 22px; }
+  .article-head .standfirst { font-size: 19px; color: var(--text); line-height: 1.6; max-width: 60ch; }
+  .byline { display: flex; align-items: center; gap: 14px; margin: 30px 0 0; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .byline img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
+  .byline .who { font-size: 14px; color: var(--ink); font-weight: 500; }
+  .byline .who span { display: block; color: var(--olive); font-weight: 400; font-size: 13px; }
+  .prose { margin-top: 44px; }
+  .prose h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(22px, 3vw, 30px); color: var(--ink); letter-spacing: -.5px; margin: 44px 0 14px; line-height: 1.2; }
+  .prose h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px; color: var(--ink); margin: 30px 0 8px; line-height: 1.25; }
+  .prose p { font-size: 17px; line-height: 1.75; color: var(--text); margin-bottom: 20px; }
+  .prose ul, .prose ol { margin: 0 0 20px 0; padding-left: 22px; }
+  .prose li { font-size: 17px; line-height: 1.7; color: var(--text); margin-bottom: 12px; }
+  .prose li strong { color: var(--ink); }
+  .prose a { color: var(--glow); border-bottom: 1px solid var(--glow); }
+  .prose blockquote { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(21px, 3vw, 28px); line-height: 1.4; color: var(--ink); border-left: 2px solid var(--terra); padding-left: 24px; margin: 34px 0; }
+  .price-table { width: 100%; border-collapse: collapse; margin: 24px 0 28px; font-size: 15.5px; }
+  .price-table th, .price-table td { text-align: left; padding: 13px 14px; border-bottom: 1px solid var(--rule); }
+  .price-table thead th { color: var(--glow); font-weight: 600; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+  .price-table td { color: var(--text); }
+  .price-table td:first-child { color: var(--ink); font-weight: 500; }
+  .price-table tbody tr:last-child td { border-bottom: none; }
+  .price-note { font-size: 13.5px; color: var(--olive); font-style: italic; margin-top: -10px; margin-bottom: 26px; }
+  .faq { margin-top: 48px; border-top: 1px solid var(--rule); padding-top: 8px; }
+  .faq h2 { margin-top: 32px; }
+  .article-cta { margin-top: 50px; padding: 34px; background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; }
+  .article-cta h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 24px; color: var(--ink); margin-bottom: 10px; }
+  .article-cta p { color: var(--text); margin-bottom: 20px; max-width: 52ch; }
+  .article-bio { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--rule); display: flex; gap: 18px; align-items: flex-start; }
+  .article-bio img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex: none; }
+  .article-bio p { font-size: 14.5px; color: var(--text); margin: 0; }
+  .article-bio strong { color: var(--ink); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tilth.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://tilth.in/insights/" },
+        { "@type": "ListItem", "position": 3, "name": "Marketing attribution for small businesses, explained simply", "item": "https://tilth.in/insights/marketing-attribution-explained-simply/" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Marketing attribution for small businesses, explained simply",
+      "description": "What marketing attribution actually means, the common models explained without jargon, a worked example, and which model a small business should actually use.",
+      "image": "https://tilth.in/og-image.png",
+      "datePublished": "2026-05-18",
+      "dateModified": "2026-05-18",
+      "inLanguage": "en-IN",
+      "url": "https://tilth.in/insights/marketing-attribution-explained-simply/",
+      "mainEntityOfPage": "https://tilth.in/insights/marketing-attribution-explained-simply/",
+      "articleSection": "Attribution",
+      "keywords": ["marketing attribution explained", "attribution model small business", "what is marketing attribution", "last-click vs data-driven attribution", "GA4 attribution"],
+      "wordCount": 1450,
+      "author": { "@type": "Person", "name": "Anuja", "jobTitle": "Founder", "url": "https://tilth.in/about/" },
+      "publisher": { "@type": "Organization", "name": "Tilth", "url": "https://tilth.in/", "logo": { "@type": "ImageObject", "url": "https://tilth.in/favicon.svg" } }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is marketing attribution in simple terms?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Marketing attribution is the method used to decide which marketing touchpoint gets credit for a sale, when a customer interacted with several before buying. It matters because the model you use changes which channels look like they're working — the same customer journey can make Google Ads look great under one model and mediocre under another." }
+        },
+        {
+          "@type": "Question",
+          "name": "What attribution model does GA4 use by default?",
+          "acceptedAnswer": { "@type": "Answer", "text": "GA4 uses data-driven attribution by default, which distributes credit across multiple touchpoints based on patterns in your actual conversion data, rather than giving 100% credit to just the first or last interaction. It's a reasonable default for most small businesses, provided the underlying event tracking is accurate." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is last-click attribution bad for small businesses?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Not inherently, but it systematically undercounts channels that introduce customers earlier in their journey, like content, social, or influencer marketing, and overcredits channels that tend to close the sale, like branded search or retargeting. It's simple to understand but can lead to cutting channels that were actually contributing." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need multi-touch attribution as a small business?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily a complex custom model — GA4's built-in data-driven attribution already accounts for multiple touchpoints for most small businesses. The bigger priority is usually getting basic tracking accurate first, since no attribution model fixes data that isn't being captured correctly." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my attribution data look wrong?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The most common cause isn't the attribution model — it's incomplete or broken conversion tracking feeding it bad data. Verifying GA4 events fire correctly across channels is a necessary first step before questioning which attribution model to use." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a href="/" class="word">TILTH</a>
+    <nav>
+      <a href="/services/">Services</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/" class="active">Insights</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="meta">Vol. 01 — Bengaluru to Global</div>
+  </div>
+</header>
+
+<article class="wrap-narrow article">
+  <div class="crumb"><a href="/insights/">Insights</a> &nbsp;/&nbsp; Attribution</div>
+
+  <header class="article-head">
+    <div class="post-meta">Attribution<span class="dot">·</span>7 min read<span class="dot">·</span>18 May 2026</div>
+    <h1>Marketing attribution for small businesses, explained simply</h1>
+    <p class="standfirst">"Attribution" sounds like a word built to confuse founders into hiring someone. It's actually a simple idea: which marketing touchpoint gets the credit when a customer interacted with several before buying? Here's what that means in plain English, and which model actually makes sense for a small business.</p>
+    <div class="byline">
+      <img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">
+      <div class="who">Anuja<span>Founder, Tilth · 10+ years in performance marketing</span></div>
+    </div>
+  </header>
+
+  <div class="prose">
+    <p>Ask ten founders what "marketing attribution" means and most will give a vague answer involving dashboards and jargon. The actual idea is simple: a customer rarely buys from the very first ad they see. They might see an Instagram post, search your brand name a week later, click a Google ad, and finally buy after an email reminder. <strong>Marketing attribution</strong> is just the method for deciding which of those touchpoints gets credit for the sale — and that choice changes which channels look like they're working.</p>
+
+    <h2>What "attribution" actually means, in plain English</h2>
+    <p>Attribution answers one question: when a sale happens after several marketing touches, how much credit does each one get? It's not a measurement of reality so much as a rule you apply to messy reality, because there's no perfect way to know exactly how much each touchpoint mattered to the customer's decision. Different rules — different attribution models — will hand credit to different channels for the exact same sequence of events.</p>
+
+    <h2>Why attribution matters for a small business specifically</h2>
+    <p>Budget decisions get made based on which channels "look like" they're working. If your attribution model quietly overcredits one channel and undercredits another, you can end up cutting a channel that was actually contributing, and doubling down on one that was just getting lucky with the last click. For a small business with a tight budget, that misallocation costs more relatively than it does for a company that can afford to run every channel regardless.</p>
+
+    <h2>The common attribution models, explained without jargon</h2>
+    <h3>Last-click attribution</h3>
+    <p>100% of the credit goes to whatever the customer clicked right before buying. Simple to understand, but it systematically favours channels that close a sale — like branded search or retargeting — over channels that introduced the customer earlier, like a blog post or an influencer mention.</p>
+    <h3>First-click attribution</h3>
+    <p>100% of the credit goes to the very first touchpoint that brought the customer into your world. Useful for understanding what generates awareness, but it ignores everything that happened between discovery and the actual purchase.</p>
+    <h3>Linear / multi-touch attribution</h3>
+    <p>Credit is split evenly across every touchpoint in the journey. Fairer in principle than picking one winner, but it treats a passing glance at an ad the same as a deliberate return visit, which isn't quite right either.</p>
+    <h3>Data-driven attribution</h3>
+    <p>This is what GA4 uses by default. Instead of a fixed rule, it looks at patterns across your actual conversion data to estimate how much each touchpoint really contributed, based on what tends to precede a sale versus what doesn't. It's the most realistic of the common models, provided the underlying data feeding it is accurate.</p>
+
+    <blockquote>Attribution doesn't tell you the truth. It tells you a story, consistently, according to a rule. The question is whether that rule is honest about how your customers actually buy.</blockquote>
+
+    <h2>A simple example: one customer, three touchpoints</h2>
+    <p>A customer sees an Instagram ad on Monday, searches your brand name and visits your site on Wednesday without buying, then clicks a Google remarketing ad on Friday and purchases. Under last-click, Google remarketing gets 100% of the credit. Under first-click, Instagram gets 100%. Under data-driven attribution, credit is split across all three based on how similar journeys tend to convert — probably giving Instagram meaningful credit for starting things, even though it never got the final click.</p>
+
+    <h2>Which model should a small business actually use?</h2>
+    <p>For most small businesses, GA4's default data-driven attribution is a sensible starting point — it's built in, requires no extra setup, and avoids the most obvious distortions of pure last-click or first-click. The bigger lever isn't picking a fancier model; it's making sure every channel's events are <a href="/insights/ga4-conversion-tracking/">tracked correctly</a> in the first place. A sophisticated attribution model applied to incomplete data is still wrong — just wrong in a more convincing way.</p>
+
+    <h2>The prerequisite nobody mentions: tracking has to work first</h2>
+    <p>Attribution can only distribute credit among the touchpoints it actually sees. If your Meta Pixel is missing events, or your GA4 purchase tracking undercounts, no attribution model — however sophisticated — can correct for data that was never captured. This is why every attribution conversation eventually leads back to the same starting point as a basic <a href="/insights/audit-your-ad-spend/">ad spend audit</a>: confirm what's actually being measured before debating how credit should be split.</p>
+
+    <div class="article-cta">
+      <h3>Get an honest read on what's actually driving sales</h3>
+      <p>A free foundation audit checks whether your tracking captures every channel correctly, so your attribution data reflects reality — not just whichever channel happens to close the sale.</p>
+      <a href="/contact/" class="btn"><span>Request a free audit</span><span aria-hidden="true">→</span></a>
+    </div>
+
+    <div class="faq">
+      <h2>Marketing attribution — FAQs</h2>
+
+      <h3>What is marketing attribution in simple terms?</h3>
+      <p>The method used to decide which marketing touchpoint gets credit for a sale when a customer interacted with several before buying. The model you use changes which channels look like they're working.</p>
+
+      <h3>What attribution model does GA4 use by default?</h3>
+      <p>Data-driven attribution, which distributes credit across multiple touchpoints based on patterns in your actual conversion data rather than crediting only the first or last interaction.</p>
+
+      <h3>Is last-click attribution bad for small businesses?</h3>
+      <p>Not inherently, but it undercounts channels that introduce customers earlier, like content or influencer marketing, and overcredits channels that close the sale, like branded search or retargeting.</p>
+
+      <h3>Do I need multi-touch attribution as a small business?</h3>
+      <p>Not a complex custom model — GA4's built-in data-driven attribution already accounts for multiple touchpoints. Getting basic tracking accurate first matters more than the model choice.</p>
+
+      <h3>Why does my attribution data look wrong?</h3>
+      <p>Usually it's incomplete or broken conversion tracking feeding it bad data, not the attribution model itself. Verify GA4 events fire correctly across channels first.</p>
+    </div>
+
+    <div class="article-bio">
+      <img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">
+      <p><strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a></p>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="word">Grow deep. Market smart.</div>
+        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br><a href="tel:+917007999306">+91 70079 99306</a><br>anuja@tilth.in</div>
+      </div>
+      <div>
+        <h2 class="fcol">Navigate</h2>
+        <ul>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/approach/">Approach</a></li>
+          <li><a href="/insights/">Insights</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fcol">Legal</h2>
+        <ul>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Service</a></li>
+          <li><a href="/cookie-policy/">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fcol">Social</h2>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tilth. All rights reserved.</span>
+      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/nav.js" defer></script>
+</body>
+</html>
