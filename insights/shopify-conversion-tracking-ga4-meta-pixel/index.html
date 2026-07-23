@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1MJEZ4VK26');
+</script>
+<title>How to Set Up Conversion Tracking on Shopify (GA4 + Meta Pixel) | Tilth</title>
+<meta name="description" content="A step-by-step guide to setting up GA4 and Meta Pixel conversion tracking on Shopify in 2026, including Conversions API — so every ad rupee is measured correctly.">
+<link rel="canonical" href="https://tilth.in/insights/shopify-conversion-tracking-ga4-meta-pixel/">
+<meta name="robots" content="index, follow">
+<meta property="og:site_name" content="Tilth">
+<meta name="twitter:site" content="@Anuja_tilth">
+<meta name="geo.region" content="IN-KA">
+<meta name="geo.placename" content="Bengaluru">
+<meta name="theme-color" content="#15110B">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to set up conversion tracking on Shopify (GA4 + Meta Pixel)">
+<meta property="og:description" content="A step-by-step guide to GA4 and Meta Pixel conversion tracking on Shopify, including Conversions API — so every ad rupee is measured correctly.">
+<meta property="og:url" content="https://tilth.in/insights/shopify-conversion-tracking-ga4-meta-pixel/">
+<meta property="og:image" content="https://tilth.in/og-image.png">
+<meta property="article:published_time" content="2026-06-12">
+<meta property="article:author" content="Anuja">
+<meta property="article:section" content="Tracking">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to set up conversion tracking on Shopify (GA4 + Meta Pixel)">
+<meta name="twitter:description" content="Step-by-step GA4 and Meta Pixel setup for Shopify, including Conversions API, so every ad rupee is measured correctly.">
+<meta name="twitter:image" content="https://tilth.in/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .article { padding: 36px 0 40px; }
+  .crumb { font-size: 12px; letter-spacing: .5px; color: var(--olive); margin-bottom: 28px; }
+  .crumb a { color: var(--glow); }
+  .article-head .post-meta { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--glow); margin-bottom: 16px; }
+  .article-head .post-meta .dot { color: var(--terra); margin: 0 8px; }
+  .article-head h1 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(32px, 5vw, 54px); line-height: 1.08; letter-spacing: -1px; color: var(--ink); margin-bottom: 22px; }
+  .article-head .standfirst { font-size: 19px; color: var(--text); line-height: 1.6; max-width: 60ch; }
+  .byline { display: flex; align-items: center; gap: 14px; margin: 30px 0 0; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .byline img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
+  .byline .who { font-size: 14px; color: var(--ink); font-weight: 500; }
+  .byline .who span { display: block; color: var(--olive); font-weight: 400; font-size: 13px; }
+  .prose { margin-top: 44px; }
+  .prose h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(22px, 3vw, 30px); color: var(--ink); letter-spacing: -.5px; margin: 44px 0 14px; line-height: 1.2; }
+  .prose h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px; color: var(--ink); margin: 30px 0 8px; line-height: 1.25; }
+  .prose p { font-size: 17px; line-height: 1.75; color: var(--text); margin-bottom: 20px; }
+  .prose ul, .prose ol { margin: 0 0 20px 0; padding-left: 22px; }
+  .prose li { font-size: 17px; line-height: 1.7; color: var(--text); margin-bottom: 12px; }
+  .prose li strong { color: var(--ink); }
+  .prose a { color: var(--glow); border-bottom: 1px solid var(--glow); }
+  .prose blockquote { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(21px, 3vw, 28px); line-height: 1.4; color: var(--ink); border-left: 2px solid var(--terra); padding-left: 24px; margin: 34px 0; }
+  .faq { margin-top: 48px; border-top: 1px solid var(--rule); padding-top: 8px; }
+  .faq h2 { margin-top: 32px; }
+  .article-cta { margin-top: 50px; padding: 34px; background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; }
+  .article-cta h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 24px; color: var(--ink); margin-bottom: 10px; }
+  .article-cta p { color: var(--text); margin-bottom: 20px; max-width: 52ch; }
+  .article-bio { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--rule); display: flex; gap: 18px; align-items: flex-start; }
+  .article-bio img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex: none; }
+  .article-bio p { font-size: 14.5px; color: var(--text); margin: 0; }
+  .article-bio strong { color: var(--ink); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tilth.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://tilth.in/insights/" },
+        { "@type": "ListItem", "position": 3, "name": "How to set up conversion tracking on Shopify (GA4 + Meta Pixel)", "item": "https://tilth.in/insights/shopify-conversion-tracking-ga4-meta-pixel/" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "How to set up conversion tracking on Shopify (GA4 + Meta Pixel)",
+      "description": "A step-by-step guide to setting up GA4 and Meta Pixel conversion tracking on Shopify, including Conversions API, so every ad rupee is measured correctly.",
+      "image": "https://tilth.in/og-image.png",
+      "datePublished": "2026-06-12",
+      "dateModified": "2026-06-12",
+      "inLanguage": "en-IN",
+      "url": "https://tilth.in/insights/shopify-conversion-tracking-ga4-meta-pixel/",
+      "mainEntityOfPage": "https://tilth.in/insights/shopify-conversion-tracking-ga4-meta-pixel/",
+      "articleSection": "Tracking",
+      "keywords": ["Shopify conversion tracking", "GA4 Shopify setup", "Meta Pixel Shopify", "Shopify Conversions API", "Shopify e-commerce tracking"],
+      "wordCount": 1500,
+      "author": { "@type": "Person", "name": "Anuja", "jobTitle": "Founder", "url": "https://tilth.in/about/" },
+      "publisher": { "@type": "Organization", "name": "Tilth", "url": "https://tilth.in/", "logo": { "@type": "ImageObject", "url": "https://tilth.in/favicon.svg" } }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Shopify have GA4 tracking built in?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Shopify has a native Google & YouTube channel that can push e-commerce events to GA4 without custom code, but it has to be configured correctly — connected to the right GA4 property, with enhanced e-commerce events turned on — or it silently under-reports purchases." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need Meta Conversions API if I already have the Meta Pixel on Shopify?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The browser-side Pixel alone misses a meaningful share of events due to ad blockers, iOS privacy settings, and cookie restrictions. Conversions API sends the same events server-side from Shopify, and Meta deduplicates the two — recovering conversions the Pixel alone would lose." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is my Shopify GA4 purchase value different from my actual revenue?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The most common causes are the purchase event firing on every page load of the order-status page (double counting on refresh), tax or shipping being included or excluded inconsistently, and currency mismatches between GA4 settings and the store's checkout currency. Each of these is checkable in GA4's DebugView." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I set up Shopify conversion tracking myself, or do I need a developer?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The native GA4 and Meta Pixel integrations in Shopify's admin don't require code for a standard store. Conversions API can be enabled through Shopify's built-in Meta integration without a developer in most cases; custom event matching for complex checkouts is where developer help typically becomes worthwhile." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know if my Shopify tracking is actually working?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Place a real test order, then check that it appears as a single Purchase event in GA4 DebugView with the correct value, and as a single Purchase event in Meta Events Manager showing both Browser and Server as the source with a high deduplication match rate." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a href="/" class="word">TILTH</a>
+    <nav>
+      <a href="/services/">Services</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/" class="active">Insights</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="meta">Vol. 01 — Bengaluru to Global</div>
+  </div>
+</header>
+
+<article class="wrap-narrow article">
+  <div class="crumb"><a href="/insights/">Insights</a> &nbsp;/&nbsp; Tracking</div>
+
+  <header class="article-head">
+    <div class="post-meta">Tracking<span class="dot">·</span>8 min read<span class="dot">·</span>12 Jun 2026</div>
+    <h1>How to set up conversion tracking on Shopify (GA4 + Meta Pixel)</h1>
+    <p class="standfirst">Most Shopify stores have "tracking installed" and still can't trust the numbers. Here's a practical, step-by-step walkthrough of setting up GA4 and Meta Pixel — with Conversions API — on Shopify, so your ad spend decisions are built on data that's actually correct.</p>
+    <div class="byline">
+      <img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">
+      <div class="who">Anuja<span>Founder, Tilth · 10+ years in performance marketing</span></div>
+    </div>
+  </header>
+
+  <div class="prose">
+    <p>Almost every Shopify store we audit has GA4 and the Meta Pixel "installed." Almost none of them have it installed correctly. The apps report a green tick, events show up somewhere in a dashboard, and everyone assumes the numbers are right — until you compare GA4 revenue to Shopify's own reports and find a 20–30% gap. This guide walks through <strong>Shopify conversion tracking</strong> properly: GA4, Meta Pixel, and Conversions API, in the order that actually prevents the common failures.</p>
+
+    <h2>Why Shopify's default tracking isn't enough</h2>
+    <p>Shopify ships with basic order tracking out of the box, but two things break the moment you start running paid ads. First, browser-side tracking alone — a GA4 tag or Meta Pixel firing in the customer's browser — misses events from ad blockers, Safari's Intelligent Tracking Prevention, and iOS privacy settings. Estimates for the miss rate vary, but it's rarely small. Second, Shopify's checkout runs on a separate, more locked-down domain than the rest of your store, which is exactly where a lot of DIY tracking setups quietly fail to fire at all.</p>
+    <p>Both problems are fixable, but only if you set things up in the right order and verify each step — which is what the rest of this guide covers.</p>
+
+    <h2>What you need before you start</h2>
+    <ul>
+      <li>Admin access to your Shopify store (Online Store &gt; Preferences, and Settings &gt; Apps and sales channels)</li>
+      <li>A GA4 property and Measurement ID (GA4, not the old Universal Analytics)</li>
+      <li>A Meta Business Manager account with a Pixel created</li>
+      <li>Ten minutes and one real test order you're willing to place (and refund)</li>
+    </ul>
+
+    <h2>Setting up GA4 on Shopify</h2>
+    <h3>1. Connect via Shopify's native Google channel</h3>
+    <p>In Shopify admin, add the "Google & YouTube" sales channel and connect your GA4 property through it, rather than pasting a raw gtag.js snippet into theme code. The native integration is built to correctly fire enhanced e-commerce events (view_item, add_to_cart, begin_checkout, purchase) across the storefront and checkout, including the parts of checkout a manually pasted script often can't reach.</p>
+    <h3>2. Turn on enhanced e-commerce events</h3>
+    <p>Inside the Google & YouTube channel settings, confirm e-commerce events are enabled — this is what pushes product, cart, and purchase data into GA4 with revenue attached, not just generic pageviews.</p>
+    <h3>3. Verify in GA4 DebugView, not just Realtime</h3>
+    <p>Place a test order and watch GA4 DebugView (Admin &gt; DebugView, with a debug extension or the Shopify preview mode active). Confirm you see exactly one <code>purchase</code> event with the correct order value, currency, and transaction ID. This is the step almost everyone skips — and it's where <a href="/insights/ga4-conversion-tracking/">most GA4 tracking problems</a> actually show up.</p>
+
+    <h2>Setting up Meta Pixel + Conversions API on Shopify</h2>
+    <h3>1. Install via Shopify's Meta &amp; Instagram channel</h3>
+    <p>Add the Meta &amp; Instagram sales channel from the Shopify app store and connect your Pixel ID there. This installs the Pixel across the storefront and, critically, gives you the option to enable server-side tracking in the same flow.</p>
+    <h3>2. Turn on Conversions API</h3>
+    <p>In the same Meta channel settings, enable Conversions API (CAPI). This sends the same purchase, add-to-cart, and checkout events directly from Shopify's servers to Meta, bypassing the browser entirely. It's the single highest-impact step in this whole guide: CAPI recovers a meaningful share of the conversions that browser-only Pixel tracking loses to ad blockers and privacy settings.</p>
+    <h3>3. Check the deduplication match rate</h3>
+    <p>Once both are live, open Meta Events Manager and look at your Purchase event. You should see contributions from both "Browser" and "Server," with a high event match quality score and minimal duplicate counting. A low match rate usually means customer information (email, phone) isn't being passed consistently — worth revisiting in the channel settings.</p>
+
+    <h2>The checkout tracking trap</h2>
+    <p>If you're on Shopify Plus, you have access to checkout.liquid or checkout extensibility, which lets you add custom scripts inside checkout itself. On standard Shopify plans, you cannot edit checkout pages directly — which is exactly why the native Google and Meta sales channel integrations matter so much. They're built to inject tracking into Shopify-hosted checkout in a way that a manually pasted script in your theme simply cannot reach. If an agency or freelancer set up your tracking by editing theme.liquid alone, there's a good chance checkout-stage events are missing entirely.</p>
+
+    <blockquote>A Pixel that fires on your homepage but not at checkout isn't broken — it's telling you exactly nothing about whether ads convert.</blockquote>
+
+    <h2>How to verify everything is actually working</h2>
+    <ol>
+      <li>Place one real test order end to end, using a discount code for ₹1 if you don't want to refund a full order.</li>
+      <li>Confirm a single <code>purchase</code> event fires in GA4 DebugView with the correct value and transaction ID (not zero, not duplicated).</li>
+      <li>Confirm a single Purchase event fires in Meta Events Manager with both Browser and Server sources present.</li>
+      <li>Compare GA4 revenue to Shopify's own analytics for the same order — they should match to the rupee.</li>
+      <li>Refresh the order confirmation page manually and check the purchase event does <em>not</em> fire again (a very common source of inflated numbers).</li>
+    </ol>
+
+    <h2>Common mistakes that break Shopify tracking</h2>
+    <ul>
+      <li><strong>Two Pixels firing at once</strong> — a leftover manual Pixel snippet in theme code plus the native app integration, causing doubled events.</li>
+      <li><strong>Purchase firing on refresh</strong> — the order-status page re-fires the event every time it reloads, inflating both platforms' conversion counts.</li>
+      <li><strong>Currency mismatch</strong> — GA4 property currency set differently from the store's checkout currency, silently skewing reported revenue.</li>
+      <li><strong>CAPI enabled with no customer data passed</strong> — Conversions API with a poor match rate barely outperforms the Pixel alone, because Meta can't match the server event to a real person.</li>
+      <li><strong>Trusting the dashboard tick, not the DebugView</strong> — an app showing "connected" only confirms the tag loaded, not that events fire correctly at every step.</li>
+    </ul>
+    <p>Once tracking is verified end to end, it's worth doing the same sanity check on your live campaigns — a quick <a href="/insights/audit-your-ad-spend/">ad spend self-audit</a> will tell you if the numbers you're now trusting actually line up with profit.</p>
+
+    <div class="article-cta">
+      <h3>Get your Shopify tracking checked properly</h3>
+      <p>A free foundation audit verifies GA4, Meta Pixel, and Conversions API end to end on your live store — so you know exactly what's measured correctly before you scale spend.</p>
+      <a href="/contact/" class="btn"><span>Request a free audit</span><span aria-hidden="true">→</span></a>
+    </div>
+
+    <div class="faq">
+      <h2>Shopify conversion tracking — FAQs</h2>
+
+      <h3>Does Shopify have GA4 tracking built in?</h3>
+      <p>Shopify's native Google &amp; YouTube channel can push e-commerce events to GA4 without custom code, but it needs to be connected to the right GA4 property with enhanced e-commerce events turned on, or it under-reports purchases.</p>
+
+      <h3>Do I need Meta Conversions API if I already have the Pixel?</h3>
+      <p>Yes. Browser-side Pixel tracking alone misses events due to ad blockers and privacy settings. Conversions API sends the same events server-side, and Meta deduplicates the two, recovering conversions the Pixel alone would lose.</p>
+
+      <h3>Why is my GA4 purchase value different from my actual revenue?</h3>
+      <p>Common causes are the purchase event firing on every reload of the order-status page, inconsistent tax/shipping inclusion, and currency mismatches. Each is checkable in GA4's DebugView.</p>
+
+      <h3>Do I need a developer to set this up?</h3>
+      <p>The native GA4 and Meta Pixel integrations don't require code for a standard store, and Conversions API can usually be enabled through Shopify's built-in Meta integration. Developer help becomes worthwhile for custom or complex checkout flows.</p>
+
+      <h3>How do I know if my Shopify tracking is actually working?</h3>
+      <p>Place a real test order, then confirm it appears once in GA4 DebugView with the correct value, and once in Meta Events Manager with both Browser and Server sources and a high match rate.</p>
+    </div>
+
+    <div class="article-bio">
+      <img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">
+      <p><strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a></p>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="word">Grow deep. Market smart.</div>
+        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br><a href="tel:+917007999306">+91 70079 99306</a><br>anuja@tilth.in</div>
+      </div>
+      <div>
+        <h2 class="fcol">Navigate</h2>
+        <ul>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/approach/">Approach</a></li>
+          <li><a href="/insights/">Insights</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fcol">Legal</h2>
+        <ul>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Service</a></li>
+          <li><a href="/cookie-policy/">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fcol">Social</h2>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tilth. All rights reserved.</span>
+      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/nav.js" defer></script>
+</body>
+</html>
