@@ -42,17 +42,42 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 <style>
-  .insights { padding: 40px 0 90px; }
-  .post-card { display: block; padding: 34px 0; border-top: 1px solid var(--rule); transition: padding-left .4s var(--ease); }
-  .insights .post-card:last-child { border-bottom: 1px solid var(--rule); }
-  .post-card:hover { padding-left: 10px; }
-  .post-meta { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--glow); margin-bottom: 12px; }
-  .post-meta .dot { color: var(--terra); margin: 0 8px; }
-  .post-card h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(24px, 3.2vw, 36px); color: var(--ink); margin-bottom: 12px; letter-spacing: -.5px; line-height: 1.15; transition: color .3s; }
-  .post-card:hover h2 { color: var(--glow); }
-  .post-card p { color: var(--text); max-width: 62ch; margin-bottom: 14px; }
-  .post-card .read { color: var(--glow); font-weight: 600; font-size: 14px; display: inline-flex; gap: 8px; }
-  .insights-note { margin-top: 40px; font-size: 14.5px; color: var(--olive); font-style: italic; font-family: 'Fraunces', serif; }
+  .insights { padding: 40px 0 96px; }
+
+  /* ---- category filter tabs (pill language, matches masthead) ---- */
+  .cat-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+  .cat-tab { font-family: 'Work Sans', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: .3px; color: var(--text); background: transparent; border: 1px solid var(--rule); border-radius: 40px; padding: 9px 18px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: color .3s, border-color .3s, background .3s; }
+  .cat-tab:hover { color: var(--ink); border-color: var(--glow); }
+  .cat-tab.is-active { background: var(--glow); border-color: var(--glow); color: var(--bg); }
+  .cat-tab .cat-count { font-size: 11px; opacity: .7; }
+
+  /* ---- responsive card grid ---- */
+  .card-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  @media (min-width: 640px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .blog-card { display: flex; flex-direction: column; padding: 26px 26px 24px; background: var(--surface); border: 1px solid var(--rule); border-radius: 16px; position: relative; overflow: hidden; transition: transform .4s var(--ease), border-color .4s, box-shadow .4s; }
+  .blog-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--cat-accent, var(--glow)); transition: width .4s var(--ease); }
+  .blog-card:hover { transform: translateY(-4px); border-color: var(--cat-accent, var(--glow)); box-shadow: 0 18px 40px -26px rgba(0,0,0,.55); }
+  .blog-card:hover::before { width: 5px; }
+  .blog-card__cat { font-size: 10.5px; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 600; color: var(--cat-accent, var(--glow)); margin-bottom: 14px; display: inline-flex; align-items: center; gap: 7px; }
+  .blog-card__cat::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--cat-accent, var(--glow)); flex: none; }
+  .blog-card__title { font-family: 'Fraunces', serif; font-weight: 400; font-size: 21px; line-height: 1.2; letter-spacing: -.4px; color: var(--ink); margin-bottom: 12px; transition: color .3s; }
+  .blog-card:hover .blog-card__title { color: var(--cat-accent, var(--glow)); }
+  .blog-card__excerpt { font-size: 14.5px; line-height: 1.6; color: var(--text); margin-bottom: 20px; flex: 1 1 auto; }
+  .blog-card__meta { font-size: 11px; letter-spacing: .8px; text-transform: uppercase; color: var(--olive); margin-bottom: 12px; }
+  .blog-card__read { font-size: 13px; font-weight: 600; color: var(--glow); display: inline-flex; gap: 6px; }
+  .blog-card[hidden] { display: none; }
+
+  /* per-category accent colours (earthy mid-tones, legible in both themes) */
+  .blog-card.cat--paid-ads  { --cat-accent: #E2885A; }
+  .blog-card.cat--tracking  { --cat-accent: #8FAE4F; }
+  .blog-card.cat--seo-growth{ --cat-accent: #5FA07E; }
+  .blog-card.cat--hiring    { --cat-accent: #CFA04C; }
+  .blog-card.cat--strategy  { --cat-accent: #C67B6A; }
+
+  .cat-empty { margin-top: 30px; font-family: 'Fraunces', serif; font-style: italic; color: var(--olive); font-size: 15px; }
+  .insights-note { margin-top: 44px; font-size: 14.5px; color: var(--olive); font-style: italic; font-family: 'Fraunces', serif; }
 </style>
 <script type="application/ld+json">
 {
@@ -230,134 +255,166 @@
 </section>
 
 <section class="insights">
-  <div class="wrap-narrow">
+  <div class="wrap">
 
-    <a class="post-card" href="/insights/first-marketing-hire-startup/">
-      <div class="post-meta">Hiring<span class="dot">·</span>8 min read<span class="dot">·</span>12 Jul 2026</div>
-      <h2>Your startup's first marketing hire: who to hire first</h2>
-      <p>Founders usually ask "SEO or paid ads person?" — the wrong first question. Who your first marketing hire should actually be, what to pay in India in 2026, and how to set them up to succeed.</p>
-      <span class="read">Read the article →</span>
-    </a>
+    <div class="cat-tabs" role="tablist" aria-label="Filter articles by category">
+      <button class="cat-tab is-active" role="tab" aria-selected="true" data-cat="all">All <span class="cat-count">18</span></button>
+      <button class="cat-tab" role="tab" aria-selected="false" data-cat="paid-ads">Paid Ads <span class="cat-count">4</span></button>
+      <button class="cat-tab" role="tab" aria-selected="false" data-cat="tracking">Tracking &amp; Attribution <span class="cat-count">4</span></button>
+      <button class="cat-tab" role="tab" aria-selected="false" data-cat="seo-growth">SEO &amp; Growth <span class="cat-count">4</span></button>
+      <button class="cat-tab" role="tab" aria-selected="false" data-cat="hiring">Hiring &amp; Agencies <span class="cat-count">4</span></button>
+      <button class="cat-tab" role="tab" aria-selected="false" data-cat="strategy">Strategy <span class="cat-count">2</span></button>
+    </div>
 
-    <a class="post-card" href="/insights/startup-marketing-budget-india/">
-      <div class="post-meta">Strategy<span class="dot">·</span>8 min read<span class="dot">·</span>28 Jun 2026</div>
-      <h2>Marketing budget for an early-stage startup in India</h2>
-      <p>"What percentage should we spend?" is the wrong first question. How to set a startup marketing budget tied to your CAC, not a rule of thumb — and why tracking has to come before the spend.</p>
-      <span class="read">Read the article →</span>
-    </a>
+    <div class="card-grid">
 
-    <a class="post-card" href="/insights/marketing-agency-for-d2c-brands/">
-      <div class="post-meta">Hiring<span class="dot">·</span>8 min read<span class="dot">·</span>27 Jun 2026</div>
-      <h2>How to choose a marketing agency for your D2C brand in India</h2>
-      <p>D2C fails differently — and most agencies pitch the same generic deck. What actually matters when choosing a D2C marketing agency: D2C experience, retention, honest tracking, and the red flags to walk from.</p>
-      <span class="read">Read the article →</span>
-    </a>
+      <a class="blog-card cat--strategy" data-cat="strategy" href="/insights/first-marketing-hire-startup/">
+        <span class="blog-card__cat">Strategy</span>
+        <h2 class="blog-card__title">Your startup's first marketing hire: who to hire first</h2>
+        <p class="blog-card__excerpt">Founders usually ask "SEO or paid ads person?" — the wrong first question. Who your first marketing hire should actually be, what to pay in India in 2026, and how to set them up to succeed.</p>
+        <div class="blog-card__meta">8 min read · 12 Jul 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
 
-    <a class="post-card" href="/insights/questions-before-hiring-marketing-agency/">
-      <div class="post-meta">Hiring<span class="dot">·</span>9 min read<span class="dot">·</span>23 Jun 2026</div>
-      <h2>12 questions to ask before hiring a marketing agency</h2>
-      <p>The pitch always sounds good. These twelve questions — on strategy, reporting, team, and terms — and their red-flag answers tell you what's really underneath it before you sign.</p>
-      <span class="read">Read the article →</span>
-    </a>
+      <a class="blog-card cat--strategy" data-cat="strategy" href="/insights/startup-marketing-budget-india/">
+        <span class="blog-card__cat">Strategy</span>
+        <h2 class="blog-card__title">Marketing budget for an early-stage startup in India</h2>
+        <p class="blog-card__excerpt">"What percentage should we spend?" is the wrong first question. How to set a startup marketing budget tied to your CAC, not a rule of thumb — and why tracking has to come before the spend.</p>
+        <div class="blog-card__meta">8 min read · 28 Jun 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
 
-    <a class="post-card" href="/insights/agency-vs-freelancer-vs-inhouse/">
-      <div class="post-meta">Hiring<span class="dot">·</span>8 min read<span class="dot">·</span>23 Jun 2026</div>
-      <h2>Marketing agency vs freelancer vs in-house: which is right for your startup?</h2>
-      <p>Hire an agency, bring on a freelancer, or build in-house? An honest comparison of costs and trade-offs for early-stage startups — plus the one thing that matters more than who you hire.</p>
-      <span class="read">Read the article →</span>
-    </a>
+      <a class="blog-card cat--hiring" data-cat="hiring" href="/insights/marketing-agency-for-d2c-brands/">
+        <span class="blog-card__cat">Hiring &amp; Agencies</span>
+        <h2 class="blog-card__title">How to choose a marketing agency for your D2C brand in India</h2>
+        <p class="blog-card__excerpt">D2C fails differently — and most agencies pitch the same generic deck. What actually matters when choosing a D2C marketing agency: D2C experience, retention, honest tracking, and the red flags to walk from.</p>
+        <div class="blog-card__meta">8 min read · 27 Jun 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
 
-    <a class="post-card" href="/insights/marketing-agency-cost-india/">
-      <div class="post-meta">Hiring<span class="dot">·</span>8 min read<span class="dot">·</span>23 Jun 2026</div>
-      <h2>How much does a digital marketing agency cost in India?</h2>
-      <p>An honest 2026 breakdown — typical retainers, pricing by service, what's included versus ad spend, and how to budget without overpaying for a thin package.</p>
-      <span class="read">Read the article →</span>
-    </a>
+      <a class="blog-card cat--hiring" data-cat="hiring" href="/insights/questions-before-hiring-marketing-agency/">
+        <span class="blog-card__cat">Hiring &amp; Agencies</span>
+        <h2 class="blog-card__title">12 questions to ask before hiring a marketing agency</h2>
+        <p class="blog-card__excerpt">The pitch always sounds good. These twelve questions — on strategy, reporting, team, and terms — and their red-flag answers tell you what's really underneath it before you sign.</p>
+        <div class="blog-card__meta">9 min read · 23 Jun 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
 
-    <a class="post-card" href="/insights/marketing-foundation-audit/">
-      <div class="post-meta">Foundations<span class="dot">·</span>7 min read<span class="dot">·</span>22 Jun 2026</div>
-      <h2>What a marketing foundation audit actually checks</h2>
-      <p>Most budgets are scaled on numbers nobody has checked. Here's exactly what a marketing foundation audit reviews — tracking, attribution, targeting, partnerships — and why it comes before you spend more.</p>
-      <span class="read">Read the article →</span>
-    </a>
+      <a class="blog-card cat--hiring" data-cat="hiring" href="/insights/agency-vs-freelancer-vs-inhouse/">
+        <span class="blog-card__cat">Hiring &amp; Agencies</span>
+        <h2 class="blog-card__title">Marketing agency vs freelancer vs in-house: which is right for your startup?</h2>
+        <p class="blog-card__excerpt">Hire an agency, bring on a freelancer, or build in-house? An honest comparison of costs and trade-offs for early-stage startups — plus the one thing that matters more than who you hire.</p>
+        <div class="blog-card__meta">8 min read · 23 Jun 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
 
-    <a class="post-card" href="/insights/audit-your-ad-spend/">
-      <div class="post-meta">Paid Ads<span class="dot">·</span>5 min read<span class="dot">·</span>17 Jun 2026</div>
-      <h2>How to tell if your ad spend is actually profitable (a 5-minute self-audit)</h2>
-      <p>Busy dashboards are not the same as profit. Here are five checks you can run today to find out whether your ad budget is building the business — or quietly leaking out the bottom.</p>
-      <span class="read">Read the article →</span>
-    </a>
+      <a class="blog-card cat--hiring" data-cat="hiring" href="/insights/marketing-agency-cost-india/">
+        <span class="blog-card__cat">Hiring &amp; Agencies</span>
+        <h2 class="blog-card__title">How much does a digital marketing agency cost in India?</h2>
+        <p class="blog-card__excerpt">An honest 2026 breakdown — typical retainers, pricing by service, what's included versus ad spend, and how to budget without overpaying for a thin package.</p>
+        <div class="blog-card__meta">8 min read · 23 Jun 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
 
-    <a class="post-card" href="/insights/ga4-conversion-tracking/">
-      <div class="post-meta">Tracking<span class="dot">·</span>6 min read<span class="dot">·</span>17 Jun 2026</div>
-      <h2>GA4 conversion tracking: the setup checklist before you scale ads</h2>
-      <p>If GA4 is reporting the wrong conversions, every ad decision downstream is built on a lie. A practical checklist to get it right before you spend more.</p>
-      <span class="read">Read the article →</span>
-    </a>
+      <a class="blog-card cat--tracking" data-cat="tracking" href="/insights/marketing-foundation-audit/">
+        <span class="blog-card__cat">Tracking &amp; Attribution</span>
+        <h2 class="blog-card__title">What a marketing foundation audit actually checks</h2>
+        <p class="blog-card__excerpt">Most budgets are scaled on numbers nobody has checked. Here's exactly what a marketing foundation audit reviews — tracking, attribution, targeting, partnerships — and why it comes before you spend more.</p>
+        <div class="blog-card__meta">7 min read · 22 Jun 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
 
-    <a class="post-card" href="/insights/meta-ads-not-converting/">
-      <div class="post-meta">Paid Ads<span class="dot">·</span>6 min read<span class="dot">·</span>17 Jun 2026</div>
-      <h2>Meta Ads not converting? A 7-point tracking audit</h2>
-      <p>Before you blame the creative or the audience, rule out tracking. Seven checks — pixel, Conversions API, events, attribution — that catch the real culprit.</p>
-      <span class="read">Read the article →</span>
-    </a>
+      <a class="blog-card cat--paid-ads" data-cat="paid-ads" href="/insights/audit-your-ad-spend/">
+        <span class="blog-card__cat">Paid Ads</span>
+        <h2 class="blog-card__title">How to tell if your ad spend is actually profitable (a 5-minute self-audit)</h2>
+        <p class="blog-card__excerpt">Busy dashboards are not the same as profit. Here are five checks you can run today to find out whether your ad budget is building the business — or quietly leaking out the bottom.</p>
+        <div class="blog-card__meta">5 min read · 17 Jun 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
 
-    <a class="post-card" href="/insights/affiliate-program-not-converting/">
-      <div class="post-meta">Affiliates<span class="dot">·</span>6 min read<span class="dot">·</span>17 Jun 2026</div>
-      <h2>Why your affiliate program isn't driving revenue (and how to fix it)</h2>
-      <p>Plenty of partners, plenty of clicks, almost no revenue. Five reasons your affiliate channel looks busy but contributes nothing — and how to rebuild it.</p>
-      <span class="read">Read the article →</span>
-    </a>
+      <a class="blog-card cat--tracking" data-cat="tracking" href="/insights/ga4-conversion-tracking/">
+        <span class="blog-card__cat">Tracking &amp; Attribution</span>
+        <h2 class="blog-card__title">GA4 conversion tracking: the setup checklist before you scale ads</h2>
+        <p class="blog-card__excerpt">If GA4 is reporting the wrong conversions, every ad decision downstream is built on a lie. A practical checklist to get it right before you spend more.</p>
+        <div class="blog-card__meta">6 min read · 17 Jun 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
 
-    <a class="post-card" href="/insights/shopify-conversion-tracking-ga4-meta-pixel/">
-      <div class="post-meta">Tracking<span class="dot">·</span>8 min read<span class="dot">·</span>12 Jun 2026</div>
-      <h2>How to set up conversion tracking on Shopify (GA4 + Meta Pixel)</h2>
-      <p>Most Shopify stores have "tracking installed" and still can't trust the numbers. A step-by-step guide to setting up GA4 and Meta Pixel — with Conversions API — correctly, including the checkout tracking trap most setups miss.</p>
-      <span class="read">Read the article →</span>
-    </a>
+      <a class="blog-card cat--paid-ads" data-cat="paid-ads" href="/insights/meta-ads-not-converting/">
+        <span class="blog-card__cat">Paid Ads</span>
+        <h2 class="blog-card__title">Meta Ads not converting? A 7-point tracking audit</h2>
+        <p class="blog-card__excerpt">Before you blame the creative or the audience, rule out tracking. Seven checks — pixel, Conversions API, events, attribution — that catch the real culprit.</p>
+        <div class="blog-card__meta">6 min read · 17 Jun 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
 
-    <a class="post-card" href="/insights/google-ads-budget-india-startups/">
-      <div class="post-meta">Paid Ads<span class="dot">·</span>7 min read<span class="dot">·</span>7 Jun 2026</div>
-      <h2>How much should you spend on Google Ads in India to start?</h2>
-      <p>"What's the minimum budget?" is the wrong first question. How to calculate a starting Google Ads budget from your own numbers, minimum viable budgets by campaign type, and what actually eats spend before it converts.</p>
-      <span class="read">Read the article →</span>
-    </a>
+      <a class="blog-card cat--seo-growth" data-cat="seo-growth" href="/insights/affiliate-program-not-converting/">
+        <span class="blog-card__cat">SEO &amp; Growth</span>
+        <h2 class="blog-card__title">Why your affiliate program isn't driving revenue (and how to fix it)</h2>
+        <p class="blog-card__excerpt">Plenty of partners, plenty of clicks, almost no revenue. Five reasons your affiliate channel looks busy but contributes nothing — and how to rebuild it.</p>
+        <div class="blog-card__meta">6 min read · 17 Jun 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
 
-    <a class="post-card" href="/insights/google-ads-vs-meta-ads-startup/">
-      <div class="post-meta">Paid Ads<span class="dot">·</span>7 min read<span class="dot">·</span>2 Jun 2026</div>
-      <h2>Google Ads vs Meta Ads: which should a startup start with?</h2>
-      <p>You can't run both channels well on a limited budget. The real difference between Google Ads and Meta Ads — intent versus discovery — and a straightforward way to decide which one earns your first rupee.</p>
-      <span class="read">Read the article →</span>
-    </a>
+      <a class="blog-card cat--tracking" data-cat="tracking" href="/insights/shopify-conversion-tracking-ga4-meta-pixel/">
+        <span class="blog-card__cat">Tracking &amp; Attribution</span>
+        <h2 class="blog-card__title">How to set up conversion tracking on Shopify (GA4 + Meta Pixel)</h2>
+        <p class="blog-card__excerpt">Most Shopify stores have "tracking installed" and still can't trust the numbers. A step-by-step guide to setting up GA4 and Meta Pixel — with Conversions API — correctly, including the checkout tracking trap most setups miss.</p>
+        <div class="blog-card__meta">8 min read · 12 Jun 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
 
-    <a class="post-card" href="/insights/seo-not-bringing-leads/">
-      <div class="post-meta">SEO<span class="dot">·</span>7 min read<span class="dot">·</span>28 May 2026</div>
-      <h2>Why your SEO isn't bringing leads (and how to fix it)</h2>
-      <p>Traffic is climbing and leads aren't. This is almost never "SEO doesn't work" — it's usually one of five specific, fixable problems. Here's how to find which one you have.</p>
-      <span class="read">Read the article →</span>
-    </a>
+      <a class="blog-card cat--paid-ads" data-cat="paid-ads" href="/insights/google-ads-budget-india-startups/">
+        <span class="blog-card__cat">Paid Ads</span>
+        <h2 class="blog-card__title">How much should you spend on Google Ads in India to start?</h2>
+        <p class="blog-card__excerpt">"What's the minimum budget?" is the wrong first question. How to calculate a starting Google Ads budget from your own numbers, minimum viable budgets by campaign type, and what actually eats spend before it converts.</p>
+        <div class="blog-card__meta">7 min read · 7 Jun 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
 
-    <a class="post-card" href="/insights/measure-influencer-marketing-roi/">
-      <div class="post-meta">Influencer<span class="dot">·</span>7 min read<span class="dot">·</span>23 May 2026</div>
-      <h2>How to measure influencer marketing ROI properly</h2>
-      <p>"It got a lot of engagement" is not an ROI number. The metrics that actually predict revenue, the tracking setup that has to happen before you brief anyone, and a simple formula to calculate real return.</p>
-      <span class="read">Read the article →</span>
-    </a>
+      <a class="blog-card cat--paid-ads" data-cat="paid-ads" href="/insights/google-ads-vs-meta-ads-startup/">
+        <span class="blog-card__cat">Paid Ads</span>
+        <h2 class="blog-card__title">Google Ads vs Meta Ads: which should a startup start with?</h2>
+        <p class="blog-card__excerpt">You can't run both channels well on a limited budget. The real difference between Google Ads and Meta Ads — intent versus discovery — and a straightforward way to decide which one earns your first rupee.</p>
+        <div class="blog-card__meta">7 min read · 2 Jun 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
 
-    <a class="post-card" href="/insights/marketing-attribution-explained-simply/">
-      <div class="post-meta">Attribution<span class="dot">·</span>7 min read<span class="dot">·</span>18 May 2026</div>
-      <h2>Marketing attribution for small businesses, explained simply</h2>
-      <p>"Attribution" sounds built to confuse founders into hiring someone. It's a simple idea: which touchpoint gets credit for a sale? What that means in plain English, and which model actually makes sense for a small business.</p>
-      <span class="read">Read the article →</span>
-    </a>
+      <a class="blog-card cat--seo-growth" data-cat="seo-growth" href="/insights/seo-not-bringing-leads/">
+        <span class="blog-card__cat">SEO &amp; Growth</span>
+        <h2 class="blog-card__title">Why your SEO isn't bringing leads (and how to fix it)</h2>
+        <p class="blog-card__excerpt">Traffic is climbing and leads aren't. This is almost never "SEO doesn't work" — it's usually one of five specific, fixable problems. Here's how to find which one you have.</p>
+        <div class="blog-card__meta">7 min read · 28 May 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
 
-    <a class="post-card" href="/insights/what-is-performance-marketing/">
-      <div class="post-meta">Strategy<span class="dot">·</span>6 min read<span class="dot">·</span>13 May 2026</div>
-      <h2>What is performance marketing (and how it differs from digital marketing)?</h2>
-      <p>The two terms get used interchangeably, and that mix-up leads to real budgeting mistakes. A plain definition of performance marketing, and why the whole approach depends on tracking you can actually trust.</p>
-      <span class="read">Read the article →</span>
-    </a>
+      <a class="blog-card cat--seo-growth" data-cat="seo-growth" href="/insights/measure-influencer-marketing-roi/">
+        <span class="blog-card__cat">SEO &amp; Growth</span>
+        <h2 class="blog-card__title">How to measure influencer marketing ROI properly</h2>
+        <p class="blog-card__excerpt">"It got a lot of engagement" is not an ROI number. The metrics that actually predict revenue, the tracking setup that has to happen before you brief anyone, and a simple formula to calculate real return.</p>
+        <div class="blog-card__meta">7 min read · 23 May 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
 
+      <a class="blog-card cat--tracking" data-cat="tracking" href="/insights/marketing-attribution-explained-simply/">
+        <span class="blog-card__cat">Tracking &amp; Attribution</span>
+        <h2 class="blog-card__title">Marketing attribution for small businesses, explained simply</h2>
+        <p class="blog-card__excerpt">"Attribution" sounds built to confuse founders into hiring someone. It's a simple idea: which touchpoint gets credit for a sale? What that means in plain English, and which model actually makes sense for a small business.</p>
+        <div class="blog-card__meta">7 min read · 18 May 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
+
+      <a class="blog-card cat--seo-growth" data-cat="seo-growth" href="/insights/what-is-performance-marketing/">
+        <span class="blog-card__cat">SEO &amp; Growth</span>
+        <h2 class="blog-card__title">What is performance marketing (and how it differs from digital marketing)?</h2>
+        <p class="blog-card__excerpt">The two terms get used interchangeably, and that mix-up leads to real budgeting mistakes. A plain definition of performance marketing, and why the whole approach depends on tracking you can actually trust.</p>
+        <div class="blog-card__meta">6 min read · 13 May 2026</div>
+        <span class="blog-card__read">Read the article →</span>
+      </a>
+
+    </div>
+
+    <p class="cat-empty" hidden>No field notes in this category yet.</p>
     <p class="insights-note">More field notes are being prepared. Want one on a specific channel? Tell us at <a href="/contact/" style="color:var(--glow);border-bottom:1px solid var(--glow)">contact</a>.</p>
   </div>
 </section>
@@ -404,6 +461,47 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.cat-tab'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.blog-card'));
+  var empty = document.querySelector('.cat-empty');
+  if (!tabs.length || !cards.length) return;
+
+  function filter(cat) {
+    var shown = 0;
+    cards.forEach(function (c) {
+      var match = (cat === 'all' || c.getAttribute('data-cat') === cat);
+      c.hidden = !match;
+      if (match) shown++;
+    });
+    if (empty) empty.hidden = shown > 0;
+  }
+
+  function activate(cat) {
+    var matched = null;
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('data-cat') === cat;
+      if (on) matched = t;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    if (!matched) { activate('all'); return; }
+    filter(cat);
+  }
+
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      var cat = t.getAttribute('data-cat');
+      history.replaceState(null, '', cat === 'all' ? location.pathname : '#' + cat);
+      activate(cat);
+    });
+  });
+
+  var initial = (location.hash || '').replace('#', '');
+  if (initial) activate(initial);
+})();
+</script>
 <script src="/nav.js" defer></script>
 </body>
 </html>
