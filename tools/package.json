@@ -1,0 +1,13 @@
+{
+  "name": "tilth-insight-card-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Generates the Living Soil thumbnail (WebP) for each Tilth insights article.",
+  "type": "commonjs",
+  "scripts": {
+    "generate": "node generate-insight-cards.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  }
+}

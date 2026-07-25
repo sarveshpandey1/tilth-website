@@ -512,14 +512,9 @@
 
   tabs.forEach(function (t) {
     t.addEventListener('click', function () {
-      var cat = t.getAttribute('data-cat');
-      history.replaceState(null, '', cat === 'all' ? location.pathname : '#' + cat);
-      activate(cat);
+      activate(t.getAttribute('data-cat'));
     });
   });
-
-  var initial = (location.hash || '').replace('#', '');
-  if (initial) activate(initial);
 })();
 </script>
 <script src="/nav.js" defer></script>
