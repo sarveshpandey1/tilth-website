@@ -165,3 +165,11 @@ html[data-theme="light"] .ground-divider span{background:var(--bg)}
 html[data-theme="light"] .btn{box-shadow:0 0 22px rgba(95,127,55,.28)}
 html[data-theme="light"] .btn:hover{box-shadow:0 0 32px rgba(95,127,55,.45)}
 html[data-theme="light"] .masthead nav a::after{box-shadow:none}
+
+/* ===================== SCROLL REVEAL + SMOOTH SCROLL ===================== */
+/* .reveal is added by nav.js only when motion is allowed; content is fully
+   visible without JS or under reduced-motion, so nothing is ever hidden. */
+html{scroll-behavior:smooth}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);will-change:opacity,transform}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}

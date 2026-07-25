@@ -86,4 +86,42 @@
   var skip = document.createElement('a');
   skip.className = 'skip-link'; skip.href = '#main'; skip.textContent = 'Skip to content';
   document.body.insertBefore(skip, document.body.firstChild);
+
+  // ---- scroll reveal: fade/slide content blocks in as they enter the viewport ----
+  // Progressive enhancement — skipped entirely under reduced-motion or no IO support,
+  // and above-the-fold content is left untouched so nothing ever flashes.
+  (function(){
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce || !('IntersectionObserver' in window)) return;
+    var host = document.getElementById('main') || document.body;
+    var containers = Array.prototype.slice.call(host.querySelectorAll(
+      '.page-head .wrap, article.article, .prose, .card-grid, .faq__list, section > .wrap, section > .wrap-narrow'
+    ));
+    if(!containers.length) return;
+    var cset = new Set(containers);
+    var vh = window.innerHeight || 800;
+    var targets = [];
+    containers.forEach(function(c){
+      var i = 0;
+      Array.prototype.forEach.call(c.children, function(el){
+        if(el.nodeType !== 1) return;
+        var tag = el.tagName;
+        if(tag === 'SCRIPT' || tag === 'STYLE' || cset.has(el) || el.__rv){ i++; return; }
+        // leave already-visible content as-is (no flash); only animate what's below the fold
+        if(el.getBoundingClientRect().top < vh * 0.92){ i++; return; }
+        el.__rv = true;
+        el.classList.add('reveal');
+        el.style.transitionDelay = (Math.min(i, 6) * 60) + 'ms';
+        targets.push(el);
+        i++;
+      });
+    });
+    if(!targets.length) return;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    targets.forEach(function(t){ io.observe(t); });
+  })();
 })();
