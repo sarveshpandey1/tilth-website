@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1MJEZ4VK26');
+</script>
+<title>LTV : CAC Calculator — Lifetime Value, Ratio &amp; Payback | Tilth</title>
+<meta name="description" content="Free LTV:CAC calculator: work out customer lifetime value, your LTV-to-CAC ratio, and payback period from order value, margin, purchase frequency, and lifespan.">
+<link rel="canonical" href="https://tilth.in/tools/ltv-cac-calculator/">
+<meta name="robots" content="index, follow">
+<meta property="og:site_name" content="Tilth">
+<meta name="twitter:site" content="@Anuja_tilth">
+<meta name="geo.region" content="IN-KA">
+<meta name="geo.placename" content="Bengaluru">
+<meta name="theme-color" content="#15110B">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LTV : CAC Calculator — can you afford to pay more per customer?">
+<meta property="og:description" content="Lifetime value, LTV:CAC ratio, and payback period — free, no sign-up.">
+<meta property="og:url" content="https://tilth.in/tools/ltv-cac-calculator/">
+<meta property="og:image" content="https://tilth.in/og-image.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LTV : CAC Calculator | Tilth">
+<meta name="twitter:description" content="Lifetime value, LTV:CAC ratio, and payback period — free.">
+<meta name="twitter:image" content="https://tilth.in/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tilth.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://tilth.in/tools/" },
+        { "@type": "ListItem", "position": 3, "name": "LTV : CAC Calculator", "item": "https://tilth.in/tools/ltv-cac-calculator/" }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "LTV : CAC Calculator",
+      "url": "https://tilth.in/tools/ltv-cac-calculator/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any (web)",
+      "description": "Calculates customer lifetime value, LTV:CAC ratio, and payback period from order value, gross margin, purchase frequency, and customer lifespan.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "publisher": { "@type": "Organization", "name": "Tilth", "url": "https://tilth.in/" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a href="/" class="word">TILTH</a>
+    <nav>
+      <a href="/services/">Services</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/">Insights</a>
+      <a href="/tools/" class="active">Tools</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="meta">Vol. 01 — Bengaluru to Global</div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="label">Free tool</span>
+    <h1>Can you afford to pay <span class="accent">more</span> per customer?</h1>
+    <p class="standfirst">Your breakeven CAC is the floor. Repeat purchases raise the ceiling. Enter your numbers to see customer lifetime value, your LTV:CAC ratio, and how long it takes to earn back what you spend acquiring a customer.</p>
+  </div>
+</section>
+
+<section class="tk">
+  <div class="wrap">
+    <div class="tk-crumb"><a href="/tools/">Free Tools</a> &nbsp;/&nbsp; LTV : CAC Calculator</div>
+
+    <div class="tk-calc">
+      <div class="tk-panel">
+        <h2>Your numbers</h2>
+        <p class="tk-sub">Rough figures are fine — drag or type.</p>
+
+        <div class="tk-field">
+          <div class="tk-ftop">
+            <div><label class="tk-label" for="aov">Average order value</label><div class="tk-hint">Revenue from one purchase</div></div>
+            <span class="tk-val"><span class="pre">₹</span><input type="number" id="aov" min="0" step="50" value="2000" inputmode="numeric"></span>
+          </div>
+          <input type="range" id="aov_r" min="100" max="50000" step="100" value="2000" aria-label="Average order value">
+        </div>
+
+        <div class="tk-field">
+          <div class="tk-ftop">
+            <div><label class="tk-label" for="margin">Gross margin</label><div class="tk-hint">% left after product/delivery cost</div></div>
+            <span class="tk-val pct"><input type="number" id="margin" min="1" max="99" step="1" value="45" inputmode="numeric"><span class="suf">%</span></span>
+          </div>
+          <input type="range" id="margin_r" min="1" max="95" step="1" value="45" aria-label="Gross margin">
+        </div>
+
+        <div class="tk-field">
+          <div class="tk-ftop">
+            <div><label class="tk-label" for="freq">Purchases per year</label><div class="tk-hint">How often a customer buys</div></div>
+            <span class="tk-val bare"><input type="number" id="freq" min="0.1" max="52" step="0.1" value="3" inputmode="decimal"></span>
+          </div>
+          <input type="range" id="freq_r" min="1" max="24" step="1" value="3" aria-label="Purchases per year">
+        </div>
+
+        <div class="tk-field">
+          <div class="tk-ftop">
+            <div><label class="tk-label" for="years">Customer lifespan</label><div class="tk-hint">Years they keep buying</div></div>
+            <span class="tk-val bare"><input type="number" id="years" min="0.1" max="20" step="0.1" value="2" inputmode="decimal"></span>
+          </div>
+          <input type="range" id="years_r" min="0.5" max="10" step="0.5" value="2" aria-label="Customer lifespan in years">
+        </div>
+
+        <div class="tk-field">
+          <div class="tk-ftop">
+            <div><label class="tk-label" for="cac">Cost to acquire a customer</label><div class="tk-hint">Your current CAC</div></div>
+            <span class="tk-val"><span class="pre">₹</span><input type="number" id="cac" min="1" step="50" value="900" inputmode="numeric"></span>
+          </div>
+          <input type="range" id="cac_r" min="50" max="20000" step="50" value="900" aria-label="Cost to acquire a customer">
+        </div>
+      </div>
+
+      <div class="tk-results">
+        <div class="tk-verdict neutral" id="verdict" aria-live="polite">
+          <div class="k" id="vk">Verdict</div>
+          <div class="headline" id="vh">—</div>
+          <div class="detail" id="vd">—</div>
+        </div>
+        <div class="tk-rcard">
+          <div class="k">Customer lifetime value (gross margin)</div>
+          <div class="v">₹<span id="ltv">—</span></div>
+          <p class="exp">The total gross profit one customer brings over their lifespan — order value × margin × purchases × years.</p>
+        </div>
+        <div class="tk-rcard">
+          <div class="k">LTV : CAC ratio</div>
+          <div class="v"><span id="ratio">—</span><span class="unit">: 1</span></div>
+          <p class="exp">A common healthy target is 3:1 or better. Below 1:1 you lose money on every customer, even with repeats.</p>
+        </div>
+        <div class="tk-rcard">
+          <div class="k">Payback period</div>
+          <div class="v"><span id="payback">—</span><span class="unit"> mo</span></div>
+          <p class="exp">How many months of margin it takes to earn back the cost of acquiring a customer. Shorter means less cash tied up.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tk-note">
+      <p><strong>Honest caveat:</strong> this is a <em>gross-margin</em> LTV and it trusts your inputs — especially purchase frequency and lifespan, which most brands guess rather than measure. If you can't pull real repeat-rate and retention numbers, treat the result as a hopeful ceiling, not a fact. Fixing that measurement is exactly the foundation work we do first.</p>
+    </div>
+
+    <div class="tk-cta">
+      <h3>Guessing your repeat rate? That's the real problem</h3>
+      <p>LTV is only as trustworthy as the retention data behind it. A free foundation audit checks whether your analytics can actually measure repeat purchases and cohort retention — before you bet a higher CAC on a number you can't see.</p>
+      <a href="/contact/" class="btn"><span>Request a free audit</span><span aria-hidden="true">→</span></a>
+    </div>
+
+    <div class="tk-related">
+      <h3>Related</h3>
+      <ul>
+        <li><a href="/ad-spend-calculator/">Ad Spend Profitability Calculator — breakeven ROAS &amp; max CAC →</a></li>
+        <li><a href="/insights/startup-marketing-budget-india/">Marketing budget for an early-stage startup in India →</a></li>
+        <li><a href="/insights/measure-influencer-marketing-roi/">How to measure influencer marketing ROI properly →</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="word">Grow deep. Market smart.</div>
+        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br><a href="tel:+917007999306">+91 70079 99306</a><br>anuja@tilth.in</div>
+      </div>
+      <div>
+        <h2 class="fcol">Navigate</h2>
+        <ul>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/approach/">Approach</a></li>
+          <li><a href="/insights/">Insights</a></li>
+          <li><a href="/tools/">Tools</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fcol">Legal</h2>
+        <ul>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Service</a></li>
+          <li><a href="/cookie-policy/">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fcol">Social</h2>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tilth. All rights reserved.</span>
+      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var ids = ['aov','margin','freq','years','cac'];
+  var el = {};
+  ids.forEach(function (id) { el[id] = document.getElementById(id); el[id + '_r'] = document.getElementById(id + '_r'); });
+  var ltvEl = document.getElementById('ltv'), ratioEl = document.getElementById('ratio'), paybackEl = document.getElementById('payback');
+  var vEl = document.getElementById('verdict'), vk = document.getElementById('vk'), vh = document.getElementById('vh'), vd = document.getElementById('vd');
+
+  function inr(n) { return Math.round(n).toLocaleString('en-IN'); }
+  function val(id, min, max) { var v = parseFloat(el[id].value); if (isNaN(v)) v = min; return Math.max(min, Math.min(max, v)); }
+
+  function render() {
+    var A = val('aov', 0, 1e9), M = val('margin', 1, 99), F = val('freq', 0.1, 52), Y = val('years', 0.1, 20), C = val('cac', 1, 1e9);
+    var profitPerOrder = A * (M / 100);
+    var ltv = profitPerOrder * F * Y;
+    var ratio = ltv / C;
+    var annualProfit = profitPerOrder * F;
+    var payback = annualProfit > 0 ? (C / annualProfit) * 12 : Infinity;
+
+    ltvEl.textContent = inr(ltv);
+    ratioEl.textContent = ratio.toFixed(1);
+    paybackEl.textContent = isFinite(payback) ? payback.toFixed(1) : '∞';
+
+    if (ratio >= 3) {
+      vEl.className = 'tk-verdict good'; vk.textContent = 'Healthy';
+      vh.textContent = ratio.toFixed(1) + ':1 — strong unit economics';
+      vd.textContent = 'You earn back roughly ' + ratio.toFixed(1) + '× what you spend to acquire a customer, with payback in about ' + (isFinite(payback) ? payback.toFixed(1) + ' months' : 'n/a') + '. There is room to invest more into acquisition — if the retention behind this is real.';
+    } else if (ratio >= 1) {
+      vEl.className = 'tk-verdict warn'; vk.textContent = 'Workable, but thin';
+      vh.textContent = ratio.toFixed(1) + ':1 — below the 3:1 mark';
+      vd.textContent = 'You make money over a customer’s life, but the margin for error is thin and payback (~' + (isFinite(payback) ? payback.toFixed(1) + ' months' : 'n/a') + ') ties up cash. Lift margin, frequency, or retention before scaling spend.';
+    } else {
+      vEl.className = 'tk-verdict bad'; vk.textContent = 'Underwater';
+      vh.textContent = ratio.toFixed(1) + ':1 — you lose money per customer';
+      vd.textContent = 'Even counting repeat purchases, lifetime value (₹' + inr(ltv) + ') is below your ₹' + inr(C) + ' acquisition cost. More spend deepens the hole — the economics have to change first.';
+    }
+  }
+
+  ids.forEach(function (id) {
+    var n = el[id], r = el[id + '_r'];
+    r.addEventListener('input', function () { n.value = r.value; render(); });
+    n.addEventListener('input', function () { r.value = Math.max(parseFloat(r.min), Math.min(parseFloat(r.max), parseFloat(n.value) || 0)); render(); });
+  });
+  render();
+})();
+</script>
+<script src="/nav.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1MJEZ4VK26');
+</script>
+<title>Conversion Funnel Calculator — Traffic to Revenue | Tilth</title>
+<meta name="description" content="Free conversion funnel calculator: turn monthly traffic, conversion rate, and order value into orders and revenue — then reverse-solve the traffic a revenue goal needs.">
+<link rel="canonical" href="https://tilth.in/tools/conversion-funnel-calculator/">
+<meta name="robots" content="index, follow">
+<meta property="og:site_name" content="Tilth">
+<meta name="twitter:site" content="@Anuja_tilth">
+<meta name="geo.region" content="IN-KA">
+<meta name="geo.placename" content="Bengaluru">
+<meta name="theme-color" content="#15110B">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Conversion Funnel Calculator — traffic to revenue, and back">
+<meta property="og:description" content="Turn traffic, conversion rate, and order value into revenue — and reverse-solve a goal. Free.">
+<meta property="og:url" content="https://tilth.in/tools/conversion-funnel-calculator/">
+<meta property="og:image" content="https://tilth.in/og-image.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Conversion Funnel Calculator | Tilth">
+<meta name="twitter:description" content="Traffic × conversion rate × order value → revenue, and reverse. Free.">
+<meta name="twitter:image" content="https://tilth.in/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tilth.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://tilth.in/tools/" },
+        { "@type": "ListItem", "position": 3, "name": "Conversion Funnel Calculator", "item": "https://tilth.in/tools/conversion-funnel-calculator/" }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Conversion Funnel Calculator",
+      "url": "https://tilth.in/tools/conversion-funnel-calculator/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any (web)",
+      "description": "Calculates orders and revenue from monthly traffic, conversion rate, and average order value, and reverse-solves the traffic or conversion rate a revenue goal requires.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "publisher": { "@type": "Organization", "name": "Tilth", "url": "https://tilth.in/" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a href="/" class="word">TILTH</a>
+    <nav>
+      <a href="/services/">Services</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/">Insights</a>
+      <a href="/tools/" class="active">Tools</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="meta">Vol. 01 — Bengaluru to Global</div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="label">Free tool</span>
+    <h1>From traffic to <span class="accent">revenue</span> — and back.</h1>
+    <p class="standfirst">Three numbers decide what your funnel is worth: traffic, conversion rate, and order value. See the revenue they produce — then flip it, and find the traffic (or conversion rate) a revenue goal actually demands.</p>
+  </div>
+</section>
+
+<section class="tk">
+  <div class="wrap">
+    <div class="tk-crumb"><a href="/tools/">Free Tools</a> &nbsp;/&nbsp; Conversion Funnel Calculator</div>
+
+    <div class="tk-calc">
+      <div class="tk-panel">
+        <h2>Your funnel</h2>
+        <p class="tk-sub">Monthly figures — drag or type.</p>
+
+        <div class="tk-field">
+          <div class="tk-ftop"><div><label class="tk-label" for="visitors">Monthly visitors</label><div class="tk-hint">Sessions to your site</div></div>
+            <span class="tk-val bare"><input type="number" id="visitors" min="1" step="100" value="10000" inputmode="numeric"></span></div>
+          <input type="range" id="visitors_r" min="500" max="200000" step="500" value="10000" aria-label="Monthly visitors">
+        </div>
+        <div class="tk-field">
+          <div class="tk-ftop"><div><label class="tk-label" for="cr">Conversion rate</label><div class="tk-hint">% of visitors who buy</div></div>
+            <span class="tk-val pct"><input type="number" id="cr" min="0.01" max="100" step="0.1" value="2.5" inputmode="decimal"><span class="suf">%</span></span></div>
+          <input type="range" id="cr_r" min="0.1" max="15" step="0.1" value="2.5" aria-label="Conversion rate">
+        </div>
+        <div class="tk-field">
+          <div class="tk-ftop"><div><label class="tk-label" for="aov">Average order value</label><div class="tk-hint">Revenue per order</div></div>
+            <span class="tk-val"><span class="pre">₹</span><input type="number" id="aov" min="1" step="50" value="1500" inputmode="numeric"></span></div>
+          <input type="range" id="aov_r" min="100" max="50000" step="100" value="1500" aria-label="Average order value">
+        </div>
+      </div>
+
+      <div class="tk-results">
+        <div class="tk-rcard">
+          <div class="k">Orders per month</div>
+          <div class="v"><span id="orders">—</span></div>
+          <p class="exp">Monthly visitors × conversion rate.</p>
+        </div>
+        <div class="tk-rcard">
+          <div class="k">Revenue per month</div>
+          <div class="v">₹<span id="revenue">—</span></div>
+          <p class="exp">Orders × average order value. Annualised: <strong>₹<span id="annual">—</span></strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tk-panel" style="margin-top:22px;">
+      <h2>Work backwards from a goal</h2>
+      <p class="tk-sub">Set a monthly revenue target — see what it takes at your current numbers.</p>
+      <div class="tk-field">
+        <div class="tk-ftop"><div><label class="tk-label" for="goal">Target monthly revenue</label><div class="tk-hint">What you want to hit</div></div>
+          <span class="tk-val"><span class="pre">₹</span><input type="number" id="goal" min="1" step="10000" value="500000" inputmode="numeric"></span></div>
+      </div>
+      <div class="tk-results" style="margin-top:6px;">
+        <div class="tk-rcard">
+          <div class="k">Visitors needed <span style="color:var(--olive);text-transform:none;letter-spacing:0;font-weight:400">(at your current rate &amp; order value)</span></div>
+          <div class="v"><span id="visNeeded">—</span></div>
+          <p class="exp" id="visDelta"></p>
+        </div>
+        <div class="tk-rcard">
+          <div class="k">…or the conversion rate needed <span style="color:var(--olive);text-transform:none;letter-spacing:0;font-weight:400">(at your current traffic)</span></div>
+          <div class="v"><span id="crNeeded">—</span><span class="unit">%</span></div>
+          <p class="exp" id="crDelta"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tk-note">
+      <p><strong>Small rate, big lever.</strong> Notice how a fraction of a percent of conversion rate moves revenue as much as thousands of extra visitors — usually far cheaper, too. Before buying more traffic, it's almost always worth fixing what happens to the traffic you already have.</p>
+    </div>
+
+    <div class="tk-cta">
+      <h3>A rising conversion rate you can't trust is worse than none</h3>
+      <p>If your analytics miscounts orders or double-fires conversions, this whole funnel is built on sand. A free foundation audit confirms your conversion tracking is accurate — so the rate you're optimising is the real one.</p>
+      <a href="/contact/" class="btn"><span>Request a free audit</span><span aria-hidden="true">→</span></a>
+    </div>
+
+    <div class="tk-related">
+      <h3>Related</h3>
+      <ul>
+        <li><a href="/insights/seo-not-bringing-leads/">Why your SEO isn't bringing leads (and how to fix it) →</a></li>
+        <li><a href="/ad-spend-calculator/">Ad Spend Profitability Calculator — breakeven ROAS &amp; max CAC →</a></li>
+        <li><a href="/insights/google-ads-budget-india-startups/">How much should you spend on Google Ads in India to start? →</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="word">Grow deep. Market smart.</div>
+        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br><a href="tel:+917007999306">+91 70079 99306</a><br>anuja@tilth.in</div>
+      </div>
+      <div>
+        <h2 class="fcol">Navigate</h2>
+        <ul>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/approach/">Approach</a></li>
+          <li><a href="/insights/">Insights</a></li>
+          <li><a href="/tools/">Tools</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fcol">Legal</h2>
+        <ul>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Service</a></li>
+          <li><a href="/cookie-policy/">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fcol">Social</h2>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tilth. All rights reserved.</span>
+      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var ids = ['visitors', 'cr', 'aov'];
+  var el = {};
+  ids.forEach(function (id) { el[id] = document.getElementById(id); el[id + '_r'] = document.getElementById(id + '_r'); });
+  var goal = document.getElementById('goal');
+  var ordersEl = document.getElementById('orders'), revEl = document.getElementById('revenue'), annualEl = document.getElementById('annual');
+  var visNeeded = document.getElementById('visNeeded'), visDelta = document.getElementById('visDelta');
+  var crNeeded = document.getElementById('crNeeded'), crDelta = document.getElementById('crDelta');
+
+  function inr(n) { return Math.round(n).toLocaleString('en-IN'); }
+  function val(id, min, max) { var v = parseFloat(el[id].value); if (isNaN(v)) v = min; return Math.max(min, Math.min(max, v)); }
+
+  function render() {
+    var V = val('visitors', 1, 1e9), CR = val('cr', 0.01, 100), A = val('aov', 1, 1e9);
+    var orders = V * (CR / 100);
+    var revenue = orders * A;
+    ordersEl.textContent = inr(orders);
+    revEl.textContent = inr(revenue);
+    annualEl.textContent = inr(revenue * 12);
+
+    var G = parseFloat(goal.value); if (isNaN(G) || G < 1) G = 1;
+    var vNeed = G / (A * (CR / 100));      // visitors needed at current CR & AOV
+    var crNeed = G / (V * A) * 100;        // CR needed at current visitors & AOV
+    visNeeded.textContent = inr(vNeed);
+    crNeeded.textContent = crNeed.toFixed(2);
+
+    var vMult = V > 0 ? vNeed / V : 0;
+    visDelta.textContent = vNeed <= V
+      ? 'You already have the traffic — you\'re ' + inr(V - vNeed) + ' visitors clear of the goal.'
+      : 'That\'s about ' + vMult.toFixed(1) + '× your current traffic (' + inr(vNeed - V) + ' more visitors/month).';
+    crDelta.textContent = crNeed <= CR
+      ? 'Below your current ' + CR.toFixed(2) + '% — the goal is within reach as you are.'
+      : 'Up from your current ' + CR.toFixed(2) + '% — a ' + (crNeed - CR).toFixed(2) + '-point lift, usually cheaper than buying the extra traffic.';
+  }
+
+  ids.forEach(function (id) {
+    var n = el[id], r = el[id + '_r'];
+    r.addEventListener('input', function () { n.value = r.value; render(); });
+    n.addEventListener('input', function () { r.value = Math.max(parseFloat(r.min), Math.min(parseFloat(r.max), parseFloat(n.value) || 0)); render(); });
+  });
+  goal.addEventListener('input', render);
+  render();
+})();
+</script>
+<script src="/nav.js" defer></script>
+</body>
+</html>

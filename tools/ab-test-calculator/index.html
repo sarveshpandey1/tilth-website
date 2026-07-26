@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1MJEZ4VK26');
+</script>
+<title>A/B Test Significance Calculator — Is Your Result Real? | Tilth</title>
+<meta name="description" content="Free A/B test significance calculator: enter visitors and conversions for each variant to see conversion rates, uplift, and statistical confidence before you call a winner.">
+<link rel="canonical" href="https://tilth.in/tools/ab-test-calculator/">
+<meta name="robots" content="index, follow">
+<meta property="og:site_name" content="Tilth">
+<meta name="twitter:site" content="@Anuja_tilth">
+<meta name="geo.region" content="IN-KA">
+<meta name="geo.placename" content="Bengaluru">
+<meta name="theme-color" content="#15110B">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:title" content="A/B Test Significance Calculator — is your result real or noise?">
+<meta property="og:description" content="Check statistical significance before you call an A/B test. Free, no sign-up.">
+<meta property="og:url" content="https://tilth.in/tools/ab-test-calculator/">
+<meta property="og:image" content="https://tilth.in/og-image.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A/B Test Significance Calculator | Tilth">
+<meta name="twitter:description" content="Is your winning variant actually winning? Check significance — free.">
+<meta name="twitter:image" content="https://tilth.in/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tilth.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://tilth.in/tools/" },
+        { "@type": "ListItem", "position": 3, "name": "A/B Test Significance Calculator", "item": "https://tilth.in/tools/ab-test-calculator/" }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "A/B Test Significance Calculator",
+      "url": "https://tilth.in/tools/ab-test-calculator/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any (web)",
+      "description": "Calculates conversion rates, relative uplift, and statistical confidence (two-proportion z-test) for an A/B test from visitor and conversion counts.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "publisher": { "@type": "Organization", "name": "Tilth", "url": "https://tilth.in/" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a href="/" class="word">TILTH</a>
+    <nav>
+      <a href="/services/">Services</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/">Insights</a>
+      <a href="/tools/" class="active">Tools</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="meta">Vol. 01 — Bengaluru to Global</div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="label">Free tool</span>
+    <h1>Is your winner actually <span class="accent">winning?</span></h1>
+    <p class="standfirst">Most A/B tests get called too early, on too little data — and the "winner" was just noise. Enter the visitors and conversions for each variant to see the real conversion rates, the uplift, and how confident you can actually be.</p>
+  </div>
+</section>
+
+<section class="tk">
+  <div class="wrap">
+    <div class="tk-crumb"><a href="/tools/">Free Tools</a> &nbsp;/&nbsp; A/B Test Significance Calculator</div>
+
+    <div class="tk-calc">
+      <div class="tk-panel">
+        <h2>Your test results</h2>
+        <p class="tk-sub">Enter totals for each variant.</p>
+
+        <div class="tk-field">
+          <div class="tk-ftop"><div><label class="tk-label" for="nA">Variant A — visitors</label><div class="tk-hint">The control</div></div>
+            <span class="tk-val bare"><input type="number" id="nA" min="1" step="1" value="1500" inputmode="numeric"></span></div>
+        </div>
+        <div class="tk-field">
+          <div class="tk-ftop"><div><label class="tk-label" for="cA">Variant A — conversions</label><div class="tk-hint">Sign-ups, sales, etc.</div></div>
+            <span class="tk-val bare"><input type="number" id="cA" min="0" step="1" value="75" inputmode="numeric"></span></div>
+        </div>
+        <div class="tk-field">
+          <div class="tk-ftop"><div><label class="tk-label" for="nB">Variant B — visitors</label><div class="tk-hint">The challenger</div></div>
+            <span class="tk-val bare"><input type="number" id="nB" min="1" step="1" value="1500" inputmode="numeric"></span></div>
+        </div>
+        <div class="tk-field">
+          <div class="tk-ftop"><div><label class="tk-label" for="cB">Variant B — conversions</label><div class="tk-hint">Sign-ups, sales, etc.</div></div>
+            <span class="tk-val bare"><input type="number" id="cB" min="0" step="1" value="105" inputmode="numeric"></span></div>
+        </div>
+      </div>
+
+      <div class="tk-results">
+        <div class="tk-verdict neutral" id="verdict" aria-live="polite">
+          <div class="k" id="vk">Verdict</div>
+          <div class="headline" id="vh">—</div>
+          <div class="detail" id="vd">—</div>
+        </div>
+        <div class="tk-rcard">
+          <div class="k">Conversion rates</div>
+          <div class="v"><span id="rA">—</span><span class="unit">% A</span> &nbsp;·&nbsp; <span id="rB">—</span><span class="unit">% B</span></div>
+          <p class="exp">The share of each variant's visitors that converted.</p>
+        </div>
+        <div class="tk-rcard">
+          <div class="k">Relative uplift (B vs A)</div>
+          <div class="v"><span id="uplift">—</span><span class="unit">%</span></div>
+          <p class="exp">How much better (or worse) B converts than A, in relative terms.</p>
+        </div>
+        <div class="tk-rcard">
+          <div class="k">Statistical confidence</div>
+          <div class="v"><span id="conf">—</span><span class="unit">%</span></div>
+          <p class="exp">The chance this difference is real, not random. A common bar to act is 95%+.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tk-note">
+      <p><strong>Confidence isn't the whole story.</strong> Even at 95%, run the test for full business cycles (weekdays and weekends behave differently), don't stop the moment it crosses the line, and make sure both variants got enough conversions — a handful of conversions can look significant and still be a fluke. Statistics tells you the difference is probably real; it can't tell you it's worth shipping.</p>
+    </div>
+
+    <div class="tk-cta">
+      <h3>A test is only as clean as the tracking under it</h3>
+      <p>If your conversion events fire inconsistently between variants, the whole test is compromised before the maths begins. A free foundation audit verifies your tracking is measuring the same thing, the same way, everywhere — so your experiments are trustworthy.</p>
+      <a href="/contact/" class="btn"><span>Request a free audit</span><span aria-hidden="true">→</span></a>
+    </div>
+
+    <div class="tk-related">
+      <h3>Related</h3>
+      <ul>
+        <li><a href="/insights/seo-not-bringing-leads/">Why your SEO isn't bringing leads (and how to fix it) →</a></li>
+        <li><a href="/insights/meta-ads-not-converting/">Meta Ads not converting? A 7-point tracking audit →</a></li>
+        <li><a href="/insights/ga4-conversion-tracking/">GA4 conversion tracking: the setup checklist before you scale ads →</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="word">Grow deep. Market smart.</div>
+        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br><a href="tel:+917007999306">+91 70079 99306</a><br>anuja@tilth.in</div>
+      </div>
+      <div>
+        <h2 class="fcol">Navigate</h2>
+        <ul>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/approach/">Approach</a></li>
+          <li><a href="/insights/">Insights</a></li>
+          <li><a href="/tools/">Tools</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fcol">Legal</h2>
+        <ul>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Service</a></li>
+          <li><a href="/cookie-policy/">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fcol">Social</h2>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tilth. All rights reserved.</span>
+      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var nA = document.getElementById('nA'), cA = document.getElementById('cA'),
+      nB = document.getElementById('nB'), cB = document.getElementById('cB');
+  var rAEl = document.getElementById('rA'), rBEl = document.getElementById('rB'),
+      upEl = document.getElementById('uplift'), confEl = document.getElementById('conf');
+  var vEl = document.getElementById('verdict'), vk = document.getElementById('vk'), vh = document.getElementById('vh'), vd = document.getElementById('vd');
+
+  function erf(x) { var s = x < 0 ? -1 : 1; x = Math.abs(x); var t = 1 / (1 + 0.3275911 * x);
+    var y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x); return s * y; }
+  function normCdf(z) { return 0.5 * (1 + erf(z / Math.SQRT2)); }
+  function pos(el, min) { var v = parseFloat(el.value); if (isNaN(v) || v < min) v = min; return v; }
+
+  function render() {
+    var NA = Math.max(1, Math.round(pos(nA, 1))), NB = Math.max(1, Math.round(pos(nB, 1)));
+    var CA = Math.min(NA, Math.max(0, Math.round(pos(cA, 0)))), CB = Math.min(NB, Math.max(0, Math.round(pos(cB, 0))));
+    var pA = CA / NA, pB = CB / NB;
+    var uplift = pA > 0 ? (pB - pA) / pA * 100 : (pB > 0 ? Infinity : 0);
+    var pooled = (CA + CB) / (NA + NB);
+    var se = Math.sqrt(pooled * (1 - pooled) * (1 / NA + 1 / NB));
+    var z = se > 0 ? (pB - pA) / se : 0;
+    var conf = se > 0 ? (1 - 2 * (1 - normCdf(Math.abs(z)))) * 100 : 0;
+    conf = Math.max(0, Math.min(100, conf));
+
+    rAEl.textContent = (pA * 100).toFixed(2);
+    rBEl.textContent = (pB * 100).toFixed(2);
+    upEl.textContent = isFinite(uplift) ? (uplift >= 0 ? '+' : '') + uplift.toFixed(1) : '∞';
+    confEl.textContent = conf.toFixed(1);
+
+    var minConv = Math.min(CA, CB);
+    if (minConv < 30) {
+      vEl.className = 'tk-verdict warn'; vk.textContent = 'Too little data';
+      vh.textContent = 'Keep the test running';
+      vd.textContent = 'With fewer than ~30 conversions in a variant, even a big-looking gap is unreliable. Confidence reads ' + conf.toFixed(1) + '%, but gather more data before trusting it.';
+    } else if (conf >= 95) {
+      var winner = pB > pA ? 'B' : 'A';
+      vEl.className = 'tk-verdict good'; vk.textContent = 'Significant';
+      vh.textContent = 'Variant ' + winner + ' wins at ' + conf.toFixed(1) + '% confidence';
+      vd.textContent = 'The difference is very unlikely to be random. Variant ' + winner + ' converts ' + (pB > pA ? 'higher' : 'higher') + ' — ' + (Math.abs(uplift)).toFixed(1) + '% ' + (pB >= pA ? 'uplift' : 'drop') + ' for B vs A. Still worth confirming it held across full weekly cycles.';
+    } else {
+      vEl.className = 'tk-verdict neutral'; vk.textContent = 'Not significant yet';
+      vh.textContent = conf.toFixed(1) + '% confidence — below 95%';
+      vd.textContent = 'The gap between the variants could still be chance. Don’t call it — keep the test running until confidence clears 95%, or accept there may be no real difference.';
+    }
+  }
+
+  [nA, cA, nB, cB].forEach(function (f) { f.addEventListener('input', render); });
+  render();
+})();
+</script>
+<script src="/nav.js" defer></script>
+</body>
+</html>
