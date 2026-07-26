@@ -238,7 +238,11 @@
 
 <script type="module">
 import { lookupBenchmark, classifyAgainst, scoreMetric } from '/tools/lib/benchmarks.js';
+import { track, trackOnce, scoreBand } from '/tools/lib/analytics.js';
 (function () {
+  track('tool_viewed', { tool: 'analyser' });
+  var currentCta = 'foundation', _rt;
+  function scheduleResultTrack(overall, n) { clearTimeout(_rt); _rt = setTimeout(function () { track('result_viewed', { tool: 'analyser', model: model, band: scoreBand(overall), metrics: n }); }, 1400); }
   // metric config per model
   var MODELS = {
     ecommerce: [
@@ -298,7 +302,7 @@ import { lookupBenchmark, classifyAgainst, scoreMetric } from '/tools/lib/benchm
         (pct ? '<span class="suf">%</span>' : '<span class="suf" style="right:auto;left:13px;color:var(--olive)">' + esc(m.unit) + '</span>') + '</span>';
       fieldsEl.appendChild(d);
     });
-    fieldsEl.querySelectorAll('input').forEach(function (i) { i.addEventListener('input', render); });
+    fieldsEl.querySelectorAll('input').forEach(function (i) { i.addEventListener('input', function () { trackOnce('an-started', 'tool_started', { tool: 'analyser' }); render(); }); });
   }
 
   function render() {
@@ -340,11 +344,12 @@ import { lookupBenchmark, classifyAgainst, scoreMetric } from '/tools/lib/benchm
       vEl.className = 'tk-verdict neutral'; scoreLbl.textContent = 'Marketing health score';
       vd.textContent = entered ? 'None of the metrics you entered have a verified benchmark for this context yet — try another, or see the sources page.' : 'Enter at least one metric to see your score.';
       priorityCard.hidden = true; quality.hidden = true;
-      ctaH.textContent = CTA.foundation.h; ctaP.textContent = CTA.foundation.t; ctaBtnT.textContent = CTA.foundation.b;
+      currentCta = 'foundation'; ctaH.textContent = CTA.foundation.h; ctaP.textContent = CTA.foundation.t; ctaBtnT.textContent = CTA.foundation.b;
       return;
     }
 
     var overall = Math.round(scored.reduce(function (s, x) { return s + x.score; }, 0) / scored.length);
+    scheduleResultTrack(overall, scored.length);
     scoreEl.textContent = overall;
     gaugeEl.style.width = overall + '%'; gaugeEl.style.background = color(overall);
     vEl.className = 'tk-verdict ' + (overall >= 70 ? 'good' : overall >= 50 ? 'warn' : 'bad');
@@ -379,7 +384,8 @@ import { lookupBenchmark, classifyAgainst, scoreMetric } from '/tools/lib/benchm
     quality.hidden = false;
 
     // contextual CTA from weakest actionable metric
-    var cta = (ACTIONS[weakest.m.metric] && CTA[ACTIONS[weakest.m.metric].cta]) || CTA.foundation;
+    currentCta = (ACTIONS[weakest.m.metric] && ACTIONS[weakest.m.metric].cta) || 'foundation';
+    var cta = CTA[currentCta] || CTA.foundation;
     ctaH.textContent = cta.h; ctaP.textContent = cta.t; ctaBtnT.textContent = cta.b;
   }
 
@@ -388,9 +394,11 @@ import { lookupBenchmark, classifyAgainst, scoreMetric } from '/tools/lib/benchm
       document.querySelectorAll('#anModels .anm').forEach(function (x) { x.classList.toggle('active', x === b); });
       model = b.getAttribute('data-m');
       buildFields(); render();
+      track('business_model_selected', { tool: 'analyser', model: model });
     });
   });
   segEl.addEventListener('change', render);
+  document.getElementById('ctaBtn').addEventListener('click', function () { track('cta_clicked', { tool: 'analyser', cta: currentCta }); });
   buildFields(); render();
 })();
 </script>
