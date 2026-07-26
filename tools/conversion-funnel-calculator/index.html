@@ -39,6 +39,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<style>
+  .fmodes { display: flex; flex-wrap: wrap; gap: 8px; margin: 34px 0 6px; }
+  .ftpl { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; }
+  .fpill { font-family: 'Work Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--text); background: transparent; border: 1px solid var(--rule); border-radius: 40px; padding: 8px 16px; cursor: pointer; transition: color .3s, border-color .3s, background .3s; }
+  .fpill:hover { color: var(--ink); border-color: var(--glow); }
+  .fpill.active { background: var(--glow); border-color: var(--glow); color: var(--bg); }
+  .stage-row { display: grid; grid-template-columns: 1fr 108px 104px 28px; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid var(--rule); }
+  .stage-row:first-child { border-top: 0; }
+  .stage-row .sname { background: var(--bg); border: 1px solid var(--rule); border-radius: 8px; padding: 8px 10px; color: var(--ink); font-family: 'Work Sans', sans-serif; font-size: 14px; font-weight: 500; min-width: 0; }
+  .stage-row .scount { background: var(--bg); border: 1px solid var(--rule); border-radius: 8px; padding: 8px 10px; color: var(--ink); font-family: 'Work Sans', sans-serif; font-size: 14px; font-weight: 600; text-align: right; min-width: 0; }
+  .stage-row input:focus { outline: none; border-color: var(--glow); }
+  .stage-row .sconv { font-size: 11.5px; color: var(--olive); white-space: nowrap; text-align: right; }
+  .stage-row.leak .sconv { color: var(--terra); font-weight: 600; }
+  .srm { background: transparent; border: 0; color: var(--olive); cursor: pointer; font-size: 18px; line-height: 1; padding: 4px; }
+  .srm:hover { color: var(--terra); }
+  .sadd { margin-top: 12px; background: transparent; border: 1px dashed var(--rule); border-radius: 8px; color: var(--glow); font-weight: 600; font-size: 13px; padding: 9px 14px; cursor: pointer; width: 100%; }
+  .sadd:hover { border-color: var(--glow); }
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -94,10 +112,16 @@
   <div class="wrap">
     <div class="tk-crumb"><a href="/tools/">Free Tools</a> &nbsp;/&nbsp; Conversion Funnel Calculator</div>
 
+    <div class="fmodes" role="tablist" aria-label="Calculator mode">
+      <button class="fpill active" id="mSimple" type="button" role="tab" aria-selected="true">Simple</button>
+      <button class="fpill" id="mFunnel" type="button" role="tab" aria-selected="false">Multi-stage funnel</button>
+    </div>
+
+    <div id="simpleMode">
     <div class="tk-calc">
       <div class="tk-panel">
         <h2>Your funnel</h2>
-        <p class="tk-sub">Monthly figures — drag or type.</p>
+        <p class="tk-sub">Traffic-to-revenue — monthly figures, drag or type.</p>
 
         <div class="tk-field">
           <div class="tk-ftop"><div><label class="tk-label" for="visitors">Monthly visitors</label><div class="tk-hint">Sessions to your site</div></div>
@@ -150,6 +174,50 @@
         </div>
       </div>
     </div>
+    </div><!-- /simpleMode -->
+
+    <div id="funnelMode" hidden>
+      <div class="ftpl" id="ftpl" role="tablist" aria-label="Funnel template">
+        <button class="fpill active" data-t="ecom" type="button">Ecommerce</button>
+        <button class="fpill" data-t="b2b" type="button">B2B / SaaS</button>
+        <button class="fpill" data-t="app" type="button">Mobile app</button>
+        <button class="fpill" data-t="lead" type="button">Lead gen</button>
+      </div>
+      <div class="tk-calc">
+        <div class="tk-panel">
+          <h2>Your funnel stages</h2>
+          <p class="tk-sub">Edit names, enter counts, add or remove stages. Conversion and drop-off compute live.</p>
+          <div id="stageList"></div>
+          <button class="sadd" id="addStage" type="button">+ Add stage</button>
+          <div class="tk-field" style="margin-top:20px;">
+            <div class="tk-ftop"><div><label class="tk-label" for="fval">Value per final conversion</label><div class="tk-hint">Revenue per last-stage conversion</div></div>
+              <span class="tk-val"><span class="pre">₹</span><input type="number" id="fval" min="0" step="50" value="1500" inputmode="numeric"></span></div>
+          </div>
+        </div>
+        <div class="tk-results">
+          <div class="tk-verdict neutral" id="f_verdict" aria-live="polite">
+            <div class="k">Biggest leak</div>
+            <div class="headline" id="f_leak">—</div>
+            <div class="detail" id="f_leakd">—</div>
+          </div>
+          <div class="tk-rcard">
+            <div class="k">Overall conversion</div>
+            <div class="v"><span id="f_overall">—</span><span class="unit">%</span></div>
+            <p class="exp">Final stage ÷ first stage — the share of the top of the funnel that makes it all the way through.</p>
+          </div>
+          <div class="tk-rcard">
+            <div class="k">Revenue from this funnel</div>
+            <div class="v">₹<span id="f_rev">—</span></div>
+            <p class="exp">Final-stage conversions × value per conversion.</p>
+          </div>
+          <div class="tk-rcard">
+            <div class="k">Fix the weakest step</div>
+            <div class="v" style="font-size:26px;"><span id="f_impact">—</span></div>
+            <p class="exp" id="f_impactExp">—</p>
+          </div>
+        </div>
+      </div>
+    </div><!-- /funnelMode -->
 
     <div class="tk-note">
       <p><strong>Small rate, big lever.</strong> Notice how a fraction of a percent of conversion rate moves revenue as much as thousands of extra visitors — usually far cheaper, too. Before buying more traffic, it's almost always worth fixing what happens to the traffic you already have.</p>
@@ -258,6 +326,101 @@
   });
   goal.addEventListener('input', render);
   render();
+})();
+</script>
+<script>
+(function () {
+  var TPL = {
+    ecom: [['Sessions',10000],['Product views',4000],['Add to cart',1200],['Checkout',600],['Purchase',300],['Repeat purchase',90]],
+    b2b:  [['Visitors',8000],['Leads',800],['MQLs',400],['SQLs',160],['Opportunities',60],['Customers',18]],
+    app:  [['Ad clicks',20000],['Installs',6000],['Registrations',3000],['Activations',1500],['Purchases',300],['Retained users',180]],
+    lead: [['Traffic',5000],['Enquiries',500],['Qualified leads',250],['Appointments',100],['Customers',30]]
+  };
+  var listEl = document.getElementById('stageList');
+  if (!listEl) return;
+  var stages = TPL.ecom.map(function (s) { return { name: s[0], count: s[1] }; });
+  function inr(n) { return Math.round(n).toLocaleString('en-IN'); }
+
+  function renderList() {
+    listEl.innerHTML = '';
+    stages.forEach(function (s, i) {
+      var row = document.createElement('div'); row.className = 'stage-row';
+      var name = document.createElement('input'); name.className = 'sname'; name.type = 'text'; name.value = s.name; name.setAttribute('aria-label', 'Stage ' + (i + 1) + ' name');
+      name.addEventListener('input', function () { s.name = name.value; compute(); });
+      var count = document.createElement('input'); count.className = 'scount'; count.type = 'number'; count.min = '0'; count.step = '1'; count.value = s.count; count.inputMode = 'numeric'; count.setAttribute('aria-label', s.name + ' count');
+      count.addEventListener('input', function () { s.count = Math.max(0, parseFloat(count.value) || 0); compute(); });
+      var conv = document.createElement('div'); conv.className = 'sconv'; conv.id = 'conv' + i;
+      var rm = document.createElement('button'); rm.className = 'srm'; rm.type = 'button'; rm.innerHTML = '×'; rm.title = 'Remove stage'; rm.setAttribute('aria-label', 'Remove ' + s.name);
+      rm.addEventListener('click', function () { if (stages.length > 2) { stages.splice(i, 1); renderList(); compute(); } });
+      row.appendChild(name); row.appendChild(count); row.appendChild(conv); row.appendChild(rm);
+      listEl.appendChild(row);
+    });
+  }
+
+  function compute() {
+    var rows = listEl.querySelectorAll('.stage-row');
+    var worstIdx = -1, worstRate = Infinity;
+    for (var i = 0; i < stages.length; i++) {
+      var conv = document.getElementById('conv' + i);
+      rows[i].classList.remove('leak');
+      if (i === 0) { conv.textContent = 'top of funnel'; continue; }
+      var prev = stages[i - 1].count, cur = stages[i].count;
+      var rate = prev > 0 ? cur / prev : 0;
+      conv.textContent = (rate * 100).toFixed(1) + '% · −' + Math.round(prev > 0 ? (1 - rate) * 100 : 0) + '%';
+      if (prev > 0 && rate < worstRate) { worstRate = rate; worstIdx = i; }
+    }
+    if (worstIdx > 0) rows[worstIdx].classList.add('leak');
+
+    var first = stages[0].count, last = stages[stages.length - 1].count;
+    document.getElementById('f_overall').textContent = (first > 0 ? last / first * 100 : 0).toFixed(2);
+    var val = Math.max(0, parseFloat(document.getElementById('fval').value) || 0);
+    document.getElementById('f_rev').textContent = inr(last * val);
+
+    var lk = document.getElementById('f_leak'), lkd = document.getElementById('f_leakd'), fv = document.getElementById('f_verdict');
+    if (worstIdx > 0) {
+      lk.textContent = stages[worstIdx - 1].name + ' → ' + stages[worstIdx].name + ' (' + (worstRate * 100).toFixed(1) + '%)';
+      lkd.textContent = 'This step loses the largest share of people relative to the one before it. Fixing the biggest leak usually beats pouring more traffic in at the top.';
+      fv.className = 'tk-verdict bad';
+    } else { lk.textContent = '—'; lkd.textContent = 'Enter at least two stages with counts.'; fv.className = 'tk-verdict neutral'; }
+
+    var rates = []; for (var j = 1; j < stages.length; j++) { var p = stages[j - 1].count; if (p > 0) rates.push(stages[j].count / p); }
+    var impact = document.getElementById('f_impact'), impactExp = document.getElementById('f_impactExp');
+    if (worstIdx > 0 && rates.length >= 2 && worstRate > 0) {
+      var sorted = rates.slice().sort(function (a, b) { return a - b; });
+      var median = sorted[Math.floor(sorted.length / 2)];
+      if (median > worstRate) {
+        var newLast = last * (median / worstRate), gain = newLast - last;
+        impact.textContent = '+' + inr(gain);
+        impactExp.textContent = 'If ' + stages[worstIdx - 1].name + '→' + stages[worstIdx].name + ' improved from ' + (worstRate * 100).toFixed(1) + '% to the funnel median ' + (median * 100).toFixed(1) + '%, final conversions rise from ' + inr(last) + ' to ' + inr(newLast) + ' — about +₹' + inr(gain * val) + ' from the same traffic.';
+      } else {
+        impact.textContent = '—';
+        impactExp.textContent = 'Your weakest step is already at or above the funnel median — the next gain is likely elsewhere, or needs a step-change rather than a tweak.';
+      }
+    } else { impact.textContent = '—'; impactExp.textContent = 'Add more stages to model an improvement.'; }
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('#ftpl .fpill'), function (b) {
+    b.addEventListener('click', function () {
+      Array.prototype.forEach.call(document.querySelectorAll('#ftpl .fpill'), function (x) { x.classList.toggle('active', x === b); });
+      stages = TPL[b.getAttribute('data-t')].map(function (s) { return { name: s[0], count: s[1] }; });
+      renderList(); compute();
+    });
+  });
+  document.getElementById('addStage').addEventListener('click', function () { stages.push({ name: 'New stage', count: Math.round((stages[stages.length - 1].count || 100) * 0.5) }); renderList(); compute(); });
+  document.getElementById('fval').addEventListener('input', compute);
+  renderList(); compute();
+
+  // ===== SIMPLE / FUNNEL TOGGLE =====
+  var simpleMode = document.getElementById('simpleMode'), funnelMode = document.getElementById('funnelMode');
+  var mSimple = document.getElementById('mSimple'), mFunnel = document.getElementById('mFunnel');
+  function setFMode(fn) {
+    funnelMode.hidden = !fn; simpleMode.hidden = fn;
+    mFunnel.classList.toggle('active', fn); mSimple.classList.toggle('active', !fn);
+    mFunnel.setAttribute('aria-selected', fn ? 'true' : 'false'); mSimple.setAttribute('aria-selected', fn ? 'false' : 'true');
+    if (fn) compute();
+  }
+  mSimple.addEventListener('click', function () { setFMode(false); });
+  mFunnel.addEventListener('click', function () { setFMode(true); });
 })();
 </script>
 <script src="/nav.js" defer></script>
