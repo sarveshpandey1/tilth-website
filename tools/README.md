@@ -144,12 +144,13 @@ softened 3:1 framing; conversion funnel gained a real multi-stage mode.
 **Refactor:** A/B page now consumes `lib/calc.js`; hub rebuilt from `registry.js`.
 
 ### Remaining limitations / TODO
-- **Page→engine migration is partial.** Only the A/B page imports `lib/calc.js`
-  yet; ad-spend, LTV, funnel and UTM still hold their (test-equivalent) inline
+- **Page→engine migration is partial.** The A/B and **ad-spend** pages import
+  `lib/calc.js`; LTV, funnel and UTM still hold their (test-equivalent) inline
   maths. Migrate opportunistically — the formulas already match the tested engine.
-- **Multi-currency is built but not wired.** `format.js` supports INR/USD/GBP/
-  EUR/AED/SGD/AUD; the calculators still assume ₹. Add a currency selector that
-  drives `formatCurrency` per tool.
+- **Multi-currency is wired into ad-spend** (INR/USD/GBP/EUR/AED/SGD/AUD via a
+  selector + `formatCurrency`, persisted in `localStorage`); LTV and funnel
+  still assume ₹. Apply the same pattern (currency `<select>` → `money()` →
+  `updateSymbols()`) to finish them.
 - **Benchmarks are Global/US-weighted.** India-specific data is thin; the set is
   ~14 rate metrics (depth over breadth) and labelled as such. Expand as sourced.
 - **Ad-spend calculator route** still lives at `/ad-spend-calculator/`, not

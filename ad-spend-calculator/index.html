@@ -161,9 +161,16 @@
   <div class="wrap">
     <div class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Ad Spend Calculator</div>
 
-    <div class="modes" role="tablist" aria-label="Calculator mode">
-      <button class="mode-pill active" id="mBasic" data-mode="basic" role="tab" aria-selected="true" type="button">Basic</button>
-      <button class="mode-pill" id="mAdv" data-mode="advanced" role="tab" aria-selected="false" type="button">Advanced</button>
+    <div style="display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;justify-content:space-between;margin-top:34px;">
+      <div class="modes" role="tablist" aria-label="Calculator mode" style="margin-top:0;">
+        <button class="mode-pill active" id="mBasic" data-mode="basic" role="tab" aria-selected="true" type="button">Basic</button>
+        <button class="mode-pill" id="mAdv" data-mode="advanced" role="tab" aria-selected="false" type="button">Advanced</button>
+      </div>
+      <label style="font-size:13px;color:var(--olive);display:inline-flex;align-items:center;gap:8px;">Currency
+        <select id="cur" style="background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:7px 10px;color:var(--ink);font-family:'Work Sans',sans-serif;font-size:14px;">
+          <option value="INR">₹ INR</option><option value="USD">$ USD</option><option value="GBP">£ GBP</option><option value="EUR">€ EUR</option><option value="AED">AED</option><option value="SGD">S$ SGD</option><option value="AUD">A$ AUD</option>
+        </select>
+      </label>
     </div>
 
     <div id="basicMode">
@@ -223,7 +230,7 @@
 
           <div class="rcard">
             <div class="k">Max profitable cost per customer</div>
-            <div class="v">₹<span id="maxcac">800</span></div>
+            <div class="v"><span id="maxcac">₹800</span></div>
             <p class="exp">Pay more than this to acquire a customer and you lose money on the first order. This is your breakeven CAC.</p>
           </div>
         </div>
@@ -259,12 +266,12 @@
           </div>
           <div class="rcard">
             <div class="k">Contribution margin per order</div>
-            <div class="v">₹<span id="a_contrib">—</span></div>
+            <div class="v"><span id="a_contrib">—</span></div>
             <p class="exp" id="a_contribExp">—</p>
           </div>
           <div class="rcard">
             <div class="k">Break-even CAC &nbsp;·&nbsp; Target CAC</div>
-            <div class="v">₹<span id="a_beCac">—</span> &nbsp;·&nbsp; ₹<span id="a_tgtCac">—</span></div>
+            <div class="v"><span id="a_beCac">—</span> &nbsp;·&nbsp; <span id="a_tgtCac">—</span></div>
             <p class="exp">Break-even CAC is the most you can spend per customer without losing money. Target CAC is what leaves your desired <span id="a_dmEcho">15</span>% margin.</p>
           </div>
           <div class="rcard">
@@ -274,7 +281,7 @@
           </div>
           <div class="rcard">
             <div class="k">Where the order value goes</div>
-            <div class="v">₹<span id="a_net">—</span><span class="unit"> net rev</span></div>
+            <div class="v"><span id="a_net">—</span><span class="unit"> net rev</span></div>
             <p class="exp" id="a_breakdown">—</p>
           </div>
         </div>
@@ -349,8 +356,12 @@
   </div>
 </footer>
 
-<script>
+<script type="module">
+import { adSpendBasic, adSpendAdvanced } from '/tools/lib/calc.js';
+import { formatCurrency, CURRENCIES } from '/tools/lib/format.js';
+import { track, trackOnce } from '/tools/lib/analytics.js';
 (function () {
+  track('tool_viewed', { tool: 'ad-spend' });
   var aov = document.getElementById('aov'), aovR = document.getElementById('aov_r');
   var margin = document.getElementById('margin'), marginR = document.getElementById('margin_r');
   var cac = document.getElementById('cac'), cacR = document.getElementById('cac_r');
@@ -358,7 +369,13 @@
   var vEl = document.getElementById('verdict'), vK = document.getElementById('verdict_k'),
       vH = document.getElementById('verdict_h'), vD = document.getElementById('verdict_d');
 
-  function inr(n) { return Math.round(n).toLocaleString('en-IN'); }
+  var curSel = document.getElementById('cur');
+  var cur = 'INR';
+  try { var _s = localStorage.getItem('tilth-cur'); if (_s && CURRENCIES[_s]) cur = _s; } catch (e) {}
+  curSel.value = cur;
+  function money(n) { return formatCurrency(n, cur); }
+  function updateSymbols() { var sym = CURRENCIES[cur].symbol; document.querySelectorAll('.field__val .pre').forEach(function (p) { p.textContent = sym; }); }
+
   function num(el, min, max) {
     var v = parseFloat(el.value);
     if (isNaN(v)) v = min;
@@ -370,17 +387,11 @@
   }
 
   function render() {
-    var A = num(aov, 0, 1e9);
-    var M = num(margin, 1, 99);
-    var C = num(cac, 0, 1e9);
+    var A = num(aov, 0, 1e9), M = num(margin, 1, 99), C = num(cac, 0, 1e9);
+    var r = adSpendBasic({ aov: A, marginPct: M, cac: C });
 
-    var mf = M / 100;
-    var grossProfit = A * mf;         // profit per order before marketing
-    var breakevenROAS = 1 / mf;       // revenue/adspend needed to break even
-    var maxCAC = grossProfit;         // most you can pay per customer at breakeven
-
-    roasEl.textContent = breakevenROAS.toFixed(breakevenROAS >= 10 ? 0 : 1);
-    maxcacEl.textContent = inr(maxCAC);
+    roasEl.textContent = r.breakevenROAS.toFixed(r.breakevenROAS >= 10 ? 0 : 1);
+    maxcacEl.textContent = money(r.maxCAC);
 
     if (C <= 0) {
       vEl.className = 'verdict neutral';
@@ -389,33 +400,31 @@
       vD.textContent = 'Add what you currently pay to acquire a customer to see whether you’re above or below breakeven.';
       return;
     }
-
-    var headroom = maxCAC - C;        // + = profit per order, - = loss per order
-    var currentROAS = C > 0 ? A / C : 0;
-
-    if (headroom >= 0) {
+    if (r.headroom >= 0) {
       vEl.className = 'verdict good';
       vK.textContent = 'Profitable';
-      vH.textContent = '₹' + inr(headroom) + ' profit per order';
-      vD.textContent = 'At ₹' + inr(C) + ' per customer you clear breakeven. Your current ROAS is about ' +
-        currentROAS.toFixed(1) + '× vs a ' + breakevenROAS.toFixed(1) + '× breakeven — there’s room to scale, if the tracking behind these numbers is sound.';
+      vH.textContent = money(r.headroom) + ' profit per order';
+      vD.textContent = 'At ' + money(C) + ' per customer you clear breakeven. Your current ROAS is about ' +
+        r.currentROAS.toFixed(1) + '× vs a ' + r.breakevenROAS.toFixed(1) + '× breakeven — there’s room to scale, if the tracking behind these numbers is sound.';
     } else {
       vEl.className = 'verdict bad';
       vK.textContent = 'Underwater';
-      vH.textContent = 'Losing ₹' + inr(-headroom) + ' per order';
-      vD.textContent = 'At ₹' + inr(C) + ' per customer you’re paying more than the ₹' + inr(maxCAC) +
-        ' you make in margin. Your ROAS is about ' + currentROAS.toFixed(1) + '× but you need ' +
-        breakevenROAS.toFixed(1) + '× to break even. More spend just loses faster.';
+      vH.textContent = 'Losing ' + money(-r.headroom) + ' per order';
+      vD.textContent = 'At ' + money(C) + ' per customer you’re paying more than the ' + money(r.maxCAC) +
+        ' you make in margin. Your ROAS is about ' + r.currentROAS.toFixed(1) + '× but you need ' +
+        r.breakevenROAS.toFixed(1) + '× to break even. More spend just loses faster.';
     }
   }
 
   // wire number <-> range pairs
   [[aov, aovR], [margin, marginR], [cac, cacR]].forEach(function (pair) {
-    var n = pair[0], r = pair[1];
-    r.addEventListener('input', function () { n.value = r.value; render(); });
-    n.addEventListener('input', function () { sync(n, r); render(); });
+    var n = pair[0], rg = pair[1];
+    rg.addEventListener('input', function () { n.value = rg.value; render(); });
+    n.addEventListener('input', function () { sync(n, rg); render(); });
   });
+  [aov, margin, cac].forEach(function (el) { el.addEventListener('input', function () { trackOnce('adspend-started', 'tool_started', { tool: 'ad-spend' }); }); });
 
+  updateSymbols();
   render();
 
   // ===== ADVANCED MODE — full contribution-margin economics =====
@@ -435,56 +444,36 @@
     var sp = av('sp',0,1e9), pc = av('pc',0,1e9), ship = av('ship',0,1e9), ful = av('ful',0,1e9),
         gw = av('gw',0,100), plat = av('plat',0,100), disc = av('disc',0,95), ret = av('ret',0,100),
         acac = av('acac',0,1e9), dm = av('dm',0,99);
+    var res = adSpendAdvanced({ sp: sp, pc: pc, ship: ship, ful: ful, gwPct: gw, platPct: plat, discPct: disc, retPct: ret, cac: acac, dmPct: dm });
 
-    var netPrice = sp * (1 - disc/100);
-    var gwFee = netPrice * gw/100, platFee = netPrice * plat/100, fees = gwFee + platFee;
-    var varCost = pc + ship + ful + fees;
-    var contribKept = netPrice - varCost;
-    var r = ret/100;
-    var returnCost = ship + ful + fees;                 // product recovered; these are lost on a return
-    var effContrib = (1-r)*contribKept - r*returnCost;
-    var realizedRev = (1-r)*netPrice;
-    var beCac = effContrib;
-    var targetProfit = dm/100 * realizedRev;
-    var tgtCac = effContrib - targetProfit;
-    var beRoas = beCac > 0 ? realizedRev/beCac : Infinity;
-    var tgtRoas = tgtCac > 0 ? realizedRev/tgtCac : Infinity;
-    var profitAfterAd = effContrib - acac;
-
-    var returnsDrag = contribKept - effContrib;
-    var netPrice0 = sp, gwFee0 = netPrice0*gw/100, platFee0 = netPrice0*plat/100;
-    var contribKept0 = netPrice0 - (pc + ship + ful + gwFee0 + platFee0);
-    var effContrib0 = (1-r)*contribKept0 - r*(ship + ful + gwFee0 + platFee0);
-    var discountDrag = effContrib0 - effContrib;
-
-    a_contrib.textContent = inr(contribKept);
-    var contribPct = netPrice > 0 ? Math.round(contribKept/netPrice*100) : 0;
-    a_contribExp.textContent = '≈ ' + contribPct + '% of net revenue. After a ' + Math.round(ret) + '% return rate, effective contribution is ₹' + inr(effContrib) + ' per acquired order — that’s what your CAC comes out of.';
-    a_beCac.textContent = inr(beCac);
-    a_tgtCac.textContent = inr(tgtCac);
+    a_contrib.textContent = money(res.contribKept);
+    var contribPct = res.netPrice > 0 ? Math.round(res.contribKept / res.netPrice * 100) : 0;
+    a_contribExp.textContent = '≈ ' + contribPct + '% of net revenue. After a ' + Math.round(ret) + '% return rate, effective contribution is ' + money(res.effContrib) + ' per acquired order — that’s what your CAC comes out of.';
+    a_beCac.textContent = money(res.beCac);
+    a_tgtCac.textContent = money(res.tgtCac);
     a_dmEcho.textContent = Math.round(dm);
-    a_beRoas.textContent = roasFmt(beRoas);
-    a_tgtRoas.textContent = roasFmt(tgtRoas);
-    a_net.textContent = inr(netPrice);
-    a_breakdown.textContent = 'Net revenue ₹' + inr(netPrice) + ' − variable costs ₹' + inr(varCost) +
-      ' (product ₹' + inr(pc) + ', shipping ₹' + inr(ship) + ', fulfilment ₹' + inr(ful) + ', fees ₹' + inr(fees) + ') = ₹' + inr(contribKept) +
-      ' contribution. Returns cost ₹' + inr(returnsDrag) + '/order; discounts cost ₹' + inr(discountDrag) + '/order.';
+    a_beRoas.textContent = roasFmt(res.beRoas);
+    a_tgtRoas.textContent = roasFmt(res.tgtRoas);
+    a_net.textContent = money(res.netPrice);
+    a_breakdown.textContent = 'Net revenue ' + money(res.netPrice) + ' − variable costs ' + money(res.varCost) +
+      ' (product ' + money(pc) + ', shipping ' + money(ship) + ', fulfilment ' + money(ful) + ', fees ' + money(res.fees) + ') = ' + money(res.contribKept) +
+      ' contribution. Returns cost ' + money(res.returnsDrag) + '/order; discounts cost ' + money(res.discountDrag) + '/order.';
 
-    if (effContrib <= 0) {
+    if (res.effContrib <= 0) {
       a_verdict.className = 'verdict bad'; a_vk.textContent = 'Underwater before ad spend';
       a_vh.textContent = 'No room for CAC';
-      a_vd.textContent = 'Your costs, discounts and returns already eat the whole order — effective contribution is ₹' + inr(effContrib) + '. There’s nothing left to pay for acquisition. Fix the unit economics before spending on ads.';
-    } else if (profitAfterAd >= 0) {
+      a_vd.textContent = 'Your costs, discounts and returns already eat the whole order — effective contribution is ' + money(res.effContrib) + '. There’s nothing left to pay for acquisition. Fix the unit economics before spending on ads.';
+    } else if (res.profitAfterAd >= 0) {
       a_verdict.className = 'verdict good'; a_vk.textContent = 'Profitable after ads';
-      a_vh.textContent = '₹' + inr(profitAfterAd) + ' profit per order';
-      a_vd.textContent = 'At ₹' + inr(acac) + ' CAC you clear the ₹' + inr(beCac) + ' break-even. To hit a ' + Math.round(dm) + '% margin you’d keep CAC under ₹' + inr(Math.max(0,tgtCac)) + '. Break-even ROAS is ' + roasFmt(beRoas) + '×.';
+      a_vh.textContent = money(res.profitAfterAd) + ' profit per order';
+      a_vd.textContent = 'At ' + money(acac) + ' CAC you clear the ' + money(res.beCac) + ' break-even. To hit a ' + Math.round(dm) + '% margin you’d keep CAC under ' + money(Math.max(0, res.tgtCac)) + '. Break-even ROAS is ' + roasFmt(res.beRoas) + '×.';
     } else {
       a_verdict.className = 'verdict bad'; a_vk.textContent = 'Losing money after ads';
-      a_vh.textContent = 'Losing ₹' + inr(-profitAfterAd) + ' per order';
-      a_vd.textContent = 'Your ₹' + inr(acac) + ' CAC is above the ₹' + inr(beCac) + ' break-even. You need CAC under ₹' + inr(beCac) + ' just to stop losing money, and under ₹' + inr(Math.max(0,tgtCac)) + ' to hit a ' + Math.round(dm) + '% margin.';
+      a_vh.textContent = 'Losing ' + money(-res.profitAfterAd) + ' per order';
+      a_vd.textContent = 'Your ' + money(acac) + ' CAC is above the ' + money(res.beCac) + ' break-even. You need CAC under ' + money(res.beCac) + ' just to stop losing money, and under ' + money(Math.max(0, res.tgtCac)) + ' to hit a ' + Math.round(dm) + '% margin.';
     }
   }
-  advIds.forEach(function (id) { A2[id].addEventListener('input', renderAdv); });
+  advIds.forEach(function (id) { A2[id].addEventListener('input', function () { trackOnce('adspend-started', 'tool_started', { tool: 'ad-spend' }); renderAdv(); }); });
 
   // ===== MODE TOGGLE =====
   var basicMode = document.getElementById('basicMode'), advMode = document.getElementById('advMode');
@@ -498,6 +487,19 @@
   }
   mBasic.addEventListener('click', function () { setMode(false); });
   mAdv.addEventListener('click', function () { setMode(true); });
+
+  // ===== CURRENCY =====
+  curSel.addEventListener('change', function () {
+    cur = CURRENCIES[curSel.value] ? curSel.value : 'INR';
+    try { localStorage.setItem('tilth-cur', cur); } catch (e) {}
+    updateSymbols(); render(); renderAdv();
+    track('currency_changed', { tool: 'ad-spend', currency: cur });
+  });
+
+  // ===== CTA analytics =====
+  var ctaBtn = document.querySelector('.calc-cta .btn');
+  if (ctaBtn) ctaBtn.addEventListener('click', function () { track('cta_clicked', { tool: 'ad-spend', cta: 'measurement' }); });
+
   renderAdv();
 })();
 </script>
