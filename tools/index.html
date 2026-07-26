@@ -39,6 +39,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<style>
+  .hub-filters { margin: 30px 0 24px; }
+  .hub-f-label { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--glow); font-weight: 600; margin-bottom: 12px; }
+  .hub-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .hub-pill { font-family: 'Work Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--text); background: transparent; border: 1px solid var(--rule); border-radius: 40px; padding: 8px 16px; cursor: pointer; transition: color .3s, border-color .3s, background .3s; }
+  .hub-pill:hover { color: var(--ink); border-color: var(--glow); }
+  .hub-pill.active { background: var(--glow); border-color: var(--glow); color: var(--bg); }
+  .hub-row { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; justify-content: space-between; }
+  .hub-models { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .hub-models .hub-f-label { margin: 0 4px 0 0; }
+  .hub-search { background: var(--bg); border: 1px solid var(--rule); border-radius: 40px; padding: 9px 18px; color: var(--ink); font-family: 'Work Sans', sans-serif; font-size: 14px; flex: 1; min-width: 180px; max-width: 280px; }
+  .hub-search:focus { outline: none; border-color: var(--glow); }
+  .tool-meta { font-size: 11.5px; color: var(--olive); margin-bottom: 16px; line-height: 1.6; }
+  .tool-meta .bm { color: var(--glow); font-weight: 600; }
+  .featured { display: block; background: var(--surface); border: 1px solid rgba(170,197,108,.5); border-radius: 18px; padding: 30px 30px 28px; margin-top: 30px; transition: transform .4s var(--ease), box-shadow .4s; }
+  .featured:hover { transform: translateY(-3px); box-shadow: 0 18px 44px -26px rgba(0,0,0,.55); }
+  .featured .tag { display: inline-block; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 700; color: var(--terra); border: 1px solid rgba(226,136,90,.5); border-radius: 20px; padding: 2px 9px; margin-bottom: 14px; }
+  .featured h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(24px, 3.4vw, 32px); color: var(--ink); letter-spacing: -.5px; margin-bottom: 10px; }
+  .featured p { color: var(--text); max-width: 60ch; margin-bottom: 14px; }
+  .featured .go { color: var(--glow); font-weight: 600; font-size: 14px; }
+  .hub-empty { margin-top: 24px; font-family: 'Fraunces', serif; font-style: italic; color: var(--olive); }
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -92,58 +114,37 @@
 
 <section class="tk">
   <div class="wrap">
-    <div class="tools-grid">
+    <!-- Featured flagship (rendered from the registry) -->
+    <div id="featured"></div>
 
-      <a class="tool-card" href="/tools/marketing-benchmark-analyser/" style="border-color:rgba(170,197,108,.5);">
-        <span class="cat" style="color:var(--terra)">Flagship · Diagnose</span>
-        <h2>Marketing Benchmark Analyser</h2>
-        <p>Enter the metrics that fit your model, get a transparent health score against sourced benchmarks, your single biggest problem, and prioritised actions.</p>
-        <span class="go">Open tool →</span>
-      </a>
-
-      <a class="tool-card" href="/ad-spend-calculator/">
-        <span class="cat">Profitability</span>
-        <h2>Ad Spend Profitability Calculator</h2>
-        <p>Find your breakeven ROAS and the most you can pay to acquire a customer before you're losing money on the first order.</p>
-        <span class="go">Open tool →</span>
-      </a>
-
-      <a class="tool-card" href="/tools/ltv-cac-calculator/">
-        <span class="cat">Unit economics</span>
-        <h2>LTV : CAC Calculator</h2>
-        <p>Lifetime value, your LTV:CAC ratio, and payback period — the numbers that decide whether you can afford to pay more per customer.</p>
-        <span class="go">Open tool →</span>
-      </a>
-
-      <a class="tool-card" href="/tools/utm-builder/">
-        <span class="cat">Tracking</span>
-        <h2>UTM Campaign URL Builder</h2>
-        <p>Build correctly tagged campaign links so every click is attributable in GA4 — with a consistent naming convention, not guesswork.</p>
-        <span class="go">Open tool →</span>
-      </a>
-
-      <a class="tool-card" href="/tools/ab-test-calculator/">
-        <span class="cat">Experimentation</span>
-        <h2>A/B Test Significance Calculator</h2>
-        <p>Is your winning variant actually winning — or is it noise? Check statistical significance before you call the test.</p>
-        <span class="go">Open tool →</span>
-      </a>
-
-      <a class="tool-card" href="/tools/conversion-funnel-calculator/">
-        <span class="cat">Planning</span>
-        <h2>Conversion Funnel Calculator</h2>
-        <p>Turn traffic, conversion rate, and order value into revenue — and reverse it to see the traffic a revenue goal actually needs.</p>
-        <span class="go">Open tool →</span>
-      </a>
-
+    <!-- Filters -->
+    <div class="hub-filters">
+      <div class="hub-f-label">What are you trying to solve?</div>
+      <div class="hub-pills" id="objPills"></div>
+      <div class="hub-row">
+        <div class="hub-models" id="modelPills"><span class="hub-f-label">For:</span></div>
+        <input type="search" id="hubSearch" class="hub-search" placeholder="Search tools…" aria-label="Search tools">
+      </div>
     </div>
 
-    <p style="margin-top:30px;font-size:14px;color:var(--olive);">Some tools compare your numbers against industry benchmarks. See exactly <a href="/tools/benchmarks/" style="color:var(--glow);border-bottom:1px solid var(--glow);">where those benchmarks come from and how we source them →</a></p>
+    <div class="tools-grid" id="toolGrid"></div>
+    <p class="hub-empty" id="hubEmpty" hidden>No tools match those filters — clear one to see more.</p>
+
+    <p style="margin-top:30px;font-size:14px;color:var(--olive);">Some tools compare your numbers against industry benchmarks — see exactly <a href="/tools/benchmarks/" style="color:var(--glow);border-bottom:1px solid var(--glow);">where those come from and how we source them →</a> &nbsp;·&nbsp; Everything runs in your browser: <strong style="color:var(--text)">no inputs are stored or sent anywhere.</strong></p>
 
     <div class="tk-cta">
       <h3>Numbers are only as honest as the tracking behind them</h3>
       <p>These tools assume your inputs are real. Most brands find their CAC, ROAS, and conversions are being mismeasured. A free foundation audit checks the tracking underneath — so the numbers you plug in actually mean something.</p>
       <a href="/contact/" class="btn"><span>Request a free audit</span><span aria-hidden="true">→</span></a>
+    </div>
+
+    <div class="tk-related" style="margin-top:44px;">
+      <h3>From the field notes</h3>
+      <ul>
+        <li><a href="/insights/audit-your-ad-spend/">How to tell if your ad spend is actually profitable →</a></li>
+        <li><a href="/insights/marketing-attribution-explained-simply/">Marketing attribution for small businesses, explained simply →</a></li>
+        <li><a href="/insights/startup-marketing-budget-india/">Marketing budget for an early-stage startup in India →</a></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -191,6 +192,62 @@
   </div>
 </footer>
 
+<script type="module">
+import { TOOLS, OBJECTIVES, MODELS, filterTools } from '/tools/lib/registry.js';
+(function () {
+  var state = { objective: '', model: '', query: '' };
+  var featured = document.getElementById('featured'), grid = document.getElementById('toolGrid'),
+      empty = document.getElementById('hubEmpty'), objPills = document.getElementById('objPills'),
+      modelPills = document.getElementById('modelPills'), search = document.getElementById('hubSearch');
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+  // featured flagship
+  var f = TOOLS.find(function (t) { return t.flagship; });
+  if (f) {
+    featured.innerHTML = '<a class="featured" href="' + f.route + '"><span class="tag">Flagship · ' + esc(f.category) + '</span>' +
+      '<h2>' + esc(f.name) + '</h2><p>' + esc(f.outcome) + '</p>' +
+      '<div class="tool-meta">' + esc(f.audience) + ' · ' + esc(f.time) + ' · <span class="bm">includes sourced benchmarks</span></div>' +
+      '<span class="go">Open the analyser →</span></a>';
+  }
+
+  // pills
+  function pill(label, active) { return '<button class="hub-pill' + (active ? ' active' : '') + '" type="button">' + esc(label) + '</button>'; }
+  objPills.innerHTML = pill('All', true) + OBJECTIVES.map(function (o) { return '<button class="hub-pill" type="button" data-obj="' + o.id + '">' + esc(o.label) + '</button>'; }).join('');
+  objPills.firstChild.setAttribute('data-obj', '');
+  modelPills.insertAdjacentHTML('beforeend', pill('Any', true) + MODELS.map(function (m) { return '<button class="hub-pill" type="button" data-model="' + m.id + '">' + esc(m.label) + '</button>'; }).join(''));
+  modelPills.querySelector('.hub-pill').setAttribute('data-model', '');
+
+  function card(t) {
+    var bm = t.benchmarks ? ' · <span class="bm">benchmarks</span>' : '';
+    return '<a class="tool-card" href="' + t.route + '">' +
+      '<span class="cat">' + esc(t.category) + bm + '</span>' +
+      '<h2>' + esc(t.name) + '</h2>' +
+      '<p>' + esc(t.outcome) + '</p>' +
+      '<div class="tool-meta">' + esc(t.audience) + ' · ' + esc(t.time) + '<br>Needs: ' + esc(t.inputs) + '</div>' +
+      '<span class="go">Open tool →</span></a>';
+  }
+
+  function render() {
+    var list = filterTools(state).filter(function (t) { return !t.flagship; });
+    grid.innerHTML = list.map(card).join('');
+    empty.hidden = list.length > 0;
+  }
+
+  objPills.addEventListener('click', function (e) {
+    var b = e.target.closest('.hub-pill'); if (!b) return;
+    objPills.querySelectorAll('.hub-pill').forEach(function (x) { x.classList.toggle('active', x === b); });
+    state.objective = b.getAttribute('data-obj') || ''; render();
+  });
+  modelPills.addEventListener('click', function (e) {
+    var b = e.target.closest('.hub-pill'); if (!b) return;
+    modelPills.querySelectorAll('.hub-pill').forEach(function (x) { x.classList.toggle('active', x === b); });
+    state.model = b.getAttribute('data-model') || ''; render();
+  });
+  search.addEventListener('input', function () { state.query = search.value; render(); });
+
+  render();
+})();
+</script>
 <script src="/nav.js" defer></script>
 </body>
 </html>
