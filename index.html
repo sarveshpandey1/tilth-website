@@ -856,10 +856,10 @@ html[data-theme="light"] .loader::before{opacity:.4}
 <!-- CLOSING -->
 <section class="closing">
   <div class="wrap">
-    <span class="label">Start here</span>
-    <h2>Get a <em>free</em> foundation audit.</h2>
-    <p>We'll review your current setup and tell you, honestly, what's broken — no pitch attached.</p>
-    <a href="/contact/" class="btn" data-magnetic><span>Request a free audit</span><span class="arrow">→</span></a>
+    <span class="label reveal">Start here</span>
+    <h2 class="reveal">Get a <em>free</em> foundation audit.</h2>
+    <p class="reveal">We'll review your current setup and tell you, honestly, what's broken — no pitch attached.</p>
+    <a href="/contact/" class="btn reveal" data-magnetic><span>Request a free audit</span><span class="arrow">→</span></a>
   </div>
 </section>
 </main>
@@ -996,11 +996,42 @@ html[data-theme="light"] .loader::before{opacity:.4}
   growthPaths.forEach(function(p){var L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L;p.dataset.len=L;var bb=p.getBBox();p.dataset.start=clamp((bb.y+bb.height-380)/420,0,0.6);});
 
   var scene=document.getElementById('scene'), stats=[].slice.call(document.querySelectorAll('.stat'));
-  function sceneUpdate(){var r=scene.getBoundingClientRect();var total=scene.offsetHeight-innerHeight;var prog=clamp((-r.top)/total,0,1);growthPaths.forEach(function(p){var start=parseFloat(p.dataset.start)||0;var local=clamp((prog-start)/(0.85-start),0,1);local=local<0?0:(1-Math.pow(1-local,2));p.style.strokeDashoffset=(p.dataset.len*(1-local));});stats.forEach(function(s){s.classList.toggle('in',prog>=parseFloat(s.dataset.at));});}
+  function sceneUpdate(){var r=scene.getBoundingClientRect();var total=scene.offsetHeight-innerHeight;var prog=clamp((-r.top)/total,0,1);growthPaths.forEach(function(p){var start=parseFloat(p.dataset.start)||0;var local=clamp((prog-start)/(0.85-start),0,1);local=local<0?0:(1-Math.pow(1-local,2));p.style.strokeDashoffset=(p.dataset.len*(1-local));});stats.forEach(function(s){var on=prog>=parseFloat(s.dataset.at);s.classList.toggle('in',on);if(on)runCountUp(s);});}
+
+  /* STAT COUNT-UP — numbers tick up the first time each stat reveals */
+  function initCountUp(){
+    stats.forEach(function(s){
+      var numEl=s.querySelector('.num'); if(!numEl)return;
+      var node=numEl.firstChild; if(!node||node.nodeType!==3)return;
+      var target=parseInt(node.nodeValue,10); if(isNaN(target))return;
+      s._ctNode=node; s._ctTarget=target; s._ct=false;
+      if(!reduce) node.nodeValue='0';
+    });
+  }
+  function runCountUp(s){
+    if(!s._ctNode||s._ct||reduce)return; s._ct=true;
+    var target=s._ctTarget,start=null,dur=900;
+    function step(t){if(start===null)start=t;var p=clamp((t-start)/dur,0,1);var e=1-Math.pow(1-p,3);s._ctNode.nodeValue=Math.round(e*target);if(p<1)requestAnimationFrame(step);else s._ctNode.nodeValue=target;}
+    requestAnimationFrame(step);
+  }
+  initCountUp();
+
+  /* HERO SCROLL PARALLAX — content drifts up + fades as you leave the hero */
+  var heroInner=hero?hero.querySelector('.hero__inner'):null, heroScrollEl=document.querySelector('.hero__scroll');
+  function heroParallax(){
+    if(reduce||!heroInner)return;
+    var h=hero.offsetHeight||innerHeight;
+    if(scrollY>h)return;
+    var p=clamp(scrollY/h,0,1);
+    heroInner.style.transform='translate3d(0,'+(p*64).toFixed(1)+'px,0)';
+    heroInner.style.opacity=(1-p*0.92).toFixed(3);
+    if(heroScrollEl)heroScrollEl.style.opacity=clamp(1-p*2.4,0,1).toFixed(3);
+  }
+
 
   /* SCROLL LOOP */
   var scheduled=false;
-  function scrollFrame(){navUpdate();barUpdate();sceneUpdate();stmtParallax();}
+  function scrollFrame(){navUpdate();barUpdate();sceneUpdate();stmtParallax();heroParallax();}
   function onScroll(){if(scheduled)return;scheduled=true;requestAnimationFrame(function(){scrollFrame();scheduled=false;});}
   addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll,{passive:true});scrollFrame();
 
