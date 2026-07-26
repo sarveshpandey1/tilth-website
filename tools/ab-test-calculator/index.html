@@ -134,16 +134,26 @@
           <p class="exp">How much better (or worse) B converts than A, in relative terms.</p>
         </div>
         <div class="tk-rcard">
-          <div class="k">Statistical confidence</div>
-          <div class="v"><span id="conf">—</span><span class="unit">%</span></div>
-          <p class="exp">The chance this difference is real, not random. A common bar to act is 95%+.</p>
+          <div class="k">Significance — two-sided p-value</div>
+          <div class="v">p = <span id="pval">—</span></div>
+          <p class="exp"><span id="confLine">—</span> A p-value under 0.05 means: <em>if the two variants truly performed the same</em>, a gap this large would appear less than 5% of the time. It is not the probability that B is better.</p>
+        </div>
+        <div class="tk-rcard">
+          <div class="k">95% confidence interval — B minus A</div>
+          <div class="v"><span id="ciLow">—</span> to <span id="ciHigh">—</span><span class="unit"> pp</span></div>
+          <p class="exp">The plausible range for the true difference in conversion rate, in percentage points. If this range includes zero, you can't yet rule out "no real difference".</p>
         </div>
       </div>
     </div>
 
     <div class="tk-note">
-      <p><strong>Confidence isn't the whole story.</strong> Even at 95%, run the test for full business cycles (weekdays and weekends behave differently), don't stop the moment it crosses the line, and make sure both variants got enough conversions — a handful of conversions can look significant and still be a fluke. Statistics tells you the difference is probably real; it can't tell you it's worth shipping.</p>
+      <p><strong>Significance isn't the whole story.</strong> Even below p = 0.05, run the test for full business cycles (weekdays and weekends behave differently), don't stop the moment it crosses the line, and make sure both variants got enough conversions — a handful can look significant and still be a fluke. A low p-value says the gap is unlikely to be a fluke; it can't tell you it's worth shipping.</p>
     </div>
+
+    <details class="tk-note" style="border-left-color:var(--glow);">
+      <summary style="cursor:pointer;font-weight:600;color:var(--ink);font-size:14.5px;">Method &amp; formula</summary>
+      <p style="margin-top:12px;">Two-proportion z-test using the normal approximation. The test statistic uses the <em>pooled</em> conversion rate for its standard error; the confidence interval uses the <em>unpooled</em> (Wald) standard error of the difference. The two-sided p-value is 2 × (1 − Φ(|z|)), where Φ is the standard normal CDF. Below roughly 30 conversions per variant the normal approximation is unreliable and a warning is shown. This tool does not correct for repeated "peeking" or for testing many variants at once — decide your test length in advance, and treat a very uneven traffic split as a possible sample-ratio problem.</p>
+    </details>
 
     <div class="tk-cta">
       <h3>A test is only as clean as the tracking under it</h3>
@@ -209,45 +219,60 @@
 (function () {
   var nA = document.getElementById('nA'), cA = document.getElementById('cA'),
       nB = document.getElementById('nB'), cB = document.getElementById('cB');
-  var rAEl = document.getElementById('rA'), rBEl = document.getElementById('rB'),
-      upEl = document.getElementById('uplift'), confEl = document.getElementById('conf');
+  var rAEl = document.getElementById('rA'), rBEl = document.getElementById('rB'), upEl = document.getElementById('uplift');
+  var pvalEl = document.getElementById('pval'), confLineEl = document.getElementById('confLine'),
+      ciLowEl = document.getElementById('ciLow'), ciHighEl = document.getElementById('ciHigh');
   var vEl = document.getElementById('verdict'), vk = document.getElementById('vk'), vh = document.getElementById('vh'), vd = document.getElementById('vd');
 
   function erf(x) { var s = x < 0 ? -1 : 1; x = Math.abs(x); var t = 1 / (1 + 0.3275911 * x);
     var y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x); return s * y; }
   function normCdf(z) { return 0.5 * (1 + erf(z / Math.SQRT2)); }
   function pos(el, min) { var v = parseFloat(el.value); if (isNaN(v) || v < min) v = min; return v; }
+  function fmtP(p) { return p < 0.001 ? '<0.001' : p.toFixed(3); }
+  function pp(x) { return (x >= 0 ? '+' : '') + x.toFixed(2); }
 
   function render() {
     var NA = Math.max(1, Math.round(pos(nA, 1))), NB = Math.max(1, Math.round(pos(nB, 1)));
     var CA = Math.min(NA, Math.max(0, Math.round(pos(cA, 0)))), CB = Math.min(NB, Math.max(0, Math.round(pos(cB, 0))));
     var pA = CA / NA, pB = CB / NB;
     var uplift = pA > 0 ? (pB - pA) / pA * 100 : (pB > 0 ? Infinity : 0);
+
+    // two-proportion z-test — pooled SE for the test statistic
     var pooled = (CA + CB) / (NA + NB);
-    var se = Math.sqrt(pooled * (1 - pooled) * (1 / NA + 1 / NB));
-    var z = se > 0 ? (pB - pA) / se : 0;
-    var conf = se > 0 ? (1 - 2 * (1 - normCdf(Math.abs(z)))) * 100 : 0;
-    conf = Math.max(0, Math.min(100, conf));
+    var seTest = Math.sqrt(pooled * (1 - pooled) * (1 / NA + 1 / NB));
+    var z = seTest > 0 ? (pB - pA) / seTest : 0;
+    var pValue = seTest > 0 ? Math.max(0, Math.min(1, 2 * (1 - normCdf(Math.abs(z))))) : 1;
+    var conf = (1 - pValue) * 100;
+
+    // 95% Wald confidence interval for the difference (unpooled SE), in percentage points
+    var seDiff = Math.sqrt(pA * (1 - pA) / NA + pB * (1 - pB) / NB);
+    var diff = (pB - pA) * 100;
+    var ciLow = diff - 1.96 * seDiff * 100, ciHigh = diff + 1.96 * seDiff * 100;
 
     rAEl.textContent = (pA * 100).toFixed(2);
     rBEl.textContent = (pB * 100).toFixed(2);
     upEl.textContent = isFinite(uplift) ? (uplift >= 0 ? '+' : '') + uplift.toFixed(1) : '∞';
-    confEl.textContent = conf.toFixed(1);
+    pvalEl.textContent = fmtP(pValue);
+    confLineEl.textContent = 'Confidence ≈ ' + conf.toFixed(1) + '% (1 − p).';
+    ciLowEl.textContent = pp(ciLow); ciHighEl.textContent = pp(ciHigh);
 
     var minConv = Math.min(CA, CB);
+    var split = NA / (NA + NB);
+    var srm = (split < 0.35 || split > 0.65) ? ' Also: your traffic split is quite uneven (' + Math.round(split * 100) + '/' + Math.round((1 - split) * 100) + ') — check for a sample-ratio problem.' : '';
+
     if (minConv < 30) {
       vEl.className = 'tk-verdict warn'; vk.textContent = 'Too little data';
       vh.textContent = 'Keep the test running';
-      vd.textContent = 'With fewer than ~30 conversions in a variant, even a big-looking gap is unreliable. Confidence reads ' + conf.toFixed(1) + '%, but gather more data before trusting it.';
-    } else if (conf >= 95) {
+      vd.textContent = 'With fewer than ~30 conversions in a variant, the normal approximation behind these numbers is unreliable (p = ' + fmtP(pValue) + '). Gather more data before trusting the result.' + srm;
+    } else if (pValue < 0.05) {
       var winner = pB > pA ? 'B' : 'A';
-      vEl.className = 'tk-verdict good'; vk.textContent = 'Significant';
-      vh.textContent = 'Variant ' + winner + ' wins at ' + conf.toFixed(1) + '% confidence';
-      vd.textContent = 'The difference is very unlikely to be random. Variant ' + winner + ' converts ' + (pB > pA ? 'higher' : 'higher') + ' — ' + (Math.abs(uplift)).toFixed(1) + '% ' + (pB >= pA ? 'uplift' : 'drop') + ' for B vs A. Still worth confirming it held across full weekly cycles.';
+      vEl.className = 'tk-verdict good'; vk.textContent = 'Statistically significant';
+      vh.textContent = 'Variant ' + winner + ' wins — p = ' + fmtP(pValue);
+      vd.textContent = 'If the two variants truly performed the same, a gap this large would appear under 5% of the time. The true difference (B − A) is likely between ' + pp(ciLow) + ' and ' + pp(ciHigh) + ' pp. Confirm it held across full weekly cycles before shipping.' + srm;
     } else {
       vEl.className = 'tk-verdict neutral'; vk.textContent = 'Not significant yet';
-      vh.textContent = conf.toFixed(1) + '% confidence — below 95%';
-      vd.textContent = 'The gap between the variants could still be chance. Don’t call it — keep the test running until confidence clears 95%, or accept there may be no real difference.';
+      vh.textContent = 'p = ' + fmtP(pValue) + ' — above 0.05';
+      vd.textContent = 'The data can’t rule out that this gap is chance — the 95% interval (' + pp(ciLow) + ' to ' + pp(ciHigh) + ' pp) still includes zero. Keep running, or accept there may be no real difference.' + srm;
     }
   }
 
