@@ -5,7 +5,8 @@
   "description": "Generates the Living Soil thumbnail (WebP) for each Tilth insights article.",
   "type": "commonjs",
   "scripts": {
-    "generate": "node generate-insight-cards.js"
+    "generate": "node generate-insight-cards.js",
+    "test": "node --test lib/*.test.js"
   },
   "dependencies": {
     "sharp": "^0.33.5"
