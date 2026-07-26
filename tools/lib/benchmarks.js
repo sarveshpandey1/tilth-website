@@ -71,6 +71,8 @@ const CONF_RANK = { high: 4, 'med-high': 3.5, medium: 3, 'low-medium': 2, low: 1
  * context is supplied AND a matching record exists; otherwise keep the broader set.
  * Returns the record plus { matchedOn, fallback } so the UI can disclose fallbacks.
  */
+function isWild(v) { return v == null || v === '*' || String(v).toLowerCase() === 'all'; }
+
 export function lookupBenchmark(metric, ctx = {}) {
   let cands = BENCHMARKS.filter(b => b.metric === metric);
   if (!cands.length) return null;
@@ -78,13 +80,22 @@ export function lookupBenchmark(metric, ctx = {}) {
   const matchedOn = [];
   for (const k of keys) {
     if (ctx[k] == null || ctx[k] === '') continue;
-    const narrowed = cands.filter(b => b[k] != null && String(b[k]).toLowerCase() === String(ctx[k]).toLowerCase());
-    if (narrowed.length) { cands = narrowed; matchedOn.push(k); }
+    const want = String(ctx[k]).toLowerCase();
+    const exact = cands.filter(b => b[k] != null && String(b[k]).toLowerCase() === want);
+    if (exact.length) { cands = exact; matchedOn.push(k); continue; }
+    // no exact match: prefer records that are wildcard/unscoped on this dimension (e.g. 'all')
+    const wild = cands.filter(b => isWild(b[k]));
+    if (wild.length) cands = wild;    // kept, but not counted as a specific match
   }
   cands = cands.slice().sort((a, b) => (CONF_RANK[b.confidence] || 0) - (CONF_RANK[a.confidence] || 0));
   const best = cands[0];
-  const requested = keys.filter(k => ctx[k] != null && ctx[k] !== '');
-  const fallback = requested.some(k => !matchedOn.includes(k));
+  // A genuine fallback = the user asked for a specific value on a dimension where the
+  // chosen record is neither that value nor a wildcard ('all'). 'all' is a proper match.
+  const fallback = keys.some(k => {
+    if (ctx[k] == null || ctx[k] === '') return false;
+    if (isWild(best[k])) return false;
+    return String(best[k]).toLowerCase() !== String(ctx[k]).toLowerCase();
+  });
   return { ...best, matchedOn, fallback };
 }
 
@@ -108,4 +119,16 @@ export function classifyAgainst(value, bench) {
 // Distinct metric ids available (for building selectors).
 export function benchmarkMetrics() {
   return [...new Set(BENCHMARKS.map(b => b.metric))];
+}
+
+/**
+ * Score a value 0–100 against a benchmark, oriented by direction.
+ * Low end of the range → 40, high (good) end → 100, below the range scales
+ * toward 0, above caps at 100. Returns null when it can't be scored.
+ */
+export function scoreMetric(value, bench) {
+  if (!bench || !isFinite(value)) return null;
+  const span = (bench.high - bench.low) || 1;
+  const t = bench.direction === 'lower' ? (bench.high - value) / span : (value - bench.low) / span;
+  return Math.max(0, Math.min(100, 40 + t * 60));
 }

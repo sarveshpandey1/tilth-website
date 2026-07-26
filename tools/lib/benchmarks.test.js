@@ -1,7 +1,7 @@
 /* Tests for the benchmark engine. Run: npm test (from tools/). */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { lookupBenchmark, classifyAgainst, benchmarkMetrics, BENCHMARKS } from './benchmarks.js';
+import { lookupBenchmark, classifyAgainst, benchmarkMetrics, scoreMetric, BENCHMARKS } from './benchmarks.js';
 
 test('every benchmark record has the required provenance fields', () => {
   for (const b of BENCHMARKS) {
@@ -52,6 +52,24 @@ test('classifyAgainst — lower-is-better metric (churn) inverts performance', (
 test('the LTV:CAC reference is flagged as a heuristic, not a sourced benchmark', () => {
   const r = lookupBenchmark('ltv_cac_ratio', {});
   assert.equal(r.verificationStatus, 'heuristic');
+});
+
+test('scoreMetric — higher-is-better maps range ends to 40 and 100', () => {
+  const b = { low: 1.6, high: 2.9, direction: 'higher' };
+  assert.equal(scoreMetric(1.6, b), 40);
+  assert.equal(scoreMetric(2.9, b), 100);
+  assert.ok(scoreMetric(2.25, b) > 65 && scoreMetric(2.25, b) < 75); // near midpoint ≈ 70
+  assert.ok(scoreMetric(1.0, b) < 40);   // below range
+  assert.equal(scoreMetric(5, b), 100);  // above range caps
+});
+test('scoreMetric — lower-is-better (churn) rewards low values', () => {
+  const b = { low: 1, high: 2, direction: 'lower' };
+  assert.equal(scoreMetric(1, b), 100);  // low churn = top score
+  assert.equal(scoreMetric(2, b), 40);
+  assert.ok(scoreMetric(3, b) < 40);     // high churn scores poorly
+});
+test('scoreMetric — non-finite returns null', () => {
+  assert.equal(scoreMetric(NaN, { low: 1, high: 2, direction: 'higher' }), null);
 });
 
 test('benchmarkMetrics returns distinct metric ids', () => {
