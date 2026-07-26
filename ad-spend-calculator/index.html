@@ -94,6 +94,18 @@
   .calc-related ul { list-style: none; padding: 0; display: grid; gap: 10px; }
   .calc-related a { color: var(--ink); border-bottom: 1px solid var(--rule); padding-bottom: 8px; display: inline-flex; gap: 8px; font-size: 15px; transition: color .3s; }
   .calc-related a:hover { color: var(--glow); }
+
+  /* mode toggle + advanced grid */
+  .modes { display: inline-flex; gap: 6px; background: var(--surface); border: 1px solid var(--rule); border-radius: 40px; padding: 5px; margin-top: 34px; }
+  .mode-pill { font-family: 'Work Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--text); background: transparent; border: 0; border-radius: 40px; padding: 8px 20px; cursor: pointer; transition: background .3s, color .3s; }
+  .mode-pill.active { background: var(--glow); color: var(--bg); }
+  .adv-grid { display: grid; grid-template-columns: 1fr; gap: 16px 20px; }
+  @media (min-width: 520px) { .adv-grid { grid-template-columns: 1fr 1fr; } }
+  .adv-field label { display: block; font-size: 13px; color: var(--ink); font-weight: 500; margin-bottom: 6px; }
+  .adv-field .field__val { display: flex; width: 100%; }
+  .adv-field .field__val input[type="number"] { width: 100%; }
+  details.calc-note summary { cursor: pointer; font-weight: 600; color: var(--ink); font-size: 14.5px; }
+  details.calc-note p { margin-top: 12px; }
 </style>
 <script type="application/ld+json">
 {
@@ -149,66 +161,129 @@
   <div class="wrap">
     <div class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Ad Spend Calculator</div>
 
-    <div class="calc">
-      <!-- INPUTS -->
-      <div class="calc__panel">
-        <h2>Your numbers</h2>
-        <p class="sub">Rough figures are fine — drag the sliders or type.</p>
+    <div class="modes" role="tablist" aria-label="Calculator mode">
+      <button class="mode-pill active" id="mBasic" data-mode="basic" role="tab" aria-selected="true" type="button">Basic</button>
+      <button class="mode-pill" id="mAdv" data-mode="advanced" role="tab" aria-selected="false" type="button">Advanced</button>
+    </div>
 
-        <div class="field">
-          <div class="field__top">
-            <div>
-              <label class="field__label" for="aov">Average order value</label>
-              <div class="field__hint">Typical revenue from one sale</div>
+    <div id="basicMode">
+      <div class="calc">
+        <!-- INPUTS -->
+        <div class="calc__panel">
+          <h2>Your numbers</h2>
+          <p class="sub">Rough figures are fine — drag the sliders or type. Basic uses gross margin as a stand-in for all variable costs.</p>
+
+          <div class="field">
+            <div class="field__top">
+              <div>
+                <label class="field__label" for="aov">Average order value</label>
+                <div class="field__hint">Typical revenue from one sale</div>
+              </div>
+              <span class="field__val"><span class="pre">₹</span><input type="number" id="aov" min="0" step="50" value="2000" inputmode="numeric"></span>
             </div>
-            <span class="field__val"><span class="pre">₹</span><input type="number" id="aov" min="0" step="50" value="2000" inputmode="numeric"></span>
+            <input type="range" id="aov_r" min="100" max="50000" step="100" value="2000" aria-label="Average order value slider">
           </div>
-          <input type="range" id="aov_r" min="100" max="50000" step="100" value="2000" aria-label="Average order value slider">
+
+          <div class="field">
+            <div class="field__top">
+              <div>
+                <label class="field__label" for="margin">Gross margin</label>
+                <div class="field__hint">% of the sale left after product/delivery cost</div>
+              </div>
+              <span class="field__val is-pct"><input type="number" id="margin" min="1" max="99" step="1" value="40" inputmode="numeric"><span class="suf">%</span></span>
+            </div>
+            <input type="range" id="margin_r" min="1" max="95" step="1" value="40" aria-label="Gross margin slider">
+          </div>
+
+          <div class="field">
+            <div class="field__top">
+              <div>
+                <label class="field__label" for="cac">What you pay to get one customer</label>
+                <div class="field__hint">Your current cost per acquisition (0 = skip)</div>
+              </div>
+              <span class="field__val"><span class="pre">₹</span><input type="number" id="cac" min="0" step="50" value="800" inputmode="numeric"></span>
+            </div>
+            <input type="range" id="cac_r" min="0" max="20000" step="50" value="800" aria-label="Cost per acquisition slider">
+          </div>
         </div>
 
-        <div class="field">
-          <div class="field__top">
-            <div>
-              <label class="field__label" for="margin">Gross margin</label>
-              <div class="field__hint">% of the sale left after product/delivery cost</div>
-            </div>
-            <span class="field__val is-pct"><input type="number" id="margin" min="1" max="99" step="1" value="40" inputmode="numeric"><span class="suf">%</span></span>
+        <!-- RESULTS -->
+        <div class="results">
+          <div class="verdict neutral" id="verdict" aria-live="polite">
+            <div class="k" id="verdict_k">Your verdict</div>
+            <div class="headline" id="verdict_h">Enter your cost per customer</div>
+            <div class="detail" id="verdict_d">Add what you currently pay to acquire a customer to see whether you're above or below breakeven.</div>
           </div>
-          <input type="range" id="margin_r" min="1" max="95" step="1" value="40" aria-label="Gross margin slider">
+
+          <div class="rcard">
+            <div class="k">Breakeven ROAS</div>
+            <div class="v"><span id="roas">2.5</span><span class="unit">×</span></div>
+            <p class="exp">Every ₹1 of ad spend has to bring back at least this much in sales just to break even — before you've made a single rupee of profit.</p>
+          </div>
+
+          <div class="rcard">
+            <div class="k">Max profitable cost per customer</div>
+            <div class="v">₹<span id="maxcac">800</span></div>
+            <p class="exp">Pay more than this to acquire a customer and you lose money on the first order. This is your breakeven CAC.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="advMode" hidden>
+      <div class="calc">
+        <!-- ADVANCED INPUTS -->
+        <div class="calc__panel">
+          <h2>Full unit economics</h2>
+          <p class="sub">Enter what you know — each field defaults to a sensible value. This models real contribution margin, not just gross margin.</p>
+          <div class="adv-grid">
+            <div class="adv-field"><label for="sp">Selling price</label><span class="field__val"><span class="pre">₹</span><input type="number" id="sp" min="0" step="10" value="2000" inputmode="numeric"></span></div>
+            <div class="adv-field"><label for="pc">Product cost (COGS)</label><span class="field__val"><span class="pre">₹</span><input type="number" id="pc" min="0" step="10" value="700" inputmode="numeric"></span></div>
+            <div class="adv-field"><label for="ship">Shipping you pay</label><span class="field__val"><span class="pre">₹</span><input type="number" id="ship" min="0" step="5" value="80" inputmode="numeric"></span></div>
+            <div class="adv-field"><label for="ful">Fulfilment / packing</label><span class="field__val"><span class="pre">₹</span><input type="number" id="ful" min="0" step="5" value="40" inputmode="numeric"></span></div>
+            <div class="adv-field"><label for="gw">Payment gateway fee</label><span class="field__val is-pct"><input type="number" id="gw" min="0" max="20" step="0.1" value="2" inputmode="decimal"><span class="suf">%</span></span></div>
+            <div class="adv-field"><label for="plat">Marketplace / platform fee</label><span class="field__val is-pct"><input type="number" id="plat" min="0" max="50" step="0.5" value="0" inputmode="decimal"><span class="suf">%</span></span></div>
+            <div class="adv-field"><label for="disc">Average discount</label><span class="field__val is-pct"><input type="number" id="disc" min="0" max="95" step="1" value="10" inputmode="numeric"><span class="suf">%</span></span></div>
+            <div class="adv-field"><label for="ret">Return / cancellation rate</label><span class="field__val is-pct"><input type="number" id="ret" min="0" max="100" step="1" value="8" inputmode="numeric"><span class="suf">%</span></span></div>
+            <div class="adv-field"><label for="acac">Current CAC</label><span class="field__val"><span class="pre">₹</span><input type="number" id="acac" min="0" step="10" value="400" inputmode="numeric"></span></div>
+            <div class="adv-field"><label for="dm">Desired profit margin</label><span class="field__val is-pct"><input type="number" id="dm" min="0" max="90" step="1" value="15" inputmode="numeric"><span class="suf">%</span></span></div>
+          </div>
         </div>
 
-        <div class="field">
-          <div class="field__top">
-            <div>
-              <label class="field__label" for="cac">What you pay to get one customer</label>
-              <div class="field__hint">Your current cost per acquisition (0 = skip)</div>
-            </div>
-            <span class="field__val"><span class="pre">₹</span><input type="number" id="cac" min="0" step="50" value="800" inputmode="numeric"></span>
+        <!-- ADVANCED RESULTS -->
+        <div class="results">
+          <div class="verdict neutral" id="a_verdict" aria-live="polite">
+            <div class="k" id="a_vk">Profit after advertising</div>
+            <div class="headline" id="a_vh">—</div>
+            <div class="detail" id="a_vd">—</div>
           </div>
-          <input type="range" id="cac_r" min="0" max="20000" step="50" value="800" aria-label="Cost per acquisition slider">
+          <div class="rcard">
+            <div class="k">Contribution margin per order</div>
+            <div class="v">₹<span id="a_contrib">—</span></div>
+            <p class="exp" id="a_contribExp">—</p>
+          </div>
+          <div class="rcard">
+            <div class="k">Break-even CAC &nbsp;·&nbsp; Target CAC</div>
+            <div class="v">₹<span id="a_beCac">—</span> &nbsp;·&nbsp; ₹<span id="a_tgtCac">—</span></div>
+            <p class="exp">Break-even CAC is the most you can spend per customer without losing money. Target CAC is what leaves your desired <span id="a_dmEcho">15</span>% margin.</p>
+          </div>
+          <div class="rcard">
+            <div class="k">Break-even ROAS &nbsp;·&nbsp; Target ROAS</div>
+            <div class="v"><span id="a_beRoas">—</span><span class="unit">×</span> &nbsp;·&nbsp; <span id="a_tgtRoas">—</span><span class="unit">×</span></div>
+            <p class="exp">Revenue returned per ₹1 of ad spend needed to break even, and to hit your target margin. Based on revenue net of discounts and returns.</p>
+          </div>
+          <div class="rcard">
+            <div class="k">Where the order value goes</div>
+            <div class="v">₹<span id="a_net">—</span><span class="unit"> net rev</span></div>
+            <p class="exp" id="a_breakdown">—</p>
+          </div>
         </div>
       </div>
 
-      <!-- RESULTS -->
-      <div class="results">
-        <div class="verdict neutral" id="verdict" aria-live="polite">
-          <div class="k" id="verdict_k">Your verdict</div>
-          <div class="headline" id="verdict_h">Enter your cost per customer</div>
-          <div class="detail" id="verdict_d">Add what you currently pay to acquire a customer to see whether you're above or below breakeven.</div>
-        </div>
-
-        <div class="rcard">
-          <div class="k">Breakeven ROAS</div>
-          <div class="v"><span id="roas">2.5</span><span class="unit">×</span></div>
-          <p class="exp">Every ₹1 of ad spend has to bring back at least this much in sales just to break even — before you've made a single rupee of profit.</p>
-        </div>
-
-        <div class="rcard">
-          <div class="k">Max profitable cost per customer</div>
-          <div class="v">₹<span id="maxcac">800</span></div>
-          <p class="exp">Pay more than this to acquire a customer and you lose money on the first order. This is your breakeven CAC.</p>
-        </div>
-      </div>
+      <details class="calc-note" style="border-left-color:var(--glow);">
+        <summary>Method &amp; assumptions</summary>
+        <p>Net revenue = selling price − discount. Variable cost = product + shipping + fulfilment + gateway &amp; platform fees (fees charged on net revenue). Contribution margin = net revenue − variable cost. Returns are modelled as: the product is recovered (restockable) but shipping, fulfilment and fees on a returned order are lost and no revenue is booked — so effective contribution per acquired order = (1 − return rate) × contribution − return rate × (shipping + fulfilment + fees). Break-even CAC = effective contribution. Target CAC leaves your desired margin on revenue net of returns. ROAS = net revenue ÷ CAC. GST/taxes are treated as pass-through and excluded. These are per-order, first-purchase economics — repeat purchases (LTV) can justify a higher CAC; see the LTV:CAC tool.</p>
+      </details>
     </div>
 
     <div class="calc-note">
@@ -342,6 +417,88 @@
   });
 
   render();
+
+  // ===== ADVANCED MODE — full contribution-margin economics =====
+  var advIds = ['sp','pc','ship','ful','gw','plat','disc','ret','acac','dm'];
+  var A2 = {};
+  advIds.forEach(function (id) { A2[id] = document.getElementById(id); });
+  var a_verdict = document.getElementById('a_verdict'), a_vk = document.getElementById('a_vk'), a_vh = document.getElementById('a_vh'), a_vd = document.getElementById('a_vd');
+  var a_contrib = document.getElementById('a_contrib'), a_contribExp = document.getElementById('a_contribExp');
+  var a_beCac = document.getElementById('a_beCac'), a_tgtCac = document.getElementById('a_tgtCac'), a_dmEcho = document.getElementById('a_dmEcho');
+  var a_beRoas = document.getElementById('a_beRoas'), a_tgtRoas = document.getElementById('a_tgtRoas');
+  var a_net = document.getElementById('a_net'), a_breakdown = document.getElementById('a_breakdown');
+
+  function av(id, min, max) { var v = parseFloat(A2[id].value); if (isNaN(v)) v = min; return Math.max(min, Math.min(max, v)); }
+  function roasFmt(x) { return isFinite(x) && x > 0 ? x.toFixed(x >= 10 ? 0 : 1) : '—'; }
+
+  function renderAdv() {
+    var sp = av('sp',0,1e9), pc = av('pc',0,1e9), ship = av('ship',0,1e9), ful = av('ful',0,1e9),
+        gw = av('gw',0,100), plat = av('plat',0,100), disc = av('disc',0,95), ret = av('ret',0,100),
+        acac = av('acac',0,1e9), dm = av('dm',0,99);
+
+    var netPrice = sp * (1 - disc/100);
+    var gwFee = netPrice * gw/100, platFee = netPrice * plat/100, fees = gwFee + platFee;
+    var varCost = pc + ship + ful + fees;
+    var contribKept = netPrice - varCost;
+    var r = ret/100;
+    var returnCost = ship + ful + fees;                 // product recovered; these are lost on a return
+    var effContrib = (1-r)*contribKept - r*returnCost;
+    var realizedRev = (1-r)*netPrice;
+    var beCac = effContrib;
+    var targetProfit = dm/100 * realizedRev;
+    var tgtCac = effContrib - targetProfit;
+    var beRoas = beCac > 0 ? realizedRev/beCac : Infinity;
+    var tgtRoas = tgtCac > 0 ? realizedRev/tgtCac : Infinity;
+    var profitAfterAd = effContrib - acac;
+
+    var returnsDrag = contribKept - effContrib;
+    var netPrice0 = sp, gwFee0 = netPrice0*gw/100, platFee0 = netPrice0*plat/100;
+    var contribKept0 = netPrice0 - (pc + ship + ful + gwFee0 + platFee0);
+    var effContrib0 = (1-r)*contribKept0 - r*(ship + ful + gwFee0 + platFee0);
+    var discountDrag = effContrib0 - effContrib;
+
+    a_contrib.textContent = inr(contribKept);
+    var contribPct = netPrice > 0 ? Math.round(contribKept/netPrice*100) : 0;
+    a_contribExp.textContent = '≈ ' + contribPct + '% of net revenue. After a ' + Math.round(ret) + '% return rate, effective contribution is ₹' + inr(effContrib) + ' per acquired order — that’s what your CAC comes out of.';
+    a_beCac.textContent = inr(beCac);
+    a_tgtCac.textContent = inr(tgtCac);
+    a_dmEcho.textContent = Math.round(dm);
+    a_beRoas.textContent = roasFmt(beRoas);
+    a_tgtRoas.textContent = roasFmt(tgtRoas);
+    a_net.textContent = inr(netPrice);
+    a_breakdown.textContent = 'Net revenue ₹' + inr(netPrice) + ' − variable costs ₹' + inr(varCost) +
+      ' (product ₹' + inr(pc) + ', shipping ₹' + inr(ship) + ', fulfilment ₹' + inr(ful) + ', fees ₹' + inr(fees) + ') = ₹' + inr(contribKept) +
+      ' contribution. Returns cost ₹' + inr(returnsDrag) + '/order; discounts cost ₹' + inr(discountDrag) + '/order.';
+
+    if (effContrib <= 0) {
+      a_verdict.className = 'verdict bad'; a_vk.textContent = 'Underwater before ad spend';
+      a_vh.textContent = 'No room for CAC';
+      a_vd.textContent = 'Your costs, discounts and returns already eat the whole order — effective contribution is ₹' + inr(effContrib) + '. There’s nothing left to pay for acquisition. Fix the unit economics before spending on ads.';
+    } else if (profitAfterAd >= 0) {
+      a_verdict.className = 'verdict good'; a_vk.textContent = 'Profitable after ads';
+      a_vh.textContent = '₹' + inr(profitAfterAd) + ' profit per order';
+      a_vd.textContent = 'At ₹' + inr(acac) + ' CAC you clear the ₹' + inr(beCac) + ' break-even. To hit a ' + Math.round(dm) + '% margin you’d keep CAC under ₹' + inr(Math.max(0,tgtCac)) + '. Break-even ROAS is ' + roasFmt(beRoas) + '×.';
+    } else {
+      a_verdict.className = 'verdict bad'; a_vk.textContent = 'Losing money after ads';
+      a_vh.textContent = 'Losing ₹' + inr(-profitAfterAd) + ' per order';
+      a_vd.textContent = 'Your ₹' + inr(acac) + ' CAC is above the ₹' + inr(beCac) + ' break-even. You need CAC under ₹' + inr(beCac) + ' just to stop losing money, and under ₹' + inr(Math.max(0,tgtCac)) + ' to hit a ' + Math.round(dm) + '% margin.';
+    }
+  }
+  advIds.forEach(function (id) { A2[id].addEventListener('input', renderAdv); });
+
+  // ===== MODE TOGGLE =====
+  var basicMode = document.getElementById('basicMode'), advMode = document.getElementById('advMode');
+  var mBasic = document.getElementById('mBasic'), mAdv = document.getElementById('mAdv');
+  function setMode(adv) {
+    advMode.hidden = !adv; basicMode.hidden = adv;
+    mAdv.classList.toggle('active', adv); mBasic.classList.toggle('active', !adv);
+    mAdv.setAttribute('aria-selected', adv ? 'true' : 'false');
+    mBasic.setAttribute('aria-selected', adv ? 'false' : 'true');
+    if (adv) renderAdv();
+  }
+  mBasic.addEventListener('click', function () { setMode(false); });
+  mAdv.addEventListener('click', function () { setMode(true); });
+  renderAdv();
 })();
 </script>
 <script src="/nav.js" defer></script>
