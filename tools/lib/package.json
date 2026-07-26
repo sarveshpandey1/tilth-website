@@ -1,0 +1,5 @@
+{
+  "type": "module",
+  "private": true,
+  "description": "ESM marker so the shared tool calc/format modules and their tests run as ES modules under Node (the browser loads them via <script type=module>)."
+}
