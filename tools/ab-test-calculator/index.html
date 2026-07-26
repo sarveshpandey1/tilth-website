@@ -215,7 +215,8 @@
   </div>
 </footer>
 
-<script>
+<script type="module">
+import { abTest } from '/tools/lib/calc.js';
 (function () {
   var nA = document.getElementById('nA'), cA = document.getElementById('cA'),
       nB = document.getElementById('nB'), cB = document.getElementById('cB');
@@ -224,55 +225,35 @@
       ciLowEl = document.getElementById('ciLow'), ciHighEl = document.getElementById('ciHigh');
   var vEl = document.getElementById('verdict'), vk = document.getElementById('vk'), vh = document.getElementById('vh'), vd = document.getElementById('vd');
 
-  function erf(x) { var s = x < 0 ? -1 : 1; x = Math.abs(x); var t = 1 / (1 + 0.3275911 * x);
-    var y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x); return s * y; }
-  function normCdf(z) { return 0.5 * (1 + erf(z / Math.SQRT2)); }
   function pos(el, min) { var v = parseFloat(el.value); if (isNaN(v) || v < min) v = min; return v; }
   function fmtP(p) { return p < 0.001 ? '<0.001' : p.toFixed(3); }
   function pp(x) { return (x >= 0 ? '+' : '') + x.toFixed(2); }
 
   function render() {
-    var NA = Math.max(1, Math.round(pos(nA, 1))), NB = Math.max(1, Math.round(pos(nB, 1)));
-    var CA = Math.min(NA, Math.max(0, Math.round(pos(cA, 0)))), CB = Math.min(NB, Math.max(0, Math.round(pos(cB, 0))));
-    var pA = CA / NA, pB = CB / NB;
-    var uplift = pA > 0 ? (pB - pA) / pA * 100 : (pB > 0 ? Infinity : 0);
+    var r = abTest({ nA: pos(nA, 1), cA: pos(cA, 0), nB: pos(nB, 1), cB: pos(cB, 0) });
 
-    // two-proportion z-test — pooled SE for the test statistic
-    var pooled = (CA + CB) / (NA + NB);
-    var seTest = Math.sqrt(pooled * (1 - pooled) * (1 / NA + 1 / NB));
-    var z = seTest > 0 ? (pB - pA) / seTest : 0;
-    var pValue = seTest > 0 ? Math.max(0, Math.min(1, 2 * (1 - normCdf(Math.abs(z))))) : 1;
-    var conf = (1 - pValue) * 100;
+    rAEl.textContent = (r.rateA * 100).toFixed(2);
+    rBEl.textContent = (r.rateB * 100).toFixed(2);
+    upEl.textContent = isFinite(r.uplift) ? (r.uplift >= 0 ? '+' : '') + r.uplift.toFixed(1) : '∞';
+    pvalEl.textContent = fmtP(r.pValue);
+    confLineEl.textContent = 'Confidence ≈ ' + r.confidence.toFixed(1) + '% (1 − p).';
+    ciLowEl.textContent = pp(r.ciLow); ciHighEl.textContent = pp(r.ciHigh);
 
-    // 95% Wald confidence interval for the difference (unpooled SE), in percentage points
-    var seDiff = Math.sqrt(pA * (1 - pA) / NA + pB * (1 - pB) / NB);
-    var diff = (pB - pA) * 100;
-    var ciLow = diff - 1.96 * seDiff * 100, ciHigh = diff + 1.96 * seDiff * 100;
+    var srm = (r.split < 0.35 || r.split > 0.65) ? ' Also: your traffic split is quite uneven (' + Math.round(r.split * 100) + '/' + Math.round((1 - r.split) * 100) + ') — check for a sample-ratio problem.' : '';
 
-    rAEl.textContent = (pA * 100).toFixed(2);
-    rBEl.textContent = (pB * 100).toFixed(2);
-    upEl.textContent = isFinite(uplift) ? (uplift >= 0 ? '+' : '') + uplift.toFixed(1) : '∞';
-    pvalEl.textContent = fmtP(pValue);
-    confLineEl.textContent = 'Confidence ≈ ' + conf.toFixed(1) + '% (1 − p).';
-    ciLowEl.textContent = pp(ciLow); ciHighEl.textContent = pp(ciHigh);
-
-    var minConv = Math.min(CA, CB);
-    var split = NA / (NA + NB);
-    var srm = (split < 0.35 || split > 0.65) ? ' Also: your traffic split is quite uneven (' + Math.round(split * 100) + '/' + Math.round((1 - split) * 100) + ') — check for a sample-ratio problem.' : '';
-
-    if (minConv < 30) {
+    if (r.minConversions < 30) {
       vEl.className = 'tk-verdict warn'; vk.textContent = 'Too little data';
       vh.textContent = 'Keep the test running';
-      vd.textContent = 'With fewer than ~30 conversions in a variant, the normal approximation behind these numbers is unreliable (p = ' + fmtP(pValue) + '). Gather more data before trusting the result.' + srm;
-    } else if (pValue < 0.05) {
-      var winner = pB > pA ? 'B' : 'A';
+      vd.textContent = 'With fewer than ~30 conversions in a variant, the normal approximation behind these numbers is unreliable (p = ' + fmtP(r.pValue) + '). Gather more data before trusting the result.' + srm;
+    } else if (r.significant) {
+      var winner = r.rateB > r.rateA ? 'B' : 'A';
       vEl.className = 'tk-verdict good'; vk.textContent = 'Statistically significant';
-      vh.textContent = 'Variant ' + winner + ' wins — p = ' + fmtP(pValue);
-      vd.textContent = 'If the two variants truly performed the same, a gap this large would appear under 5% of the time. The true difference (B − A) is likely between ' + pp(ciLow) + ' and ' + pp(ciHigh) + ' pp. Confirm it held across full weekly cycles before shipping.' + srm;
+      vh.textContent = 'Variant ' + winner + ' wins — p = ' + fmtP(r.pValue);
+      vd.textContent = 'If the two variants truly performed the same, a gap this large would appear under 5% of the time. The true difference (B − A) is likely between ' + pp(r.ciLow) + ' and ' + pp(r.ciHigh) + ' pp. Confirm it held across full weekly cycles before shipping.' + srm;
     } else {
       vEl.className = 'tk-verdict neutral'; vk.textContent = 'Not significant yet';
-      vh.textContent = 'p = ' + fmtP(pValue) + ' — above 0.05';
-      vd.textContent = 'The data can’t rule out that this gap is chance — the 95% interval (' + pp(ciLow) + ' to ' + pp(ciHigh) + ' pp) still includes zero. Keep running, or accept there may be no real difference.' + srm;
+      vh.textContent = 'p = ' + fmtP(r.pValue) + ' — above 0.05';
+      vd.textContent = 'The data can’t rule out that this gap is chance — the 95% interval (' + pp(r.ciLow) + ' to ' + pp(r.ciHigh) + ' pp) still includes zero. Keep running, or accept there may be no real difference.' + srm;
     }
   }
 
