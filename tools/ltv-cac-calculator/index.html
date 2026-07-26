@@ -39,6 +39,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<style>
+  .tk-models { display: flex; flex-wrap: wrap; gap: 8px; margin: 34px 0 6px; }
+  .tkm { font-family: 'Work Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--text); background: transparent; border: 1px solid var(--rule); border-radius: 40px; padding: 8px 16px; cursor: pointer; transition: color .3s, border-color .3s, background .3s; }
+  .tkm:hover { color: var(--ink); border-color: var(--glow); }
+  .tkm.active { background: var(--glow); border-color: var(--glow); color: var(--bg); }
+  .mgroup[hidden] { display: none; }
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -94,49 +101,71 @@
   <div class="wrap">
     <div class="tk-crumb"><a href="/tools/">Free Tools</a> &nbsp;/&nbsp; LTV : CAC Calculator</div>
 
+    <div class="tk-models" role="tablist" aria-label="Business model">
+      <button class="tkm active" data-m="ecom" role="tab" aria-selected="true" type="button">Ecommerce / D2C</button>
+      <button class="tkm" data-m="saas" role="tab" aria-selected="false" type="button">SaaS / subscription</button>
+      <button class="tkm" data-m="lead" role="tab" aria-selected="false" type="button">Lead generation</button>
+      <button class="tkm" data-m="market" role="tab" aria-selected="false" type="button">Marketplace</button>
+    </div>
+
     <div class="tk-calc">
       <div class="tk-panel">
         <h2>Your numbers</h2>
-        <p class="tk-sub">Rough figures are fine — drag or type.</p>
+        <p class="tk-sub" id="modelSub">Gross-margin economics for a repeat-purchase business.</p>
 
-        <div class="tk-field">
-          <div class="tk-ftop">
-            <div><label class="tk-label" for="aov">Average order value</label><div class="tk-hint">Revenue from one purchase</div></div>
-            <span class="tk-val"><span class="pre">₹</span><input type="number" id="aov" min="0" step="50" value="2000" inputmode="numeric"></span>
+        <!-- ECOMMERCE / D2C -->
+        <div class="mgroup" data-model="ecom">
+          <div class="tk-field">
+            <div class="tk-ftop"><div><label class="tk-label" for="aov">Average order value</label><div class="tk-hint">Revenue from one purchase</div></div>
+              <span class="tk-val"><span class="pre">₹</span><input type="number" id="aov" min="0" step="50" value="2000" inputmode="numeric"></span></div>
+            <input type="range" id="aov_r" min="100" max="50000" step="100" value="2000" aria-label="Average order value">
           </div>
-          <input type="range" id="aov_r" min="100" max="50000" step="100" value="2000" aria-label="Average order value">
+          <div class="tk-field">
+            <div class="tk-ftop"><div><label class="tk-label" for="margin">Gross margin</label><div class="tk-hint">% left after product/delivery cost</div></div>
+              <span class="tk-val pct"><input type="number" id="margin" min="1" max="99" step="1" value="45" inputmode="numeric"><span class="suf">%</span></span></div>
+            <input type="range" id="margin_r" min="1" max="95" step="1" value="45" aria-label="Gross margin">
+          </div>
+          <div class="tk-field">
+            <div class="tk-ftop"><div><label class="tk-label" for="freq">Purchases per year</label><div class="tk-hint">How often a customer buys</div></div>
+              <span class="tk-val bare"><input type="number" id="freq" min="0.1" max="52" step="0.1" value="3" inputmode="decimal"></span></div>
+            <input type="range" id="freq_r" min="1" max="24" step="1" value="3" aria-label="Purchases per year">
+          </div>
+          <div class="tk-field">
+            <div class="tk-ftop"><div><label class="tk-label" for="years">Customer lifespan</label><div class="tk-hint">Years they keep buying</div></div>
+              <span class="tk-val bare"><input type="number" id="years" min="0.1" max="20" step="0.1" value="2" inputmode="decimal"></span></div>
+            <input type="range" id="years_r" min="0.5" max="10" step="0.5" value="2" aria-label="Customer lifespan in years">
+          </div>
+          <div class="tk-field">
+            <div class="tk-ftop"><div><label class="tk-label" for="cac">Cost to acquire a customer</label><div class="tk-hint">Your current CAC</div></div>
+              <span class="tk-val"><span class="pre">₹</span><input type="number" id="cac" min="1" step="50" value="900" inputmode="numeric"></span></div>
+            <input type="range" id="cac_r" min="50" max="20000" step="50" value="900" aria-label="Cost to acquire a customer">
+          </div>
         </div>
 
-        <div class="tk-field">
-          <div class="tk-ftop">
-            <div><label class="tk-label" for="margin">Gross margin</label><div class="tk-hint">% left after product/delivery cost</div></div>
-            <span class="tk-val pct"><input type="number" id="margin" min="1" max="99" step="1" value="45" inputmode="numeric"><span class="suf">%</span></span>
-          </div>
-          <input type="range" id="margin_r" min="1" max="95" step="1" value="45" aria-label="Gross margin">
+        <!-- SAAS / SUBSCRIPTION -->
+        <div class="mgroup" data-model="saas" hidden>
+          <div class="tk-field"><div class="tk-ftop"><div><label class="tk-label" for="arpa">Monthly revenue per account</label><div class="tk-hint">ARPA / MRR per customer</div></div><span class="tk-val"><span class="pre">₹</span><input type="number" id="arpa" min="0" step="50" value="2000" inputmode="numeric"></span></div></div>
+          <div class="tk-field"><div class="tk-ftop"><div><label class="tk-label" for="smargin">Gross margin</label><div class="tk-hint">% after hosting &amp; support cost</div></div><span class="tk-val pct"><input type="number" id="smargin" min="1" max="99" step="1" value="80" inputmode="numeric"><span class="suf">%</span></span></div></div>
+          <div class="tk-field"><div class="tk-ftop"><div><label class="tk-label" for="churn">Monthly churn</label><div class="tk-hint">% of customers lost per month</div></div><span class="tk-val pct"><input type="number" id="churn" min="0.1" max="100" step="0.1" value="4" inputmode="decimal"><span class="suf">%</span></span></div></div>
+          <div class="tk-field"><div class="tk-ftop"><div><label class="tk-label" for="expansion">Monthly expansion <span style="color:var(--olive);font-weight:400">(optional)</span></label><div class="tk-hint">Net upsell revenue %</div></div><span class="tk-val pct"><input type="number" id="expansion" min="0" max="100" step="0.1" value="0" inputmode="decimal"><span class="suf">%</span></span></div></div>
+          <div class="tk-field"><div class="tk-ftop"><div><label class="tk-label" for="scac">Cost to acquire a customer</label><div class="tk-hint">CAC</div></div><span class="tk-val"><span class="pre">₹</span><input type="number" id="scac" min="1" step="100" value="9000" inputmode="numeric"></span></div></div>
         </div>
 
-        <div class="tk-field">
-          <div class="tk-ftop">
-            <div><label class="tk-label" for="freq">Purchases per year</label><div class="tk-hint">How often a customer buys</div></div>
-            <span class="tk-val bare"><input type="number" id="freq" min="0.1" max="52" step="0.1" value="3" inputmode="decimal"></span>
-          </div>
-          <input type="range" id="freq_r" min="1" max="24" step="1" value="3" aria-label="Purchases per year">
+        <!-- LEAD GENERATION -->
+        <div class="mgroup" data-model="lead" hidden>
+          <div class="tk-field"><div class="tk-ftop"><div><label class="tk-label" for="cpl">Cost per lead</label><div class="tk-hint">Spend ÷ leads generated</div></div><span class="tk-val"><span class="pre">₹</span><input type="number" id="cpl" min="0" step="10" value="300" inputmode="numeric"></span></div></div>
+          <div class="tk-field"><div class="tk-ftop"><div><label class="tk-label" for="conv">Lead-to-customer rate</label><div class="tk-hint">% of leads that become customers</div></div><span class="tk-val pct"><input type="number" id="conv" min="0.1" max="100" step="0.1" value="20" inputmode="decimal"><span class="suf">%</span></span></div></div>
+          <div class="tk-field"><div class="tk-ftop"><div><label class="tk-label" for="gp">Avg customer gross profit</label><div class="tk-hint">Profit from one customer's first deal</div></div><span class="tk-val"><span class="pre">₹</span><input type="number" id="gp" min="0" step="100" value="4000" inputmode="numeric"></span></div></div>
+          <div class="tk-field"><div class="tk-ftop"><div><label class="tk-label" for="repeat">Lifetime value multiplier</label><div class="tk-hint">1 = one-off; 2 = buys twice over</div></div><span class="tk-val bare"><input type="number" id="repeat" min="0.1" max="20" step="0.1" value="1.5" inputmode="decimal"></span></div></div>
         </div>
 
-        <div class="tk-field">
-          <div class="tk-ftop">
-            <div><label class="tk-label" for="years">Customer lifespan</label><div class="tk-hint">Years they keep buying</div></div>
-            <span class="tk-val bare"><input type="number" id="years" min="0.1" max="20" step="0.1" value="2" inputmode="decimal"></span>
-          </div>
-          <input type="range" id="years_r" min="0.5" max="10" step="0.5" value="2" aria-label="Customer lifespan in years">
-        </div>
-
-        <div class="tk-field">
-          <div class="tk-ftop">
-            <div><label class="tk-label" for="cac">Cost to acquire a customer</label><div class="tk-hint">Your current CAC</div></div>
-            <span class="tk-val"><span class="pre">₹</span><input type="number" id="cac" min="1" step="50" value="900" inputmode="numeric"></span>
-          </div>
-          <input type="range" id="cac_r" min="50" max="20000" step="50" value="900" aria-label="Cost to acquire a customer">
+        <!-- MARKETPLACE -->
+        <div class="mgroup" data-model="market" hidden>
+          <div class="tk-field"><div class="tk-ftop"><div><label class="tk-label" for="atv">Average transaction value</label><div class="tk-hint">GMV per transaction</div></div><span class="tk-val"><span class="pre">₹</span><input type="number" id="atv" min="0" step="50" value="1500" inputmode="numeric"></span></div></div>
+          <div class="tk-field"><div class="tk-ftop"><div><label class="tk-label" for="take">Take rate / commission</label><div class="tk-hint">% of GMV you keep</div></div><span class="tk-val pct"><input type="number" id="take" min="0.1" max="100" step="0.1" value="15" inputmode="decimal"><span class="suf">%</span></span></div></div>
+          <div class="tk-field"><div class="tk-ftop"><div><label class="tk-label" for="txyr">Transactions per user / year</label><div class="tk-hint">How often a user transacts</div></div><span class="tk-val bare"><input type="number" id="txyr" min="0.1" max="1000" step="0.1" value="6" inputmode="decimal"></span></div></div>
+          <div class="tk-field"><div class="tk-ftop"><div><label class="tk-label" for="myears">User lifespan</label><div class="tk-hint">Years they keep transacting</div></div><span class="tk-val bare"><input type="number" id="myears" min="0.1" max="20" step="0.1" value="2" inputmode="decimal"></span></div></div>
+          <div class="tk-field"><div class="tk-ftop"><div><label class="tk-label" for="mcac">Cost to acquire a user</label><div class="tk-hint">CAC</div></div><span class="tk-val"><span class="pre">₹</span><input type="number" id="mcac" min="1" step="50" value="1200" inputmode="numeric"></span></div></div>
         </div>
       </div>
 
@@ -149,23 +178,28 @@
         <div class="tk-rcard">
           <div class="k">Customer lifetime value (gross margin)</div>
           <div class="v">₹<span id="ltv">—</span></div>
-          <p class="exp">The total gross profit one customer brings over their lifespan — order value × margin × purchases × years.</p>
+          <p class="exp" id="ltvExp">The total gross profit one customer brings over their lifetime.</p>
         </div>
         <div class="tk-rcard">
           <div class="k">LTV : CAC ratio</div>
           <div class="v"><span id="ratio">—</span><span class="unit">: 1</span></div>
-          <p class="exp">A common healthy target is 3:1 or better. Below 1:1 you lose money on every customer, even with repeats.</p>
+          <p class="exp">A 3:1 ratio is sometimes used as a general reference, but the right target depends on margin, cash position, retention, growth stage and business model. Allowable CAC at that 3:1 reference: ₹<span id="allow">—</span>.</p>
         </div>
         <div class="tk-rcard">
-          <div class="k">Payback period</div>
-          <div class="v"><span id="payback">—</span><span class="unit"> mo</span></div>
-          <p class="exp">How many months of margin it takes to earn back the cost of acquiring a customer. Shorter means less cash tied up.</p>
+          <div class="k" id="paybackK">Payback period</div>
+          <div class="v"><span id="payback">—</span><span class="unit" id="paybackUnit"> mo</span></div>
+          <p class="exp" id="paybackExp">Months of gross profit to earn back CAC. Shorter means less cash tied up.</p>
+        </div>
+        <div class="tk-rcard">
+          <div class="k">Sensitivity &amp; confidence</div>
+          <div class="v" style="font-size:26px;"><span id="confBadge">—</span></div>
+          <p class="exp" id="sensExp">—</p>
         </div>
       </div>
     </div>
 
     <div class="tk-note">
-      <p><strong>Honest caveat:</strong> this is a <em>gross-margin</em> LTV and it trusts your inputs — especially purchase frequency and lifespan, which most brands guess rather than measure. If you can't pull real repeat-rate and retention numbers, treat the result as a hopeful ceiling, not a fact. Fixing that measurement is exactly the foundation work we do first.</p>
+      <p><strong>Honest caveat:</strong> this is a <em>gross-margin</em> LTV, and it's only as good as your retention inputs — lifespan, churn, or repeat rate — which most businesses estimate rather than measure. Treat the result as a modelled ceiling, not a fact, until you can pull real cohort retention. The 3:1 reference is a rule of thumb, not a law: a cash-tight startup may need faster payback, while a high-margin, low-churn business can justify going lower. Getting that retention measurement right is the foundation work we do first.</p>
     </div>
 
     <div class="tk-cta">
@@ -230,46 +264,106 @@
 
 <script>
 (function () {
-  var ids = ['aov','margin','freq','years','cac'];
-  var el = {};
-  ids.forEach(function (id) { el[id] = document.getElementById(id); el[id + '_r'] = document.getElementById(id + '_r'); });
-  var ltvEl = document.getElementById('ltv'), ratioEl = document.getElementById('ratio'), paybackEl = document.getElementById('payback');
-  var vEl = document.getElementById('verdict'), vk = document.getElementById('vk'), vh = document.getElementById('vh'), vd = document.getElementById('vd');
-
+  var model = 'ecom';
+  function el(id) { return document.getElementById(id); }
   function inr(n) { return Math.round(n).toLocaleString('en-IN'); }
-  function val(id, min, max) { var v = parseFloat(el[id].value); if (isNaN(v)) v = min; return Math.max(min, Math.min(max, v)); }
+  function num(id, min, max) { var e = el(id); if (!e) return min; var v = parseFloat(e.value); if (isNaN(v)) v = min; if (max == null) max = 1e12; return Math.max(min, Math.min(max, v)); }
+
+  var ltvEl = el('ltv'), ratioEl = el('ratio'), allowEl = el('allow'), ltvExp = el('ltvExp'),
+      pbK = el('paybackK'), pbEl = el('payback'), pbUnit = el('paybackUnit'), pbExp = el('paybackExp'),
+      confBadge = el('confBadge'), sensExp = el('sensExp'), modelSub = el('modelSub'),
+      vEl = el('verdict'), vk = el('vk'), vh = el('vh'), vd = el('vd');
+
+  var SUB = {
+    ecom: 'Gross-margin economics for a repeat-purchase business.',
+    saas: 'Subscription economics — churn sets the customer lifetime.',
+    lead: 'Lead-driven economics — CAC is derived from cost per lead and close rate.',
+    market: 'Transaction economics — your take rate is the margin.'
+  };
+  var LTVEXP = {
+    ecom: 'Order value × margin × purchases per year × lifespan.',
+    saas: 'Monthly gross profit ÷ churn — the value of a subscriber over their expected lifetime.',
+    lead: 'Average customer gross profit × your lifetime-value multiplier.',
+    market: 'Take rate × transaction value × transactions × lifespan.'
+  };
+
+  function compute() {
+    if (model === 'saas') {
+      var arpa = num('arpa', 0), m = num('smargin', 1, 99) / 100, ch = num('churn', 0.1, 100) / 100, ex = num('expansion', 0, 100) / 100, cac = num('scac', 1);
+      var net = Math.max(ch - ex, 0.005), mGP = arpa * m, life = 1 / net;
+      return { ltv: mGP * life, cac: cac, mGP: mGP, ltvWorse: mGP * (1 / Math.max(ch * 1.2 - ex, 0.005)), lever: '20% higher churn', horizon: life, hi: 36, hTxt: Math.round(life) + '-month lifetime' };
+    }
+    if (model === 'lead') {
+      var cpl = num('cpl', 0), conv = num('conv', 0.1, 100) / 100, gp = num('gp', 0), rep = num('repeat', 0.1, 20);
+      return { ltv: gp * rep, cac: conv > 0 ? cpl / conv : Infinity, mGP: 0, ltvWorse: gp * (rep * 0.8), lever: '20% less repeat value', horizon: rep, hi: 2, hTxt: rep.toFixed(1) + '× repeat value', lead: true, conv: conv };
+    }
+    if (model === 'market') {
+      var atv = num('atv', 0), take = num('take', 0.1, 100) / 100, tx = num('txyr', 0.1, 1e4), y = num('myears', 0.1, 20), cac = num('mcac', 1);
+      var per = atv * take;
+      return { ltv: per * tx * y, cac: cac, mGP: per * tx / 12, ltvWorse: per * tx * (y * 0.8), lever: 'a 20% shorter lifespan', horizon: y, hi: 2.5, hTxt: y.toFixed(1) + '-year lifespan' };
+    }
+    var m2 = num('margin', 1, 99) / 100, per2 = num('aov', 0) * m2, f = num('freq', 0.1, 52), y2 = num('years', 0.1, 20), cac2 = num('cac', 1);
+    return { ltv: per2 * f * y2, cac: cac2, mGP: per2 * f / 12, ltvWorse: per2 * f * (y2 * 0.8), lever: 'a 20% shorter lifespan', horizon: y2, hi: 2.5, hTxt: y2.toFixed(1) + '-year lifespan' };
+  }
 
   function render() {
-    var A = val('aov', 0, 1e9), M = val('margin', 1, 99), F = val('freq', 0.1, 52), Y = val('years', 0.1, 20), C = val('cac', 1, 1e9);
-    var profitPerOrder = A * (M / 100);
-    var ltv = profitPerOrder * F * Y;
-    var ratio = ltv / C;
-    var annualProfit = profitPerOrder * F;
-    var payback = annualProfit > 0 ? (C / annualProfit) * 12 : Infinity;
+    var c = compute();
+    var ltv = c.ltv, cac = c.cac;
+    var ratio = (isFinite(cac) && cac > 0) ? ltv / cac : Infinity;
+    var payback = c.mGP > 0 ? cac / c.mGP : Infinity;
 
     ltvEl.textContent = inr(ltv);
-    ratioEl.textContent = ratio.toFixed(1);
-    paybackEl.textContent = isFinite(payback) ? payback.toFixed(1) : '∞';
+    ratioEl.textContent = isFinite(ratio) ? ratio.toFixed(1) : '∞';
+    allowEl.textContent = inr(ltv / 3);
+    ltvExp.textContent = LTVEXP[model];
+    modelSub.textContent = SUB[model];
 
-    if (ratio >= 3) {
-      vEl.className = 'tk-verdict good'; vk.textContent = 'Healthy';
-      vh.textContent = ratio.toFixed(1) + ':1 — strong unit economics';
-      vd.textContent = 'You earn back roughly ' + ratio.toFixed(1) + '× what you spend to acquire a customer, with payback in about ' + (isFinite(payback) ? payback.toFixed(1) + ' months' : 'n/a') + '. There is room to invest more into acquisition — if the retention behind this is real.';
+    if (c.lead) {
+      pbK.textContent = 'Allowable cost per lead (3:1)';
+      pbEl.textContent = '₹' + inr((ltv / 3) * c.conv); pbUnit.textContent = '';
+      pbExp.textContent = 'The most you can pay per lead and still hit a 3:1 LTV:CAC at your ' + Math.round(c.conv * 100) + '% close rate. Derived CAC: ₹' + inr(cac) + '.';
+    } else {
+      pbK.textContent = 'Payback period';
+      pbEl.textContent = isFinite(payback) ? payback.toFixed(1) : '∞'; pbUnit.textContent = ' mo';
+      pbExp.textContent = 'Months of gross profit to earn back CAC. Shorter means less cash tied up.';
+    }
+
+    var ratioWorse = (isFinite(cac) && cac > 0) ? c.ltvWorse / cac : Infinity;
+    var ratioCacDown = (isFinite(cac) && cac > 0) ? ltv / (cac * 0.8) : Infinity;
+    var lower = c.horizon > c.hi;
+    confBadge.textContent = lower ? 'Lower' : 'Reasonable';
+    sensExp.textContent = 'With ' + c.lever + ', the ratio falls to ' + (isFinite(ratioWorse) ? ratioWorse.toFixed(1) : '∞') + ':1; if CAC dropped 20% it rises to ' + (isFinite(ratioCacDown) ? ratioCacDown.toFixed(1) : '∞') + ':1. Confidence is ' + (lower ? 'lower — the LTV leans on a ' + c.hTxt + ' you must verify.' : 'reasonable, though LTV is still a projection — measure retention to trust it.');
+
+    if (!isFinite(ratio) || ratio >= 3) {
+      vEl.className = 'tk-verdict good'; vk.textContent = 'Above the 3:1 reference';
+      vh.textContent = (isFinite(ratio) ? ratio.toFixed(1) : '∞') + ':1';
+      vd.textContent = 'You recover well above what you spend to acquire a customer' + (isFinite(payback) ? ', with payback in ~' + payback.toFixed(1) + ' months' : '') + '. Whether that means "spend more" depends on your cash position and how firm the retention behind it is.';
     } else if (ratio >= 1) {
-      vEl.className = 'tk-verdict warn'; vk.textContent = 'Workable, but thin';
-      vh.textContent = ratio.toFixed(1) + ':1 — below the 3:1 mark';
-      vd.textContent = 'You make money over a customer’s life, but the margin for error is thin and payback (~' + (isFinite(payback) ? payback.toFixed(1) + ' months' : 'n/a') + ') ties up cash. Lift margin, frequency, or retention before scaling spend.';
+      vEl.className = 'tk-verdict warn'; vk.textContent = 'Positive, but thin';
+      vh.textContent = ratio.toFixed(1) + ':1';
+      vd.textContent = 'You make money over a customer’s life, but you sit below the common 3:1 reference and the margin for error is small. Lift margin, retention, or cut CAC before scaling spend.';
     } else {
       vEl.className = 'tk-verdict bad'; vk.textContent = 'Underwater';
-      vh.textContent = ratio.toFixed(1) + ':1 — you lose money per customer';
-      vd.textContent = 'Even counting repeat purchases, lifetime value (₹' + inr(ltv) + ') is below your ₹' + inr(C) + ' acquisition cost. More spend deepens the hole — the economics have to change first.';
+      vh.textContent = ratio.toFixed(1) + ':1';
+      vd.textContent = 'Lifetime value (₹' + inr(ltv) + ') is below your ₹' + inr(cac) + ' acquisition cost — you lose money per customer even counting repeats. The economics have to change before more spend.';
     }
   }
 
-  ids.forEach(function (id) {
-    var n = el[id], r = el[id + '_r'];
-    r.addEventListener('input', function () { n.value = r.value; render(); });
-    n.addEventListener('input', function () { r.value = Math.max(parseFloat(r.min), Math.min(parseFloat(r.max), parseFloat(n.value) || 0)); render(); });
+  Array.prototype.forEach.call(document.querySelectorAll('.tkm'), function (b) {
+    b.addEventListener('click', function () {
+      model = b.getAttribute('data-m');
+      Array.prototype.forEach.call(document.querySelectorAll('.tkm'), function (x) { var on = x === b; x.classList.toggle('active', on); x.setAttribute('aria-selected', on ? 'true' : 'false'); });
+      Array.prototype.forEach.call(document.querySelectorAll('.mgroup'), function (g) { g.hidden = g.getAttribute('data-model') !== model; });
+      render();
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.mgroup input[type="number"]'), function (i) { i.addEventListener('input', render); });
+  ['aov', 'margin', 'freq', 'years', 'cac'].forEach(function (id) {
+    var n = el(id), r = el(id + '_r');
+    if (n && r) {
+      r.addEventListener('input', function () { n.value = r.value; render(); });
+      n.addEventListener('input', function () { r.value = Math.max(parseFloat(r.min), Math.min(parseFloat(r.max), parseFloat(n.value) || 0)); });
+    }
   });
   render();
 })();
