@@ -194,7 +194,9 @@
 
 <script type="module">
 import { TOOLS, OBJECTIVES, MODELS, filterTools } from '/tools/lib/registry.js';
+import { track, trackOnce } from '/tools/lib/analytics.js';
 (function () {
+  track('tool_viewed', { tool: 'hub' });
   var state = { objective: '', model: '', query: '' };
   var featured = document.getElementById('featured'), grid = document.getElementById('toolGrid'),
       empty = document.getElementById('hubEmpty'), objPills = document.getElementById('objPills'),
@@ -204,7 +206,7 @@ import { TOOLS, OBJECTIVES, MODELS, filterTools } from '/tools/lib/registry.js';
   // featured flagship
   var f = TOOLS.find(function (t) { return t.flagship; });
   if (f) {
-    featured.innerHTML = '<a class="featured" href="' + f.route + '"><span class="tag">Flagship · ' + esc(f.category) + '</span>' +
+    featured.innerHTML = '<a class="featured" data-tool="' + f.id + '" href="' + f.route + '"><span class="tag">Flagship · ' + esc(f.category) + '</span>' +
       '<h2>' + esc(f.name) + '</h2><p>' + esc(f.outcome) + '</p>' +
       '<div class="tool-meta">' + esc(f.audience) + ' · ' + esc(f.time) + ' · <span class="bm">includes sourced benchmarks</span></div>' +
       '<span class="go">Open the analyser →</span></a>';
@@ -219,7 +221,7 @@ import { TOOLS, OBJECTIVES, MODELS, filterTools } from '/tools/lib/registry.js';
 
   function card(t) {
     var bm = t.benchmarks ? ' · <span class="bm">benchmarks</span>' : '';
-    return '<a class="tool-card" href="' + t.route + '">' +
+    return '<a class="tool-card" data-tool="' + t.id + '" href="' + t.route + '">' +
       '<span class="cat">' + esc(t.category) + bm + '</span>' +
       '<h2>' + esc(t.name) + '</h2>' +
       '<p>' + esc(t.outcome) + '</p>' +
@@ -237,13 +239,19 @@ import { TOOLS, OBJECTIVES, MODELS, filterTools } from '/tools/lib/registry.js';
     var b = e.target.closest('.hub-pill'); if (!b) return;
     objPills.querySelectorAll('.hub-pill').forEach(function (x) { x.classList.toggle('active', x === b); });
     state.objective = b.getAttribute('data-obj') || ''; render();
+    track('objective_selected', { objective: state.objective || 'all' });
   });
   modelPills.addEventListener('click', function (e) {
     var b = e.target.closest('.hub-pill'); if (!b) return;
     modelPills.querySelectorAll('.hub-pill').forEach(function (x) { x.classList.toggle('active', x === b); });
     state.model = b.getAttribute('data-model') || ''; render();
+    track('business_model_selected', { tool: 'hub', model: state.model || 'any' });
   });
-  search.addEventListener('input', function () { state.query = search.value; render(); });
+  search.addEventListener('input', function () { state.query = search.value; render(); if (search.value) trackOnce('hubsearch', 'tool_search', {}); });
+
+  function trackOpen(e) { var a = e.target.closest('a[data-tool]'); if (a) track('tool_opened', { tool: a.getAttribute('data-tool'), from: 'hub' }); }
+  featured.addEventListener('click', trackOpen);
+  grid.addEventListener('click', trackOpen);
 
   render();
 })();
