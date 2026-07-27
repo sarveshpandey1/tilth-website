@@ -28,7 +28,7 @@ export const TOOLS = [
     benchmarks: true, objective: 'diagnose', models: ['all'], category: 'Diagnose', flagship: true, updated: '2026-07-25'
   },
   {
-    id: 'ad-spend-calculator', name: 'Ad Spend Profitability Calculator', route: '/ad-spend-calculator/',
+    id: 'ad-spend-calculator', name: 'Ad Spend Profitability Calculator', route: '/tools/ad-spend-profitability-calculator/',
     outcome: 'Break-even ROAS, the most you can profitably pay per customer, and profit after ads.',
     audience: 'Performance marketers', time: '~1–3 min', inputs: 'Order value, margin/costs, CAC',
     benchmarks: false, objective: 'plan', models: ['ecommerce', 'all'], category: 'Plan', updated: '2026-07-25'
