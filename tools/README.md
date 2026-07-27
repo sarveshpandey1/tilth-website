@@ -30,8 +30,12 @@ tools/
     package.json                     # { "type": "module" } — ESM marker for Node
   package.json                       # scripts: test (+ card generator)
   generate-insight-cards.js          # unrelated: insights card thumbnails (see end)
-../ad-spend-calculator/              # (lives at root; canonical route TBD — see limitations)
+  ad-spend-profitability-calculator/ # (canonical route; old /ad-spend-calculator/ redirects here)
 ```
+
+`../ad-spend-calculator/index.html` is now a client-side redirect stub
+(canonical + `<meta refresh>` + `location.replace`, `noindex,follow`) pointing
+at the canonical `/tools/ad-spend-profitability-calculator/`.
 
 `lib/*.js` are the **single source of truth**. Business logic must live here,
 not inside page `<script>` blocks. A page should be a thin DOM-binding layer
@@ -154,8 +158,11 @@ softened 3:1 framing; conversion funnel gained a real multi-stage mode.
   ~22 rate/ratio records across ecommerce CVR, cart abandonment, landing pages,
   Google & Meta ads, email, SaaS churn/trial-to-paid/freemium, and the B2B lead
   funnel — every one sourced, dated and confidence-rated. Expand as sourced.
-- **Ad-spend calculator route** still lives at `/ad-spend-calculator/`, not
-  `/tools/…`. Standardising needs a client-side redirect stub (Pages can't 301).
+- **Ad-spend route standardised.** The calculator now lives at
+  `/tools/ad-spend-profitability-calculator/`; the old `/ad-spend-calculator/`
+  is a client-side redirect stub (Pages can't 301, so it uses canonical +
+  `<meta refresh>` + `location.replace`, `noindex,follow`). All internal links,
+  the registry route, breadcrumbs and the sitemap point at the new path.
 - Analytics now instrument the hub, Analyser, and every tool page
   (`tool_viewed`/`tool_started`/`result_viewed`/`currency_changed`/`cta_clicked`,
   all bucketed via `band()` — no raw confidential values leave the page).
