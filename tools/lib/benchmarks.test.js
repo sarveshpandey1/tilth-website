@@ -92,6 +92,22 @@ test('saas_trial_to_paid narrows by trial-type segment', () => {
   assert.ok(r.median > 40); // card-required trials convert far higher than opt-in
 });
 
+test('India-scoped benchmarks are selected when geography = India', () => {
+  const cvr = lookupBenchmark('ecommerce_conversion_rate', { geography: 'India' });
+  assert.equal(cvr.geography, 'India');
+  assert.ok(cvr.matchedOn.includes('geography'));
+  assert.equal(cvr.fallback, false);
+  const email = lookupBenchmark('email_open_rate', { geography: 'India' });
+  assert.equal(email.geography, 'India');
+});
+
+test('India records are honestly low-confidence and still cite a source', () => {
+  for (const b of BENCHMARKS.filter(x => x.geography === 'India')) {
+    assert.equal(b.confidence, 'low', `${b.label} should be low-confidence`);
+    assert.ok(/^https?:\/\//.test(b.url), `${b.label} needs a real URL`);
+  }
+});
+
 test('newly added rate benchmarks all carry a citable source URL', () => {
   for (const id of ['cart_abandonment_rate', 'landing_page_conversion_rate', 'meta_ads_ctr', 'meta_ads_lead_conversion_rate', 'saas_trial_to_paid', 'saas_freemium_conversion']) {
     const recs = BENCHMARKS.filter(b => b.metric === id);
