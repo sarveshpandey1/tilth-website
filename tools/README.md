@@ -151,7 +151,9 @@ softened 3:1 framing; conversion funnel gained a real multi-stage mode.
   (INR/USD/GBP/EUR/AED/SGD/AUD via a selector + `formatCurrency`, persisted in
   `localStorage`). Display/grouping only — no FX conversion, by design.
 - **Benchmarks are Global/US-weighted.** India-specific data is thin; the set is
-  ~14 rate metrics (depth over breadth) and labelled as such. Expand as sourced.
+  ~22 rate/ratio records across ecommerce CVR, cart abandonment, landing pages,
+  Google & Meta ads, email, SaaS churn/trial-to-paid/freemium, and the B2B lead
+  funnel — every one sourced, dated and confidence-rated. Expand as sourced.
 - **Ad-spend calculator route** still lives at `/ad-spend-calculator/`, not
   `/tools/…`. Standardising needs a client-side redirect stub (Pages can't 301).
 - Analytics now instrument the hub, Analyser, and every tool page

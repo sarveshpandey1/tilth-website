@@ -77,3 +77,25 @@ test('benchmarkMetrics returns distinct metric ids', () => {
   assert.equal(new Set(m).size, m.length);
   assert.ok(m.includes('ecommerce_conversion_rate') && m.includes('saas_monthly_churn'));
 });
+
+test('cart abandonment is lower-is-better and scores low rates well', () => {
+  const r = lookupBenchmark('cart_abandonment_rate', {});
+  assert.equal(r.direction, 'lower');
+  assert.equal(r.verificationStatus, 'verified');
+  assert.ok(scoreMetric(65, r) >= scoreMetric(78, r)); // a lower abandonment rate scores higher
+});
+
+test('saas_trial_to_paid narrows by trial-type segment', () => {
+  const r = lookupBenchmark('saas_trial_to_paid', { segment: 'Opt-out trial (credit card required)' });
+  assert.equal(r.segment, 'Opt-out trial (credit card required)');
+  assert.equal(r.fallback, false);
+  assert.ok(r.median > 40); // card-required trials convert far higher than opt-in
+});
+
+test('newly added rate benchmarks all carry a citable source URL', () => {
+  for (const id of ['cart_abandonment_rate', 'landing_page_conversion_rate', 'meta_ads_ctr', 'meta_ads_lead_conversion_rate', 'saas_trial_to_paid', 'saas_freemium_conversion']) {
+    const recs = BENCHMARKS.filter(b => b.metric === id);
+    assert.ok(recs.length, `${id} should exist`);
+    for (const b of recs) assert.ok(/^https?:\/\//.test(b.url), `${b.label} needs a real URL`);
+  }
+});

@@ -57,6 +57,39 @@ export const BENCHMARKS = [
   { metric: 'b2b_opportunity_to_customer', label: 'B2B opportunity → customer', businessModel: 'lead', industry: 'all', segment: 'B2B', geography: 'Global', unit: '%', direction: 'higher',
     low: 22, median: 26, high: 30, source: 'GrowthSpree', url: 'https://www.growthspreeofficial.com/blogs/b2b-saas-conversion-rate-benchmarks-2026-funnel-stage-vertical', date: '2026', confidence: 'low-medium', verificationStatus: 'verified' },
 
+  // ----- Ecommerce funnel -----
+  { metric: 'cart_abandonment_rate', label: 'Cart abandonment rate', businessModel: 'ecommerce', industry: 'all', segment: 'All industries', geography: 'Global', unit: '%', direction: 'lower',
+    low: 65, median: 70, high: 78, source: 'Baymard Institute', url: 'https://baymard.com/lists/cart-abandonment-rate', date: '2025', confidence: 'medium', verificationStatus: 'verified',
+    sampleSize: 'meta-analysis of ~50 studies',
+    note: 'Baymard documents a ~70.2% cross-study average (stable near 70% for years). Lower is better; the band is illustrative around that average, not measured quartiles — vertical spread is wide (~45–91%).' },
+
+  // ----- Landing pages -----
+  { metric: 'landing_page_conversion_rate', label: 'Landing page conversion rate', businessModel: 'all', industry: 'all', segment: 'All industries', geography: 'Global (US-weighted)', unit: '%', direction: 'higher',
+    low: 3.8, median: 6.6, high: 12.3, source: 'Unbounce Conversion Benchmark Report', url: 'https://unbounce.com/landing-pages/whats-a-good-conversion-rate/', date: '2024 (updated 2025)', confidence: 'medium', verificationStatus: 'verified',
+    sampleSize: '41,000 landing pages, 57M conversions',
+    note: 'Median 6.6% across industries; low end ~3.8% (SaaS), high ~12.3% (events & entertainment). Distinct from site-wide ecommerce CVR.' },
+
+  // ----- Meta (Facebook / Instagram) ads -----
+  { metric: 'meta_ads_ctr', label: 'Meta ads CTR — traffic objective', businessModel: 'all', industry: 'all', segment: 'All industries', geography: 'US', unit: '%', direction: 'higher',
+    low: 0.8, median: 1.71, high: 4.13, source: 'WordStream (LocaliQ)', url: 'https://www.wordstream.com/blog/facebook-ads-benchmarks-2025', date: '2024–2025', confidence: 'med-high', verificationStatus: 'verified',
+    sampleSize: '554 US campaigns (medians)',
+    note: 'Traffic-objective click-through rate, US medians (India differs). Range spans lowest (auto repair ~0.8%) to highest (shopping & gifts ~4.1%) industries.' },
+  { metric: 'meta_ads_lead_conversion_rate', label: 'Meta ads conversion rate — leads objective', businessModel: 'lead', industry: 'all', segment: 'All industries', geography: 'US', unit: '%', direction: 'higher',
+    low: 3.77, median: 7.72, high: 18.25, source: 'WordStream (LocaliQ)', url: 'https://www.wordstream.com/blog/facebook-ads-benchmarks-2025', date: '2024–2025', confidence: 'medium', verificationStatus: 'verified',
+    sampleSize: '726 US campaigns (medians)',
+    note: 'Lead-form conversion rate on Meta lead campaigns, US medians. Range from furniture (~3.8%) to restaurants & food (~18.3%).' },
+
+  // ----- SaaS acquisition -----
+  { metric: 'saas_trial_to_paid', label: 'SaaS trial → paid — opt-in (no card)', businessModel: 'saas', industry: 'all', segment: 'Opt-in trial (no credit card)', geography: 'Global', unit: '%', direction: 'higher',
+    low: 15, median: 18, high: 22, source: 'First Page Sage', url: 'https://firstpagesage.com/seo-blog/saas-free-trial-conversion-rate-benchmarks/', date: '2025', confidence: 'medium', verificationStatus: 'verified',
+    note: 'No-card trials ~18% (18.2% organic / 17.4% paid); top quartile 35–45%. A "conversion" here counts a single paid month — weigh with retention.' },
+  { metric: 'saas_trial_to_paid', label: 'SaaS trial → paid — opt-out (card required)', businessModel: 'saas', industry: 'all', segment: 'Opt-out trial (credit card required)', geography: 'Global', unit: '%', direction: 'higher',
+    low: 45, median: 49, high: 55, source: 'First Page Sage', url: 'https://firstpagesage.com/seo-blog/saas-free-trial-conversion-rate-benchmarks/', date: '2025', confidence: 'medium', verificationStatus: 'verified',
+    note: 'Card-required trials ~49% (48.8% organic / 51% paid) — about 2.7× opt-in, but far fewer trials start. Trades trial volume for conversion.' },
+  { metric: 'saas_freemium_conversion', label: 'SaaS freemium free → paid', businessModel: 'saas', industry: 'all', segment: 'Freemium self-serve', geography: 'Global', unit: '%', direction: 'higher',
+    low: 2, median: 3, high: 5, source: 'First Page Sage', url: 'https://firstpagesage.com/seo-blog/saas-free-trial-conversion-rate-benchmarks/', date: '2025', confidence: 'medium', verificationStatus: 'verified',
+    note: 'Free→paid ~2.6–2.8%. Freemium drives sign-up volume but converts low; elite products reach 6–8%.' },
+
   // Heuristic reference — NOT a sourced benchmark, kept separate on purpose.
   { metric: 'ltv_cac_ratio', label: 'LTV : CAC ratio', businessModel: 'all', industry: 'all', segment: 'General rule of thumb', geography: 'Global', unit: ':1', direction: 'higher',
     low: 1, median: 3, high: 3, source: 'Common industry heuristic', url: '', date: '', confidence: 'reference', verificationStatus: 'heuristic',
