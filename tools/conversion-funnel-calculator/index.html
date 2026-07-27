@@ -112,9 +112,16 @@
   <div class="wrap">
     <div class="tk-crumb"><a href="/tools/">Free Tools</a> &nbsp;/&nbsp; Conversion Funnel Calculator</div>
 
-    <div class="fmodes" role="tablist" aria-label="Calculator mode">
-      <button class="fpill active" id="mSimple" type="button" role="tab" aria-selected="true">Simple</button>
-      <button class="fpill" id="mFunnel" type="button" role="tab" aria-selected="false">Multi-stage funnel</button>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin:34px 0 6px;">
+      <div class="fmodes" role="tablist" aria-label="Calculator mode" style="margin:0;">
+        <button class="fpill active" id="mSimple" type="button" role="tab" aria-selected="true">Simple</button>
+        <button class="fpill" id="mFunnel" type="button" role="tab" aria-selected="false">Multi-stage funnel</button>
+      </div>
+      <label style="font-size:13px;color:var(--olive);display:inline-flex;align-items:center;gap:8px;">Currency
+        <select id="cur" style="background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:7px 10px;color:var(--ink);font-family:'Work Sans',sans-serif;font-size:14px;">
+          <option value="INR">₹ INR</option><option value="USD">$ USD</option><option value="GBP">£ GBP</option><option value="EUR">€ EUR</option><option value="AED">AED</option><option value="SGD">S$ SGD</option><option value="AUD">A$ AUD</option>
+        </select>
+      </label>
     </div>
 
     <div id="simpleMode">
@@ -148,8 +155,8 @@
         </div>
         <div class="tk-rcard">
           <div class="k">Revenue per month</div>
-          <div class="v">₹<span id="revenue">—</span></div>
-          <p class="exp">Orders × average order value. Annualised: <strong>₹<span id="annual">—</span></strong>.</p>
+          <div class="v"><span id="revenue">—</span></div>
+          <p class="exp">Orders × average order value. Annualised: <strong><span id="annual">—</span></strong>.</p>
         </div>
       </div>
     </div>
@@ -207,7 +214,7 @@
           </div>
           <div class="tk-rcard">
             <div class="k">Revenue from this funnel</div>
-            <div class="v">₹<span id="f_rev">—</span></div>
+            <div class="v"><span id="f_rev">—</span></div>
             <p class="exp">Final-stage conversions × value per conversion.</p>
           </div>
           <div class="tk-rcard">
@@ -283,7 +290,22 @@
   </div>
 </footer>
 
-<script>
+<script type="module">
+import { funnelSimple, funnelStages } from '/tools/lib/calc.js';
+import { formatCurrency, formatNumber, CURRENCIES } from '/tools/lib/format.js';
+import { track, trackOnce, band } from '/tools/lib/analytics.js';
+
+// ===== shared currency state (used by both modes) =====
+var curSel = document.getElementById('cur');
+var cur = 'INR';
+try { var _s = localStorage.getItem('tilth-cur'); if (_s && CURRENCIES[_s]) cur = _s; } catch (e) {}
+curSel.value = cur;
+function money(n) { return formatCurrency(n, cur); }
+function count(n) { return formatNumber(n, CURRENCIES[cur].locale); }
+function updateSymbols() { var sym = CURRENCIES[cur].symbol; document.querySelectorAll('.tk-val .pre').forEach(function (p) { p.textContent = sym; }); }
+
+track('tool_viewed', { tool: 'conversion-funnel' });
+
 (function () {
   var ids = ['visitors', 'cr', 'aov'];
   var el = {};
@@ -293,30 +315,30 @@
   var visNeeded = document.getElementById('visNeeded'), visDelta = document.getElementById('visDelta');
   var crNeeded = document.getElementById('crNeeded'), crDelta = document.getElementById('crDelta');
 
-  function inr(n) { return Math.round(n).toLocaleString('en-IN'); }
   function val(id, min, max) { var v = parseFloat(el[id].value); if (isNaN(v)) v = min; return Math.max(min, Math.min(max, v)); }
 
+  window._funnelRenderSimple = render;
   function render() {
     var V = val('visitors', 1, 1e9), CR = val('cr', 0.01, 100), A = val('aov', 1, 1e9);
-    var orders = V * (CR / 100);
-    var revenue = orders * A;
-    ordersEl.textContent = inr(orders);
-    revEl.textContent = inr(revenue);
-    annualEl.textContent = inr(revenue * 12);
-
     var G = parseFloat(goal.value); if (isNaN(G) || G < 1) G = 1;
-    var vNeed = G / (A * (CR / 100));      // visitors needed at current CR & AOV
-    var crNeed = G / (V * A) * 100;        // CR needed at current visitors & AOV
-    visNeeded.textContent = inr(vNeed);
-    crNeeded.textContent = crNeed.toFixed(2);
+    var r = funnelSimple({ visitors: V, crPct: CR, aov: A, goal: G });
+    ordersEl.textContent = count(r.orders);
+    revEl.textContent = money(r.revenue);
+    annualEl.textContent = money(r.annual);
+    visNeeded.textContent = count(r.visitorsNeeded);
+    crNeeded.textContent = isFinite(r.crNeeded) ? r.crNeeded.toFixed(2) : '∞';
 
+    var vNeed = r.visitorsNeeded, crNeed = r.crNeeded;
     var vMult = V > 0 ? vNeed / V : 0;
     visDelta.textContent = vNeed <= V
-      ? 'You already have the traffic — you\'re ' + inr(V - vNeed) + ' visitors clear of the goal.'
-      : 'That\'s about ' + vMult.toFixed(1) + '× your current traffic (' + inr(vNeed - V) + ' more visitors/month).';
+      ? 'You already have the traffic — you\'re ' + count(V - vNeed) + ' visitors clear of the goal.'
+      : 'That\'s about ' + vMult.toFixed(1) + '× your current traffic (' + count(vNeed - V) + ' more visitors/month).';
     crDelta.textContent = crNeed <= CR
       ? 'Below your current ' + CR.toFixed(2) + '% — the goal is within reach as you are.'
       : 'Up from your current ' + CR.toFixed(2) + '% — a ' + (crNeed - CR).toFixed(2) + '-point lift, usually cheaper than buying the extra traffic.';
+
+    trackOnce('funnel-simple-started', 'tool_started', { tool: 'conversion-funnel', mode: 'simple' });
+    trackOnce('funnel-simple-result', 'result_viewed', { tool: 'conversion-funnel', mode: 'simple', revenue_band: band(r.revenue, [50000, 500000, 5000000]) });
   }
 
   ids.forEach(function (id) {
@@ -327,8 +349,7 @@
   goal.addEventListener('input', render);
   render();
 })();
-</script>
-<script>
+
 (function () {
   var TPL = {
     ecom: [['Sessions',10000],['Product views',4000],['Add to cart',1200],['Checkout',600],['Purchase',300],['Repeat purchase',90]],
@@ -339,7 +360,6 @@
   var listEl = document.getElementById('stageList');
   if (!listEl) return;
   var stages = TPL.ecom.map(function (s) { return { name: s[0], count: s[1] }; });
-  function inr(n) { return Math.round(n).toLocaleString('en-IN'); }
 
   function renderList() {
     listEl.innerHTML = '';
@@ -357,9 +377,14 @@
     });
   }
 
+  window._funnelRenderStages = compute;
   function compute() {
     var rows = listEl.querySelectorAll('.stage-row');
-    var worstIdx = -1, worstRate = Infinity;
+    var counts = stages.map(function (s) { return s.count; });
+    var val = Math.max(0, parseFloat(document.getElementById('fval').value) || 0);
+    var r = funnelStages(counts, val);
+
+    // per-row conversion + drop-off display (presentation) + leak highlight
     for (var i = 0; i < stages.length; i++) {
       var conv = document.getElementById('conv' + i);
       rows[i].classList.remove('leak');
@@ -367,36 +392,30 @@
       var prev = stages[i - 1].count, cur = stages[i].count;
       var rate = prev > 0 ? cur / prev : 0;
       conv.textContent = (rate * 100).toFixed(1) + '% · −' + Math.round(prev > 0 ? (1 - rate) * 100 : 0) + '%';
-      if (prev > 0 && rate < worstRate) { worstRate = rate; worstIdx = i; }
     }
-    if (worstIdx > 0) rows[worstIdx].classList.add('leak');
+    if (r.worstIdx > 0) rows[r.worstIdx].classList.add('leak');
 
-    var first = stages[0].count, last = stages[stages.length - 1].count;
-    document.getElementById('f_overall').textContent = (first > 0 ? last / first * 100 : 0).toFixed(2);
-    var val = Math.max(0, parseFloat(document.getElementById('fval').value) || 0);
-    document.getElementById('f_rev').textContent = inr(last * val);
+    document.getElementById('f_overall').textContent = r.overall.toFixed(2);
+    document.getElementById('f_rev').textContent = money(r.revenue);
 
     var lk = document.getElementById('f_leak'), lkd = document.getElementById('f_leakd'), fv = document.getElementById('f_verdict');
-    if (worstIdx > 0) {
-      lk.textContent = stages[worstIdx - 1].name + ' → ' + stages[worstIdx].name + ' (' + (worstRate * 100).toFixed(1) + '%)';
+    if (r.worstIdx > 0) {
+      lk.textContent = stages[r.worstIdx - 1].name + ' → ' + stages[r.worstIdx].name + ' (' + (r.worstRate * 100).toFixed(1) + '%)';
       lkd.textContent = 'This step loses the largest share of people relative to the one before it. Fixing the biggest leak usually beats pouring more traffic in at the top.';
       fv.className = 'tk-verdict bad';
     } else { lk.textContent = '—'; lkd.textContent = 'Enter at least two stages with counts.'; fv.className = 'tk-verdict neutral'; }
 
-    var rates = []; for (var j = 1; j < stages.length; j++) { var p = stages[j - 1].count; if (p > 0) rates.push(stages[j].count / p); }
     var impact = document.getElementById('f_impact'), impactExp = document.getElementById('f_impactExp');
-    if (worstIdx > 0 && rates.length >= 2 && worstRate > 0) {
-      var sorted = rates.slice().sort(function (a, b) { return a - b; });
-      var median = sorted[Math.floor(sorted.length / 2)];
-      if (median > worstRate) {
-        var newLast = last * (median / worstRate), gain = newLast - last;
-        impact.textContent = '+' + inr(gain);
-        impactExp.textContent = 'If ' + stages[worstIdx - 1].name + '→' + stages[worstIdx].name + ' improved from ' + (worstRate * 100).toFixed(1) + '% to the funnel median ' + (median * 100).toFixed(1) + '%, final conversions rise from ' + inr(last) + ' to ' + inr(newLast) + ' — about +₹' + inr(gain * val) + ' from the same traffic.';
-      } else {
-        impact.textContent = '—';
-        impactExp.textContent = 'Your weakest step is already at or above the funnel median — the next gain is likely elsewhere, or needs a step-change rather than a tweak.';
-      }
+    if (r.impactGain > 0 && r.medianRate != null) {
+      impact.textContent = '+' + count(r.impactGain);
+      impactExp.textContent = 'If ' + stages[r.worstIdx - 1].name + '→' + stages[r.worstIdx].name + ' improved from ' + (r.worstRate * 100).toFixed(1) + '% to the funnel median ' + (r.medianRate * 100).toFixed(1) + '%, final conversions rise from ' + count(r.last) + ' to ' + count(r.newLast) + ' — about +' + money(r.impactGain * val) + ' from the same traffic.';
+    } else if (r.worstIdx > 0 && r.rates.length >= 2) {
+      impact.textContent = '—';
+      impactExp.textContent = 'Your weakest step is already at or above the funnel median — the next gain is likely elsewhere, or needs a step-change rather than a tweak.';
     } else { impact.textContent = '—'; impactExp.textContent = 'Add more stages to model an improvement.'; }
+
+    trackOnce('funnel-stages-started', 'tool_started', { tool: 'conversion-funnel', mode: 'stages' });
+    trackOnce('funnel-stages-result', 'result_viewed', { tool: 'conversion-funnel', mode: 'stages', revenue_band: band(r.revenue, [50000, 500000, 5000000]) });
   }
 
   Array.prototype.forEach.call(document.querySelectorAll('#ftpl .fpill'), function (b) {
@@ -419,9 +438,22 @@
     mFunnel.setAttribute('aria-selected', fn ? 'true' : 'false'); mSimple.setAttribute('aria-selected', fn ? 'false' : 'true');
     if (fn) compute();
   }
-  mSimple.addEventListener('click', function () { setFMode(false); });
-  mFunnel.addEventListener('click', function () { setFMode(true); });
+  mSimple.addEventListener('click', function () { setFMode(false); track('scenario_changed', { tool: 'conversion-funnel', mode: 'simple' }); });
+  mFunnel.addEventListener('click', function () { setFMode(true); track('scenario_changed', { tool: 'conversion-funnel', mode: 'stages' }); });
 })();
+
+// ===== currency + CTA (module scope, after both modes are wired) =====
+updateSymbols();
+curSel.addEventListener('change', function () {
+  cur = CURRENCIES[curSel.value] ? curSel.value : 'INR';
+  try { localStorage.setItem('tilth-cur', cur); } catch (e) {}
+  updateSymbols();
+  if (window._funnelRenderSimple) window._funnelRenderSimple();
+  if (window._funnelRenderStages) window._funnelRenderStages();
+  track('currency_changed', { tool: 'conversion-funnel', currency: cur });
+});
+var _cta = document.querySelector('.tk-cta .btn');
+if (_cta) _cta.addEventListener('click', function () { track('cta_clicked', { tool: 'conversion-funnel', cta: 'measurement' }); });
 </script>
 <script src="/nav.js" defer></script>
 </body>

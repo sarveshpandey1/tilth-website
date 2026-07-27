@@ -101,11 +101,18 @@
   <div class="wrap">
     <div class="tk-crumb"><a href="/tools/">Free Tools</a> &nbsp;/&nbsp; LTV : CAC Calculator</div>
 
-    <div class="tk-models" role="tablist" aria-label="Business model">
-      <button class="tkm active" data-m="ecom" role="tab" aria-selected="true" type="button">Ecommerce / D2C</button>
-      <button class="tkm" data-m="saas" role="tab" aria-selected="false" type="button">SaaS / subscription</button>
-      <button class="tkm" data-m="lead" role="tab" aria-selected="false" type="button">Lead generation</button>
-      <button class="tkm" data-m="market" role="tab" aria-selected="false" type="button">Marketplace</button>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin:34px 0 6px;">
+      <div class="tk-models" role="tablist" aria-label="Business model" style="margin:0;">
+        <button class="tkm active" data-m="ecom" role="tab" aria-selected="true" type="button">Ecommerce / D2C</button>
+        <button class="tkm" data-m="saas" role="tab" aria-selected="false" type="button">SaaS / subscription</button>
+        <button class="tkm" data-m="lead" role="tab" aria-selected="false" type="button">Lead generation</button>
+        <button class="tkm" data-m="market" role="tab" aria-selected="false" type="button">Marketplace</button>
+      </div>
+      <label style="font-size:13px;color:var(--olive);display:inline-flex;align-items:center;gap:8px;">Currency
+        <select id="cur" style="background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:7px 10px;color:var(--ink);font-family:'Work Sans',sans-serif;font-size:14px;">
+          <option value="INR">₹ INR</option><option value="USD">$ USD</option><option value="GBP">£ GBP</option><option value="EUR">€ EUR</option><option value="AED">AED</option><option value="SGD">S$ SGD</option><option value="AUD">A$ AUD</option>
+        </select>
+      </label>
     </div>
 
     <div class="tk-calc">
@@ -177,13 +184,13 @@
         </div>
         <div class="tk-rcard">
           <div class="k">Customer lifetime value (gross margin)</div>
-          <div class="v">₹<span id="ltv">—</span></div>
+          <div class="v"><span id="ltv">—</span></div>
           <p class="exp" id="ltvExp">The total gross profit one customer brings over their lifetime.</p>
         </div>
         <div class="tk-rcard">
           <div class="k">LTV : CAC ratio</div>
           <div class="v"><span id="ratio">—</span><span class="unit">: 1</span></div>
-          <p class="exp">A 3:1 ratio is sometimes used as a general reference, but the right target depends on margin, cash position, retention, growth stage and business model. Allowable CAC at that 3:1 reference: ₹<span id="allow">—</span>.</p>
+          <p class="exp">A 3:1 ratio is sometimes used as a general reference, but the right target depends on margin, cash position, retention, growth stage and business model. Allowable CAC at that 3:1 reference: <span id="allow">—</span>.</p>
         </div>
         <div class="tk-rcard">
           <div class="k" id="paybackK">Payback period</div>
@@ -262,12 +269,23 @@
   </div>
 </footer>
 
-<script>
+<script type="module">
+import { ltvEcom, ltvSaas, ltvLead, ltvMarket } from '/tools/lib/calc.js';
+import { formatCurrency, CURRENCIES } from '/tools/lib/format.js';
+import { track, trackOnce, band } from '/tools/lib/analytics.js';
+
 (function () {
   var model = 'ecom';
   function el(id) { return document.getElementById(id); }
-  function inr(n) { return Math.round(n).toLocaleString('en-IN'); }
   function num(id, min, max) { var e = el(id); if (!e) return min; var v = parseFloat(e.value); if (isNaN(v)) v = min; if (max == null) max = 1e12; return Math.max(min, Math.min(max, v)); }
+
+  // ===== currency =====
+  var curSel = el('cur');
+  var cur = 'INR';
+  try { var _s = localStorage.getItem('tilth-cur'); if (_s && CURRENCIES[_s]) cur = _s; } catch (e) {}
+  curSel.value = cur;
+  function money(n) { return formatCurrency(n, cur); }
+  function updateSymbols() { var sym = CURRENCIES[cur].symbol; document.querySelectorAll('.tk-val .pre').forEach(function (p) { p.textContent = sym; }); }
 
   var ltvEl = el('ltv'), ratioEl = el('ratio'), allowEl = el('allow'), ltvExp = el('ltvExp'),
       pbK = el('paybackK'), pbEl = el('payback'), pbUnit = el('paybackUnit'), pbExp = el('paybackExp'),
@@ -287,41 +305,47 @@
     market: 'Take rate × transaction value × transactions × lifespan.'
   };
 
+  // Core metrics come from the shared engine (lib/calc.js); the sensitivity
+  // extras (worse-case LTV, confidence horizon) are layered on locally.
   function compute() {
     if (model === 'saas') {
-      var arpa = num('arpa', 0), m = num('smargin', 1, 99) / 100, ch = num('churn', 0.1, 100) / 100, ex = num('expansion', 0, 100) / 100, cac = num('scac', 1);
-      var net = Math.max(ch - ex, 0.005), mGP = arpa * m, life = 1 / net;
-      return { ltv: mGP * life, cac: cac, mGP: mGP, ltvWorse: mGP * (1 / Math.max(ch * 1.2 - ex, 0.005)), lever: '20% higher churn', horizon: life, hi: 36, hTxt: Math.round(life) + '-month lifetime' };
+      var arpa = num('arpa', 0), m = num('smargin', 1, 99), ch = num('churn', 0.1, 100), ex = num('expansion', 0, 100), cac = num('scac', 1);
+      var core = ltvSaas({ arpa: arpa, marginPct: m, churnPct: ch, expansionPct: ex, cac: cac });
+      var mGP = arpa * (m / 100);
+      var ltvWorse = mGP * (1 / Math.max((ch * 1.2 - ex) / 100, 0.005));
+      return Object.assign(core, { ltvWorse: ltvWorse, lever: '20% higher churn', horizon: core.lifetimeMonths, hi: 36, hTxt: Math.round(core.lifetimeMonths) + '-month lifetime' });
     }
     if (model === 'lead') {
-      var cpl = num('cpl', 0), conv = num('conv', 0.1, 100) / 100, gp = num('gp', 0), rep = num('repeat', 0.1, 20);
-      return { ltv: gp * rep, cac: conv > 0 ? cpl / conv : Infinity, mGP: 0, ltvWorse: gp * (rep * 0.8), lever: '20% less repeat value', horizon: rep, hi: 2, hTxt: rep.toFixed(1) + '× repeat value', lead: true, conv: conv };
+      var cpl = num('cpl', 0), conv = num('conv', 0.1, 100), gp = num('gp', 0), rep = num('repeat', 0.1, 20);
+      var core = ltvLead({ cpl: cpl, convPct: conv, grossProfit: gp, multiplier: rep });
+      return Object.assign(core, { ltvWorse: core.ltv * 0.8, lever: '20% less repeat value', horizon: rep, hi: 2, hTxt: rep.toFixed(1) + '× repeat value', lead: true, conv: conv / 100 });
     }
     if (model === 'market') {
-      var atv = num('atv', 0), take = num('take', 0.1, 100) / 100, tx = num('txyr', 0.1, 1e4), y = num('myears', 0.1, 20), cac = num('mcac', 1);
-      var per = atv * take;
-      return { ltv: per * tx * y, cac: cac, mGP: per * tx / 12, ltvWorse: per * tx * (y * 0.8), lever: 'a 20% shorter lifespan', horizon: y, hi: 2.5, hTxt: y.toFixed(1) + '-year lifespan' };
+      var atv = num('atv', 0), take = num('take', 0.1, 100), tx = num('txyr', 0.1, 1e4), y = num('myears', 0.1, 20), cac = num('mcac', 1);
+      var core = ltvMarket({ atv: atv, takePct: take, txPerYear: tx, years: y, cac: cac });
+      return Object.assign(core, { ltvWorse: core.ltv * 0.8, lever: 'a 20% shorter lifespan', horizon: y, hi: 2.5, hTxt: y.toFixed(1) + '-year lifespan' });
     }
-    var m2 = num('margin', 1, 99) / 100, per2 = num('aov', 0) * m2, f = num('freq', 0.1, 52), y2 = num('years', 0.1, 20), cac2 = num('cac', 1);
-    return { ltv: per2 * f * y2, cac: cac2, mGP: per2 * f / 12, ltvWorse: per2 * f * (y2 * 0.8), lever: 'a 20% shorter lifespan', horizon: y2, hi: 2.5, hTxt: y2.toFixed(1) + '-year lifespan' };
+    var aov = num('aov', 0), m2 = num('margin', 1, 99), f = num('freq', 0.1, 52), y2 = num('years', 0.1, 20), cac2 = num('cac', 1);
+    var coreE = ltvEcom({ aov: aov, marginPct: m2, freq: f, years: y2, cac: cac2 });
+    return Object.assign(coreE, { ltvWorse: coreE.ltv * 0.8, lever: 'a 20% shorter lifespan', horizon: y2, hi: 2.5, hTxt: y2.toFixed(1) + '-year lifespan' });
   }
 
   function render() {
     var c = compute();
     var ltv = c.ltv, cac = c.cac;
-    var ratio = (isFinite(cac) && cac > 0) ? ltv / cac : Infinity;
-    var payback = c.mGP > 0 ? cac / c.mGP : Infinity;
+    var ratio = c.ratio;
+    var payback = c.payback;
 
-    ltvEl.textContent = inr(ltv);
+    ltvEl.textContent = money(ltv);
     ratioEl.textContent = isFinite(ratio) ? ratio.toFixed(1) : '∞';
-    allowEl.textContent = inr(ltv / 3);
+    allowEl.textContent = money(c.allowableCAC);
     ltvExp.textContent = LTVEXP[model];
     modelSub.textContent = SUB[model];
 
     if (c.lead) {
       pbK.textContent = 'Allowable cost per lead (3:1)';
-      pbEl.textContent = '₹' + inr((ltv / 3) * c.conv); pbUnit.textContent = '';
-      pbExp.textContent = 'The most you can pay per lead and still hit a 3:1 LTV:CAC at your ' + Math.round(c.conv * 100) + '% close rate. Derived CAC: ₹' + inr(cac) + '.';
+      pbEl.textContent = money(c.allowableCPL); pbUnit.textContent = '';
+      pbExp.textContent = 'The most you can pay per lead and still hit a 3:1 LTV:CAC at your ' + Math.round(c.conv * 100) + '% close rate. Derived CAC: ' + money(cac) + '.';
     } else {
       pbK.textContent = 'Payback period';
       pbEl.textContent = isFinite(payback) ? payback.toFixed(1) : '∞'; pbUnit.textContent = ' mo';
@@ -345,8 +369,11 @@
     } else {
       vEl.className = 'tk-verdict bad'; vk.textContent = 'Underwater';
       vh.textContent = ratio.toFixed(1) + ':1';
-      vd.textContent = 'Lifetime value (₹' + inr(ltv) + ') is below your ₹' + inr(cac) + ' acquisition cost — you lose money per customer even counting repeats. The economics have to change before more spend.';
+      vd.textContent = 'Lifetime value (' + money(ltv) + ') is below your ' + money(cac) + ' acquisition cost — you lose money per customer even counting repeats. The economics have to change before more spend.';
     }
+
+    trackOnce('ltv-started', 'tool_started', { tool: 'ltv-cac' });
+    trackOnce('ltv-result-' + model, 'result_viewed', { tool: 'ltv-cac', model: model, ratio_band: isFinite(ratio) ? band(ratio, [1, 3, 5]) : '>=5' });
   }
 
   Array.prototype.forEach.call(document.querySelectorAll('.tkm'), function (b) {
@@ -354,7 +381,9 @@
       model = b.getAttribute('data-m');
       Array.prototype.forEach.call(document.querySelectorAll('.tkm'), function (x) { var on = x === b; x.classList.toggle('active', on); x.setAttribute('aria-selected', on ? 'true' : 'false'); });
       Array.prototype.forEach.call(document.querySelectorAll('.mgroup'), function (g) { g.hidden = g.getAttribute('data-model') !== model; });
+      updateSymbols();
       render();
+      track('business_model_selected', { tool: 'ltv-cac', model: model });
     });
   });
   Array.prototype.forEach.call(document.querySelectorAll('.mgroup input[type="number"]'), function (i) { i.addEventListener('input', render); });
@@ -365,6 +394,19 @@
       n.addEventListener('input', function () { r.value = Math.max(parseFloat(r.min), Math.min(parseFloat(r.max), parseFloat(n.value) || 0)); });
     }
   });
+
+  curSel.addEventListener('change', function () {
+    cur = CURRENCIES[curSel.value] ? curSel.value : 'INR';
+    try { localStorage.setItem('tilth-cur', cur); } catch (e) {}
+    updateSymbols();
+    render();
+    track('currency_changed', { tool: 'ltv-cac', currency: cur });
+  });
+  var _cta = document.querySelector('.tk-cta .btn');
+  if (_cta) _cta.addEventListener('click', function () { track('cta_clicked', { tool: 'ltv-cac', cta: 'foundation' }); });
+
+  track('tool_viewed', { tool: 'ltv-cac' });
+  updateSymbols();
   render();
 })();
 </script>

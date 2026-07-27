@@ -144,19 +144,19 @@ softened 3:1 framing; conversion funnel gained a real multi-stage mode.
 **Refactor:** A/B page now consumes `lib/calc.js`; hub rebuilt from `registry.js`.
 
 ### Remaining limitations / TODO
-- **Page→engine migration is partial.** The A/B and **ad-spend** pages import
-  `lib/calc.js`; LTV, funnel and UTM still hold their (test-equivalent) inline
-  maths. Migrate opportunistically — the formulas already match the tested engine.
-- **Multi-currency is wired into ad-spend** (INR/USD/GBP/EUR/AED/SGD/AUD via a
-  selector + `formatCurrency`, persisted in `localStorage`); LTV and funnel
-  still assume ₹. Apply the same pattern (currency `<select>` → `money()` →
-  `updateSymbols()`) to finish them.
+- **Page→engine migration is complete.** A/B, ad-spend, LTV:CAC and conversion-
+  funnel pages all import `lib/calc.js` (single source of truth); UTM has no
+  maths to migrate. No page carries duplicated inline formulas any more.
+- **Multi-currency is wired into ad-spend, LTV:CAC and conversion-funnel**
+  (INR/USD/GBP/EUR/AED/SGD/AUD via a selector + `formatCurrency`, persisted in
+  `localStorage`). Display/grouping only — no FX conversion, by design.
 - **Benchmarks are Global/US-weighted.** India-specific data is thin; the set is
   ~14 rate metrics (depth over breadth) and labelled as such. Expand as sourced.
 - **Ad-spend calculator route** still lives at `/ad-spend-calculator/`, not
   `/tools/…`. Standardising needs a client-side redirect stub (Pages can't 301).
-- Analytics currently instrument the hub + Analyser; other tool pages can add
-  `tool_viewed`/`cta_clicked` the same way.
+- Analytics now instrument the hub, Analyser, and every tool page
+  (`tool_viewed`/`tool_started`/`result_viewed`/`currency_changed`/`cta_clicked`,
+  all bucketed via `band()` — no raw confidential values leave the page).
 
 ---
 
