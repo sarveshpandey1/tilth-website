@@ -147,6 +147,12 @@ softened 3:1 framing; conversion funnel gained a real multi-stage mode.
 
 **Refactor:** A/B page now consumes `lib/calc.js`; hub rebuilt from `registry.js`.
 
+**Analyser coverage:** the flagship now scores cart abandonment (lower-is-
+better), landing-page CVR and Meta ads CTR/lead-CVR alongside the original
+metrics, per model. SaaS trial-to-paid & freemium stay on the benchmarks page
+only — their opt-in/opt-out/freemium segments need a dedicated picker to score
+fairly, so they're deliberately not auto-scored against a single default.
+
 ### Remaining limitations / TODO
 - **Page→engine migration is complete.** A/B, ad-spend, LTV:CAC and conversion-
   funnel pages all import `lib/calc.js` (single source of truth); UTM has no

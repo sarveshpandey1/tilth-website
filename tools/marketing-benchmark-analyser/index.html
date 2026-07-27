@@ -247,16 +247,23 @@ import { track, trackOnce, scoreBand } from '/tools/lib/analytics.js';
   var MODELS = {
     ecommerce: [
       { metric: 'ecommerce_conversion_rate', label: 'Website conversion rate', unit: '%', hint: 'Visitors → purchase' },
+      { metric: 'cart_abandonment_rate', label: 'Cart abandonment rate', unit: '%', hint: 'Carts started but not bought' },
+      { metric: 'landing_page_conversion_rate', label: 'Landing page conversion rate', unit: '%', hint: 'Campaign landing pages' },
+      { metric: 'meta_ads_ctr', label: 'Meta ads CTR', unit: '%', hint: 'Facebook/Instagram, traffic' },
       { metric: 'email_click_rate', label: 'Email click-through rate', unit: '%', hint: 'Avg across campaigns' },
       { metric: 'ltv_cac_ratio', label: 'LTV : CAC ratio', unit: ':1', hint: 'From the LTV:CAC tool' }
     ],
     saas: [
       { metric: 'saas_monthly_churn', label: 'Monthly churn', unit: '%', hint: 'Customers lost / month', seg: true },
       { metric: 'ltv_cac_ratio', label: 'LTV : CAC ratio', unit: ':1', hint: 'Lifetime value ÷ CAC' },
+      { metric: 'landing_page_conversion_rate', label: 'Landing page conversion rate', unit: '%', hint: 'Sign-up / demo pages' },
+      { metric: 'meta_ads_ctr', label: 'Meta ads CTR', unit: '%', hint: 'Facebook/Instagram, traffic' },
       { metric: 'email_click_rate', label: 'Email click-through rate', unit: '%', hint: 'Lifecycle emails' }
     ],
     lead: [
       { metric: 'b2b_visitor_to_lead', label: 'Visitor → lead', unit: '%', hint: 'Site visitors that enquire' },
+      { metric: 'landing_page_conversion_rate', label: 'Landing page conversion rate', unit: '%', hint: 'Campaign landing pages' },
+      { metric: 'meta_ads_lead_conversion_rate', label: 'Meta lead-ad conversion rate', unit: '%', hint: 'Lead-form completion' },
       { metric: 'b2b_mql_to_sql', label: 'MQL → SQL', unit: '%', hint: 'Marketing → sales qualified' },
       { metric: 'b2b_opportunity_to_customer', label: 'Opportunity → customer', unit: '%', hint: 'Win rate' },
       { metric: 'ltv_cac_ratio', label: 'LTV : CAC ratio', unit: ':1', hint: 'Lifetime value ÷ CAC' }
@@ -265,6 +272,10 @@ import { track, trackOnce, scoreBand } from '/tools/lib/analytics.js';
   var ACTIONS = {
     ecommerce_conversion_rate: { rec: 'Your site converts below benchmark — the leak is usually in the funnel, not the traffic.', tool: '/tools/conversion-funnel-calculator/', toolLabel: 'Map your funnel', cta: 'funnel' },
     email_click_rate: { rec: 'Email engagement trails benchmark — segment the list and test subject lines and CTAs before sending more.', cta: 'measurement' },
+    cart_abandonment_rate: { rec: 'More carts are abandoned than the norm — the leak is usually checkout friction: surprise shipping/fees, forced account creation, or too few payment options.', tool: '/tools/conversion-funnel-calculator/', toolLabel: 'Map your checkout funnel', cta: 'funnel' },
+    landing_page_conversion_rate: { rec: 'Landing pages convert below benchmark — tighten message-match to the ad, cut the form, and make one clear offer per page before buying more clicks.', tool: '/tools/conversion-funnel-calculator/', toolLabel: 'Map your funnel', cta: 'funnel' },
+    meta_ads_ctr: { rec: 'Meta click-through is below benchmark — the creative or audience isn’t landing. Test new hooks/formats and tighten targeting before raising budget.', cta: 'measurement' },
+    meta_ads_lead_conversion_rate: { rec: 'Lead-ad completion trails benchmark — shorten the form, pre-fill where you can, and match the offer to the ad’s promise.', tool: '/tools/conversion-funnel-calculator/', toolLabel: 'Map your funnel', cta: 'funnel' },
     saas_monthly_churn: { rec: 'Churn is above benchmark — for a subscription business, keeping customers beats buying new ones. Fix onboarding and early value first.', tool: '/tools/ltv-cac-calculator/', toolLabel: 'Model churn in LTV:CAC', cta: 'economics' },
     ltv_cac_ratio: { rec: 'Your unit economics are thin — acquisition cost or payback needs work before you scale spend.', tool: '/tools/ad-spend-profitability-calculator/', toolLabel: 'Check ad-spend economics', cta: 'economics' },
     b2b_visitor_to_lead: { rec: 'Too few visitors become leads — usually a targeting or landing-page/offer problem, not traffic volume.', tool: '/tools/conversion-funnel-calculator/', toolLabel: 'Map your funnel', cta: 'funnel' },
