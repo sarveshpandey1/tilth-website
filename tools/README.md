@@ -161,9 +161,13 @@ fairly, so they're deliberately not auto-scored against a single default.
   (INR/USD/GBP/EUR/AED/SGD/AUD via a selector + `formatCurrency`, persisted in
   `localStorage`). Display/grouping only — no FX conversion, by design.
 - **Benchmarks are Global/US-weighted.** India-specific data is thin; the set is
-  ~22 rate/ratio records across ecommerce CVR, cart abandonment, landing pages,
+  ~24 rate/ratio records across ecommerce CVR, cart abandonment, landing pages,
   Google & Meta ads, email, SaaS churn/trial-to-paid/freemium, and the B2B lead
-  funnel — every one sourced, dated and confidence-rated. Expand as sourced.
+  funnel — every one sourced, dated and confidence-rated. Two India-scoped
+  records (ecommerce CVR, email open rate) are included at **low confidence**
+  with explicit caveats; where India data was too weak or inconsistent (e.g.
+  India email CTR, India cart abandonment) it was deliberately left out rather
+  than published. Expand as sourced.
 - **Ad-spend route standardised.** The calculator now lives at
   `/tools/ad-spend-profitability-calculator/`; the old `/ad-spend-calculator/`
   is a client-side redirect stub (Pages can't 301, so it uses canonical +

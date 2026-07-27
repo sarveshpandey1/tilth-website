@@ -25,6 +25,9 @@ export const BENCHMARKS = [
   { metric: 'ecommerce_conversion_rate', label: 'Ecommerce conversion rate — Luxury', businessModel: 'ecommerce', industry: 'luxury', segment: 'Luxury & jewelry', geography: 'Global', unit: '%', direction: 'higher',
     low: 0.8, median: 1.1, high: 1.5, source: 'Smart Insights', url: 'https://www.smartinsights.com/ecommerce/ecommerce-analytics/ecommerce-conversion-rates/', date: '2025', confidence: 'medium', verificationStatus: 'verified',
     note: 'High-consideration purchases convert lower.' },
+  { metric: 'ecommerce_conversion_rate', label: 'Ecommerce conversion rate — India', businessModel: 'ecommerce', industry: 'all', segment: 'All industries', geography: 'India', unit: '%', direction: 'higher',
+    low: 1.0, median: 1.6, high: 2.4, source: 'Noir & Blanco 2026 Conversion Benchmark Report', url: 'https://noirandblanco.com/ecommerce-conversion-benchmark-report/', date: '2026', confidence: 'low', verificationStatus: 'verified',
+    note: 'India runs below the ~2.5% global average — general ecommerce ~1.6%, category spread ~1.0% (electronics, furniture) to ~2.4% (books & stationery). The source does not disclose sample size or methodology, so treat as directional only.' },
 
   { metric: 'google_ads_conversion_rate', label: 'Google Ads (search) conversion rate', businessModel: 'all', industry: 'all', segment: 'All industries', geography: 'Global (US-weighted)', unit: '%', direction: 'higher',
     low: 2.55, median: 7.52, high: 14.67, source: 'WordStream', url: 'https://www.wordstream.com/blog/2026-google-ads-benchmarks', date: '2025–2026', confidence: 'med-high', verificationStatus: 'verified',
@@ -37,6 +40,9 @@ export const BENCHMARKS = [
   { metric: 'email_click_rate', label: 'Email click-through rate', businessModel: 'all', industry: 'all', segment: 'All industries', geography: 'Global', unit: '%', direction: 'higher',
     low: 2, median: 3, high: 5, source: 'Mailchimp / Salesforce', url: 'https://mailchimp.com/resources/email-marketing-benchmarks/', date: '2025', confidence: 'medium', verificationStatus: 'verified',
     note: 'More reliable than open rate post-MPP.' },
+  { metric: 'email_open_rate', label: 'Email open rate — India', businessModel: 'all', industry: 'all', segment: 'All industries', geography: 'India', unit: '%', direction: 'higher',
+    low: 20, median: 26, high: 42, source: 'GetResponse 2024 (via CampaignHQ, India)', url: 'https://blog.campaignhq.co/email-whatsapp-marketing-benchmarks-india/', date: '2024', confidence: 'low', verificationStatus: 'verified',
+    note: 'India average ~25.8% across GetResponse’s 4.4B-email set; industry spread ~17–45%. Like all open rates, inflated by Apple Mail Privacy Protection — directional only, prefer click rate. India click-rate data is too inconsistent across sources to publish honestly.' },
 
   { metric: 'saas_monthly_churn', label: 'SaaS monthly churn — B2B SMB', businessModel: 'saas', industry: 'all', segment: 'B2B SMB', geography: 'Global', unit: '%', direction: 'lower',
     low: 3, median: 4, high: 5, source: 'Vitally / CustomerGauge', url: 'https://www.vitally.io/post/saas-churn-benchmarks', date: '2025', confidence: 'medium', verificationStatus: 'verified' },
