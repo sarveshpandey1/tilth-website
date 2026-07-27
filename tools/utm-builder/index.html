@@ -196,7 +196,9 @@
   </div>
 </footer>
 
-<script>
+<script type="module">
+import { track, trackOnce } from '/tools/lib/analytics.js';
+
 (function () {
   var url = document.getElementById('url'), source = document.getElementById('source'),
       medium = document.getElementById('medium'), campaign = document.getElementById('campaign'),
@@ -215,6 +217,7 @@
     var full = qs ? base + (base.indexOf('?') >= 0 ? '&' : '?') + qs : base;
     output.textContent = full;
     copyBtn.disabled = false;
+    trackOnce('utm-started', 'tool_started', { tool: 'utm-builder' });
   }
 
   fields.forEach(function (f) { f.addEventListener('input', build); });
@@ -225,11 +228,17 @@
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(done, function () { fallback(text); done(); });
     } else { fallback(text); done(); }
+    track('cta_clicked', { tool: 'utm-builder', cta: 'copy-link' });
   });
   function fallback(text) {
     var ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
     document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} document.body.removeChild(ta);
   }
+
+  var _cta = document.querySelector('.tk-cta .btn');
+  if (_cta) _cta.addEventListener('click', function () { track('cta_clicked', { tool: 'utm-builder', cta: 'measurement' }); });
+
+  track('tool_viewed', { tool: 'utm-builder' });
   build();
 })();
 </script>
