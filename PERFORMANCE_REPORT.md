@@ -64,6 +64,22 @@ Three cold Lighthouse runs on the preview after the changes:
 - Run Lighthouse **≥3× and take the median**, on **`https://wearetilth.com`** after merge (CDN-cached, warm), not the Vercel cold preview.
 - Inner/generated pages (TBT ~160ms) will hit the targets readily; the **cinematic homepage** is the deliberate tradeoff — the user chose the immersive preloader/roots/kinetic experience, which carries main-thread cost that pure-static pages don't.
 
+## Final state after self-hosting fonts (2026-07-16)
+Self-hosted 9 latin woff2 (Fraunces + Work Sans), preloaded the 2 critical faces, removed Google Fonts.
+
+Two homepage runs after self-hosting: Perf 49 / 55 · LCP 5.1 / 4.8s · **TBT 700 / 720ms** · **CLS 0.101 / 0.098**.
+- ✅ **TBT** improved to ~700ms (from 1,020 baseline; the earlier 2,290 was the un-chunked idle batch).
+- ✅ **CLS** improved to ~0.10 (from 0.12–0.14) and external-font variance is gone.
+- ⚠️ **LCP still ~5s** → with fonts fixed, the LCP bottleneck is now the **cinematic preloader** (the full-screen 0→100 counter that holds content until JS dismisses it), amplified by Vercel cold-start + 4× CPU throttling.
+
+### The homepage LCP lever is a design decision (owner's call)
+The preloader is the immersive intro the owner explicitly chose. Removing or shortening it (e.g., dismiss on `DOMContentLoaded` instead of a timed counter, or drop it) is the single biggest remaining homepage-LCP lever — but it changes the experience, so it's **not** applied silently. Options if 90+ homepage LCP is required:
+1. Dismiss the preloader immediately on first paint (keep a brief fade) — likely the best balance.
+2. Remove the preloader entirely.
+3. Keep it — accept a lower homepage Lighthouse LCP as the cost of the cinematic entrance (inner pages are unaffected and fast).
+
+**Recommendation:** measure the median of ≥3 runs on the warm production domain first (cold Vercel preview overstates LCP), then decide on the preloader.
+
 ## Note on methodology
 Lighthouse mobile throttling is deliberately pessimistic; field/desktop numbers are higher. Targets should still be pursued on throttled mobile per the brief. Re-run after the optimization pass and on the live domain.
 
