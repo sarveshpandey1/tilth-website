@@ -142,11 +142,9 @@ ${gtag}
 <meta name="twitter:title" content="${esc(ogTitle)}">
 <meta name="twitter:description" content="${esc(ogDesc)}">
 <meta name="twitter:image" content="${site.base}/og-image.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="${FONTS}">
-<link rel="stylesheet" href="${FONTS}" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="${FONTS}"></noscript>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/styles.css">
 <link rel="stylesheet" href="/assets/generated.css">
 ${p.headExtra || ""}
