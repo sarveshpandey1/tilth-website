@@ -7,3 +7,9 @@ index.original.html
 
 # installed deps for tracked tooling (script + package.json are tracked, deps are not)
 node_modules/
+.vercel
+
+# Vercel preview scaffolding (not for production/GitHub Pages)
+vercel.json
+.vercelignore
+.vercel
