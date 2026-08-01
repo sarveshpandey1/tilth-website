@@ -38,7 +38,7 @@ export function breadcrumbs(items) {
   return { schema, visible };
 }
 
-export function masthead(navItems = nav.fallback) {
+export function masthead(navItems = nav.primary) {
   return `<header class="masthead">
   <div class="wrap">
     <a href="/" class="word">${site.wordmark}</a>
@@ -146,6 +146,7 @@ ${gtag}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="${FONTS}" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/assets/generated.css">
 ${p.headExtra || ""}
 ${schemas}
 </head>

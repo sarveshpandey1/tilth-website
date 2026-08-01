@@ -29,7 +29,7 @@
   var cta = document.createElement('a');
   cta.href = '/contact/';
   cta.className = 'mh-cta';
-  cta.textContent = 'Free audit';
+  cta.textContent = 'Discuss a project';
   wrap.appendChild(cta);
 
   // burger
@@ -55,7 +55,7 @@
   var menuCta = document.createElement('a');
   menuCta.href = '/contact/';
   menuCta.className = 'mh-menu-cta';
-  menuCta.textContent = 'Request a free audit →';
+  menuCta.textContent = 'Discuss a project →';
   menu.appendChild(menuCta);
   document.body.appendChild(menu);
 
