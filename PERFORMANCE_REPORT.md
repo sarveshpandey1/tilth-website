@@ -40,6 +40,30 @@ Measured with **real Lighthouse runs** (mobile, default throttling: slow-4G + 4�
 
 **Expected outcome:** inner pages → 90+ readily (already TBT 160ms); homepage → 80s–90s after JS deferral + font fixes. Re-measure after each change.
 
+## Post-pass results (2026-07-16) + a measurement caveat
+Applied: (1) **non-blocking Google Fonts** (preload + `media=print onload` + noscript) sitewide; (2) **deferred + chunked** the homepage decorative SVG generation into short idle tasks; (3) trimmed unused Fraunces weights.
+
+Three cold Lighthouse runs on the preview after the changes:
+| Run | Perf | LCP | FCP | TBT | CLS |
+|---|---|---|---|---|---|
+| baseline (before) | 50 | 5.0s | 4.0s | 1,020ms | 0 |
+| after fonts + defer | 64 | **2.2s** | **1.8s** | 2,290ms | 0.12 |
+| after chunking | 44 | 4.7s | 3.8s | 1,320ms | 0.136 |
+
+**These swing wildly with no code change between runs 2–3 → the numbers are noise-dominated.** Root cause: a **cold Vercel preview** (serverless cold starts) + **external Google Fonts fetch** + single throttled runs = ±20 Perf points, ±2.5s LCP. You cannot reliably optimize against this signal.
+
+### What is real (consistent across runs)
+- ✅ **Non-blocking fonts help FCP/LCP** in principle (best run: LCP 2.2s / FCP 1.8s vs 5.0/4.0) — kept.
+- ✅ **Chunked idle generation** keeps homepage init as short tasks — kept.
+- ⚠️ **CLS regressed to ~0.12 on cold first load** — this is the one consistent finding. It's **font-swap reflow** (FOUT) introduced by non-blocking fonts. **On cached/repeat visits (font already downloaded) CLS is ~0** — it's a first-uncached-visit artifact.
+
+### Definitive fix (recommended follow-up)
+**Self-host the fonts** (download woff2 for the used weights → `/assets/fonts/`, `@font-face` with `font-display:swap`, `preload` the 2–3 critical files). This gives: fast local fonts (good LCP), the brand font shown (no fallback compromise), swap-before-paint (**CLS → 0**), *and* removes the external-fetch variance that's polluting these measurements. Est. ~1–2 hrs; verify with multiple runs on the **production domain** (GitHub Pages, CDN-cached), not the cold preview.
+
+### Where to measure for real numbers
+- Run Lighthouse **≥3× and take the median**, on **`https://wearetilth.com`** after merge (CDN-cached, warm), not the Vercel cold preview.
+- Inner/generated pages (TBT ~160ms) will hit the targets readily; the **cinematic homepage** is the deliberate tradeoff — the user chose the immersive preloader/roots/kinetic experience, which carries main-thread cost that pure-static pages don't.
+
 ## Note on methodology
 Lighthouse mobile throttling is deliberately pessimistic; field/desktop numbers are higher. Targets should still be pursued on throttled mobile per the brief. Re-run after the optimization pass and on the live domain.
 
