@@ -144,7 +144,9 @@ ${gtag}
 <meta name="twitter:image" content="${site.base}/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="${FONTS}" rel="stylesheet">
+<link rel="preload" as="style" href="${FONTS}">
+<link rel="stylesheet" href="${FONTS}" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="${FONTS}"></noscript>
 <link rel="stylesheet" href="/styles.css">
 <link rel="stylesheet" href="/assets/generated.css">
 ${p.headExtra || ""}
