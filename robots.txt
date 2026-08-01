@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tilth.in/sitemap.xml
+Sitemap: https://wearetilth.com/sitemap.xml
