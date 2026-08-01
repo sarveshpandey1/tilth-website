@@ -14,7 +14,7 @@
 </script>
 <title>Marketing Benchmark Analyser — Score Your Metrics Honestly | Tilth</title>
 <meta name="description" content="Free marketing benchmark analyser: enter the metrics that fit your business model and get an honest health score, benchmark comparison, your biggest issue, and prioritised actions.">
-<link rel="canonical" href="https://tilth.in/tools/marketing-benchmark-analyser/">
+<link rel="canonical" href="https://wearetilth.com/tools/marketing-benchmark-analyser/">
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
@@ -28,13 +28,13 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Marketing Benchmark Analyser — an honest health score">
 <meta property="og:description" content="Enter the metrics that fit your model, compare to sourced benchmarks, and get prioritised actions. Free, no sign-up.">
-<meta property="og:url" content="https://tilth.in/tools/marketing-benchmark-analyser/">
-<meta property="og:image" content="https://tilth.in/og-image.png">
+<meta property="og:url" content="https://wearetilth.com/tools/marketing-benchmark-analyser/">
+<meta property="og:image" content="https://wearetilth.com/og-image.png">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Marketing Benchmark Analyser | Tilth">
 <meta name="twitter:description" content="An honest marketing health score, benchmark comparison, and prioritised actions. Free.">
-<meta name="twitter:image" content="https://tilth.in/og-image.png">
+<meta name="twitter:image" content="https://wearetilth.com/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -87,15 +87,15 @@
   "@context": "https://schema.org",
   "@graph": [
     { "@type": "BreadcrumbList", "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tilth.in/" },
-      { "@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://tilth.in/tools/" },
-      { "@type": "ListItem", "position": 3, "name": "Marketing Benchmark Analyser", "item": "https://tilth.in/tools/marketing-benchmark-analyser/" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wearetilth.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://wearetilth.com/tools/" },
+      { "@type": "ListItem", "position": 3, "name": "Marketing Benchmark Analyser", "item": "https://wearetilth.com/tools/marketing-benchmark-analyser/" }
     ] },
-    { "@type": "WebApplication", "name": "Marketing Benchmark Analyser", "url": "https://tilth.in/tools/marketing-benchmark-analyser/",
+    { "@type": "WebApplication", "name": "Marketing Benchmark Analyser", "url": "https://wearetilth.com/tools/marketing-benchmark-analyser/",
       "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web)",
       "description": "Scores a business's marketing metrics against sourced industry benchmarks by model, highlights the biggest issue, and returns prioritised actions.",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-      "publisher": { "@type": "Organization", "name": "Tilth", "url": "https://tilth.in/" } }
+      "publisher": { "@type": "Organization", "name": "Tilth", "url": "https://wearetilth.com/" } }
   ]
 }
 </script>
@@ -146,6 +146,14 @@
             <option value="B2B Mid-market">B2B — Mid-market</option>
             <option value="B2B Enterprise">B2B — Enterprise</option>
             <option value="B2C">B2C</option>
+          </select>
+        </div>
+        <div class="an-seg" id="trialWrap" hidden>
+          <label for="trialSel">Trial model</label>
+          <select id="trialSel">
+            <option value="optin">Opt-in trial (no card)</option>
+            <option value="optout">Opt-out trial (card required)</option>
+            <option value="freemium">Freemium (free → paid)</option>
           </select>
         </div>
         <div class="an-fields" id="anFields"></div>
@@ -255,6 +263,7 @@ import { track, trackOnce, scoreBand } from '/tools/lib/analytics.js';
     ],
     saas: [
       { metric: 'saas_monthly_churn', label: 'Monthly churn', unit: '%', hint: 'Customers lost / month', seg: true },
+      { metric: 'saas_trial_to_paid', label: 'Trial / freemium → paid', unit: '%', hint: 'Depends on trial model (select above)', trial: true },
       { metric: 'ltv_cac_ratio', label: 'LTV : CAC ratio', unit: ':1', hint: 'Lifetime value ÷ CAC' },
       { metric: 'landing_page_conversion_rate', label: 'Landing page conversion rate', unit: '%', hint: 'Sign-up / demo pages' },
       { metric: 'meta_ads_ctr', label: 'Meta ads CTR', unit: '%', hint: 'Facebook/Instagram, traffic' },
@@ -277,6 +286,8 @@ import { track, trackOnce, scoreBand } from '/tools/lib/analytics.js';
     meta_ads_ctr: { rec: 'Meta click-through is below benchmark — the creative or audience isn’t landing. Test new hooks/formats and tighten targeting before raising budget.', cta: 'measurement' },
     meta_ads_lead_conversion_rate: { rec: 'Lead-ad completion trails benchmark — shorten the form, pre-fill where you can, and match the offer to the ad’s promise.', tool: '/tools/conversion-funnel-calculator/', toolLabel: 'Map your funnel', cta: 'funnel' },
     saas_monthly_churn: { rec: 'Churn is above benchmark — for a subscription business, keeping customers beats buying new ones. Fix onboarding and early value first.', tool: '/tools/ltv-cac-calculator/', toolLabel: 'Model churn in LTV:CAC', cta: 'economics' },
+    saas_trial_to_paid: { rec: 'Trial → paid is below benchmark — most trials stall before first value. Shorten time-to-value, guide activation, and capture payment at the value moment (card-required trials convert far higher, at the cost of fewer starts).', tool: '/tools/ltv-cac-calculator/', toolLabel: 'Model it in LTV:CAC', cta: 'economics' },
+    saas_freemium_conversion: { rec: 'Freemium free → paid is below benchmark — the paywall or upgrade trigger isn’t compelling. Gate the right feature, prompt at the value moment, and check the free tier isn’t so generous no one needs to pay.', cta: 'economics' },
     ltv_cac_ratio: { rec: 'Your unit economics are thin — acquisition cost or payback needs work before you scale spend.', tool: '/tools/ad-spend-profitability-calculator/', toolLabel: 'Check ad-spend economics', cta: 'economics' },
     b2b_visitor_to_lead: { rec: 'Too few visitors become leads — usually a targeting or landing-page/offer problem, not traffic volume.', tool: '/tools/conversion-funnel-calculator/', toolLabel: 'Map your funnel', cta: 'funnel' },
     b2b_mql_to_sql: { rec: 'Leads stall before sales — tighten scoring and ICP so sales gets fewer, better-qualified leads.', cta: 'measurement' },
@@ -291,7 +302,8 @@ import { track, trackOnce, scoreBand } from '/tools/lib/analytics.js';
   };
 
   var model = 'ecommerce';
-  var fieldsEl = document.getElementById('anFields'), segWrap = document.getElementById('segWrap'), segEl = document.getElementById('seg');
+  var fieldsEl = document.getElementById('anFields'), segWrap = document.getElementById('segWrap'), segEl = document.getElementById('seg'),
+      trialWrap = document.getElementById('trialWrap'), trialSel = document.getElementById('trialSel');
   var scoreEl = document.getElementById('score'), scoreLbl = document.getElementById('scoreLbl'), gaugeEl = document.getElementById('gauge'),
       vEl = document.getElementById('verdict'), vd = document.getElementById('vd'), mrows = document.getElementById('mrows'),
       priorityCard = document.getElementById('priorityCard'), actionsEl = document.getElementById('actions'),
@@ -304,6 +316,7 @@ import { track, trackOnce, scoreBand } from '/tools/lib/analytics.js';
   function buildFields() {
     fieldsEl.innerHTML = '';
     segWrap.hidden = !MODELS[model].some(function (m) { return m.seg; });
+    trialWrap.hidden = !MODELS[model].some(function (m) { return m.trial; });
     MODELS[model].forEach(function (m) {
       var d = document.createElement('div'); d.className = 'an-field';
       var pct = m.unit === '%';
@@ -316,10 +329,22 @@ import { track, trackOnce, scoreBand } from '/tools/lib/analytics.js';
     fieldsEl.querySelectorAll('input').forEach(function (i) { i.addEventListener('input', function () { trackOnce('an-started', 'tool_started', { tool: 'analyser' }); render(); }); });
   }
 
-  function render() {
-    var ctx = { businessModel: model };
-    if (!segWrap.hidden) ctx.segment = segEl.value;
+  // Resolve a config entry to the metric + segment context to score it against.
+  // Segment is scoped PER METRIC (churn segment must not leak onto other metrics),
+  // and the trial field switches metric/segment based on the trial-model selector.
+  function resolve(m) {
+    var lookupMetric = m.metric, label = m.label, ctx = { businessModel: model };
+    if (m.seg) ctx.segment = segEl.value;
+    if (m.trial) {
+      var tv = trialSel.value;
+      if (tv === 'freemium') { lookupMetric = 'saas_freemium_conversion'; label = 'Freemium free → paid'; }
+      else if (tv === 'optout') { lookupMetric = 'saas_trial_to_paid'; label = 'Trial → paid (card required)'; ctx.segment = 'Opt-out trial (credit card required)'; }
+      else { lookupMetric = 'saas_trial_to_paid'; label = 'Trial → paid (no card)'; ctx.segment = 'Opt-in trial (no credit card)'; }
+    }
+    return { metric: lookupMetric, label: label, unit: m.unit, ctx: ctx };
+  }
 
+  function render() {
     var scored = [], rowsHtml = '', anyFallback = false, anyLowConf = false, entered = 0;
 
     MODELS[model].forEach(function (m) {
@@ -327,22 +352,24 @@ import { track, trackOnce, scoreBand } from '/tools/lib/analytics.js';
       var raw = parseFloat(input.value);
       if (isNaN(raw)) return;
       entered++;
-      var b = lookupBenchmark(m.metric, ctx);
+      var r = resolve(m);
+      var mm = { metric: r.metric, label: r.label, unit: r.unit };
+      var b = lookupBenchmark(r.metric, r.ctx);
       if (!b) {
-        rowsHtml += '<div class="mrow"><div class="top"><span class="mlabel">' + esc(m.label) + '</span><span class="mbadge none">no benchmark</span></div>' +
-          '<div class="mbench">' + raw + m.unit + ' — no verified benchmark for your context, so this isn’t scored.</div></div>';
+        rowsHtml += '<div class="mrow"><div class="top"><span class="mlabel">' + esc(mm.label) + '</span><span class="mbadge none">no benchmark</span></div>' +
+          '<div class="mbench">' + raw + mm.unit + ' — no verified benchmark for your context, so this isn’t scored.</div></div>';
         return;
       }
       var sc = scoreMetric(raw, b);
       var cls = classifyAgainst(raw, b);
       var badge = cls.performance === 'strong' ? 'strong' : cls.performance === 'weak' ? 'weak' : 'average';
-      scored.push({ m: m, b: b, value: raw, score: sc, perf: cls.performance });
+      scored.push({ m: mm, b: b, value: raw, score: sc, perf: cls.performance });
       if (b.fallback) anyFallback = true;
       if (b.confidence === 'low') anyLowConf = true;
       var heur = b.verificationStatus === 'heuristic' ? ' <span style="color:#CFA04C">(rule of thumb, not a sourced benchmark)</span>' : '';
       var fb = b.fallback ? ' <span style="color:var(--olive)">(broader benchmark used)</span>' : '';
-      rowsHtml += '<div class="mrow"><div class="top"><span class="mlabel">' + esc(m.label) + '</span><span class="mbadge ' + badge + '">' + esc(cls.performance) + '</span></div>' +
-        '<div class="top" style="margin-top:2px;"><span class="mval">' + raw + m.unit + '</span>' +
+      rowsHtml += '<div class="mrow"><div class="top"><span class="mlabel">' + esc(mm.label) + '</span><span class="mbadge ' + badge + '">' + esc(cls.performance) + '</span></div>' +
+        '<div class="top" style="margin-top:2px;"><span class="mval">' + raw + mm.unit + '</span>' +
         '<span class="mbench">benchmark ' + b.low + b.unit + '–' + b.high + b.unit + ' (median ' + b.median + b.unit + ')</span></div>' +
         '<div class="mbar"><span style="width:' + sc.toFixed(0) + '%;background:' + color(sc) + '"></span></div>' +
         (heur || fb ? '<div class="mnote">' + heur + fb + '</div>' : '') + '</div>';
@@ -409,6 +436,7 @@ import { track, trackOnce, scoreBand } from '/tools/lib/analytics.js';
     });
   });
   segEl.addEventListener('change', render);
+  trialSel.addEventListener('change', render);
   document.getElementById('ctaBtn').addEventListener('click', function () { track('cta_clicked', { tool: 'analyser', cta: currentCta }); });
   buildFields(); render();
 })();
