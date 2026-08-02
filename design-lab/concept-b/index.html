@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<script>(function(){try{var t=localStorage.getItem('tilth-lab-theme');if(!t)t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js');}catch(e){}})();</script>
+<title>Concept B · Evidence Engine — Tilth Lab</title>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<style>
+:root[data-theme="light"]{--bg:#F3EFE7;--panel:#FFFFFF;--ink:#161310;--muted:#6B6357;--line:rgba(22,19,16,.14);--grid:rgba(22,19,16,.06);--sage:#4F6E2E;--terra:#C2673B;--accent:#4F6E2E}
+:root[data-theme="dark"]{--bg:#0F0D0A;--panel:#17130D;--ink:#EFE9DD;--muted:#9A9081;--line:rgba(239,233,221,.14);--grid:rgba(239,233,221,.06);--sage:#AAC56C;--terra:#E2885A;--accent:#AAC56C}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:'Work Sans',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .25s,color .25s;overflow-x:hidden}
+.wrap{max-width:1180px;margin:0 auto;padding:0 5vw}
+a{color:inherit;text-decoration:none}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.k{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--accent)}
+h1,h2,h3{font-weight:600;line-height:1.08;letter-spacing:-.5px}
+.serif{font-family:'Fraunces',Georgia,serif;font-weight:400}
+.nav{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:14px 5vw;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav__w{font-weight:700;letter-spacing:3px;font-size:16px}
+.nav__links{display:none;gap:24px;font-size:13px}
+.nav__links a:hover{color:var(--accent)}
+.nav__r{display:flex;align-items:center;gap:10px}
+.tt{width:36px;height:36px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;border-radius:6px}
+.tt svg{width:16px;height:16px}
+:root[data-theme="dark"] .tt .sun{display:none}:root[data-theme="light"] .tt .moon{display:none}
+.tt:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.cta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:6px;font-weight:600;font-size:13px}
+.cta--ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.cta--accent{background:var(--terra);color:#fff}
+.burger{display:inline-flex;flex-direction:column;gap:5px;width:32px;height:32px;align-items:center;justify-content:center;background:none;border:0;cursor:pointer}
+.burger span{width:20px;height:2px;background:var(--ink)}
+@media(min-width:880px){.nav__links{display:flex}.burger{display:none}}
+.mnav{position:fixed;inset:0;z-index:29;background:var(--bg);display:flex;flex-direction:column;justify-content:center;gap:2px;padding:0 8vw;transform:translateX(100%);transition:transform .35s ease}
+.mnav.open{transform:none}.mnav a{font-size:26px;font-weight:600;padding:14px 0;border-bottom:1px solid var(--line)}
+body.lock{overflow:hidden}
+/* hero */
+.hero{position:relative;padding:64px 0 30px;border-bottom:1px solid var(--line);background-image:radial-gradient(var(--grid) 1px,transparent 1px);background-size:26px 26px}
+.hero h1{font-size:clamp(34px,6vw,64px);max-width:15ch;margin:14px 0 16px}
+.hero h1 .u{color:var(--terra)}
+.hero p{color:var(--muted);max-width:54ch;font-size:17px}
+.hero__ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:44px;border:1px solid var(--line);background:var(--line)}
+@media(min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--panel);padding:22px 18px}
+.stat .v{font-family:'Fraunces',serif;font-size:clamp(26px,3.6vw,40px);color:var(--terra)}
+.stat .l{font-size:12px;color:var(--muted);margin-top:4px}
+/* generic section */
+section{padding:60px 0}
+.head{display:flex;flex-direction:column;gap:8px;margin-bottom:8px}
+.head h2{font-size:clamp(24px,3.6vw,38px);max-width:22ch}
+.sub{color:var(--muted);max-width:56ch}
+.sec--panel{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+/* trust */
+.trust{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;margin-top:14px}
+.trust b{font-weight:600;font-size:clamp(18px,2.4vw,24px)}
+.trust .dot{color:var(--terra)}
+/* problems checklist */
+.checks{display:grid;grid-template-columns:1fr;gap:0;margin-top:26px;border-top:1px solid var(--line)}
+@media(min-width:760px){.checks{grid-template-columns:1fr 1fr;column-gap:40px}}
+.chk{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+.chk .x{color:var(--terra);font-family:ui-monospace,monospace;flex:none}
+/* services grid (systematic) */
+.sgrid{display:grid;grid-template-columns:1fr;gap:1px;margin-top:28px;border:1px solid var(--line);background:var(--line)}
+@media(min-width:680px){.sgrid{grid-template-columns:1fr 1fr}}
+.scell{background:var(--panel);padding:24px}
+.scell .k{margin-bottom:8px}
+.scell h3{font-size:19px;margin-bottom:6px}
+.scell p{color:var(--muted);font-size:14px}
+/* funnel diagram */
+.funnel{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;margin-top:10px}
+@media(min-width:900px){.funnel{grid-template-columns:1fr 1fr}}
+.fsteps{list-style:none;padding:0;margin:0;counter-reset:s}
+.fstep{counter-increment:s;position:relative;padding:14px 0 14px 44px;border-bottom:1px solid var(--line)}
+.fstep::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:14px;font-family:ui-monospace,monospace;font-size:12px;color:var(--accent)}
+.fstep b{display:block;font-size:15px}
+.fstep span{color:var(--muted);font-size:13.5px}
+.fdia{aspect-ratio:5/4;border:1px solid var(--line);border-radius:10px;background:var(--bg);position:relative;overflow:hidden}
+.fdia svg{position:absolute;inset:0;width:100%;height:100%}
+.fdia .sf{fill:var(--accent);opacity:0;transition:opacity .5s,transform .8s cubic-bezier(.16,1,.3,1)}
+.fdia.in .sf{opacity:.85}
+.fdia__tag{position:absolute;left:12px;bottom:10px;font-family:ui-monospace,monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+/* work metric cards */
+.work{display:grid;grid-template-columns:1fr;gap:1px;margin-top:28px;border:1px solid var(--line);background:var(--line)}
+@media(min-width:760px){.work{grid-template-columns:1fr 1fr}}
+.mcard{background:var(--panel);padding:26px}
+.mcard .k{margin-bottom:10px}
+.mcard .big{font-family:'Fraunces',serif;font-size:clamp(30px,5vw,52px);color:var(--terra);line-height:1}
+.mcard .cap{color:var(--muted);font-size:13.5px;margin-top:10px}
+.mcard .ph{margin-top:16px}
+.ph{position:relative;display:grid;place-items:center;background:repeating-linear-gradient(45deg,var(--grid),var(--grid) 8px,transparent 8px,transparent 16px);border:1px dashed var(--line);border-radius:8px}
+.ph__l{font-family:ui-monospace,monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);padding:8px;text-align:center}
+/* AI */
+.ai{display:grid;grid-template-columns:1fr;gap:26px;align-items:center}
+@media(min-width:900px){.ai{grid-template-columns:1.1fr .9fr}}
+.ai h2{font-size:clamp(24px,3.6vw,38px);max-width:18ch}
+.ai .line{font-family:'Fraunces',serif;font-style:italic;color:var(--terra);font-size:19px;margin:12px 0}
+.ai ul{list-style:none;padding:0;margin:12px 0 0;color:var(--muted);font-size:14px}
+.ai li{padding:8px 0;border-top:1px solid var(--line);display:flex;gap:10px}.ai li::before{content:"→";color:var(--accent);font-family:ui-monospace,monospace}
+.band{text-align:center;background:var(--ink);color:var(--bg)}
+.band .k{color:var(--terra)}
+.band h2{font-size:clamp(28px,5vw,48px);max-width:18ch;margin:10px auto 14px}
+.band p{color:color-mix(in srgb,var(--bg) 70%,var(--muted));max-width:44ch;margin:0 auto 24px}
+.band .cta{background:var(--bg);color:var(--ink)}.band .cta--ghost{background:transparent;color:var(--bg);border-color:color-mix(in srgb,var(--bg) 40%,transparent)}
+footer{border-top:1px solid var(--line);padding:34px 5vw;color:var(--muted);font-size:12px;font-family:ui-monospace,monospace;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.reveal{transition:opacity .7s,transform .7s cubic-bezier(.16,1,.3,1)}html.js .reveal{opacity:0;transform:translateY(16px)}html.js .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}.fdia .sf{opacity:.85}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="#" class="nav__w">TILTH</a>
+  <div class="nav__links"><a href="#services">Services</a><a href="#method">Method</a><a href="#work">Evidence</a><a href="#ai">AI-era</a><a href="/design-lab/">Concept lab</a></div>
+  <div class="nav__r">
+    <button class="tt" id="tt" type="button" aria-label="Toggle light or dark theme">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+    <a href="#contact" class="cta">Discuss a project</a>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mnav" id="mnav" aria-hidden="true"><a href="#services">Services</a><a href="#method">Method</a><a href="#work">Evidence</a><a href="#ai">AI-era</a><a href="#contact">Discuss a project</a></div>
+
+<main>
+<header class="hero"><div class="wrap">
+  <span class="k">Concept B · Evidence Engine</span>
+  <h1>Clarity before <span class="u">scale</span>.</h1>
+  <p>We diagnose the growth system, fix what’s leaking, and scale only what’s proven to pay back.</p>
+  <div class="hero__ctas"><a href="#contact" class="cta cta--accent">Request a growth audit</a><a href="#work" class="cta cta--ghost">See the evidence</a></div>
+  <div class="stats">
+    <div class="stat"><div class="v" data-count="5" data-suffix="×">5×</div><div class="l">ROAS · edtech engagement</div></div>
+    <div class="stat"><div class="v" data-count="6" data-suffix="%">6%</div><div class="l">Affiliate share of volume</div></div>
+    <div class="stat"><div class="v" data-count="8" data-suffix="">8</div><div class="l">Growth services</div></div>
+    <div class="stat"><div class="v mono" style="color:var(--accent)">US · IN</div><div class="l">Markets served</div></div>
+  </div>
+</div></header>
+
+<section class="sec--panel"><div class="wrap">
+  <span class="k">Selected experience</span>
+  <div class="trust"><b>PayDirect</b><span class="dot">·</span><b>Ommora</b></div>
+  <p class="sub" style="margin-top:10px">Text-only, shown with permission. Logos/links appear only once approved.</p>
+</div></section>
+
+<section><div class="wrap reveal">
+  <div class="head"><span class="k">Diagnosis</span><h2>What’s actually limiting growth?</h2></div>
+  <div class="checks">
+    <div class="chk"><span class="x">✕</span> Reporting doesn’t reconcile with revenue.</div>
+    <div class="chk"><span class="x">✕</span> Attribution across channels is unreliable.</div>
+    <div class="chk"><span class="x">✕</span> Paid media has stopped scaling efficiently.</div>
+    <div class="chk"><span class="x">✕</span> SEO drives impressions, not pipeline.</div>
+    <div class="chk"><span class="x">✕</span> The site converts below its potential.</div>
+    <div class="chk"><span class="x">✕</span> Partners create activity, not customers.</div>
+  </div>
+</div></section>
+
+<section id="method" class="sec--panel"><div class="wrap reveal">
+  <div class="head"><span class="k">Method</span><h2>Diagnosis → structure → scale.</h2></div>
+  <div class="funnel">
+    <ol class="fsteps">
+      <li class="fstep"><b>Audit & discovery</b><span>Map spend, tracking, conversion and leaks.</span></li>
+      <li class="fstep"><b>Strategy & setup</b><span>Fix measurement; define revenue events.</span></li>
+      <li class="fstep"><b>Launch & experiment</b><span>Test into what works, measured from day one.</span></li>
+      <li class="fstep"><b>Report & scale</b><span>Pour budget into verified return.</span></li>
+    </ol>
+    <figure class="fdia" id="fdia" data-asset="B-SYS" aria-label="Placeholder: signals organizing into a funnel">
+      <svg viewBox="0 0 300 240" aria-hidden="true">
+        <circle class="sf" cx="40" cy="40" r="4" style="transition-delay:.05s"/><circle class="sf" cx="120" cy="30" r="4" style="transition-delay:.1s"/><circle class="sf" cx="220" cy="50" r="4" style="transition-delay:.15s"/><circle class="sf" cx="70" cy="100" r="4" style="transition-delay:.2s"/><circle class="sf" cx="160" cy="110" r="4" style="transition-delay:.25s"/><circle class="sf" cx="240" cy="120" r="4" style="transition-delay:.3s"/><circle class="sf" cx="110" cy="170" r="4" style="transition-delay:.35s"/><circle class="sf" cx="190" cy="180" r="4" style="transition-delay:.4s"/><circle class="sf" cx="150" cy="215" r="5" style="transition-delay:.5s"/>
+      </svg>
+      <figcaption class="fdia__tag">B-SYS · signal → funnel · 5:4 (placeholder)</figcaption>
+    </figure>
+  </div>
+</div></section>
+
+<section id="services"><div class="wrap reveal">
+  <div class="head"><span class="k">Services</span><h2>A system, not a menu.</h2></div>
+  <div class="sgrid">
+    <div class="scell"><div class="k">01 · measure</div><h3>Growth Strategy & Measurement</h3><p>Analytics, tracking, attribution, dashboards.</p></div>
+    <div class="scell"><div class="k">02 · acquire</div><h3>Performance & Paid Media</h3><p>Acquisition that scales against verified return.</p></div>
+    <div class="scell"><div class="k">03 · earn</div><h3>SEO & AI Search</h3><p>Organic + AI-search visibility → pipeline.</p></div>
+    <div class="scell"><div class="k">04 · convert</div><h3>Website & CRO</h3><p>Sites and pages engineered to convert.</p></div>
+  </div>
+</div></section>
+
+<section id="work" class="sec--panel"><div class="wrap reveal">
+  <div class="head"><span class="k">Evidence</span><h2>Outcomes, anonymized.</h2></div>
+  <div class="work">
+    <article class="mcard"><div class="k">Edtech growth engagement</div><div class="big"><span data-count="5" data-suffix="×">5×</span></div><div class="cap">Return on ad spend after rebuilding tracking; monthly spend scaled ₹5L → ₹30L.</div><figure class="ph" data-asset="B-WORK" style="aspect-ratio:19/13"><figcaption class="ph__l">B-WORK · trend illustration · 19:13</figcaption></figure></article>
+    <article class="mcard"><div class="k">Crypto affiliate growth</div><div class="big"><span data-count="6" data-suffix="%">6%</span></div><div class="cap">Affiliate share of trading volume within one year, from ~0% — program built from scratch.</div><figure class="ph" data-asset="B-WORK-2" style="aspect-ratio:19/13"><figcaption class="ph__l">B-WORK-2 · trend illustration · 19:13</figcaption></figure></article>
+  </div>
+</div></section>
+
+<section id="ai"><div class="wrap ai reveal">
+  <div>
+    <span class="k">The AI era</span>
+    <h2>AI accelerates the analysis. People own the call.</h2>
+    <p class="line">Senior judgment. AI-accelerated execution.</p>
+    <ul><li>Faster research, synthesis and data interpretation</li><li>Creative and landing-page iteration at speed</li><li>AI-search (AEO/GEO) visibility</li><li>Human review on every recommendation</li></ul>
+  </div>
+  <figure class="ph" data-asset="B-AI" style="aspect-ratio:16/10"><figcaption class="ph__l">B-AI · data interpretation + human review · 16:10</figcaption></figure>
+</div></section>
+
+<section id="contact" class="band"><div class="wrap">
+  <span class="k">Start here</span>
+  <h2>See what your data is really telling you.</h2>
+  <p>A foundation audit shows where spend leaks — before you scale it.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap"><a href="#" class="cta">Request a growth audit</a><a href="#" class="cta cta--ghost">Discuss a project</a></div>
+</div></section>
+</main>
+
+<footer><span>TILTH · CONCEPT B — EVIDENCE ENGINE</span><span>PHASE-0 · PLACEHOLDER DATA · NOT FINAL</span></footer>
+
+<script>
+(function(){
+  var r=document.documentElement,tt=document.getElementById('tt');
+  tt.addEventListener('click',function(){var n=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('tilth-lab-theme',n);}catch(e){}});
+  var b=document.getElementById('burger'),m=document.getElementById('mnav');
+  b.addEventListener('click',function(){var o=m.classList.toggle('open');document.body.classList.toggle('lock',o);b.setAttribute('aria-expanded',o);m.setAttribute('aria-hidden',!o);});
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open');document.body.classList.remove('lock');b.setAttribute('aria-expanded',false);});});
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function countUp(el){var t=+el.dataset.count,suf=el.dataset.suffix||'',s=0,d=900,st=performance.now();function tick(now){var p=Math.min((now-st)/d,1);el.textContent=Math.round(p*t)+suf;if(p<1)requestAnimationFrame(tick);}requestAnimationFrame(tick);}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');if(e.target.dataset&&e.target.dataset.count&&!reduce){countUp(e.target);}else if(e.target.dataset&&e.target.dataset.count){e.target.textContent=e.target.dataset.count+(e.target.dataset.suffix||'');}io.unobserve(e.target);}});},{threshold:.3});
+  document.querySelectorAll('.reveal,[data-count],#fdia').forEach(function(el){io.observe(el);});
+  // reduced-motion: set final counts immediately
+  if(reduce){document.querySelectorAll('[data-count]').forEach(function(el){el.textContent=el.dataset.count+(el.dataset.suffix||'');});}
+})();
+</script>
+</body>
+</html>
