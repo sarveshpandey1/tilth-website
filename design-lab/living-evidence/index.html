@@ -492,7 +492,8 @@ document.getElementById('replay').addEventListener('click',play);
 new MutationObserver(function(){ if(done||RM||SEEK!=null){ draw(SEEK!=null?SEEK:999999); if(done)startAlive(); } })
   .observe(root,{attributes:true,attributeFilter:['data-theme']});
 
-window.addEventListener('resize',function(){resize(); if(SEEK!=null)draw(SEEK); else if(done)draw(999999);});
+function repaintStatic(){ if(SEEK!=null)draw(SEEK); else if(RM)draw(999999); else if(done)draw(999999); }
+window.addEventListener('resize',function(){resize(); repaintStatic();});
 // pause when tab hidden
 document.addEventListener('visibilitychange',function(){if(document.hidden){cancelAnimationFrame(raf);cancelAnimationFrame(aliveRaf);}else if(done)startAlive();});
 
