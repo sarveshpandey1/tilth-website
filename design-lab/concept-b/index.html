@@ -6,6 +6,8 @@
 <meta name="robots" content="noindex, nofollow">
 <script>(function(){try{var t=localStorage.getItem('tilth-lab-theme');if(!t)t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js');}catch(e){}})();</script>
 <title>Concept B · Evidence Engine — Tilth Lab</title>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <style>
 :root[data-theme="light"]{--bg:#F3EFE7;--panel:#FFFFFF;--ink:#161310;--muted:#6B6357;--line:rgba(22,19,16,.14);--grid:rgba(22,19,16,.06);--sage:#4F6E2E;--terra:#C2673B;--accent:#4F6E2E}
@@ -33,8 +35,8 @@ h1,h2,h3{font-weight:600;line-height:1.08;letter-spacing:-.5px}
 .burger{display:inline-flex;flex-direction:column;gap:5px;width:32px;height:32px;align-items:center;justify-content:center;background:none;border:0;cursor:pointer}
 .burger span{width:20px;height:2px;background:var(--ink)}
 @media(min-width:880px){.nav__links{display:flex}.burger{display:none}}
-.mnav{position:fixed;inset:0;z-index:29;background:var(--bg);display:flex;flex-direction:column;justify-content:center;gap:2px;padding:0 8vw;transform:translateX(100%);transition:transform .35s ease}
-.mnav.open{transform:none}.mnav a{font-size:26px;font-weight:600;padding:14px 0;border-bottom:1px solid var(--line)}
+.mnav{position:fixed;inset:0;z-index:29;background:var(--bg);display:flex;flex-direction:column;justify-content:center;gap:2px;padding:0 8vw;transform:translateX(100%);visibility:hidden;transition:transform .35s ease,visibility .35s}
+.mnav.open{transform:none;visibility:visible}.mnav a{font-size:26px;font-weight:600;padding:14px 0;border-bottom:1px solid var(--line)}
 body.lock{overflow:hidden}
 /* hero */
 .hero{position:relative;padding:64px 0 30px;border-bottom:1px solid var(--line);background-image:radial-gradient(var(--grid) 1px,transparent 1px);background-size:26px 26px}
