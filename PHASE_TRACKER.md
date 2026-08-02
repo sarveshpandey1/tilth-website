@@ -77,3 +77,28 @@ Branch: `phase-0-design-lab` · Commit: `fa078d9` · Public preview: **https://t
 - Placeholder imagery is intentional; owner supplies finals per `IMAGE_ASSET_TRACKER.md`.
 
 ### STATUS: **Ready for review — Phase 0 complete. Stopping. Phase 1 not started.**
+
+---
+
+# Phase 0 — REVISION (v2) · status: NEEDS REVISION → in progress
+
+Reviewer verdict (v1): concepts not approved. Failing reasons: (1) motion not visibly demonstrated; (2) labelled placeholders instead of meaningful visual prototypes; (3) artwork random/decorative; (4) too plain/static; (5) all three share the same page architecture; (6) differ mainly by styling/copy, not experience; (7) light/dark lack distinct art direction; (8) below the reference-research standard.
+
+Revised reference set: TRIONN (primary), Noomo, Obys Experiment, 2xA Studio, Awwwards dark/light examples.
+
+## Revision — planning interpretation table (complete before coding)
+
+| ID | Reviewer issue | Interpretation | Root cause | Planned correction | Concept affected | Files/components | Acceptance criteria | Status |
+|---|---|---|---|---|---|---|---|---|
+| R1 | Motion not visibly demonstrated | A reviewer opening the page must SEE motion within ~5s without reading code | v1 motion was subtle CSS reveals + a settle that reads as static in a screenshot; no real animated hero | Real animated hero per concept (Canvas/SVG) that visibly moves on load + on scroll/hover | A,B,C | concept-*/index.html (canvas/svg + JS) | Visible hero motion ≤5s; +1 scroll/interaction motion; +1 microinteraction; reduced-motion fallback | Planned |
+| R2 | Placeholders not meaningful | Coded/procedural visuals, not blank labelled rectangles | v1 used dashed placeholder boxes as the "visual" | Replace hero/system visuals with coded generative art; keep labelled frames ONLY where real photography will drop in (C), but art-direct them | A,B,C | concept-*/index.html | No blank rectangle is the primary visual; only editorial photo-frames remain as designed placeholders | Planned |
+| R3 | Artwork random/decorative | Visuals must carry business meaning | v1 root SVG was decorative background, not a system that transforms | A: roots→ordered measurement grid ("foundation before scale"); B: noise→clusters→funnel→metrics ("clarity before scale"); C: editorial image/type interaction | A,B,C | concept-*/index.html | Each hero visibly transforms and maps to its stated meaning | Planned |
+| R4 | Too plain/static | Immersive, interactive | v1 was a conventional dark card-grid site | A immersive/asymmetric full-bleed; B technical console/split; C layered editorial | A,B,C | concept-*/index.html | None reads as a plain card grid | Planned |
+| R5 | Same architecture across all | Each concept a distinct composition/grid/hero/nav/scroll | v1 reused hero→trust→problems→services→work→AI→CTA in all three | Distinct section sets (3–5) + distinct order + distinct nav/grid/scroll per concept | A,B,C | concept-*/index.html | No shared section skeleton; different nav + grid + scroll rhythm | Planned |
+| R6 | Differ only by styling/copy | Different experience/interaction model | v1 interactions near-identical | A: pointer-reactive root system + beneath-surface reveal; B: scrub/hover signal inspection + evidence switcher; C: scroll-reveal editorial frames | A,B,C | concept-*/index.html | Each has a distinct interaction model | Planned |
+| R7 | Light/dark not art-directed | Two meaningful states, not inversion | v1 light mode = token flip | Per-theme texture, diagram behaviour, image treatment, shadow/border, motion intensity, accent, theme-color meta; designed <600ms transition | A,B,C | concept-*/index.html | Themes visibly differ beyond colour; transition <600ms, no flash, persists, reduced-motion | Planned |
+| R8 | Below reference standard | Reach TRIONN/Noomo/Obys/2xA quality of immersion & motion-as-brand | v1 under-ambitious | Apply reinterpreted lessons (immersion, motion-as-brand, morph/transition, technical restraint) | A,B,C | concept-*/index.html, PHASE_0_REFERENCE_RESEARCH.md | Reference lessons documented + reflected | Planned |
+| R9 | Content too heavy | Prove the world, not a mini-homepage | v1 simulated full homepage | Reduce to 3–5 representative sections; no repeating all metrics/services in each | A,B,C | concept-*/index.html | ≤5 sections each; content not duplicated across concepts | Planned |
+| R10 | Evidence of motion | Provide screenshots + animated capture | v1 couldn't capture (pane) | Attempt real Chrome screenshots + GIF/recording of each hero; else document + live URL | all | (captures) | Captures provided or limitation documented with live URL | Planned |
+
+Implementation begins only after this table is complete (done). End-of-revision results table appended at completion.

@@ -91,3 +91,41 @@ Note: **work.co** content was truncated/unavailable via automated fetch on this 
 - **Work-as-hero / editorial pacing** (current preview is text/manifesto-led; refs lead with visual proof).
 - **The method as an interactive/visual system** (foundation diagnosis → structure → scale), replacing the repeated "foundation-first" text.
 - **Imagery strategy** — the current preview has almost no imagery; refs are visual-proof-led. Defines the Phase-0 image briefs.
+
+---
+
+## 6. Revised reference set (Awwwards) — reviewed 2026-08-02
+Studied for **interaction/motion/art-direction** patterns. No theme, layout, code, assets or claims copied.
+
+### TRIONN (primary) — trionn.com
+- **Interaction studied:** motion/microinteraction as *brand engagement gate* ("hold to blast", "dare to touch the lines" line-reactivity), typographic-first hero with confident negative space, restrained non-animated nav for speed, AI-native + India-rooted global-first positioning.
+- **Relevance to Tilth:** proves an India-rooted studio can present globally with motion *as the brand*, not decoration; type-led confidence; AI framed as capability.
+- **Reinterpret:** motion that responds to the pointer and rewards interaction; type-led hero; global-first tone. In Tilth terms → the Root→Signal system that reacts to pointer/scroll.
+- **Must not copy:** the "blast"/lightning identity, their copy, exact interactions, layout.
+
+### Noomo (showcase) — noomoagency.com
+- **Interaction studied:** immersive 3D storytelling, work-led scroll experiences, hover-driven project reveals, data/story visualisation as motion.
+- **Relevance:** how a *work-led* experience carries credibility; scroll as narrative. Tilth C (editorial/work-led) + B (data-as-motion) borrow the narrative-scroll discipline.
+- **Reinterpret:** scroll-linked state changes tied to meaning (diagnosis→scale), not spectacle.
+- **Must not copy:** their 3D scenes, assets, project content.
+
+### Obys — Experiment space (obys.agency)
+- **Interaction studied:** morphing, state transitions, experimental navigation, gallery behaviour, interaction-led composition.
+- **Relevance:** confidence to make composition itself interactive; theme/state morphs. Tilth theme-transition + Concept A/B state morphs (organic→ordered, noise→clusters).
+- **Reinterpret:** a *meaningful* morph (system organising), not experimental-for-its-own-sake.
+- **Must not copy:** their experimental UI, cursor, assets.
+
+### 2xA Studio — 2xa.studio
+- **Interaction studied:** code-driven design, technical minimalism, restrained-but-meaningful interaction, typographic/layout discipline.
+- **Relevance:** the discipline behind Concept B (Evidence Engine) — technical, precise, minimal, every interaction earns its place.
+- **Reinterpret:** grid + mono discipline; interaction only where it clarifies (signal inspection).
+- **Must not copy:** their layout system, type choices, code.
+
+### Awwwards dark/light examples (category study)
+- **Interaction studied:** theme transition as part of the experience; theme-aware graphics that change behaviour (not just colour); accessible theme controls; meaningful differences between modes.
+- **Relevance:** directly informs the revised Living Soil (dark) vs Cultivated Paper (light) — different texture, diagram behaviour, motion intensity, accent, theme-color meta.
+- **Reinterpret:** a designed <600ms theme transition; per-theme canvas/diagram parameters (darker = atmospheric/organic motion; lighter = precise/still/structured).
+- **Must not copy:** any specific site's identity.
+
+### Net revision lessons applied
+1. Motion **is** the brand → each concept opens with a real, meaning-bearing animation visible in ≤5s. 2. Composition itself differs per concept (immersive/asymmetric · technical console · layered editorial) — not one shared skeleton. 3. Themes are two designed states with different behaviour, not an inversion. 4. Interaction earns its place (pointer/scroll/scrub/reveal), never decorative loops.
