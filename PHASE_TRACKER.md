@@ -154,3 +154,30 @@ Review status carried in: **NOT APPROVED.** Reviewer confirmed deployment check 
 | H7 | One primary CTA only ("Discuss a Project") | Single CTA, no second audit CTA | One CTA button "Discuss a Project"; no repeats | exactly one CTA on page | Planned |
 | H8 | Content limits (no full homepage) | Keep to max: 1 H1, 1 hero paragraph, 1 proof, 1 editorial, 1 CTA | Remove service grid/industry/AI/FAQ/founder/multiple CTAs/repeated disclaimers | element counts within limits | Planned |
 | H9 | Full public captures required (the repeated blocker) | Produce real media with Chrome headless + pure-JS GIF encoding (no connected browser needed) | Desktop+mobile × light+dark screenshots; reduced-motion screenshot; hero GIF; theme-transition GIF; perf; a11y | all artefacts delivered to reviewer | Planned |
+
+### End-of-phase results (Ready for review)
+Branch `phase-0-design-lab` · commits: prototype `5c36db3`, capture-hook `a2af0eb`, reduced-motion fix `ea158b7` · Public preview: **https://tilth-website.vercel.app/design-lab/living-evidence/** (noindex). No production changes; not merged to `main`. **Dependencies added: none** (Canvas 2D + inline SVG + CSS, vanilla JS; ~31 KB single file). GIFs/screenshots were produced with Chrome headless + pure-JS encoders run **only in the scratchpad** — no repo/runtime dependency.
+
+| ID | Correction delivered | Status | Evidence |
+|---|---|---|---|
+| H1 | Zero asset-ID/placeholder-code labels; only real editorial captions | Done | grep clean; screenshots |
+| H2 | Single hybrid page at `/design-lab/living-evidence/`, five demos only | Done | live route |
+| H3 | Canvas hero: irregular network → connections form → nodes become measured → aligns to grid → six real labels resolve; foundation (Strategy/Tracking/Website) below, scale (Creative/Acquisition/Attribution) above; begins <3s; desktop+mobile+reduced-motion | Done | hero GIF; mobile shots; reduced-motion shot |
+| H4 | Living Soil ↔ Cultivated Paper transform: curved glowing roots vs straight matte ink; faint vs crisp grid; deep vs bright accent; texture/borders/shadows differ; follows system pref, manual toggle, persists (`tilth-lab-theme`), no-flash inline head; theme-color meta updates | Done | theme GIF; light+dark shots |
+| H5 | Evidence switcher (Problem → Foundation change → Result) for one anonymised edtech engagement; measurement grid appears only after the foundation change; ₹5L→₹30L shown **only here**; ARIA tablist + arrow-key nav; reduced-motion = instant | Done | full-page shots (result state) |
+| H6 | Coded editorial composition: deliberate crop (16:10 desktop → 4:5 mobile), type overlaps image, caption-card system, layered grain+scrim, per-theme grade; honest art-direction caption (no asset code) | Done | full-page + mobile shots |
+| H7 | Exactly one CTA — "Discuss a Project" | Done | grep count = 1 |
+| H8 | Content within limits: 1 H1, 1 hero paragraph, 1 proof, 1 editorial, 1 CTA; no service/industry/AI/FAQ/founder/extra CTA/repeated disclaimers | Done | source |
+| H9 | Full public captures produced (previously blocked): desktop+mobile × light+dark, reduced-motion, hero GIF, theme GIF, perf, a11y | Done | delivered to reviewer |
+
+### Test results (headless Lighthouse — mobile, throttled — 2026-08-02)
+| Route | Perf | A11y | Best-practices | CLS | LCP | TBT |
+|---|---|---|---|---|---|---|
+| /design-lab/living-evidence/ | 93 | 100 | 100 | 0 | 2.6s | 0 ms |
+
+- **Motion begins <3s:** roots start growing immediately on load (auto-plays), settle ~4.5s; Replay button re-runs it.
+- **Reduced-motion:** renders the full labelled end-state with no animation (verified — fixed a repaint bug that also affected real reduced-motion users).
+- **Accessibility:** 100, zero failures; canvas has descriptive aria-label + sr-only pillar list; evidence is a proper ARIA tablist with keyboard nav; single visible CTA.
+- **Capture note (resolved):** the previous "captures impossible" limitation is **gone** — screenshots and both GIFs were generated headlessly and delivered.
+
+### STATUS: **Hybrid prototype (v3) Ready for review — Phase 0. Stopping. Phase 1 not started.**
