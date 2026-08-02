@@ -267,3 +267,28 @@ Fix + verification performed:
 - **Final tests:** Lighthouse (mobile) Perf 95 · A11y 100 · BP 100 · CLS 0.002 · LCP 2.7s; `button-name` audit passes (theme toggle accessible name).
 
 ### STATUS: **PHASE 0 COMPLETE — housekeeping verified live.** Living Evidence approved. Phase 1 NOT started — awaiting the Phase 1 prompt.
+
+---
+
+## Phase 0 — DEPLOYMENT-ONLY RE-VERIFICATION (v7)
+
+Reviewer reported the shared alias still serving old phrases. Performed the deployment-only checklist:
+
+1. **Branch:** `phase-0-design-lab`.
+2. **Latest commit:** `3d05a9d` (housekeeping code fix = `c9c566d`; `build.mjs` does not touch `design-lab` — static passthrough).
+3. **Production build run:** `vercel pull` + `vercel build --prod` → `.vercel/output/`.
+4. **Generated output searched** for every old phrase — result **0 matches each**:
+   "waiting for its photograph" 0 · "A coded stand-in for the art direction" 0 · "Art direction · placeholder" 0 · "owner supplies the final photograph" 0 · "A coded stand-in for the final photograph" 0 · "coded placeholders" 0.
+5. **None remain.** Generated `index.html` md5 == source md5 (`fd1956c0b89529bfa94be6d7b3a1e49b`).
+6. **Approved copy present in output:** heading "Structure becomes visible when you know where to look." (×1); caption "Strategy, measurement and execution—working as one connected system." (×1).
+7. **Deployed prebuilt output:** deployment `tilth-website-mmsv2r46l-…` (dpl id `…mmsv2r46l`), production, timestamp **2026-08-02T15:36:33Z**. New alias created: `tilth-living-evidence-v6.vercel.app`.
+8. **Result-state values in build output:** ₹5L → ₹30L (media, sage) · ₹1.5Cr (revenue, terra) · 5× (return, sky) — distinct labels + colours.
+
+**Blocker identified — why unique URLs looked "stale/unavailable":** the project has **Vercel Deployment Protection (SSO)** enabled. Every hostname EXCEPT the production alias `tilth-website.vercel.app` returns **HTTP 302 → Vercel login** (`_vercel_sso_nonce`). This affects per-deployment hash URLs and any custom alias (incl. the new `tilth-living-evidence-v6`). Consequences:
+- The **only publicly-reachable URL is the production alias** `tilth-website.vercel.app` (verified public + clean + now `Cache-Control: no-store`).
+- A brand-new alias hostname (`tilth-living-evidence-v6.vercel.app`) is reachable by the **Vercel account owner when signed in**, and — being a new hostname — carries **no stale browser/edge cache**, which resolves the reviewer's caching symptom.
+- Making a unique URL **publicly** reachable (no login) requires **disabling Deployment Protection** — a project security setting changed in the Vercel dashboard (interactive; not operable from this CLI session) — pending owner authorization.
+
+**Anti-stale measure (already deployed):** `Cache-Control: no-store, no-cache, must-revalidate` on `/design-lab/*`; production alias now returns `X-Vercel-Cache: MISS`, `Age: 0`.
+
+### STATUS: **PHASE 0 COMPLETE — corrections verified in the build output and on the public deployment.** Phase 1 NOT started. (Open item: fully-public unique URL needs Deployment Protection disabled — owner authorization required.)
