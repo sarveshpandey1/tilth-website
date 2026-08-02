@@ -40,3 +40,29 @@ The revised concepts prove their worlds with **coded/procedural visuals**, so mo
 | C-WORK | C | Work-led story frame | Anonymous engagement, work-led credibility | 16:10 landscape; layered, room for a caption card bottom-right | 1200×750 | 760×475 | high-key warm | darker + scrim | static (clip-reveal) | bottom-right ~26ch caption zone | left-of-centre | AVIF (+JPG) | no | ≤160KB | "Illustrative image of a growth engagement (anonymous) — strategy artefacts, a screen-in-context, or an abstract work still; premium, warm; must not depict identifiable client work or logos." | Awaiting asset |
 
 Until supplied, C shows an **art-directed coded frame** (layered gradient + grain + editorial caption) at the exact ratios above — labelled, CLS-safe, swap-in by `data-asset`.
+
+---
+
+## v3 (living-evidence prototype) — editorial composition final-asset brief
+
+The `/design-lab/living-evidence/` editorial section currently shows a **coded topographic art-direction study** (SVG: soil/topographic contours + fine organic threads aligning to a faint grid + one focal area), not a photo. It defines exactly how the final production image must behave.
+
+| Field | Specification |
+|---|---|
+| Asset ID | LE-EDITORIAL |
+| Placement | Living-evidence editorial section; headline overlaps lower-left; caption card upper-right |
+| Purpose | Human/premium art-directed image expressing "structure meeting what's living underneath" — the system beneath growth |
+| Subject direction | A real, non-cliché photograph evoking the idea: e.g. a soil/topographic surface, a considered workspace artefact, a strategy-in-progress detail, or an abstract textured surface with depth. **Must not** be: generic stock, fake dashboards, literal plants/crops, random dots, robots, or neon "AI" artwork |
+| Focal area | One clear focal point in the **upper-right third** (matches the coded study); keep lower-left calmer for the headline |
+| Desktop crop | 16:10 — 1600×1000 (deliver 1920×1200 master) |
+| Mobile crop | 4:5 — center-slice must retain the upper-right focal area (1040×1300) |
+| Light treatment (Cultivated Paper) | High-key, warm, matte; crisp; scrim ~30% at base for headline legibility |
+| Dark treatment (Living Soil) | Deeper grade, warmer shadows, subtle glow permissible; scrim ~50–62% at base |
+| Type relationship | Headline (Fraunces) overlaps the image lower-left; do not place critical detail there |
+| Caption system | Small card, upper-right, `--card` background + blur + hairline border; must stay legible in both themes |
+| Format | AVIF primary + JPG fallback; ≤180 KB desktop / ≤120 KB mobile |
+| Transparency | No |
+| Motion | Static (scroll clip-reveal handled in CSS) |
+| Alt text | "Editorial image expressing structured systems beneath living growth (anonymous, art-directed)" |
+| Swap mechanism | Replace `#topo` SVG with `<img>`/`<picture>`; frame, scrim, caption and crops already sized |
+| Status | **Coded stand-in live; awaiting owner's final photograph** |

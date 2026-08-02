@@ -181,3 +181,19 @@ Branch `phase-0-design-lab` · commits: prototype `5c36db3`, capture-hook `a2af0
 - **Capture note (resolved):** the previous "captures impossible" limitation is **gone** — screenshots and both GIFs were generated headlessly and delivered.
 
 ### STATUS: **Hybrid prototype (v3) Ready for review — Phase 0. Stopping. Phase 1 not started.**
+
+---
+
+## Phase 0 — LIVING EVIDENCE: correction cycle (v4)
+
+Review: **NEEDS ONE CORRECTION CYCLE** — hybrid direction retained, do not rebuild. Address six items only; no new sections, no extra CTAs, no new pages.
+
+### Correction interpretation table (BEFORE coding)
+| ID | Reviewer finding | Claude interpretation | Planned correction | Acceptance criteria | Status |
+|---|---|---|---|---|---|
+| C1 | Case-study evidence is wrong: ₹5L stated as monthly revenue; invented flat-revenue / broken-attribution / funnel-leakage / spend-blindness | Real figures are media-investment ₹5L→₹30L, revenue ₹1.5Cr, 5× return; remove unverified failure claims | Rewrite the 3 evidence states to the approved safe copy; chart = monthly media investment ramp; Result shows three labelled figures: ₹5L→₹30L media/mo, ₹1.5Cr revenue/mo, 5× return | No "revenue ₹5L"; no invented failures; labels exactly as specified; still one interaction | Planned |
+| C2 | Hero copy too literal/agricultural | Tighten H1 + paragraph, keep positioning line | H1 → "Growth built beneath the surface—and made measurable."; lede → approved paragraph; keep "Foundation before scale" eyebrow; reduce literal farming language | Copy matches brief; one H1; one paragraph | Planned |
+| C3 | Final CTA copy | Swap headline + support, keep single CTA | H2 → "Build the system your growth can scale on."; support → approved copy; CTA stays "Discuss a Project" (one only) | Exactly one CTA; copy matches | Planned |
+| C4 | Editorial visual is empty/generic | Build a designed topographic art-direction composition | Coded SVG: soil/topographic contours + fine organic threads beneath aligning to a faint grid + one focal area + headline overlap + caption; L/D treatment; 16:10 desktop / 4:5 mobile; no stock/dashboards/plants/dots/robots/neon | Composition present & designed; both themes; both crops; brief added to IMAGE_ASSET_TRACKER | Planned |
+| C5 | Verify theme toggle a11y | Confirm/upgrade the control | Semantic button; keyboard operable; dynamic accessible label per action; state updates after switch; persists; no flash | Lighthouse a11y clean; label changes on toggle; persists on reload | Planned |
+| C6 | Motion evidence | Produce real recordings | 10–15s desktop + mobile recordings covering hero sequence, evidence interaction, light/dark transition, reduced-motion | Both recordings delivered | Planned |

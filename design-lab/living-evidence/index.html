@@ -37,6 +37,8 @@
   --imgfilter:saturate(.92) brightness(.86) contrast(1.06);
   --scrim:linear-gradient(180deg,rgba(10,7,3,.10),rgba(10,7,3,.62));
   --card:rgba(28,23,16,.72);
+  --frame-bg:radial-gradient(130% 120% at 76% 30%, #241a10 0%, #16100a 62%, #100b06 100%);
+  --topo-grid:rgba(180,206,118,.12); --topo-contour:rgba(229,138,87,.30); --topo-thread-o:.5;
 }
 :root[data-theme="light"]{
   --bg:#F3ECDD; --bg2:#EFE6D4; --panel:#FBF7EE; --ink:#1A1510; --muted:#6E655A;
@@ -49,6 +51,8 @@
   --imgfilter:saturate(1.02) brightness(1.04) contrast(1.02);
   --scrim:linear-gradient(180deg,rgba(255,252,244,.04),rgba(120,96,60,.30));
   --card:rgba(251,247,238,.82);
+  --frame-bg:radial-gradient(130% 120% at 76% 30%, #F5ECD9 0%, #EADEC6 60%, #E1D3B7 100%);
+  --topo-grid:rgba(26,21,16,.16); --topo-contour:rgba(26,21,16,.26); --topo-thread-o:.72;
 }
 *{box-sizing:border-box;margin:0}
 html,body{overflow-x:hidden}
@@ -118,24 +122,29 @@ section.block{padding:72px 0;border-top:1px solid var(--line2)}
 .stepcopy .st{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--terra);font-weight:600}
 .stepcopy h3{font-size:clamp(22px,3vw,30px);margin:8px 0 10px}
 .stepcopy p{color:var(--muted);max-width:44ch}
-.readout{margin-top:14px;font-family:'Fraunces',serif;font-size:clamp(30px,5vw,48px);color:var(--ink);letter-spacing:-1px}
-.readout small{font-family:'Work Sans',sans-serif;font-size:13px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;display:block;margin-top:2px}
+.figs{margin-top:16px;display:flex;flex-wrap:wrap;gap:22px}
+.fig{min-width:0}
+.fig .fv{font-family:'Fraunces',serif;font-size:clamp(24px,3.4vw,38px);color:var(--ink);letter-spacing:-1px;line-height:1;display:block}
+.fig small{font-size:12px;letter-spacing:.4px;color:var(--muted);display:block;margin-top:6px;max-width:22ch}
 .chartwrap{border:1px solid var(--line);border-radius:16px;background:var(--card);padding:20px;box-shadow:var(--shadow);transition:border-color .5s,box-shadow .5s}
 #chart{display:block;width:100%;height:auto}
+.chartcap{margin-top:10px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:center}
 
 /* ---------- 4. EDITORIAL ---------- */
 .editorial{position:relative;margin-top:30px;border-radius:20px;overflow:hidden;border:1px solid var(--line);
   box-shadow:var(--shadow);isolation:isolate;transition:border-color .5s,box-shadow .5s}
-.editorial .frame{position:relative;aspect-ratio:16/10;background:var(--panel)}
-@media(max-width:640px){.editorial .frame{aspect-ratio:4/5}}   /* mobile crop change */
-.frame .art{position:absolute;inset:0;filter:var(--imgfilter);transition:filter .5s;
-  background:
-    radial-gradient(60% 80% at 72% 30%, color-mix(in srgb,var(--terra) 55%,transparent), transparent 60%),
-    radial-gradient(70% 90% at 22% 78%, color-mix(in srgb,var(--sky) 45%,transparent), transparent 62%),
-    linear-gradient(120deg, color-mix(in srgb,var(--sage) 42%,var(--bg)) 0%, var(--bg2) 58%, var(--panel) 100%);
-  background-position:60% 40%;background-size:cover}
-@media(max-width:640px){.frame .art{background-position:70% 30%}}  /* deliberate re-crop */
-.frame .grain{position:absolute;inset:0;opacity:.5;mix-blend-mode:overlay;pointer-events:none}
+.editorial .frame{position:relative;aspect-ratio:16/10;background:var(--frame-bg);transition:background .5s}
+@media(max-width:640px){.editorial .frame{aspect-ratio:4/5}}   /* mobile re-crop 4:5 */
+/* coded topographic art-direction study (SVG) */
+.frame .art{position:absolute;inset:0;width:100%;height:100%;display:block;filter:var(--imgfilter);transition:filter .5s}
+#topo .grid line{stroke:var(--topo-grid);stroke-width:1.2}
+#topo .contour{fill:none;stroke:var(--topo-contour);stroke-width:1.4;vector-effect:non-scaling-stroke}
+#topo .thread{fill:none;stroke:var(--sage);stroke-width:1.5;opacity:var(--topo-thread-o);vector-effect:non-scaling-stroke}
+#topo .focal-ring{fill:none;stroke:var(--terra);stroke-width:1.8;vector-effect:non-scaling-stroke}
+#topo .focal-dot{fill:var(--terra)}
+:root[data-theme="dark"] #topo .glow{filter:drop-shadow(0 0 5px color-mix(in srgb,var(--sage) 65%,transparent))}
+:root[data-theme="dark"] #topo .focal.glow{filter:drop-shadow(0 0 9px color-mix(in srgb,var(--terra) 70%,transparent))}
+.frame .grain{position:absolute;inset:0;opacity:.4;mix-blend-mode:overlay;pointer-events:none}
 .frame .scrim{position:absolute;inset:0;background:var(--scrim);transition:background .5s}
 .frame .type{position:absolute;left:0;right:0;bottom:0;padding:clamp(20px,4vw,44px);z-index:2}
 .frame .type .k{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#fff;opacity:.86;font-weight:600}
@@ -182,7 +191,7 @@ html.nojs .reveal{opacity:1;transform:none}
 
 <div class="top">
   <span class="brand">TILTH · <b>LIVING&nbsp;EVIDENCE</b></span>
-  <button class="tt" id="tt" type="button" aria-label="Toggle light or dark theme" aria-pressed="false">
+  <button class="tt" id="tt" type="button" aria-label="Switch to light theme">
     <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
     <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
   </button>
@@ -194,8 +203,8 @@ html.nojs .reveal{opacity:1;transform:none}
 <section class="hero">
   <div class="wrap">
     <span class="eyebrow">Foundation before scale</span>
-    <h1>Growth that starts <em>underground</em>, and ends up measurable.</h1>
-    <p class="lede">Tilth builds the tracking, structure and creative foundations that make growth provable — the system beneath the numbers, for teams growing across markets.</p>
+    <h1>Growth built beneath the surface—<em>and made measurable</em>.</h1>
+    <p class="lede">Tilth strengthens the strategy, measurement and execution systems underneath growth—so teams can scale with greater clarity.</p>
 
     <figure class="stage">
       <canvas id="roots" aria-label="An irregular network of roots grows, its connections form, key points become measurable events, and it settles onto a structured grid where six labelled nodes appear: Strategy, Tracking, Website, Creative, Acquisition and Attribution."></canvas>
@@ -208,11 +217,11 @@ html.nojs .reveal{opacity:1;transform:none}
 </section>
 
 <!-- ============ 3. EVIDENCE: problem → foundation → result ============ -->
-<section class="block reveal">
+<section class="block reveal" id="evidence">
   <div class="wrap">
     <div class="kicker"><span class="n">01</span><span class="eyebrow">One engagement, three states</span></div>
-    <h2 class="h2">The same channels. A foundation that made them add up.</h2>
-    <p class="sub">An education client, anonymised. Move through the states — the measurement grid only appears once the foundation is rebuilt.</p>
+    <h2 class="h2">Scaling paid acquisition without losing control of efficiency.</h2>
+    <p class="sub">An anonymised engagement. Move through the states — the measurement grid appears once the foundation is rebuilt to carry a larger media budget.</p>
 
     <div class="evidence">
       <div>
@@ -223,25 +232,28 @@ html.nojs .reveal{opacity:1;transform:none}
         </div>
         <div class="stepcopy" id="panel" role="tabpanel" aria-labelledby="tab-0">
           <span class="st" id="st-label">The problem</span>
-          <h3 id="st-title">Spending more, learning nothing.</h3>
-          <p id="st-body">Revenue sat flat around ₹5L a month. Attribution was broken, the funnel leaked, and no one could say which spend actually worked.</p>
-          <div class="readout"><span id="st-metric">₹5L</span><small id="st-metric-label">Monthly revenue · unprovable</small></div>
+          <h3 id="st-title">Scale paid acquisition — without losing control of efficiency.</h3>
+          <p id="st-body">The business needed to grow media investment aggressively while keeping performance predictable as spend increased.</p>
+          <div class="figs" id="st-figs">
+            <div class="fig"><span class="fv">₹5L</span><small>Monthly media investment · starting point</small></div>
+          </div>
         </div>
       </div>
 
       <div class="chartwrap">
-        <svg id="chart" viewBox="0 0 520 300" role="img" aria-label="Chart of monthly revenue across the three stages, rising from about five lakh to thirty lakh once the measurement foundation is in place.">
+        <svg id="chart" viewBox="0 0 520 300" role="img" aria-label="Chart of monthly media investment scaling from five lakh to thirty lakh rupees once the foundation is rebuilt to carry it.">
           <g id="chart-grid" opacity="0"></g>
           <polyline id="chart-line" fill="none" stroke="var(--sage)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points=""/>
           <g id="chart-dots"></g>
         </svg>
+        <p class="chartcap">Monthly media investment (₹ lakh)</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ 4. EDITORIAL IMAGE COMPOSITION ============ -->
-<section class="block reveal">
+<section class="block reveal" id="editorial">
   <div class="wrap">
     <div class="kicker"><span class="n">02</span><span class="eyebrow">How real imagery will sit</span></div>
     <h2 class="h2">An editorial frame, waiting for its photograph.</h2>
@@ -249,7 +261,7 @@ html.nojs .reveal{opacity:1;transform:none}
 
     <figure class="editorial">
       <div class="frame">
-        <div class="art"></div>
+        <svg id="topo" class="art" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
         <svg class="grain" aria-hidden="true" width="100%" height="100%" preserveAspectRatio="none">
           <filter id="gr"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
             <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .5 0"/></filter>
@@ -257,15 +269,15 @@ html.nojs .reveal{opacity:1;transform:none}
         </svg>
         <div class="scrim"></div>
         <div class="cap">
-          <span class="cl">Art direction · placeholder</span>
-          <p>Final photography to be supplied. This frame fixes the crop, the headline-over-image relationship and how captions behave in both themes.</p>
+          <span class="cl">Art direction · placeholder (coded)</span>
+          <p>A coded stand-in for the final photograph — it fixes the crop, the focal area, how the headline meets the image, and how the caption reads in both themes.</p>
         </div>
         <div class="type">
-          <span class="k">Selected work</span>
-          <div class="big">Considered work, <em>photographed</em> — not stock.</div>
+          <span class="k">The system beneath the surface</span>
+          <div class="big">Where structure meets what’s <em>living underneath</em>.</div>
         </div>
       </div>
-      <figcaption>Desktop crops 16:10; mobile re-crops to 4:5 with a tighter focal point. Grade, scrim and caption contrast all shift between Living Soil and Cultivated Paper.</figcaption>
+      <figcaption>Coded art-direction study, not a stock image. Desktop crops 16:10; mobile re-crops to 4:5 while keeping the focal area. Surface topography, threads, grid and grade all shift between Living Soil (dark) and Cultivated Paper (light).</figcaption>
     </figure>
   </div>
 </section>
@@ -273,8 +285,8 @@ html.nojs .reveal{opacity:1;transform:none}
 <!-- ============ 5. SINGLE CTA ============ -->
 <section class="cta reveal">
   <div class="wrap">
-    <h2>Let’s find the foundation your growth is missing.</h2>
-    <p>A short, direct conversation about what to measure first.</p>
+    <h2>Build the system your growth can scale on.</h2>
+    <p>Start with a focused conversation about what is working, what is unclear and what needs to change.</p>
     <a class="btn" href="mailto:anuja@tilth.in?subject=Discuss%20a%20project%20with%20Tilth">
       Discuss a Project
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -303,7 +315,7 @@ var tt=document.getElementById('tt'), hint=document.getElementById('hint');
 function isDark(){return root.getAttribute('data-theme')==='dark';}
 function syncTheme(){
   var dark=isDark();
-  tt.setAttribute('aria-pressed', dark?'false':'true');
+  tt.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
   hint.textContent = dark ? 'Living soil' : 'Cultivated paper';
   var m=document.querySelector('meta[name="theme-color"]');
   if(m) m.setAttribute('content', dark ? '#14100A' : '#F3ECDD');
@@ -505,22 +517,23 @@ else { setTimeout(play,80); }
 
 /* ================= 3. EVIDENCE interaction ================= */
 var STATES=[
-  {label:'The problem', title:'Spending more, learning nothing.',
-   body:'Revenue sat flat around ₹5L a month. Attribution was broken, the funnel leaked, and no one could say which spend actually worked.',
-   metric:'₹5L', mlabel:'Monthly revenue · unprovable',
-   pts:[5,4.6,5,4.4,5.2,4.8,5], grid:0},
-  {label:'The foundation change', title:'We rebuilt what everything sits on.',
-   body:'Clean server-side tracking, funnel stages defined, and a creative testing loop — the measurement foundation, installed before any spend increase.',
-   metric:'Foundation', mlabel:'Tracking · funnel · creative loop',
-   pts:[5,5.4,6.2,7.6,9,10.5,12], grid:1},
-  {label:'The result', title:'Same channels. Now every rupee is accountable.',
-   body:'With the foundation in place the same channels compounded — six times the monthly revenue, and each rupee attributable to a stage.',
-   metric:'₹30L', mlabel:'Monthly revenue · fully attributed',
-   pts:[5,7,10.5,15,20,25,30], grid:1}
+  {label:'The problem', title:'Scale paid acquisition — without losing control of efficiency.',
+   body:'The business needed to grow media investment aggressively while keeping performance predictable as spend increased.',
+   figs:[['₹5L','Monthly media investment · starting point']],
+   pts:[5,5,5,5,5,5,5], grid:0},
+  {label:'The foundation change', title:'Rebuilt to carry more investment.',
+   body:'Campaign structure, measurement and optimisation were rebuilt to support a much larger, still-accountable media budget.',
+   figs:[['Rebuilt','Campaign structure · measurement · optimisation']],
+   pts:[5,6.5,9,12,16,20,24], grid:1},
+  {label:'The result', title:'More investment, held at a 5× return.',
+   body:'Monthly media investment scaled six-fold as the foundation carried it — with revenue compounding at a stated 5× return.',
+   figs:[['₹5L → ₹30L','Monthly media investment'],['₹1.5Cr','Monthly revenue'],['5×','Stated return']],
+   pts:[5,9,14,19,23,27,30], grid:1}
 ];
 var tabs=[document.getElementById('tab-0'),document.getElementById('tab-1'),document.getElementById('tab-2')];
 var stL=document.getElementById('st-label'),stT=document.getElementById('st-title'),stB=document.getElementById('st-body'),
-    stM=document.getElementById('st-metric'),stML=document.getElementById('st-metric-label'),panel=document.getElementById('panel');
+    stF=document.getElementById('st-figs'),panel=document.getElementById('panel');
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 var line=document.getElementById('chart-line'),gGrid=document.getElementById('chart-grid'),gDots=document.getElementById('chart-dots');
 var CW=520,CH=300,PADX=30,PADY=26, MAXV=32;
 function sx(i){return PADX + i*((CW-2*PADX)/6);}
@@ -548,7 +561,7 @@ function select(idx){
   tabs.forEach(function(b,i){b.setAttribute('aria-selected',i===idx?'true':'false');b.tabIndex=i===idx?0:-1;});
   panel.setAttribute('aria-labelledby','tab-'+idx);
   stL.textContent=s.label;stT.textContent=s.title;stB.textContent=s.body;
-  stM.textContent=s.metric;stML.textContent=s.mlabel;
+  stF.innerHTML=s.figs.map(function(f){return '<div class="fig"><span class="fv">'+esc(f[0])+'</span><small>'+esc(f[1])+'</small></div>';}).join('');
   tweenTo(s.pts,s.grid>0);
 }
 tabs.forEach(function(b,i){
@@ -563,6 +576,52 @@ tabs.forEach(function(b,i){
 });
 // capture hook: ?ev=0|1|2 preselects an evidence state for screenshots
 var EV=parseInt(params.get('ev'),10); select(Number.isFinite(EV)&&EV>=0&&EV<=2?EV:0);
+
+/* ============ 4. EDITORIAL: coded topographic art-direction study ============ *
+ * Deterministic (no RNG): a topographic surface (nested contours) around one    *
+ * focal area, fine organic threads rising from below and aligning to a faint     *
+ * structured grid. Colour/glow/grade shift by theme via CSS.                     */
+(function(){
+  var svg=document.getElementById('topo'); if(!svg) return;
+  var W=1600,H=1000, fx=1150, fy=430;
+  var gx=[0,1,2,3,4,5,6].map(function(i){return 160+i*213;});
+  var gy=[0,1,2,3].map(function(i){return 180+i*220;});
+  var s='';
+  // faint structured grid
+  s+='<g class="grid">';
+  gx.forEach(function(x){s+='<line x1="'+x+'" y1="0" x2="'+x+'" y2="'+H+'"/>';});
+  gy.forEach(function(y){s+='<line x1="0" y1="'+y+'" x2="'+W+'" y2="'+y+'"/>';});
+  s+='</g>';
+  // fine organic threads: rise from the bottom, bend, align to grid columns near the top
+  s+='<g class="thread glow">';
+  for(var i=0;i<14;i++){
+    var sxp=110+i*(1380/13);
+    var tx=gx[i%gx.length]+(((i*53)%40)-20);
+    var ty=110+((i*37)%140);
+    var c1x=sxp+Math.sin(i*1.7)*80, c1y=H-250+Math.cos(i*1.3)*60;
+    var c2x=tx+Math.sin(i*2.1)*95,  c2y=310+Math.cos(i*1.1)*70;
+    s+='<path class="thread" d="M'+(sxp|0)+' '+H+' C '+(c1x|0)+' '+(c1y|0)+' '+(c2x|0)+' '+(c2y|0)+' '+(tx|0)+' '+(ty|0)+'"/>';
+  }
+  s+='</g>';
+  // topographic surface: nested irregular contours around the focal area
+  s+='<g class="contour-group">';
+  for(var r=0;r<9;r++){
+    var rx=64+r*96, ry=48+r*74, p=[];
+    for(var a=0;a<=52;a++){
+      var ang=a/52*Math.PI*2;
+      var noise=1+0.10*Math.sin(ang*3+r*0.6)+0.06*Math.sin(ang*5+r*1.3);
+      p.push(((fx+Math.cos(ang)*rx*noise)|0)+' '+((fy+Math.sin(ang)*ry*noise)|0));
+    }
+    s+='<path class="contour" d="M'+p.join(' L ')+' Z"/>';
+  }
+  s+='</g>';
+  // one clear focal area
+  s+='<g class="focal glow">'
+    +'<circle class="focal-ring" cx="'+fx+'" cy="'+fy+'" r="50"/>'
+    +'<circle class="focal-ring" cx="'+fx+'" cy="'+fy+'" r="28" opacity="0.6"/>'
+    +'<circle class="focal-dot" cx="'+fx+'" cy="'+fy+'" r="9"/></g>';
+  svg.innerHTML=s;
+})();
 
 /* ================= scroll reveal ================= */
 var revs=[].slice.call(document.querySelectorAll('.reveal'));
