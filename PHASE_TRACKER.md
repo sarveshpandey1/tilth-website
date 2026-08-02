@@ -238,6 +238,6 @@ Living Evidence approved as the creative direction. Prototype not redesigned; ho
 |---|---|---|---|---|---|
 | /design-lab/living-evidence/ | 95 | 100 | 100 | 0.002 | 2.7s |
 
-Final Phase 0 commit: `e481479` · Preview: **https://tilth-website.vercel.app/design-lab/living-evidence/** (noindex) · No production changes; not merged to `main`.
+Final Phase 0 prototype commit (deployed): `c9c566d` · Preview: **https://tilth-website.vercel.app/design-lab/living-evidence/** (noindex) · No production changes; not merged to `main`.
 
 ### STATUS: **PHASE 0 COMPLETE.** Living Evidence is the approved direction. Phase 1 NOT started — awaiting the Phase 1 prompt.
