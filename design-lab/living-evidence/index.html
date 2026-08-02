@@ -560,7 +560,8 @@ tabs.forEach(function(b,i){
     if(n!=null){e.preventDefault();select(n);tabs[n].focus();}
   });
 });
-select(0);
+// capture hook: ?ev=0|1|2 preselects an evidence state for screenshots
+var EV=parseInt(params.get('ev'),10); select(Number.isFinite(EV)&&EV>=0&&EV<=2?EV:0);
 
 /* ================= scroll reveal ================= */
 var revs=[].slice.call(document.querySelectorAll('.reveal'));
