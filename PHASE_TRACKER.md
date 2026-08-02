@@ -197,3 +197,22 @@ Review: **NEEDS ONE CORRECTION CYCLE** — hybrid direction retained, do not reb
 | C4 | Editorial visual is empty/generic | Build a designed topographic art-direction composition | Coded SVG: soil/topographic contours + fine organic threads beneath aligning to a faint grid + one focal area + headline overlap + caption; L/D treatment; 16:10 desktop / 4:5 mobile; no stock/dashboards/plants/dots/robots/neon | Composition present & designed; both themes; both crops; brief added to IMAGE_ASSET_TRACKER | Planned |
 | C5 | Verify theme toggle a11y | Confirm/upgrade the control | Semantic button; keyboard operable; dynamic accessible label per action; state updates after switch; persists; no flash | Lighthouse a11y clean; label changes on toggle; persists on reload | Planned |
 | C6 | Motion evidence | Produce real recordings | 10–15s desktop + mobile recordings covering hero sequence, evidence interaction, light/dark transition, reduced-motion | Both recordings delivered | Planned |
+
+### End-of-phase results (v4 — Ready for review)
+Branch `phase-0-design-lab` · commits: content/topo/a11y `b94ab13`, scroll-hook `9a14960` · Public preview: **https://tilth-website.vercel.app/design-lab/living-evidence/** (noindex). No production changes; not merged to `main`. **Dependencies added: none.** GIF/screenshot tooling (Chrome headless + pure-JS `pngjs`/`gif-encoder`) ran only in the scratchpad.
+
+| ID | Correction delivered | Status |
+|---|---|---|
+| C1 | Evidence rewritten to approved facts: Problem/Foundation/Result safe copy; chart now = **monthly media investment** (₹5L→₹30L); Result shows three labelled figures — **₹5L → ₹30L monthly media investment · ₹1.5Cr monthly revenue · 5× stated return**. No "revenue ₹5L"; invented failure claims removed | Done |
+| C2 | Hero: H1 "Growth built beneath the surface—and made measurable."; lede "Tilth strengthens the strategy, measurement and execution systems underneath growth—so teams can scale with greater clarity."; "Foundation before scale" retained; literal farming language reduced | Done |
+| C3 | CTA: "Build the system your growth can scale on." + approved support copy; single CTA "Discuss a Project" | Done |
+| C4 | Editorial replaced with a coded **topographic** art-direction study (SVG): nested soil contours + fine organic threads aligning to a faint structured grid + one clear focal area + headline overlap + caption card; art-directed per theme; 16:10 desktop / 4:5 mobile crop. Final-asset brief added to IMAGE_ASSET_TRACKER (LE-EDITORIAL). No stock/dashboards/plants/dots/robots/neon | Done |
+| C5 | Theme toggle: semantic `<button>`, keyboard operable, **dynamic accessible label** ("Switch to light/dark theme") updated on toggle, persists (`tilth-lab-theme`), no-flash inline head script; a11y = 100 | Done |
+| C6 | Motion evidence: **desktop (14.7s) and mobile (14.1s) walkthrough recordings** covering hero root→system sequence, evidence Problem→Foundation→Result, light/dark transition, editorial L/D; reduced-motion delivered as static end-state stills (RM renders the settled state, no animation) | Done |
+
+### Test results (headless Lighthouse — mobile, throttled — 2026-08-02)
+| Route | Perf | A11y | Best-practices | CLS | LCP |
+|---|---|---|---|---|---|
+| /design-lab/living-evidence/ (v4) | 94 | 100 | 100 | 0 | 2.4s |
+
+### STATUS: **Correction cycle (v4) Ready for review — Phase 0. Stopping. Phase 1 not started.**
