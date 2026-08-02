@@ -7,8 +7,16 @@
 <script>(function(){try{var t=localStorage.getItem('tilth-lab-theme');if(!t)t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js');}catch(e){}})();</script>
 <title>Concept C · Cultivated Editorial — Tilth Lab</title>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<style>
+/* Concept C: font-display:optional (no late swap → no layout shift on the large serif display) */
+@font-face{font-family:'Fraunces';src:url('/assets/fonts/fraunces-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:optional}
+@font-face{font-family:'Fraunces';src:url('/assets/fonts/fraunces-400-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:optional}
+@font-face{font-family:'Work Sans';src:url('/assets/fonts/work-sans-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:optional}
+@font-face{font-family:'Work Sans';src:url('/assets/fonts/work-sans-500-normal.woff2') format('woff2');font-weight:500;font-style:normal;font-display:optional}
+@font-face{font-family:'Work Sans';src:url('/assets/fonts/work-sans-600-normal.woff2') format('woff2');font-weight:600;font-style:normal;font-display:optional}
+</style>
 <style>
 :root[data-theme="light"]{--bg:#F6F1E7;--panel:#FFFDF8;--ink:#171410;--muted:#6E655A;--line:rgba(23,20,16,.16);--sage:#57742C;--terra:#BE6236}
 :root[data-theme="dark"]{--bg:#141009;--panel:#1B160E;--ink:#F3ECDD;--muted:#A0968673;--muted:#A09686;--line:rgba(243,236,221,.16);--sage:#AAC56C;--terra:#E2885A}
