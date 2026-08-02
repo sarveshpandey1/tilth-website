@@ -216,3 +216,28 @@ Branch `phase-0-design-lab` · commits: content/topo/a11y `b94ab13`, scroll-hook
 | /design-lab/living-evidence/ (v4) | 94 | 100 | 100 | 0 | 2.4s |
 
 ### STATUS: **Correction cycle (v4) Ready for review — Phase 0. Stopping. Phase 1 not started.**
+
+---
+
+## Phase 0 — FINAL HOUSEKEEPING (v5) — DIRECTION APPROVED
+
+Living Evidence approved as the creative direction. Prototype not redesigned; housekeeping only.
+
+| # | Housekeeping item | Done |
+|---|---|---|
+| 1 | Removed visible dev language from editorial ("waiting for its photograph", "coded stand-in", "placeholder", "owner supplies the final photograph later"); also cleaned the footer notice | ✓ |
+| 2 | Dev/asset-handoff notes kept internal only — IMAGE_ASSET_TRACKER.md (LE-EDITORIAL brief) + HTML/CSS/JS code comments | ✓ |
+| 3 | Public editorial copy applied — heading "Structure becomes visible when you know where to look."; caption "Strategy, measurement and execution—working as one connected system." | ✓ |
+| 4 | Result interaction displays exactly: **₹5L → ₹30L monthly media investment · ₹1.5Cr monthly revenue · 5× stated return** | ✓ |
+| 5 | Media investment vs revenue visually distinguished — colour-coded values + top rules (media = sage, revenue = terra, return = sky); chart is labelled "Monthly media investment (₹ lakh)" | ✓ |
+| 6 | Theme toggle verified: semantic `<button>`; keyboard operable (native button); screen-reader labelled (`button-name` audit passes); label reflects action ("Switch to light/dark theme", updated on toggle); persists via `localStorage['tilth-lab-theme']`; no-flash inline `<head>` script | ✓ |
+| 7 | Provided: desktop recording (14.7s), mobile recording (14.1s), theme-transition recording (4.6s), reduced-motion stills, updated tracker, final commit + preview | ✓ |
+
+### Final test results (headless Lighthouse — mobile, throttled — 2026-08-02)
+| Route | Perf | A11y | Best-practices | CLS | LCP |
+|---|---|---|---|---|---|
+| /design-lab/living-evidence/ | 95 | 100 | 100 | 0.002 | 2.7s |
+
+Final Phase 0 commit: `e481479` · Preview: **https://tilth-website.vercel.app/design-lab/living-evidence/** (noindex) · No production changes; not merged to `main`.
+
+### STATUS: **PHASE 0 COMPLETE.** Living Evidence is the approved direction. Phase 1 NOT started — awaiting the Phase 1 prompt.
