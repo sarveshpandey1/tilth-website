@@ -123,9 +123,14 @@ section.block{padding:72px 0;border-top:1px solid var(--line2)}
 .stepcopy h3{font-size:clamp(22px,3vw,30px);margin:8px 0 10px}
 .stepcopy p{color:var(--muted);max-width:44ch}
 .figs{margin-top:16px;display:flex;flex-wrap:wrap;gap:22px}
-.fig{min-width:0}
+.fig{min-width:0;padding-top:10px;border-top:2px solid var(--line)}
 .fig .fv{font-family:'Fraunces',serif;font-size:clamp(24px,3.4vw,38px);color:var(--ink);letter-spacing:-1px;line-height:1;display:block}
 .fig small{font-size:12px;letter-spacing:.4px;color:var(--muted);display:block;margin-top:6px;max-width:22ch}
+/* media investment vs revenue are colour-coded and top-ruled to read as different measures */
+.fig--media{border-top-color:var(--sage)}    .fig--media .fv{color:var(--sage)}
+.fig--revenue{border-top-color:var(--terra)} .fig--revenue .fv{color:var(--terra)}
+.fig--return{border-top-color:var(--sky)}    .fig--return .fv{color:var(--sky)}
+.fig--neutral{border-top-color:var(--muted)}
 .chartwrap{border:1px solid var(--line);border-radius:16px;background:var(--card);padding:20px;box-shadow:var(--shadow);transition:border-color .5s,box-shadow .5s}
 #chart{display:block;width:100%;height:auto}
 .chartcap{margin-top:10px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:center}
@@ -235,7 +240,7 @@ html.nojs .reveal{opacity:1;transform:none}
           <h3 id="st-title">Scale paid acquisition — without losing control of efficiency.</h3>
           <p id="st-body">The business needed to grow media investment aggressively while keeping performance predictable as spend increased.</p>
           <div class="figs" id="st-figs">
-            <div class="fig"><span class="fv">₹5L</span><small>Monthly media investment · starting point</small></div>
+            <div class="fig fig--media"><span class="fv">₹5L</span><small>Monthly media investment · starting point</small></div>
           </div>
         </div>
       </div>
@@ -255,9 +260,9 @@ html.nojs .reveal{opacity:1;transform:none}
 <!-- ============ 4. EDITORIAL IMAGE COMPOSITION ============ -->
 <section class="block reveal" id="editorial">
   <div class="wrap">
-    <div class="kicker"><span class="n">02</span><span class="eyebrow">How real imagery will sit</span></div>
-    <h2 class="h2">An editorial frame, waiting for its photograph.</h2>
-    <p class="sub">A coded stand-in for the art direction: crop, the way type meets image, the caption system and the light/dark grade. The owner supplies the final photograph later.</p>
+    <!-- INTERNAL: editorial visual is a coded topographic placeholder. Final-photo handoff brief = asset LE-EDITORIAL in IMAGE_ASSET_TRACKER.md. Do not surface dev/placeholder language in visible copy. -->
+    <div class="kicker"><span class="n">02</span><span class="eyebrow">One connected system</span></div>
+    <h2 class="h2">Structure becomes visible when you know where to look.</h2>
 
     <figure class="editorial">
       <div class="frame">
@@ -269,15 +274,13 @@ html.nojs .reveal{opacity:1;transform:none}
         </svg>
         <div class="scrim"></div>
         <div class="cap">
-          <span class="cl">Art direction · placeholder (coded)</span>
-          <p>A coded stand-in for the final photograph — it fixes the crop, the focal area, how the headline meets the image, and how the caption reads in both themes.</p>
+          <p>Strategy, measurement and execution—working as one connected system.</p>
         </div>
         <div class="type">
           <span class="k">The system beneath the surface</span>
           <div class="big">Where structure meets what’s <em>living underneath</em>.</div>
         </div>
       </div>
-      <figcaption>Coded art-direction study, not a stock image. Desktop crops 16:10; mobile re-crops to 4:5 while keeping the focal area. Surface topography, threads, grid and grade all shift between Living Soil (dark) and Cultivated Paper (light).</figcaption>
     </figure>
   </div>
 </section>
@@ -297,7 +300,7 @@ html.nojs .reveal{opacity:1;transform:none}
 </main>
 
 <footer>
-  Internal Phase-0 prototype · noindex · coded placeholders · anonymised proof · no production changes · pending review.
+  Internal Phase-0 prototype · noindex · anonymised proof · no production changes.
 </footer>
 
 <script>
@@ -519,15 +522,15 @@ else { setTimeout(play,80); }
 var STATES=[
   {label:'The problem', title:'Scale paid acquisition — without losing control of efficiency.',
    body:'The business needed to grow media investment aggressively while keeping performance predictable as spend increased.',
-   figs:[['₹5L','Monthly media investment · starting point']],
+   figs:[['₹5L','Monthly media investment · starting point','media']],
    pts:[5,5,5,5,5,5,5], grid:0},
   {label:'The foundation change', title:'Rebuilt to carry more investment.',
    body:'Campaign structure, measurement and optimisation were rebuilt to support a much larger, still-accountable media budget.',
-   figs:[['Rebuilt','Campaign structure · measurement · optimisation']],
+   figs:[['Rebuilt','Campaign structure · measurement · optimisation','neutral']],
    pts:[5,6.5,9,12,16,20,24], grid:1},
   {label:'The result', title:'More investment, held at a 5× return.',
    body:'Monthly media investment scaled six-fold as the foundation carried it — with revenue compounding at a stated 5× return.',
-   figs:[['₹5L → ₹30L','Monthly media investment'],['₹1.5Cr','Monthly revenue'],['5×','Stated return']],
+   figs:[['₹5L → ₹30L','Monthly media investment','media'],['₹1.5Cr','Monthly revenue','revenue'],['5×','Stated return','return']],
    pts:[5,9,14,19,23,27,30], grid:1}
 ];
 var tabs=[document.getElementById('tab-0'),document.getElementById('tab-1'),document.getElementById('tab-2')];
@@ -561,7 +564,7 @@ function select(idx){
   tabs.forEach(function(b,i){b.setAttribute('aria-selected',i===idx?'true':'false');b.tabIndex=i===idx?0:-1;});
   panel.setAttribute('aria-labelledby','tab-'+idx);
   stL.textContent=s.label;stT.textContent=s.title;stB.textContent=s.body;
-  stF.innerHTML=s.figs.map(function(f){return '<div class="fig"><span class="fv">'+esc(f[0])+'</span><small>'+esc(f[1])+'</small></div>';}).join('');
+  stF.innerHTML=s.figs.map(function(f){return '<div class="fig fig--'+(f[2]||'neutral')+'"><span class="fv">'+esc(f[0])+'</span><small>'+esc(f[1])+'</small></div>';}).join('');
   tweenTo(s.pts,s.grid>0);
 }
 tabs.forEach(function(b,i){
