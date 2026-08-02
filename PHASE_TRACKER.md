@@ -241,3 +241,29 @@ Living Evidence approved as the creative direction. Prototype not redesigned; ho
 Final Phase 0 prototype commit (deployed): `c9c566d` · Preview: **https://tilth-website.vercel.app/design-lab/living-evidence/** (noindex) · No production changes; not merged to `main`.
 
 ### STATUS: **PHASE 0 COMPLETE.** Living Evidence is the approved direction. Phase 1 NOT started — awaiting the Phase 1 prompt.
+
+---
+
+## Phase 0 — DEPLOYMENT VERIFICATION (v6) — housekeeping confirmed LIVE
+
+Reviewer reported dev/placeholder language still visible. Root cause: **edge/browser caching of the alias** (local source and the deployed build were already clean; `X-Vercel-Cache: HIT`, `Age: 636` was serving a stale copy to some clients). The per-deployment hash URL (`…-<hash>-…vercel.app`) is **not public** — it 302-redirects to Vercel deployment protection — so the public URL is the alias.
+
+Fix + verification performed:
+1. **Production build run** (`vercel deploy --prod`, `node build.mjs`), commit `c9c566d` (prototype) on branch `phase-0-design-lab`.
+2. **Generated/served HTML searched** for every phrase to remove — all absent on the live alias (cache-busted `curl`):
+   - "An editorial frame, waiting for its photograph." — absent
+   - "A coded stand-in for the art direction" — absent
+   - "Art direction · placeholder (coded)" — absent
+   - "The owner supplies the final photograph later." — absent
+   - "A coded stand-in for the final photograph" — absent
+   - "Internal Phase-0 prototype · noindex · coded placeholders …" — absent (footer now "Internal Phase-0 prototype · noindex · anonymised proof · no production changes.")
+3. **Approved copy confirmed live:** heading "Structure becomes visible when you know where to look."; caption "Strategy, measurement and execution—working as one connected system."; small label "The system beneath the surface" retained.
+4. **Result state confirmed live and unambiguous:** ₹5L → ₹30L (sage, "Monthly media investment") · ₹1.5Cr (terra, "Monthly revenue") · 5× (sky, "Stated return") — media vs revenue use distinct labels + distinct colours + top rules.
+5. **Anti-stale fix:** added `Cache-Control: no-store, no-cache, must-revalidate, max-age=0` for `/design-lab/(.*)` in vercel.json (gitignored deployment config) and redeployed. Alias now returns `Cache-Control: no-store` + `X-Vercel-Cache: MISS` — no client will see a stale copy again.
+6. **Rendered pages verified** via fresh headless screenshots of the public alias (desktop + mobile, light + dark, Result state) — all clean. Not relying on Vercel build status alone.
+
+- **Public URL (verify here):** https://tilth-website.vercel.app/design-lab/living-evidence/ (noindex, now no-store)
+- **Note on "unique preview URL":** immutable per-deployment URLs are behind Vercel deployment protection (401/302, not public); the public production alias above is the reviewable URL.
+- **Final tests:** Lighthouse (mobile) Perf 95 · A11y 100 · BP 100 · CLS 0.002 · LCP 2.7s; `button-name` audit passes (theme toggle accessible name).
+
+### STATUS: **PHASE 0 COMPLETE — housekeeping verified live.** Living Evidence approved. Phase 1 NOT started — awaiting the Phase 1 prompt.
