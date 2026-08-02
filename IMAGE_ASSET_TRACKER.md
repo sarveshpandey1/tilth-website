@@ -24,3 +24,19 @@ Phase 0 uses labelled placeholders at these exact ratios (CLS-safe). Owner suppl
 | OG-GLOBAL | All / social | Share image | Brand OG (theme-neutral) | Single | 1200×630 | — | 1.91:1 | PNG | No | none | — | "Tilth — global growth marketing agency" | Asset received (existing) | /og-image.png |
 
 Notes: SVG system art should be **token-driven** so one file serves both themes. Photography assets that must serve both themes use a graded master + theme-aware overlay scrim. Founder + OG already exist and are reused. All placeholders in the concept lab carry `data-asset="<ID>"` for one-to-one swap.
+
+---
+
+## v2 (post-review) — coded visuals reduce asset dependency
+
+The revised concepts prove their worlds with **coded/procedural visuals**, so most hero/system art no longer needs a supplied image file:
+- **A-HERO / B-HERO / B-SYS / A-AI / A-METHOD** → now **coded** (Canvas/SVG), rendered live. Status: **Integrated (coded)** — no owner asset required to evaluate; a final still/export is optional.
+- **Founder (A-FOUNDER / C-FOUNDER)** → uses existing approved `/anuja.jpg`. Status: **Integrated**.
+
+### Owner-supplied finals still required (photography) — production-ready briefs
+| Asset ID | Concept | Placement | Purpose | Composition | Desktop | Mobile | Light variant | Dark variant | Static/motion | Safe text area | Focal point | Format | Transparency | Perf budget | Final-generation brief | Status |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| C-HERO | C | Editorial hero (type overlaps left ~14%) | Human, premium, considered strategy | Portrait editorial; subject/artefact right-of-centre; calm negative space left for overlapping type | 1040×1300 | 760×950 | brighter, high-key, warm | darker grade + 35% scrim | static (clip-reveal on scroll) | left 40% kept low-detail for headline | upper-right third | AVIF (+JPG fallback) | no | ≤180KB | "Editorial photograph evoking considered, foundation-first strategy work — a workspace, artefact or founder moment; warm, filmic, restrained; strong negative space on the left for large serif type; no stock clichés, no laptops-pointing, no skylines." | Awaiting asset |
+| C-WORK | C | Work-led story frame | Anonymous engagement, work-led credibility | 16:10 landscape; layered, room for a caption card bottom-right | 1200×750 | 760×475 | high-key warm | darker + scrim | static (clip-reveal) | bottom-right ~26ch caption zone | left-of-centre | AVIF (+JPG) | no | ≤160KB | "Illustrative image of a growth engagement (anonymous) — strategy artefacts, a screen-in-context, or an abstract work still; premium, warm; must not depict identifiable client work or logos." | Awaiting asset |
+
+Until supplied, C shows an **art-directed coded frame** (layered gradient + grain + editorial caption) at the exact ratios above — labelled, CLS-safe, swap-in by `data-asset`.

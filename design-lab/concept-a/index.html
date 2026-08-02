@@ -4,217 +4,251 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#15110B" id="tc">
 <script>(function(){try{var t=localStorage.getItem('tilth-lab-theme');if(!t)t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js');}catch(e){}})();</script>
 <title>Concept A · Living Intelligence — Tilth Lab</title>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <style>
-:root[data-theme="dark"]{--bg:#15110B;--bg2:#1C1710;--panel:#221B12;--ink:#F5EEE1;--muted:#9A8F7C;--line:rgba(245,238,225,.14);--sage:#AAC56C;--terra:#E2885A;--sig:#AAC56C}
-:root[data-theme="light"]{--bg:#F4EEE2;--bg2:#FBF7EE;--panel:#FFFFFF;--ink:#1A1510;--muted:#6F665A;--line:rgba(26,21,16,.13);--sage:#5F7F37;--terra:#C2673B;--sig:#5F7F37}
+:root[data-theme="dark"]{--bg:#14100A;--bg2:#1B1610;--ink:#F5EEE1;--muted:#9C9080;--line:rgba(245,238,225,.14);--sage:#AAC56C;--terra:#E2885A;--glow:.9}
+:root[data-theme="light"]{--bg:#EFE7D6;--bg2:#F7F1E4;--ink:#191410;--muted:#6C6355;--line:rgba(25,20,16,.16);--sage:#4E6B2A;--terra:#B85C30;--glow:0}
 *{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--ink);font-family:'Work Sans',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .25s,color .25s;overflow-x:hidden}
-.wrap{max-width:1160px;margin:0 auto;padding:0 6vw}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Work Sans',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .5s ease,color .5s ease}
 a{color:inherit;text-decoration:none}
-h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;line-height:1.05;letter-spacing:-1px}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;line-height:1;letter-spacing:-1.5px}
 .ey{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--sage);font-weight:600}
-/* nav */
-.nav{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:16px 6vw;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav__w{font-family:'Fraunces',serif;font-size:19px;letter-spacing:5px}
-.nav__links{display:none;gap:26px;font-size:13.5px}
-.nav__links a:hover{color:var(--sage)}
-.nav__r{display:flex;align-items:center;gap:12px}
-.tt{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
-.tt:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--sage);outline-offset:2px}
-.tt svg{width:17px;height:17px}
-:root[data-theme="dark"] .tt .sun{display:none}:root[data-theme="light"] .tt .moon{display:none}
-.cta{display:inline-flex;align-items:center;gap:8px;background:var(--sage);color:var(--bg);padding:11px 20px;border-radius:40px;font-weight:600;font-size:13.5px}
-.cta--ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.burger{display:inline-flex;flex-direction:column;gap:5px;width:34px;height:34px;align-items:center;justify-content:center;background:none;border:0;cursor:pointer}
-.burger span{width:20px;height:2px;background:var(--ink);border-radius:2px}
-@media(min-width:860px){.nav__links{display:flex}.burger{display:none}}
-.mnav{position:fixed;inset:0;z-index:29;background:var(--bg);display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 9vw;transform:translateY(-100%);visibility:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1),visibility .4s}
-.mnav.open{transform:none;visibility:visible}
-.mnav a{font-family:'Fraunces',serif;font-size:34px;padding:10px 0;border-bottom:1px solid var(--line)}
-body.lock{overflow:hidden}
-/* hero */
-.hero{position:relative;padding:72px 0 40px;overflow:hidden}
-.hero__grid{display:grid;grid-template-columns:1fr;gap:30px;align-items:center}
-@media(min-width:900px){.hero__grid{grid-template-columns:1.1fr .9fr}}
-.hero h1{font-size:clamp(38px,7vw,76px);margin:16px 0 18px;max-width:14ch}
-.hero h1 em{font-style:italic;color:var(--terra)}
-.hero p{color:var(--muted);font-size:18px;max-width:52ch}
-.hero__ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px}
-/* root->signal art */
-.art{position:relative;aspect-ratio:1/1;border:1px solid var(--line);border-radius:20px;background:radial-gradient(120% 120% at 60% 20%,var(--bg2),var(--bg));overflow:hidden}
-.art svg{position:absolute;inset:0;width:100%;height:100%}
-.art .rt{fill:none;stroke:var(--sage);stroke-width:1.4;opacity:.25;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600;transition:stroke-dashoffset 2.2s cubic-bezier(.16,1,.3,1),opacity 1s}
-.art.on .rt{stroke-dashoffset:0;opacity:.5}
-.art .nd{fill:var(--sig);opacity:0;transform:scale(.4);transform-origin:center;transition:opacity .6s ease,transform .7s cubic-bezier(.16,1,.3,1)}
-.art.on .nd{opacity:1;transform:scale(1)}
-.art .lk{stroke:var(--terra);stroke-width:1;opacity:0;transition:opacity .8s ease .6s}
-.art.on .lk{opacity:.55}
-.art__tag{position:absolute;left:14px;bottom:12px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
-/* sections */
-section{padding:64px 0}
-.sec--alt{background:var(--bg2)}
-.sec--paper{background:var(--panel)}
-.lead{font-size:clamp(24px,3.4vw,38px);font-family:'Fraunces',serif;max-width:18ch;margin-top:12px}
-.sub{color:var(--muted);max-width:56ch;margin-top:14px}
-/* trust */
-.trust{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin-top:20px}
-.trust b{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(20px,3vw,28px)}
-.trust .dot{color:var(--terra)}
-.trust small{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:6px}
-/* problems */
-.probs{display:grid;grid-template-columns:1fr;gap:12px;margin-top:30px}
-@media(min-width:720px){.probs{grid-template-columns:1fr 1fr}}
-.prob{border-left:2px solid var(--terra);padding:8px 0 8px 16px;color:var(--muted);font-size:15.5px}
-/* services */
-.cards{display:grid;grid-template-columns:1fr;gap:16px;margin-top:34px}
-@media(min-width:680px){.cards{grid-template-columns:1fr 1fr}}
-.svc{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--panel);transition:transform .25s,border-color .25s}
-.svc:hover{transform:translateY(-3px);border-color:var(--sage)}
-.svc .n{font-family:'Fraunces',serif;font-style:italic;color:var(--sage)}
-.svc h3{font-size:22px;margin:8px 0 6px}
-.svc p{color:var(--muted);font-size:14px}
-/* work */
-.work{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px}
-@media(min-width:760px){.work{grid-template-columns:1fr 1fr}}
-.proof{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel)}
-.ph{position:relative;display:grid;place-items:center;background:repeating-linear-gradient(45deg,var(--bg2),var(--bg2) 10px,transparent 10px,transparent 20px);border-bottom:1px dashed var(--line)}
-.ph__l{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:center;padding:8px}
-.proof__b{padding:20px}
-.proof__k{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--sage);font-weight:600}
-.proof__m{font-family:'Fraunces',serif;font-size:20px;margin:8px 0}
-.proof__m span{color:var(--terra)}
-.proof p{color:var(--muted);font-size:14px}
-/* AI */
-.ai{display:grid;grid-template-columns:1fr;gap:30px;align-items:center}
-@media(min-width:900px){.ai{grid-template-columns:1fr 1fr}}
-.ai h2{font-size:clamp(26px,4vw,40px);max-width:16ch}
-.ai .line{font-family:'Fraunces',serif;font-style:italic;color:var(--terra);font-size:20px;margin:14px 0}
-.ai ul{list-style:none;padding:0;margin:14px 0 0;color:var(--muted);font-size:14.5px}
-.ai li{padding:8px 0;border-top:1px solid var(--line)}
-/* CTA band */
-.band{text-align:center;background:radial-gradient(120% 120% at 50% 120%,var(--terra),var(--bg) 62%)}
-.band h2{font-size:clamp(30px,5vw,54px);max-width:16ch;margin:0 auto 14px}
-.band p{color:var(--muted);max-width:44ch;margin:0 auto 26px}
-:root[data-theme="light"] .band{background:radial-gradient(120% 120% at 50% 120%,color-mix(in srgb,var(--terra) 45%,var(--bg)),var(--bg) 66%)}
-footer{border-top:1px solid var(--line);padding:40px 6vw;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+/* nav: minimal, no chrome bar — floats over the immersive canvas */
+.nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:22px 6vw;mix-blend-mode:normal}
+.nav__w{font-family:'Fraunces',serif;font-size:19px;letter-spacing:6px;color:var(--ink)}
+.nav__r{display:flex;align-items:center;gap:16px}
+.nav a.min{font-size:13px;color:var(--muted)}.nav a.min:hover{color:var(--ink)}
+@media(max-width:720px){.nav a.min{display:none}}
+.tt{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:transform .3s}
+.tt:hover{transform:rotate(18deg)}
+.tt:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
+.tt svg{width:17px;height:17px}:root[data-theme="dark"] .tt .sun{display:none}:root[data-theme="light"] .tt .moon{display:none}
+/* immersive hero */
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden}
+#roots{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero__copy{position:absolute;left:6vw;bottom:11vh;z-index:3;max-width:min(90vw,22ch)}
+.hero__copy h1{font-size:clamp(44px,9vw,120px);color:var(--ink)}
+.hero__copy h1 em{font-style:italic;color:var(--terra)}
+.hero__copy p{margin-top:18px;color:var(--muted);font-size:clamp(15px,1.6vw,18px);max-width:34ch}
+.hero__state{position:absolute;right:6vw;top:50%;transform:translateY(-50%);z-index:3;text-align:right;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:grid;gap:6px}
+.hero__state b{color:var(--sage);font-family:'Fraunces',serif;font-style:italic;font-size:16px;letter-spacing:0;text-transform:none;display:block}
+@media(max-width:720px){.hero__state{display:none}}
+.scrollcue{position:absolute;left:6vw;bottom:4vh;z-index:3;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px}
+.scrollcue i{width:1px;height:30px;background:var(--line);position:relative;overflow:hidden;display:inline-block}
+.scrollcue i::after{content:"";position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--sage);animation:cue 1.8s cubic-bezier(.16,1,.3,1) infinite}
+@keyframes cue{0%{top:-100%}60%,100%{top:100%}}
+/* beneath the surface — interactive scrubber */
+.beneath{position:relative;padding:14vh 6vw;background:var(--bg2);border-top:1px solid var(--line)}
+.beneath h2{font-size:clamp(26px,4vw,44px);max-width:18ch}
+.beneath h2 em{font-style:italic;color:var(--terra)}
+.beneath .lede{color:var(--muted);max-width:52ch;margin-top:14px}
+.surface{position:relative;margin-top:48px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:linear-gradient(180deg,color-mix(in srgb,var(--ink) 6%,transparent),transparent)}
+.surface__top,.surface__bottom{padding:26px 24px}
+.surface__top{position:relative;z-index:2}
+.surface__label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.surface__row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.chip{border:1px solid var(--line);border-radius:40px;padding:8px 16px;font-size:13px;color:var(--ink);transition:border-color .3s,color .3s,background .3s}
+.chip.on{border-color:var(--sage);color:var(--bg);background:var(--sage)}
+.surface__bottom{border-top:1px dashed var(--line);background:color-mix(in srgb,var(--sage) 8%,transparent)}
+.surface__bottom .layer{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:760px){.surface__bottom .layer{grid-template-columns:repeat(5,1fr)}}
+.node{opacity:.25;transition:opacity .4s ease,transform .4s ease;transform:translateY(6px)}
+.node.on{opacity:1;transform:none}
+.node b{display:block;font-family:'Fraunces',serif;font-size:15px;color:var(--ink)}
+.node span{font-size:12px;color:var(--muted)}
+.scrub{margin-top:26px;display:flex;align-items:center;gap:16px}
+.scrub input{flex:1;accent-color:var(--sage);height:4px}
+.scrub label{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+/* system preview — asymmetric, not cards */
+.system{padding:14vh 6vw;display:grid;grid-template-columns:1fr;gap:30px}
+@media(min-width:900px){.system{grid-template-columns:1.3fr .7fr;align-items:end}}
+.system h2{font-size:clamp(28px,5vw,58px);max-width:16ch}
+.system h2 em{font-style:italic;color:var(--terra)}
+.system__list{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.system__list li{padding:14px 0;border-bottom:1px solid var(--line);font-family:'Fraunces',serif;font-size:18px;color:var(--muted);transition:color .3s,padding-left .3s}
+.system__list li:hover{color:var(--ink);padding-left:10px}
+/* CTA */
+.cta-a{position:relative;padding:18vh 6vw;text-align:center;background:radial-gradient(120% 120% at 50% 120%,color-mix(in srgb,var(--terra) 40%,transparent),var(--bg) 60%)}
+.cta-a h2{font-size:clamp(34px,7vw,84px);max-width:14ch;margin:0 auto 20px}
+.cta-a h2 em{font-style:italic;color:var(--terra)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--sage);color:var(--bg);padding:14px 28px;border-radius:40px;font-weight:600;font-size:14px;transition:transform .3s,box-shadow .3s}
+.btn:hover{transform:translateY(-2px)}
+footer{padding:40px 6vw;border-top:1px solid var(--line);color:var(--muted);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .reveal{transition:opacity .8s ease,transform .8s cubic-bezier(.16,1,.3,1)}
-html.js .reveal{opacity:0;transform:translateY(20px)}
-html.js .reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}.art .rt{stroke-dashoffset:0;opacity:.5}.art .nd{opacity:1;transform:none}.art .lk{opacity:.55}.reveal{opacity:1;transform:none}}
+html.js .reveal{opacity:0;transform:translateY(24px)}html.js .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.scrollcue i::after{animation:none;top:0}html.js .reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 <nav class="nav">
   <a href="#" class="nav__w">TILTH</a>
-  <div class="nav__links">
-    <a href="#services">Services</a><a href="#work">Work</a><a href="#ai">AI-era</a><a href="/design-lab/">Concept lab</a>
-  </div>
   <div class="nav__r">
+    <a href="/design-lab/" class="min">Concept lab</a>
+    <a href="#beneath" class="min">Beneath the surface</a>
     <button class="tt" id="tt" type="button" aria-label="Toggle light or dark theme">
       <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
     </button>
-    <a href="#contact" class="cta">Discuss a project</a>
-    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div class="mnav" id="mnav" aria-hidden="true">
-  <a href="#services">Services</a><a href="#work">Work</a><a href="#ai">AI-era</a><a href="/design-lab/">Concept lab</a><a href="#contact">Discuss a project</a>
-</div>
 
 <main>
-<header class="hero"><div class="wrap"><div class="hero__grid">
+<header class="hero">
+  <canvas id="roots" aria-label="Living root system that grows, then orders itself into measurement points as you scroll"></canvas>
+  <div class="hero__state" aria-hidden="true"><span>System state</span><b id="stateLabel">Organic</b><span>scroll to order →</span></div>
+  <div class="hero__copy">
+    <span class="ey">Living Intelligence</span>
+    <h1>Foundations <em>first</em>. Then scale.</h1>
+    <p>We read the living system beneath your growth — then bring it into order you can measure.</p>
+  </div>
+  <div class="scrollcue"><i></i> Scroll to order the system</div>
+</header>
+
+<section class="beneath" id="beneath">
+  <div class="reveal">
+    <span class="ey">Beneath the surface</span>
+    <h2>What you see is marketing. What decides it is the <em>system underneath</em>.</h2>
+    <p class="lede">Drag to look beneath the surface layer. The foundations light up in the order we build them.</p>
+  </div>
+  <div class="surface reveal">
+    <div class="surface__top">
+      <div class="surface__label">Surface — what most agencies scale</div>
+      <div class="surface__row">
+        <span class="chip">Campaigns</span><span class="chip">Channels</span><span class="chip">Creative</span><span class="chip">Spend</span>
+      </div>
+    </div>
+    <div class="surface__bottom">
+      <div class="surface__label">Beneath — the foundations we fix first</div>
+      <div class="layer" id="layer">
+        <div class="node" data-i="0"><b>Strategy</b><span>Positioning & goals</span></div>
+        <div class="node" data-i="1"><b>Tracking</b><span>Events & data</span></div>
+        <div class="node" data-i="2"><b>Website</b><span>Conversion</span></div>
+        <div class="node" data-i="3"><b>Creative</b><span>What resonates</span></div>
+        <div class="node" data-i="4"><b>Acquisition</b><span>Scaled on proof</span></div>
+      </div>
+      <div class="scrub">
+        <label for="reveal">Surface</label>
+        <input type="range" id="reveal" min="0" max="100" value="15" aria-label="Reveal the foundations beneath the surface">
+        <label for="reveal">Foundations</label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="system reveal">
   <div>
-    <span class="ey">Concept A · Living Intelligence</span>
-    <h1>Growth, grown from <em>living systems</em>.</h1>
-    <p>Tilth reads the systems beneath your growth — then turns organic activity into measurable, intelligent scale.</p>
-    <div class="hero__ctas"><a href="#contact" class="cta">Discuss a project</a><a href="#work" class="cta cta--ghost">See the work</a></div>
+    <span class="ey">One system</span>
+    <h2>Not more channels. A stronger <em>system</em>.</h2>
   </div>
-  <figure class="art" id="art" data-asset="A-HERO" aria-label="Placeholder: organic network resolving into ordered nodes">
-    <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <path class="rt" d="M60,380 C90,300 70,240 140,200 C200,166 180,110 210,60"/>
-      <path class="rt" d="M200,400 C210,320 250,300 260,230 C268,170 300,150 330,110"/>
-      <path class="rt" d="M330,390 C300,320 320,270 270,240 C220,210 240,150 200,120"/>
-      <path class="rt" d="M120,400 C140,340 120,300 170,270 C220,240 210,190 250,160"/>
-      <line class="lk" x1="140" y1="200" x2="260" y2="230"/><line class="lk" x1="210" y1="60" x2="330" y2="110"/><line class="lk" x1="170" y1="270" x2="270" y2="240"/>
-      <circle class="nd" cx="140" cy="200" r="5"/><circle class="nd" cx="210" cy="60" r="5"/><circle class="nd" cx="260" cy="230" r="5"/><circle class="nd" cx="330" cy="110" r="5"/><circle class="nd" cx="170" cy="270" r="5"/><circle class="nd" cx="270" cy="240" r="5"/><circle class="nd" cx="250" cy="160" r="4"/>
-    </svg>
-    <figcaption class="art__tag">A-HERO · root → signal · 1:1 (placeholder)</figcaption>
-  </figure>
-</div></div></header>
+  <ul class="system__list">
+    <li>Diagnose what limits growth</li>
+    <li>Fix the measurable foundations</li>
+    <li>Scale only what pays back</li>
+  </ul>
+</section>
 
-<section class="sec--paper"><div class="wrap">
-  <small class="ey">Selected experience</small>
-  <div class="trust"><b>PayDirect</b><span class="dot">·</span><b>Ommora</b></div>
-  <p class="sub">Text-only markers shown with permission. Logos and links appear only once approved.</p>
-</div></section>
-
-<section><div class="wrap reveal">
-  <span class="ey">What limits growth</span>
-  <h2 class="lead">The problem is rarely the channel.</h2>
-  <div class="probs">
-    <div class="prob">Acquisition costs keep rising, margins keep shrinking.</div>
-    <div class="prob">Reporting doesn’t reconcile with revenue.</div>
-    <div class="prob">Traffic grows; qualified pipeline doesn’t.</div>
-    <div class="prob">The website quietly caps conversion.</div>
-  </div>
-</div></section>
-
-<section id="services" class="sec--alt"><div class="wrap reveal">
-  <span class="ey">Services</span>
-  <h2 class="lead">Bring the right capability to the real constraint.</h2>
-  <div class="cards">
-    <div class="svc"><span class="n">01</span><h3>Growth Strategy & Measurement</h3><p>Analytics, tracking and attribution that tie spend to revenue.</p></div>
-    <div class="svc"><span class="n">02</span><h3>Performance Marketing</h3><p>Acquisition that scales against verified return.</p></div>
-    <div class="svc"><span class="n">03</span><h3>SEO & AI Search</h3><p>Organic and AI-search visibility that becomes pipeline.</p></div>
-    <div class="svc"><span class="n">04</span><h3>Website & CRO</h3><p>Conversion-focused sites built around the growth system.</p></div>
-  </div>
-</div></section>
-
-<section id="work"><div class="wrap reveal">
-  <span class="ey">Evidence</span>
-  <h2 class="lead">Anonymous, but real.</h2>
-  <div class="work">
-    <article class="proof"><figure class="ph" data-asset="A-WORK" style="aspect-ratio:4/3"><figcaption class="ph__l">A-WORK · anonymous before/after · 4:3</figcaption></figure><div class="proof__b"><div class="proof__k">Edtech growth engagement</div><div class="proof__m">Spend ₹5L → ₹30L · <span>5× ROAS</span></div><p>Tracking rebuilt first, then media scaled against verified return.</p></div></article>
-    <article class="proof"><figure class="ph" data-asset="A-WORK-2" style="aspect-ratio:4/3"><figcaption class="ph__l">A-WORK-2 · anonymous system state · 4:3</figcaption></figure><div class="proof__b"><div class="proof__k">Crypto affiliate growth</div><div class="proof__m">~0% → <span>5–6% of volume</span> in a year</div><p>Program built from scratch — partner validation, model and tracking.</p></div></article>
-  </div>
-</div></section>
-
-<section id="ai" class="sec--alt"><div class="wrap ai reveal">
-  <div>
-    <span class="ey">The AI era</span>
-    <h2>Senior judgment, accelerated.</h2>
-    <p class="line">Senior judgment. AI-accelerated execution.</p>
-    <p class="sub">AI speeds research, analysis and iteration. People decide what matters. We don’t hand strategy to a machine.</p>
-  </div>
-  <figure class="ph" data-asset="A-AI" style="aspect-ratio:3/2"><figcaption class="ph__l">A-AI · AI-assisted analysis + human review · 3:2</figcaption></figure>
-</div></section>
-
-<section id="contact" class="band"><div class="wrap">
-  <span class="ey">Start here</span>
-  <h2>Grow deep. Market smart.</h2>
-  <p>Tell us what you’re trying to grow. We’ll review the foundations first.</p>
-  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap"><a href="#" class="cta">Discuss a project</a><a href="#" class="cta cta--ghost">Request a foundation audit</a></div>
-</div></section>
+<section class="cta-a">
+  <h2>Grow <em>deep</em>.</h2>
+  <a href="#" class="btn">Discuss a project →</a>
+</section>
 </main>
 
-<footer><span>Tilth · Concept A — Living Intelligence</span><span>Phase-0 concept · placeholder imagery · not final</span></footer>
+<footer><span>Tilth · Concept A — Living Intelligence</span><span>Phase-0 concept · coded generative visual · not final</span></footer>
 
 <script>
 (function(){
-  var r=document.documentElement,tt=document.getElementById('tt');
-  tt.addEventListener('click',function(){var n=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('tilth-lab-theme',n);}catch(e){}});
-  var b=document.getElementById('burger'),m=document.getElementById('mnav');
-  b.addEventListener('click',function(){var o=m.classList.toggle('open');document.body.classList.toggle('lock',o);b.setAttribute('aria-expanded',o);m.setAttribute('aria-hidden',!o);});
-  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open');document.body.classList.remove('lock');b.setAttribute('aria-expanded',false);});});
-  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var art=document.getElementById('art');
-  if(reduce){art.classList.add('on');}else{requestAnimationFrame(function(){setTimeout(function(){art.classList.add('on');},200);});}
+  var root=document.documentElement, reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var tt=document.getElementById('tt'), tc=document.getElementById('tc');
+  function themeColor(){return getComputedStyle(root).getPropertyValue('--bg').trim();}
+  function applyMeta(){tc.setAttribute('content',themeColor());}
+  applyMeta();
+  tt.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('tilth-lab-theme',n);}catch(e){}setTimeout(function(){applyMeta();readColors();},60);});
+
+  /* ---------- HERO: Root → Signal (Canvas 2D, dependency-free) ---------- */
+  var cv=document.getElementById('roots'), ctx=cv.getContext('2d'), W=0,H=0,DPR=Math.min(devicePixelRatio||1,2);
+  var COL={};
+  function readColors(){var cs=getComputedStyle(root);COL.sage=cs.getPropertyValue('--sage').trim();COL.terra=cs.getPropertyValue('--terra').trim();COL.ink=cs.getPropertyValue('--ink').trim();COL.line=cs.getPropertyValue('--line').trim();COL.glow=parseFloat(cs.getPropertyValue('--glow'))||0;}
+  readColors();
+  // seeded RNG for stable organic roots
+  var seed=7;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647;}
+  var strands=[];
+  function build(){
+    strands=[];seed=7;
+    var n=Math.max(7,Math.round(W/150));
+    for(var s=0;s<n;s++){
+      var pts=[], x=(s+.5)/n*W + (rnd()-.5)*W/n*0.7, y=H*1.02, ang=-Math.PI/2+(rnd()-.5)*0.5;
+      var segs=Math.round(H/26), gx=x; // grid target x (nearest column)
+      var col=Math.round((x/W)*(n)) ; var targetX=(col+.5)/n*W;
+      for(var i=0;i<segs;i++){
+        ang+=(rnd()-.5)*0.5; var step=H/segs*(0.8+rnd()*0.5);
+        x+=Math.cos(ang)*step*0.5; y+=Math.sin(ang)*step;
+        var prog=i/segs; // 0 bottom .. 1 top
+        var ordX=targetX, ordY=H*1.02 - prog*H*1.04; // ordered = straight vertical column on a grid
+        pts.push({ox:x,oy:y, gx:ordX, gy:ordY, node:(i>2&&rnd()>0.82)});
+      }
+      strands.push(pts);
+    }
+  }
+  function resize(){var r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);build();}
+  var pointer={x:-999,y:-999,on:false};
+  cv.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();pointer.x=e.clientX-r.left;pointer.y=e.clientY-r.top;pointer.on=true;});
+  cv.addEventListener('pointerleave',function(){pointer.on=false;});
+  // scroll progress across the hero → morph organic(0) → ordered(1)
+  var morph=0, growth=0, hero=document.querySelector('.hero');
+  function scrollMorph(){var r=hero.getBoundingClientRect();var p=Math.min(Math.max(-r.top/(r.height*0.9),0),1);morph=p; if(stateLabel)stateLabel.textContent = p<0.15?'Organic':p<0.7?'Ordering…':'Measured';}
+  var stateLabel=document.getElementById('stateLabel');
+  addEventListener('scroll',scrollMorph,{passive:true});
+
+  function lerp(a,b,t){return a+(b-a)*t;}
+  function frame(ts){
+    if(growth<1) growth=Math.min(growth + 0.012, 1);
+    ctx.clearRect(0,0,W,H);
+    var m = morph, g = growth;
+    for(var s=0;s<strands.length;s++){
+      var pts=strands[s]; var shown=Math.floor(pts.length*g); if(shown<2)shown=Math.min(2,pts.length);
+      // ease morph a touch by strand for life
+      ctx.beginPath();
+      for(var i=0;i<shown;i++){
+        var p=pts[i];
+        var x=lerp(p.ox,p.gx,m), y=lerp(p.oy,p.gy,m);
+        // restrained pointer response
+        if(pointer.on){var dx=x-pointer.x,dy=y-pointer.y,d=Math.sqrt(dx*dx+dy*dy);if(d<120){var f=(1-d/120)*10;x+=dx/d*f;y+=dy/d*f;}}
+        if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+      }
+      ctx.strokeStyle=COL.sage;
+      ctx.globalAlpha=lerp(0.22,0.5,m);
+      ctx.lineWidth=lerp(1.4,1,m);
+      if(COL.glow){ctx.shadowColor=COL.sage;ctx.shadowBlur=lerp(2,10,m)*COL.glow;}else{ctx.shadowBlur=0;}
+      ctx.stroke();ctx.shadowBlur=0;ctx.globalAlpha=1;
+      // measurement nodes appear as it orders
+      for(var j=0;j<shown;j++){var p2=pts[j];if(!p2.node)continue;var nx=lerp(p2.ox,p2.gx,m),ny=lerp(p2.oy,p2.gy,m);var na=Math.max(0,(m-0.25))*1.3;if(na<=0)continue;
+        var near=false;if(pointer.on){var ddx=nx-pointer.x,ddy=ny-pointer.y;near=(ddx*ddx+ddy*ddy)<9000;}
+        ctx.beginPath();ctx.arc(nx,ny,near?4.5:3,0,7);ctx.fillStyle=near?COL.terra:COL.sage;ctx.globalAlpha=Math.min(na,1);
+        if(COL.glow){ctx.shadowColor=ctx.fillStyle;ctx.shadowBlur=8*COL.glow;}ctx.fill();ctx.shadowBlur=0;ctx.globalAlpha=1;}
+    }
+    // faint grid emerging as ordered (light theme crisper)
+    if(m>0.3){ctx.strokeStyle=COL.line;ctx.globalAlpha=(m-0.3)*0.5;ctx.lineWidth=1;var n=strands.length;for(var c=0;c<=n;c++){var gx=c/n*W;ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,H);ctx.stroke();}ctx.globalAlpha=1;}
+    if(!reduce) raf=requestAnimationFrame(frame);
+  }
+  var raf;
+  function start(){cancelAnimationFrame(raf);if(reduce){growth=1;morph=0.85;scrollMorph();/* draw final ordered state once */ frameStatic();}else{raf=requestAnimationFrame(frame);}}
+  function frameStatic(){morph=Math.max(morph,0.85);growth=1;var keep=reduce;reduce=true;frame();reduce=keep;}
+  addEventListener('resize',function(){resize();if(reduce)frameStatic();},{passive:true});
+  document.addEventListener('visibilitychange',function(){if(document.hidden){cancelAnimationFrame(raf);}else if(!reduce){raf=requestAnimationFrame(frame);}});
+  resize();scrollMorph();start();
+
+  /* ---------- BENEATH THE SURFACE: scrubber ---------- */
+  var reveal=document.getElementById('reveal'), nodes=[].slice.call(document.querySelectorAll('#layer .node')), chips=[].slice.call(document.querySelectorAll('.surface__top .chip'));
+  function applyReveal(){var v=+reveal.value;var active=Math.round(v/100*nodes.length);nodes.forEach(function(nd,i){nd.classList.toggle('on',i<active);});chips.forEach(function(c){c.classList.toggle('on', v>70);});}
+  reveal.addEventListener('input',applyReveal);applyReveal();
+
+  /* ---------- reveals ---------- */
   if(!reduce){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});}
 })();
 </script>
