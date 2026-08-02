@@ -1,0 +1,11 @@
+{
+  "name": "tilth-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Tilth marketing website — static site with a dependency-free Node generator (src/ -> static HTML for GitHub Pages).",
+  "scripts": {
+    "build": "node build.mjs",
+    "check:domain": "node -e \"import('node:fs').then(fs=>{const files=require('node:child_process').execSync('git ls-files \\\"*.html\\\"').toString().split('\\n').filter(Boolean);let bad=[];for(const f of files){if(f==='index.original.html')continue;const s=fs.readFileSync(f,'utf8');if(/https:\\/\\/tilth\\.in/.test(s))bad.push(f);}console.log(bad.length?('legacy domain refs in:\\n'+bad.join('\\n')):'no https://tilth.in refs');})\""
+  }
+}

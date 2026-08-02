@@ -1,0 +1,113 @@
+/* Generated-page component system. Linked by generator pages in addition to /styles.css.
+   Kept separate so it can't clash with hand-authored pages. Living Soil tokens from styles.css. */
+
+/* breadcrumb */
+.crumb{font-size:12px;letter-spacing:.5px;color:var(--olive);padding:26px 0 0}
+.crumb a{color:var(--glow)}
+.crumb span[aria-hidden]{margin:0 6px;color:var(--olive)}
+
+/* hero (service / industry / hub) */
+.ghero{padding:150px 0 66px}
+.ghero .label{color:var(--glow);margin-bottom:18px;display:block}
+.ghero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(34px,5.6vw,66px);line-height:1.05;letter-spacing:-1.5px;color:var(--ink);max-width:17ch}
+.ghero h1 em{color:var(--terra)}
+.ghero .lede{font-size:18px;color:var(--text);max-width:60ch;margin-top:24px}
+.ghero .actions{margin-top:34px;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+
+/* section system (dark default + cream light) */
+.gsec{padding:90px 0}
+.gsec>.wrap>.label{color:var(--glow);margin-bottom:16px;display:block}
+.gsec h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(26px,4vw,44px);line-height:1.08;letter-spacing:-1px;color:var(--ink);max-width:22ch}
+.gsec h2 em{color:var(--terra);font-style:italic}
+.gsec .intro{font-size:17px;color:var(--text);max-width:64ch;margin-top:18px}
+.gsec--light{background:#F4EFE6;color:#1A1510}
+.gsec--light>.wrap>.label{color:#5F7F37}
+.gsec--light h2,.gsec--light h3{color:#15110B}
+.gsec--light h2 em{color:#C2673B}
+.gsec--light .intro,.gsec--light p,.gsec--light li{color:#4B4239}
+html[data-theme="light"] .gsec--light{background:#FFFFFF}
+@media(max-width:760px){.gsec{padding:64px 0}.ghero{padding:120px 0 48px}}
+
+/* buyer problems */
+.problem-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:40px}
+@media(min-width:720px){.problem-grid{grid-template-columns:1fr 1fr}}
+.problem{border-left:2px solid var(--terra);padding:6px 0 6px 18px;font-size:16px;color:var(--text)}
+.gsec--light .problem{color:#4B4239}
+
+/* capability grid */
+.cap-grid{display:grid;grid-template-columns:1fr;gap:2px;margin-top:44px;border-top:1px solid var(--rule)}
+@media(min-width:820px){.cap-grid{grid-template-columns:1fr 1fr}}
+.cap{padding:28px 0;border-bottom:1px solid var(--rule)}
+@media(min-width:820px){.cap:nth-child(odd){padding-right:40px;border-right:1px solid var(--rule)}.cap:nth-child(even){padding-left:40px}}
+.cap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;color:var(--ink);margin-bottom:8px}
+.cap p{font-size:15px;color:var(--text);line-height:1.6}
+.gsec--light .cap h3{color:#15110B}.gsec--light .cap p{color:#4B4239}
+
+/* deliverables list */
+.deliv{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.deliv li{list-style:none;border:1px solid var(--rule);border-radius:40px;padding:9px 18px;font-size:14px;color:var(--ink)}
+.gsec--light .deliv li{color:#15110B;border-color:rgba(26,21,16,.14)}
+
+/* pill chips (website types etc.) */
+.types{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.type{border:1px solid var(--rule);border-radius:40px;padding:9px 18px;font-size:14px;color:var(--ink)}
+.gsec--light .type{color:#15110B;border-color:rgba(26,21,16,.14)}
+
+/* proof cards */
+.proof-row{display:grid;grid-template-columns:1fr;gap:20px;margin-top:40px}
+@media(min-width:720px){.proof-row{grid-template-columns:1fr 1fr}}
+.proof-card{border:1px solid var(--rule);border-radius:12px;padding:26px}
+.proof-card__label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--glow);font-weight:600;margin-bottom:14px}
+.proof-card__metrics{list-style:none;margin:0 0 14px;padding:0}
+.proof-card__metrics li{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);margin-bottom:8px}
+.proof-card__summary{font-size:14.5px;color:var(--text)}
+.gsec--light .proof-card__label{color:#5F7F37}.gsec--light .proof-card__metrics li{color:#15110B}.gsec--light .proof-card__summary{color:#4B4239}
+
+/* trust markers band */
+.trust{padding:44px 0}
+.trust .trust__lead{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--olive);margin-bottom:20px}
+.trust__markers{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.trust__marker{font-family:'Fraunces',serif;font-size:clamp(20px,3vw,28px);color:var(--ink);letter-spacing:.5px}
+.trust__dot{color:var(--terra);margin:0 14px}
+.gsec--light .trust__marker{color:#15110B}
+
+/* service / industry card grids */
+.card-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:46px}
+@media(min-width:640px){.card-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.card-grid{grid-template-columns:1fr 1fr 1fr}}
+.gcard{position:relative;display:flex;flex-direction:column;min-height:220px;padding:26px;border:1px solid var(--rule);border-radius:12px;background:rgba(246,242,233,.025);transition:border-color .3s,transform .3s,box-shadow .3s}
+.gsec--light .gcard{background:#fff;border-color:rgba(26,21,16,.1)}
+.gcard:hover{transform:translateY(-3px);border-color:var(--glow);box-shadow:0 18px 50px -24px rgba(0,0,0,.5)}
+.gcard--featured{border-color:rgba(170,197,108,.4)}
+.gcard__n{font-family:'Fraunces',serif;font-style:italic;color:var(--glow);font-size:15px}
+.gcard__name{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(21px,2.4vw,26px);color:var(--ink);margin:14px 0 8px;letter-spacing:-.3px}
+.gsec--light .gcard__name{color:#15110B}
+.gcard__desc{font-size:14.5px;color:var(--text);line-height:1.55;margin-bottom:auto}
+.gsec--light .gcard__desc{color:#4B4239}
+.gcard__more{margin-top:16px;font-size:13px;font-weight:600;color:var(--glow)}
+
+/* engagement models */
+.engage{display:grid;grid-template-columns:1fr;gap:18px;margin-top:46px}
+@media(min-width:820px){.engage{grid-template-columns:1fr 1fr 1fr}}
+.engage-card{border:1px solid var(--rule);border-radius:14px;padding:30px;display:flex;flex-direction:column}
+.gsec--light .engage-card{border-color:rgba(26,21,16,.12)}
+.engage-card h3{font-family:'Fraunces',serif;font-weight:400;font-size:24px;color:var(--ink);margin-bottom:12px}
+.gsec--light .engage-card h3{color:#15110B}
+.engage-card p{font-size:14.5px;color:var(--text);margin-bottom:16px}
+.engage-card ul{list-style:none;padding:0;margin:0 0 20px}
+.engage-card li{font-size:13.5px;color:var(--text);padding:6px 0;border-top:1px solid var(--rule)}
+.engage-card .text-cta{margin-top:auto}
+
+/* two-column contact */
+.contact-grid{display:grid;grid-template-columns:1fr;gap:48px;margin-top:20px}
+@media(min-width:900px){.contact-grid{grid-template-columns:5fr 7fr}}
+.contact-form label{display:block;font-size:13px;color:var(--ink);margin:16px 0 6px;font-weight:500}
+.contact-form input,.contact-form select,.contact-form textarea{width:100%;background:var(--surface);color:var(--ink);border:1px solid var(--rule);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:15px}
+.contact-form textarea{min-height:120px;resize:vertical}
+.contact-form .row2{display:grid;grid-template-columns:1fr;gap:0 18px}
+@media(min-width:560px){.contact-form .row2{grid-template-columns:1fr 1fr}}
+.contact-form .consent{display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-size:13px;color:var(--text)}
+.contact-form .consent input{width:auto;margin-top:3px}
+.contact-form button{margin-top:22px}
+.contact-aside .who{font-size:14px;color:var(--text);margin-bottom:8px}
+.contact-aside h3{font-family:'Fraunces',serif;font-weight:500;font-size:16px;color:var(--ink);margin:24px 0 6px}
