@@ -623,6 +623,10 @@ var EV=parseInt(params.get('ev'),10); select(Number.isFinite(EV)&&EV>=0&&EV<=2?E
   svg.innerHTML=s;
 })();
 
+// capture hook: ?scroll=evidence|editorial scrolls a section to the top (for headless recording)
+var SC=params.get('scroll');
+if(SC){ var el=document.getElementById(SC); if(el){ setTimeout(function(){ var y=el.getBoundingClientRect().top+window.pageYOffset-64; window.scrollTo(0,y); },140); } }
+
 /* ================= scroll reveal ================= */
 var revs=[].slice.call(document.querySelectorAll('.reveal'));
 if('IntersectionObserver'in window && !RM && SEEK==null){
