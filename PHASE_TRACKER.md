@@ -102,3 +102,36 @@ Revised reference set: TRIONN (primary), Noomo, Obys Experiment, 2xA Studio, Aww
 | R10 | Evidence of motion | Provide screenshots + animated capture | v1 couldn't capture (pane) | Attempt real Chrome screenshots + GIF/recording of each hero; else document + live URL | all | (captures) | Captures provided or limitation documented with live URL | Planned |
 
 Implementation begins only after this table is complete (done). End-of-revision results table appended at completion.
+
+## Revision (v2) — end-of-phase results
+
+Branch: `phase-0-design-lab` · Concepts commit: `ce3c233` · Public preview: **https://tilth-website.vercel.app/design-lab/** (noindex). No production changes; not merged to `main`. Dependencies added: **none** (Canvas 2D + SVG + CSS, vanilla).
+
+| ID | Reviewer issue | Final correction | Status | Evidence/files | Test result | Preview URL | Known limitation |
+|---|---|---|---|---|---|---|---|
+| R1 | Motion not visibly demonstrated | Real coded hero animation per concept, visible on load ≤5s (A grows roots; B auto-organises signal to 55%; C masked type reveals) + scroll/interaction motion + microinteraction | Ready for review | concept-a/b/c index.html | renders in Lighthouse headless Chrome; no console errors | /design-lab/concept-a\|b\|c/ | Screenshots/recordings not capturable in this env (see bottom) |
+| R2 | Placeholders not meaningful | Coded Canvas/SVG visuals are the primary art; only C's photo slots remain as **art-directed** frames (gradient+grain+caption), swap-by `data-asset` | Ready for review | concept-*, IMAGE_ASSET_TRACKER v2 | no blank rectangles; frames labelled+sized | same | — |
+| R3 | Artwork random/decorative | Each hero transforms with meaning: A roots→ordered grid ("foundation before scale"); B noise→funnel, metrics gate on order ("clarity before scale"); C type/image interplay | Ready for review | concept-* JS | verified interactions | same | — |
+| R4 | Too plain/static | A immersive full-bleed canvas; B split technical console; C layered editorial — none is a card grid | Ready for review | concept-* | distinct compositions | same | — |
+| R5 | Same architecture across all | Distinct section sets/order/nav/grid/scroll per concept (A: hero→beneath→system→CTA; B: hero+scrub→evidence→engine→CTA; C: hero→work→intimate→founder→CTA) | Ready for review | concept-* | no shared skeleton | same | — |
+| R6 | Differ only by styling/copy | Distinct interaction models: A pointer+scroll morph & scrubber; B scrub+hover-inspect & tab switcher; C scroll clip-reveal & masked type | Ready for review | concept-* | verified per concept | same | — |
+| R7 | Light/dark not art-directed | Per-theme texture, motion intensity (`--glow`), image treatment (`--imgfilter`/`--scrim`), accent, borders, **theme-color meta** updated in JS; designed <600ms transition; persists; reduced-motion | Ready for review | concept-* CSS+JS | toggle persists (localStorage); no flash (inline head) | same | — |
+| R8 | Below reference standard | Applied TRIONN/Noomo/Obys/2xA/dark-light lessons (motion-as-brand, meaningful morph, technical restraint, designed dual-theme) | Ready for review | PHASE_0_REFERENCE_RESEARCH §6 | — | — | — |
+| R9 | Content too heavy | Reduced to 3–4 experience sections each; metrics/services not duplicated across concepts | Ready for review | concept-* | within scope | same | — |
+| R10 | Evidence of motion (captures) | Attempted in-app pane (can't composite) and real Chrome (none connected) → **not capturable**; provided live public preview + real Lighthouse render data instead | Ready for review (with limitation) | this file | see table below | live URL | **captures blocked by environment** |
+
+### Test results (headless Lighthouse — mobile, throttled — 2026-08-02)
+| Route | Perf | A11y | BP | CLS | LCP |
+|---|---|---|---|---|---|
+| concept-a | 92 | 100 | 100 | 0 | 2.1s |
+| concept-b | 97 | 96 | 100 | 0.001 | 1.7s |
+| concept-c | 88 | 100 | 100 | 0 | 2.9s |
+
+- **Motion visible ≤5s:** A canvas roots grow on load; B auto-organises to 55% at ~0.7s; C type reveal at ~80ms. **Scroll/interaction:** A scroll orders the system + pointer response; B scrub organises + hover cluster labels + evidence tabs; C scroll clip-reveals frames. **Microinteraction:** theme toggle (rotates), nav hovers, node/point hovers. **Reduced-motion:** every concept renders a static final state (verified via CSS/JS guards).
+- **Theme:** toggle persists (`tilth-lab-theme`), no-flash inline head script, `theme-color` meta updates per theme; art-directed states differ beyond colour.
+- **No console errors** on any concept (verified). **No horizontal overflow** at 375px (v1 pattern retained).
+
+### Known limitation (must read)
+**Screenshots and screen recordings could not be produced in this environment.** The in-app Browser preview pane is not displayed/compositing (screenshots time out), and no external Chrome is connected for the Chrome capture tools. The concepts are nonetheless **live and public** — headless Lighthouse renders them correctly (proving they work with a real viewport), and all motion is visible when the reviewer opens the URL in any browser. Recommended: open each `/design-lab/concept-*/` route, toggle the theme (top-right), scroll, and drag the sliders.
+
+### STATUS: **Revision Ready for review — Phase 0. Stopping. Phase 1 not started.**
