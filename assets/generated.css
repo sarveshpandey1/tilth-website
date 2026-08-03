@@ -7,7 +7,7 @@
 .crumb span[aria-hidden]{margin:0 6px;color:var(--olive)}
 
 /* hero (service / industry / hub) */
-.ghero{padding:150px 0 66px}
+.ghero{padding:var(--space-hero-top) 0 56px}
 .ghero .label{color:var(--glow);margin-bottom:18px;display:block}
 .ghero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(34px,5.6vw,66px);line-height:1.05;letter-spacing:-1.5px;color:var(--ink);max-width:17ch}
 .ghero h1 em{color:var(--terra)}
@@ -15,7 +15,7 @@
 .ghero .actions{margin-top:34px;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
 
 /* section system (dark default + cream light) */
-.gsec{padding:90px 0}
+.gsec{padding:var(--space-section) 0}
 .gsec>.wrap>.label{color:var(--glow);margin-bottom:16px;display:block}
 .gsec h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(26px,4vw,44px);line-height:1.08;letter-spacing:-1px;color:var(--ink);max-width:22ch}
 .gsec h2 em{color:var(--terra);font-style:italic}
@@ -26,7 +26,7 @@
 .gsec--light h2 em{color:#C2673B}
 .gsec--light .intro,.gsec--light p,.gsec--light li{color:#4B4239}
 html[data-theme="light"] .gsec--light{background:#FFFFFF}
-@media(max-width:760px){.gsec{padding:64px 0}.ghero{padding:120px 0 48px}}
+/* section/hero padding now handled by fluid --space-* tokens (Phase 1) */
 
 /* buyer problems */
 .problem-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:40px}
@@ -39,7 +39,7 @@ html[data-theme="light"] .gsec--light{background:#FFFFFF}
 @media(min-width:820px){.cap-grid{grid-template-columns:1fr 1fr}}
 .cap{padding:28px 0;border-bottom:1px solid var(--rule)}
 @media(min-width:820px){.cap:nth-child(odd){padding-right:40px;border-right:1px solid var(--rule)}.cap:nth-child(even){padding-left:40px}}
-.cap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;color:var(--ink);margin-bottom:8px}
+.cap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;line-height:1.2;color:var(--ink);margin-bottom:8px}
 .cap p{font-size:15px;color:var(--text);line-height:1.6}
 .gsec--light .cap h3{color:#15110B}.gsec--light .cap p{color:#4B4239}
 
