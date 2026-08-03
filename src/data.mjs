@@ -6,7 +6,7 @@ export const site = {
   wordmark: "TILTH",
   base: "https://wearetilth.com",
   ga: "G-1MJEZ4VK26",
-  positioning: "Global growth marketing agency · India-based, working with brands in the US and India",
+  positioning: "Global growth marketing agency · India-rooted, working with brands worldwide",
   tagline: "Grow deep. Market smart.",
   email: "anuja@tilth.in", // keep until wearetilth.com mailbox is tested (Brief §6)
   phone: "+91 70079 99306",

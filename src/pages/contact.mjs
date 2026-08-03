@@ -41,7 +41,7 @@ const main = `
         <h3>Ways to work with us</h3>
         <p class="who"><a class="text-cta" href="/services/">Foundation Audit · Growth Project · Ongoing Partnership →</a></p>
         <h3>Direct</h3>
-        <p class="who">Email <a href="mailto:${site.email}">${esc(site.email)}</a><br>Call or WhatsApp <a href="tel:${site.phoneHref}">${esc(site.phone)}</a><br>Remote-first, collaborating across US and India time zones.</p>
+        <p class="who">Email <a href="mailto:${site.email}">${esc(site.email)}</a><br>Call or WhatsApp <a href="tel:${site.phoneHref}">${esc(site.phone)}</a><br>Remote-first, collaborating across time zones.</p>
       </aside>
 
       <form class="contact-form" action="${FORM_ACTION}" method="POST">
@@ -87,7 +87,7 @@ const main = `
 export default {
   path,
   title: "Contact Tilth — Start a Growth Conversation",
-  description: "Tell us what you're trying to grow. Tilth reviews your marketing foundations before recommending another channel, campaign or website change. Remote-first across the US and India.",
+  description: "Tell us what you're trying to grow. Tilth reviews your marketing foundations before recommending another channel, campaign or website change. Remote-first, working with brands worldwide.",
   ogTitle: "Tell us what you're trying to grow",
   ogDescription: "Start a growth conversation with Tilth — a global, foundation-first growth marketing agency.",
   schema: [bc.schema, contactSchema],

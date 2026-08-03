@@ -23,7 +23,7 @@ export function orgSchema() {
   return {
     "@type": ["ProfessionalService", "MarketingAgency"], "@id": `${site.base}/#org`,
     name: site.brand, url: `${site.base}/`, email: site.email, telephone: `+${site.phoneHref.replace(/^\+?/, "")}`,
-    description: "Global growth marketing agency, India-based, working with brands in the US and India. Foundation-first: strategy, website, measurement, creative and acquisition strengthened before scaling growth.",
+    description: "Global growth marketing agency, India-rooted, working with brands worldwide. Foundation-first: strategy, website, measurement, creative and acquisition strengthened before scaling growth.",
     slogan: site.tagline, logo: `${site.base}/favicon.svg`, image: `${site.base}/anuja.jpg`,
     address: { "@type": "PostalAddress", addressLocality: site.address.locality, addressRegion: site.address.region, addressCountry: site.address.country },
     areaServed: [{ "@type": "Country", name: "United States" }, { "@type": "Country", name: "India" }, "Worldwide"],
@@ -88,7 +88,7 @@ export function footer() {
     <div class="footer-grid">
       <div>
         <div class="word">${esc(site.tagline)}</div>
-        <div class="addr">Tilth — Global growth marketing agency<br>India-based, working with brands in the US and India<br><a href="tel:${site.phoneHref}">${esc(site.phone)}</a><br>${esc(site.email)}</div>
+        <div class="addr">Tilth — Global growth marketing agency<br>India-rooted, working with brands worldwide<br><a href="tel:${site.phoneHref}">${esc(site.phone)}</a><br>${esc(site.email)}</div>
       </div>
       <div>
         <h3 class="fcol">Explore</h3>
@@ -103,7 +103,7 @@ export function footer() {
         <ul><li><a href="${s.linkedin}" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="${s.instagram}" target="_blank" rel="noopener">Instagram</a></li><li><a href="${s.x}" target="_blank" rel="noopener">X / Twitter</a></li><li><a href="${s.facebook}" target="_blank" rel="noopener">Facebook</a></li></ul>
       </div>
     </div>
-    <div class="footer-bottom"><span>© 2026 Tilth. All rights reserved.</span><span>Tilth · Global growth marketing agency · India-based</span></div>
+    <div class="footer-bottom"><span>© 2026 Tilth. All rights reserved.</span><span>Tilth · Global growth marketing agency · India-rooted</span></div>
   </div>
 </footer>`;
 }
