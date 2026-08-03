@@ -37,9 +37,8 @@
   /* Hero intent rotator — links live in the DOM (SEO), JS only cycles visibility */
   .hero-rotator{font-family:'Fraunces',serif;font-size:clamp(19px,2.6vw,28px);line-height:1.2;margin:2px 0 22px;color:var(--text)}
   .hero-rotator .rot{position:relative;display:inline-block;min-width:14ch}
-  .hero-rotator .rot__item{position:absolute;left:0;top:0;white-space:nowrap;opacity:0;transform:translateY(.28em);transition:opacity .45s ease,transform .45s ease;color:var(--terra);font-style:italic;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:1px}
-  .hero-rotator .rot__item.is-active{position:relative;opacity:1;transform:none}
-  .hero-rotator .rot__item:hover{opacity:1}
+  .hero-rotator .rot__item{position:absolute;left:0;top:0;white-space:nowrap;opacity:0;pointer-events:none;transform:translateY(.28em);transition:opacity .45s ease,transform .45s ease;color:var(--terra);font-style:italic;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:1px}
+  .hero-rotator .rot__item.is-active{position:relative;opacity:1;pointer-events:auto;transform:none}
   .cap__n{display:block;font-family:'Fraunces',serif;color:var(--terra);font-size:14px;margin-bottom:6px}
   @media (prefers-reduced-motion: reduce){.hero-rotator .rot__item{transition:none}}
 </style>
