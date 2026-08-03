@@ -208,7 +208,7 @@ serviceContent["influencer-pr-events"] = {
 export const industryContent = {
   saas: {
     heroTitle: "Growth marketing for <em>SaaS</em> companies.",
-    heroLede: "From trial to expansion, SaaS growth lives or dies on acquisition efficiency and measurement. We help SaaS teams in the US and India acquire the right users and prove what works.",
+    heroLede: "From trial to expansion, SaaS growth lives or dies on acquisition efficiency and measurement. We help SaaS teams across markets acquire the right users and prove what works.",
     intro: "SaaS growth is a compounding system: acquisition, activation, conversion and retention all feed each other. When one is measured badly, the whole model looks broken. We start by making the system measurable.",
     problems: [
       "CAC is rising faster than LTV can justify.",
