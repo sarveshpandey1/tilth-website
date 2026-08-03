@@ -27,7 +27,7 @@ const main = `
     ${bc.visible}
     <span class="label">About</span>
     <h1>Built by someone who's <em>done the work</em>.</h1>
-    <p class="lede">Tilth is a global growth marketing agency — India-based, working with ambitious brands across the US and India. Founder-led, remote-first, and built on the belief that growth is a consequence of strong foundations, not more spend.</p>
+    <p class="lede">Tilth is a global growth marketing agency — founder-led and India-rooted, fluent in how demanding markets like the US buy and convert, and built on the belief that growth is a consequence of strong foundations, not more spend.</p>
   </div>
 </section>
 
@@ -45,7 +45,7 @@ const main = `
     <h2>Senior, accountable, remote-first.</h2>
     <div class="cap-grid">
       <div class="cap"><h3>Founder-led direction</h3><p>Senior strategy on every engagement — you're not handed to a junior team after the pitch.</p></div>
-      <div class="cap"><h3>Across US and India time zones</h3><p>Remote-first collaboration built for teams in both markets, with overlap that keeps work moving.</p></div>
+      <div class="cap"><h3>Built for distributed teams</h3><p>Remote-first collaboration with overlap that keeps work moving, wherever your team sits.</p></div>
       <div class="cap"><h3>Foundation-first</h3><p>We diagnose before we prescribe, and only scale once the growth system can carry it.</p></div>
       <div class="cap"><h3>One accountable partner</h3><p>Strategy, execution and measurement coordinated through Tilth — not scattered across vendors.</p></div>
     </div>
@@ -89,9 +89,9 @@ ${ctaBlock({
 export default {
   path,
   title: "About Tilth — Founder-Led Global Growth Marketing Agency",
-  description: "Tilth is a founder-led, global growth marketing agency — India-based, working with brands across the US and India. Foundation-first strategy, execution and measurement.",
+  description: "Tilth is a founder-led, global growth marketing agency — India-rooted, working with brands worldwide. Foundation-first strategy, execution and measurement.",
   ogTitle: "About Tilth — built by someone who's done the work",
-  ogDescription: "Founder-led, remote-first, foundation-first growth marketing for the US and India.",
+  ogDescription: "Founder-led, remote-first, foundation-first growth marketing for ambitious brands worldwide.",
   ogType: "profile",
   headExtra,
   schema: [bc.schema, personSchema].filter(Boolean),

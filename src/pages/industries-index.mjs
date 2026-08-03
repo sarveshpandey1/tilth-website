@@ -20,7 +20,7 @@ const main = `
     ${bc.visible}
     <span class="label">Industries</span>
     <h1>Growth marketing for the sectors we know <em>deeply</em>.</h1>
-    <p class="lede">Different sectors break in different places. These are the industries where Tilth has the most direct experience across the US and India — with the metrics and constraints that actually decide growth.</p>
+    <p class="lede">Different sectors break in different places. These are the industries where Tilth has the most direct experience across markets — with the metrics and constraints that actually decide growth.</p>
     <div class="actions">
       <a class="btn" href="/contact/"><span>Discuss a Project</span> <span class="arrow">→</span></a>
       <a class="text-cta" href="/services/">Explore services →</a>
@@ -50,7 +50,7 @@ ${ctaBlock({
 export default {
   path,
   title: "Industries We Serve — SaaS, D2C, Fintech, Edtech, Startups | Tilth",
-  description: "Growth marketing for SaaS, D2C & ecommerce, fintech, edtech, and startups & scaleups — with the metrics and constraints that decide growth in each sector, across the US and India.",
+  description: "Growth marketing for SaaS, D2C & ecommerce, fintech, edtech, and startups & scaleups — with the metrics and constraints that decide growth in each sector, across markets.",
   ogTitle: "Industries — growth marketing for the sectors we know",
   ogDescription: "SaaS, D2C & ecommerce, fintech, edtech, and startups & scaleups.",
   schema: [bc.schema, itemList],

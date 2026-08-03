@@ -29,7 +29,7 @@ const main = `
     ${bc.visible}
     <span class="label">Services</span>
     <h1>Growth marketing services, built on <em>foundations</em>.</h1>
-    <p class="lede">We don't start by recommending another channel. We identify what's limiting the growth system, then bring the right service and engagement to fix it — for brands in the US and India.</p>
+    <p class="lede">We don't start by recommending another channel. We identify what's limiting the growth system, then bring the right service and engagement to fix it — for brands worldwide.</p>
     <div class="actions">
       <a class="btn" href="/contact/"><span>Discuss a Project</span> <span class="arrow">→</span></a>
       <a class="text-cta" href="/work/">See our work →</a>
@@ -80,7 +80,7 @@ ${ctaBlock({
 export default {
   path,
   title: "Growth Marketing Services | Performance, SEO, Web, Affiliate | Tilth",
-  description: "Tilth's growth marketing services — strategy & measurement, performance marketing, paid media, SEO & AI search, affiliate, website design & development, and brand & creative. Foundation-first, for brands in the US and India.",
+  description: "Tilth's growth marketing services — strategy & measurement, performance marketing, paid media, SEO & AI search, affiliate, website design & development, and brand & creative. Foundation-first, for brands worldwide.",
   ogTitle: "Growth marketing services, built on foundations",
   ogDescription: "Strategy, performance, paid media, SEO & AI search, affiliate, website and creative — one foundation-first system.",
   schema: [bc.schema, itemList],

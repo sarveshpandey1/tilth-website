@@ -62,7 +62,7 @@ const main = `
     ${bc.visible}
     <span class="label">Website Design, Development & CRO</span>
     <h1>Conversion-focused <em>website</em> design and development.</h1>
-    <p class="lede">Tilth plans, designs and develops marketing websites that connect positioning, user experience, SEO, analytics and conversion into one coordinated growth system — for brands in the US and India.</p>
+    <p class="lede">Tilth plans, designs and develops marketing websites that connect positioning, user experience, SEO, analytics and conversion into one coordinated growth system — for brands worldwide.</p>
     <div class="actions">
       <a class="btn" href="/contact/"><span>Discuss Your Website Project</span> <span class="arrow">→</span></a>
       <a class="text-cta" href="/work/">See our work →</a>
@@ -127,7 +127,7 @@ ${ctaBlock({
 export default {
   path,
   title: "Website Design & Development Agency | Conversion-Focused | Tilth",
-  description: "Tilth designs and develops conversion-focused marketing websites — strategy, UX, UI, development, SEO, analytics and CRO in one coordinated process for brands in the US and India.",
+  description: "Tilth designs and develops conversion-focused marketing websites — strategy, UX, UI, development, SEO, analytics and CRO in one coordinated process for brands worldwide.",
   ogTitle: "Conversion-focused website design and development",
   ogDescription: "Websites that connect positioning, UX, SEO, analytics and conversion into one growth system.",
   ogType: "website",
