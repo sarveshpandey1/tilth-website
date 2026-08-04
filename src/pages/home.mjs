@@ -25,7 +25,6 @@ const rotator = [
 ];
 
 const step = (n, title, body) => `<div class="cap"><span class="cap__n">${n}</span><h3>${esc(title)}</h3><p>${esc(body)}</p></div>`;
-const why = (title, body) => `<div class="cap"><h3>${esc(title)}</h3><p>${esc(body)}</p></div>`;
 const svcCard = (s, i) => `<a class="gcard gcard--featured" href="/services/${s.slug}/">
     <span class="gcard__n">${String(i + 1).padStart(2, "0")}</span>
     <span class="gcard__name">${esc(s.name)}</span>
@@ -40,6 +39,12 @@ const headExtra = `<style>
   .hero-rotator .rot__item{position:absolute;left:0;top:0;white-space:nowrap;opacity:0;pointer-events:none;transform:translateY(.28em);transition:opacity .45s ease,transform .45s ease;color:var(--terra);font-style:italic;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:1px}
   .hero-rotator .rot__item.is-active{position:relative;opacity:1;pointer-events:auto;transform:none}
   .cap__n{display:block;font-family:'Fraunces',serif;color:var(--terra);font-size:14px;margin-bottom:6px}
+  .pills{display:grid;gap:16px;margin-top:28px}
+  @media(min-width:820px){.pills{grid-template-columns:1fr 1fr 1fr;gap:24px}}
+  .pill{border-left:2px solid var(--terra);padding-left:16px;font-size:15px;line-height:1.5;color:var(--text)}
+  .pill b{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:18px;color:var(--ink);margin-bottom:4px}
+  .whychips{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+  .whychips span{font-size:12.5px;letter-spacing:.3px;color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:9px 15px}
   @media (prefers-reduced-motion: reduce){.hero-rotator .rot__item{transition:none}}
 </style>`;
 
@@ -64,16 +69,9 @@ const main = `
 
 <section class="gsec gsec--light">
   <div class="wrap">
-    <span class="label">The pattern we kept seeing</span>
-    <h2>Most growth doesn't stall from too little spend. It stalls on a <em>foundation that can't carry it</em>.</h2>
-    <p class="intro">Teams push more budget through broken tracking, unclear positioning and sites that don't convert. Spend climbs, efficiency drops, and no one can say which part actually worked. More budget just makes the leak more expensive.</p>
-  </div>
-</section>
-
-<section class="gsec">
-  <div class="wrap">
     <span class="label">How we work</span>
     <h2>Diagnose before you prescribe. Scale only what the system can <em>carry</em>.</h2>
+    <p class="intro">Most growth stalls on a foundation that can't carry the spend — broken tracking, unclear positioning, sites that don't convert. We fix that first, so budget compounds instead of leaking.</p>
     <div class="cap-grid">
       ${step("01", "Diagnose", "We map the growth system end to end — tracking, funnel, creative, channels — and find what's actually capping return. No new spend until we know where it leaks.")}
       ${step("02", "Build the foundation", "Clean measurement, defined funnel stages, positioning that converts, and a creative testing loop — the layer everything compounds on.")}
@@ -82,7 +80,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec gsec--light">
+<section class="gsec">
   <div class="wrap">
     <span class="label">What we do</span>
     <h2>One accountable partner for the whole growth system.</h2>
@@ -93,7 +91,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec">
+<section class="gsec gsec--light">
   <div class="wrap">
     <span class="label">Evidence</span>
     <h2>Outcomes over vanity metrics.</h2>
@@ -102,23 +100,20 @@ const main = `
   </div>
 </section>
 
-<section class="gsec gsec--light">
+<section class="gsec">
   <div class="wrap">
     <span class="label">How we're built</span>
     <h2>Global-first. US-aware. India-rooted.</h2>
-    <p class="intro">We work with ambitious brands wherever growth is happening — the method isn't tied to a geography, it's tied to whether the foundation can carry the spend. We're fluent in how demanding markets like the US research, convert and churn, and we build measurement that stands up to that scrutiny. And we're built and based in India, registered in Bengaluru — which keeps senior work close, fast and accountable, at a value global teams notice.</p>
-  </div>
-</section>
-
-<section class="gsec">
-  <div class="wrap">
-    <span class="label">Why Tilth</span>
-    <h2>Senior, accountable, foundation-first.</h2>
-    <div class="cap-grid">
-      ${why("Founder-led direction", "Senior strategy on every engagement; you're not handed to a junior team after the pitch.")}
-      ${why("Foundation-first", "We fix what growth sits on before we scale it, so results compound instead of leak.")}
-      ${why("One accountable partner", "Strategy, execution and measurement coordinated through Tilth, not scattered across vendors.")}
-      ${why("Proof, not promises", "Every recommendation is tied to what the numbers actually show.")}
+    <div class="pills">
+      <span class="pill"><b>Global-first</b>We work with ambitious brands wherever growth is happening — the method isn't tied to a geography.</span>
+      <span class="pill"><b>US-aware</b>Fluent in how demanding markets like the US research, convert and churn — measurement built to match.</span>
+      <span class="pill"><b>India-rooted</b>Built and based in India, registered in Bengaluru — senior work kept close, fast and accountable.</span>
+    </div>
+    <div class="whychips">
+      <span>Founder-led direction</span>
+      <span>Foundation-first</span>
+      <span>One accountable partner</span>
+      <span>Proof, not promises</span>
     </div>
   </div>
 </section>
