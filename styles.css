@@ -50,8 +50,10 @@ a{color:inherit;text-decoration:none}
 .masthead .wrap{max-width:none;display:flex;justify-content:space-between;align-items:center;padding:10px 12px 10px 26px;flex-wrap:nowrap;gap:20px}
 .masthead .word{font-family:'Fraunces',serif;font-size:20px;font-weight:600;letter-spacing:5px;color:var(--ink);flex:none}
 .masthead nav{display:flex;gap:28px;font-size:13px;font-weight:500}
-.masthead nav a{position:relative;padding-bottom:3px;color:var(--text);transition:color .3s}
-.masthead nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--glow);box-shadow:0 0 8px var(--glow);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+.masthead nav a{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 3px;color:var(--text);transition:color .3s}
+.masthead nav a::after{content:"";position:absolute;left:3px;right:3px;bottom:9px;height:1px;background:var(--glow);box-shadow:0 0 8px var(--glow);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+.masthead nav a[aria-current="page"]{color:var(--ink)}
+.masthead nav a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
 .masthead nav a:hover,.masthead nav a.active{color:var(--ink)}
 .masthead nav a:hover::after,.masthead nav a.active::after{transform:scaleX(1);transform-origin:left}
 .masthead .meta{color:var(--olive);font-size:12px;letter-spacing:1px}
@@ -61,16 +63,16 @@ a{color:inherit;text-decoration:none}
 .masthead .mh-cta:hover{transform:translateY(-1px);box-shadow:0 0 26px rgba(170,197,108,.55);filter:brightness(1.06)}
 
 /* theme toggle (injected by nav.js) */
-.theme-toggle{width:40px;height:40px;border-radius:50%;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .3s,color .3s,border-color .3s;flex:none}
+.theme-toggle{width:44px;height:44px;border-radius:50%;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .3s,color .3s,border-color .3s;flex:none}
 .theme-toggle:hover{border-color:var(--glow);color:var(--glow)}
 .theme-toggle svg{width:18px;height:18px}
 .theme-toggle .sun{display:none}
 html[data-theme="light"] .theme-toggle .moon{display:none}
 html[data-theme="light"] .theme-toggle .sun{display:block}
-.mh-burger{display:none;width:34px;height:30px;position:relative;background:none;border:0;cursor:pointer}
-.mh-burger span{position:absolute;left:5px;right:5px;height:2px;background:var(--ink);border-radius:2px;transition:transform .4s var(--ease),opacity .3s}
-.mh-burger span:nth-child(1){top:10px}
-.mh-burger span:nth-child(2){bottom:10px}
+.mh-burger{display:none;width:44px;height:44px;position:relative;background:none;border:0;cursor:pointer}
+.mh-burger span{position:absolute;left:12px;right:12px;height:2px;background:var(--ink);border-radius:2px;transition:transform .4s var(--ease),opacity .3s}
+.mh-burger span:nth-child(1){top:17px}
+.mh-burger span:nth-child(2){bottom:17px}
 body.mh-open .mh-burger span:nth-child(1){transform:translateY(4px) rotate(45deg)}
 body.mh-open .mh-burger span:nth-child(2){transform:translateY(-4px) rotate(-45deg)}
 .mh-menu{position:fixed;inset:0;z-index:60;background:radial-gradient(120% 80% at 80% 10%,#1C1710,var(--bg) 60%);display:flex;flex-direction:column;justify-content:center;gap:2px;padding:0 9vw;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
@@ -110,6 +112,7 @@ footer{background:#100C07;color:var(--olive);padding:48px 0 28px;border-top:1px 
 @media(min-width:720px){.footer-grid{grid-template-columns:1.6fr 1fr 1fr 1fr}}
 footer .word{font-family:'Fraunces',serif;font-style:italic;font-size:20px;color:var(--ink);margin-bottom:8px}
 footer .addr{font-size:13px;color:var(--olive);line-height:1.7}
+footer li a{display:inline-block;padding:5px 0}
 footer .fcol{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--glow);margin-bottom:14px;font-weight:600;font-family:'Work Sans',sans-serif}
 footer ul{list-style:none;font-size:14px}
 footer li{margin-bottom:9px}

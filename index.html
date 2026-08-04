@@ -62,6 +62,16 @@
   .statnote{margin-top:24px;font-size:13.5px;color:var(--olive);max-width:60ch}
   /* Phase 3 — services bento (homepage only): feature first card wide */
   @media(min-width:1000px){.card-grid .gcard--wide{grid-column:span 2}}
+  /* Phase 4 — scroll reveal (JS-gated via html.jsr; reduced-motion never sets it) */
+  html.jsr .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  html.jsr .reveal.in{opacity:1;transform:none}
+  /* Phase 4 — mobile sticky CTA */
+  .sticky-cta{display:none}
+  @media(max-width:760px){
+    .sticky-cta{position:fixed;left:14px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:60;display:flex;justify-content:center;align-items:center;gap:8px;background:var(--glow);color:var(--bg);font-weight:600;font-size:15px;padding:15px 20px;border-radius:40px;box-shadow:0 12px 30px rgba(0,0,0,.45);opacity:0;transform:translateY(24px);pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease)}
+    .sticky-cta.show{opacity:1;transform:none;pointer-events:auto}
+  }
+  @media (prefers-reduced-motion: reduce){.sticky-cta{transition:none}}
   @media (prefers-reduced-motion: reduce){.hero-rotator .rot__item{transition:none}.marquee__track{animation:none}}
 </style>
 <script type="application/ld+json">
@@ -157,7 +167,7 @@
   <div class="marquee__track"><span>Fitness</span><span>Edtech</span><span>Fintech</span><span>SaaS</span><span>D2C</span><span>Startups</span><span aria-hidden="true">Fitness</span><span aria-hidden="true">Edtech</span><span aria-hidden="true">Fintech</span><span aria-hidden="true">SaaS</span><span aria-hidden="true">D2C</span><span aria-hidden="true">Startups</span></div>
 </div>
 
-<section class="gsec gsec--light">
+<section class="gsec gsec--light reveal">
   <div class="wrap">
     <span class="label">How we work</span>
     <h2>Diagnose before you prescribe. Scale only what the system can <em>carry</em>.</h2>
@@ -170,7 +180,7 @@
   </div>
 </section>
 
-<section class="gsec">
+<section class="gsec reveal">
   <div class="wrap">
     <span class="label">What we do</span>
     <h2>One accountable partner for the whole growth system.</h2>
@@ -210,7 +220,7 @@
   </div>
 </section>
 
-<section class="gsec gsec--light">
+<section class="gsec gsec--light reveal">
   <div class="wrap">
     <span class="label">Evidence</span>
     <h2>Outcomes over vanity metrics.</h2>
@@ -224,7 +234,7 @@
   </div>
 </section>
 
-<section class="gsec">
+<section class="gsec reveal">
   <div class="wrap">
     <span class="label">How we're built</span>
     <h2>Global-first. US-aware. India-rooted.</h2>
@@ -253,6 +263,8 @@
     </div>
   </div>
 </section>
+
+<a class="sticky-cta" id="stickyCta" href="/contact/" aria-hidden="true" tabindex="-1"><span>Discuss Your Growth Project</span> <span aria-hidden="true">→</span></a>
 
 <script>
 (function(){
@@ -285,6 +297,29 @@
   if (!('IntersectionObserver' in window)){ els.forEach(function(el){ el.textContent = fmt(el, parseFloat(el.getAttribute('data-count'))); }); return; }
   var io = new IntersectionObserver(function(ens){ ens.forEach(function(en){ if(en.isIntersecting){ run(en.target); io.unobserve(en.target); } }); }, { threshold:.5 });
   els.forEach(function(el){ io.observe(el); });
+})();
+/* Phase 4 — scroll reveal (JS-gated; skipped under reduced-motion so content stays visible) */
+(function(){
+  var root=document.documentElement, rm=false;
+  try{ rm=matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if(!els.length || rm || !('IntersectionObserver' in window)) return;
+  root.classList.add('jsr');
+  var io=new IntersectionObserver(function(ens){ens.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
+  els.forEach(function(el){ io.observe(el); });
+})();
+/* Phase 4 — mobile sticky CTA (shows past the hero, hides at the main CTA) */
+(function(){
+  var el=document.getElementById('stickyCta'); if(!el || !('IntersectionObserver' in window)) return;
+  var mq; try{ mq=matchMedia('(max-width:760px)'); }catch(e){ return; }
+  var hero=document.querySelector('.ghero'), cta=document.querySelector('.cta-band');
+  if(!hero || !cta) return;
+  var heroV=true, ctaV=false;
+  function upd(){ var show=mq.matches && !heroV && !ctaV; el.classList.toggle('show',show); el.setAttribute('aria-hidden',show?'false':'true'); el.tabIndex=show?0:-1; }
+  new IntersectionObserver(function(e){ heroV=e[0].isIntersecting; upd(); },{threshold:0}).observe(hero);
+  new IntersectionObserver(function(e){ ctaV=e[0].isIntersecting; upd(); },{threshold:0}).observe(cta);
+  if(mq.addEventListener) mq.addEventListener('change',upd);
+  upd();
 })();
 </script>
 
