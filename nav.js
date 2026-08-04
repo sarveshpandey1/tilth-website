@@ -44,12 +44,16 @@
   var menu = document.createElement('div');
   menu.className = 'mh-menu';
   menu.id = 'mh-menu-overlay';
+  menu.setAttribute('role', 'dialog');
+  menu.setAttribute('aria-modal', 'true');
+  menu.setAttribute('aria-label', 'Site menu');
   menu.setAttribute('aria-hidden', 'true');
   burger.setAttribute('aria-controls', 'mh-menu-overlay');
   navEl.querySelectorAll('a').forEach(function(a){
     var l = document.createElement('a');
     l.href = a.getAttribute('href');
     l.textContent = a.textContent;
+    if(a.getAttribute('aria-current')) l.setAttribute('aria-current', a.getAttribute('aria-current'));
     menu.appendChild(l);
   });
   var menuCta = document.createElement('a');
@@ -59,14 +63,32 @@
   menu.appendChild(menuCta);
   document.body.appendChild(menu);
 
+  var lastFocus = null, bg = null;
+  function bgEls(){
+    if(!bg){ bg = [document.getElementById('main'), document.querySelector('footer')].filter(Boolean); }
+    return bg;
+  }
   function set(open){
     document.body.classList.toggle('mh-open', open);
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    // make background content inert so focus/AT can't reach it while the menu is open
+    bgEls().forEach(function(el){
+      if(open){ el.setAttribute('inert', ''); el.setAttribute('aria-hidden', 'true'); }
+      else { el.removeAttribute('inert'); el.removeAttribute('aria-hidden'); }
+    });
+    if(open){
+      lastFocus = document.activeElement;
+      var first = menu.querySelector('a');
+      if(first) requestAnimationFrame(function(){ first.focus(); });
+    } else if(lastFocus && lastFocus.focus){
+      lastFocus.focus();
+    }
   }
   burger.addEventListener('click', function(){ set(!document.body.classList.contains('mh-open')); });
   menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ set(false); }); });
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') set(false); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && document.body.classList.contains('mh-open')) set(false); });
 
   // wrap page content in a <main> landmark
   if(!document.getElementById('main')){
