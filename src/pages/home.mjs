@@ -1,5 +1,5 @@
 import { site, services } from "../data.mjs";
-import { ctaBlock, caseStudySnapshots, orgSchema, esc } from "../render.mjs";
+import { ctaBlock, orgSchema, esc } from "../render.mjs";
 
 const path = "/";
 
@@ -14,6 +14,10 @@ const featuredSlugs = [
 ];
 const featured = featuredSlugs.map(s => services.find(x => x.slug === s)).filter(Boolean);
 
+// Industry marquee (credibility strip). Rendered twice for a seamless -50% loop.
+const INDUSTRIES = ["Fitness", "Edtech", "Fintech", "SaaS", "D2C", "Startups"];
+const marqueeSet = (hidden) => INDUSTRIES.map(x => `<span${hidden ? ' aria-hidden="true"' : ""}>${esc(x)}</span>`).join("");
+
 // Rotator phrases: real DOM text, each linking to a service page (SEO: internal links + keyword anchors)
 const rotator = [
   { label: "Affiliate Growth", href: "/services/affiliate-partnerships/" },
@@ -25,7 +29,7 @@ const rotator = [
 ];
 
 const step = (n, title, body) => `<div class="cap"><span class="cap__n">${n}</span><h3>${esc(title)}</h3><p>${esc(body)}</p></div>`;
-const svcCard = (s, i) => `<a class="gcard gcard--featured" href="/services/${s.slug}/">
+const svcCard = (s, i) => `<a class="gcard gcard--featured${i === 0 ? " gcard--wide" : ""}" href="/services/${s.slug}/">
     <span class="gcard__n">${String(i + 1).padStart(2, "0")}</span>
     <span class="gcard__name">${esc(s.name)}</span>
     <span class="gcard__desc">${esc(s.summary)}</span>
@@ -45,7 +49,23 @@ const headExtra = `<style>
   .pill b{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:18px;color:var(--ink);margin-bottom:4px}
   .whychips{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
   .whychips span{font-size:12.5px;letter-spacing:.3px;color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:9px 15px}
-  @media (prefers-reduced-motion: reduce){.hero-rotator .rot__item{transition:none}}
+  /* Phase 3 — industry marquee */
+  .marquee{overflow:hidden;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:16px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .marquee__track{display:flex;width:max-content;animation:tilth-marquee 34s linear infinite}
+  .marquee:hover .marquee__track,.marquee:focus-within .marquee__track{animation-play-state:paused}
+  .marquee__track span{font-family:'Fraunces',serif;font-size:clamp(16px,2vw,20px);color:var(--text);padding:0 30px;white-space:nowrap}
+  .marquee__track span::after{content:"·";margin-left:30px;color:var(--terra)}
+  @keyframes tilth-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* Phase 3 — evidence stat band */
+  .statband{display:grid;grid-template-columns:1fr;gap:26px;margin-top:36px}
+  @media(min-width:720px){.statband{grid-template-columns:repeat(3,1fr);gap:32px}}
+  .stat-v{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,5vw,52px);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .stat-l{display:block;margin-top:10px;font-size:13.5px;color:var(--text);letter-spacing:.3px}
+  .stat--media .stat-v{color:var(--glow)} .stat--rev .stat-v{color:var(--terra)}
+  .statnote{margin-top:24px;font-size:13.5px;color:var(--olive);max-width:60ch}
+  /* Phase 3 — services bento (homepage only): feature first card wide */
+  @media(min-width:1000px){.card-grid .gcard--wide{grid-column:span 2}}
+  @media (prefers-reduced-motion: reduce){.hero-rotator .rot__item{transition:none}.marquee__track{animation:none}}
 </style>`;
 
 const main = `
@@ -66,6 +86,10 @@ const main = `
     </div>
   </div>
 </section>
+
+<div class="marquee" role="group" aria-label="Industries we work across">
+  <div class="marquee__track">${marqueeSet(false)}${marqueeSet(true)}</div>
+</div>
 
 <section class="gsec gsec--light">
   <div class="wrap">
@@ -96,7 +120,12 @@ const main = `
     <span class="label">Evidence</span>
     <h2>Outcomes over vanity metrics.</h2>
     <p class="intro">From anonymised engagements — the numbers, never the names.</p>
-    <div class="proof-row">${caseStudySnapshots()}</div>
+    <div class="statband">
+      <div class="stat stat--media"><span class="stat-v">₹5L → ₹30L</span><span class="stat-l">Monthly media investment, scaled</span></div>
+      <div class="stat stat--rev"><span class="stat-v" data-count="1.5" data-decimals="1" data-prefix="₹" data-suffix="Cr">₹1.5Cr</span><span class="stat-l">Monthly revenue reached</span></div>
+      <div class="stat stat--ret"><span class="stat-v" data-count="5" data-suffix="×">5×</span><span class="stat-l">Return on ad spend</span></div>
+    </div>
+    <p class="statnote">Separately, a rebuilt affiliate program grew from ~0 to ~5–6% of total trading volume within a year.</p>
   </div>
 </section>
 
@@ -136,6 +165,26 @@ ${ctaBlock({
     i = (i + 1) % items.length;
     items[i].classList.add('is-active');
   }, 2200);
+})();
+/* Phase 3 — Evidence stat count-up when scrolled into view */
+(function(){
+  var els = [].slice.call(document.querySelectorAll('.stat-v[data-count]'));
+  if (!els.length) return;
+  var rm = false; try { rm = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e){}
+  function fmt(el, v){ var d=+(el.getAttribute('data-decimals')||0); return (el.getAttribute('data-prefix')||'') + v.toFixed(d) + (el.getAttribute('data-suffix')||''); }
+  function run(el){
+    var to = parseFloat(el.getAttribute('data-count'));
+    if (rm){ el.textContent = fmt(el, to); return; }
+    var t0=null, D=1100;
+    requestAnimationFrame(function step(now){
+      if(t0==null)t0=now; var k=Math.min(1,(now-t0)/D), e=1-Math.pow(1-k,3);
+      el.textContent = fmt(el, to*e);
+      if(k<1) requestAnimationFrame(step); else el.textContent = fmt(el, to);
+    });
+  }
+  if (!('IntersectionObserver' in window)){ els.forEach(function(el){ el.textContent = fmt(el, parseFloat(el.getAttribute('data-count'))); }); return; }
+  var io = new IntersectionObserver(function(ens){ ens.forEach(function(en){ if(en.isIntersecting){ run(en.target); io.unobserve(en.target); } }); }, { threshold:.5 });
+  els.forEach(function(el){ io.observe(el); });
 })();
 </script>
 `;
