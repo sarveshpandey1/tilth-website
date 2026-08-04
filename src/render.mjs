@@ -38,12 +38,12 @@ export function breadcrumbs(items) {
   return { schema, visible };
 }
 
-export function masthead(navItems = nav.primary) {
+export function masthead(navItems = nav.primary, currentPath = "") {
   return `<header class="masthead">
   <div class="wrap">
     <a href="/" class="word">${site.wordmark}</a>
     <nav aria-label="Primary">
-      ${navItems.map(n => `<a href="${n.href}">${esc(n.label)}</a>`).join("\n      ")}
+      ${navItems.map(n => `<a href="${n.href}"${n.href === currentPath ? ' aria-current="page"' : ""}>${esc(n.label)}</a>`).join("\n      ")}
     </nav>
     <div class="meta">${esc(site.positioning)}</div>
   </div>
@@ -151,7 +151,7 @@ ${p.headExtra || ""}
 ${schemas}
 </head>
 <body>
-${masthead(p.navItems)}
+${masthead(p.navItems, p.path)}
 <main id="main">
 ${p.main}
 </main>
