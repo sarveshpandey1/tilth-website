@@ -38,12 +38,12 @@ const svcCard = (s, i) => `<a class="gcard gcard--featured${i === 0 ? " gcard--w
 
 const headExtra = `<style>
   /* Hero intent rotator — links live in the DOM (SEO), JS only cycles visibility */
-  .hero-rotator{font-family:'Fraunces',serif;font-size:clamp(19px,2.6vw,28px);line-height:1.2;margin:2px 0 22px;color:var(--text)}
+  .hero-rotator{font-family:'Fraunces',serif;font-size:clamp(19px,2.6vw,28px);line-height:1.2;margin:16px 0 24px;color:var(--text)}
   .hero-rotator .rot{position:relative;display:inline-block;min-width:14ch}
   .hero-rotator .rot__item{position:absolute;left:0;top:0;white-space:nowrap;opacity:0;pointer-events:none;transform:translateY(.28em);transition:opacity .45s ease,transform .45s ease;color:var(--terra);font-style:italic;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:1px}
   .hero-rotator .rot__item.is-active{position:relative;opacity:1;pointer-events:auto;transform:none}
   .cap__n{display:block;font-family:'Fraunces',serif;color:var(--terra);font-size:14px;margin-bottom:6px}
-  .pills{display:grid;gap:16px;margin-top:28px}
+  .pills{display:grid;gap:16px;margin-top:var(--space-block)}
   @media(min-width:820px){.pills{grid-template-columns:1fr 1fr 1fr;gap:24px}}
   .pill{border-left:2px solid var(--terra);padding-left:16px;font-size:15px;line-height:1.5;color:var(--text)}
   .pill b{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:18px;color:var(--ink);margin-bottom:4px}
@@ -57,7 +57,7 @@ const headExtra = `<style>
   .marquee__track span::after{content:"·";margin-left:30px;color:var(--terra)}
   @keyframes tilth-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   /* Phase 3 — evidence stat band */
-  .statband{display:grid;grid-template-columns:1fr;gap:26px;margin-top:36px}
+  .statband{display:grid;grid-template-columns:1fr;gap:26px;margin-top:var(--space-block)}
   @media(min-width:720px){.statband{grid-template-columns:repeat(3,1fr);gap:32px}}
   .stat-v{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,5vw,52px);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums;color:var(--ink)}
   .stat-l{display:block;margin-top:10px;font-size:13.5px;color:var(--text);letter-spacing:.3px}
