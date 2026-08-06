@@ -47,7 +47,7 @@ const headExtra = `<style>
   @media(min-width:820px){.pills{grid-template-columns:1fr 1fr 1fr;gap:24px}}
   .pill{border-left:2px solid var(--terra);padding-left:16px;font-size:15px;line-height:1.5;color:var(--text)}
   .pill b{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:18px;color:var(--ink);margin-bottom:4px}
-  .whychips{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+  .whychips{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
   .whychips span{font-size:12.5px;letter-spacing:.3px;color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:9px 15px}
   /* Hero trust strip: keep the two attributes (+dot) together, let the long credential wrap on its own line — no orphaned separator */
   .trust__markers--hero{align-items:baseline;column-gap:20px;row-gap:12px}
@@ -61,7 +61,7 @@ const headExtra = `<style>
   .marquee__track span::after{content:"·";margin-left:30px;color:var(--terra)}
   @keyframes tilth-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   /* Phase 3 — evidence stat band */
-  .statband{display:grid;grid-template-columns:1fr;gap:26px;margin-top:var(--space-block)}
+  .statband{display:grid;grid-template-columns:1fr;gap:24px;margin-top:var(--space-block)}
   @media(min-width:720px){.statband{grid-template-columns:repeat(3,1fr);gap:32px}}
   .stat-v{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,5vw,52px);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums;color:var(--ink)}
   .stat-l{display:block;margin-top:10px;font-size:13.5px;color:var(--text);letter-spacing:.3px}
