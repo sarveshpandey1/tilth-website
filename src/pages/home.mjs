@@ -16,7 +16,13 @@ const featured = featuredSlugs.map(s => services.find(x => x.slug === s)).filter
 
 // Industry marquee (credibility strip). Rendered twice for a seamless -50% loop.
 const INDUSTRIES = ["Fitness", "Edtech", "Fintech", "SaaS", "D2C", "Startups"];
-const marqueeSet = (hidden) => INDUSTRIES.map(x => `<span${hidden ? ' aria-hidden="true"' : ""}>${esc(x)}</span>`).join("");
+const BRANDS = ["PayDirect", "Ommora", "Density Exchange", "Careerlabs", "FusionFit", "Demi.AI"]; // owner-approved for public display
+const marqueeSet = (arr, hidden) => arr.map(x => `<span${hidden ? ' aria-hidden="true"' : ""}>${esc(x)}</span>`).join("");
+// Labeled marquee: pinned static label + scrolling strip (RTL). Track duplicated for a seamless -50% loop.
+const labeledMarquee = (label, arr, aria) => `<div class="marquee" role="group" aria-label="${esc(aria)}">
+  <span class="marquee__label">${esc(label)}</span>
+  <div class="marquee__vp"><div class="marquee__track">${marqueeSet(arr, false)}${marqueeSet(arr, true)}</div></div>
+</div>`;
 
 // Rotator phrases: real DOM text, each linking to a service page (SEO: internal links + keyword anchors)
 const rotator = [
@@ -53,13 +59,16 @@ const headExtra = `<style>
   .trust__markers--hero{align-items:baseline;column-gap:20px;row-gap:12px}
   .trust__group{display:inline-flex;align-items:baseline;white-space:nowrap}
   @media(max-width:420px){.trust__markers--hero .trust__dot{margin:0 8px}}
-  /* Phase 3 — industry marquee */
-  .marquee{overflow:hidden;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:16px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  /* Phase 3 — labeled marquee (industries + brands): pinned static label + RTL scrolling strip */
+  .marquee{display:flex;align-items:stretch;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .marquee__label{flex:none;display:flex;align-items:center;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(15px,1.9vw,20px);color:var(--terra);white-space:nowrap;padding:16px 22px 16px 6vw;background:var(--bg);border-right:1px solid var(--rule);position:relative;z-index:2}
+  .marquee__vp{flex:1;min-width:0;overflow:hidden;padding:16px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 92%,transparent)}
   .marquee__track{display:flex;width:max-content;animation:tilth-marquee 34s linear infinite}
   .marquee:hover .marquee__track,.marquee:focus-within .marquee__track{animation-play-state:paused}
   .marquee__track span{font-family:'Fraunces',serif;font-size:clamp(16px,2vw,20px);color:var(--text);padding:0 30px;white-space:nowrap}
   .marquee__track span::after{content:"·";margin-left:30px;color:var(--terra)}
   @keyframes tilth-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(max-width:640px){.marquee__label{padding:14px 16px;font-size:14px}}
   /* Phase 3 — evidence stat band */
   .statband{display:grid;grid-template-columns:1fr;gap:24px;margin-top:var(--space-block)}
   @media(min-width:720px){.statband{grid-template-columns:repeat(3,1fr);gap:32px}}
@@ -67,6 +76,11 @@ const headExtra = `<style>
   .stat-l{display:block;margin-top:10px;font-size:13.5px;color:var(--text);letter-spacing:.3px}
   .stat--media .stat-v{color:var(--glow)} .stat--rev .stat-v{color:var(--terra)}
   .statnote{margin-top:24px;font-size:13.5px;color:var(--olive);max-width:60ch}
+  /* Evidence is a cream (gsec--light) section on the dark page — force dark-on-cream so numbers/labels stay readable in dark theme */
+  .gsec--light .stat-v{color:#15110B}
+  .gsec--light .stat--media .stat-v{color:#5F7F37}
+  .gsec--light .stat--rev .stat-v{color:#C2673B}
+  .gsec--light .stat-l{color:#4B4239}
   /* Phase 3 — services bento (homepage only): feature first card wide */
   @media(min-width:1000px){.card-grid .gcard--wide{grid-column:span 2}}
   /* Phase 4 — scroll reveal (JS-gated via html.jsr; reduced-motion never sets it) */
@@ -100,9 +114,7 @@ const main = `
   </div>
 </section>
 
-<div class="marquee" role="group" aria-label="Industries we work across">
-  <div class="marquee__track">${marqueeSet(false)}${marqueeSet(true)}</div>
-</div>
+${labeledMarquee("Industries We Serve", INDUSTRIES, "Industries we serve")}
 
 <section class="gsec gsec--light reveal">
   <div class="wrap">
@@ -159,6 +171,8 @@ const main = `
     </div>
   </div>
 </section>
+
+${labeledMarquee("Brands I've Helped Grow", BRANDS, "Brands Anuja has helped grow")}
 
 ${ctaBlock({
   eyebrow: "Next step",
