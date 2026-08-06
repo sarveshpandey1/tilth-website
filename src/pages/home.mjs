@@ -1,7 +1,8 @@
-import { site, services } from "../data.mjs";
+import { site, services, team } from "../data.mjs";
 import { ctaBlock, orgSchema, esc } from "../render.mjs";
 
 const path = "/";
+const founder = team.find(t => t.approved && t.title && /founder/i.test(t.title));
 
 // Featured services power both the hero rotator (intent segmentation + internal links)
 // and the services grid below. Order is deliberate.
@@ -68,7 +69,22 @@ const headExtra = `<style>
   .marquee__track span{font-family:'Fraunces',serif;font-size:clamp(16px,2vw,20px);color:var(--text);padding:0 30px;white-space:nowrap}
   .marquee__track span::after{content:"·";margin-left:30px;color:var(--terra)}
   @keyframes tilth-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  @media(max-width:640px){.marquee__label{padding:14px 16px;font-size:14px}}
+  /* Mobile: a long side-pinned label (e.g. "Brands I've Helped Grow") crowds the strip,
+     so stack the label above a full-width scrolling row instead */
+  @media(max-width:640px){
+    .marquee{flex-direction:column;align-items:stretch}
+    .marquee__label{border-right:0;border-bottom:1px solid var(--rule);padding:12px 6vw;font-size:14px;justify-content:flex-start}
+    .marquee__vp{padding:14px 0}
+  }
+  /* Founder-led moment: quote-led, small avatar — reinforces founder-led without a heavy section */
+  .gsec--tight{padding-top:clamp(32px,4vw,52px);padding-bottom:clamp(32px,4vw,52px)}
+  .founder-note__row{display:flex;align-items:center;gap:24px;margin-top:24px;max-width:78ch}
+  .founder-note__avatar{flex:none;width:88px;height:88px;border-radius:50%;object-fit:cover;border:1px solid var(--rule)}
+  .founder-note__quote{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(19px,2.6vw,27px);line-height:1.3;color:var(--ink);margin:0 0 12px}
+  .founder-note__quote .accent{color:var(--terra)}
+  .founder-note__by{font-size:14px;letter-spacing:.3px;color:var(--text);margin:0}
+  .founder-note__by .text-cta{margin-left:12px}
+  @media(max-width:560px){.founder-note__row{flex-direction:column;align-items:flex-start;gap:18px}.founder-note__by .text-cta{display:inline-block;margin:8px 0 0}}
   /* Phase 3 — evidence stat band */
   .statband{display:grid;grid-template-columns:1fr;gap:24px;margin-top:var(--space-block)}
   @media(min-width:720px){.statband{grid-template-columns:repeat(3,1fr);gap:32px}}
@@ -171,6 +187,19 @@ ${labeledMarquee("Industries We Serve", INDUSTRIES, "Industries we serve")}
     </div>
   </div>
 </section>
+
+${founder ? `<section class="gsec gsec--tight founder-note reveal">
+  <div class="wrap">
+    <span class="label">Founder-led</span>
+    <div class="founder-note__row">
+      <img class="founder-note__avatar" src="${founder.photo}" alt="${esc(founder.name)}, ${esc(founder.title)}" width="112" height="112" loading="lazy" decoding="async">
+      <div>
+        <blockquote class="founder-note__quote">"Ten years, five industries, <span class="accent">one mistake</span> repeated every time. Tilth fixes the foundation first."</blockquote>
+        <p class="founder-note__by">${esc(founder.name)} — ${esc(founder.title)} <a class="text-cta" href="/about/">About ${esc(founder.name)} →</a></p>
+      </div>
+    </div>
+  </div>
+</section>` : ""}
 
 ${labeledMarquee("Brands I've Helped Grow", BRANDS, "Brands Anuja has helped grow")}
 
