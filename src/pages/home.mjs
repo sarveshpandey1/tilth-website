@@ -47,8 +47,12 @@ const headExtra = `<style>
   @media(min-width:820px){.pills{grid-template-columns:1fr 1fr 1fr;gap:24px}}
   .pill{border-left:2px solid var(--terra);padding-left:16px;font-size:15px;line-height:1.5;color:var(--text)}
   .pill b{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:18px;color:var(--ink);margin-bottom:4px}
-  .whychips{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+  .whychips{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
   .whychips span{font-size:12.5px;letter-spacing:.3px;color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:9px 15px}
+  /* Hero trust strip: keep the two attributes (+dot) together, let the long credential wrap on its own line — no orphaned separator */
+  .trust__markers--hero{align-items:baseline;column-gap:20px;row-gap:12px}
+  .trust__group{display:inline-flex;align-items:baseline;white-space:nowrap}
+  @media(max-width:420px){.trust__markers--hero .trust__dot{margin:0 8px}}
   /* Phase 3 — industry marquee */
   .marquee{overflow:hidden;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:16px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
   .marquee__track{display:flex;width:max-content;animation:tilth-marquee 34s linear infinite}
@@ -57,7 +61,7 @@ const headExtra = `<style>
   .marquee__track span::after{content:"·";margin-left:30px;color:var(--terra)}
   @keyframes tilth-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   /* Phase 3 — evidence stat band */
-  .statband{display:grid;grid-template-columns:1fr;gap:26px;margin-top:var(--space-block)}
+  .statband{display:grid;grid-template-columns:1fr;gap:24px;margin-top:var(--space-block)}
   @media(min-width:720px){.statband{grid-template-columns:repeat(3,1fr);gap:32px}}
   .stat-v{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,5vw,52px);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums;color:var(--ink)}
   .stat-l{display:block;margin-top:10px;font-size:13.5px;color:var(--text);letter-spacing:.3px}
@@ -89,9 +93,8 @@ const main = `
     <div class="actions">
       <a class="btn" href="/contact/"><span>Discuss Your Growth Project</span> <span class="arrow">→</span></a>
     </div>
-    <div class="trust__markers" style="margin-top:28px">
-      <span class="trust__marker">Founder-led</span><span class="trust__dot" aria-hidden="true">·</span>
-      <span class="trust__marker">Foundation-first</span><span class="trust__dot" aria-hidden="true">·</span>
+    <div class="trust__markers trust__markers--hero" style="margin-top:28px">
+      <span class="trust__group"><span class="trust__marker">Founder-led</span><span class="trust__dot" aria-hidden="true">·</span><span class="trust__marker">Foundation-first</span></span>
       <span class="trust__marker">10+ years across fitness, edtech, fintech, SaaS &amp; D2C</span>
     </div>
   </div>
