@@ -19,8 +19,9 @@ const featured = featuredSlugs.map(s => services.find(x => x.slug === s)).filter
 const INDUSTRIES = ["Fitness", "Edtech", "Fintech", "SaaS", "D2C", "Startups"];
 const BRANDS = ["PayDirect", "Ommora", "Density Exchange", "Careerlabs", "FusionFit", "Demi.AI"]; // owner-approved for public display
 const marqueeSet = (arr, hidden) => arr.map(x => `<span${hidden ? ' aria-hidden="true"' : ""}>${esc(x)}</span>`).join("");
-// Labeled marquee: pinned static label + scrolling strip (RTL). Track duplicated for a seamless -50% loop.
-const labeledMarquee = (label, arr, aria) => `<div class="marquee" role="group" aria-label="${esc(aria)}">
+// Labeled marquee: pinned static label + scrolling strip. Track duplicated for a seamless -50% loop.
+// Default scrolls right-to-left; pass reverse:true to run left-to-right (used on Brands for contrast).
+const labeledMarquee = (label, arr, aria, reverse = false) => `<div class="marquee${reverse ? " marquee--rev" : ""}" role="group" aria-label="${esc(aria)}">
   <span class="marquee__label">${esc(label)}</span>
   <div class="marquee__vp"><div class="marquee__track">${marqueeSet(arr, false)}${marqueeSet(arr, true)}</div></div>
 </div>`;
@@ -65,6 +66,7 @@ const headExtra = `<style>
   .marquee__label{flex:none;display:flex;align-items:center;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(15px,1.9vw,20px);color:var(--terra);white-space:nowrap;padding:16px 22px 16px 6vw;background:var(--bg);border-right:1px solid var(--rule);position:relative;z-index:2}
   .marquee__vp{flex:1;min-width:0;overflow:hidden;padding:16px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 92%,transparent)}
   .marquee__track{display:flex;width:max-content;animation:tilth-marquee 34s linear infinite}
+  .marquee--rev .marquee__track{animation-direction:reverse}
   .marquee:hover .marquee__track,.marquee:focus-within .marquee__track{animation-play-state:paused}
   .marquee__track span{font-family:'Fraunces',serif;font-size:clamp(16px,2vw,20px);color:var(--text);padding:0 30px;white-space:nowrap}
   .marquee__track span::after{content:"·";margin-left:30px;color:var(--terra)}
@@ -201,7 +203,7 @@ ${founder ? `<section class="gsec gsec--tight founder-note reveal">
   </div>
 </section>` : ""}
 
-${labeledMarquee("Brands I've Helped Grow", BRANDS, "Brands Anuja has helped grow")}
+${labeledMarquee("Brands I've Helped Grow", BRANDS, "Brands Anuja has helped grow", true)}
 
 ${ctaBlock({
   eyebrow: "Next step",
