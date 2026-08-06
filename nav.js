@@ -123,20 +123,30 @@
     var cset = new Set(containers);
     var vh = window.innerHeight || 800;
     var targets = [];
+    // Split into read-then-write passes. Interleaving getBoundingClientRect() with
+    // classList/style writes forces a synchronous re-layout per element, which cost
+    // ~244ms of main-thread time on mobile. Batch all reads, then all writes.
+    var candidates = [];
     containers.forEach(function(c){
       var i = 0;
       Array.prototype.forEach.call(c.children, function(el){
         if(el.nodeType !== 1) return;
         var tag = el.tagName;
         if(tag === 'SCRIPT' || tag === 'STYLE' || cset.has(el) || el.__rv){ i++; return; }
-        // leave already-visible content as-is (no flash); only animate what's below the fold
-        if(el.getBoundingClientRect().top < vh * 0.92){ i++; return; }
-        el.__rv = true;
-        el.classList.add('reveal');
-        el.style.transitionDelay = (Math.min(i, 6) * 60) + 'ms';
-        targets.push(el);
+        candidates.push({ el: el, i: i });
         i++;
       });
+    });
+    if(!candidates.length) return;
+    // read pass (no writes in between, so layout is computed once)
+    var tops = candidates.map(function(c){ return c.el.getBoundingClientRect().top; });
+    // write pass — leave already-visible content as-is (no flash); only animate below the fold
+    candidates.forEach(function(c, n){
+      if(tops[n] < vh * 0.92) return;
+      c.el.__rv = true;
+      c.el.classList.add('reveal');
+      c.el.style.transitionDelay = (Math.min(c.i, 6) * 60) + 'ms';
+      targets.push(c.el);
     });
     if(!targets.length) return;
     var io = new IntersectionObserver(function(entries){
