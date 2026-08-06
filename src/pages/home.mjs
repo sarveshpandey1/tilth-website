@@ -6,6 +6,19 @@ import { ctaBlock, orgSchema, websiteSchema, esc } from "../render.mjs";
 
 const path = "/";
 
+// Hero intent rotator. The workbook (T-002) called for removing this in favour of a
+// static prompt, but the owner asked for it to stay exactly as it was — so it is kept
+// deliberately. Each phrase is a real anchor in the DOM (internal links survive with
+// JS off); JS only cycles which one is visible.
+const rotator = [
+  { label: "Affiliate Growth", href: "/services/affiliate-partnerships/" },
+  { label: "Paid Media that scales", href: "/services/paid-media/" },
+  { label: "Performance Marketing", href: "/services/performance-marketing/" },
+  { label: "SEO & AI Search", href: "/services/seo-ai-search/" },
+  { label: "a site that converts", href: "/services/website-design-development/" },
+  { label: "Growth Strategy & Measurement", href: "/services/growth-strategy-measurement/" }
+];
+
 // --- Section components (workbook Page Structure order) -----------------------
 
 // brand-experience: ONE semantic list carries the accessible names; the second copy is
@@ -43,8 +56,19 @@ const insightCard = a => `<article class="icard">
 const faqItem = f => `<details class="faq__item"><summary><span>${esc(f.q)}</span><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>${f.a}</p></div></details>`;
 
 const headExtra = `<style>
-  /* Hero (workbook §hero) — static prompt replaces the removed rotator */
-  .hero-prompt{font-family:'Fraunces',serif;font-size:clamp(19px,2.6vw,28px);line-height:1.25;margin:16px 0 20px;color:var(--terra);font-style:italic}
+  /* Hero intent rotator — kept at owner's request. Links live in the DOM (SEO); JS only cycles visibility */
+  .hero-rotator{font-family:'Fraunces',serif;font-size:clamp(19px,2.6vw,28px);line-height:1.2;margin:16px 0 24px;color:var(--text)}
+  .hero-rotator .rot{position:relative;display:inline-block;min-width:14ch}
+  .hero-rotator .rot__item{position:absolute;left:0;top:0;white-space:nowrap;opacity:0;pointer-events:none;transform:translateY(.28em);transition:opacity .45s ease,transform .45s ease;color:var(--terra);font-style:italic;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:1px}
+  .hero-rotator .rot__item.is-active{position:relative;opacity:1;pointer-events:auto;transform:none}
+  /* On narrow screens the longest phrase ("Growth Strategy & Measurement") overflowed the
+     viewport because the items are nowrap. Allow wrapping and reserve two lines so the
+     swap doesn't shift layout (CLS) as phrases of different length cycle through. */
+  @media(max-width:560px){
+    .hero-rotator{font-size:clamp(17px,4.4vw,22px)}
+    .hero-rotator .rot{min-width:0;max-width:100%;min-height:2.4em;vertical-align:top}
+    .hero-rotator .rot__item{white-space:normal;max-width:100%}
+  }
   .ghero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px}
   .hero-cred{margin-top:26px;font-size:15px;color:var(--text)}
   /* hero service chips — individually clickable, wrap without overflow */
@@ -155,7 +179,8 @@ const main = `
   <div class="wrap">
     <p class="label">Founder-led · Foundation-first</p>
     <h1>A growth marketing agency built for <em>measurable, sustainable growth</em>.</h1>
-    <p class="hero-prompt">Ready to scale what actually works?</p>
+    <p class="hero-rotator">Looking for <span class="rot">${rotator.map((r, i) =>
+      `<a class="rot__item${i === 0 ? " is-active" : ""}" href="${r.href}">${esc(r.label)}</a>`).join("")}</span>?</p>
     <p class="lede">We strengthen your strategy, funnel, creative and measurement—then scale what delivers measurable returns.</p>
     <div class="actions">
       <a class="btn" href="/contact/"><span>Discuss Your Growth Strategy</span> <span class="arrow">→</span></a>
@@ -278,6 +303,18 @@ ${ctaBlock({
 <a class="sticky-cta" id="stickyCta" href="/contact/" aria-hidden="true" tabindex="-1"><span>Discuss Your Growth Strategy</span> <span aria-hidden="true">→</span></a>
 
 <script>
+/* Hero rotator — cycles the visible phrase; disabled under reduced motion (first stays shown) */
+(function(){
+  var items = [].slice.call(document.querySelectorAll('.hero-rotator .rot__item'));
+  if (items.length < 2) return;
+  try { if (matchMedia('(prefers-reduced-motion: reduce)').matches) return; } catch(e){}
+  var i = 0;
+  setInterval(function(){
+    items[i].classList.remove('is-active');
+    i = (i + 1) % items.length;
+    items[i].classList.add('is-active');
+  }, 2200);
+})();
 /* Outcomes stat count-up when scrolled into view */
 (function(){
   var els = [].slice.call(document.querySelectorAll('.stat-v[data-count]'));
