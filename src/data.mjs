@@ -8,7 +8,7 @@ export const site = {
   ga: "G-1MJEZ4VK26",
   positioning: "Global growth marketing agency · India-rooted, working with brands worldwide",
   tagline: "Grow deep. Market smart.",
-  email: "anuja@tilth.in", // keep until wearetilth.com mailbox is tested (Brief §6)
+  email: "anuja@wearetilth.com", // wearetilth.com mailbox confirmed active (workbook T-014)
   phone: "+91 70079 99306",
   phoneHref: "+917007999306",
   responseTime: "within one working day",
@@ -27,8 +27,8 @@ export const nav = {
     { label: "Services", href: "/services/", live: true },
     { label: "Industries", href: "/industries/", live: false },
     { label: "Work", href: "/work/", live: false },
+    { label: "Approach", href: "/approach/", live: true },
     { label: "Insights", href: "/insights/", live: true },
-    { label: "Tools", href: "/tools/", live: true },
     { label: "About", href: "/about/", live: true }
   ],
   // fallback nav used until Work/Industries exist, so generated pages never link to 404s
@@ -40,8 +40,111 @@ export const nav = {
     { label: "About", href: "/about/" },
     { label: "Contact", href: "/contact/" }
   ],
-  cta: { label: "Discuss a project", href: "/contact/" }
+  cta: { label: "Discuss Your Growth", href: "/contact/" }
 };
+
+// ---------------------------------------------------------------------------
+// Homepage content model (workbook: Copy Deck). Kept as data so desktop/mobile
+// render from one source and copy stays editable without touching markup.
+// ---------------------------------------------------------------------------
+
+// hero_service_chips — each chip links to its own canonical service page (T-003)
+export const heroServiceChips = [
+  { label: "Growth Strategy", href: "/services/growth-strategy-measurement/" },
+  { label: "Paid Media", href: "/services/performance-marketing/" },
+  { label: "SEO & Content", href: "/services/seo-ai-search/" },
+  { label: "Affiliate Growth", href: "/services/affiliate-partnerships/" },
+  { label: "Websites & CRO", href: "/services/website-design-development/" }
+];
+
+// brand_logos — text wordmarks only. Owner directive: do not recreate or imitate
+// official logo designs. `logo` stays null until approved image files exist; the
+// component swaps text→img without a layout change when populated. (T-004/T-005)
+export const brandExperience = [
+  { name: "PayDirect", logo: null },
+  { name: "Ommora", logo: null },
+  { name: "Density Exchange", logo: null },
+  { name: "CareerLabs", logo: null },
+  { name: "FusionFit", logo: null },
+  { name: "Demi.AI", logo: null }
+];
+
+// industry_links — only sectors with a substantive live page (T-006).
+// Startups omitted: it is a company stage, not an industry.
+// Fitness & Wellness pending a complete approved page; add here when it exists.
+export const homeIndustries = [
+  { label: "SaaS", href: "/industries/saas/" },
+  { label: "D2C & Ecommerce", href: "/industries/d2c-ecommerce/" },
+  { label: "FinTech", href: "/industries/fintech/" },
+  { label: "EdTech", href: "/industries/edtech/" }
+];
+
+// services 01–05 — hrefs point at the routes that actually exist (T-007)
+export const homeServices = [
+  { n: "01", name: "Growth Strategy & Measurement", href: "/services/growth-strategy-measurement/",
+    desc: "Growth audits, funnel strategy, GA4, conversion tracking, attribution and decision-ready dashboards." },
+  { n: "02", name: "Paid Media & Performance Marketing", href: "/services/performance-marketing/",
+    desc: "Google, Meta and LinkedIn campaigns, media planning, experimentation, creative testing and budget optimisation tied to revenue." },
+  { n: "03", name: "SEO & Content Marketing", href: "/services/seo-ai-search/",
+    desc: "Technical SEO, on-page SEO, commercial keyword strategy, content systems and visibility across Google and AI search." },
+  { n: "04", name: "Affiliate & Partnership Marketing", href: "/services/affiliate-partnerships/",
+    desc: "Partner strategy, discovery, commercial models, tracking, fraud controls and performance optimisation." },
+  { n: "05", name: "Websites & Conversion Optimisation", href: "/services/website-design-development/",
+    desc: "Strategy, UX, design, development, analytics, SEO foundations, accessibility and CRO in one coordinated process." }
+];
+
+// approach 01–03 (T-008)
+export const homeApproach = [
+  { n: "01", name: "Diagnose the constraint",
+    desc: "We audit acquisition, tracking, funnel, creative and conversion to identify what is limiting growth before recommending more spend." },
+  { n: "02", name: "Build the growth system",
+    desc: "We fix measurement, define funnel stages, sharpen positioning and establish a repeatable testing process." },
+  { n: "03", name: "Scale what works",
+    desc: "We increase investment only after performance is measurable, repeatable and connected to agreed business outcomes." }
+];
+
+// why_cards (T-010)
+export const whyTilth = [
+  { name: "Founder-led strategy", desc: "Senior strategy on every engagement — you are not handed to a junior team after the pitch." },
+  { name: "Senior execution", desc: "The people who diagnose the problem stay on the work that fixes it." },
+  { name: "One accountable partner", desc: "Strategy, execution and measurement coordinated through Tilth, not scattered across vendors." },
+  { name: "India–US collaboration", desc: "India-rooted delivery with working overlap for US teams and buying behaviour." }
+];
+
+// faq_01..05 (T-012). Workbook supplied questions only ("Answer required").
+// Answers below are DRAFTED FROM COPY ALREADY PUBLISHED ON THIS SITE — the services
+// list, the approach/foundation-first method, the engagement models above, and the
+// existing India-rooted/US-aware positioning. No new commercial claim is introduced:
+// no US office/entity/team, no pricing, no client names, no delivery guarantees.
+// `a` is trusted authored HTML (same convention as ctaBlock headings). REVIEW BEFORE PUBLISH.
+export const homeFaqs = [
+  { q: "What does a growth marketing agency do?",
+    a: `A growth marketing agency works across the whole funnel rather than a single channel — strategy and measurement, paid media, SEO and content, affiliate and partnerships, and website conversion. At Tilth those sit with <a href="/services/">one accountable partner</a> so strategy, execution and measurement stay connected instead of being split across vendors.` },
+  { q: "How is Tilth different from a performance marketing agency?",
+    a: `A performance marketing agency usually starts with channels and budget. Tilth is foundation-first: most growth problems are not channel problems — they come from weak tracking, unclear positioning, fragmented funnels or low conversion. We diagnose the constraint, fix the system, then scale the channels that prove their value. <a href="/approach/">See the approach</a>.` },
+  { q: "Does Tilth work with companies in the US?",
+    a: `Yes. Tilth is India-rooted and works with brands internationally, with remote-first collaboration and working overlap that keeps projects moving. The team is based in Bengaluru, India — there is no separate US office or entity — and the measurement and funnel work is built for how demanding markets like the US research, convert and churn. <a href="/contact/">Talk to us about your market</a>.` },
+  { q: "What is a growth foundation audit?",
+    a: `A diagnostic engagement across strategy, tracking, website, funnel, campaigns, SEO, partnerships and measurement. You receive an audit report, the priority issues, a measurement review, a channel review and a recommended roadmap — so you know where growth is actually leaking before committing more spend. <a href="/contact/">Request a foundation audit</a>.` },
+  { q: "What engagement models does Tilth offer?",
+    a: `Three. A <strong>Foundation Audit</strong> — a diagnostic across the growth system. A <strong>Growth Project</strong> — fixed scope such as a website build, tracking rebuild, paid-media setup, SEO strategy or affiliate program. And an <strong>Ongoing Growth Partnership</strong> — continuing strategy, execution, optimisation, reporting and testing. <a href="/contact/">Discuss which fits</a>.` }
+];
+
+// insights_cards — the three most recently published articles. This generator has no
+// CMS, so the list is explicit; titles/dates/excerpts are copied verbatim from the
+// article pages. No `category` field: the site has no article taxonomy and one was
+// not invented. Refresh when newer articles publish. (T-011)
+export const homeInsights = [
+  { title: "Your startup's first marketing hire: who to hire first",
+    href: "/insights/first-marketing-hire-startup/", date: "2026-07-12",
+    excerpt: "Your startup's first marketing hire shouldn't be a specialist. Here's who to hire first and how to set them up to succeed." },
+  { title: "Marketing budget for an early-stage startup in India: how to set it",
+    href: "/insights/startup-marketing-budget-india/", date: "2026-06-28",
+    excerpt: "Sensible percentages, why CAC matters more than a flat %, how to split it, and how to budget without wasting money." },
+  { title: "How to choose a marketing agency for your D2C brand in India",
+    href: "/insights/marketing-agency-for-d2c-brands/", date: "2026-06-27",
+    excerpt: "What to look for, the questions that matter, and the red flags to avoid — a founder's honest buyer's guide." }
+];
 
 // Services (Brief §23). prominence: "featured" gets visual weight; "standard" is secondary.
 export const services = [

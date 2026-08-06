@@ -26,6 +26,15 @@ export function jsonld(objects) {
   return `<script type="application/ld+json">\n${JSON.stringify(doc, null, 2)}\n</script>`;
 }
 
+// WebSite JSON-LD (workbook SEO sheet: name Tilth, alternateName We Are Tilth)
+export function websiteSchema() {
+  return {
+    "@type": "WebSite", "@id": `${site.base}/#website`,
+    name: site.brand, alternateName: "We Are Tilth", url: `${site.base}/`,
+    publisher: { "@id": `${site.base}/#org` }
+  };
+}
+
 export function orgSchema() {
   return {
     "@type": ["ProfessionalService", "MarketingAgency"], "@id": `${site.base}/#org`,
@@ -95,7 +104,7 @@ export function footer() {
     <div class="footer-grid">
       <div>
         <div class="word">${esc(site.tagline)}</div>
-        <div class="addr">Tilth — Global growth marketing agency<br>India-rooted, working with brands worldwide<br><a href="tel:${site.phoneHref}">${esc(site.phone)}</a><br>${esc(site.email)}</div>
+        <p class="addr">Tilth is an India-rooted growth marketing agency working with ambitious brands across India and the US.<br><br>Bengaluru, India · Remote collaboration across India and the US<br><a href="tel:${site.phoneHref}">${esc(site.phone)}</a><br><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></p>
       </div>
       <div>
         <h3 class="fcol">Explore</h3>
@@ -110,7 +119,7 @@ export function footer() {
         <ul><li><a href="${s.linkedin}" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="${s.instagram}" target="_blank" rel="noopener">Instagram</a></li><li><a href="${s.x}" target="_blank" rel="noopener">X / Twitter</a></li><li><a href="${s.facebook}" target="_blank" rel="noopener">Facebook</a></li></ul>
       </div>
     </div>
-    <div class="footer-bottom"><span>© 2026 Tilth. All rights reserved.</span><span>Tilth · Global growth marketing agency · India-rooted</span></div>
+    <div class="footer-bottom"><span>© 2026 Tilth. All rights reserved.</span></div>
   </div>
 </footer>`;
 }
