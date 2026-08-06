@@ -29,7 +29,7 @@
   var cta = document.createElement('a');
   cta.href = '/contact/';
   cta.className = 'mh-cta';
-  cta.textContent = 'Discuss a project';
+  cta.textContent = 'Discuss Your Growth';
   wrap.appendChild(cta);
 
   // burger
@@ -59,7 +59,7 @@
   var menuCta = document.createElement('a');
   menuCta.href = '/contact/';
   menuCta.className = 'mh-menu-cta';
-  menuCta.textContent = 'Discuss a project →';
+  menuCta.textContent = 'Discuss Your Growth →';
   menu.appendChild(menuCta);
   document.body.appendChild(menu);
 

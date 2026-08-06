@@ -85,7 +85,9 @@ body.mh-open .mh-burger span:nth-child(2){transform:translateY(-4px) rotate(-45d
 .mh-menu-cta{color:var(--glow)!important;font-style:italic;margin-top:26px;padding-top:26px;border-top:1px solid var(--rule)!important;border-bottom:0!important}
 body.mh-open{overflow:hidden}
 body.mh-open .mh-menu{opacity:1;visibility:visible}
-@media(max-width:760px){.masthead nav,.masthead .mh-cta{display:none}.mh-burger{display:block}.masthead .wrap{padding:8px 10px 8px 20px}}
+/* Collapse to the burger menu below 900px: at 768px the full nav + CTA overflowed the
+   viewport by ~115px. Tablets get the accessible menu (which carries its own CTA). */
+@media(max-width:900px){.masthead nav,.masthead .mh-cta{display:none}.mh-burger{display:block}.masthead .wrap{padding:8px 10px 8px 20px}}
 
 /* ===================== SHARED SECTION HEADERS ===================== */
 .page-head{padding:120px 0 10px}

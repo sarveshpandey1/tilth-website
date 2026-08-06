@@ -1,92 +1,123 @@
-import { site, services, team } from "../data.mjs";
-import { ctaBlock, orgSchema, esc } from "../render.mjs";
+import {
+  site, heroServiceChips, brandExperience, homeIndustries,
+  homeServices, homeApproach, whyTilth, homeInsights, homeFaqs
+} from "../data.mjs";
+import { ctaBlock, orgSchema, websiteSchema, esc } from "../render.mjs";
 
 const path = "/";
-const founder = team.find(t => t.approved && t.title && /founder/i.test(t.title));
 
-// Featured services power both the hero rotator (intent segmentation + internal links)
-// and the services grid below. Order is deliberate.
-const featuredSlugs = [
-  "growth-strategy-measurement",
-  "performance-marketing",
-  "seo-ai-search",
-  "affiliate-partnerships",
-  "website-design-development"
-];
-const featured = featuredSlugs.map(s => services.find(x => x.slug === s)).filter(Boolean);
+// --- Section components (workbook Page Structure order) -----------------------
 
-// Industry marquee (credibility strip). Rendered twice for a seamless -50% loop.
-const INDUSTRIES = ["Fitness", "Edtech", "Fintech", "SaaS", "D2C", "Startups"];
-const BRANDS = ["PayDirect", "Ommora", "Density Exchange", "Careerlabs", "FusionFit", "Demi.AI"]; // owner-approved for public display
-const marqueeSet = (arr, hidden) => arr.map(x => `<span${hidden ? ' aria-hidden="true"' : ""}>${esc(x)}</span>`).join("");
-// Labeled marquee: pinned static label + scrolling strip. Track duplicated for a seamless -50% loop.
-// Default scrolls right-to-left; pass reverse:true to run left-to-right (used on Brands for contrast).
-const labeledMarquee = (label, arr, aria, reverse = false) => `<div class="marquee${reverse ? " marquee--rev" : ""}" role="group" aria-label="${esc(aria)}">
-  <span class="marquee__label">${esc(label)}</span>
-  <div class="marquee__vp"><div class="marquee__track">${marqueeSet(arr, false)}${marqueeSet(arr, true)}</div></div>
-</div>`;
+// brand-experience: ONE semantic list carries the accessible names; the second copy is
+// a purely visual clone for the seamless -50% loop and is hidden from AT (T-005).
+// Text wordmarks by owner directive — official logo designs are not recreated. When an
+// approved image exists on a record, it swaps in without changing the layout.
+const brandItem = b => b.logo
+  ? `<li class="bstrip__item"><img src="${b.logo}" alt="${esc(b.name)}" height="28" loading="lazy" decoding="async"></li>`
+  : `<li class="bstrip__item">${esc(b.name)}</li>`;
+const brandTrack = hidden => `<ul class="bstrip__set"${hidden ? ' aria-hidden="true"' : ""}>${brandExperience.map(brandItem).join("")}</ul>`;
 
-// Rotator phrases: real DOM text, each linking to a service page (SEO: internal links + keyword anchors)
-const rotator = [
-  { label: "Affiliate Growth", href: "/services/affiliate-partnerships/" },
-  { label: "Paid Media that scales", href: "/services/paid-media/" },
-  { label: "Performance Marketing", href: "/services/performance-marketing/" },
-  { label: "SEO & AI Search", href: "/services/seo-ai-search/" },
-  { label: "a site that converts", href: "/services/website-design-development/" },
-  { label: "Growth Strategy & Measurement", href: "/services/growth-strategy-measurement/" }
-];
+// industries: static, linked, keyboard-reachable — explicitly NOT a marquee (T-006)
+const industryLink = i => `<li><a class="istrip__link" href="${i.href}">${esc(i.label)}</a></li>`;
 
-const step = (n, title, body) => `<div class="cap"><span class="cap__n">${n}</span><h3>${esc(title)}</h3><p>${esc(body)}</p></div>`;
-const svcCard = (s, i) => `<a class="gcard gcard--featured${i === 0 ? " gcard--wide" : ""}" href="/services/${s.slug}/">
-    <span class="gcard__n">${String(i + 1).padStart(2, "0")}</span>
-    <span class="gcard__name">${esc(s.name)}</span>
-    <span class="gcard__desc">${esc(s.summary)}</span>
-    <span class="gcard__more">Explore →</span>
-  </a>`;
+const svcCard = s => `<article class="gcard gcard--featured">
+      <span class="gcard__n">${esc(s.n)}</span>
+      <h3 class="gcard__name"><a href="${s.href}">${esc(s.name)}</a></h3>
+      <p class="gcard__desc">${esc(s.desc)}</p>
+      <span class="gcard__more" aria-hidden="true">Explore →</span>
+    </article>`;
+
+const stepCard = s => `<div class="cap"><span class="cap__n">${esc(s.n)}</span><h3>${esc(s.name)}</h3><p>${esc(s.desc)}</p></div>`;
+
+const whyCard = w => `<div class="whycard"><h3>${esc(w.name)}</h3><p>${esc(w.desc)}</p></div>`;
+
+const niceDate = d => new Date(d + "T00:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+const insightCard = a => `<article class="icard">
+      <time class="icard__date" datetime="${esc(a.date)}">${esc(niceDate(a.date))}</time>
+      <h3 class="icard__title"><a href="${a.href}">${esc(a.title)}</a></h3>
+      <p class="icard__ex">${esc(a.excerpt)}</p>
+    </article>`;
+
+// FAQ: native <details>/<summary> — keyboard operable, state exposed by the browser,
+// and answers stay in the DOM for crawlers even when collapsed (T-012).
+const faqItem = f => `<details class="faq__item"><summary><span>${esc(f.q)}</span><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>${f.a}</p></div></details>`;
 
 const headExtra = `<style>
-  /* Hero intent rotator — links live in the DOM (SEO), JS only cycles visibility */
-  .hero-rotator{font-family:'Fraunces',serif;font-size:clamp(19px,2.6vw,28px);line-height:1.2;margin:16px 0 24px;color:var(--text)}
-  .hero-rotator .rot{position:relative;display:inline-block;min-width:14ch}
-  .hero-rotator .rot__item{position:absolute;left:0;top:0;white-space:nowrap;opacity:0;pointer-events:none;transform:translateY(.28em);transition:opacity .45s ease,transform .45s ease;color:var(--terra);font-style:italic;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:1px}
-  .hero-rotator .rot__item.is-active{position:relative;opacity:1;pointer-events:auto;transform:none}
+  /* Hero (workbook §hero) — static prompt replaces the removed rotator */
+  .hero-prompt{font-family:'Fraunces',serif;font-size:clamp(19px,2.6vw,28px);line-height:1.25;margin:16px 0 20px;color:var(--terra);font-style:italic}
+  .ghero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px}
+  .hero-cred{margin-top:26px;font-size:15px;color:var(--text)}
+  /* hero service chips — individually clickable, wrap without overflow */
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .chip{display:inline-block;font-size:13.5px;letter-spacing:.2px;color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:9px 16px;text-decoration:none;transition:border-color .25s,color .25s}
+  .chip:hover,.chip:focus-visible{border-color:var(--glow);color:var(--glow)}
   .cap__n{display:block;font-family:'Fraunces',serif;color:var(--terra);font-size:14px;margin-bottom:6px}
-  .pills{display:grid;gap:16px;margin-top:var(--space-block)}
-  @media(min-width:820px){.pills{grid-template-columns:1fr 1fr 1fr;gap:24px}}
-  .pill{border-left:2px solid var(--terra);padding-left:16px;font-size:15px;line-height:1.5;color:var(--text)}
-  .pill b{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:18px;color:var(--ink);margin-bottom:4px}
-  .whychips{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-  .whychips span{font-size:12.5px;letter-spacing:.3px;color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:9px 15px}
-  /* Hero trust strip: keep the two attributes (+dot) together, let the long credential wrap on its own line — no orphaned separator */
-  .trust__markers--hero{align-items:baseline;column-gap:20px;row-gap:12px}
-  .trust__group{display:inline-flex;align-items:baseline;white-space:nowrap}
-  @media(max-width:420px){.trust__markers--hero .trust__dot{margin:0 8px}}
-  /* Phase 3 — labeled marquee (industries + brands): pinned static label + RTL scrolling strip */
-  .marquee{display:flex;align-items:stretch;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-  .marquee__label{flex:none;display:flex;align-items:center;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(15px,1.9vw,20px);color:var(--terra);white-space:nowrap;padding:16px 22px 16px 6vw;background:var(--bg);border-right:1px solid var(--rule);position:relative;z-index:2}
-  .marquee__vp{flex:1;min-width:0;overflow:hidden;padding:16px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 92%,transparent)}
-  .marquee__track{display:flex;width:max-content;animation:tilth-marquee 34s linear infinite}
-  .marquee--rev .marquee__track{animation-direction:reverse}
-  .marquee:hover .marquee__track,.marquee:focus-within .marquee__track{animation-play-state:paused}
-  .marquee__track span{font-family:'Fraunces',serif;font-size:clamp(16px,2vw,20px);color:var(--text);padding:0 30px;white-space:nowrap}
-  .marquee__track span::after{content:"·";margin-left:30px;color:var(--terra)}
+
+  /* Selected Brand Experience — the ONLY marquee on the page (workbook motion rule).
+     One real list carries the accessible names; the duplicate track is aria-hidden. */
+  .bstrip{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:22px 0}
+  .bstrip__head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin-bottom:16px}
+  .bstrip__note{font-size:14px;color:var(--text);margin:0}
+  .bstrip__vp{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .bstrip__track{display:flex;width:max-content;animation:tilth-marquee 38s linear infinite}
+  .bstrip:hover .bstrip__track,.bstrip:focus-within .bstrip__track{animation-play-state:paused}
+  .bstrip__set{display:flex;align-items:center;list-style:none;margin:0;padding:0}
+  .bstrip__item{font-family:'Fraunces',serif;font-size:clamp(17px,2.1vw,22px);color:var(--ink);padding:0 30px;white-space:nowrap;display:flex;align-items:center}
+  .bstrip__item::after{content:"·";margin-left:30px;color:var(--terra)}
+  .bstrip__item img{display:block;height:28px;width:auto;object-fit:contain}
   @keyframes tilth-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  /* Mobile: a long side-pinned label (e.g. "Brands I've Helped Grow") crowds the strip,
-     so stack the label above a full-width scrolling row instead */
-  @media(max-width:640px){
-    .marquee{flex-direction:column;align-items:stretch}
-    .marquee__label{border-right:0;border-bottom:1px solid var(--rule);padding:12px 6vw;font-size:14px;justify-content:flex-start}
-    .marquee__vp{padding:14px 0}
-  }
-  /* Founder-led moment: quote-led, small avatar — reinforces founder-led without a heavy section */
-  .gsec--tight{padding-top:clamp(32px,4vw,52px);padding-bottom:clamp(32px,4vw,52px)}
-  .founder-note__row{display:flex;align-items:center;gap:24px;margin-top:24px;max-width:78ch}
-  .founder-note__avatar{flex:none;width:88px;height:88px;border-radius:50%;object-fit:cover;border:1px solid var(--rule)}
-  .founder-note__quote{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(19px,2.6vw,27px);line-height:1.3;color:var(--ink);margin:0 0 12px}
-  .founder-note__quote .accent{color:var(--terra)}
-  .founder-note__by{font-size:14px;letter-spacing:.3px;color:var(--text);margin:0}
-  .founder-note__by .text-cta{margin-left:12px}
-  @media(max-width:560px){.founder-note__row{flex-direction:column;align-items:flex-start;gap:18px}.founder-note__by .text-cta{display:inline-block;margin:8px 0 0}}
+
+  /* Industries We Know — static + linked, deliberately NOT animated */
+  .istrip{padding:26px 0;border-bottom:1px solid var(--rule)}
+  .istrip__list{display:flex;flex-wrap:wrap;gap:10px 12px;list-style:none;margin:14px 0 0;padding:0}
+  .istrip__link{display:inline-block;font-family:'Fraunces',serif;font-size:clamp(16px,1.9vw,20px);color:var(--ink);text-decoration:none;border:1px solid var(--rule);border-radius:999px;padding:10px 18px;transition:border-color .25s,color .25s}
+  .istrip__link:hover,.istrip__link:focus-visible{border-color:var(--glow);color:var(--glow)}
+
+  /* Selected Growth Outcomes — proof cards */
+  .ocards{display:grid;gap:18px;margin-top:var(--space-block)}
+  @media(min-width:900px){.ocards{grid-template-columns:3fr 2fr;align-items:start}}
+  .ocard{border:1px solid var(--rule);border-radius:14px;padding:26px}
+  .ocard__h{font-family:'Fraunces',serif;font-weight:500;font-size:20px;color:var(--ink);margin:0 0 16px}
+  .ocard__p{font-size:15px;line-height:1.6;color:var(--text);margin:16px 0 0}
+  .ocard .statband{margin-top:0}
+
+  /* Why Tilth — four benefit cards */
+  .whygrid{display:grid;gap:16px;margin-top:var(--space-block)}
+  @media(min-width:720px){.whygrid{grid-template-columns:1fr 1fr}}
+  .whycard{border-left:2px solid var(--terra);padding:4px 0 4px 18px}
+  .whycard h3{font-family:'Fraunces',serif;font-weight:500;font-size:18px;color:var(--ink);margin:0 0 6px}
+  .whycard p{font-size:14.5px;line-height:1.6;color:var(--text);margin:0}
+  .gsec--light .whycard h3{color:#15110B}
+  .gsec--light .whycard p{color:#4B4239}
+
+  /* FAQ sits in a cream (gsec--light) section on the dark-default page. The shared
+     .faq__* styles use light-theme tokens, so force dark-on-cream or the questions
+     render invisible (same class of bug as the stat band). */
+  .gsec--light .faq__item{border-color:rgba(26,21,16,.14)}
+  .gsec--light .faq__item summary{color:#15110B}
+  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#5F7F37}
+  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#5F7F37}
+  .gsec--light .faq__ans p{color:#4B4239}
+  .gsec--light .faq__ans a{color:#5F7F37;border-bottom-color:#5F7F37}
+
+  /* Outcome card stats sit in a narrower column than the old full-width band —
+     scale the numerals down so values like "₹5L → ₹30L" don't wrap mid-value */
+  /* cap below the shared band's 34px: the card column stops widening at the wrap
+     max-width while the font kept scaling, so "₹5L → ₹30L" broke onto two lines */
+  .ocard .stat-v{font-size:clamp(22px,2.2vw,30px);white-space:nowrap}
+  .ocard .stat-l{font-size:12.5px}
+  .ocard .statband{gap:18px}
+  @media(min-width:720px){.ocard .statband{gap:20px}}
+
+  /* Latest Insights — static cards, no auto-slider */
+  .igrid{display:grid;gap:16px;margin-top:var(--space-block)}
+  @media(min-width:760px){.igrid{grid-template-columns:repeat(3,1fr)}}
+  .icard{border:1px solid var(--rule);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px}
+  .icard__date{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--glow)}
+  .icard__title{font-family:'Fraunces',serif;font-weight:500;font-size:18px;line-height:1.3;margin:0}
+  .icard__title a{color:var(--ink);text-decoration:none}
+  .icard__title a:hover,.icard__title a:focus-visible{color:var(--glow)}
+  .icard__ex{font-size:14px;line-height:1.6;color:var(--text);margin:0}
   /* Phase 3 — evidence stat band */
   .statband{display:grid;grid-template-columns:1fr;gap:24px;margin-top:var(--space-block)}
   @media(min-width:720px){.statband{grid-template-columns:repeat(3,1fr);gap:32px}}
@@ -106,127 +137,148 @@ const headExtra = `<style>
   html.jsr .reveal.in{opacity:1;transform:none}
   /* Phase 4 — mobile sticky CTA */
   .sticky-cta{display:none}
-  @media(max-width:760px){
+  @media(max-width:900px){
     .sticky-cta{position:fixed;left:14px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:60;display:flex;justify-content:center;align-items:center;gap:8px;background:var(--glow);color:var(--bg);font-weight:600;font-size:15px;padding:15px 20px;border-radius:40px;box-shadow:0 12px 30px rgba(0,0,0,.45);opacity:0;transform:translateY(24px);pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease)}
     .sticky-cta.show{opacity:1;transform:none;pointer-events:auto}
   }
   @media (prefers-reduced-motion: reduce){.sticky-cta{transition:none}}
-  @media (prefers-reduced-motion: reduce){.hero-rotator .rot__item{transition:none}.marquee__track{animation:none}}
+  /* Reduced motion: the brand strip becomes a static, wrapping, fully readable list */
+  @media (prefers-reduced-motion: reduce){
+    .bstrip__track{animation:none;width:auto;flex-wrap:wrap}
+    .bstrip__set{flex-wrap:wrap}
+    .bstrip__vp{-webkit-mask-image:none;mask-image:none}
+  }
 </style>`;
 
 const main = `
-<section class="ghero">
+<section class="ghero" id="hero">
   <div class="wrap">
-    <span class="label">Global Growth Marketing Agency</span>
-    <h1>A growth marketing agency built on <em>stronger foundations</em>.</h1>
-    <p class="hero-rotator">Looking for <span class="rot">${rotator.map((r, i) =>
-      `<a class="rot__item${i === 0 ? " is-active" : ""}" href="${r.href}">${esc(r.label)}</a>`).join("")}</span>?</p>
-    <p class="lede">We strengthen the systems beneath your growth, then scale performance against verified return.</p>
+    <p class="label">Founder-led · Foundation-first</p>
+    <h1>A growth marketing agency built for <em>measurable, sustainable growth</em>.</h1>
+    <p class="hero-prompt">Ready to scale what actually works?</p>
+    <p class="lede">We strengthen your strategy, funnel, creative and measurement—then scale what delivers measurable returns.</p>
     <div class="actions">
-      <a class="btn" href="/contact/"><span>Discuss Your Growth Project</span> <span class="arrow">→</span></a>
+      <a class="btn" href="/contact/"><span>Discuss Your Growth Strategy</span> <span class="arrow">→</span></a>
+      <a class="text-cta" href="/work/">See Our Work →</a>
     </div>
-    <div class="trust__markers trust__markers--hero" style="margin-top:28px">
-      <span class="trust__group"><span class="trust__marker">Founder-led</span><span class="trust__dot" aria-hidden="true">·</span><span class="trust__marker">Foundation-first</span></span>
-      <span class="trust__marker">10+ years across fitness, edtech, fintech, SaaS &amp; D2C</span>
-    </div>
+    <p class="hero-cred">10+ years of hands-on growth experience</p>
+    <nav class="chips" aria-label="Our services">
+      ${heroServiceChips.map(c => `<a class="chip" href="${c.href}">${esc(c.label)}</a>`).join("\n      ")}
+    </nav>
   </div>
 </section>
 
-${labeledMarquee("Industries We Serve", INDUSTRIES, "Industries we serve")}
+<section class="bstrip" id="brand-experience" aria-labelledby="brand-experience-h">
+  <div class="wrap bstrip__head">
+    <h2 class="label" id="brand-experience-h">Selected Brand Experience</h2>
+    <p class="bstrip__note">Experience from the founder and core team.</p>
+  </div>
+  <div class="bstrip__vp"><div class="bstrip__track">${brandTrack(false)}${brandTrack(true)}</div></div>
+</section>
 
-<section class="gsec gsec--light reveal">
+<section class="istrip" id="industries" aria-labelledby="industries-h">
   <div class="wrap">
-    <span class="label">How we work</span>
-    <h2>Diagnose before you prescribe. Scale only what the system can <em>carry</em>.</h2>
-    <p class="intro">Most growth stalls on a foundation that can't carry the spend — broken tracking, unclear positioning, sites that don't convert. We fix that first, so budget compounds instead of leaking.</p>
-    <div class="cap-grid">
-      ${step("01", "Diagnose", "We map the growth system end to end — tracking, funnel, creative, channels — and find what's actually capping return. No new spend until we know where it leaks.")}
-      ${step("02", "Build the foundation", "Clean measurement, defined funnel stages, positioning that converts, and a creative testing loop — the layer everything compounds on.")}
-      ${step("03", "Scale against proof", "Only once the foundation holds do we push budget — against verified return, with every rupee attributable to a stage.")}
-    </div>
+    <h2 class="label" id="industries-h">Industries We Know</h2>
+    <ul class="istrip__list">
+      ${homeIndustries.map(industryLink).join("\n      ")}
+    </ul>
   </div>
 </section>
 
-<section class="gsec reveal">
+<section class="gsec reveal" id="services" aria-labelledby="services-h">
   <div class="wrap">
-    <span class="label">What we do</span>
-    <h2>One accountable partner for the whole growth system.</h2>
+    <p class="label">What We Do</p>
+    <h2 id="services-h">Growth marketing services built around the full funnel.</h2>
+    <p class="intro">One accountable partner connecting strategy, execution and measurement.</p>
     <div class="card-grid">
-      ${featured.map((s, i) => svcCard(s, i)).join("\n      ")}
+      ${homeServices.map(svcCard).join("\n      ")}
     </div>
-    <div class="actions" style="margin-top:28px"><a class="text-cta" href="/services/">Explore all services →</a></div>
+    <div class="actions" style="margin-top:28px"><a class="text-cta" href="/services/">Explore All Services →</a></div>
   </div>
 </section>
 
-<section class="gsec gsec--light reveal">
+<section class="gsec gsec--light reveal" id="approach" aria-labelledby="approach-h">
   <div class="wrap">
-    <span class="label">Evidence</span>
-    <h2>Outcomes over vanity metrics.</h2>
-    <p class="intro">From anonymised engagements — the numbers, never the names.</p>
-    <div class="statband">
-      <div class="stat stat--media"><span class="stat-v">₹5L → ₹30L</span><span class="stat-l">Monthly media investment, scaled</span></div>
-      <div class="stat stat--rev"><span class="stat-v" data-count="1.5" data-decimals="1" data-prefix="₹" data-suffix="Cr">₹1.5Cr</span><span class="stat-l">Monthly revenue reached</span></div>
-      <div class="stat stat--ret"><span class="stat-v" data-count="5" data-suffix="×">5×</span><span class="stat-l">Return on ad spend</span></div>
+    <p class="label">How We Work</p>
+    <h2 id="approach-h">Fix the bottleneck before you scale the budget.</h2>
+    <p class="intro">Most growth problems are not channel problems. They come from weak tracking, unclear positioning, fragmented funnels or low conversion. We diagnose the constraint first, fix the system, then scale the channels that prove their value.</p>
+    <div class="cap-grid">
+      ${homeApproach.map(stepCard).join("\n      ")}
     </div>
-    <p class="statnote">Separately, a rebuilt affiliate program grew from ~0 to ~5–6% of total trading volume within a year.</p>
+    <div class="actions" style="margin-top:28px"><a class="text-cta" href="/approach/">Explore the Tilth Approach →</a></div>
   </div>
 </section>
 
-<section class="gsec reveal">
+<section class="gsec reveal" id="outcomes" aria-labelledby="outcomes-h">
   <div class="wrap">
-    <span class="label">How we're built</span>
-    <h2>Global-first. US-aware. India-rooted.</h2>
-    <div class="pills">
-      <span class="pill"><b>Global-first</b>We work with ambitious brands wherever growth is happening — the method isn't tied to a geography.</span>
-      <span class="pill"><b>US-aware</b>Fluent in how demanding markets like the US research, convert and churn — measurement built to match.</span>
-      <span class="pill"><b>India-rooted</b>Built and based in India, registered in Bengaluru — senior work kept close, fast and accountable.</span>
+    <p class="label">Selected Outcomes</p>
+    <h2 id="outcomes-h">Selected growth outcomes.</h2>
+    <p class="intro">Selected outcomes from client work. Some names are withheld under confidentiality agreements.</p>
+    <div class="ocards">
+      <article class="ocard">
+        <h3 class="ocard__h">EdTech acquisition &amp; measurement</h3>
+        <div class="statband">
+          <div class="stat stat--media"><span class="stat-v">₹5L → ₹30L</span><span class="stat-l">Monthly media investment, scaled</span></div>
+          <div class="stat stat--rev"><span class="stat-v" data-count="1.5" data-decimals="1" data-prefix="₹" data-suffix="Cr">₹1.5Cr</span><span class="stat-l">Monthly revenue reached</span></div>
+          <div class="stat stat--ret"><span class="stat-v" data-count="5" data-suffix="×">5×</span><span class="stat-l">Return on ad spend</span></div>
+        </div>
+        <p class="ocard__p">Rebuilt conversion tracking and campaign structure, then scaled monthly media investment against verified return.</p>
+      </article>
+      <article class="ocard">
+        <h3 class="ocard__h">FinTech affiliate growth</h3>
+        <p class="ocard__p">Built the channel from the ground up — partner validation, commercial model, tracking and fraud controls — growing affiliate contribution from near zero to ~5–6% of total trading volume within a year.</p>
+      </article>
     </div>
-    <div class="whychips">
-      <span>Founder-led direction</span>
-      <span>Foundation-first</span>
-      <span>One accountable partner</span>
-      <span>Proof, not promises</span>
+    <div class="actions" style="margin-top:28px"><a class="text-cta" href="/work/">View Selected Work →</a></div>
+  </div>
+</section>
+
+<section class="gsec gsec--light reveal" id="why-tilth" aria-labelledby="why-tilth-h">
+  <div class="wrap">
+    <p class="label">Why Tilth</p>
+    <h2 id="why-tilth-h">Senior thinking, close to the work.</h2>
+    <p class="intro">No junior handoff. No channel-first recommendations. Strategy, execution and measurement stay connected from diagnosis through scale.</p>
+    <div class="whygrid">
+      ${whyTilth.map(whyCard).join("\n      ")}
     </div>
   </div>
 </section>
 
-${founder ? `<section class="gsec gsec--tight founder-note reveal">
+<section class="gsec reveal" id="latest-insights" aria-labelledby="latest-insights-h">
   <div class="wrap">
-    <span class="label">Founder-led</span>
-    <div class="founder-note__row">
-      <img class="founder-note__avatar" src="${founder.photo}" alt="${esc(founder.name)}, ${esc(founder.title)}" width="112" height="112" loading="lazy" decoding="async">
-      <div>
-        <blockquote class="founder-note__quote">"Ten years, five industries, <span class="accent">one mistake</span> repeated every time. Tilth fixes the foundation first."</blockquote>
-        <p class="founder-note__by">${esc(founder.name)} — ${esc(founder.title)} <a class="text-cta" href="/about/">About ${esc(founder.name)} →</a></p>
-      </div>
+    <p class="label">Latest Insights</p>
+    <h2 id="latest-insights-h">Thinking behind the work.</h2>
+    <p class="intro">Practical perspectives on growth systems, measurement, acquisition and conversion.</p>
+    <div class="igrid">
+      ${homeInsights.map(insightCard).join("\n      ")}
+    </div>
+    <div class="actions" style="margin-top:28px"><a class="text-cta" href="/insights/">Explore All Insights →</a></div>
+  </div>
+</section>
+
+<section class="gsec gsec--light reveal" id="faq" aria-labelledby="faq-h">
+  <div class="wrap wrap-narrow">
+    <p class="label">FAQ</p>
+    <h2 id="faq-h">Questions before we start.</h2>
+    <div class="faq__list">
+      ${homeFaqs.map(faqItem).join("\n      ")}
     </div>
   </div>
-</section>` : ""}
-
-${labeledMarquee("Brands I've Helped Grow", BRANDS, "Brands Anuja has helped grow", true)}
+</section>
 
 ${ctaBlock({
   eyebrow: "Next step",
-  heading: `Let's talk about your growth.`,
-  body: "Tell us what you're trying to grow. We'll review the foundations before recommending the work.",
-  primary: { label: "Discuss Your Growth Project", href: "/contact/" }
+  heading: `Ready to build growth on stronger foundations?`,
+  body: "Tell us where growth is slowing, what you have already tried and what success looks like. We’ll identify the right place to start.",
+  primary: { label: "Discuss Your Growth Strategy", href: "/contact/" },
+  // /foundation-audit/ does not exist — workbook says link to contact with a preset subject
+  secondary: { label: "Request a Foundation Audit", href: "/contact/?subject=Foundation+Audit" }
 })}
 
-<a class="sticky-cta" id="stickyCta" href="/contact/" aria-hidden="true" tabindex="-1"><span>Discuss Your Growth Project</span> <span aria-hidden="true">→</span></a>
+<a class="sticky-cta" id="stickyCta" href="/contact/" aria-hidden="true" tabindex="-1"><span>Discuss Your Growth Strategy</span> <span aria-hidden="true">→</span></a>
 
 <script>
-(function(){
-  var items = [].slice.call(document.querySelectorAll('.hero-rotator .rot__item'));
-  if (items.length < 2) return;
-  try { if (matchMedia('(prefers-reduced-motion: reduce)').matches) return; } catch(e){}
-  var i = 0;
-  setInterval(function(){
-    items[i].classList.remove('is-active');
-    i = (i + 1) % items.length;
-    items[i].classList.add('is-active');
-  }, 2200);
-})();
-/* Phase 3 — Evidence stat count-up when scrolled into view */
+/* Outcomes stat count-up when scrolled into view */
 (function(){
   var els = [].slice.call(document.querySelectorAll('.stat-v[data-count]'));
   if (!els.length) return;
@@ -259,7 +311,7 @@ ${ctaBlock({
 /* Phase 4 — mobile sticky CTA (shows past the hero, hides at the main CTA) */
 (function(){
   var el=document.getElementById('stickyCta'); if(!el || !('IntersectionObserver' in window)) return;
-  var mq; try{ mq=matchMedia('(max-width:760px)'); }catch(e){ return; }
+  var mq; try{ mq=matchMedia('(max-width:900px)'); }catch(e){ return; }
   var hero=document.querySelector('.ghero'), cta=document.querySelector('.cta-band');
   if(!hero || !cta) return;
   var heroV=true, ctaV=false;
@@ -272,18 +324,23 @@ ${ctaBlock({
 </script>
 `;
 
-const websiteSchema = {
-  "@type": "WebSite", "@id": `${site.base}/#website`,
-  url: `${site.base}/`, name: site.brand, publisher: { "@id": `${site.base}/#org` }
+// FAQPage schema — mirrors the visible accordion (answers are in the DOM either way)
+const faqSchema = {
+  "@type": "FAQPage",
+  mainEntity: homeFaqs.map(f => ({
+    "@type": "Question", name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a.replace(/<[^>]+>/g, "") }
+  }))
 };
 
 export default {
   path,
-  title: "Global Growth Marketing Agency | Tilth",
-  description: "Tilth is a global, founder-led growth marketing agency. We strengthen strategy, measurement, creative and customer acquisition before scaling paid media.",
-  ogTitle: "A growth marketing agency built on stronger foundations",
-  ogDescription: "Global, founder-led, foundation-first growth marketing — strategy, measurement, creative and acquisition, then scale against verified return.",
+  // Metadata per workbook SEO & Technical sheet (T-015)
+  title: "Growth Marketing Agency for India & US Brands | Tilth",
+  description: "Tilth is a founder-led growth marketing agency helping brands across India and the US improve strategy, paid media, SEO, conversion and measurement.",
+  ogTitle: "A growth marketing agency built for measurable, sustainable growth",
+  ogDescription: "Founder-led, foundation-first growth marketing for brands across India and the US — strategy, paid media, SEO, conversion and measurement.",
   headExtra,
-  schema: [orgSchema(), websiteSchema],
+  schema: [orgSchema(), websiteSchema(), faqSchema],
   main
 };
