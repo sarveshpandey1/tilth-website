@@ -21,6 +21,7 @@
   /* Spacing rhythm tokens (Phase 1 — fluid, replaces fixed 90/150px section padding) */
   --space-section:clamp(48px,6vw,80px);
   --space-hero-top:clamp(88px,9vw,120px);
+  --space-block:40px; /* even "content-start" gap under a heading/intro (8-grid) */
 }
 /* Accessibility: visible keyboard focus everywhere */
 :focus-visible{outline:2px solid var(--glow);outline-offset:3px;border-radius:2px}
