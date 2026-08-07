@@ -28,17 +28,17 @@ const rotItem = (r, i) => `<a class="rot__item${i === 0 ? " is-active" : ""}" hr
 
 // --- Section components (workbook Page Structure order) -----------------------
 
-// brand-experience: ONE semantic list carries the accessible names; the second copy is
-// a purely visual clone for the seamless -50% loop and is hidden from AT (T-005).
+// Compact strips: fixed terracotta label pinned left, content on the right. Brands
+// scroll; industries are static and individually clickable. Both use one semantic <ul>;
+// the brand strip's second <ul> is a purely visual clone for the seamless -50% loop and
+// is hidden from assistive tech, so six names are announced rather than twelve.
 // Text wordmarks by owner directive — official logo designs are not recreated. When an
-// approved image exists on a record, it swaps in without changing the layout.
+// approved image exists on a record it swaps in without changing the layout.
 const brandItem = b => b.logo
-  ? `<li class="bstrip__item"><img src="${b.logo}" alt="${esc(b.name)}" height="28" loading="lazy" decoding="async"></li>`
-  : `<li class="bstrip__item">${esc(b.name)}</li>`;
-const brandTrack = hidden => `<ul class="bstrip__set"${hidden ? ' aria-hidden="true"' : ""}>${brandExperience.map(brandItem).join("")}</ul>`;
-
-// industries: static, linked, keyboard-reachable — explicitly NOT a marquee (T-006)
-const industryLink = i => `<li><a class="istrip__link" href="${i.href}">${esc(i.label)}</a></li>`;
+  ? `<li class="strip__item"><img src="${b.logo}" alt="${esc(b.name)}" height="24" loading="lazy" decoding="async"></li>`
+  : `<li class="strip__item">${esc(b.name)}</li>`;
+const brandSet = hidden => `<ul class="strip__set"${hidden ? ' aria-hidden="true"' : ""}>${brandExperience.map(brandItem).join("")}</ul>`;
+const industryItem = i => `<li class="strip__item"><a href="${i.href}">${esc(i.label)}</a></li>`;
 
 const svcCard = s => `<article class="gcard gcard--featured">
       <span class="gcard__n">${esc(s.n)}</span>
@@ -81,31 +81,38 @@ const headExtra = `<style>
   }
   .ghero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px}
   .hero-cred{margin-top:26px;font-size:15px;color:var(--text)}
-  /* hero service chips — individually clickable, wrap without overflow */
-  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-  .chip{display:inline-block;font-size:13.5px;letter-spacing:.2px;color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:9px 16px;text-decoration:none;transition:border-color .25s,color .25s}
-  .chip:hover,.chip:focus-visible{border-color:var(--glow);color:var(--glow)}
   .cap__n{display:block;font-family:'Fraunces',serif;color:var(--terra);font-size:14px;margin-bottom:6px}
 
-  /* Selected Brand Experience — the ONLY marquee on the page (workbook motion rule).
-     One real list carries the accessible names; the duplicate track is aria-hidden. */
-  .bstrip{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:22px 0}
-  .bstrip__head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin-bottom:16px}
-  .bstrip__note{font-size:14px;color:var(--text);margin:0}
-  .bstrip__vp{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-  .bstrip__track{display:flex;width:max-content;animation:tilth-marquee 38s linear infinite}
-  .bstrip:hover .bstrip__track,.bstrip:focus-within .bstrip__track{animation-play-state:paused}
-  .bstrip__set{display:flex;align-items:center;list-style:none;margin:0;padding:0}
-  .bstrip__item{font-family:'Fraunces',serif;font-size:clamp(17px,2.1vw,22px);color:var(--ink);padding:0 30px;white-space:nowrap;display:flex;align-items:center}
-  .bstrip__item::after{content:"·";margin-left:30px;color:var(--terra)}
-  .bstrip__item img{display:block;height:28px;width:auto;object-fit:contain}
+  /* Compact strips (original design): pinned terracotta label left, content right.
+     Brands scroll; industries are static links. The two sit flush so they read as one
+     band under the hero — adjacent borders collapse to a single rule. */
+  .strip{display:flex;align-items:stretch;border-top:1px solid var(--rule)}
+  .strip--static{border-bottom:1px solid var(--rule)}
+  .strip__label{flex:none;display:flex;align-items:center;font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(15px,1.9vw,20px);line-height:1.2;color:var(--terra);white-space:nowrap;margin:0;padding:14px 22px 14px 6vw;background:var(--bg);border-right:1px solid var(--rule);position:relative;z-index:2}
+  .strip__vp{flex:1;min-width:0;overflow:hidden;padding:14px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 92%,transparent)}
+  .strip__track{display:flex;width:max-content;animation:tilth-marquee 34s linear infinite}
+  .strip:hover .strip__track,.strip:focus-within .strip__track{animation-play-state:paused}
+  .strip__set{display:flex;align-items:center;list-style:none;margin:0;padding:0}
+  .strip__item{font-family:'Fraunces',serif;font-size:clamp(16px,2vw,20px);color:var(--text);padding:0 26px;white-space:nowrap}
+  .strip__item::after{content:"·";margin-left:26px;color:var(--terra)}
+  .strip__item img{display:block;height:24px;width:auto;object-fit:contain}
+  .strip__item a{color:var(--text);text-decoration:none;transition:color .25s}
+  .strip__item a:hover,.strip__item a:focus-visible{color:var(--glow)}
+  /* static industries: no trailing separator, and the list may wrap on narrow screens */
+  .strip__set--static{flex-wrap:wrap;row-gap:6px}
+  .strip__set--static .strip__item:last-child::after{content:"";margin:0}
+  .strip--static .strip__vp{-webkit-mask-image:none;mask-image:none}
   @keyframes tilth-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-  /* Industries We Know — static + linked, deliberately NOT animated */
-  .istrip{padding:26px 0;border-bottom:1px solid var(--rule)}
-  .istrip__list{display:flex;flex-wrap:wrap;gap:10px 12px;list-style:none;margin:14px 0 0;padding:0}
-  .istrip__link{display:inline-block;font-family:'Fraunces',serif;font-size:clamp(16px,1.9vw,20px);color:var(--ink);text-decoration:none;border:1px solid var(--rule);border-radius:999px;padding:10px 18px;transition:border-color .25s,color .25s}
-  .istrip__link:hover,.istrip__link:focus-visible{border-color:var(--glow);color:var(--glow)}
+  /* narrow screens: a long pinned label crowds the strip, so stack it above a full-width row */
+  @media(max-width:640px){
+    .strip{flex-direction:column;align-items:stretch}
+    .strip__label{border-right:0;border-bottom:1px solid var(--rule);padding:11px 6vw;font-size:14px;justify-content:flex-start}
+    .strip__vp{padding:12px 0}
+    .strip__set--static{padding:0 6vw}
+    .strip__item{padding:0 18px}
+    .strip__item::after{margin-left:18px}
+    .strip__set--static .strip__item:first-child{padding-left:0}
+  }
 
   /* Selected Growth Outcomes — proof cards */
   .ocards{display:grid;gap:18px;margin-top:var(--space-block)}
@@ -181,9 +188,10 @@ const headExtra = `<style>
   @media (prefers-reduced-motion: reduce){.sticky-cta{transition:none}}
   /* Reduced motion: the brand strip becomes a static, wrapping, fully readable list */
   @media (prefers-reduced-motion: reduce){
-    .bstrip__track{animation:none;width:auto;flex-wrap:wrap}
-    .bstrip__set{flex-wrap:wrap}
-    .bstrip__vp{-webkit-mask-image:none;mask-image:none}
+    .strip__track{animation:none;width:auto;flex-wrap:wrap}
+    .strip__set{flex-wrap:wrap;row-gap:6px}
+    .strip__vp{-webkit-mask-image:none;mask-image:none}
+    .strip__track > .strip__set[aria-hidden="true"]{display:none}
   }
 </style>`;
 
@@ -199,27 +207,17 @@ const main = `
       <a class="text-cta" href="/work/">See Our Work →</a>
     </div>
     <p class="hero-cred">10+ years of hands-on growth experience</p>
-    <nav class="chips" aria-label="Our services">
-      ${heroServiceChips.map(c => `<a class="chip" href="${c.href}">${esc(c.label)}</a>`).join("\n      ")}
-    </nav>
   </div>
 </section>
 
-<section class="bstrip" id="brand-experience" aria-labelledby="brand-experience-h">
-  <div class="wrap bstrip__head">
-    <h2 class="label" id="brand-experience-h">Selected Brand Experience</h2>
-    <p class="bstrip__note">Experience from the founder and core team.</p>
-  </div>
-  <div class="bstrip__vp"><div class="bstrip__track">${brandTrack(false)}${brandTrack(true)}</div></div>
+<section class="strip" id="brand-experience" aria-labelledby="brand-experience-h">
+  <h2 class="strip__label" id="brand-experience-h">Selected Brand Experience</h2>
+  <div class="strip__vp"><div class="strip__track">${brandSet(false)}${brandSet(true)}</div></div>
 </section>
 
-<section class="istrip" id="industries" aria-labelledby="industries-h">
-  <div class="wrap">
-    <h2 class="label" id="industries-h">Industries We Know</h2>
-    <ul class="istrip__list">
-      ${homeIndustries.map(industryLink).join("\n      ")}
-    </ul>
-  </div>
+<section class="strip strip--static" id="industries" aria-labelledby="industries-h">
+  <h2 class="strip__label" id="industries-h">Industries We Know</h2>
+  <div class="strip__vp"><ul class="strip__set strip__set--static">${homeIndustries.map(industryItem).join("")}</ul></div>
 </section>
 
 <section class="gsec reveal" id="services" aria-labelledby="services-h">
@@ -307,9 +305,9 @@ ${ctaBlock({
   eyebrow: "Next step",
   heading: `Ready to build growth on stronger foundations?`,
   body: "Tell us where growth is slowing, what you have already tried and what success looks like. We’ll identify the right place to start.",
-  primary: { label: "Discuss Your Growth Strategy", href: "/contact/" },
-  // /foundation-audit/ does not exist — workbook says link to contact with a preset subject
-  secondary: { label: "Request a Foundation Audit", href: "/contact/?subject=Foundation+Audit" }
+  // one button only: the Foundation Audit CTA is withheld until a dedicated live offer
+  // and destination page exist (there is no /foundation-audit/ route today)
+  primary: { label: "Discuss Your Growth Strategy", href: "/contact/" }
 })}
 
 <a class="sticky-cta" id="stickyCta" href="/contact/" aria-hidden="true" tabindex="-1"><span>Discuss Your Growth Strategy</span> <span aria-hidden="true">→</span></a>
