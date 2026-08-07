@@ -49,7 +49,10 @@ a{color:inherit;text-decoration:none}
 /* ===================== MASTHEAD — floating pill ===================== */
 .masthead{position:sticky;top:14px;z-index:50;width:calc(100% - 3.2vw);max-width:1340px;margin:14px auto 0;border:1px solid var(--rule);border-radius:48px;background:rgba(21,17,11,.6);backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2);transition:background .4s,box-shadow .4s}
 .masthead .wrap{max-width:none;display:flex;justify-content:space-between;align-items:center;padding:10px 12px 10px 26px;flex-wrap:nowrap;gap:20px}
-.masthead .word{font-family:'Fraunces',serif;font-size:20px;font-weight:600;letter-spacing:5px;color:var(--ink);flex:none}
+/* weight 500, not 600: this wordmark was the ONLY rule pairing Fraunces with 600, which
+   pulled a whole extra 66KB font file above the fold. 500 is already needed elsewhere and
+   is visually indistinguishable at 20px with 5px tracking. */
+.masthead .word{font-family:'Fraunces',serif;font-size:20px;font-weight:500;letter-spacing:5px;color:var(--ink);flex:none}
 .masthead nav{display:flex;gap:28px;font-size:13px;font-weight:500}
 .masthead nav a{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 3px;color:var(--text);transition:color .3s}
 .masthead nav a::after{content:"";position:absolute;left:3px;right:3px;bottom:9px;height:1px;background:var(--glow);box-shadow:0 0 8px var(--glow);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}

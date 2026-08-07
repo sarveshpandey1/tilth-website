@@ -53,7 +53,10 @@ const insightCard = a => `<article class="icard">
 
 // FAQ: native <details>/<summary> — keyboard operable, state exposed by the browser,
 // and answers stay in the DOM for crawlers even when collapsed (T-012).
-const faqItem = f => `<details class="faq__item"><summary><span>${esc(f.q)}</span><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>${f.a}</p></div></details>`;
+// Copy Deck specifies "h3/button" for faq_01..05. <summary> already carries the button
+// semantics; the <h3> puts each question in the document outline so screen-reader users
+// can navigate the FAQ by heading.
+const faqItem = f => `<details class="faq__item"><summary><h3>${esc(f.q)}</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>${f.a}</p></div></details>`;
 
 const headExtra = `<style>
   /* Hero intent rotator — kept at owner's request. Links live in the DOM (SEO); JS only cycles visibility */
@@ -117,6 +120,9 @@ const headExtra = `<style>
   /* FAQ sits in a cream (gsec--light) section on the dark-default page. The shared
      .faq__* styles use light-theme tokens, so force dark-on-cream or the questions
      render invisible (same class of bug as the stat band). */
+  /* the question is an <h3> for the outline — strip heading defaults so it keeps
+     the summary's typography and flex layout exactly as before */
+  .faq__item summary h3{font:inherit;color:inherit;margin:0;font-weight:inherit;letter-spacing:inherit}
   .gsec--light .faq__item{border-color:rgba(26,21,16,.14)}
   .gsec--light .faq__item summary{color:#15110B}
   .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#5F7F37}

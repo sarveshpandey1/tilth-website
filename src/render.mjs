@@ -160,6 +160,9 @@ ${gtag}
 <meta name="twitter:image" content="${site.base}/og-image.png">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
+<!-- The hero H1's <em> is Fraunces italic and is part of the LCP element. Without this
+     preload it was discovered only after CSS parsed and took ~9s on throttled mobile. -->
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/styles.css">
 <link rel="stylesheet" href="/assets/generated.css">
