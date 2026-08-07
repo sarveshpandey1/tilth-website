@@ -14,7 +14,7 @@ import about from "./src/pages/about.mjs";
 import home from "./src/pages/home.mjs";
 import { allServicePages } from "./src/templates/servicePage.mjs";
 import { allIndustryPages } from "./src/templates/industryPage.mjs";
-import { allRegionHubs } from "./src/templates/regionHub.mjs";
+import { allRegionHubs, allRegionChildPages } from "./src/templates/regionHub.mjs";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 
@@ -28,7 +28,8 @@ const PAGES = [
   workIndex,
   contact,
   about,
-  ...allRegionHubs
+  ...allRegionHubs,
+  ...allRegionChildPages
 ];
 
 function outPathFor(routePath) {

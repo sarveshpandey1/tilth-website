@@ -43,6 +43,10 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <link rel="stylesheet" href="/assets/generated.css">
 <style>
   /* Regional pages reuse the global system; these are the only additions. */
+  .rlist{list-style:none;margin:var(--space-block) 0 0;padding:0;display:grid;gap:12px;max-width:70ch}
+  .rlist li{position:relative;padding-left:20px;font-size:16px;line-height:1.65;color:var(--text)}
+  .rlist li::before{content:"";position:absolute;left:0;top:.65em;width:7px;height:1px;background:var(--terra)}
+  .gsec--light .rlist li{color:#4B4239}
   .rprose{font-size:16px;line-height:1.7;color:var(--text);max-width:68ch;margin-top:18px}
   .gsec--light .rprose{color:#4B4239}
   .rhero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px}
@@ -244,7 +248,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
     <p class="intro">Strategy, acquisition and conversion connected through one operating view.</p>
     
     <div class="card-grid">
-      <a class="gcard gcard--featured" href="/services/performance-marketing/">
+      <a class="gcard gcard--featured" href="/india/services/performance-marketing/">
         <h3 class="gcard__name">Performance Marketing</h3>
         <p class="gcard__desc">Plan and manage paid acquisition around agreed business outcomes, not platform metrics alone. This can include channel strategy, campaign structure, creative testing, conversion tracking, budget allocation and performance reviews across supported platforms.</p>
         <span class="gcard__more" aria-hidden="true">Explore →</span>
@@ -290,7 +294,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
         <p class="gcard__desc">Acquisition economics, creative testing, product-page conversion, average order value and repeat purchase.</p>
         <span class="gcard__more" aria-hidden="true">Explore →</span>
       </a>
-      <a class="gcard gcard--featured" href="/industries/fintech/">
+      <a class="gcard gcard--featured" href="/india/industries/fintech/">
         <h3 class="gcard__name">FinTech</h3>
         <p class="gcard__desc">Trust, education, compliance-aware communication, onboarding funnels, verification, activation and retention.</p>
         <span class="gcard__more" aria-hidden="true">Explore →</span>
