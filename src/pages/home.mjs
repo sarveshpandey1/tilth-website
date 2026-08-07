@@ -1,7 +1,8 @@
 import {
   site, heroServiceChips, brandExperience, homeIndustries,
-  homeServices, homeApproach, whyTilth, homeInsights, homeFaqs
+  homeServices, homeApproach, whyTilth, homeFaqs
 } from "../data.mjs";
+import { latestInsights } from "../insights.mjs";
 import { ctaBlock, orgSchema, websiteSchema, esc } from "../render.mjs";
 
 const path = "/";
@@ -285,7 +286,7 @@ const main = `
     <h2 id="latest-insights-h">Thinking behind the work.</h2>
     <p class="intro">Practical perspectives on growth systems, measurement, acquisition and conversion.</p>
     <div class="igrid">
-      ${homeInsights.map(insightCard).join("\n      ")}
+      ${latestInsights(3).map(insightCard).join("\n      ")}
     </div>
     <div class="actions" style="margin-top:28px"><a class="text-cta" href="/insights/">Explore All Insights →</a></div>
   </div>
