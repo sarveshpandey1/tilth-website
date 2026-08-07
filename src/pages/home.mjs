@@ -6,18 +6,25 @@ import { ctaBlock, orgSchema, websiteSchema, esc } from "../render.mjs";
 
 const path = "/";
 
-// Hero intent rotator. The workbook (T-002) called for removing this in favour of a
-// static prompt, but the owner asked for it to stay exactly as it was — so it is kept
-// deliberately. Each phrase is a real anchor in the DOM (internal links survive with
-// JS off); JS only cycles which one is visible.
+// Hero intent rotator. Kept at the owner's request (workbook T-002 had specified
+// removing it). Static prefix "Looking for" + one rotating natural phrase + "?".
+//
+// Accessibility contract: exactly ONE phrase is in the accessible tree at a time —
+// the inactive ones carry aria-hidden + tabindex="-1", which JS swaps as it cycles.
+// Without that, a screen reader reads the whole set as one run-on sentence. There is
+// deliberately no aria-live region, so the rotation is never announced as it changes.
+// Service coverage does not depend on this element: the crawlable chips below the hero
+// are the canonical list, so the phrases stay natural rather than keyword-stuffed.
+// "Performance Marketing" is intentionally absent — it overlaps with Paid Media.
 const rotator = [
-  { label: "Affiliate Growth", href: "/services/affiliate-partnerships/" },
-  { label: "Paid Media that scales", href: "/services/paid-media/" },
-  { label: "Performance Marketing", href: "/services/performance-marketing/" },
-  { label: "SEO & AI Search", href: "/services/seo-ai-search/" },
-  { label: "a site that converts", href: "/services/website-design-development/" },
-  { label: "Growth Strategy & Measurement", href: "/services/growth-strategy-measurement/" }
+  { label: "paid media that scales", href: "/services/paid-media/" },
+  { label: "SEO that compounds", href: "/services/seo-ai-search/" },
+  { label: "an affiliate channel that performs", href: "/services/affiliate-partnerships/" },
+  { label: "a website that converts", href: "/services/website-design-development/" },
+  { label: "a growth strategy built on evidence", href: "/services/growth-strategy-measurement/" }
 ];
+// index 0 is server-rendered as the active, meaningful default (no JS required)
+const rotItem = (r, i) => `<a class="rot__item${i === 0 ? " is-active" : ""}" href="${r.href}"${i === 0 ? "" : ' aria-hidden="true" tabindex="-1"'}>${esc(r.label)}</a>`;
 
 // --- Section components (workbook Page Structure order) -----------------------
 
@@ -185,8 +192,7 @@ const main = `
   <div class="wrap">
     <p class="label">Founder-led · Foundation-first</p>
     <h1>A growth marketing agency built for <em>measurable, sustainable growth</em>.</h1>
-    <p class="hero-rotator">Looking for <span class="rot">${rotator.map((r, i) =>
-      `<a class="rot__item${i === 0 ? " is-active" : ""}" href="${r.href}">${esc(r.label)}</a>`).join("")}</span>?</p>
+    <p class="hero-rotator">Looking for <span class="rot">${rotator.map(rotItem).join("")}</span>?</p>
     <p class="lede">We strengthen your strategy, funnel, creative and measurement—then scale what delivers measurable returns.</p>
     <div class="actions">
       <a class="btn" href="/contact/"><span>Discuss Your Growth Strategy</span> <span class="arrow">→</span></a>
@@ -309,17 +315,26 @@ ${ctaBlock({
 <a class="sticky-cta" id="stickyCta" href="/contact/" aria-hidden="true" tabindex="-1"><span>Discuss Your Growth Strategy</span> <span aria-hidden="true">→</span></a>
 
 <script>
-/* Hero rotator — cycles the visible phrase; disabled under reduced motion (first stays shown) */
+/* Hero rotator. Moves aria-hidden/tabindex along with the visible state so exactly one
+   phrase is ever in the accessible tree or the tab order. No aria-live: the change is
+   never announced. Under reduced motion this never runs, leaving the server-rendered
+   first phrase as a single static phrase. */
 (function(){
   var items = [].slice.call(document.querySelectorAll('.hero-rotator .rot__item'));
   if (items.length < 2) return;
   try { if (matchMedia('(prefers-reduced-motion: reduce)').matches) return; } catch(e){}
   var i = 0;
   setInterval(function(){
-    items[i].classList.remove('is-active');
+    var prev = items[i];
+    prev.classList.remove('is-active');
+    prev.setAttribute('aria-hidden', 'true');
+    prev.setAttribute('tabindex', '-1');
     i = (i + 1) % items.length;
-    items[i].classList.add('is-active');
-  }, 2200);
+    var next = items[i];
+    next.classList.add('is-active');
+    next.removeAttribute('aria-hidden');
+    next.removeAttribute('tabindex');
+  }, 2600);
 })();
 /* Outcomes stat count-up when scrolled into view */
 (function(){
