@@ -130,21 +130,6 @@ export const homeFaqs = [
     a: `Three. A <strong>Foundation Audit</strong> — a diagnostic across the growth system. A <strong>Growth Project</strong> — fixed scope such as a website build, tracking rebuild, paid-media setup, SEO strategy or affiliate program. And an <strong>Ongoing Growth Partnership</strong> — continuing strategy, execution, optimisation, reporting and testing. <a href="/contact/">Discuss which fits</a>.` }
 ];
 
-// insights_cards — the three most recently published articles. This generator has no
-// CMS, so the list is explicit; titles/dates/excerpts are copied verbatim from the
-// article pages. No `category` field: the site has no article taxonomy and one was
-// not invented. Refresh when newer articles publish. (T-011)
-export const homeInsights = [
-  { title: "Your startup's first marketing hire: who to hire first",
-    href: "/insights/first-marketing-hire-startup/", date: "2026-07-12",
-    excerpt: "Your startup's first marketing hire shouldn't be a specialist. Here's who to hire first and how to set them up to succeed." },
-  { title: "Marketing budget for an early-stage startup in India: how to set it",
-    href: "/insights/startup-marketing-budget-india/", date: "2026-06-28",
-    excerpt: "Sensible percentages, why CAC matters more than a flat %, how to split it, and how to budget without wasting money." },
-  { title: "How to choose a marketing agency for your D2C brand in India",
-    href: "/insights/marketing-agency-for-d2c-brands/", date: "2026-06-27",
-    excerpt: "What to look for, the questions that matter, and the red flags to avoid — a founder's honest buyer's guide." }
-];
 
 // Services (Brief §23). prominence: "featured" gets visual weight; "standard" is secondary.
 export const services = [

@@ -140,6 +140,7 @@ ${gtag}
 <title>${esc(p.title)}</title>
 <meta name="description" content="${esc(p.description)}">
 <link rel="canonical" href="${canonical}">
+${(p.hreflang || []).map(h => `<link rel="alternate" hreflang="${h.lang}" href="${h.href}">`).join("\n")}
 <meta name="robots" content="${p.robots || "index, follow"}">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">

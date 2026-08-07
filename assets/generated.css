@@ -3,7 +3,9 @@
 
 /* breadcrumb */
 .crumb{font-size:12px;letter-spacing:.5px;color:var(--olive);padding:26px 0 0}
-.crumb a{color:var(--glow)}
+/* underlined, not colour-only: the link sits inside a text block, so colour alone does
+   not meet WCAG 1.4.1 (Lighthouse link-in-text-block). Applies to every breadcrumb. */
+.crumb a{color:var(--glow);text-decoration:underline;text-underline-offset:3px}
 .crumb span[aria-hidden]{margin:0 6px;color:var(--olive)}
 
 /* hero (service / industry / hub) */
