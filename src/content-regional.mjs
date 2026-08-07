@@ -287,10 +287,10 @@ export const hubHreflang = base => [
 // regional page the moment its route is listed, so no hub markup has to be edited and
 // no link is ever published pointing at a route that does not exist yet.
 export const liveRegionalRoutes = new Set([
-  // "/india/services/performance-marketing/",   // Batch 2
-  // "/india/industries/fintech/",               // Batch 2
-  // "/us/services/seo-content-marketing/",      // Batch 2
-  // "/us/industries/saas/",                     // Batch 2
+  "/india/services/performance-marketing/",   // Batch 2
+  "/india/industries/fintech/",               // Batch 2
+  "/us/services/seo-content-marketing/",      // Batch 2
+  "/us/industries/saas/",                     // Batch 2
 ]);
 
 export const resolveHref = c =>
