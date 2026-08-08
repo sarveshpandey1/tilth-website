@@ -23,7 +23,8 @@
 .gsec h2 em{color:var(--terra);font-style:italic}
 .gsec .intro{font-size:17px;color:var(--text);max-width:64ch;margin-top:24px}
 .gsec--light{background:#F4EFE6;color:#1A1510}
-.gsec--light>.wrap>.label{color:#5F7F37}
+/* #55722F not #5F7F37: at 11px on cream the lighter olive measured 4.01:1, under the 4.5:1 WCAG AA minimum */
+.gsec--light>.wrap>.label{color:#55722F}
 .gsec--light h2,.gsec--light h3{color:#15110B}
 .gsec--light h2 em{color:#C2673B}
 .gsec--light .intro,.gsec--light p,.gsec--light li{color:#4B4239}
@@ -63,7 +64,7 @@ html[data-theme="light"] .gsec--light{background:#FFFFFF}
 .proof-card__metrics{list-style:none;margin:0 0 14px;padding:0}
 .proof-card__metrics li{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);margin-bottom:8px}
 .proof-card__summary{font-size:14.5px;color:var(--text)}
-.gsec--light .proof-card__label{color:#5F7F37}.gsec--light .proof-card__metrics li{color:#15110B}.gsec--light .proof-card__summary{color:#4B4239}
+.gsec--light .proof-card__label{color:#55722F}.gsec--light .proof-card__metrics li{color:#15110B}.gsec--light .proof-card__summary{color:#4B4239}
 
 /* trust markers band */
 .trust{padding:44px 0}

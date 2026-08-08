@@ -129,6 +129,8 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
         <input type="hidden" name="_subject" value="New growth enquiry — wearetilth.com">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
+        <!-- return to our own success page so the visitor stays on-brand and generate_lead can fire (T-016) -->
+        <input type="hidden" name="_next" value="https://wearetilth.com/thank-you/">
         <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="row2">
@@ -189,5 +191,6 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   </div>
 </footer>
 <script src="/nav.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>

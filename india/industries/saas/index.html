@@ -65,8 +65,8 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   /* FAQ inside a cream section inherits light-theme tokens — force dark-on-cream */
   .gsec--light .faq__item{border-color:rgba(26,21,16,.14)}
   .gsec--light .faq__item summary{color:#15110B}
-  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#5F7F37}
-  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#5F7F37}
+  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#55722F}
+  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#55722F}
   .gsec--light .faq__ans p{color:#4B4239}
   .faq__item summary h3{font:inherit;color:inherit;margin:0;font-weight:inherit;letter-spacing:inherit}
   html.jsr .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
@@ -142,12 +142,6 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Industries",
-          "item": "https://wearetilth.com/industries/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
           "name": "SaaS",
           "item": "https://wearetilth.com/india/industries/saas/"
         }
@@ -185,7 +179,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
           "name": "Which SaaS metrics should be tracked?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Useful metrics may include qualified leads, demos, trials, activation, opportunity creation, pipeline and revenue. The right framework depends on the sales motion and customer journey."
+            "text": "The right set depends on the motion. Demo-led products often centre on qualified leads, demos and opportunity creation, while trial or product-led models move toward signup quality, activation and continued product use. The framework should reflect how the product actually creates value rather than the first event a tool happens to record."
           }
         },
         {
@@ -229,7 +223,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 
 <section class="ghero rhero" id="hero">
   <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/india/">India</a> <span aria-hidden="true">/</span> <a href="/industries/">Industries</a> <span aria-hidden="true">/</span> <span>SaaS</span></nav>
+    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/india/">India</a> <span aria-hidden="true">/</span> <span>SaaS</span></nav>
     <p class="label">SaaS growth in India</p>
     <h1>Growth marketing for SaaS companies building predictable demand.</h1>
     <p class="lede">Tilth connects positioning, demand generation, conversion, activation and measurement so SaaS teams can understand what is creating qualified pipeline and product adoption.</p>
@@ -403,7 +397,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
       <details class="faq__item"><summary><h3>What does a SaaS growth marketing agency do?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>It helps connect positioning, demand generation, paid acquisition, SEO, website conversion, demos or trials, activation and measurement around the SaaS revenue model.</p></div></details>
       <details class="faq__item"><summary><h3>Can Tilth support both B2B and product-led SaaS?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Tilth can adapt the growth system to different SaaS motions, including demo-led, sales-led and trial or product-led journeys. The scope depends on the product, audience and available data.</p></div></details>
       <details class="faq__item"><summary><h3>How does SEO support SaaS growth?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>SEO can help buyers discover the category, understand the problem, compare approaches and evaluate the product. The work may include technical SEO, service or product pages, use cases, comparisons and expert content.</p></div></details>
-      <details class="faq__item"><summary><h3>Which SaaS metrics should be tracked?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Useful metrics may include qualified leads, demos, trials, activation, opportunity creation, pipeline and revenue. The right framework depends on the sales motion and customer journey.</p></div></details>
+      <details class="faq__item"><summary><h3>Which SaaS metrics should be tracked?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>The right set depends on the motion. Demo-led products often centre on qualified leads, demos and opportunity creation, while trial or product-led models move toward signup quality, activation and continued product use. The framework should reflect how the product actually creates value rather than the first event a tool happens to record.</p></div></details>
       <details class="faq__item"><summary><h3>Can Tilth work with an internal sales team?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Yes. Growth and measurement should reflect the handoff between marketing, sales and product. Tilth can work with internal stakeholders to define stages, feedback loops and reporting.</p></div></details>
       <details class="faq__item"><summary><h3>How does an engagement begin?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>The first step is to review the ICP, positioning, acquisition channels, sales or product journey and measurement. Tilth then identifies the constraint that needs to be addressed first.</p></div></details>
     </div>
@@ -414,7 +408,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   <div class="wrap">
     <span class="label">Next step</span>
     <h2>Create a clearer path from demand to activation and revenue.</h2>
-    <p>Tell us where the SaaS funnel is losing quality or visibility. We'll help identify what should be clarified, connected or tested next.</p>
+    <p>Tell us how demand, demos, trials and activation are measured today, and the point where the funnel stops being visible. We'll help identify what needs to be defined or connected before more spend.</p>
     <div class="cta-band__actions">
       <a class="btn" href="/contact/"><span>Discuss Your SaaS Growth Strategy</span> <span class="arrow">→</span></a>
       
@@ -459,5 +453,6 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   </div>
 </footer>
 <script src="/nav.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>

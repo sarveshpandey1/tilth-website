@@ -303,13 +303,13 @@ export const regionalPages = [
           ["Can Tilth support product-led and sales-led SaaS companies?", "Yes. The growth system can be adapted to demo-led, sales-led, trial-led or product-led journeys based on the product and customer model."],
           ["How does Tilth collaborate with US SaaS teams?", "The engagement can use agreed overlap hours, scheduled reviews, shared documentation and asynchronous updates. The operating rhythm is agreed during setup."],
           ["Can Tilth work with an internal sales or product team?", "Yes. Growth measurement often requires collaboration across marketing, sales and product. Tilth can work with internal stakeholders to define stages and feedback loops."],
-          ["Which metrics matter for SaaS growth?", "Useful metrics may include qualified leads, demos, trials, activation, opportunity creation, pipeline and revenue. The right framework depends on the sales motion."],
+          ["Which metrics matter for SaaS growth?", "Usually the ones that span the marketing and sales handoff: qualified leads, demos or trials, activation, opportunity creation, pipeline and revenue. What matters most is that marketing, sales and product work from the same definitions, so the reporting describes one funnel rather than three separate views of it."],
           ["How does an engagement begin?", "Tilth reviews the ICP, positioning, acquisition channels, sales or product journey and current measurement to identify the most important growth constraint."]
         ] }
     ],
     finalCta: {
       h2: "Create a clearer path from demand to pipeline and product value.",
-      body: "Tell us where the SaaS funnel is losing quality or visibility. We'll help identify what should be clarified, connected or tested next.",
+      body: "Tell us how marketing, sales and product currently measure the same funnel, and where pipeline quality becomes unclear. We'll help identify what to connect first and how reviews can run across time zones.",
       primary: { label: "Discuss Your SaaS Growth Strategy", href: "/contact/" }
     }
   },
@@ -594,14 +594,14 @@ export const regionalPages = [
           ["What does a SaaS growth marketing agency do?", "It helps connect positioning, demand generation, paid acquisition, SEO, website conversion, demos or trials, activation and measurement around the SaaS revenue model."],
           ["Can Tilth support both B2B and product-led SaaS?", "Tilth can adapt the growth system to different SaaS motions, including demo-led, sales-led and trial or product-led journeys. The scope depends on the product, audience and available data."],
           ["How does SEO support SaaS growth?", "SEO can help buyers discover the category, understand the problem, compare approaches and evaluate the product. The work may include technical SEO, service or product pages, use cases, comparisons and expert content."],
-          ["Which SaaS metrics should be tracked?", "Useful metrics may include qualified leads, demos, trials, activation, opportunity creation, pipeline and revenue. The right framework depends on the sales motion and customer journey."],
+          ["Which SaaS metrics should be tracked?", "The right set depends on the motion. Demo-led products often centre on qualified leads, demos and opportunity creation, while trial or product-led models move toward signup quality, activation and continued product use. The framework should reflect how the product actually creates value rather than the first event a tool happens to record."],
           ["Can Tilth work with an internal sales team?", "Yes. Growth and measurement should reflect the handoff between marketing, sales and product. Tilth can work with internal stakeholders to define stages, feedback loops and reporting."],
           ["How does an engagement begin?", "The first step is to review the ICP, positioning, acquisition channels, sales or product journey and measurement. Tilth then identifies the constraint that needs to be addressed first."]
         ] }
     ],
     finalCta: {
       h2: "Create a clearer path from demand to activation and revenue.",
-      body: "Tell us where the SaaS funnel is losing quality or visibility. We'll help identify what should be clarified, connected or tested next.",
+      body: "Tell us how demand, demos, trials and activation are measured today, and the point where the funnel stops being visible. We'll help identify what needs to be defined or connected before more spend.",
       primary: { label: "Discuss Your SaaS Growth Strategy", href: "/contact/" }
     }
   },

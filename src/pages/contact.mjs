@@ -48,6 +48,8 @@ const main = `
         <input type="hidden" name="_subject" value="New growth enquiry — wearetilth.com">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
+        <!-- return to our own success page so the visitor stays on-brand and generate_lead can fire (T-016) -->
+        <input type="hidden" name="_next" value="https://wearetilth.com/thank-you/">
         <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="row2">

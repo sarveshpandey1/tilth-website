@@ -103,8 +103,8 @@ const headExtra = `<style>
   /* FAQ inside a cream section inherits light-theme tokens — force dark-on-cream */
   .gsec--light .faq__item{border-color:rgba(26,21,16,.14)}
   .gsec--light .faq__item summary{color:#15110B}
-  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#5F7F37}
-  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#5F7F37}
+  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#55722F}
+  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#55722F}
   .gsec--light .faq__ans p{color:#4B4239}
   .faq__item summary h3{font:inherit;color:inherit;margin:0;font-weight:inherit;letter-spacing:inherit}
   html.jsr .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
@@ -178,10 +178,12 @@ ${ctaBlock({
 // differences are a four-level breadcrumb and no hreflang — these are not one-to-one
 // regional equivalents of each other, so an hreflang cluster would be a misuse.
 export function regionChildPage(pg) {
+  // Logical, not URL-mirroring: the regional hub is the discovery page, so there is no
+  // /india/services/ index and the breadcrumb does not invent one.
+  //   Home > India > Performance Marketing
   const bc = breadcrumbs([
     { name: "Home", path: "/" },
     { name: pg.regionLabel, path: pg.regionPath },
-    { name: pg.kindLabel, path: pg.kindPath },
     { name: pg.name, path: pg.path }
   ]);
 

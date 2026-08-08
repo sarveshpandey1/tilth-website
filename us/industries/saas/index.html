@@ -65,8 +65,8 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   /* FAQ inside a cream section inherits light-theme tokens — force dark-on-cream */
   .gsec--light .faq__item{border-color:rgba(26,21,16,.14)}
   .gsec--light .faq__item summary{color:#15110B}
-  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#5F7F37}
-  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#5F7F37}
+  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#55722F}
+  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#55722F}
   .gsec--light .faq__ans p{color:#4B4239}
   .faq__item summary h3{font:inherit;color:inherit;margin:0;font-weight:inherit;letter-spacing:inherit}
   html.jsr .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
@@ -142,12 +142,6 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Industries",
-          "item": "https://wearetilth.com/industries/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
           "name": "SaaS",
           "item": "https://wearetilth.com/us/industries/saas/"
         }
@@ -193,7 +187,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
           "name": "Which metrics matter for SaaS growth?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Useful metrics may include qualified leads, demos, trials, activation, opportunity creation, pipeline and revenue. The right framework depends on the sales motion."
+            "text": "Usually the ones that span the marketing and sales handoff: qualified leads, demos or trials, activation, opportunity creation, pipeline and revenue. What matters most is that marketing, sales and product work from the same definitions, so the reporting describes one funnel rather than three separate views of it."
           }
         },
         {
@@ -229,7 +223,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 
 <section class="ghero rhero" id="hero">
   <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/us/">United States</a> <span aria-hidden="true">/</span> <a href="/industries/">Industries</a> <span aria-hidden="true">/</span> <span>SaaS</span></nav>
+    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/us/">United States</a> <span aria-hidden="true">/</span> <span>SaaS</span></nav>
     <p class="label">SaaS growth for US companies</p>
     <h1>Growth marketing for US SaaS teams building predictable pipeline.</h1>
     <p class="lede">Tilth connects positioning, demand generation, conversion, activation and measurement so SaaS teams can see what is creating qualified pipeline and product progress.</p>
@@ -424,7 +418,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
       <details class="faq__item"><summary><h3>Can Tilth support product-led and sales-led SaaS companies?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Yes. The growth system can be adapted to demo-led, sales-led, trial-led or product-led journeys based on the product and customer model.</p></div></details>
       <details class="faq__item"><summary><h3>How does Tilth collaborate with US SaaS teams?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>The engagement can use agreed overlap hours, scheduled reviews, shared documentation and asynchronous updates. The operating rhythm is agreed during setup.</p></div></details>
       <details class="faq__item"><summary><h3>Can Tilth work with an internal sales or product team?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Yes. Growth measurement often requires collaboration across marketing, sales and product. Tilth can work with internal stakeholders to define stages and feedback loops.</p></div></details>
-      <details class="faq__item"><summary><h3>Which metrics matter for SaaS growth?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Useful metrics may include qualified leads, demos, trials, activation, opportunity creation, pipeline and revenue. The right framework depends on the sales motion.</p></div></details>
+      <details class="faq__item"><summary><h3>Which metrics matter for SaaS growth?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Usually the ones that span the marketing and sales handoff: qualified leads, demos or trials, activation, opportunity creation, pipeline and revenue. What matters most is that marketing, sales and product work from the same definitions, so the reporting describes one funnel rather than three separate views of it.</p></div></details>
       <details class="faq__item"><summary><h3>How does an engagement begin?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Tilth reviews the ICP, positioning, acquisition channels, sales or product journey and current measurement to identify the most important growth constraint.</p></div></details>
     </div>
   </div>
@@ -434,7 +428,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   <div class="wrap">
     <span class="label">Next step</span>
     <h2>Create a clearer path from demand to pipeline and product value.</h2>
-    <p>Tell us where the SaaS funnel is losing quality or visibility. We'll help identify what should be clarified, connected or tested next.</p>
+    <p>Tell us how marketing, sales and product currently measure the same funnel, and where pipeline quality becomes unclear. We'll help identify what to connect first and how reviews can run across time zones.</p>
     <div class="cta-band__actions">
       <a class="btn" href="/contact/"><span>Discuss Your SaaS Growth Strategy</span> <span class="arrow">→</span></a>
       
@@ -479,5 +473,6 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   </div>
 </footer>
 <script src="/nav.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>

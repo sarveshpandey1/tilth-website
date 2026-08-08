@@ -177,6 +177,7 @@ ${p.main}
 </main>
 ${footer()}
 <script src="/nav.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>
 `;

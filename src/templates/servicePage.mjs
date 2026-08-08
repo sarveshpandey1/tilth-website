@@ -1,5 +1,5 @@
 import { site, services } from "../data.mjs";
-import { serviceContent } from "../content.mjs";
+import { serviceContent, serviceRelationship } from "../content.mjs";
 import { breadcrumbs, ctaBlock, caseStudySnapshots, esc } from "../render.mjs";
 
 const seoTitle = {
@@ -50,6 +50,14 @@ export function servicePage(slug) {
     </div>
   </div>
 </section>
+
+${serviceRelationship[slug] ? `<section class="gsec svc-rel">
+  <div class="wrap">
+    <span class="label">Related service</span>
+    <h2>${esc(serviceRelationship[slug].heading)}</h2>
+    <p class="intro">${serviceRelationship[slug].body}</p>
+  </div>
+</section>` : ""}
 
 <section class="gsec gsec--light">
   <div class="wrap">
