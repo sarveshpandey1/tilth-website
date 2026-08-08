@@ -21,7 +21,7 @@ export function industryPage(slug) {
   const faqSchema = { "@type": "FAQPage", mainEntity: c.faqs.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) };
 
   const main = `
-<section class="ghero">
+<section class="ghero" id="hero">
   <div class="wrap">
     ${bc.visible}
     <span class="label">${esc(ind.name)}</span>
@@ -34,7 +34,7 @@ export function industryPage(slug) {
   </div>
 </section>
 
-<section class="gsec">
+<section class="gsec" id="constraints">
   <div class="wrap">
     <span class="label">The context</span>
     <h2>Growth constraints in ${esc(ind.name)}.</h2>
@@ -45,7 +45,7 @@ export function industryPage(slug) {
   </div>
 </section>
 
-<section class="gsec gsec--light">
+<section class="gsec gsec--light" id="metrics">
   <div class="wrap">
     <span class="label">What we focus on</span>
     <h2>The metrics that decide ${esc(ind.name)} growth.</h2>
@@ -57,7 +57,7 @@ export function industryPage(slug) {
   </div>
 </section>
 
-<section class="gsec">
+<section class="gsec" id="proof">
   <div class="wrap">
     <span class="label">Evidence</span>
     <h2>Results from comparable engagements.</h2>
@@ -67,7 +67,7 @@ export function industryPage(slug) {
   </div>
 </section>
 
-<section class="gsec gsec--light faq">
+<section class="gsec gsec--light faq" id="faq">
   <div class="wrap">
     <span class="label">Questions</span>
     <h2>${esc(ind.name)} growth, answered.</h2>

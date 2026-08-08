@@ -10,6 +10,7 @@ import servicesIndex from "./src/pages/services-index.mjs";
 import industriesIndex from "./src/pages/industries-index.mjs";
 import workIndex from "./src/pages/work-index.mjs";
 import contact from "./src/pages/contact.mjs";
+import thankYou from "./src/pages/thank-you.mjs";
 import about from "./src/pages/about.mjs";
 import home from "./src/pages/home.mjs";
 import { allServicePages } from "./src/templates/servicePage.mjs";
@@ -27,6 +28,7 @@ const PAGES = [
   ...allIndustryPages,
   workIndex,
   contact,
+  thankYou,
   about,
   ...allRegionHubs,
   ...allRegionChildPages

@@ -21,7 +21,7 @@ const contactSchema = {
 };
 
 const main = `
-<section class="ghero" style="padding-bottom:20px">
+<section class="ghero" id="hero" style="padding-bottom:20px">
   <div class="wrap">
     ${bc.visible}
     <span class="label">Contact</span>
@@ -30,7 +30,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec" style="padding-top:20px">
+<section class="gsec" id="contact-form" style="padding-top:20px">
   <div class="wrap">
     <div class="contact-grid">
       <aside class="contact-aside">
@@ -48,6 +48,8 @@ const main = `
         <input type="hidden" name="_subject" value="New growth enquiry — wearetilth.com">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
+        <!-- return to our own success page so the visitor stays on-brand and generate_lead can fire (T-016) -->
+        <input type="hidden" name="_next" value="https://wearetilth.com/thank-you/">
         <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="row2">

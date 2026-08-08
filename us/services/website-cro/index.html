@@ -65,8 +65,8 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   /* FAQ inside a cream section inherits light-theme tokens — force dark-on-cream */
   .gsec--light .faq__item{border-color:rgba(26,21,16,.14)}
   .gsec--light .faq__item summary{color:#15110B}
-  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#5F7F37}
-  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#5F7F37}
+  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#55722F}
+  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#55722F}
   .gsec--light .faq__ans p{color:#4B4239}
   .faq__item summary h3{font:inherit;color:inherit;margin:0;font-weight:inherit;letter-spacing:inherit}
   html.jsr .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
@@ -142,12 +142,6 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Services",
-          "item": "https://wearetilth.com/services/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
           "name": "Website & CRO",
           "item": "https://wearetilth.com/us/services/website-cro/"
         }
@@ -229,7 +223,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 
 <section class="ghero rhero" id="hero">
   <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/us/">United States</a> <span aria-hidden="true">/</span> <a href="/services/">Services</a> <span aria-hidden="true">/</span> <span>Website &amp; CRO</span></nav>
+    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/us/">United States</a> <span aria-hidden="true">/</span> <span>Website &amp; CRO</span></nav>
     <p class="label">Websites &amp; CRO for US companies</p>
     <h1>Websites and conversion systems built to turn attention into action.</h1>
     <p class="lede">Tilth connects website strategy, UX, development, analytics and conversion optimisation so the experience supports the business outcome it was built to create.</p>
@@ -450,7 +444,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   </div>
 </section>
 
-<section class="cta-band cta-band--terra">
+<section class="cta-band cta-band--terra" id="cta">
   <div class="wrap">
     <span class="label">Next step</span>
     <h2>Build a website that supports the growth system around it.</h2>
@@ -499,5 +493,6 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   </div>
 </footer>
 <script src="/nav.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>

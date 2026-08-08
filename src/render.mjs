@@ -84,7 +84,7 @@ export function caseStudySnapshots() {
 }
 
 export function ctaBlock({ eyebrow = "Start here", heading, body, primary, secondary, tone = "terra" } = {}) {
-  return `<section class="cta-band cta-band--${tone}">
+  return `<section class="cta-band cta-band--${tone}" id="cta">
   <div class="wrap">
     <span class="label">${esc(eyebrow)}</span>
     <h2>${heading}</h2>
@@ -177,6 +177,7 @@ ${p.main}
 </main>
 ${footer()}
 <script src="/nav.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>
 `;

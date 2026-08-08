@@ -27,7 +27,7 @@ const personSchema = founder ? {
 } : null;
 
 const main = `
-<section class="ghero" style="padding-bottom:24px">
+<section class="ghero" id="hero" style="padding-bottom:24px">
   <div class="wrap">
     ${bc.visible}
     <span class="label">About</span>
@@ -36,7 +36,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec">
+<section class="gsec" id="problem">
   <div class="wrap">
     <span class="label">Why Tilth exists</span>
     <h2>The same mistake, repeated across every industry.</h2>
@@ -44,7 +44,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec gsec--light">
+<section class="gsec gsec--light" id="team">
   <div class="wrap">
     <span class="label">How we work</span>
     <h2>Senior, accountable, remote-first.</h2>
@@ -57,7 +57,7 @@ const main = `
   </div>
 </section>
 
-${founder ? `<section class="gsec">
+${founder ? `<section class="gsec" id="founder">
   <div class="wrap">
     <span class="label">Founder</span>
     <div class="founder-panel">
@@ -74,7 +74,7 @@ ${founder ? `<section class="gsec">
   </div>
 </section>` : ""}
 
-<section class="gsec gsec--light">
+<section class="gsec gsec--light" id="outcomes">
   <div class="wrap">
     <span class="label">Evidence</span>
     <h2>Outcomes over vanity metrics.</h2>

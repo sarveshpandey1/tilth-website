@@ -297,3 +297,18 @@ export const industryContent = {
     ]
   }
 };
+
+// Item 2 (owner decision): Performance Marketing is the umbrella service; Paid Media is the
+// specialist execution service beneath it. Each must link contextually to the other, so the
+// relationship is stated in prose rather than left to the generic related-services list
+// (which only surfaces "featured" services and so never showed Paid Media).
+export const serviceRelationship = {
+  "performance-marketing": {
+    heading: "Where Paid Media fits",
+    body: `Performance marketing is the umbrella: strategy, paid acquisition, creative experimentation, tracking, attribution, funnel analysis, conversion, reporting and scaling. When the work narrows to running the channels themselves — Google, Meta and LinkedIn campaign structure, audiences, creative, budget management and platform optimisation — that specialist execution sits under <a href="/services/paid-media/">Paid Media</a>.`
+  },
+  "paid-media": {
+    heading: "How this connects to the wider system",
+    body: `Paid media is the execution layer: campaign structure, audiences, creative, budget management and platform optimisation across Google, Meta and LinkedIn. It performs best inside a wider system — strategy, tracking, attribution, funnel analysis, conversion and reporting — which is where <a href="/services/performance-marketing/">Performance Marketing</a> connects the channel work to business outcomes.`
+  }
+};

@@ -57,7 +57,7 @@ const bc = breadcrumbs([{ name: "Home", path: "/" }, { name: "Services", path: "
 const headExtra = "";
 
 const main = `
-<section class="ghero">
+<section class="ghero" id="hero">
   <div class="wrap">
     ${bc.visible}
     <span class="label">Website Design, Development & CRO</span>
@@ -70,7 +70,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec">
+<section class="gsec" id="problem">
   <div class="wrap">
     <span class="label">The problem</span>
     <h2>A website that looks good but limits growth.</h2>
@@ -81,7 +81,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec gsec--light">
+<section class="gsec gsec--light" id="approach">
   <div class="wrap">
     <span class="label">The approach</span>
     <h2>Strategy, design, build and optimisation — one accountable process.</h2>
@@ -92,7 +92,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec">
+<section class="gsec" id="deliverables">
   <div class="wrap">
     <span class="label">What we build</span>
     <h2>Websites built around your growth strategy.</h2>
@@ -105,7 +105,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec gsec--light faq">
+<section class="gsec gsec--light faq" id="faq">
   <div class="wrap">
     <span class="label">Questions</span>
     <h2>Website design & development, answered.</h2>

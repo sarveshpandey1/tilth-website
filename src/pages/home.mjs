@@ -140,10 +140,10 @@ const headExtra = `<style>
   .faq__item summary h3{font:inherit;color:inherit;margin:0;font-weight:inherit;letter-spacing:inherit}
   .gsec--light .faq__item{border-color:rgba(26,21,16,.14)}
   .gsec--light .faq__item summary{color:#15110B}
-  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#5F7F37}
-  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#5F7F37}
+  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#55722F}
+  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#55722F}
   .gsec--light .faq__ans p{color:#4B4239}
-  .gsec--light .faq__ans a{color:#5F7F37;border-bottom-color:#5F7F37}
+  .gsec--light .faq__ans a{color:#55722F;border-bottom-color:#55722F}
 
   /* Outcome card stats sit in a narrower column than the old full-width band —
      scale the numerals down so values like "₹5L → ₹30L" don't wrap mid-value */
@@ -172,7 +172,7 @@ const headExtra = `<style>
   .statnote{margin-top:24px;font-size:13.5px;color:var(--olive);max-width:60ch}
   /* Evidence is a cream (gsec--light) section on the dark page — force dark-on-cream so numbers/labels stay readable in dark theme */
   .gsec--light .stat-v{color:#15110B}
-  .gsec--light .stat--media .stat-v{color:#5F7F37}
+  .gsec--light .stat--media .stat-v{color:#55722F}
   .gsec--light .stat--rev .stat-v{color:#C2673B}
   .gsec--light .stat-l{color:#4B4239}
   /* Phase 3 — services bento (homepage only): feature first card wide */

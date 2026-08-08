@@ -102,7 +102,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 </header>
 <main id="main">
 
-<section class="ghero" style="padding-bottom:20px">
+<section class="ghero" id="hero" style="padding-bottom:20px">
   <div class="wrap">
     <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <span>Contact</span></nav>
     <span class="label">Contact</span>
@@ -111,7 +111,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   </div>
 </section>
 
-<section class="gsec" style="padding-top:20px">
+<section class="gsec" id="contact-form" style="padding-top:20px">
   <div class="wrap">
     <div class="contact-grid">
       <aside class="contact-aside">
@@ -129,6 +129,8 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
         <input type="hidden" name="_subject" value="New growth enquiry — wearetilth.com">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
+        <!-- return to our own success page so the visitor stays on-brand and generate_lead can fire (T-016) -->
+        <input type="hidden" name="_next" value="https://wearetilth.com/thank-you/">
         <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="row2">
@@ -189,5 +191,6 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   </div>
 </footer>
 <script src="/nav.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>

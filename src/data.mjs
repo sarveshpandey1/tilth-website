@@ -83,7 +83,7 @@ export const homeIndustries = [
 export const homeServices = [
   { n: "01", name: "Growth Strategy & Measurement", href: "/services/growth-strategy-measurement/",
     desc: "Growth audits, funnel strategy, GA4, conversion tracking, attribution and decision-ready dashboards." },
-  { n: "02", name: "Paid Media & Performance Marketing", href: "/services/performance-marketing/",
+  { n: "02", name: "Performance Marketing", href: "/services/performance-marketing/",
     desc: "Google, Meta and LinkedIn campaigns, media planning, experimentation, creative testing and budget optimisation tied to revenue." },
   { n: "03", name: "SEO & Content Marketing", href: "/services/seo-ai-search/",
     desc: "Technical SEO, on-page SEO, commercial keyword strategy, content systems and visibility across Google and AI search." },
@@ -122,10 +122,10 @@ export const homeFaqs = [
     a: `A growth marketing agency works across the whole funnel rather than a single channel — strategy and measurement, paid media, SEO and content, affiliate and partnerships, and website conversion. At Tilth those sit with <a href="/services/">one accountable partner</a> so strategy, execution and measurement stay connected instead of being split across vendors.` },
   { q: "How is Tilth different from a performance marketing agency?",
     a: `A performance marketing agency usually starts with channels and budget. Tilth is foundation-first: most growth problems are not channel problems — they come from weak tracking, unclear positioning, fragmented funnels or low conversion. We diagnose the constraint, fix the system, then scale the channels that prove their value. <a href="/approach/">See the approach</a>.` },
-  { q: "Does Tilth work with companies in the US?",
-    a: `Yes. Tilth is India-rooted and works with brands internationally, with remote-first collaboration and working overlap that keeps projects moving. The team is based in Bengaluru, India — there is no separate US office or entity — and the measurement and funnel work is built for how demanding markets like the US research, convert and churn. <a href="/contact/">Talk to us about your market</a>.` },
-  { q: "What is a growth foundation audit?",
-    a: `A diagnostic engagement across strategy, tracking, website, funnel, campaigns, SEO, partnerships and measurement. You receive an audit report, the priority issues, a measurement review, a channel review and a recommended roadmap — so you know where growth is actually leaking before committing more spend. <a href="/contact/">Request a foundation audit</a>.` },
+  { q: "Do you work with companies outside India?",
+    a: `Yes. Tilth is based in Bengaluru and works with brands across markets, including the United States. Collaboration is structured around agreed reviews, shared documentation and the client's operating rhythm rather than a single location, and recommendations are grounded in your customer, category and data rather than assumptions about a market. <a href="/contact/">Talk to us about your market</a>.` },
+  { q: "What does foundation-first mean?",
+    a: `It means fixing the growth system before increasing spend. Most growth problems are not channel problems — they come from weak tracking, unclear positioning, fragmented funnels or low conversion. We diagnose the constraint, build the measurement and funnel underneath it, and only then scale the channels that prove their value. <a href="/approach/">See the approach</a>.` },
   { q: "What engagement models does Tilth offer?",
     a: `Three. A <strong>Foundation Audit</strong> — a diagnostic across the growth system. A <strong>Growth Project</strong> — fixed scope such as a website build, tracking rebuild, paid-media setup, SEO strategy or affiliate program. And an <strong>Ongoing Growth Partnership</strong> — continuing strategy, execution, optimisation, reporting and testing. <a href="/contact/">Discuss which fits</a>.` }
 ];

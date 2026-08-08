@@ -65,8 +65,8 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   /* FAQ inside a cream section inherits light-theme tokens — force dark-on-cream */
   .gsec--light .faq__item{border-color:rgba(26,21,16,.14)}
   .gsec--light .faq__item summary{color:#15110B}
-  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#5F7F37}
-  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#5F7F37}
+  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#55722F}
+  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#55722F}
   .gsec--light .faq__ans p{color:#4B4239}
   .faq__item summary h3{font:inherit;color:inherit;margin:0;font-weight:inherit;letter-spacing:inherit}
   html.jsr .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
@@ -142,12 +142,6 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Industries",
-          "item": "https://wearetilth.com/industries/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
           "name": "FinTech",
           "item": "https://wearetilth.com/india/industries/fintech/"
         }
@@ -229,7 +223,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 
 <section class="ghero rhero" id="hero">
   <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/india/">India</a> <span aria-hidden="true">/</span> <a href="/industries/">Industries</a> <span aria-hidden="true">/</span> <span>FinTech</span></nav>
+    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/india/">India</a> <span aria-hidden="true">/</span> <span>FinTech</span></nav>
     <p class="label">FinTech growth in India</p>
     <h1>Growth marketing for FinTech brands operating in India.</h1>
     <p class="lede">Tilth connects trust, education, acquisition, onboarding and measurement so FinTech growth is built around the stages that create real customer value.</p>
@@ -400,7 +394,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   </div>
 </section>
 
-<section class="cta-band cta-band--terra">
+<section class="cta-band cta-band--terra" id="cta">
   <div class="wrap">
     <span class="label">Next step</span>
     <h2>Build FinTech growth around trust, activation and measurable progress.</h2>
@@ -449,5 +443,6 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   </div>
 </footer>
 <script src="/nav.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>
