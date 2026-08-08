@@ -21,7 +21,7 @@ const contactSchema = {
 };
 
 const main = `
-<section class="ghero" style="padding-bottom:20px">
+<section class="ghero" id="hero" style="padding-bottom:20px">
   <div class="wrap">
     ${bc.visible}
     <span class="label">Contact</span>
@@ -30,7 +30,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec" style="padding-top:20px">
+<section class="gsec" id="contact-form" style="padding-top:20px">
   <div class="wrap">
     <div class="contact-grid">
       <aside class="contact-aside">

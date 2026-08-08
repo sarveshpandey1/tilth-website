@@ -28,7 +28,7 @@ export function servicePage(slug) {
   };
 
   const main = `
-<section class="ghero">
+<section class="ghero" id="hero">
   <div class="wrap">
     ${bc.visible}
     <span class="label">${esc(svc.name)}</span>
@@ -41,7 +41,7 @@ export function servicePage(slug) {
   </div>
 </section>
 
-<section class="gsec">
+<section class="gsec" id="problem">
   <div class="wrap">
     <span class="label">The problem</span>
     <h2>${esc(c.problemsHeading)}.</h2>
@@ -51,7 +51,7 @@ export function servicePage(slug) {
   </div>
 </section>
 
-${serviceRelationship[slug] ? `<section class="gsec svc-rel">
+${serviceRelationship[slug] ? `<section class="gsec svc-rel" id="related-service">
   <div class="wrap">
     <span class="label">Related service</span>
     <h2>${esc(serviceRelationship[slug].heading)}</h2>
@@ -59,7 +59,7 @@ ${serviceRelationship[slug] ? `<section class="gsec svc-rel">
   </div>
 </section>` : ""}
 
-<section class="gsec gsec--light">
+<section class="gsec gsec--light" id="approach">
   <div class="wrap">
     <span class="label">The approach</span>
     <h2>${esc(c.approachHeading)}.</h2>
@@ -70,7 +70,7 @@ ${serviceRelationship[slug] ? `<section class="gsec svc-rel">
   </div>
 </section>
 
-<section class="gsec">
+<section class="gsec" id="deliverables">
   <div class="wrap">
     <span class="label">What you get</span>
     <h2>Deliverables that make growth measurable.</h2>
@@ -81,7 +81,7 @@ ${serviceRelationship[slug] ? `<section class="gsec svc-rel">
   </div>
 </section>
 
-<section class="gsec gsec--light faq">
+<section class="gsec gsec--light faq" id="faq">
   <div class="wrap">
     <span class="label">Questions</span>
     <h2>${esc(svc.name)}, answered.</h2>

@@ -24,7 +24,7 @@ const engageCard = (e) => `<div class="engage-card">
 const itemList = { "@type": "ItemList", itemListElement: services.map((s, i) => ({ "@type": "ListItem", position: i + 1, name: s.name, url: `${site.base}/services/${s.slug}/` })) };
 
 const main = `
-<section class="ghero">
+<section class="ghero" id="hero">
   <div class="wrap">
     ${bc.visible}
     <span class="label">Services</span>
@@ -37,7 +37,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec gsec--light">
+<section class="gsec gsec--light" id="core-services">
   <div class="wrap">
     <span class="label">Core growth services</span>
     <h2>Where most engagements begin.</h2>
@@ -47,7 +47,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec">
+<section class="gsec" id="brand-creative">
   <div class="wrap">
     <span class="label">Also</span>
     <h2>Distribution, brand and creative.</h2>
@@ -57,7 +57,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec gsec--light">
+<section class="gsec gsec--light" id="engagement-models">
   <div class="wrap">
     <span class="label">Ways to work with Tilth</span>
     <h2>Three ways to engage.</h2>

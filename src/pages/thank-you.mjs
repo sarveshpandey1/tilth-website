@@ -12,7 +12,7 @@ import { orgSchema, esc } from "../render.mjs";
 const path = "/thank-you/";
 
 const main = `
-<section class="ghero">
+<section class="ghero" id="hero">
   <div class="wrap">
     <p class="label">Enquiry received</p>
     <h1>Thanks — your message is with us.</h1>
@@ -24,7 +24,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec gsec--light">
+<section class="gsec gsec--light" id="next-reads">
   <div class="wrap">
     <p class="label">While you wait</p>
     <h2>A few things worth reading.</h2>

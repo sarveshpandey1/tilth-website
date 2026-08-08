@@ -48,6 +48,7 @@
     if (path === "/services/") return "services_index";
     if (path === "/industries/") return "industries_index";
     if (path === "/contact/") return "contact";
+    if (path === "/thank-you/") return "thank_you";
     if (path === "/work/") return "work";
     if (path === "/approach/") return "approach";
     if (path === "/about/") return "about";

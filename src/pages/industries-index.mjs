@@ -15,7 +15,7 @@ const card = (ind, i) => `<a class="gcard" href="/industries/${ind.slug}/">
 const itemList = { "@type": "ItemList", itemListElement: industries.map((s, i) => ({ "@type": "ListItem", position: i + 1, name: s.name, url: `${site.base}/industries/${s.slug}/` })) };
 
 const main = `
-<section class="ghero">
+<section class="ghero" id="hero">
   <div class="wrap">
     ${bc.visible}
     <span class="label">Industries</span>
@@ -28,7 +28,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec gsec--light">
+<section class="gsec gsec--light" id="industries">
   <div class="wrap">
     <span class="label">Sectors</span>
     <h2>Where we work.</h2>

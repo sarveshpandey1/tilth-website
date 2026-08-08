@@ -7,7 +7,7 @@ const bc = breadcrumbs([{ name: "Home", path: "/" }, { name: "Work", path }]);
 const hasApprovedNamed = clients.some(c => c.caseStudyApproved);
 
 const main = `
-<section class="ghero">
+<section class="ghero" id="hero">
   <div class="wrap">
     ${bc.visible}
     <span class="label">Work</span>
@@ -20,7 +20,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec gsec--light">
+<section class="gsec gsec--light" id="clients">
   <div class="wrap">
     <span class="label">Selected experience</span>
     <h2>Teams we've helped grow.</h2>
@@ -28,7 +28,7 @@ const main = `
   </div>
 </section>
 
-<section class="gsec">
+<section class="gsec" id="case-studies">
   <div class="wrap">
     <span class="label">Result snapshots</span>
     <h2>Outcomes from real engagements.</h2>
