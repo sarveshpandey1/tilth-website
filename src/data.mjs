@@ -317,7 +317,7 @@ export const homeV3 = {
       body: "Partner validation, commercial model, tracking and fraud controls, built ground up. Within a year it carried 5–6% of total volume as the lowest-CAC channel in the mix.", publishApproved: true },
     { cat: "d2c", tag: "D2C", dur: "6 MONTHS", m1: "+64%", l1: "CONVERSION RATE", m2: "−31%", l2: "BLENDED CAC",
       title: "A site that finally earned its traffic",
-      body: "The ads were fine; the landing experience wasn't. Message-to-page mapping and a conversion rebuild lifted every paid channel at once, without adding budget.", publishApproved: true },
+      body: "The ads were fine; the landing experience wasn’t. Message-to-page mapping and a conversion rebuild lifted every paid channel at once, without adding budget.", publishApproved: true },
     { cat: "saas", tag: "SAAS", dur: "8 MONTHS", m1: "2.4×", l1: "QUALIFIED PIPELINE", m2: "−22%", l2: "COST PER SQL",
       title: "Pipeline that sales agreed was pipeline",
       body: "Lead scoring and stage definitions were rewritten with the sales team, then paid search was restructured around the intent that actually closed.", publishApproved: true }
