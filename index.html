@@ -10,168 +10,46 @@
 if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
 ['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});})();</script>
 <title>Growth Marketing Agency for India &amp; US Brands | Tilth</title>
-<meta name="description" content="Tilth is a founder-led growth marketing agency helping brands across India and the US improve strategy, paid media, SEO, conversion and measurement.">
+<meta name="description" content="Tilth is a founder-led growth marketing agency. We strengthen the foundations beneath growth — measurement, funnel, positioning and creative — then scale performance against verified return.">
 <link rel="canonical" href="https://wearetilth.com/">
 
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="website">
-<meta property="og:title" content="A growth marketing agency built for measurable, sustainable growth">
-<meta property="og:description" content="Founder-led, foundation-first growth marketing for brands across India and the US — strategy, paid media, SEO, conversion and measurement.">
+<meta property="og:title" content="Depth before growth">
+<meta property="og:description" content="A growth marketing agency built on stronger foundations. Diagnose before you prescribe; scale only what the system can carry.">
 <meta property="og:url" content="https://wearetilth.com/">
 <meta property="og:image" content="https://wearetilth.com/og-image.png">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="A growth marketing agency built for measurable, sustainable growth">
-<meta name="twitter:description" content="Founder-led, foundation-first growth marketing for brands across India and the US — strategy, paid media, SEO, conversion and measurement.">
+<meta name="twitter:title" content="Depth before growth">
+<meta name="twitter:description" content="A growth marketing agency built on stronger foundations. Diagnose before you prescribe; scale only what the system can carry.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
-<!-- The hero H1's <em> is Fraunces italic and is part of the LCP element. Without this
-     preload it was discovered only after CSS parsed and took ~9s on throttled mobile. -->
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-variable.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/assets/generated.css">
-<style>
-  /* Hero intent rotator — kept at owner's request. Links live in the DOM (SEO); JS only cycles visibility */
-  .hero-rotator{font-family:'Fraunces',serif;font-size:clamp(19px,2.6vw,28px);line-height:1.2;margin:16px 0 24px;color:var(--text)}
-  .hero-rotator .rot{position:relative;display:inline-block;min-width:14ch}
-  .hero-rotator .rot__item{position:absolute;left:0;top:0;white-space:nowrap;opacity:0;pointer-events:none;transform:translateY(.28em);transition:opacity .45s ease,transform .45s ease;color:var(--terra);font-style:italic;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:1px}
-  .hero-rotator .rot__item.is-active{position:relative;opacity:1;pointer-events:auto;transform:none}
-  /* On narrow screens the longest phrase ("Growth Strategy & Measurement") overflowed the
-     viewport because the items are nowrap. Allow wrapping and reserve two lines so the
-     swap doesn't shift layout (CLS) as phrases of different length cycle through. */
-  @media(max-width:560px){
-    .hero-rotator{font-size:clamp(17px,4.4vw,22px)}
-    .hero-rotator .rot{min-width:0;max-width:100%;min-height:2.4em;vertical-align:top}
-    .hero-rotator .rot__item{white-space:normal;max-width:100%}
-  }
-  .ghero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px}
-  .hero-cred{margin-top:26px;font-size:15px;color:var(--text)}
-  .cap__n{display:block;font-family:'Fraunces',serif;color:var(--terra);font-size:14px;margin-bottom:6px}
+<link rel="stylesheet" href="/assets/brand-v3.css">
 
-  /* Compact strips (original design): pinned terracotta label left, content right.
-     Brands scroll; industries are static links. The two sit flush so they read as one
-     band under the hero — adjacent borders collapse to a single rule. */
-  .strip{display:flex;align-items:stretch;border-top:1px solid var(--rule)}
-  .strip--static{border-bottom:1px solid var(--rule)}
-  .strip__label{flex:none;display:flex;align-items:center;font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(15px,1.9vw,20px);line-height:1.2;color:var(--terra);white-space:nowrap;margin:0;padding:14px 22px 14px 6vw;background:var(--bg);border-right:1px solid var(--rule);position:relative;z-index:2}
-  .strip__vp{flex:1;min-width:0;overflow:hidden;padding:14px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 92%,transparent)}
-  .strip__track{display:flex;width:max-content;animation:tilth-marquee 34s linear infinite}
-  .strip:hover .strip__track,.strip:focus-within .strip__track{animation-play-state:paused}
-  .strip__set{display:flex;align-items:center;list-style:none;margin:0;padding:0}
-  .strip__item{font-family:'Fraunces',serif;font-size:clamp(16px,2vw,20px);color:var(--text);padding:0 26px;white-space:nowrap}
-  .strip__item::after{content:"·";margin-left:26px;color:var(--terra)}
-  .strip__item img{display:block;height:24px;width:auto;object-fit:contain}
-  .strip__item a{color:var(--text);text-decoration:none;transition:color .25s}
-  .strip__item a:hover,.strip__item a:focus-visible{color:var(--glow)}
-  /* static industries: no trailing separator, and the list may wrap on narrow screens */
-  .strip__set--static{flex-wrap:wrap;row-gap:6px}
-  .strip__set--static .strip__item:last-child::after{content:"";margin:0}
-  .strip--static .strip__vp{-webkit-mask-image:none;mask-image:none}
-  @keyframes tilth-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  /* narrow screens: a long pinned label crowds the strip, so stack it above a full-width row */
-  @media(max-width:640px){
-    .strip{flex-direction:column;align-items:stretch}
-    .strip__label{border-right:0;border-bottom:1px solid var(--rule);padding:11px 6vw;font-size:14px;justify-content:flex-start}
-    .strip__vp{padding:12px 0}
-    .strip__set--static{padding:0 6vw}
-    .strip__item{padding:0 18px}
-    .strip__item::after{margin-left:18px}
-    .strip__set--static .strip__item:first-child{padding-left:0}
-  }
-
-  /* Selected Growth Outcomes — proof cards */
-  .ocards{display:grid;gap:18px;margin-top:var(--space-block)}
-  @media(min-width:900px){.ocards{grid-template-columns:3fr 2fr;align-items:start}}
-  .ocard{border:1px solid var(--rule);border-radius:14px;padding:26px}
-  .ocard__h{font-family:'Fraunces',serif;font-weight:500;font-size:20px;color:var(--ink);margin:0 0 16px}
-  .ocard__p{font-size:15px;line-height:1.6;color:var(--text);margin:16px 0 0}
-  .ocard .statband{margin-top:0}
-
-  /* Why Tilth — four benefit cards */
-  .whygrid{display:grid;gap:16px;margin-top:var(--space-block)}
-  @media(min-width:720px){.whygrid{grid-template-columns:1fr 1fr}}
-  .whycard{border-left:2px solid var(--terra);padding:4px 0 4px 18px}
-  .whycard h3{font-family:'Fraunces',serif;font-weight:500;font-size:18px;color:var(--ink);margin:0 0 6px}
-  .whycard p{font-size:14.5px;line-height:1.6;color:var(--text);margin:0}
-  .gsec--light .whycard h3{color:#15110B}
-  .gsec--light .whycard p{color:#4B4239}
-
-  /* FAQ sits in a cream (gsec--light) section on the dark-default page. The shared
-     .faq__* styles use light-theme tokens, so force dark-on-cream or the questions
-     render invisible (same class of bug as the stat band). */
-  /* the question is an <h3> for the outline — strip heading defaults so it keeps
-     the summary's typography and flex layout exactly as before */
-  .faq__item summary h3{font:inherit;color:inherit;margin:0;font-weight:inherit;letter-spacing:inherit}
-  .gsec--light .faq__item{border-color:rgba(26,21,16,.14)}
-  .gsec--light .faq__item summary{color:#15110B}
-  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#55722F}
-  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#55722F}
-  .gsec--light .faq__ans p{color:#4B4239}
-  .gsec--light .faq__ans a{color:#55722F;border-bottom-color:#55722F}
-
-  /* Outcome card stats sit in a narrower column than the old full-width band —
-     scale the numerals down so values like "₹5L → ₹30L" don't wrap mid-value */
-  /* cap below the shared band's 34px: the card column stops widening at the wrap
-     max-width while the font kept scaling, so "₹5L → ₹30L" broke onto two lines */
-  .ocard .stat-v{font-size:clamp(22px,2.2vw,30px);white-space:nowrap}
-  .ocard .stat-l{font-size:12.5px}
-  .ocard .statband{gap:18px}
-  @media(min-width:720px){.ocard .statband{gap:20px}}
-
-  /* Latest Insights — static cards, no auto-slider */
-  .igrid{display:grid;gap:16px;margin-top:var(--space-block)}
-  @media(min-width:760px){.igrid{grid-template-columns:repeat(3,1fr)}}
-  .icard{border:1px solid var(--rule);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px}
-  .icard__date{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--glow)}
-  .icard__title{font-family:'Fraunces',serif;font-weight:500;font-size:18px;line-height:1.3;margin:0}
-  .icard__title a{color:var(--ink);text-decoration:none}
-  .icard__title a:hover,.icard__title a:focus-visible{color:var(--glow)}
-  .icard__ex{font-size:14px;line-height:1.6;color:var(--text);margin:0}
-  /* Phase 3 — evidence stat band */
-  .statband{display:grid;grid-template-columns:1fr;gap:24px;margin-top:var(--space-block)}
-  @media(min-width:720px){.statband{grid-template-columns:repeat(3,1fr);gap:32px}}
-  .stat-v{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,5vw,52px);line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums;color:var(--ink)}
-  .stat-l{display:block;margin-top:10px;font-size:13.5px;color:var(--text);letter-spacing:.3px}
-  .stat--media .stat-v{color:var(--glow)} .stat--rev .stat-v{color:var(--terra)}
-  .statnote{margin-top:24px;font-size:13.5px;color:var(--olive);max-width:60ch}
-  /* Evidence is a cream (gsec--light) section on the dark page — force dark-on-cream so numbers/labels stay readable in dark theme */
-  .gsec--light .stat-v{color:#15110B}
-  .gsec--light .stat--media .stat-v{color:#55722F}
-  .gsec--light .stat--rev .stat-v{color:#C2673B}
-  .gsec--light .stat-l{color:#4B4239}
-  /* Phase 3 — services bento (homepage only): feature first card wide */
-  @media(min-width:1000px){.card-grid .gcard--wide{grid-column:span 2}}
-  /* Phase 4 — scroll reveal (JS-gated via html.jsr; reduced-motion never sets it) */
-  html.jsr .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-  html.jsr .reveal.in{opacity:1;transform:none}
-  /* Phase 4 — mobile sticky CTA */
-  .sticky-cta{display:none}
-  @media(max-width:900px){
-    .sticky-cta{position:fixed;left:14px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:60;display:flex;justify-content:center;align-items:center;gap:8px;background:var(--glow);color:var(--bg);font-weight:600;font-size:15px;padding:15px 20px;border-radius:40px;box-shadow:0 12px 30px rgba(0,0,0,.45);opacity:0;transform:translateY(24px);pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease)}
-    .sticky-cta.show{opacity:1;transform:none;pointer-events:auto}
-  }
-  @media (prefers-reduced-motion: reduce){.sticky-cta{transition:none}}
-  /* Reduced motion: the brand strip becomes a static, wrapping, fully readable list */
-  @media (prefers-reduced-motion: reduce){
-    .strip__track{animation:none;width:auto;flex-wrap:wrap}
-    .strip__set{flex-wrap:wrap;row-gap:6px}
-    .strip__vp{-webkit-mask-image:none;mask-image:none}
-    .strip__track > .strip__set[aria-hidden="true"]{display:none}
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wearetilth.com/#website",
+      "name": "Tilth",
+      "alternateName": "We Are Tilth",
+      "url": "https://wearetilth.com/",
+      "publisher": {
+        "@id": "https://wearetilth.com/#org"
+      }
+    },
     {
       "@type": [
         "ProfessionalService",
@@ -209,346 +87,455 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
         "https://x.com/Anuja_tilth",
         "https://www.facebook.com/profile.php?id=61590502284155"
       ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://wearetilth.com/#website",
-      "name": "Tilth",
-      "alternateName": "We Are Tilth",
-      "url": "https://wearetilth.com/",
-      "publisher": {
-        "@id": "https://wearetilth.com/#org"
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What does a growth marketing agency do?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A growth marketing agency works across the whole funnel rather than a single channel — strategy and measurement, paid media, SEO and content, affiliate and partnerships, and website conversion. At Tilth those sit with one accountable partner so strategy, execution and measurement stay connected instead of being split across vendors."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How is Tilth different from a performance marketing agency?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A performance marketing agency usually starts with channels and budget. Tilth is foundation-first: most growth problems are not channel problems — they come from weak tracking, unclear positioning, fragmented funnels or low conversion. We diagnose the constraint, fix the system, then scale the channels that prove their value. See the approach."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you work with companies outside India?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Tilth is based in Bengaluru and works with brands across markets, including the United States. Collaboration is structured around agreed reviews, shared documentation and the client's operating rhythm rather than a single location, and recommendations are grounded in your customer, category and data rather than assumptions about a market. Talk to us about your market."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What does foundation-first mean?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "It means fixing the growth system before increasing spend. Most growth problems are not channel problems — they come from weak tracking, unclear positioning, fragmented funnels or low conversion. We diagnose the constraint, build the measurement and funnel underneath it, and only then scale the channels that prove their value. See the approach."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What engagement models does Tilth offer?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Three. A Foundation Audit — a diagnostic across the growth system. A Growth Project — fixed scope such as a website build, tracking rebuild, paid-media setup, SEO strategy or affiliate program. And an Ongoing Growth Partnership — continuing strategy, execution, optimisation, reporting and testing. Discuss which fits."
-          }
-        }
-      ]
     }
   ]
 }
 </script>
 </head>
-<body>
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav aria-label="Primary">
+<body class="v3 v3-home">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
+    </nav>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">00.0m</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
+  </div>
+</header>
+
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
       <a href="/services/">Services</a>
       <a href="/industries/">Industries</a>
       <a href="/work/">Work</a>
       <a href="/approach/">Approach</a>
       <a href="/insights/">Insights</a>
       <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
     </nav>
-    <div class="meta">India-rooted · Working across markets</div>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
   </div>
-</header>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
 <main id="main">
 
-<section class="ghero" id="hero">
-  <div class="wrap">
-    <p class="label">Founder-led · Foundation-first</p>
-    <h1>A growth marketing agency built for <em>measurable, sustainable growth</em>.</h1>
-    <p class="hero-rotator">Looking for <span class="rot"><a class="rot__item is-active" href="/services/paid-media/">paid media that scales</a><a class="rot__item" href="/services/seo-ai-search/" aria-hidden="true" tabindex="-1">SEO that compounds</a><a class="rot__item" href="/services/affiliate-partnerships/" aria-hidden="true" tabindex="-1">an affiliate channel that performs</a><a class="rot__item" href="/services/website-design-development/" aria-hidden="true" tabindex="-1">a website that converts</a><a class="rot__item" href="/services/growth-strategy-measurement/" aria-hidden="true" tabindex="-1">a growth strategy built on evidence</a></span>?</p>
-    <p class="lede">We strengthen your strategy, funnel, creative and measurement—then scale what delivers measurable returns.</p>
-    <div class="actions">
-      <a class="btn" href="/contact/"><span>Discuss Your Growth Strategy</span> <span class="arrow">→</span></a>
-      <a class="text-cta" href="/work/">See Our Work →</a>
-    </div>
-    <p class="hero-cred">10+ years of hands-on growth experience</p>
+<section class="v3-hero v3-sec--grid" id="top" data-depth-label="00.0m">
+  <div class="v3-hero__kicker v3-mono">
+    <span class="is-moss">GROWTH MARKETING AGENCY</span>
+    <span>FOUNDER-LED / INDIA-ROOTED / GLOBAL</span>
   </div>
-</section>
 
-<section class="strip" id="brand-experience" aria-labelledby="brand-experience-h">
-  <h2 class="strip__label" id="brand-experience-h">Selected Brand Experience</h2>
-  <div class="strip__vp"><div class="strip__track"><ul class="strip__set"><li class="strip__item">PayDirect</li><li class="strip__item">Ommora</li><li class="strip__item">Density Exchange</li><li class="strip__item">CareerLabs</li><li class="strip__item">FusionFit</li><li class="strip__item">Demi.AI</li></ul><ul class="strip__set" aria-hidden="true"><li class="strip__item">PayDirect</li><li class="strip__item">Ommora</li><li class="strip__item">Density Exchange</li><li class="strip__item">CareerLabs</li><li class="strip__item">FusionFit</li><li class="strip__item">Demi.AI</li></ul></div></div>
-</section>
+  <h1 class="v3-h1" data-v3-h1>Depth<br>before<br><span class="is-moss">growth</span></h1>
 
-<section class="strip strip--static" id="industries" aria-labelledby="industries-h">
-  <h2 class="strip__label" id="industries-h">Industries We Know</h2>
-  <div class="strip__vp"><ul class="strip__set strip__set--static"><li class="strip__item"><a href="/industries/saas/">SaaS</a></li><li class="strip__item"><a href="/industries/d2c-ecommerce/">D2C &amp; Ecommerce</a></li><li class="strip__item"><a href="/industries/fintech/">FinTech</a></li><li class="strip__item"><a href="/industries/edtech/">EdTech</a></li></ul></div>
-</section>
-
-<section class="gsec reveal" id="services" aria-labelledby="services-h">
-  <div class="wrap">
-    <p class="label">What We Do</p>
-    <h2 id="services-h">Growth marketing services built around the full funnel.</h2>
-    <p class="intro">One accountable partner connecting strategy, execution and measurement.</p>
-    <div class="card-grid">
-      <article class="gcard gcard--featured">
-      <span class="gcard__n">01</span>
-      <h3 class="gcard__name"><a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a></h3>
-      <p class="gcard__desc">Growth audits, funnel strategy, GA4, conversion tracking, attribution and decision-ready dashboards.</p>
-      <span class="gcard__more" aria-hidden="true">Explore →</span>
-    </article>
-      <article class="gcard gcard--featured">
-      <span class="gcard__n">02</span>
-      <h3 class="gcard__name"><a href="/services/performance-marketing/">Performance Marketing</a></h3>
-      <p class="gcard__desc">Google, Meta and LinkedIn campaigns, media planning, experimentation, creative testing and budget optimisation tied to revenue.</p>
-      <span class="gcard__more" aria-hidden="true">Explore →</span>
-    </article>
-      <article class="gcard gcard--featured">
-      <span class="gcard__n">03</span>
-      <h3 class="gcard__name"><a href="/services/seo-ai-search/">SEO &amp; Content Marketing</a></h3>
-      <p class="gcard__desc">Technical SEO, on-page SEO, commercial keyword strategy, content systems and visibility across Google and AI search.</p>
-      <span class="gcard__more" aria-hidden="true">Explore →</span>
-    </article>
-      <article class="gcard gcard--featured">
-      <span class="gcard__n">04</span>
-      <h3 class="gcard__name"><a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a></h3>
-      <p class="gcard__desc">Partner strategy, discovery, commercial models, tracking, fraud controls and performance optimisation.</p>
-      <span class="gcard__more" aria-hidden="true">Explore →</span>
-    </article>
-      <article class="gcard gcard--featured">
-      <span class="gcard__n">05</span>
-      <h3 class="gcard__name"><a href="/services/website-design-development/">Websites &amp; Conversion Optimisation</a></h3>
-      <p class="gcard__desc">Strategy, UX, design, development, analytics, SEO foundations, accessibility and CRO in one coordinated process.</p>
-      <span class="gcard__more" aria-hidden="true">Explore →</span>
-    </article>
+  <div class="v3-strata" data-v3-strata aria-hidden="true">
+    <div class="v3-stratum" data-v3-stratum="0">
+      <span class="v3-stratum__bar"></span>
+      <span class="v3-stratum__label">DISTRIBUTION</span>
     </div>
-    <div class="actions" style="margin-top:28px"><a class="text-cta" href="/services/">Explore All Services →</a></div>
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="approach" aria-labelledby="approach-h">
-  <div class="wrap">
-    <p class="label">How We Work</p>
-    <h2 id="approach-h">Fix the bottleneck before you scale the budget.</h2>
-    <p class="intro">Most growth problems are not channel problems. They come from weak tracking, unclear positioning, fragmented funnels or low conversion. We diagnose the constraint first, fix the system, then scale the channels that prove their value.</p>
-    <div class="cap-grid">
-      <div class="cap"><span class="cap__n">01</span><h3>Diagnose the constraint</h3><p>We audit acquisition, tracking, funnel, creative and conversion to identify what is limiting growth before recommending more spend.</p></div>
-      <div class="cap"><span class="cap__n">02</span><h3>Build the growth system</h3><p>We fix measurement, define funnel stages, sharpen positioning and establish a repeatable testing process.</p></div>
-      <div class="cap"><span class="cap__n">03</span><h3>Scale what works</h3><p>We increase investment only after performance is measurable, repeatable and connected to agreed business outcomes.</p></div>
+    <div class="v3-stratum" data-v3-stratum="1">
+      <span class="v3-stratum__bar"></span>
+      <span class="v3-stratum__label">CREATIVE</span>
     </div>
-    <div class="actions" style="margin-top:28px"><a class="text-cta" href="/approach/">Explore the Tilth Approach →</a></div>
-  </div>
-</section>
-
-<section class="gsec reveal" id="outcomes" aria-labelledby="outcomes-h">
-  <div class="wrap">
-    <p class="label">Selected Outcomes</p>
-    <h2 id="outcomes-h">Selected growth outcomes.</h2>
-    <p class="intro">Selected outcomes from client work. Some names are withheld under confidentiality agreements.</p>
-    <div class="ocards">
-      <article class="ocard">
-        <h3 class="ocard__h">EdTech acquisition &amp; measurement</h3>
-        <div class="statband">
-          <div class="stat stat--media"><span class="stat-v">₹5L → ₹30L</span><span class="stat-l">Monthly media investment, scaled</span></div>
-          <div class="stat stat--rev"><span class="stat-v" data-count="1.5" data-decimals="1" data-prefix="₹" data-suffix="Cr">₹1.5Cr</span><span class="stat-l">Monthly revenue reached</span></div>
-          <div class="stat stat--ret"><span class="stat-v" data-count="5" data-suffix="×">5×</span><span class="stat-l">Return on ad spend</span></div>
-        </div>
-        <p class="ocard__p">Rebuilt conversion tracking and campaign structure, then scaled monthly media investment against verified return.</p>
-      </article>
-      <article class="ocard">
-        <h3 class="ocard__h">FinTech affiliate growth</h3>
-        <p class="ocard__p">Built the channel from the ground up — partner validation, commercial model, tracking and fraud controls — growing affiliate contribution from near zero to ~5–6% of total trading volume within a year.</p>
-      </article>
+    <div class="v3-stratum" data-v3-stratum="2">
+      <span class="v3-stratum__bar"></span>
+      <span class="v3-stratum__label">FUNNEL</span>
     </div>
-    <div class="actions" style="margin-top:28px"><a class="text-cta" href="/work/">View Selected Work →</a></div>
+    <div class="v3-stratum" data-v3-stratum="3">
+      <span class="v3-stratum__bar"></span>
+      <span class="v3-stratum__label">POSITIONING</span>
+    </div>
+    <div class="v3-stratum" data-v3-stratum="4">
+      <span class="v3-stratum__bar" data-v3-deep-bar></span>
+      <span class="v3-stratum__label" data-v3-deep-label>MEASUREMENT</span>
+    </div>
   </div>
-</section>
 
-<section class="gsec gsec--light reveal" id="why-tilth" aria-labelledby="why-tilth-h">
-  <div class="wrap">
-    <p class="label">Why Tilth</p>
-    <h2 id="why-tilth-h">Senior thinking, close to the work.</h2>
-    <p class="intro">No junior handoff. No channel-first recommendations. Strategy, execution and measurement stay connected from diagnosis through scale.</p>
-    <div class="whygrid">
-      <div class="whycard"><h3>Founder-led strategy</h3><p>Senior strategy on every engagement — you are not handed to a junior team after the pitch.</p></div>
-      <div class="whycard"><h3>Senior execution</h3><p>The people who diagnose the problem stay on the work that fixes it.</p></div>
-      <div class="whycard"><h3>One accountable partner</h3><p>Strategy, execution and measurement coordinated through Tilth, not scattered across vendors.</p></div>
-      <div class="whycard"><h3>India–US collaboration</h3><p>India-rooted delivery with working overlap for US teams and buying behaviour.</p></div>
+  <div class="v3-hero__foot">
+    <p class="v3-hero__lede">A growth marketing agency built on stronger foundations. We strengthen the systems beneath your growth — measurement, funnel, positioning, creative — then scale performance against verified return.</p>
+    <div class="v3-hero__cta">
+      <a class="v3-btn" href="/contact/">Discuss your growth project</a>
+      <a class="v3-btn v3-btn--ghost" href="#depth">Find your depth →</a>
+    </div>
+  </div>
+
+  <div class="v3-stats">
+    <div class="v3-stat">
+      <div class="v3-stat__v">10<span class="unit">yrs</span></div>
+      <div class="v3-stat__l">EXPERIENCE BEHIND TILTH</div>
+    </div>
+    <div class="v3-stat">
+      <div class="v3-stat__v">05</div>
+      <div class="v3-stat__l">INDUSTRIES WORKED</div>
+    </div>
+    <div class="v3-stat">
+      <div class="v3-stat__v is-moss">5×</div>
+      <div class="v3-stat__l">VERIFIED RETURN, EDTECH</div>
+    </div>
+    <div class="v3-stat">
+      <div class="v3-stat__v is-clay">₹1.5<span class="unit">Cr</span></div>
+      <div class="v3-stat__l">MONTHLY REVENUE REACHED</div>
     </div>
   </div>
 </section>
 
-<section class="gsec reveal" id="latest-insights" aria-labelledby="latest-insights-h">
-  <div class="wrap">
-    <p class="label">Latest Insights</p>
-    <h2 id="latest-insights-h">Thinking behind the work.</h2>
-    <p class="intro">Practical perspectives on growth systems, measurement, acquisition and conversion.</p>
-    <div class="igrid">
-      <article class="icard">
-      <time class="icard__date" datetime="2026-07-12">12 Jul 2026</time>
-      <h3 class="icard__title"><a href="/insights/first-marketing-hire-startup/">Your startup's first marketing hire: who to hire first</a></h3>
-      <p class="icard__ex">Your startup's first marketing hire shouldn't be a specialist. Here's who to hire first and how to set them up to succeed.</p>
-    </article>
-      <article class="icard">
-      <time class="icard__date" datetime="2026-06-28">28 Jun 2026</time>
-      <h3 class="icard__title"><a href="/insights/startup-marketing-budget-india/">Marketing budget for an early-stage startup in India: how to set it</a></h3>
-      <p class="icard__ex">Sensible percentages, why CAC matters more than a flat %, how to split it, and how to budget without wasting money.</p>
-    </article>
-      <article class="icard">
-      <time class="icard__date" datetime="2026-06-27">27 Jun 2026</time>
-      <h3 class="icard__title"><a href="/insights/marketing-agency-for-d2c-brands/">How to choose a marketing agency for your D2C brand in India</a></h3>
-      <p class="icard__ex">What to look for, the questions that matter, and the red flags to avoid — a founder's honest buyer's guide.</p>
-    </article>
-    </div>
-    <div class="actions" style="margin-top:28px"><a class="text-cta" href="/insights/">Explore All Insights →</a></div>
+<section class="v3-brandsec" id="brand-experience" data-depth-label="04.0m">
+  <div class="v3-brandsec__head">
+    <h2 class="v3-mono" style="color:var(--mosstext);margin:0">SELECTED BRAND EXPERIENCE</h2>
+    <div class="v3-brandsec__note">Experience from the founder and core team.</div>
+  </div>
+  <div class="v3-brandrail" data-v3-brandrail>
+    <ul class="v3-brandtrack" data-v3-brandtrack>
+      <li class="v3-brand" data-v3-brand>PayDirect</li><li class="v3-brand" data-v3-brand>Ommora</li><li class="v3-brand" data-v3-brand>Density Exchange</li><li class="v3-brand" data-v3-brand>CareerLabs</li><li class="v3-brand" data-v3-brand>FusionFit</li><li class="v3-brand" data-v3-brand>Demi.AI</li><li class="v3-brand" data-v3-brand aria-hidden="true">PayDirect</li><li class="v3-brand" data-v3-brand aria-hidden="true">Ommora</li><li class="v3-brand" data-v3-brand aria-hidden="true">Density Exchange</li><li class="v3-brand" data-v3-brand aria-hidden="true">CareerLabs</li><li class="v3-brand" data-v3-brand aria-hidden="true">FusionFit</li><li class="v3-brand" data-v3-brand aria-hidden="true">Demi.AI</li>
+    </ul>
   </div>
 </section>
 
-<section class="gsec gsec--light reveal" id="faq" aria-labelledby="faq-h">
-  <div class="wrap wrap-narrow">
-    <p class="label">FAQ</p>
-    <h2 id="faq-h">Questions before we start.</h2>
-    <div class="faq__list">
-      <details class="faq__item"><summary><h3>What does a growth marketing agency do?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>A growth marketing agency works across the whole funnel rather than a single channel — strategy and measurement, paid media, SEO and content, affiliate and partnerships, and website conversion. At Tilth those sit with <a href="/services/">one accountable partner</a> so strategy, execution and measurement stay connected instead of being split across vendors.</p></div></details>
-      <details class="faq__item"><summary><h3>How is Tilth different from a performance marketing agency?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>A performance marketing agency usually starts with channels and budget. Tilth is foundation-first: most growth problems are not channel problems — they come from weak tracking, unclear positioning, fragmented funnels or low conversion. We diagnose the constraint, fix the system, then scale the channels that prove their value. <a href="/approach/">See the approach</a>.</p></div></details>
-      <details class="faq__item"><summary><h3>Do you work with companies outside India?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Yes. Tilth is based in Bengaluru and works with brands across markets, including the United States. Collaboration is structured around agreed reviews, shared documentation and the client's operating rhythm rather than a single location, and recommendations are grounded in your customer, category and data rather than assumptions about a market. <a href="/contact/">Talk to us about your market</a>.</p></div></details>
-      <details class="faq__item"><summary><h3>What does foundation-first mean?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>It means fixing the growth system before increasing spend. Most growth problems are not channel problems — they come from weak tracking, unclear positioning, fragmented funnels or low conversion. We diagnose the constraint, build the measurement and funnel underneath it, and only then scale the channels that prove their value. <a href="/approach/">See the approach</a>.</p></div></details>
-      <details class="faq__item"><summary><h3>What engagement models does Tilth offer?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Three. A <strong>Foundation Audit</strong> — a diagnostic across the growth system. A <strong>Growth Project</strong> — fixed scope such as a website build, tracking rebuild, paid-media setup, SEO strategy or affiliate program. And an <strong>Ongoing Growth Partnership</strong> — continuing strategy, execution, optimisation, reporting and testing. <a href="/contact/">Discuss which fits</a>.</p></div></details>
+<section class="v3-sec" id="problem" data-depth-label="12.4m">
+  <div class="v3-split">
+    <div>
+      <div class="v3-mono v3-eyebrow v3-reveal">01 — THE PATTERN WE KEPT SEEING</div>
+      <h2 class="v3-h2 v3-reveal" style="max-width:15ch">Growth doesn't stall on budget. It stalls on the <span style="color:var(--clay)">foundation</span></h2>
+      <p class="v3-lede v3-reveal">Teams push more budget through broken tracking, unclear positioning and sites that don't convert. Spend climbs, efficiency drops, and no one can say which part actually worked. More budget just makes the leak more expensive.</p>
+    </div>
+    <div class="v3-bands" data-v3-bands>
+      <div class="v3-band" data-v3-band="0"><span class="v3-band__name">Paid media</span><span class="v3-band__d">SURFACE</span></div>
+      <div class="v3-band" data-v3-band="1"><span class="v3-band__name">Creative</span><span class="v3-band__d">04.0m</span></div>
+      <div class="v3-band" data-v3-band="2"><span class="v3-band__name">Funnel &amp; positioning</span><span class="v3-band__d">08.0m</span></div>
+      <div class="v3-band v3-band--deep" data-v3-band="3">
+        <div class="v3-band__row"><span class="v3-band__name">Measurement</span><span class="v3-band__d">12.4m — CONSTRAINT</span></div>
+        <p>Nine times out of ten the constraint sits here — and every layer above it inherits the error.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cta-band cta-band--terra" id="cta">
-  <div class="wrap">
-    <span class="label">Next step</span>
-    <h2>Ready to build growth on stronger foundations?</h2>
-    <p>Tell us where growth is slowing, what you have already tried and what success looks like. We’ll identify the right place to start.</p>
-    <div class="cta-band__actions">
-      <a class="btn" href="/contact/"><span>Discuss Your Growth Strategy</span> <span class="arrow">→</span></a>
-      
+<section class="v3-sec v3-sec--inv" id="depth" data-depth-label="12.4m">
+  <div class="v3-headrow">
+    <div>
+      <div class="v3-mono" style="color:var(--imut);margin-bottom:20px">02 — THE 30-SECOND DIAGNOSTIC</div>
+      <h2 class="v3-h2" style="max-width:16ch">Tell us the symptom. We'll tell you the depth.</h2>
+    </div>
+    <p class="v3-headrow__note" style="color:var(--imut)">The same answer we'd give on the first call — no form, no wait.</p>
+  </div>
+
+  <div class="v3-symrow">
+    <button class="v3-sym" type="button" data-v3-sym="flat" aria-pressed="true">Spend up, returns flat</button>
+    <button class="v3-sym" type="button" data-v3-sym="blind" aria-pressed="false">Can't tell what's working</button>
+    <button class="v3-sym" type="button" data-v3-sym="conv" aria-pressed="false">Traffic but no conversion</button>
+    <button class="v3-sym" type="button" data-v3-sym="creative" aria-pressed="false">Creative fatigues fast</button>
+    <button class="v3-sym" type="button" data-v3-sym="ceiling" aria-pressed="false">Hit a scaling ceiling</button>
+  </div>
+
+  <div class="v3-dxgrid">
+    <div class="v3-dx">
+      <div class="v3-dx__k">LIKELY DEPTH</div>
+      <div class="v3-dx__layer" data-v3-dx-layer>Measurement</div>
+      <div class="v3-dx__meter">
+        <span class="v3-dx__track"><span class="v3-dx__bar" data-v3-dx-bar style="width:100%"></span></span>
+        <span class="v3-dx__depth" data-v3-dx-depth>12.4m — deepest</span>
+      </div>
+    </div>
+    <div class="v3-dx">
+      <div class="v3-dx__k">WHAT'S ACTUALLY HAPPENING</div>
+      <p data-v3-dx-cause>Almost always attribution. Platform-reported conversions double-count, and the channels taking credit aren't the channels creating demand — so budget keeps flowing to the loudest report.</p>
+    </div>
+    <div class="v3-dx v3-dx--cta">
+      <div class="v3-dx__k">WHERE WE'D START</div>
+      <p data-v3-dx-fix>A tracking and attribution rebuild: server-side events, deduplicated conversions, one source of truth. Two to three weeks, before a rupee moves.</p>
+      <a class="v3-dx__cta" href="/contact/"><span>Get this audited →</span></a>
     </div>
   </div>
 </section>
 
-<a class="sticky-cta" id="stickyCta" href="/contact/" aria-hidden="true" tabindex="-1"><span>Discuss Your Growth Strategy</span> <span aria-hidden="true">→</span></a>
+<section class="v3-sec" id="method" data-depth-label="20.0m">
+  <div class="v3-mono v3-eyebrow">03 — HOW WE WORK</div>
+  <h2 class="v3-h2" style="max-width:18ch;margin-bottom:48px">Diagnose before you prescribe. Scale only what the system can carry.</h2>
+  <div class="v3-method">
+    <div class="v3-method__cell v3-reveal">
+      <div class="v3-method__n">01</div>
+      <h3>Diagnose</h3>
+      <p>We map the growth system end to end — tracking, funnel, creative, channels — and find what's actually capping return. No new spend until we know where it leaks.</p>
+    </div>
+    <div class="v3-method__cell v3-reveal">
+      <div class="v3-method__n">02</div>
+      <h3>Build the foundation</h3>
+      <p>Clean measurement, defined funnel stages, positioning that converts, and a creative testing loop — the layer everything compounds on.</p>
+    </div>
+    <div class="v3-method__cell v3-reveal">
+      <div class="v3-method__n is-clay">03</div>
+      <h3>Scale against proof</h3>
+      <p>Only once the foundation holds do we push budget — against verified return, with every rupee attributable to a stage.</p>
+    </div>
+  </div>
+</section>
 
-<script>
-/* Hero rotator. Moves aria-hidden/tabindex along with the visible state so exactly one
-   phrase is ever in the accessible tree or the tab order. No aria-live: the change is
-   never announced. Under reduced motion this never runs, leaving the server-rendered
-   first phrase as a single static phrase. */
-(function(){
-  var items = [].slice.call(document.querySelectorAll('.hero-rotator .rot__item'));
-  if (items.length < 2) return;
-  try { if (matchMedia('(prefers-reduced-motion: reduce)').matches) return; } catch(e){}
-  var i = 0;
-  setInterval(function(){
-    var prev = items[i];
-    prev.classList.remove('is-active');
-    prev.setAttribute('aria-hidden', 'true');
-    prev.setAttribute('tabindex', '-1');
-    i = (i + 1) % items.length;
-    var next = items[i];
-    next.classList.add('is-active');
-    next.removeAttribute('aria-hidden');
-    next.removeAttribute('tabindex');
-  }, 2600);
-})();
-/* Outcomes stat count-up when scrolled into view */
-(function(){
-  var els = [].slice.call(document.querySelectorAll('.stat-v[data-count]'));
-  if (!els.length) return;
-  var rm = false; try { rm = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e){}
-  function fmt(el, v){ var d=+(el.getAttribute('data-decimals')||0); return (el.getAttribute('data-prefix')||'') + v.toFixed(d) + (el.getAttribute('data-suffix')||''); }
-  function run(el){
-    var to = parseFloat(el.getAttribute('data-count'));
-    if (rm){ el.textContent = fmt(el, to); return; }
-    var t0=null, D=1100;
-    requestAnimationFrame(function step(now){
-      if(t0==null)t0=now; var k=Math.min(1,(now-t0)/D), e=1-Math.pow(1-k,3);
-      el.textContent = fmt(el, to*e);
-      if(k<1) requestAnimationFrame(step); else el.textContent = fmt(el, to);
-    });
-  }
-  if (!('IntersectionObserver' in window)){ els.forEach(function(el){ el.textContent = fmt(el, parseFloat(el.getAttribute('data-count'))); }); return; }
-  var io = new IntersectionObserver(function(ens){ ens.forEach(function(en){ if(en.isIntersecting){ run(en.target); io.unobserve(en.target); } }); }, { threshold:.5 });
-  els.forEach(function(el){ io.observe(el); });
-})();
-/* Phase 4 — scroll reveal (JS-gated; skipped under reduced-motion so content stays visible) */
-(function(){
-  var root=document.documentElement, rm=false;
-  try{ rm=matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
-  var els=[].slice.call(document.querySelectorAll('.reveal'));
-  if(!els.length || rm || !('IntersectionObserver' in window)) return;
-  root.classList.add('jsr');
-  var io=new IntersectionObserver(function(ens){ens.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
-  els.forEach(function(el){ io.observe(el); });
-})();
-/* Phase 4 — mobile sticky CTA (shows past the hero, hides at the main CTA) */
-(function(){
-  var el=document.getElementById('stickyCta'); if(!el || !('IntersectionObserver' in window)) return;
-  var mq; try{ mq=matchMedia('(max-width:900px)'); }catch(e){ return; }
-  var hero=document.querySelector('.ghero'), cta=document.querySelector('.cta-band');
-  if(!hero || !cta) return;
-  var heroV=true, ctaV=false;
-  function upd(){ var show=mq.matches && !heroV && !ctaV; el.classList.toggle('show',show); el.setAttribute('aria-hidden',show?'false':'true'); el.tabIndex=show?0:-1; }
-  new IntersectionObserver(function(e){ heroV=e[0].isIntersecting; upd(); },{threshold:0}).observe(hero);
-  new IntersectionObserver(function(e){ ctaV=e[0].isIntersecting; upd(); },{threshold:0}).observe(cta);
-  if(mq.addEventListener) mq.addEventListener('change',upd);
-  upd();
-})();
-</script>
+<section id="services" data-depth-label="24.0m" style="padding:0 var(--pad) var(--sy)">
+  <div class="v3-srow-head">
+    <h2 class="v3-h2">One partner. Whole system.</h2>
+    <a class="v3-srow-head__all" href="/services/">ALL SERVICES →</a>
+  </div>
+  <a class="v3-srow" href="/services/growth-strategy-measurement/">
+    <span class="v3-srow__n">01</span>
+    <div class="v3-srow__inner">
+      <h3 class="v3-srow__title">Growth strategy &amp; measurement</h3>
+      <p class="v3-srow__body">Strategy, tracking and reporting that tie spend to revenue, so you know what pays back before you scale it.</p>
+      <span class="v3-srow__arrow" aria-hidden="true">→</span>
+    </div>
+  </a>
+  <a class="v3-srow" href="/services/performance-marketing/">
+    <span class="v3-srow__n">02</span>
+    <div class="v3-srow__inner">
+      <h3 class="v3-srow__title">Performance &amp; paid media</h3>
+      <p class="v3-srow__body">Google, Meta and LinkedIn structured around real conversions, so spend compounds against verified return.</p>
+      <span class="v3-srow__arrow" aria-hidden="true">→</span>
+    </div>
+  </a>
+  <a class="v3-srow" href="/services/seo-ai-search/">
+    <span class="v3-srow__n">03</span>
+    <div class="v3-srow__inner">
+      <h3 class="v3-srow__title">SEO &amp; AI search</h3>
+      <p class="v3-srow__body">Technical, content and intent foundations that turn search — including AI answer engines — into qualified pipeline.</p>
+      <span class="v3-srow__arrow" aria-hidden="true">→</span>
+    </div>
+  </a>
+  <a class="v3-srow" href="/services/affiliate-partnerships/">
+    <span class="v3-srow__n">04</span>
+    <div class="v3-srow__inner">
+      <h3 class="v3-srow__title">Affiliate &amp; partnerships</h3>
+      <p class="v3-srow__body">Programs that reward real customers, turning partners into one of your most efficient channels.</p>
+      <span class="v3-srow__arrow" aria-hidden="true">→</span>
+    </div>
+  </a>
+  <a class="v3-srow" href="/services/website-design-development/">
+    <span class="v3-srow__n">05</span>
+    <div class="v3-srow__inner">
+      <h3 class="v3-srow__title">Websites that convert</h3>
+      <p class="v3-srow__body">Fast, conversion-focused sites so the traffic you pay for has somewhere worth landing.</p>
+      <span class="v3-srow__arrow" aria-hidden="true">→</span>
+    </div>
+  </a>
+</section>
+
+<div class="v3-indrail">
+  <ul class="v3-indgrid">
+    <li class="v3-ind" data-v3-ind><a href="/industries/saas/">SAAS</a></li>
+    <li class="v3-ind" data-v3-ind><a href="/industries/d2c-ecommerce/">D2C &amp; ECOMMERCE</a></li>
+    <li class="v3-ind" data-v3-ind><a href="/industries/fintech/">FINTECH</a></li>
+    <li class="v3-ind" data-v3-ind><a href="/industries/edtech/">EDTECH</a></li>
+    <li class="v3-ind" data-v3-ind>FITNESS</li>
+  </ul>
+</div>
+
+<section class="v3-sec v3-sec--raise" id="evidence" data-depth-label="30.0m">
+  <div class="v3-headrow">
+    <div>
+      <div class="v3-mono v3-eyebrow">04 — EVIDENCE</div>
+      <h2 class="v3-h2" style="max-width:15ch">Outcomes over vanity metrics</h2>
+    </div>
+    <div class="v3-filters">
+      <button class="v3-filt" type="button" data-v3-filt="all" aria-pressed="true">ALL</button>
+      <button class="v3-filt" type="button" data-v3-filt="edtech" aria-pressed="false">EDTECH</button>
+      <button class="v3-filt" type="button" data-v3-filt="fintech" aria-pressed="false">FINTECH</button>
+      <button class="v3-filt" type="button" data-v3-filt="d2c" aria-pressed="false">D2C</button>
+      <button class="v3-filt" type="button" data-v3-filt="saas" aria-pressed="false">SAAS</button>
+    </div>
+  </div>
+  <div class="v3-evgrid">
+    <article class="v3-ev" data-v3-case="edtech">
+      <div class="v3-ev__top"><span class="v3-ev__tag">EDTECH</span><span class="v3-ev__dur">9 MONTHS</span></div>
+      <div class="v3-ev__metrics">
+        <div><div class="v3-ev__m">₹5L→30L</div><div class="v3-ev__ml">MONTHLY MEDIA, SCALED</div></div>
+        <div><div class="v3-ev__m is-moss">5×</div><div class="v3-ev__ml">RETURN ON AD SPEND</div></div>
+      </div>
+      <h3>Six times the media spend, on rebuilt measurement</h3>
+      <p>Conversion tracking and campaign structure were rebuilt before any scale. Once spend was attributable to a stage, monthly investment grew six-fold — reaching ₹1.5Cr in monthly revenue at a verified 5×.</p>
+    </article>
+    <article class="v3-ev" data-v3-case="fintech">
+      <div class="v3-ev__top"><span class="v3-ev__tag">FINTECH</span><span class="v3-ev__dur">12 MONTHS</span></div>
+      <div class="v3-ev__metrics">
+        <div><div class="v3-ev__m">0→6%</div><div class="v3-ev__ml">SHARE OF TRADING VOLUME</div></div>
+        <div><div class="v3-ev__m is-moss">Zero</div><div class="v3-ev__ml">FRAUD WRITE-OFFS</div></div>
+      </div>
+      <h3>An affiliate channel built from nothing</h3>
+      <p>Partner validation, commercial model, tracking and fraud controls, built ground up. Within a year it carried 5–6% of total volume as the lowest-CAC channel in the mix.</p>
+    </article>
+    <article class="v3-ev" data-v3-case="d2c">
+      <div class="v3-ev__top"><span class="v3-ev__tag">D2C</span><span class="v3-ev__dur">6 MONTHS</span></div>
+      <div class="v3-ev__metrics">
+        <div><div class="v3-ev__m">+64%</div><div class="v3-ev__ml">CONVERSION RATE</div></div>
+        <div><div class="v3-ev__m is-moss">−31%</div><div class="v3-ev__ml">BLENDED CAC</div></div>
+      </div>
+      <h3>A site that finally earned its traffic</h3>
+      <p>The ads were fine; the landing experience wasn't. Message-to-page mapping and a conversion rebuild lifted every paid channel at once, without adding budget.</p>
+    </article>
+    <article class="v3-ev" data-v3-case="saas">
+      <div class="v3-ev__top"><span class="v3-ev__tag">SAAS</span><span class="v3-ev__dur">8 MONTHS</span></div>
+      <div class="v3-ev__metrics">
+        <div><div class="v3-ev__m">2.4×</div><div class="v3-ev__ml">QUALIFIED PIPELINE</div></div>
+        <div><div class="v3-ev__m is-moss">−22%</div><div class="v3-ev__ml">COST PER SQL</div></div>
+      </div>
+      <h3>Pipeline that sales agreed was pipeline</h3>
+      <p>Lead scoring and stage definitions were rewritten with the sales team, then paid search was restructured around the intent that actually closed.</p>
+    </article>
+  </div>
+  <p class="v3-evnote">ANONYMISED UNDER CLIENT CONFIDENTIALITY / FIGURES AS REPORTED BY THE CLIENT</p>
+</section>
+
+<section class="v3-sec" id="tools" data-depth-label="34.0m">
+  <div class="v3-split v3-split--mid">
+    <div>
+      <div class="v3-mono v3-eyebrow">05 — THE TOOLS LAYER</div>
+      <h2 class="v3-h2" style="max-width:14ch">The same diagnostics we run, free to use</h2>
+      <p class="v3-lede" style="max-width:42ch;margin-top:24px">Seven calculators built out of real engagements — unit economics, funnel maths, ad-spend profitability, benchmarks. No signup, no gated PDF.</p>
+      <a class="v3-toolslink" href="/tools/">OPEN THE TOOLS HUB →</a>
+    </div>
+    <div class="v3-calc" data-v3-calc>
+      <div class="v3-calc__top"><span style="color:var(--mosstext)">LIVE / UNIT ECONOMICS</span><span style="color:var(--stone)">01 / 07</span></div>
+      <div class="v3-calc__fields">
+        <label>
+          <span class="v3-calc__row">Monthly ad spend<output data-v3-out="spend">₹5,00,000</output></span>
+          <input type="range" min="50000" max="3000000" step="50000" value="500000" data-v3-calc-in="spend" aria-label="Monthly ad spend">
+        </label>
+        <label>
+          <span class="v3-calc__row">New customers / month<output data-v3-out="cust">250</output></span>
+          <input type="range" min="10" max="2000" step="10" value="250" data-v3-calc-in="cust" aria-label="New customers per month">
+        </label>
+        <label>
+          <span class="v3-calc__row">Lifetime value per customer<output data-v3-out="ltv">₹8,000</output></span>
+          <input type="range" min="500" max="60000" step="500" value="8000" data-v3-calc-in="ltv" aria-label="Lifetime value per customer">
+        </label>
+      </div>
+      <div class="v3-calc__out">
+        <div><div class="v3-calc__k">CAC</div><div class="v3-calc__v" data-v3-out="cac">₹2,000</div></div>
+        <div><div class="v3-calc__k">LTV : CAC</div><div class="v3-calc__v is-moss" data-v3-out="ratio">4.0×</div></div>
+        <div style="min-width:0"><div class="v3-calc__k">VERDICT</div><div class="v3-calc__verdict" data-v3-out="verdict">Healthy. There's room to scale — if tracking can prove it.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="founder" data-depth-label="38.0m" style="padding:0 var(--pad) var(--sy)">
+  <div class="v3-split v3-split--mid">
+    <div class="v3-portrait v3-reveal"><img src="/anuja.jpg" alt="Anuja, founder of Tilth" width="400" height="500" loading="lazy" decoding="async"></div>
+    <div>
+      <div class="v3-mono v3-eyebrow v3-reveal">06 — FOUNDER-LED</div>
+      <h2 class="v3-h2 v3-reveal" style="max-width:15ch">10 years of experience across 5 industries. <span style="color:var(--clay)">One mistake</span> repeated every time.</h2>
+      <p class="v3-lede v3-reveal">Tilth is led by Anuja, who has spent a decade running paid media, building affiliate programs and rebuilding the measurement underneath growth — a foundation-first partner for brands that want growth to last. Senior strategy stays on every engagement; you're not handed to a junior team after the pitch.</p>
+      <a class="v3-textlink v3-reveal" href="/about/">MEET THE TEAM →</a>
+    </div>
+  </div>
+</section>
+
+<section class="v3-contact" id="contact" data-depth-label="42.0m">
+  <div class="v3-contact__grid">
+    <div>
+      <div class="v3-mono v3-contact__eyebrow">07 — NEXT STEP</div>
+      <h2 class="v3-contact__h">Let's talk about your growth</h2>
+      <p class="v3-contact__p">Tell us what you're trying to grow. We'll review the foundations before recommending the work.</p>
+      <div class="v3-contact__links">
+        <a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+        <a href="tel:+917007999306">+91 70079 99306</a>
+      </div>
+    </div>
+    <form class="v3-form" data-lead-form action="https://formsubmit.co/aaaece001c447cdc100c9df5d66fd5ee" method="POST">
+      <input type="hidden" name="_subject" value="New growth enquiry — wearetilth.com (homepage)">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://wearetilth.com/thank-you/">
+      <input type="hidden" name="constraint" data-v3-constraint value="">
+      <input type="text" name="_honey" class="v3-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="v3-form__inner">
+        <label class="v3-field">NAME<input required name="name" type="text" autocomplete="name"></label>
+        <label class="v3-field">WORK EMAIL<input required type="email" name="email" autocomplete="email"></label>
+        <fieldset class="v3-field" style="border:0;padding:0;margin:0">
+          <legend style="padding:0">WHAT'S THE CONSTRAINT?</legend>
+          <div class="v3-fsyms">
+            <button class="v3-fsym" type="button" data-v3-fsym="flat" aria-pressed="false">Spend up, returns flat</button>
+            <button class="v3-fsym" type="button" data-v3-fsym="blind" aria-pressed="false">Can't tell what's working</button>
+            <button class="v3-fsym" type="button" data-v3-fsym="conv" aria-pressed="false">Traffic but no conversion</button>
+            <button class="v3-fsym" type="button" data-v3-fsym="creative" aria-pressed="false">Creative fatigues fast</button>
+            <button class="v3-fsym" type="button" data-v3-fsym="ceiling" aria-pressed="false">Hit a scaling ceiling</button>
+          </div>
+        </fieldset>
+        <label class="v3-field">ANYTHING ELSE<textarea name="note" rows="3"></textarea></label>
+        <button class="v3-submit" type="submit">Send it →</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script type="application/json" data-v3-symdata>{"flat":{"label":"Spend up, returns flat","layer":"Measurement","depth":"12.4m — deepest","pct":100,"cause":"Almost always attribution. Platform-reported conversions double-count, and the channels taking credit aren't the channels creating demand — so budget keeps flowing to the loudest report.","fix":"A tracking and attribution rebuild: server-side events, deduplicated conversions, one source of truth. Two to three weeks, before a rupee moves."},"blind":{"label":"Can't tell what's working","layer":"Measurement","depth":"12.4m — deepest","pct":100,"cause":"The funnel has no defined stages, so there's nothing to attribute to. Every report answers a slightly different question and none of them tie to revenue.","fix":"Define the funnel stages first, instrument each one, then build a single decision-ready view. Reporting becomes a diagnosis, not a defence."},"conv":{"label":"Traffic but no conversion","layer":"Positioning & funnel","depth":"08.0m","pct":70,"cause":"The ad promises one thing and the landing page argues another. The click is qualified; the page gives it no reason to continue.","fix":"Message-to-page mapping, then a conversion rebuild of the pages carrying the spend. Fast to move, and it lifts every channel at once."},"creative":{"label":"Creative fatigues fast","layer":"Creative loop","depth":"04.0m","pct":45,"cause":"Creative is produced in batches, not in a loop. Nothing is structured as a test, so each round starts from opinion instead of the last result.","fix":"A standing testing cadence with a named hypothesis per asset — concept, hook and format tested separately so you learn which one moved."},"ceiling":{"label":"Hit a scaling ceiling","layer":"Scale","depth":"Surface","pct":25,"cause":"The foundation holds but the channel mix is narrow. Efficiency drops the moment you push, because there is one route to the customer.","fix":"Widen the base — affiliate and partnerships, search intent, incrementality testing — so the next increment of spend has somewhere efficient to go."}}</script>
 
 </main>
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <p class="addr">Tilth is an India-rooted growth marketing agency working with ambitious brands across India and the US.<br><br>Bengaluru, India · Remote collaboration across India and the US<br><a href="tel:+917007999306">+91 70079 99306</a><br><a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a></p>
-      </div>
-      <div>
-        <h3 class="fcol">Explore</h3>
-        <ul><li><a href="/services/">Services</a></li><li><a href="/approach/">Approach</a></li><li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Legal</h3>
-        <ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/cookie-policy/">Cookie Policy</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Social</h3>
-        <ul><li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li><li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li></ul>
-      </div>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom"><span>© 2026 Tilth. All rights reserved.</span></div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
+    </div>
   </div>
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
 <script src="/analytics.js" defer></script>
 </body>
 </html>

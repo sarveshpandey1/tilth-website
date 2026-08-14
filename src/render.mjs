@@ -1,5 +1,5 @@
 // Shared shell + components for generated pages. Outputs plain static HTML for GitHub Pages.
-import { site, nav, clients, caseStudies } from "./data.mjs";
+import { site, nav, clients, caseStudies, services } from "./data.mjs";
 
 export const esc = (s = "") => String(s)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -97,6 +97,100 @@ export function ctaBlock({ eyebrow = "Start here", heading, body, primary, secon
 </section>`;
 }
 
+// ---------------------------------------------------------------------------
+// Brand v3 shell (approved designs: "Tilth Brand v3.dc.html" / "Tilth Services.dc.html").
+// Used only by pages that declare shell:"v3" — currently / and /services/. Every
+// other generated page keeps the masthead()/footer() shell above, unchanged.
+// Header, menu, clocks, wordmark and footer are shared by both v3 pages rather
+// than duplicated per page.
+// ---------------------------------------------------------------------------
+
+const V3_NAV = [
+  { label: "Services", href: "/services/" },
+  { label: "Industries", href: "/industries/" },
+  { label: "Work", href: "/work/" },
+  { label: "Approach", href: "/approach/" },
+  { label: "Insights", href: "/insights/" },
+  { label: "About", href: "/about/" }
+];
+
+const V3_CLOCKS = [
+  { tz: "Asia/Kolkata", city: "BENGALURU" },
+  { tz: "Asia/Dubai", city: "DUBAI" },
+  { tz: "Europe/London", city: "LONDON" },
+  { tz: "America/New_York", city: "NEW YORK" }
+];
+
+export function v3Header(currentPath = "", ctaLabel = "Discuss your growth") {
+  return `<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      ${V3_NAV.map(n => `<a class="v3-navitem" href="${n.href}"${n.href === currentPath ? ' aria-current="page"' : ""}>${esc(n.label)}</a>`).join("\n      ")}
+    </nav>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">${currentPath === "/" ? "00.0m" : "SURFACE"}</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">${esc(ctaLabel)}</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
+  </div>
+</header>
+
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
+      ${V3_NAV.map(n => `<a href="${n.href}">${esc(n.label)}</a>`).join("\n      ")}
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      ${services.map(s => `<a href="/services/${s.slug}/">${esc(s.name)}</a>`).join("\n      ")}
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:${esc(site.email)}">${esc(site.email)}</a>
+      <a class="is-plain" href="tel:${site.phoneHref}">${esc(site.phone)}</a>
+    </div>
+  </div>
+  <a class="v3-menu__cta" href="/contact/">${esc(ctaLabel)} <span aria-hidden="true">→</span></a>
+</div>`;
+}
+
+export function v3Footer({ rule = false } = {}) {
+  const s = site.social;
+  return `<footer class="v3-foot${rule ? " v3-foot--rule" : ""}">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    ${V3_CLOCKS.map(c => `<div class="v3-clock" data-v3-clock="${c.tz}">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>${c.city}</span>
+      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
+    </div>`).join("\n    ")}
+  </div>
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="${s.linkedin}" target="_blank" rel="noopener">LinkedIn</a><a href="${s.instagram}" target="_blank" rel="noopener">Instagram</a><a href="${s.x}" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
+</footer>`;
+}
+
 export function footer() {
   const s = site.social;
   return `<footer>
@@ -130,6 +224,24 @@ export function renderPage(p) {
   const ogTitle = p.ogTitle || p.title;
   const ogDesc = p.ogDescription || p.description;
   const schemas = jsonld(p.schema || []);
+  const v3 = p.shell === "v3";
+  // Brand v3 replaces the type ramp entirely, so its pages preload Syne/Chivo
+  // instead of Fraunces/Work Sans — preloading fonts a page never uses would
+  // cost the same LCP budget the existing preloads were added to protect.
+  const preloads = v3
+    ? `<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-variable.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>`
+    : `<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
+<!-- The hero H1's <em> is Fraunces italic and is part of the LCP element. Without this
+     preload it was discovered only after CSS parsed and took ~9s on throttled mobile. -->
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>`;
+  const styles = v3
+    ? `<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/brand-v3.css">`
+    : `<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/assets/generated.css">`;
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -144,7 +256,7 @@ ${(p.hreflang || []).map(h => `<link rel="alternate" hreflang="${h.lang}" href="
 <meta name="robots" content="${p.robots || "index, follow"}">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="${v3 ? "#101310" : "#15110B"}">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -159,24 +271,18 @@ ${(p.hreflang || []).map(h => `<link rel="alternate" hreflang="${h.lang}" href="
 <meta name="twitter:title" content="${esc(ogTitle)}">
 <meta name="twitter:description" content="${esc(ogDesc)}">
 <meta name="twitter:image" content="${site.base}/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
-<!-- The hero H1's <em> is Fraunces italic and is part of the LCP element. Without this
-     preload it was discovered only after CSS parsed and took ~9s on throttled mobile. -->
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>
-<link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/assets/generated.css">
+${preloads}
+${styles}
 ${p.headExtra || ""}
 ${schemas}
 </head>
-<body>
-${masthead(p.navItems, p.path)}
+<body${v3 ? ` class="v3 ${esc(p.shellClass || "")}"` : ""}>
+${v3 ? v3Header(p.path, p.navCta) : masthead(p.navItems, p.path)}
 <main id="main">
 ${p.main}
 </main>
-${footer()}
-<script src="/nav.js" defer></script>
+${v3 ? v3Footer({ rule: p.footRule }) : footer()}
+${v3 ? '<script src="/brand-v3.js" defer></script>' : '<script src="/nav.js" defer></script>'}
 <script src="/analytics.js" defer></script>
 </body>
 </html>

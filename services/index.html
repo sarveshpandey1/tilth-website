@@ -16,7 +16,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -31,14 +31,10 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="twitter:title" content="Growth marketing services, built on foundations">
 <meta name="twitter:description" content="Strategy, performance, paid media, SEO &amp; AI search, affiliate, website and creative — one foundation-first system.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
-<!-- The hero H1's <em> is Fraunces italic and is part of the LCP element. Without this
-     preload it was discovered only after CSS parsed and took ~9s on throttled mobile. -->
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-variable.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/assets/generated.css">
+<link rel="stylesheet" href="/assets/brand-v3.css">
 
 <script type="application/ld+json">
 {
@@ -118,167 +114,401 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 }
 </script>
 </head>
-<body>
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav aria-label="Primary">
-      <a href="/services/" aria-current="page">Services</a>
+<body class="v3 v3-services">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/" aria-current="page">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
+    </nav>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss a Project</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
+  </div>
+</header>
+
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
+      <a href="/services/">Services</a>
       <a href="/industries/">Industries</a>
       <a href="/work/">Work</a>
       <a href="/approach/">Approach</a>
       <a href="/insights/">Insights</a>
       <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
     </nav>
-    <div class="meta">India-rooted · Working across markets</div>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
   </div>
-</header>
+  <a class="v3-menu__cta" href="/contact/">Discuss a Project <span aria-hidden="true">→</span></a>
+</div>
 <main id="main">
 
-<section class="ghero" id="hero">
-  <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <span>Services</span></nav>
-    <span class="label">Services</span>
-    <h1>Growth marketing services, built on <em>foundations</em>.</h1>
-    <p class="lede">We don't start by recommending another channel. We identify what's limiting the growth system, then bring the right service and engagement to fix it — for brands worldwide.</p>
-    <div class="actions">
-      <a class="btn" href="/contact/"><span>Discuss a Project</span> <span class="arrow">→</span></a>
-      <a class="text-cta" href="/work/">See our work →</a>
+<section class="v3-shero v3-sec--grid" id="hero" data-depth-label="SURFACE">
+  <nav class="v3-crumb" aria-label="Breadcrumb">
+    <a href="/">HOME</a> <span class="sep" aria-hidden="true">/</span> <span class="cur">SERVICES</span>
+  </nav>
+  <div class="v3-sherogrid">
+    <div>
+      <h1 class="v3-sh1">Growth marketing services, built on <span class="is-moss">foundations</span>.</h1>
+      <p class="v3-shero__p">We don't start by recommending another channel. We identify what's limiting the growth system, then bring the right service and engagement to fix it — for brands worldwide.</p>
+      <div class="v3-shero__cta">
+        <a class="v3-btn" href="/contact/">Discuss a Project <span aria-hidden="true">→</span></a>
+        <a class="v3-btn v3-btn--ghost" href="/work/">See our work →</a>
+      </div>
+    </div>
+    <div class="v3-herodiag" data-v3-herodiag aria-hidden="true">
+      <div class="v3-herodiag__k"><span>SYMPTOM APPEARS HERE</span><span>SURFACE</span></div>
+      <div class="v3-hdrows">
+        <div class="v3-hd" data-v3-hd="0"><span class="v3-hd__bar"></span><span class="v3-hd__l">DISTRIBUTION</span></div>
+        <div class="v3-hd" data-v3-hd="1"><span class="v3-hd__bar"></span><span class="v3-hd__l">CREATIVE</span></div>
+        <div class="v3-hd" data-v3-hd="2"><span class="v3-hd__bar"></span><span class="v3-hd__l">CONVERSION</span></div>
+        <div class="v3-hd" data-v3-hd="3"><span class="v3-hd__bar"></span><span class="v3-hd__l">ACQUISITION</span></div>
+        <div class="v3-hd" data-v3-hd="4"><span class="v3-hd__bar"></span><span class="v3-hd__l">MEASUREMENT</span></div>
+      </div>
+      <div class="v3-herodiag__k is-moss"><span>CAUSE USUALLY SITS HERE</span><span>DEPTH</span></div>
     </div>
   </div>
 </section>
 
-<section class="gsec gsec--light" id="core-services">
-  <div class="wrap">
-    <span class="label">Core growth services</span>
-    <h2>Where most engagements begin.</h2>
-    <div class="card-grid">
-      <a class="gcard gcard--featured" href="/services/growth-strategy-measurement/">
-  <span class="gcard__n">01</span>
-  <span class="gcard__name">Growth Strategy &amp; Measurement</span>
-  <span class="gcard__desc">Audits, funnel strategy, analytics, tracking architecture, attribution and the dashboards that make growth measurable.</span>
-  <span class="gcard__more">Explore →</span>
-</a>
-      <a class="gcard gcard--featured" href="/services/performance-marketing/">
-  <span class="gcard__n">02</span>
-  <span class="gcard__name">Performance Marketing</span>
-  <span class="gcard__desc">Customer-acquisition strategy, media planning, experimentation, budget allocation and cross-channel optimisation tied to revenue.</span>
-  <span class="gcard__more">Explore →</span>
-</a>
-      <a class="gcard gcard--featured" href="/services/seo-ai-search/">
-  <span class="gcard__n">03</span>
-  <span class="gcard__name">SEO, Content &amp; AI Search</span>
-  <span class="gcard__desc">Technical and on-page SEO, commercial keyword and intent mapping, content strategy, and visibility across AI answer engines.</span>
-  <span class="gcard__more">Explore →</span>
-</a>
-      <a class="gcard gcard--featured" href="/services/affiliate-partnerships/">
-  <span class="gcard__n">04</span>
-  <span class="gcard__name">Affiliate &amp; Partnership Marketing</span>
-  <span class="gcard__desc">Program strategy, partner discovery and validation, commercial models, tracking, fraud controls and performance optimisation.</span>
-  <span class="gcard__more">Explore →</span>
-</a>
-      <a class="gcard gcard--featured" href="/services/website-design-development/">
-  <span class="gcard__n">05</span>
-  <span class="gcard__name">Website Design, Development &amp; CRO</span>
-  <span class="gcard__desc">Strategy, UX, design, development, analytics, SEO foundations, accessibility and conversion-rate optimisation in one coordinated process.</span>
-  <span class="gcard__more">Explore →</span>
-</a>
+<section id="services" data-depth-label="SERVICES" style="padding:var(--sy) var(--pad) 0">
+  <div class="v3-mono v3-eyebrow">CORE GROWTH SERVICES</div>
+  <div class="v3-svchead v3-svchead--rule">
+    <h2 class="v3-h2">Where most engagements begin.</h2>
+    <p class="v3-maphint">EACH SERVICE SITS AT A DEPTH IN THE GROWTH SYSTEM AND CONNECTS TO THE ONES AROUND IT</p>
+  </div>
+
+  <div class="v3-svclayout">
+    <div>
+      <a class="v3-srow v3-srow--full" href="/services/growth-strategy-measurement/" data-v3-svc="growth-strategy-measurement">
+    <span class="v3-srow__n">01</span>
+    <div>
+      <div class="v3-srow__head">
+        <h3 class="v3-srow__title v3-srow__title--wrap">Growth Strategy &amp; Measurement</h3>
+        <span class="v3-srow__depth">STRATEGY / MEASUREMENT · FOUNDATION</span>
+      </div>
+      <p class="v3-srow__desc">Audits, funnel strategy, analytics, tracking architecture, attribution and the dashboards that make growth measurable.</p>
+      <div class="v3-srow__conn">
+        <span class="v3-srow__connk">CONNECTS WITH</span>
+        <span class="v3-chip">Performance Marketing</span>
+        <span class="v3-chip">Paid Media</span>
+        <span class="v3-chip">Website Design, Development &amp; CRO</span>
+      </div>
+      <span class="v3-srow__explore" aria-hidden="true">EXPLORE →</span>
+    </div>
+  </a>
+      <a class="v3-srow v3-srow--full" href="/services/performance-marketing/" data-v3-svc="performance-marketing">
+    <span class="v3-srow__n">02</span>
+    <div>
+      <div class="v3-srow__head">
+        <h3 class="v3-srow__title v3-srow__title--wrap">Performance Marketing</h3>
+        <span class="v3-srow__depth">ACQUISITION · MID</span>
+      </div>
+      <p class="v3-srow__desc">Customer-acquisition strategy, media planning, experimentation, budget allocation and cross-channel optimisation tied to revenue.</p>
+      <div class="v3-srow__conn">
+        <span class="v3-srow__connk">CONNECTS WITH</span>
+        <span class="v3-chip">Growth Strategy &amp; Measurement</span>
+        <span class="v3-chip">Paid Media</span>
+        <span class="v3-chip">Brand Strategy &amp; Performance Creative</span>
+      </div>
+      <span class="v3-srow__explore" aria-hidden="true">EXPLORE →</span>
+    </div>
+  </a>
+      <a class="v3-srow v3-srow--full" href="/services/seo-ai-search/" data-v3-svc="seo-ai-search">
+    <span class="v3-srow__n">03</span>
+    <div>
+      <div class="v3-srow__head">
+        <h3 class="v3-srow__title v3-srow__title--wrap">SEO, Content &amp; AI Search</h3>
+        <span class="v3-srow__depth">ORGANIC · SHALLOW</span>
+      </div>
+      <p class="v3-srow__desc">Technical and on-page SEO, commercial keyword and intent mapping, content strategy, and visibility across AI answer engines.</p>
+      <div class="v3-srow__conn">
+        <span class="v3-srow__connk">CONNECTS WITH</span>
+        <span class="v3-chip">Website Design, Development &amp; CRO</span>
+        <span class="v3-chip">Brand Strategy &amp; Performance Creative</span>
+      </div>
+      <span class="v3-srow__explore" aria-hidden="true">EXPLORE →</span>
+    </div>
+  </a>
+      <a class="v3-srow v3-srow--full" href="/services/affiliate-partnerships/" data-v3-svc="affiliate-partnerships">
+    <span class="v3-srow__n">04</span>
+    <div>
+      <div class="v3-srow__head">
+        <h3 class="v3-srow__title v3-srow__title--wrap">Affiliate &amp; Partnership Marketing</h3>
+        <span class="v3-srow__depth">PARTNERSHIPS · MID</span>
+      </div>
+      <p class="v3-srow__desc">Program strategy, partner discovery and validation, commercial models, tracking, fraud controls and performance optimisation.</p>
+      <div class="v3-srow__conn">
+        <span class="v3-srow__connk">CONNECTS WITH</span>
+        <span class="v3-chip">Growth Strategy &amp; Measurement</span>
+        <span class="v3-chip">Performance Marketing</span>
+      </div>
+      <span class="v3-srow__explore" aria-hidden="true">EXPLORE →</span>
+    </div>
+  </a>
+      <a class="v3-srow v3-srow--full" href="/services/website-design-development/" data-v3-svc="website-design-development">
+    <span class="v3-srow__n">05</span>
+    <div>
+      <div class="v3-srow__head">
+        <h3 class="v3-srow__title v3-srow__title--wrap">Website Design, Development &amp; CRO</h3>
+        <span class="v3-srow__depth">CONVERSION · SHALLOW</span>
+      </div>
+      <p class="v3-srow__desc">Strategy, UX, design, development, analytics, SEO foundations, accessibility and conversion-rate optimisation in one coordinated process.</p>
+      <div class="v3-srow__conn">
+        <span class="v3-srow__connk">CONNECTS WITH</span>
+        <span class="v3-chip">SEO, Content &amp; AI Search</span>
+        <span class="v3-chip">Performance Marketing</span>
+        <span class="v3-chip">Brand Strategy &amp; Performance Creative</span>
+      </div>
+      <span class="v3-srow__explore" aria-hidden="true">EXPLORE →</span>
+    </div>
+  </a>
+
+      <div class="v3-alsohead">
+        <div class="v3-mono v3-eyebrow" style="margin-bottom:16px">ALSO</div>
+        <h2 class="v3-h2">Distribution, brand and creative.</h2>
+      </div>
+      <a class="v3-srow v3-srow--full" href="/services/paid-media/" data-v3-svc="paid-media">
+    <span class="v3-srow__n">06</span>
+    <div>
+      <div class="v3-srow__head">
+        <h3 class="v3-srow__title v3-srow__title--wrap">Paid Media</h3>
+        <span class="v3-srow__depth">DISTRIBUTION · SURFACE</span>
+      </div>
+      <p class="v3-srow__desc">Google, Meta and LinkedIn campaigns — structure, audiences, conversion tracking, creative testing and reporting.</p>
+      <div class="v3-srow__conn">
+        <span class="v3-srow__connk">CONNECTS WITH</span>
+        <span class="v3-chip">Performance Marketing</span>
+        <span class="v3-chip">Brand Strategy &amp; Performance Creative</span>
+        <span class="v3-chip">Growth Strategy &amp; Measurement</span>
+      </div>
+      <span class="v3-srow__explore" aria-hidden="true">EXPLORE →</span>
+    </div>
+  </a>
+      <a class="v3-srow v3-srow--full" href="/services/brand-creative/" data-v3-svc="brand-creative">
+    <span class="v3-srow__n">07</span>
+    <div>
+      <div class="v3-srow__head">
+        <h3 class="v3-srow__title v3-srow__title--wrap">Brand Strategy &amp; Performance Creative</h3>
+        <span class="v3-srow__depth">CREATIVE · SURFACE</span>
+      </div>
+      <p class="v3-srow__desc">Positioning, messaging, visual systems and paid-social/static/motion creative built to be tested.</p>
+      <div class="v3-srow__conn">
+        <span class="v3-srow__connk">CONNECTS WITH</span>
+        <span class="v3-chip">Paid Media</span>
+        <span class="v3-chip">Performance Marketing</span>
+        <span class="v3-chip">Website Design, Development &amp; CRO</span>
+      </div>
+      <span class="v3-srow__explore" aria-hidden="true">EXPLORE →</span>
+    </div>
+  </a>
+      <a class="v3-srow v3-srow--full" href="/services/influencer-pr-events/" data-v3-svc="influencer-pr-events">
+    <span class="v3-srow__n">08</span>
+    <div>
+      <div class="v3-srow__head">
+        <h3 class="v3-srow__title v3-srow__title--wrap">Influencer, PR &amp; Events</h3>
+        <span class="v3-srow__depth">DISTRIBUTION · SURFACE</span>
+      </div>
+      <p class="v3-srow__desc">Creator partnerships, digital PR, media outreach and activations as an integrated distribution capability.</p>
+      <div class="v3-srow__conn">
+        <span class="v3-srow__connk">CONNECTS WITH</span>
+        <span class="v3-chip">Brand Strategy &amp; Performance Creative</span>
+        <span class="v3-chip">SEO, Content &amp; AI Search</span>
+      </div>
+      <span class="v3-srow__explore" aria-hidden="true">EXPLORE →</span>
+    </div>
+  </a>
+    </div>
+
+    <aside class="v3-svcmap" aria-label="Growth system depth map">
+      <div class="v3-svcmap__top"><span style="color:var(--mosstext)">THE GROWTH SYSTEM</span><span style="color:var(--stone)">DEPTH MAP</span></div>
+      <div class="v3-svcmap__layers">
+        <div class="v3-layer" data-v3-layer="distribution">
+          <span class="v3-layer__n">DISTRIBUTION</span><span class="v3-layer__d">SURFACE</span>
+        </div>
+        <div class="v3-layer" data-v3-layer="creative">
+          <span class="v3-layer__n">CREATIVE</span><span class="v3-layer__d">SURFACE</span>
+        </div>
+        <div class="v3-layer" data-v3-layer="conversion">
+          <span class="v3-layer__n">CONVERSION</span><span class="v3-layer__d">SHALLOW</span>
+        </div>
+        <div class="v3-layer" data-v3-layer="organic">
+          <span class="v3-layer__n">ORGANIC</span><span class="v3-layer__d">SHALLOW</span>
+        </div>
+        <div class="v3-layer" data-v3-layer="partnerships">
+          <span class="v3-layer__n">PARTNERSHIPS</span><span class="v3-layer__d">MID</span>
+        </div>
+        <div class="v3-layer" data-v3-layer="acquisition">
+          <span class="v3-layer__n">ACQUISITION</span><span class="v3-layer__d">MID</span>
+        </div>
+        <div class="v3-layer" data-v3-layer="measurement">
+          <span class="v3-layer__n">MEASUREMENT</span><span class="v3-layer__d">DEEP</span>
+        </div>
+        <div class="v3-layer" data-v3-layer="strategy">
+          <span class="v3-layer__n">STRATEGY</span><span class="v3-layer__d">FOUNDATION</span>
+        </div>
+      </div>
+      <div class="v3-svcmap__active">
+        <div class="v3-svcmap__k">ACTIVE SERVICE</div>
+        <div class="v3-svcmap__name"><span data-v3-active-n>01</span><b data-v3-active-name>Growth Strategy &amp; Measurement</b></div>
+        <div class="v3-svcmap__depth" data-v3-active-depth>STRATEGY / MEASUREMENT · FOUNDATION</div>
+        <div class="v3-svcmap__k" style="margin-top:18px">CONNECTS WITH</div>
+        <div class="v3-svcmap__conn" data-v3-active-conn><span>Performance Marketing</span><span>Paid Media</span><span>Website Design, Development &amp; CRO</span></div>
+        <a class="v3-svcmap__go" data-v3-active-go href="/services/growth-strategy-measurement/">EXPLORE SERVICE →</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="v3-sec v3-sec--inv" id="not-sure" data-depth-label="DIAGNOSE" style="margin-top:var(--sy)">
+  <div class="v3-svchead">
+    <div>
+      <div class="v3-mono" style="color:var(--imut);margin-bottom:20px">NEXT STEP</div>
+      <h2 class="v3-h2" style="max-width:16ch">Not sure which service you need?</h2>
+    </div>
+    <p style="margin:0;font-size:15.5px;line-height:1.6;color:var(--imut);max-width:36ch">That's normal — and it's the point. Tell us what you're trying to grow, and we'll recommend the right starting point.</p>
+  </div>
+
+  <div class="v3-symgrid">
+    <button class="v3-tile" type="button" data-v3-tile="expensive" aria-pressed="true">Acquisition is getting expensive</button>
+    <button class="v3-tile" type="button" data-v3-tile="measure" aria-pressed="false">Measurement isn't reliable</button>
+    <button class="v3-tile" type="button" data-v3-tile="organic" aria-pressed="false">Weak organic visibility</button>
+    <button class="v3-tile" type="button" data-v3-tile="convert" aria-pressed="false">Traffic isn't converting</button>
+    <button class="v3-tile" type="button" data-v3-tile="affiliate" aria-pressed="false">Affiliate performance is flat</button>
+    <button class="v3-tile" type="button" data-v3-tile="fatigue" aria-pressed="false">Creative fatigues quickly</button>
+    <button class="v3-tile" type="button" data-v3-tile="position" aria-pressed="false">Positioning is unclear</button>
+    <button class="v3-tile" type="button" data-v3-tile="website" aria-pressed="false">The website converts poorly</button>
+  </div>
+
+  <div class="v3-rx">
+    <div class="v3-rx__head">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 20px">
+        <div class="v3-rx__k">LIKELY STARTING POINT</div>
+        <div class="v3-rx__layer" data-v3-rx-layer>Measurement</div>
+      </div>
+      <div class="v3-rx__depth" data-v3-rx-depth>DEEP — often below where it shows</div>
+    </div>
+    <div class="v3-rx__lk">WHERE WE'D INVESTIGATE FIRST</div>
+    <div class="v3-rxlist" data-v3-rx-list>
+      <a class="v3-rxrow" href="/services/growth-strategy-measurement/">
+        <span class="v3-rxrow__n">01</span>
+        <div><div class="v3-rxrow__t">Growth Strategy &amp; Measurement</div><p>Audits, funnel strategy, analytics, tracking architecture, attribution and the dashboards that make growth measurable.</p></div>
+        <span class="v3-rxrow__a" aria-hidden="true">→</span>
+      </a>
+      <a class="v3-rxrow" href="/services/performance-marketing/">
+        <span class="v3-rxrow__n">02</span>
+        <div><div class="v3-rxrow__t">Performance Marketing</div><p>Customer-acquisition strategy, media planning, experimentation, budget allocation and cross-channel optimisation tied to revenue.</p></div>
+        <span class="v3-rxrow__a" aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div class="v3-rx__cta">
+      <a class="v3-rx__btn" href="/contact/">Discuss a Project <span aria-hidden="true">→</span></a>
+      <a class="v3-rx__alt" href="/contact/"><span>Request a Foundation Audit →</span></a>
     </div>
   </div>
 </section>
 
-<section class="gsec" id="brand-creative">
-  <div class="wrap">
-    <span class="label">Also</span>
-    <h2>Distribution, brand and creative.</h2>
-    <div class="card-grid">
-      <a class="gcard " href="/services/paid-media/">
-  <span class="gcard__n">06</span>
-  <span class="gcard__name">Paid Media</span>
-  <span class="gcard__desc">Google, Meta and LinkedIn campaigns — structure, audiences, conversion tracking, creative testing and reporting.</span>
-  <span class="gcard__more">Explore →</span>
-</a>
-      <a class="gcard " href="/services/brand-creative/">
-  <span class="gcard__n">07</span>
-  <span class="gcard__name">Brand Strategy &amp; Performance Creative</span>
-  <span class="gcard__desc">Positioning, messaging, visual systems and paid-social/static/motion creative built to be tested.</span>
-  <span class="gcard__more">Explore →</span>
-</a>
-      <a class="gcard " href="/services/influencer-pr-events/">
-  <span class="gcard__n">08</span>
-  <span class="gcard__name">Influencer, PR &amp; Events</span>
-  <span class="gcard__desc">Creator partnerships, digital PR, media outreach and activations as an integrated distribution capability.</span>
-  <span class="gcard__more">Explore →</span>
-</a>
+<section class="v3-sec" id="engagement-models" data-depth-label="ENGAGE">
+  <div class="v3-mono v3-eyebrow">WAYS TO WORK WITH TILTH</div>
+  <div class="v3-svchead">
+    <h2 class="v3-h2">Three ways to engage.</h2>
+    <p style="margin:0;font-size:15.5px;line-height:1.6;color:var(--stone);max-width:40ch">Most relationships start with a diagnosis and grow from there. Pricing is scoped after we understand what actually needs fixing.</p>
+  </div>
+  <div class="v3-engage">
+    <div class="v3-eng v3-reveal">
+      <div class="v3-eng__n">01</div>
+      <h3>Foundation Audit</h3>
+      <p>A diagnostic engagement across strategy, tracking, website, funnel, campaigns, SEO, partnerships and measurement.</p>
+      <ul><li>Audit report</li><li>Priority issues</li><li>Measurement review</li><li>Channel review</li><li>Recommended roadmap</li></ul>
+      <a class="v3-eng__go" href="/contact/">REQUEST A FOUNDATION AUDIT →</a>
+    </div>
+    <div class="v3-eng v3-reveal">
+      <div class="v3-eng__n">02</div>
+      <h3>Growth Project</h3>
+      <p>A fixed-scope engagement — a website build, tracking rebuild, paid-media setup, SEO strategy, affiliate program or landing-page project.</p>
+      <ul><li>Defined scope</li><li>Timeline</li><li>Deliverables</li><li>Success measures</li></ul>
+      <a class="v3-eng__go" href="/contact/">DISCUSS YOUR GROWTH PROJECT →</a>
+    </div>
+    <div class="v3-eng v3-eng--clay v3-reveal">
+      <div class="v3-eng__n is-clay">03</div>
+      <h3>Ongoing Growth Partnership</h3>
+      <p>A continuing engagement across strategy, execution, optimisation, reporting and testing.</p>
+      <ul><li>Strategy &amp; roadmap</li><li>Execution</li><li>Experimentation</li><li>Reporting</li><li>Cross-functional support</li></ul>
+      <a class="v3-eng__go" href="/contact/">START A CONVERSATION →</a>
     </div>
   </div>
 </section>
 
-<section class="gsec gsec--light" id="engagement-models">
-  <div class="wrap">
-    <span class="label">Ways to work with Tilth</span>
-    <h2>Three ways to engage.</h2>
-    <p class="intro">Most relationships start with a diagnosis and grow from there. Pricing is scoped after we understand what actually needs fixing.</p>
-    <div class="engage">
-      <div class="engage-card">
-  <h3>Foundation Audit</h3>
-  <p>A diagnostic engagement across strategy, tracking, website, funnel, campaigns, SEO, partnerships and measurement.</p>
-  <ul><li>Audit report</li><li>Priority issues</li><li>Measurement review</li><li>Channel review</li><li>Recommended roadmap</li></ul>
-  <a class="text-cta" href="/contact/">Request a Foundation Audit →</a>
-</div>
-      <div class="engage-card">
-  <h3>Growth Project</h3>
-  <p>A fixed-scope engagement — a website build, tracking rebuild, paid-media setup, SEO strategy, affiliate program or landing-page project.</p>
-  <ul><li>Defined scope</li><li>Timeline</li><li>Deliverables</li><li>Success measures</li></ul>
-  <a class="text-cta" href="/contact/">Discuss Your Growth Project →</a>
-</div>
-      <div class="engage-card">
-  <h3>Ongoing Growth Partnership</h3>
-  <p>A continuing engagement across strategy, execution, optimisation, reporting and testing.</p>
-  <ul><li>Strategy &amp; roadmap</li><li>Execution</li><li>Experimentation</li><li>Reporting</li><li>Cross-functional support</li></ul>
-  <a class="text-cta" href="/contact/">Start a Conversation →</a>
-</div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-band cta-band--terra" id="cta">
-  <div class="wrap">
-    <span class="label">Next step</span>
-    <h2>Not sure which service you need?</h2>
-    <p>That's normal — and it's the point. Tell us what you're trying to grow, and we'll recommend the right starting point.</p>
-    <div class="cta-band__actions">
-      <a class="btn" href="/contact/"><span>Discuss a Project</span> <span class="arrow">→</span></a>
-      <a class="text-cta" href="/contact/">Request a Foundation Audit →</a>
-    </div>
-  </div>
-</section>
+<script type="application/json" data-v3-svcdata>{"growth-strategy-measurement":{"n":"01","name":"Growth Strategy & Measurement","href":"/services/growth-strategy-measurement/","layers":["strategy","measurement"],"connects":["performance-marketing","paid-media","website-design-development"],"connectLayers":["acquisition","distribution","conversion"],"connectNames":["Performance Marketing","Paid Media","Website Design, Development & CRO"],"depthLabel":"STRATEGY / MEASUREMENT · FOUNDATION"},"performance-marketing":{"n":"02","name":"Performance Marketing","href":"/services/performance-marketing/","layers":["acquisition"],"connects":["growth-strategy-measurement","paid-media","brand-creative"],"connectLayers":["strategy","measurement","distribution","creative"],"connectNames":["Growth Strategy & Measurement","Paid Media","Brand Strategy & Performance Creative"],"depthLabel":"ACQUISITION · MID"},"seo-ai-search":{"n":"03","name":"SEO, Content & AI Search","href":"/services/seo-ai-search/","layers":["organic"],"connects":["website-design-development","brand-creative"],"connectLayers":["conversion","creative"],"connectNames":["Website Design, Development & CRO","Brand Strategy & Performance Creative"],"depthLabel":"ORGANIC · SHALLOW"},"affiliate-partnerships":{"n":"04","name":"Affiliate & Partnership Marketing","href":"/services/affiliate-partnerships/","layers":["partnerships"],"connects":["growth-strategy-measurement","performance-marketing"],"connectLayers":["strategy","measurement","acquisition"],"connectNames":["Growth Strategy & Measurement","Performance Marketing"],"depthLabel":"PARTNERSHIPS · MID"},"website-design-development":{"n":"05","name":"Website Design, Development & CRO","href":"/services/website-design-development/","layers":["conversion"],"connects":["seo-ai-search","performance-marketing","brand-creative"],"connectLayers":["organic","acquisition","creative"],"connectNames":["SEO, Content & AI Search","Performance Marketing","Brand Strategy & Performance Creative"],"depthLabel":"CONVERSION · SHALLOW"},"paid-media":{"n":"06","name":"Paid Media","href":"/services/paid-media/","layers":["distribution"],"connects":["performance-marketing","brand-creative","growth-strategy-measurement"],"connectLayers":["acquisition","creative","strategy","measurement"],"connectNames":["Performance Marketing","Brand Strategy & Performance Creative","Growth Strategy & Measurement"],"depthLabel":"DISTRIBUTION · SURFACE"},"brand-creative":{"n":"07","name":"Brand Strategy & Performance Creative","href":"/services/brand-creative/","layers":["creative"],"connects":["paid-media","performance-marketing","website-design-development"],"connectLayers":["distribution","acquisition","conversion"],"connectNames":["Paid Media","Performance Marketing","Website Design, Development & CRO"],"depthLabel":"CREATIVE · SURFACE"},"influencer-pr-events":{"n":"08","name":"Influencer, PR & Events","href":"/services/influencer-pr-events/","layers":["distribution"],"connects":["brand-creative","seo-ai-search"],"connectLayers":["creative","organic"],"connectNames":["Brand Strategy & Performance Creative","SEO, Content & AI Search"],"depthLabel":"DISTRIBUTION · SURFACE"}}</script>
+<script type="application/json" data-v3-rxdata>{"expensive":{"layer":"Measurement","depth":"DEEP — often below where it shows","services":[{"n":"01","name":"Growth Strategy & Measurement","desc":"Audits, funnel strategy, analytics, tracking architecture, attribution and the dashboards that make growth measurable.","href":"/services/growth-strategy-measurement/"},{"n":"02","name":"Performance Marketing","desc":"Customer-acquisition strategy, media planning, experimentation, budget allocation and cross-channel optimisation tied to revenue.","href":"/services/performance-marketing/"}]},"measure":{"layer":"Measurement","depth":"DEEP — often below where it shows","services":[{"n":"01","name":"Growth Strategy & Measurement","desc":"Audits, funnel strategy, analytics, tracking architecture, attribution and the dashboards that make growth measurable.","href":"/services/growth-strategy-measurement/"}]},"organic":{"layer":"Organic","depth":"SHALLOW","services":[{"n":"03","name":"SEO, Content & AI Search","desc":"Technical and on-page SEO, commercial keyword and intent mapping, content strategy, and visibility across AI answer engines.","href":"/services/seo-ai-search/"},{"n":"07","name":"Brand Strategy & Performance Creative","desc":"Positioning, messaging, visual systems and paid-social/static/motion creative built to be tested.","href":"/services/brand-creative/"}]},"convert":{"layer":"Conversion","depth":"SHALLOW","services":[{"n":"05","name":"Website Design, Development & CRO","desc":"Strategy, UX, design, development, analytics, SEO foundations, accessibility and conversion-rate optimisation in one coordinated process.","href":"/services/website-design-development/"},{"n":"07","name":"Brand Strategy & Performance Creative","desc":"Positioning, messaging, visual systems and paid-social/static/motion creative built to be tested.","href":"/services/brand-creative/"}]},"affiliate":{"layer":"Partnerships","depth":"MID","services":[{"n":"04","name":"Affiliate & Partnership Marketing","desc":"Program strategy, partner discovery and validation, commercial models, tracking, fraud controls and performance optimisation.","href":"/services/affiliate-partnerships/"},{"n":"01","name":"Growth Strategy & Measurement","desc":"Audits, funnel strategy, analytics, tracking architecture, attribution and the dashboards that make growth measurable.","href":"/services/growth-strategy-measurement/"}]},"fatigue":{"layer":"Creative","depth":"SURFACE","services":[{"n":"07","name":"Brand Strategy & Performance Creative","desc":"Positioning, messaging, visual systems and paid-social/static/motion creative built to be tested.","href":"/services/brand-creative/"},{"n":"06","name":"Paid Media","desc":"Google, Meta and LinkedIn campaigns — structure, audiences, conversion tracking, creative testing and reporting.","href":"/services/paid-media/"}]},"position":{"layer":"Creative","depth":"SURFACE","services":[{"n":"07","name":"Brand Strategy & Performance Creative","desc":"Positioning, messaging, visual systems and paid-social/static/motion creative built to be tested.","href":"/services/brand-creative/"},{"n":"03","name":"SEO, Content & AI Search","desc":"Technical and on-page SEO, commercial keyword and intent mapping, content strategy, and visibility across AI answer engines.","href":"/services/seo-ai-search/"}]},"website":{"layer":"Conversion","depth":"SHALLOW","services":[{"n":"05","name":"Website Design, Development & CRO","desc":"Strategy, UX, design, development, analytics, SEO foundations, accessibility and conversion-rate optimisation in one coordinated process.","href":"/services/website-design-development/"}]}}</script>
 
 </main>
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <p class="addr">Tilth is an India-rooted growth marketing agency working with ambitious brands across India and the US.<br><br>Bengaluru, India · Remote collaboration across India and the US<br><a href="tel:+917007999306">+91 70079 99306</a><br><a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a></p>
-      </div>
-      <div>
-        <h3 class="fcol">Explore</h3>
-        <ul><li><a href="/services/">Services</a></li><li><a href="/approach/">Approach</a></li><li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Legal</h3>
-        <ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/cookie-policy/">Cookie Policy</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Social</h3>
-        <ul><li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li><li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li></ul>
-      </div>
+<footer class="v3-foot v3-foot--rule">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom"><span>© 2026 Tilth. All rights reserved.</span></div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
+    </div>
   </div>
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
 <script src="/analytics.js" defer></script>
 </body>
 </html>
