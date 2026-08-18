@@ -131,7 +131,7 @@ export function v3Header(currentPath = "", ctaLabel = "Discuss your growth") {
       ${V3_NAV.map(n => `<a class="v3-navitem" href="${n.href}"${n.href === currentPath ? ' aria-current="page"' : ""}>${esc(n.label)}</a>`).join("\n      ")}
     </nav>
     <div class="v3-headright">
-      <span class="v3-depth" data-v3-depth aria-hidden="true">${currentPath === "/" ? "00.0m" : "SURFACE"}</span>
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
       <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
         <span class="v3-theme-dot" aria-hidden="true"></span>
       </button>
@@ -229,7 +229,7 @@ export function renderPage(p) {
   // instead of Fraunces/Work Sans — preloading fonts a page never uses would
   // cost the same LCP budget the existing preloads were added to protect.
   const preloads = v3
-    ? `<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-variable.woff2" crossorigin>
+    ? `<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>`
     : `<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>

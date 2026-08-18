@@ -94,7 +94,10 @@ const main = `
   </nav>
   <div class="v3-sherogrid">
     <div>
-      <h1 class="v3-sh1">Growth marketing services, built on <span class="is-moss">foundations</span>.</h1>
+      <!-- soft hyphens per CLAUDE.md §3: Syne cannot break mid-word, so the long
+           display words get explicit break opportunities rather than capping the
+           whole heading to one unbreakable run -->
+      <h1 class="v3-sh1">Growth mar&shy;keting ser&shy;vices, built on <span class="is-moss">foun&shy;dations</span>.</h1>
       <p class="v3-shero__p">We don't start by recommending another channel. We identify what's limiting the growth system, then bring the right service and engagement to fix it — for brands worldwide.</p>
       <div class="v3-shero__cta">
         <a class="v3-btn" href="/contact/">Discuss a Project <span aria-hidden="true">→</span></a>

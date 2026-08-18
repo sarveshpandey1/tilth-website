@@ -94,18 +94,22 @@ html[data-theme="light"] .v3 {
   --ichip: rgba(var(--tilth-mineral-rgb), .22);
 }
 
-/* per-page display scale — the two designs use different h1 ramps */
-.v3-home { --h1: 54px; }
+/* Per-page display scale. CLAUDE.md 6b: authored sizes are derived from the
+   longest unbreakable run (7.83em in Syne 800) against the column at each
+   breakpoint, so the fit safeguard stays idle instead of firing on every load.
+   The rendered result is identical either way - min() already resolved to these
+   values - but stating them makes the intent explicit. */
+.v3-home { --h1: 45px; }
 .v3-services { --h1: 40px; }
 
 @media (min-width: 768px) {
   .v3 { --pad: 32px; --sy: 88px; --h2: 38px; --h3: 20px; --body: 16.5px; --menu: 44px; }
-  .v3-home { --h1: 92px; }
+  .v3-home { --h1: 88px; }
   .v3-services { --h1: 62px; }
 }
 @media (min-width: 1024px) {
   .v3 { --pad: 40px; --sy: 112px; --h2: 46px; --h3: 21px; --body: 17px; --menu: 46px; }
-  .v3-home { --h1: 126px; }
+  .v3-home { --h1: 118px; }
   .v3-services { --h1: 92px; }
 }
 @media (min-width: 1200px) { .v3 { --menu: 56px; } }
@@ -514,6 +518,47 @@ html[data-theme="light"] .v3-theme-dot { transform: rotate(180deg); }
 .v3-ev__ml { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: .1em; line-height: 1.4; color: var(--stone); margin-top: 7px; }
 .v3-ev h3 { margin: 0; font-weight: 600; font-size: 17.5px; line-height: 1.3; letter-spacing: -.02em; }
 .v3-ev p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--stone); }
+/* Evidence spotlight — the selected-category state (CLAUDE.md §2C).
+   Sizes and proportions taken from the approved design's data-spot block. */
+.v3-spot {
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px;
+  margin-top: 36px; border: 1px solid var(--line); background: var(--line);
+}
+.v3-spot[hidden] { display: none; }
+@media (min-width: 1024px) { .v3-spot { grid-template-columns: 58fr 42fr; min-height: 300px; } }
+.v3-spot__side, .v3-spot__metrics { background: var(--raise); padding: 26px 22px 28px; transition: background .4s; }
+@media (min-width: 768px) { .v3-spot__side, .v3-spot__metrics { padding: 34px 32px 36px; } }
+.v3-spot__side { display: flex; flex-direction: column; }
+.v3-spot__top {
+  display: flex; align-items: baseline; gap: 14px;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10.5px;
+  letter-spacing: .12em; white-space: nowrap;
+}
+.v3-spot__tag { color: var(--mosstext); }
+.v3-spot__rule { flex: 1; height: 1px; background: var(--line); }
+.v3-spot__dur { color: var(--stone); }
+.v3-spot__title {
+  margin: 22px 0 0; font-family: Syne, sans-serif; font-weight: 700; font-size: 23px;
+  line-height: 1.12; letter-spacing: -.03em; max-width: 20ch;
+}
+@media (min-width: 768px) { .v3-spot__title { font-size: 27px; } }
+@media (min-width: 1200px) { .v3-spot__title { font-size: 30px; } }
+.v3-spot__body { margin: 18px 0 0; font-size: 15.5px; line-height: 1.65; color: var(--stone); max-width: 52ch; }
+.v3-spot__metrics { display: flex; flex-direction: column; justify-content: center; }
+.v3-spot__m { padding-bottom: 26px; border-bottom: 1px solid var(--line); }
+.v3-spot__m.is-second { padding: 26px 0 0; border-bottom: 0; }
+.v3-spot__mv {
+  font-family: Syne, sans-serif; font-weight: 700; font-size: 40px;
+  letter-spacing: -.04em; line-height: 1; white-space: nowrap;
+}
+@media (min-width: 768px) { .v3-spot__mv { font-size: 48px; } }
+@media (min-width: 1200px) { .v3-spot__mv { font-size: 56px; } }
+.v3-spot__mv.is-moss { color: var(--mosstext); }
+.v3-spot__ml {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10.5px;
+  letter-spacing: .12em; line-height: 1.4; color: var(--stone); margin-top: 12px;
+}
+
 .v3-evnote { margin: 20px 0 0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10.5px; letter-spacing: .1em; line-height: 1.6; color: var(--stone); }
 
 /* tools calculator */
@@ -628,32 +673,31 @@ html[data-theme="light"] .v3-theme-dot { transform: rotate(180deg); }
    is what keeps the headline column deterministic and the page overflow-free. */
 @media (min-width: 1100px) { .v3-sherogrid { grid-template-columns: minmax(0, 1fr) 121px; gap: 64px; } }
 
-/* The design sets max-width:14ch. In the prototype `ch` resolves against Syne 600
-   (zero advance .683em) because Google serves 600/700/800 as separate faces; the
-   self-hosted variable face resolves `ch` at the used weight 800, whose zero is
-   .5x wider — so the identical declaration yields a 1790px measure instead of the
-   approved ~1147px.
+/* Services H1 sizing — CLAUDE.md §6b.
+   The design's max-width:14ch is not reproducible as authored: `ch` scales with
+   font-size, which §6b explicitly rules out, and it resolves differently per font
+   face. The measure is therefore a px cap per breakpoint, matching the approved
+   ~1147px column at xl.
 
-   The measure is stated as 13em instead: the longest word ("FOUNDATIONS.") is
-   12.29em wide in Syne 800, so any narrower measure clips it at every size, and
-   13em reproduces the approved column width without depending on which weight
-   `ch` resolves against.
-
-   font-size then steps down only where the design's own size would clip that
-   word — the design value is used wherever it fits, so the headline never clips
-   and never overflows. 18px is a classic-scrollbar allowance, since 100vw
-   includes the scrollbar but the content box does not. */
+   Soft hyphens in the copy drop the longest unbreakable run from "FOUNDATIONS."
+   (12.29em in Syne 800) to "DATIONS." (~8.2em), so the authored sizes fit and the
+   /9.5 divisor is only a safeguard — it fires on a genuine overrun rather than
+   shrinking type that already fits. 18px is a classic-scrollbar allowance, since
+   100vw includes the scrollbar but the content box does not. */
 .v3-sh1 {
   margin: 0; font-family: Syne, sans-serif; font-weight: 800;
-  font-size: min(var(--h1), calc((100vw - 2 * var(--pad) - 18px) / 13));
+  font-size: min(var(--h1), calc((100vw - 2 * var(--pad) - 18px) / 8));
   line-height: .92; letter-spacing: -.045em; text-transform: uppercase;
-  max-width: 13em;
+  hyphens: manual;
   animation: v3Rise 1s cubic-bezier(.16, 1, .3, 1) both;
 }
+@media (min-width: 768px) { .v3-sh1 { max-width: 620px; } }
+@media (min-width: 1024px) { .v3-sh1 { max-width: 880px; } }
 @media (min-width: 1100px) {
   /* two-column hero: the diagram column reserves 121px + the 64px gap */
-  .v3-sh1 { font-size: min(var(--h1), calc((100vw - 2 * var(--pad) - 185px - 18px) / 13)); }
+  .v3-sh1 { font-size: min(var(--h1), calc((100vw - 2 * var(--pad) - 185px - 18px) / 8)); }
 }
+@media (min-width: 1440px) { .v3-sh1 { max-width: 1147px; } }
 .v3-sh1 .is-moss { color: var(--mosstext); }
 .v3-shero__p { margin: 32px 0 0; font-size: var(--body); line-height: 1.6; max-width: 52ch; color: var(--stone); animation: v3Rise 1s .12s cubic-bezier(.16, 1, .3, 1) both; }
 .v3-shero__cta { display: flex; flex-direction: column; gap: 12px; margin-top: 34px; animation: v3Rise 1s .2s cubic-bezier(.16, 1, .3, 1) both; }
@@ -790,9 +834,18 @@ html[data-theme="light"] .v3-tile { background: rgba(var(--tilth-mineral-rgb), .
 .v3-eng--clay li::before { background: var(--clay); }
 .v3-eng__go { margin-top: auto; padding-top: 26px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: .14em; }
 
-/* reveal primitives — JS adds .is-in; without JS everything stays visible */
+/* Reveal primitives — JS adds data-shown; without JS everything stays visible.
+   CLAUDE.md §9: never animate clip-path on a reveal. If the hide/show state ever
+   desyncs, a clip-path leaves the content permanently cut off, whereas a stuck
+   opacity/transform still resolves to readable text. Opacity + translateY carry
+   the motion on their own. The shown state is keyed off a data attribute so it is
+   idempotent — re-applying it can never re-hide content. */
 .v3-reveal { will-change: opacity, transform; }
-.v3-js .v3-reveal { opacity: 0; transform: translateY(22px); clip-path: inset(0 0 22% 0); transition: opacity .95s cubic-bezier(.16, 1, .3, 1), transform 1.05s cubic-bezier(.16, 1, .3, 1), clip-path 1.05s cubic-bezier(.16, 1, .3, 1); }
-.v3-js .v3-reveal.is-in { opacity: 1; transform: none; clip-path: inset(0 0 0 0); }
+.v3-js .v3-reveal {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity .95s cubic-bezier(.16, 1, .3, 1), transform 1.05s cubic-bezier(.16, 1, .3, 1);
+}
+.v3-js .v3-reveal[data-shown] { opacity: 1; transform: none; }
 .v3-js .v3-reveal:nth-child(3n+2) { transition-delay: 90ms; }
 .v3-js .v3-reveal:nth-child(3n+3) { transition-delay: 180ms; }
+@media (prefers-reduced-motion: reduce) { .v3-js .v3-reveal { opacity: 1; transform: none; } }

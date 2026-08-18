@@ -323,19 +323,19 @@ export const homeV3 = {
       body: "Lead scoring and stage definitions were rewritten with the sales team, then paid search was restructured around the intent that actually closed.", publishApproved: true }
   ],
   symptoms: [
-    { id: "flat", label: "Spend up, returns flat", layer: "Measurement", depth: "12.4m — deepest", pct: 100,
+    { id: "flat", label: "Spend up, returns flat", layer: "Measurement", depth: "DEEP — deepest", pct: 100,
       cause: "Almost always attribution. Platform-reported conversions double-count, and the channels taking credit aren't the channels creating demand — so budget keeps flowing to the loudest report.",
       fix: "A tracking and attribution rebuild: server-side events, deduplicated conversions, one source of truth. Two to three weeks, before a rupee moves." },
-    { id: "blind", label: "Can't tell what's working", layer: "Measurement", depth: "12.4m — deepest", pct: 100,
+    { id: "blind", label: "Can't tell what's working", layer: "Measurement", depth: "DEEP — deepest", pct: 100,
       cause: "The funnel has no defined stages, so there's nothing to attribute to. Every report answers a slightly different question and none of them tie to revenue.",
       fix: "Define the funnel stages first, instrument each one, then build a single decision-ready view. Reporting becomes a diagnosis, not a defence." },
-    { id: "conv", label: "Traffic but no conversion", layer: "Positioning & funnel", depth: "08.0m", pct: 70,
+    { id: "conv", label: "Traffic but no conversion", layer: "Positioning & funnel", depth: "MID", pct: 70,
       cause: "The ad promises one thing and the landing page argues another. The click is qualified; the page gives it no reason to continue.",
       fix: "Message-to-page mapping, then a conversion rebuild of the pages carrying the spend. Fast to move, and it lifts every channel at once." },
-    { id: "creative", label: "Creative fatigues fast", layer: "Creative loop", depth: "04.0m", pct: 45,
+    { id: "creative", label: "Creative fatigues fast", layer: "Creative loop", depth: "SHALLOW", pct: 45,
       cause: "Creative is produced in batches, not in a loop. Nothing is structured as a test, so each round starts from opinion instead of the last result.",
       fix: "A standing testing cadence with a named hypothesis per asset — concept, hook and format tested separately so you learn which one moved." },
-    { id: "ceiling", label: "Hit a scaling ceiling", layer: "Scale", depth: "Surface", pct: 25,
+    { id: "ceiling", label: "Hit a scaling ceiling", layer: "Scale", depth: "SURFACE", pct: 25,
       cause: "The foundation holds but the channel mix is narrow. Efficiency drops the moment you push, because there is one route to the customer.",
       fix: "Widen the base — affiliate and partnerships, search intent, incrementality testing — so the next increment of spend has somewhere efficient to go." }
   ]

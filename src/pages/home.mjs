@@ -54,7 +54,7 @@ const symData = {};
 homeV3.symptoms.forEach(s => { symData[s.id] = { label: s.label, layer: s.layer, depth: s.depth, pct: s.pct, cause: s.cause, fix: s.fix }; });
 
 const main = `
-<section class="v3-hero v3-sec--grid" id="top" data-depth-label="00.0m">
+<section class="v3-hero v3-sec--grid" id="top" data-depth-label="SURFACE">
   <div class="v3-hero__kicker v3-mono">
     <span class="is-moss">${esc(homeV3.kicker.left)}</span>
     <span>${esc(homeV3.kicker.right)}</span>
@@ -82,7 +82,7 @@ const main = `
   </div>
 </section>
 
-<section class="v3-brandsec" id="brand-experience" data-depth-label="04.0m">
+<section class="v3-brandsec" id="brand-experience" data-depth-label="EXPERIENCE">
   <div class="v3-brandsec__head">
     <h2 class="v3-mono" style="color:var(--mosstext);margin:0">SELECTED BRAND EXPERIENCE</h2>
     <div class="v3-brandsec__note">Experience from the founder and core team.</div>
@@ -94,7 +94,7 @@ const main = `
   </div>
 </section>
 
-<section class="v3-sec" id="problem" data-depth-label="12.4m">
+<section class="v3-sec" id="problem" data-depth-label="THE PATTERN">
   <div class="v3-split">
     <div>
       <div class="v3-mono v3-eyebrow v3-reveal">01 — THE PATTERN WE KEPT SEEING</div>
@@ -103,17 +103,17 @@ const main = `
     </div>
     <div class="v3-bands" data-v3-bands>
       <div class="v3-band" data-v3-band="0"><span class="v3-band__name">Paid media</span><span class="v3-band__d">SURFACE</span></div>
-      <div class="v3-band" data-v3-band="1"><span class="v3-band__name">Creative</span><span class="v3-band__d">04.0m</span></div>
-      <div class="v3-band" data-v3-band="2"><span class="v3-band__name">Funnel &amp; positioning</span><span class="v3-band__d">08.0m</span></div>
+      <div class="v3-band" data-v3-band="1"><span class="v3-band__name">Creative</span><span class="v3-band__d">SHALLOW</span></div>
+      <div class="v3-band" data-v3-band="2"><span class="v3-band__name">Funnel &amp; positioning</span><span class="v3-band__d">MID</span></div>
       <div class="v3-band v3-band--deep" data-v3-band="3">
-        <div class="v3-band__row"><span class="v3-band__name">Measurement</span><span class="v3-band__d">12.4m — CONSTRAINT</span></div>
+        <div class="v3-band__row"><span class="v3-band__name">Measurement</span><span class="v3-band__d">DEEP — CONSTRAINT</span></div>
         <p>Nine times out of ten the constraint sits here — and every layer above it inherits the error.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="v3-sec v3-sec--inv" id="depth" data-depth-label="12.4m">
+<section class="v3-sec v3-sec--inv" id="depth" data-depth-label="DIAGNOSE">
   <div class="v3-headrow">
     <div>
       <div class="v3-mono" style="color:var(--imut);margin-bottom:20px">02 — THE 30-SECOND DIAGNOSTIC</div>
@@ -147,7 +147,7 @@ const main = `
   </div>
 </section>
 
-<section class="v3-sec" id="method" data-depth-label="20.0m">
+<section class="v3-sec" id="method" data-depth-label="METHOD">
   <div class="v3-mono v3-eyebrow">03 — HOW WE WORK</div>
   <h2 class="v3-h2" style="max-width:18ch;margin-bottom:48px">Diagnose before you prescribe. Scale only what the system can carry.</h2>
   <div class="v3-method">
@@ -155,7 +155,7 @@ const main = `
   </div>
 </section>
 
-<section id="services" data-depth-label="24.0m" style="padding:0 var(--pad) var(--sy)">
+<section id="services" data-depth-label="SERVICES" style="padding:0 var(--pad) var(--sy)">
   <div class="v3-srow-head">
     <h2 class="v3-h2">One partner. Whole system.</h2>
     <a class="v3-srow-head__all" href="/services/">ALL SERVICES →</a>
@@ -169,7 +169,7 @@ const main = `
   </ul>
 </div>
 
-<section class="v3-sec v3-sec--raise" id="evidence" data-depth-label="30.0m">
+<section class="v3-sec v3-sec--raise" id="evidence" data-depth-label="EVIDENCE">
   <div class="v3-headrow">
     <div>
       <div class="v3-mono v3-eyebrow">04 — EVIDENCE</div>
@@ -179,13 +179,40 @@ const main = `
       ${homeV3.filters.map((f, i) => `<button class="v3-filt" type="button" data-v3-filt="${f.id}" aria-pressed="${i === 0 ? "true" : "false"}">${esc(f.label)}</button>`).join("\n      ")}
     </div>
   </div>
-  <div class="v3-evgrid">
+  <div class="v3-evgrid" data-v3-evgrid>
     ${cases.map(evCard).join("\n    ")}
   </div>
+  <!-- CLAUDE.md §2C: ALL renders the overview grid, a selected category renders a
+       full-width spotlight. Server-rendered so the markup exists without JS; the
+       grid is the no-JS default and this stays hidden. -->
+  <div class="v3-spot" data-v3-spot hidden>
+    <div class="v3-spot__side">
+      <div class="v3-spot__top">
+        <span class="v3-spot__tag" data-v3-spot-tag></span>
+        <span class="v3-spot__rule" aria-hidden="true"></span>
+        <span class="v3-spot__dur" data-v3-spot-dur></span>
+      </div>
+      <h3 class="v3-spot__title" data-v3-spot-title></h3>
+      <p class="v3-spot__body" data-v3-spot-body></p>
+    </div>
+    <div class="v3-spot__metrics">
+      <div class="v3-spot__m">
+        <div class="v3-spot__mv" data-v3-spot-m1></div>
+        <div class="v3-spot__ml" data-v3-spot-l1></div>
+      </div>
+      <div class="v3-spot__m is-second">
+        <div class="v3-spot__mv is-moss" data-v3-spot-m2></div>
+        <div class="v3-spot__ml" data-v3-spot-l2></div>
+      </div>
+    </div>
+  </div>
   <p class="v3-evnote">ANONYMISED UNDER CLIENT CONFIDENTIALITY / FIGURES AS REPORTED BY THE CLIENT</p>
+  <script type="application/json" data-v3-casedata>${JSON.stringify(
+    Object.fromEntries(cases.map(c => [c.cat, { tag: c.tag, dur: c.dur, title: c.title, body: c.body, m1: c.m1, l1: c.l1, m2: c.m2, l2: c.l2 }]))
+  )}</script>
 </section>
 
-<section class="v3-sec" id="tools" data-depth-label="34.0m">
+<section class="v3-sec" id="tools" data-depth-label="TOOLS">
   <div class="v3-split v3-split--mid">
     <div>
       <div class="v3-mono v3-eyebrow">05 — THE TOOLS LAYER</div>
@@ -218,7 +245,7 @@ const main = `
   </div>
 </section>
 
-<section id="founder" data-depth-label="38.0m" style="padding:0 var(--pad) var(--sy)">
+<section id="founder" data-depth-label="FOUNDER" style="padding:0 var(--pad) var(--sy)">
   <div class="v3-split v3-split--mid">
     <div class="v3-portrait v3-reveal"><img src="/anuja.jpg" alt="Anuja, founder of Tilth" width="400" height="500" loading="lazy" decoding="async"></div>
     <div>
@@ -230,7 +257,7 @@ const main = `
   </div>
 </section>
 
-<section class="v3-contact" id="contact" data-depth-label="42.0m">
+<section class="v3-contact" id="contact" data-depth-label="CONTACT">
   <div class="v3-contact__grid">
     <div>
       <div class="v3-mono v3-contact__eyebrow">07 — NEXT STEP</div>

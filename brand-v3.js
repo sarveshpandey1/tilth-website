@@ -93,22 +93,41 @@
     if (depthEl.textContent !== label) depthEl.textContent = label;
   }
 
-  /* --- reveals ------------------------------------------------------------ */
+  /* --- reveals ------------------------------------------------------------
+   * CLAUDE.md §9: must fail safe. show() is idempotent (setting data-shown twice
+   * is a no-op and can never re-hide), and repairAtRest re-checks on mount, on a
+   * delay, and on scroll — a page sitting still fires no scroll events, so an
+   * element that missed its observer callback would otherwise stay invisible.
+   */
+  var revealEls = $$(".v3-reveal");
+  function show(el) { el.setAttribute("data-shown", "1"); }
+  function repairAtRest() {
+    revealEls.forEach(function (el) {
+      if (el.hasAttribute("data-shown")) return;
+      var r = el.getBoundingClientRect();
+      // on screen, or already scrolled past — either way it must be visible
+      if (r.top < innerHeight && r.bottom > -1) show(el);
+      else if (r.bottom <= 0) show(el);
+    });
+  }
   (function () {
-    var els = $$(".v3-reveal");
-    if (!els.length) return;
+    if (!revealEls.length) return;
     if (rm || !("IntersectionObserver" in window)) {
-      els.forEach(function (el) { el.classList.add("is-in"); });
+      revealEls.forEach(show);
       return;
     }
     var io = new IntersectionObserver(function (ens) {
-      ens.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); } });
+      ens.forEach(function (en) { if (en.isIntersecting) { show(en.target); io.unobserve(en.target); } });
     }, { threshold: .15, rootMargin: "0px 0px -8% 0px" });
-    els.forEach(function (el) {
-      // anything already on screen (or scrolled past on a restored position) shows immediately
+    revealEls.forEach(function (el) {
       var r = el.getBoundingClientRect();
-      if (r.top < innerHeight) el.classList.add("is-in"); else io.observe(el);
+      if (r.top < innerHeight) show(el); else io.observe(el);
     });
+    // repair passes: immediately after mount, and again once fonts/images settle
+    requestAnimationFrame(repairAtRest);
+    setTimeout(repairAtRest, 400);
+    setTimeout(repairAtRest, 1500);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(repairAtRest);
   })();
 
   /* --- hero strata parallax (homepage) ------------------------------------ */
@@ -268,19 +287,47 @@
     });
   })();
 
-  /* --- evidence filter ---------------------------------------------------- */
+  /* --- evidence filter ----------------------------------------------------
+   * CLAUDE.md §2C: ALL is the overview grid; a selected category is a full-width
+   * spotlight. Both states are designed rather than the grid simply thinning out.
+   */
   (function () {
     var filts = $$("[data-v3-filt]");
-    var cards = $$("[data-v3-case]");
-    if (!filts.length || !cards.length) return;
+    var grid = $("[data-v3-evgrid]");
+    var spot = $("[data-v3-spot]");
+    if (!filts.length || !grid || !spot) return;
+    var data = {};
+    try { data = JSON.parse(($("[data-v3-casedata]") || {}).textContent || "{}"); } catch (e) { return; }
+
+    function fill(c) {
+      var set = function (attr, val) { var el = $("[data-v3-spot-" + attr + "]", spot); if (el) el.textContent = val; };
+      set("tag", c.tag); set("dur", c.dur); set("title", c.title); set("body", c.body);
+      set("m1", c.m1); set("l1", c.l1); set("m2", c.m2); set("l2", c.l2);
+    }
+
+    function enter(el) {
+      if (rm) return;
+      el.style.transition = "none"; el.style.opacity = "0"; el.style.transform = "translateY(10px)";
+      requestAnimationFrame(function () {
+        el.style.transition = "opacity 320ms cubic-bezier(.2,.7,.2,1), transform 320ms cubic-bezier(.2,.7,.2,1)";
+        el.style.opacity = "1"; el.style.transform = "none";
+      });
+    }
+
     filts.forEach(function (b) {
       b.addEventListener("click", function () {
         var id = b.getAttribute("data-v3-filt");
         filts.forEach(function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
-        cards.forEach(function (c) {
-          var show = id === "all" || c.getAttribute("data-v3-case") === id;
-          c.hidden = !show;
-        });
+        if (id === "all" || !data[id]) {
+          spot.hidden = true;
+          grid.hidden = false;
+          enter(grid);
+        } else {
+          fill(data[id]);
+          grid.hidden = true;
+          spot.hidden = false;
+          enter(spot);
+        }
       });
     });
   })();
@@ -501,6 +548,7 @@
       paintStrata();
       paintParallax();
       paintDiag();
+      repairAtRest();
       if (window.__v3SvcScroll) window.__v3SvcScroll();
     });
   }
