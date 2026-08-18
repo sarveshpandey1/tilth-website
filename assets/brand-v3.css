@@ -99,24 +99,24 @@ html[data-theme="light"] .v3 {
    breakpoint, so the fit safeguard stays idle instead of firing on every load.
    The rendered result is identical either way - min() already resolved to these
    values - but stating them makes the intent explicit. */
-.v3-home { --h1: 45px; }
+.v3-home { --h1: 43px; }
 .v3-services { --h1: 40px; }
 
 @media (min-width: 768px) {
   .v3 { --pad: 32px; --sy: 88px; --h2: 38px; --h3: 20px; --body: 16.5px; --menu: 44px; }
-  .v3-home { --h1: 88px; }
+  .v3-home { --h1: 85px; }
   .v3-services { --h1: 62px; }
 }
 @media (min-width: 1024px) {
   .v3 { --pad: 40px; --sy: 112px; --h2: 46px; --h3: 21px; --body: 17px; --menu: 46px; }
-  .v3-home { --h1: 118px; }
-  .v3-services { --h1: 92px; }
+  .v3-home { --h1: 114px; }
+  .v3-services { --h1: 60px; }
 }
 @media (min-width: 1200px) { .v3 { --menu: 56px; } }
 @media (min-width: 1440px) {
   .v3 { --pad: 48px; --sy: 140px; --h2: 56px; --h3: 22px; --menu: 60px; }
-  .v3-home { --h1: 168px; }
-  .v3-services { --h1: 120px; }
+  .v3-home { --h1: 163px; }
+  .v3-services { --h1: 86px; }
 }
 
 /* --- base ----------------------------------------------------------------- */
@@ -689,15 +689,13 @@ html[data-theme="light"] .v3-theme-dot { transform: rotate(180deg); }
   font-size: min(var(--h1), calc((100vw - 2 * var(--pad) - 18px) / 8));
   line-height: .92; letter-spacing: -.045em; text-transform: uppercase;
   hyphens: manual;
+  max-width: 760px;   /* flat px cap, exactly as the final approved design */
   animation: v3Rise 1s cubic-bezier(.16, 1, .3, 1) both;
 }
-@media (min-width: 768px) { .v3-sh1 { max-width: 620px; } }
-@media (min-width: 1024px) { .v3-sh1 { max-width: 880px; } }
 @media (min-width: 1100px) {
   /* two-column hero: the diagram column reserves 121px + the 64px gap */
   .v3-sh1 { font-size: min(var(--h1), calc((100vw - 2 * var(--pad) - 185px - 18px) / 8)); }
 }
-@media (min-width: 1440px) { .v3-sh1 { max-width: 1147px; } }
 .v3-sh1 .is-moss { color: var(--mosstext); }
 .v3-shero__p { margin: 32px 0 0; font-size: var(--body); line-height: 1.6; max-width: 52ch; color: var(--stone); animation: v3Rise 1s .12s cubic-bezier(.16, 1, .3, 1) both; }
 .v3-shero__cta { display: flex; flex-direction: column; gap: 12px; margin-top: 34px; animation: v3Rise 1s .2s cubic-bezier(.16, 1, .3, 1) both; }
@@ -733,6 +731,27 @@ html[data-theme="light"] .v3-theme-dot { transform: rotate(180deg); }
 @media (min-width: 1440px) { .v3-srow__title--wrap { font-size: 32px; } }
 .v3-srow__depth { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10.5px; letter-spacing: .14em; color: var(--mosstext); white-space: nowrap; }
 .v3-srow__desc { margin: 14px 0 0; font-size: 15.5px; line-height: 1.65; color: var(--stone); max-width: 62ch; }
+/* Compact inline Growth System — the sub-1180 counterpart to the sticky depth map
+   (CLAUDE.md §8). Shown only where the rail is not, carries the same four facts
+   (layer, qualitative depth, position in the layer stack, and the row's own
+   service), needs no hover, and adds no extra card. */
+.v3-srow__mini { display: flex; flex-direction: column; gap: 7px; margin-top: 16px; }
+@media (min-width: 1180px) { .v3-srow__mini { display: none; } }
+.v3-srow__mini-k {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px;
+  letter-spacing: .14em; color: var(--foot);
+}
+.v3-srow__mini-ends {
+  display: flex; justify-content: space-between; max-width: 260px;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 9px;
+  letter-spacing: .12em; color: var(--foot);
+}
+/* eight segments = the eight growth layers, surface -> foundation; the service's
+   own layers light in moss so depth reads positionally as well as by name */
+.v3-srow__mini-bar { display: flex; gap: 3px; max-width: 260px; }
+.v3-srow__mini-seg { flex: 1; height: 3px; border-radius: 1px; background: var(--line2); transition: background .4s; }
+.v3-srow__mini-seg.is-on { background: var(--mosstext); }
+
 .v3-srow__conn { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 10px; margin-top: 16px; }
 .v3-srow__connk { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: .14em; color: var(--foot); }
 .v3-chip { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: .12em; color: var(--stone); border: 1px solid var(--line); border-radius: 999px; padding: 5px 11px; line-height: 1; }
@@ -785,7 +804,11 @@ html[data-theme="light"] .v3-theme-dot { transform: rotate(180deg); }
 }
 @media (min-width: 700px) { .v3-tile { min-height: 76px; padding: 14px 20px; } }
 @media (min-width: 1100px) { .v3-tile { min-height: 80px; } }
-html[data-theme="light"] .v3-tile { background: rgba(var(--tilth-mineral-rgb), .05); box-shadow: inset 0 1px 0 rgba(var(--tilth-mineral-rgb), .09), 0 1px 0 rgba(var(--tilth-carbon-rgb), .45); }
+/* :where() keeps this at .v3-tile's specificity so it restyles the default tile
+   without outranking [aria-pressed="true"]. Written as html[data-theme=...] it
+   was (0,2,1) and beat the selected rule (0,2,0), which silently dropped the
+   Moss fill off the selected tile in light theme. */
+:where(html[data-theme="light"]) .v3-tile { background: rgba(var(--tilth-mineral-rgb), .05); box-shadow: inset 0 1px 0 rgba(var(--tilth-mineral-rgb), .09), 0 1px 0 rgba(var(--tilth-carbon-rgb), .45); }
 .v3-tile:hover { border-color: var(--ifg); transform: translateY(-1px); }
 .v3-tile[aria-pressed="true"] {
   background: var(--moss); color: var(--tilth-carbon); border-color: var(--moss); font-weight: 500; transform: none;

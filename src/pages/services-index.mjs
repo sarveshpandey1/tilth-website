@@ -23,6 +23,26 @@ function depthLabel(slug) {
   return `${g.layerLabel} · ${(growthLayers[deepest] || {}).depth || ""}`;
 }
 
+// Below 1180 the sticky depth map is not shown, so each row carries the same
+// information inline instead of losing it (CLAUDE.md §8 — translate it into an
+// inline/touch component, never just hide it). It is plain server-rendered markup
+// inside the row, so it needs no hover and no JS: tapping the row still navigates.
+const compactDepth = (slug) => {
+  const g = serviceGraph[slug];
+  if (!g) return "";
+  const deepest = Math.max(...g.layers.map(layerIndex));
+  const layer = (growthLayers[deepest] || {});
+  // The row already prints the layer name and qualitative depth above, so the
+  // compact indicator adds only what the rail contributes and the row cannot:
+  // where this service sits in the eight-layer stack, surface to foundation.
+  return `<span class="v3-srow__mini">
+        <span class="v3-srow__mini-k">GROWTH SYSTEM</span>
+        <span class="v3-srow__mini-bar" role="img" aria-label="Sits at ${esc(layer.depth || "")} in the growth system">${growthLayers.map(l =>
+          `<span class="v3-srow__mini-seg${g.layers.includes(l.id) ? " is-on" : ""}"></span>`).join("")}</span>
+        <span class="v3-srow__mini-ends" aria-hidden="true"><span>SURFACE</span><span>FOUNDATION</span></span>
+      </span>`;
+};
+
 const serviceRow = (s) => {
   const g = serviceGraph[s.slug] || { connects: [] };
   return `<a class="v3-srow v3-srow--full" href="/services/${s.slug}/" data-v3-svc="${s.slug}">
@@ -33,6 +53,7 @@ const serviceRow = (s) => {
         <span class="v3-srow__depth">${esc(depthLabel(s.slug))}</span>
       </div>
       <p class="v3-srow__desc">${esc(s.summary)}</p>
+      ${compactDepth(s.slug)}
       <div class="v3-srow__conn">
         <span class="v3-srow__connk">CONNECTS WITH</span>
         ${g.connects.map(c => `<span class="v3-chip">${esc((bySlug(c) || {}).name || c)}</span>`).join("\n        ")}
@@ -94,10 +115,9 @@ const main = `
   </nav>
   <div class="v3-sherogrid">
     <div>
-      <!-- soft hyphens per CLAUDE.md §3: Syne cannot break mid-word, so the long
-           display words get explicit break opportunities rather than capping the
-           whole heading to one unbreakable run -->
-      <h1 class="v3-sh1">Growth mar&shy;keting ser&shy;vices, built on <span class="is-moss">foun&shy;dations</span>.</h1>
+      <!-- Soft hyphens exactly as the final approved design carries them
+           (marketing + foundations only) — CLAUDE.md §3. Wording is locked. -->
+      <h1 class="v3-sh1">Growth mar&shy;keting services, built on <span class="is-moss">foun&shy;dations</span>.</h1>
       <p class="v3-shero__p">We don't start by recommending another channel. We identify what's limiting the growth system, then bring the right service and engagement to fix it — for brands worldwide.</p>
       <div class="v3-shero__cta">
         <a class="v3-btn" href="/contact/">Discuss a Project <span aria-hidden="true">→</span></a>

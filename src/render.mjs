@@ -124,7 +124,7 @@ const V3_CLOCKS = [
 export function v3Header(currentPath = "", ctaLabel = "Discuss your growth") {
   return `<header class="v3-headwrap">
   <div class="v3-head" data-v3-head>
-    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home"${currentPath === "/" ? ' aria-current="page"' : ""}>
       <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
     </a>
     <nav class="v3-navlinks" aria-label="Primary">
