@@ -6,7 +6,8 @@ import { site, brandExperience, homeV3 } from "../data.mjs";
 import { orgSchema, websiteSchema, esc } from "../render.mjs";
 
 const path = "/";
-const FORM_ACTION = "https://formsubmit.co/aaaece001c447cdc100c9df5d66fd5ee";
+// Same endpoint as /contact/ — see the note in src/pages/contact.mjs
+const FORM_ACTION = "https://formsubmit.co/anuja@wearetilth.com";
 
 // The rail loops by translating -50%, so the set is emitted twice. The clone is a
 // purely visual duplicate and is hidden from assistive tech, so six names are
