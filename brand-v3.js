@@ -30,8 +30,18 @@
   if (themeBtn) {
     themeBtn.addEventListener("click", function () {
       var next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+      // Suppress transitions across the swap. A transition reading a var() that
+      // changes can latch on the old value, which left headings invisible after
+      // dark -> light. Removed on the next frame so interaction motion is intact.
+      document.documentElement.classList.add("v3-theming");
       if (next === "light") document.documentElement.setAttribute("data-theme", "light");
       else document.documentElement.removeAttribute("data-theme");
+      // rAF is throttled in a background or non-compositing tab, and if it never
+      // fires the class would leave transitions off for good — so a timer backs
+      // it up. Removing an absent class is a no-op, so running both is safe.
+      var clearTheming = function () { document.documentElement.classList.remove("v3-theming"); };
+      requestAnimationFrame(function () { requestAnimationFrame(clearTheming); });
+      setTimeout(clearTheming, 120);
       try { localStorage.setItem("tilth-theme", next); } catch (e) {}
       themeBtn.setAttribute("aria-pressed", next === "light" ? "true" : "false");
       swapLogos();

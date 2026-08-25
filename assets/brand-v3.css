@@ -121,13 +121,22 @@ html[data-theme="light"] .v3 {
 
 /* --- base ----------------------------------------------------------------- */
 .v3 {
-  background: var(--bg);
+  /* longhand, so the declared property and the transitioned property are the
+     same one — see the transition note below */
+  background-color: var(--bg);
   color: var(--fg);
   font-family: Chivo, system-ui, sans-serif;
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   text-wrap: pretty;
-  transition: background .4s, color .4s;
+  /* Only the ground is transitioned. Transitioning `color` here latched body's
+     inherited colour on the first dark->light toggle: the ground went light while
+     every heading that inherits body colour (h1, .v3-srow__title, .v3-eng h3)
+     stayed Mineral — invisible on Mineral. The token resolved correctly
+     throughout; it was the running transition on the inherited property that
+     held the old value. The text swap is instant now, which is imperceptible
+     against the 0.4s ground fade. */
+  transition: background-color .4s;
 }
 /* :where() keeps these at .v3's specificity (0,1,0) so component classes like
    .v3-navcta / .v3-btn win on source order. Without it, `.v3 a` (0,1,1) beats
@@ -147,6 +156,17 @@ html[data-theme="light"] .v3 {
   line-height: 1.5;
 }
 .v3-eyebrow { color: var(--mosstext); margin-bottom: 20px; }
+
+/* Theme swap: suppress transitions for the one frame the tokens change.
+   A transition whose value comes from a var() that changes can latch on the old
+   value — the dark->light toggle left headings Mineral on a Mineral ground and
+   the inverted section stuck on the wrong ground. Every affected property is
+   themed, so rather than strip individual transitions (and lose the designed
+   hover/interaction motion) the swap itself is made instantaneous. Applied by
+   the toggle and removed on the next frame, so normal interaction is untouched. */
+html.v3-theming, html.v3-theming *, html.v3-theming *::before, html.v3-theming *::after {
+  transition: none !important;
+}
 
 @keyframes v3Rise { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: none; } }
 @keyframes v3Fade { from { opacity: 0; } to { opacity: 1; } }
@@ -283,7 +303,11 @@ html[data-theme="light"] .v3-theme-dot { transform: rotate(180deg); }
 .v3-sec { padding: var(--sy) var(--pad); }
 .v3-sec--grid { background-image: linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: calc(100% / 6) 100%; }
 .v3-sec--raise { background: var(--raise); transition: background .4s; }
-.v3-sec--inv { background: var(--ibg); color: var(--ifg); transition: background .4s, color .4s; }
+/* Same container pattern as .v3: --ifg is inherited by this section's headings.
+   Declared as longhand and only background-color is transitioned — with the
+   `background` shorthand the latch simply moved to the background, leaving a
+   Mineral heading on a Mineral ground. */
+.v3-sec--inv { background-color: var(--ibg); color: var(--ifg); transition: background-color .4s; }
 .v3-h2 {
   margin: 0; font-family: Syne, sans-serif; font-weight: 700; font-size: var(--h2);
   line-height: 1.02; letter-spacing: -.035em; text-transform: uppercase;
