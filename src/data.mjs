@@ -220,3 +220,123 @@ export const team = [
   { name: "Anuja", title: "Founder, Tilth", photo: "/anuja.jpg", bio: "10+ years across fitness, edtech, fintech, SaaS and D2C.", approved: true, linkedin: null },
   { name: "Sarvesh Pandey", title: null, photo: null, bio: null, approved: false, linkedin: null }
 ];
+
+// ---------------------------------------------------------------------------
+// Brand v3 services-index depth model (approved design "Tilth Services.dc.html").
+// The design places each service at a depth in the growth system and draws the
+// edges between them; both the sticky depth map and the "connects with" chips
+// render from this. Additive — no other page reads it.
+// ---------------------------------------------------------------------------
+
+// ordered surface -> foundation; the map renders in this order
+export const growthLayers = [
+  { id: "distribution", label: "DISTRIBUTION", depth: "SURFACE" },
+  { id: "creative", label: "CREATIVE", depth: "SURFACE" },
+  { id: "conversion", label: "CONVERSION", depth: "SHALLOW" },
+  { id: "organic", label: "ORGANIC", depth: "SHALLOW" },
+  { id: "partnerships", label: "PARTNERSHIPS", depth: "MID" },
+  { id: "acquisition", label: "ACQUISITION", depth: "MID" },
+  { id: "measurement", label: "MEASUREMENT", depth: "DEEP" },
+  { id: "strategy", label: "STRATEGY", depth: "FOUNDATION" }
+];
+
+// keyed by service slug — layers the service operates at, and the services it connects to
+export const serviceGraph = {
+  "growth-strategy-measurement": { layers: ["strategy", "measurement"], layerLabel: "STRATEGY / MEASUREMENT", connects: ["performance-marketing", "paid-media", "website-design-development"] },
+  "performance-marketing": { layers: ["acquisition"], layerLabel: "ACQUISITION", connects: ["growth-strategy-measurement", "paid-media", "brand-creative"] },
+  "seo-ai-search": { layers: ["organic"], layerLabel: "ORGANIC", connects: ["website-design-development", "brand-creative"] },
+  "affiliate-partnerships": { layers: ["partnerships"], layerLabel: "PARTNERSHIPS", connects: ["growth-strategy-measurement", "performance-marketing"] },
+  "website-design-development": { layers: ["conversion"], layerLabel: "CONVERSION", connects: ["seo-ai-search", "performance-marketing", "brand-creative"] },
+  "paid-media": { layers: ["distribution"], layerLabel: "DISTRIBUTION", connects: ["performance-marketing", "brand-creative", "growth-strategy-measurement"] },
+  "brand-creative": { layers: ["creative"], layerLabel: "CREATIVE", connects: ["paid-media", "performance-marketing", "website-design-development"] },
+  "influencer-pr-events": { layers: ["distribution"], layerLabel: "DISTRIBUTION", connects: ["brand-creative", "seo-ai-search"] }
+};
+
+// "Not sure which service you need?" — symptom -> likely starting point
+export const serviceSymptoms = [
+  { id: "expensive", label: "Acquisition is getting expensive", layer: "Measurement", depth: "DEEP — often below where it shows", services: ["growth-strategy-measurement", "performance-marketing"] },
+  { id: "measure", label: "Measurement isn't reliable", layer: "Measurement", depth: "DEEP — often below where it shows", services: ["growth-strategy-measurement"] },
+  { id: "organic", label: "Weak organic visibility", layer: "Organic", depth: "SHALLOW", services: ["seo-ai-search", "brand-creative"] },
+  { id: "convert", label: "Traffic isn't converting", layer: "Conversion", depth: "SHALLOW", services: ["website-design-development", "brand-creative"] },
+  { id: "affiliate", label: "Affiliate performance is flat", layer: "Partnerships", depth: "MID", services: ["affiliate-partnerships", "growth-strategy-measurement"] },
+  { id: "fatigue", label: "Creative fatigues quickly", layer: "Creative", depth: "SURFACE", services: ["brand-creative", "paid-media"] },
+  { id: "position", label: "Positioning is unclear", layer: "Creative", depth: "SURFACE", services: ["brand-creative", "seo-ai-search"] },
+  { id: "website", label: "The website converts poorly", layer: "Conversion", depth: "SHALLOW", services: ["website-design-development"] }
+];
+
+// ---------------------------------------------------------------------------
+// Brand v3 homepage content (approved design "Tilth Brand v3.dc.html").
+// Copy is taken verbatim from the design. Kept as data so the page module stays
+// markup-only and the copy is editable without touching templates.
+// ---------------------------------------------------------------------------
+
+export const homeV3 = {
+  kicker: { left: "GROWTH MARKETING AGENCY", right: "FOUNDER-LED / INDIA-ROOTED / GLOBAL" },
+  heroLede: "A growth marketing agency built on stronger foundations. We strengthen the systems beneath your growth — measurement, funnel, positioning, creative — then scale performance against verified return.",
+  strata: ["DISTRIBUTION", "CREATIVE", "FUNNEL", "POSITIONING", "MEASUREMENT"],
+  stats: [
+    { v: "10", unit: "yrs", tone: "", label: "EXPERIENCE BEHIND TILTH" },
+    { v: "05", unit: "", tone: "", label: "INDUSTRIES WORKED" },
+    { v: "5×", unit: "", tone: "moss", label: "VERIFIED RETURN, EDTECH" },
+    { v: "₹1.5", unit: "Cr", tone: "clay", label: "MONTHLY REVENUE REACHED" }
+  ],
+  method: [
+    { n: "01", name: "Diagnose", desc: "We map the growth system end to end — tracking, funnel, creative, channels — and find what's actually capping return. No new spend until we know where it leaks." },
+    { n: "02", name: "Build the foundation", desc: "Clean measurement, defined funnel stages, positioning that converts, and a creative testing loop — the layer everything compounds on." },
+    { n: "03", name: "Scale against proof", desc: "Only once the foundation holds do we push budget — against verified return, with every rupee attributable to a stage." }
+  ],
+  services: [
+    { n: "01", title: "Growth strategy & measurement", href: "/services/growth-strategy-measurement/", body: "Strategy, tracking and reporting that tie spend to revenue, so you know what pays back before you scale it." },
+    { n: "02", title: "Performance & paid media", href: "/services/performance-marketing/", body: "Google, Meta and LinkedIn structured around real conversions, so spend compounds against verified return." },
+    { n: "03", title: "SEO & AI search", href: "/services/seo-ai-search/", body: "Technical, content and intent foundations that turn search — including AI answer engines — into qualified pipeline." },
+    { n: "04", title: "Affiliate & partnerships", href: "/services/affiliate-partnerships/", body: "Programs that reward real customers, turning partners into one of your most efficient channels." },
+    { n: "05", title: "Websites that convert", href: "/services/website-design-development/", body: "Fast, conversion-focused sites so the traffic you pay for has somewhere worth landing." }
+  ],
+  // rail labels from the design; FITNESS has no industry page yet so it renders as plain text
+  industries: [
+    { label: "SAAS", href: "/industries/saas/" },
+    { label: "D2C & ECOMMERCE", href: "/industries/d2c-ecommerce/" },
+    { label: "FINTECH", href: "/industries/fintech/" },
+    { label: "EDTECH", href: "/industries/edtech/" },
+    { label: "FITNESS", href: null }
+  ],
+  filters: [
+    { id: "all", label: "ALL" }, { id: "edtech", label: "EDTECH" }, { id: "fintech", label: "FINTECH" },
+    { id: "d2c", label: "D2C" }, { id: "saas", label: "SAAS" }
+  ],
+  // Evidence cards. The first two mirror the approval-gated records in caseStudies;
+  // the D2C and SaaS cards come from the approved design and are new claims — they
+  // publish because the design was approved, but they are gated here so they can be
+  // pulled without touching markup if client consent is ever in question.
+  cases: [
+    { cat: "edtech", tag: "EDTECH", dur: "9 MONTHS", m1: "₹5L→30L", l1: "MONTHLY MEDIA, SCALED", m2: "5×", l2: "RETURN ON AD SPEND",
+      title: "Six times the media spend, on rebuilt measurement",
+      body: "Conversion tracking and campaign structure were rebuilt before any scale. Once spend was attributable to a stage, monthly investment grew six-fold — reaching ₹1.5Cr in monthly revenue at a verified 5×.", publishApproved: true },
+    { cat: "fintech", tag: "FINTECH", dur: "12 MONTHS", m1: "0→6%", l1: "SHARE OF TRADING VOLUME", m2: "Zero", l2: "FRAUD WRITE-OFFS",
+      title: "An affiliate channel built from nothing",
+      body: "Partner validation, commercial model, tracking and fraud controls, built ground up. Within a year it carried 5–6% of total volume as the lowest-CAC channel in the mix.", publishApproved: true },
+    { cat: "d2c", tag: "D2C", dur: "6 MONTHS", m1: "+64%", l1: "CONVERSION RATE", m2: "−31%", l2: "BLENDED CAC",
+      title: "A site that finally earned its traffic",
+      body: "The ads were fine; the landing experience wasn’t. Message-to-page mapping and a conversion rebuild lifted every paid channel at once, without adding budget.", publishApproved: true },
+    { cat: "saas", tag: "SAAS", dur: "8 MONTHS", m1: "2.4×", l1: "QUALIFIED PIPELINE", m2: "−22%", l2: "COST PER SQL",
+      title: "Pipeline that sales agreed was pipeline",
+      body: "Lead scoring and stage definitions were rewritten with the sales team, then paid search was restructured around the intent that actually closed.", publishApproved: true }
+  ],
+  symptoms: [
+    { id: "flat", label: "Spend up, returns flat", layer: "Measurement", depth: "DEEP — deepest", pct: 100,
+      cause: "Almost always attribution. Platform-reported conversions double-count, and the channels taking credit aren't the channels creating demand — so budget keeps flowing to the loudest report.",
+      fix: "A tracking and attribution rebuild: server-side events, deduplicated conversions, one source of truth. Two to three weeks, before a rupee moves." },
+    { id: "blind", label: "Can't tell what's working", layer: "Measurement", depth: "DEEP — deepest", pct: 100,
+      cause: "The funnel has no defined stages, so there's nothing to attribute to. Every report answers a slightly different question and none of them tie to revenue.",
+      fix: "Define the funnel stages first, instrument each one, then build a single decision-ready view. Reporting becomes a diagnosis, not a defence." },
+    { id: "conv", label: "Traffic but no conversion", layer: "Positioning & funnel", depth: "MID", pct: 70,
+      cause: "The ad promises one thing and the landing page argues another. The click is qualified; the page gives it no reason to continue.",
+      fix: "Message-to-page mapping, then a conversion rebuild of the pages carrying the spend. Fast to move, and it lifts every channel at once." },
+    { id: "creative", label: "Creative fatigues fast", layer: "Creative loop", depth: "SHALLOW", pct: 45,
+      cause: "Creative is produced in batches, not in a loop. Nothing is structured as a test, so each round starts from opinion instead of the last result.",
+      fix: "A standing testing cadence with a named hypothesis per asset — concept, hook and format tested separately so you learn which one moved." },
+    { id: "ceiling", label: "Hit a scaling ceiling", layer: "Scale", depth: "SURFACE", pct: 25,
+      cause: "The foundation holds but the channel mix is narrow. Efficiency drops the moment you push, because there is one route to the customer.",
+      fix: "Widen the base — affiliate and partnerships, search intent, incrementality testing — so the next increment of spend has somewhere efficient to go." }
+  ]
+};
