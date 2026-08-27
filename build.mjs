@@ -13,6 +13,7 @@ import contact from "./src/pages/contact.mjs";
 import thankYou from "./src/pages/thank-you.mjs";
 import about from "./src/pages/about.mjs";
 import home from "./src/pages/home.mjs";
+import performanceMarketing from "./src/pages/performance-marketing.mjs";
 import { allServicePages } from "./src/templates/servicePage.mjs";
 import { allIndustryPages } from "./src/templates/industryPage.mjs";
 import { allRegionHubs, allRegionChildPages } from "./src/templates/regionHub.mjs";
@@ -23,6 +24,7 @@ const PAGES = [
   home,
   servicesIndex,
   websiteService,
+  performanceMarketing,
   ...allServicePages,
   industriesIndex,
   ...allIndustryPages,

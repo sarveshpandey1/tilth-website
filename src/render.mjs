@@ -283,7 +283,7 @@ ${p.main}
 </main>
 ${v3 ? v3Footer({ rule: p.footRule }) : footer()}
 ${v3 ? '<script src="/brand-v3.js" defer></script>' : '<script src="/nav.js" defer></script>'}
-<script src="/analytics.js" defer></script>
+${(p.bodyScripts || []).map(s => `<script src="${s}" defer></script>\n`).join("")}<script src="/analytics.js" defer></script>
 </body>
 </html>
 `;
