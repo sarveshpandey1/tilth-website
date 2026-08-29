@@ -54,12 +54,29 @@ export function breadcrumbs(items) {
   return { schema, visible };
 }
 
+// Navigation current-state, shared by both shells.
+//
+// Exact match is the current page, so it gets aria-current="page". A section
+// parent — Services while the visitor is on /services/<slug>/ — is NOT the
+// current page: announcing "current page" on a link that navigates elsewhere
+// would be wrong, so descendants get aria-current="true", the generic "current
+// item in a set". Both are styled identically, so the visual active state is the
+// same either way, and exactly one link per page can ever be "page".
+//
+// Only section indexes qualify as parents: "/" would otherwise match every route.
+export function navCurrent(href, currentPath = "") {
+  if (!href || !currentPath) return "";
+  if (href === currentPath) return ' aria-current="page"';
+  if (href !== "/" && href.endsWith("/") && currentPath.startsWith(href)) return ' aria-current="true"';
+  return "";
+}
+
 export function masthead(navItems = nav.primary, currentPath = "") {
   return `<header class="masthead">
   <div class="wrap">
     <a href="/" class="word">${site.wordmark}</a>
     <nav aria-label="Primary">
-      ${navItems.map(n => `<a href="${n.href}"${n.href === currentPath ? ' aria-current="page"' : ""}>${esc(n.label)}</a>`).join("\n      ")}
+      ${navItems.map(n => `<a href="${n.href}"${navCurrent(n.href, currentPath)}>${esc(n.label)}</a>`).join("\n      ")}
     </nav>
     <div class="meta">${esc(site.positioning)}</div>
   </div>
@@ -128,7 +145,7 @@ export function v3Header(currentPath = "", ctaLabel = "Discuss your growth") {
       <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
     </a>
     <nav class="v3-navlinks" aria-label="Primary">
-      ${V3_NAV.map(n => `<a class="v3-navitem" href="${n.href}"${n.href === currentPath ? ' aria-current="page"' : ""}>${esc(n.label)}</a>`).join("\n      ")}
+      ${V3_NAV.map(n => `<a class="v3-navitem" href="${n.href}"${navCurrent(n.href, currentPath)}>${esc(n.label)}</a>`).join("\n      ")}
     </nav>
     <div class="v3-headright">
       <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
@@ -153,7 +170,7 @@ export function v3Header(currentPath = "", ctaLabel = "Discuss your growth") {
     </nav>
     <div class="v3-menu__col">
       <h2>SERVICES</h2>
-      ${services.map(s => `<a href="/services/${s.slug}/">${esc(s.name)}</a>`).join("\n      ")}
+      ${services.map(s => `<a href="/services/${s.slug}/"${navCurrent(`/services/${s.slug}/`, currentPath)}>${esc(s.name)}</a>`).join("\n      ")}
     </div>
     <div class="v3-menu__col">
       <h2>CONTACT</h2>

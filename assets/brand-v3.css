@@ -206,8 +206,8 @@ html.v3-theming, html.v3-theming *, html.v3-theming *::before, html.v3-theming *
 .v3-navitem { color: var(--fg); white-space: nowrap; transition: color .45s, opacity .3s; }
 .v3-navitem:hover { opacity: .6; color: var(--fg); }
 .v3-head.is-on .v3-navitem:hover { color: var(--tilth-carbon); }
-.v3-navitem[aria-current="page"] { color: var(--mosstext); font-weight: 500; }
-.v3-head.is-on .v3-navitem[aria-current="page"] { color: var(--tilth-carbon); }
+.v3-navitem[aria-current] { color: var(--mosstext); font-weight: 500; }
+.v3-head.is-on .v3-navitem[aria-current] { color: var(--tilth-carbon); }
 
 .v3-headright { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; }
 .v3-depth {
@@ -291,6 +291,7 @@ html[data-theme="light"] .v3-theme-dot { transform: rotate(180deg); }
 .v3-menu__col h2 { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: .16em; color: var(--mosstext); margin: 0; font-weight: 400; }
 .v3-menu__col a { font-size: 15.5px; line-height: 1.4; color: var(--stone); }
 .v3-menu__col a.is-plain { color: var(--fg); font-size: 16px; word-break: break-word; }
+.v3-menu__col a[aria-current] { color: var(--mosstext); }
 .v3-menu__cta {
   flex: 0 0 auto; display: flex; justify-content: space-between; align-items: center;
   gap: 20px; background: var(--moss); color: var(--tilth-carbon); padding: 20px 24px; border-radius: 3px;
