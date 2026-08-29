@@ -112,11 +112,12 @@ ${ctaBlock({
   };
 }
 
-// performance-marketing ships as a bespoke Brand v3 page (src/pages/performance-marketing.mjs),
-// the same way website-design-development already does. Its content stays in
-// serviceContent — that page imports it — so only the generated route is skipped.
-// Every other service route continues to render from this template unchanged.
-const BESPOKE = new Set(["performance-marketing"]);
+// These ship as bespoke Brand v3 pages (src/pages/*.mjs), the same way
+// website-design-development already does. Their content stays in
+// serviceContent — those pages import it — so only the generated route is
+// skipped. Every other service route continues to render from this template
+// unchanged.
+const BESPOKE = new Set(["performance-marketing", "growth-strategy-measurement"]);
 
 export const allServicePages = Object.keys(serviceContent)
   .filter(slug => !BESPOKE.has(slug))

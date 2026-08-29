@@ -14,6 +14,7 @@ import thankYou from "./src/pages/thank-you.mjs";
 import about from "./src/pages/about.mjs";
 import home from "./src/pages/home.mjs";
 import performanceMarketing from "./src/pages/performance-marketing.mjs";
+import growthStrategyMeasurement from "./src/pages/growth-strategy-measurement.mjs";
 import { allServicePages } from "./src/templates/servicePage.mjs";
 import { allIndustryPages } from "./src/templates/industryPage.mjs";
 import { allRegionHubs, allRegionChildPages } from "./src/templates/regionHub.mjs";
@@ -25,6 +26,7 @@ const PAGES = [
   servicesIndex,
   websiteService,
   performanceMarketing,
+  growthStrategyMeasurement,
   ...allServicePages,
   industriesIndex,
   ...allIndustryPages,
