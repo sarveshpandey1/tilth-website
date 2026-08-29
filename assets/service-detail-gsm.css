@@ -1,0 +1,253 @@
+/* ===========================================================================
+   /services/growth-strategy-measurement/ — page layer over the shared
+   service-detail system. Ported from the final approved design
+   "Tilth Service - Growth Strategy & Measurement.dc.html" per
+   TILTH_GROWTH_STRATEGY_MEASUREMENT_HANDOFF.md.
+
+   Loaded AFTER assets/service-detail.css. Everything here is scoped to
+   .v3-gsm so Performance Marketing is untouched — service-detail.css itself
+   is not modified at all, which is what keeps /services/performance-marketing/
+   byte-identical.
+
+   Two things genuinely differ from the shared system and live here:
+     1. this page's approved H1 and closing-CTA ladders, which are its own
+        (the shared file carries Performance Marketing's), and
+     2. the Decision Chain, which is this page's signature interaction.
+
+   Selectors are deliberately .v3-service-detail.v3-gsm / .v3-gsm [hook] so they
+   outrank the shared rules on SPECIFICITY, not on source order — the shared file
+   sets several of these inside larger min-width blocks that also match at wider
+   widths, and relying on order there is exactly the trap CLAUDE.md §6b warns
+   about.
+
+   Layout is CSS-first: every grid, gap and type step below is a media query,
+   correct before any JS runs.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   1. TYPE LADDERS — approved, and monotonic by design.
+
+   H1   32 / 34 / 40 / 40 / 48 / 60 / 60 / 60 / 68 / 68 / 84
+   CTA  25 / 27 / 31 / 31 / 38 / 46 / 46 / 46 / 46 / 46 / 52
+   (at 390 / 480 / 620 / 700 / 768 / 1024 / 1180 / 1200 / 1280 / 1440 / 1700)
+
+   The H1 must never step down as the viewport widens. At 1440 the hero becomes
+   two-column and the H1 track narrows 1200px -> 1007px, so the same 68px sets in
+   five lines instead of four. That is the intended composition change; do not
+   "fix" the extra line by shrinking the type. Ink clearance at 1440 is 48px and
+   at 1700 is 24px, both well clear of any shrink-to-fit threshold.
+
+   Minimum H1 : closing-CTA ratio is 1.25x at every width.
+   --------------------------------------------------------------------------- */
+/* brand-v3.css has --tilth-carbon but no --carbon; the selected chip and the
+   closing secondary CTA both need carbon as ink on a moss ground in BOTH themes,
+   so it is aliased here rather than added to the shared token set. */
+.v3-gsm { --carbon: var(--tilth-carbon, #101310); }
+
+.v3-service-detail.v3-gsm { --h1: 32px; --h2: 24px; }
+@media (min-width: 480px)  { .v3-service-detail.v3-gsm { --h1: 34px; --h2: 27px; } }
+@media (min-width: 620px)  { .v3-service-detail.v3-gsm { --h1: 40px; --h2: 31px; } }
+@media (min-width: 768px)  { .v3-service-detail.v3-gsm { --h1: 48px; --h2: 36px; } }
+@media (min-width: 1024px) { .v3-service-detail.v3-gsm { --h1: 60px; --h2: 44px; } }
+@media (min-width: 1280px) { .v3-service-detail.v3-gsm { --h1: 68px; } }
+@media (min-width: 1440px) { .v3-service-detail.v3-gsm { --h1: 68px; --h2: 48px; } }
+@media (min-width: 1700px) { .v3-service-detail.v3-gsm { --h1: 84px; --h2: 54px; } }
+
+.v3-gsm [data-cta-h] { font-size: 25px; }
+@media (min-width: 480px)  { .v3-gsm [data-cta-h] { font-size: 27px; } }
+@media (min-width: 620px)  { .v3-gsm [data-cta-h] { font-size: 31px; } }
+@media (min-width: 768px)  { .v3-gsm [data-cta-h] { font-size: 38px; } }
+@media (min-width: 1024px) { .v3-gsm [data-cta-h] { font-size: 46px; } }
+@media (min-width: 1440px) { .v3-gsm [data-cta-h] { font-size: 46px; } }
+@media (min-width: 1700px) { .v3-gsm [data-cta-h] { font-size: 52px; } }
+
+/* ---------------------------------------------------------------------------
+   2. COMPOSITION OVERRIDES
+
+   The closing block needs 1.35fr / 0.65fr at 1440+. At the shared 1.1/0.9 split
+   the 46px heading had 2px of ink clearance in an 842px track; at 1.35/0.65 the
+   track is 878px and clearance is 38px.
+
+   The approach head splits at 1280 here, not the shared 1100 — at 1180 the
+   narrower track pushed the heading to four lines with an orphan.
+   --------------------------------------------------------------------------- */
+@media (min-width: 1440px) {
+  .v3-gsm [data-cta-grid] {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr);
+    gap: 44px;
+    align-items: end;
+  }
+}
+@media (min-width: 1100px) {
+  .v3-gsm [data-app-head] { grid-template-columns: minmax(0, 1fr); gap: 22px; align-items: normal; }
+}
+@media (min-width: 1280px) {
+  .v3-gsm [data-app-head] {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    gap: 48px;
+    align-items: end;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   3. GROWTH SYSTEM PANEL
+
+   Position stays visible at every width including 390 — it is never hidden or
+   collapsed behind an interaction. Between 900 and 1439 the panel is stacked
+   under the hero and runs the full column, so it takes two tracks; a single
+   stacked column left roughly 600px of dead panel (CLAUDE.md §2A). Above 1440 it
+   is a rail beside the H1 again.
+
+   The layer name holds at 25px because the 1440-1699 rail is 243px inner and
+   28px pushes MEASUREMENT onto a third line. Widening the hero's H1 track to
+   compensate squeezes the rail back under that, so both stay as authored.
+   --------------------------------------------------------------------------- */
+.v3-gsm [data-pos-body] { display: flex; flex-direction: column; gap: 26px; margin-top: 20px; }
+.v3-gsm [data-layer-name] { font-size: 25px; }
+
+/* The shared file sets flex-direction/align-items/gap on the problem head but
+   never display — Performance Marketing carries display:flex;justify-content
+   inline. This page's approved design moved those into the stylesheet (an inline
+   align-items was outranking the mobile rule), so they are restated here. Without
+   this the head is a block and the hint sits under the heading instead of
+   opposite it. */
+.v3-gsm [data-prob-head] { display: flex; justify-content: space-between; }
+
+@media (min-width: 900px) and (max-width: 1439px) {
+  .v3-gsm [data-pos-body] {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1fr);
+    gap: 52px;
+    align-items: start;
+    margin-top: 24px;
+  }
+}
+@media (min-width: 1700px) {
+  .v3-gsm [data-layer-name] { font-size: 28px; }
+}
+
+/* ---------------------------------------------------------------------------
+   4. SIGNATURE VISUAL — Measurement Integrity / Decision Chain
+
+   CHANNELS -> EVENTS -> FUNNEL -> REVENUE -> DECISION.
+
+   Mobile gets a true vertical chain rather than a shrunken horizontal chart;
+   both render the same five stages and are painted by one state function in
+   service-detail.js. The horizontal SVG is aria-hidden and the vertical list is
+   too — the visually-hidden line plus the two live regions carry the meaning, so
+   nothing here is sight-only and nothing is announced twice.
+   --------------------------------------------------------------------------- */
+.v3-gsm [data-chain-h] { display: none; }
+.v3-gsm [data-chain-v] { display: block; margin-top: 18px; }
+@media (min-width: 620px) {
+  .v3-gsm [data-chain-h] { display: block; }
+  .v3-gsm [data-chain-v] { display: none; }
+}
+
+/* deliberate states, not flex-wrap: stacked, then three across. A wrapping
+   flex row produced an uneven 2 + 1 (CLAUDE.md §2B). */
+.v3-gsm [data-states] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+@media (min-width: 560px) {
+  .v3-gsm [data-states] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.v3-gsm [data-states] button {
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--tile);
+  box-shadow: var(--edge);
+  color: var(--stone);
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  line-height: 1.3;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color .35s, border-color .35s, background .35s, transform .35s;
+}
+.v3-gsm [data-states] button:hover {
+  color: var(--fg);
+  border-color: var(--ichip);
+  transform: translateY(-1px);
+}
+/* Selected uses --moss/--carbon, not --mosstext/--bg: --mosstext is deep moss in
+   light theme, which turned the selected chip into a dark-green pill that no
+   longer matched the moss primary CTA above it. Both tokens are theme-invariant,
+   so the chip is bright moss with carbon ink in either theme (14.58:1), which is
+   the selected state CLAUDE.md §7 specifies. No lift when pressed. */
+.v3-gsm [data-states] button[aria-pressed="true"] {
+  color: var(--carbon);
+  background: var(--moss);
+  border-color: var(--moss);
+  transform: none;
+}
+
+/* ---------------------------------------------------------------------------
+   5. HOVER + FOCUS
+
+   The prototype carried hover as style-hover="" attributes, which are a design
+   tool convention and inert in a browser — they are dropped at port time and the
+   states restated here as real CSS.
+   --------------------------------------------------------------------------- */
+.v3-gsm [data-cap] {
+  transition: transform .35s cubic-bezier(.16, 1, .3, 1), border-color .35s;
+}
+.v3-gsm [data-cap]:hover { transform: translateY(-1px); border-color: var(--ichip); }
+.v3-gsm [data-connk]:hover { color: var(--fg); padding-left: 6px; }
+.v3-gsm [data-herocta]:hover { background: var(--clay); color: var(--tilth-mineral); transform: translateY(-1px); }
+.v3-gsm [data-ctacta]:hover { background: var(--clay); transform: translateY(-1px); }
+.v3-gsm [data-textcta]:hover { color: var(--fg); }
+.v3-gsm [data-ctatext]:hover { color: var(--carbon); }
+
+/* every control gets a visible ring; inverted sections need the light-on-dark
+   counterpart or the moss ring disappears into the panel */
+.v3-gsm a:focus-visible,
+.v3-gsm button:focus-visible,
+.v3-gsm [tabindex]:focus-visible {
+  outline: 2px solid var(--mosstext);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.v3-gsm #approach a:focus-visible,
+.v3-gsm #faq a:focus-visible,
+.v3-gsm #faq button:focus-visible { outline-color: var(--ichip); }
+
+/* ---------------------------------------------------------------------------
+   6. VISUALLY HIDDEN
+
+   clip-path rather than left:-9999px — the latter positions against the nearest
+   positioned ancestor, which is not guaranteed here.
+   --------------------------------------------------------------------------- */
+.v3-gsm [data-vh] {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   7. REDUCED MOTION
+
+   service-detail.css already zeroes every animation and transition under
+   prefers-reduced-motion, which covers the chain, the rows and the controls.
+   This is the targeted restatement so the intent survives any future narrowing
+   of that blanket rule; service-detail.js separately lands the chain on its
+   final state without travelling through the sequence.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .v3-gsm [data-chain] line,
+  .v3-gsm [data-chain] circle,
+  .v3-gsm [data-stage],
+  .v3-gsm [data-vstage],
+  .v3-gsm [data-vnode],
+  .v3-gsm [data-vlink],
+  .v3-gsm [data-prob],
+  .v3-gsm [data-prob-n],
+  .v3-gsm [data-prob-t],
+  .v3-gsm [data-states] button { transition: none !important; }
+}
