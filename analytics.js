@@ -114,7 +114,11 @@
   }, true);
 
   // ---- FAQ opens ----------------------------------------------------------
-  // <details> toggle fires for both open and close; only the open is meaningful.
+  // Two FAQ implementations exist and both report the same event with the same
+  // fields, because they represent the same user intent.
+  //
+  // 1. Legacy <details class="faq__item"> — most pages.
+  //    toggle fires for both open and close; only the open is meaningful.
   document.addEventListener("toggle", function (e) {
     var d = e.target;
     if (!d || d.tagName !== "DETAILS" || !d.open) return;
@@ -127,6 +131,36 @@
       faq_question: clean(q && q.textContent)
     });
   }, true);
+
+  // 2. Brand v3 service-detail FAQ — real <button> controls with aria-expanded.
+  //    Watching the attribute rather than the click is what keeps this correct:
+  //    it is the disclosure's own state, so mouse, keyboard and touch all report
+  //    once and identically with no pointer/touch double-counting, and the
+  //    exclusive accordion closing its sibling is a true->false transition that
+  //    is simply ignored. Requiring oldValue "false" means neither the initial
+  //    paint nor service-detail.js writing the same value on init can fire.
+  (function () {
+    if (typeof MutationObserver !== "function") return;
+    var btns = Array.prototype.slice.call(document.querySelectorAll("[data-faq-btn]"));
+    if (!btns.length) return;
+
+    var obs = new MutationObserver(function (records) {
+      records.forEach(function (r) {
+        if (r.attributeName !== "aria-expanded") return;
+        var b = r.target;
+        if (r.oldValue !== "false" || b.getAttribute("aria-expanded") !== "true") return;
+        var q = b.querySelector("span");
+        send("faq_open", {
+          section_id: sectionOf(b),
+          faq_id: "faq_" + (btns.indexOf(b) + 1),
+          faq_question: clean(q ? q.textContent : b.textContent)
+        });
+      });
+    });
+    btns.forEach(function (b) {
+      obs.observe(b, { attributes: true, attributeFilter: ["aria-expanded"], attributeOldValue: true });
+    });
+  })();
 
   // ---- generate_lead ------------------------------------------------------
   // Fires only on a successful submission, never on submit-button click. The contact form

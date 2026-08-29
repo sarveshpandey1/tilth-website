@@ -150,6 +150,55 @@ input[type=range]:focus-visible{outline:2px solid var(--moss);outline-offset:6px
   [data-prob-grid]{gap:60px}
   [data-faq-grid]{gap:64px}
 }
+/* ---------------------------------------------------------------------------
+   INTERACTION STATES — shared by every Brand v3 service-detail page.
+
+   These are the states the approved designs specify. In the prototypes they are
+   carried as style-hover="" attributes, which are a Claude Design convention and
+   inert in a browser, so they are restated here as real CSS and the attributes
+   are dropped from production markup.
+
+   Restrained by design (CLAUDE.md §7): a ~1px lift and a clearer edge. No glow,
+   no scale, no card animation. The reduced-motion block at the end of this file
+   already zeroes every transition, so the colour change still lands instantly
+   while the movement does not.
+
+   Nothing here is hover-only: the tiles are non-interactive containers whose
+   hover is decorative, and every link and button carries the shared
+   .v3 :focus-visible ring from brand-v3.css.
+   --------------------------------------------------------------------------- */
+.v3-service-detail { --carbon: var(--tilth-carbon, #101310); }
+
+/* The approved markup carries each element's resting colour and padding as an
+   inline style, which outranks any selector, so the changed properties are the
+   one place in this file that needs !important. transform is not set inline and
+   therefore does not. Verified by hovering each element, not by reading the CSS. */
+.v3-service-detail [data-cap] { transition: transform .35s cubic-bezier(.16, 1, .3, 1), border-color .35s; }
+.v3-service-detail [data-cap]:hover { transform: translateY(-1px); border-color: var(--ichip) !important; }
+
+.v3-service-detail [data-connk]:hover,
+.v3-service-detail [data-connk]:focus-visible { color: var(--fg) !important; padding-left: 6px !important; }
+
+.v3-service-detail [data-herocta]:hover,
+.v3-service-detail [data-herocta]:focus-visible {
+  background: var(--clay) !important; color: var(--tilth-mineral) !important; transform: translateY(-1px);
+}
+
+.v3-service-detail [data-ctacta]:hover,
+.v3-service-detail [data-ctacta]:focus-visible { background: var(--clay) !important; transform: translateY(-1px); }
+
+.v3-service-detail [data-textcta]:hover,
+.v3-service-detail [data-textcta]:focus-visible { color: var(--fg) !important; }
+
+.v3-service-detail [data-ctatext]:hover,
+.v3-service-detail [data-ctatext]:focus-visible { color: var(--carbon) !important; }
+
+/* brand-v3.css sets a moss focus ring globally. Inside an inverted section the
+   panel is mineral in dark theme, where moss on mineral is hard to see, so the
+   ring switches to the inverted foreground. */
+.v3-service-detail #approach :focus-visible,
+.v3-service-detail #faq :focus-visible { outline-color: var(--ifg); }
+
 @keyframes gRise{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
 @keyframes gFade{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion: reduce){
