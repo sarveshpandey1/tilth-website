@@ -1,0 +1,245 @@
+/* ===========================================================================
+   /services/seo-ai-search/ — page layer over the shared service-detail system.
+   Ported from the final approved design
+   "Tilth Service - SEO Content & AI Search.dc.html" per
+   TILTH_SEO_CONTENT_AI_SEARCH_HANDOFF.md.
+
+   Loaded AFTER assets/service-detail.css. Everything is scoped to .v3-seo so
+   Performance Marketing and Growth Strategy are untouched — service-detail.css
+   itself is not modified at all, which is what keeps those two routes
+   byte-identical.
+
+   Two things genuinely differ from the shared system and live here:
+     1. this page's approved H1 and closing-CTA ladders (the shared file carries
+        Performance Marketing's), and
+     2. the DISCOVERY SURFACE, this page's signature interaction.
+
+   Selectors are .v3-service-detail.v3-seo / .v3-seo [hook] so they outrank the
+   shared rules on SPECIFICITY, not source order — the shared file sets several
+   of these inside larger min-width blocks that also match at wider widths, and
+   relying on order there is the trap CLAUDE.md §6b warns about.
+
+   Layout is CSS-first: every grid, gap and type step below is a media query,
+   correct before any JS runs.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   1. TYPE LADDERS — approved, and monotonic by design.
+
+   H1   32 / 34 / 40 / 40 / 48 / 60 / 60 / 60 / 68 / 68 / 84
+   CTA  25 / 27 / 31 / 31 / 38 / 46 / 46 / 46 / 46 / 46 / 52
+   (at 390 / 480 / 620 / 700 / 768 / 1024 / 1180 / 1200 / 1280 / 1440 / 1700)
+
+   Minimum H1 : closing-CTA ratio is 1.26x. Neither ladder may ever step down as
+   the viewport widens.
+   --------------------------------------------------------------------------- */
+.v3-service-detail.v3-seo { --h1: 32px; --h2: 24px; }
+@media (min-width: 480px)  { .v3-service-detail.v3-seo { --h1: 34px; --h2: 27px; } }
+@media (min-width: 620px)  { .v3-service-detail.v3-seo { --h1: 40px; --h2: 31px; } }
+@media (min-width: 768px)  { .v3-service-detail.v3-seo { --h1: 48px; --h2: 36px; } }
+@media (min-width: 1024px) { .v3-service-detail.v3-seo { --h1: 60px; --h2: 44px; } }
+@media (min-width: 1280px) { .v3-service-detail.v3-seo { --h1: 68px; } }
+@media (min-width: 1440px) { .v3-service-detail.v3-seo { --h1: 68px; --h2: 48px; } }
+@media (min-width: 1700px) { .v3-service-detail.v3-seo { --h1: 84px; --h2: 54px; } }
+
+.v3-seo [data-cta-h] { font-size: 25px; }
+@media (min-width: 480px)  { .v3-seo [data-cta-h] { font-size: 27px; } }
+@media (min-width: 620px)  { .v3-seo [data-cta-h] { font-size: 31px; } }
+@media (min-width: 768px)  { .v3-seo [data-cta-h] { font-size: 38px; } }
+@media (min-width: 1024px) { .v3-seo [data-cta-h] { font-size: 46px; } }
+@media (min-width: 1440px) { .v3-seo [data-cta-h] { font-size: 46px; } }
+@media (min-width: 1700px) { .v3-seo [data-cta-h] { font-size: 52px; } }
+
+/* REQUIRED — do not remove because overflow reads zero. Without this cap the H1
+   at 1100-1279 filled its 1120px track EXACTLY: no clipping, and no margin
+   either. With it, clearance is 68px and the block is a stable four lines. This
+   is a composition fix; the type size is untouched. */
+@media (min-width: 1100px) and (max-width: 1279px) {
+  .v3-seo [data-h1] { max-width: 1040px; }
+}
+
+/* ---------------------------------------------------------------------------
+   2. COMPOSITION
+
+   The closing block takes 1.35fr / 0.65fr at 1440+, and the approach head
+   splits at 1280 rather than the shared 1100 — at 1180 the narrower track
+   pushed the heading to four lines with an orphan.
+   --------------------------------------------------------------------------- */
+@media (min-width: 1440px) {
+  .v3-seo [data-cta-grid] {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr);
+    gap: 44px;
+    align-items: end;
+  }
+}
+@media (min-width: 1100px) {
+  .v3-seo [data-app-head] { grid-template-columns: minmax(0, 1fr); gap: 22px; align-items: normal; }
+}
+@media (min-width: 1280px) {
+  .v3-seo [data-app-head] {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    gap: 48px;
+    align-items: end;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   3. GROWTH SYSTEM PANEL — ORGANIC · SHALLOW
+
+   Position stays visible at every width including 390. Between 900 and 1439 the
+   panel is stacked under the hero and runs the full column, so it takes two
+   tracks; a single stacked column left roughly 600px of dead panel
+   (CLAUDE.md §2A). Above 1440 it is a rail beside the H1 again.
+   --------------------------------------------------------------------------- */
+.v3-seo [data-pos-body] { display: flex; flex-direction: column; gap: 26px; margin-top: 20px; }
+.v3-seo [data-layer-name] { font-size: 25px; }
+
+@media (min-width: 900px) and (max-width: 1439px) {
+  .v3-seo [data-pos-body] {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1fr);
+    gap: 52px;
+    align-items: start;
+    margin-top: 24px;
+  }
+}
+/* The approved design carries a 1700px rule raising this to 28px, but it sits
+   BEFORE the 25px base declaration and so never takes effect there — the
+   design renders 25px at every width. Production matches the design as
+   approved, not the inert rule. */
+
+/* ---------------------------------------------------------------------------
+   4. PROBLEM — full-width editorial diagnosis, two tracks when there is room
+
+   Five statements in one column left ~700px of trailing white at 1440. Two
+   tracks flowing down-then-across keep the numbered reading order (01-03 left,
+   04-05 right) and use the width. Row 03 closes its column with a hairline so
+   both tracks end evenly.
+
+   The shared file sets display/flex on the head rows but not on this grid, so
+   display:grid is stated here.
+   --------------------------------------------------------------------------- */
+.v3-seo [data-prob-head],
+.v3-seo [data-surf-head] {
+  display: flex; flex-direction: column; justify-content: space-between;
+  align-items: flex-start; gap: 16px;
+}
+.v3-seo [data-probhint], .v3-seo [data-surfhint] { text-align: left; }
+@media (min-width: 1100px) {
+  .v3-seo [data-prob-head], .v3-seo [data-surf-head] { flex-direction: row; align-items: flex-end; gap: 40px; }
+  .v3-seo [data-probhint], .v3-seo [data-surfhint] { text-align: right; }
+}
+
+.v3-seo [data-prob-grid] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; margin-top: 28px; }
+@media (min-width: 768px)  { .v3-seo [data-prob-grid] { margin-top: 36px; } }
+@media (min-width: 1100px) {
+  .v3-seo [data-prob-grid] {
+    grid-auto-flow: column;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, auto);
+    column-gap: 56px;
+  }
+  .v3-seo [data-prob="2"] { border-bottom: 1px solid var(--line); }
+}
+@media (min-width: 1440px) { .v3-seo [data-prob-grid] { column-gap: 72px; } }
+
+/* ---------------------------------------------------------------------------
+   5. SIGNATURE VISUAL — DISCOVERY SURFACE
+
+   INTENT -> ACCESS -> RELEVANCE -> AUTHORITY, fanning out to SEARCH and
+   AI ANSWERS and reconverging on ACTION. Mobile gets a real vertical
+   interpretation with the two surfaces as a genuine indented branch, not a
+   shrunken diagram; both compositions are painted by one lens function.
+   --------------------------------------------------------------------------- */
+.v3-seo [data-surf-lede] {
+  font-family: Syne, sans-serif; font-weight: 600; letter-spacing: -.02em;
+  line-height: 1.2; text-transform: uppercase; font-size: 21px;
+}
+@media (min-width: 768px)  { .v3-seo [data-surf-lede] { font-size: 25px; } }
+@media (min-width: 1280px) { .v3-seo [data-surf-lede] { font-size: 29px; } }
+
+.v3-seo [data-surf-grid] { display: grid; align-items: start;
+  grid-template-columns: minmax(0, 1fr); gap: 34px; margin-top: 32px; }
+.v3-seo [data-surf-bar]  { display: grid; align-items: start;
+  grid-template-columns: minmax(0, 1fr); gap: 26px; }
+@media (min-width: 900px) {
+  .v3-seo [data-surf-bar] { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 44px; }
+}
+@media (min-width: 1100px) {
+  .v3-seo [data-surf-grid] { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 56px; margin-top: 40px; }
+  .v3-seo [data-surf-bar]  { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+}
+@media (min-width: 1440px) { .v3-seo [data-surf-grid] { gap: 64px; } }
+
+/* the horizontal surface needs room for its labels before it is worth showing */
+.v3-seo [data-surf-h] { display: none; }
+.v3-seo [data-surf-v] { display: flex; flex-direction: column; margin-top: 4px; }
+@media (min-width: 700px) {
+  .v3-seo [data-surf-h] { display: block; }
+  .v3-seo [data-surf-v] { display: none; }
+}
+
+/* deliberate states, not flex-wrap: stacked, then three across, then stacked
+   again once the lenses sit in their own track beside the diagram */
+.v3-seo [data-lenses] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+@media (min-width: 560px) { .v3-seo [data-lenses] { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+/* once the lenses have their own track beside the diagram they stack again.
+   This must stay AFTER the 560 rule: same specificity, so source order decides. */
+@media (min-width: 1100px) { .v3-seo [data-lenses] { grid-template-columns: minmax(0, 1fr); gap: 9px; } }
+
+.v3-seo [data-lenses] button {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--tile);
+  box-shadow: var(--edge);
+  color: var(--stone);
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  line-height: 1.3;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color .35s, border-color .35s, background .35s, transform .35s;
+}
+.v3-seo [data-lenses] button:hover { color: var(--fg); border-color: var(--ichip); transform: translateY(-1px); }
+/* --moss and --carbon are theme-invariant, so the selected lens is bright moss
+   with carbon ink in BOTH themes — the selected state CLAUDE.md §7 specifies.
+   --mosstext would go deep moss in light and stop matching the primary CTA. */
+.v3-seo [data-lenses] button[aria-pressed="true"] {
+  color: var(--carbon);
+  background: var(--moss);
+  border-color: var(--moss);
+  transform: none;
+}
+.v3-seo [data-lenses] button:focus-visible { outline: 2px solid var(--mosstext); outline-offset: 3px; }
+
+/* clip-path rather than left:-9999px — the latter positions against the nearest
+   positioned ancestor, which is not guaranteed here */
+.v3-seo [data-vh] {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   6. REDUCED MOTION
+
+   service-detail.css already zeroes every animation and transition under
+   prefers-reduced-motion. This is the targeted restatement so the intent
+   survives any future narrowing of that blanket rule. service-detail.js
+   separately suppresses the lens auto-demo entirely — unlike Growth Strategy,
+   this page stays on TECHNICAL and lets the visitor drive.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .v3-seo [data-surface] line,
+  .v3-seo [data-surface] circle,
+  .v3-seo [data-nlabel],
+  .v3-seo [data-vlabel],
+  .v3-seo [data-vnode],
+  .v3-seo [data-vlink],
+  .v3-seo [data-lenses] button { transition: none !important; }
+}

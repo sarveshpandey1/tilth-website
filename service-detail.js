@@ -9,8 +9,9 @@
  * Each signature block is self-contained and returns early when its markup is
  * absent, so a page only runs its own: the spend/return graph needs
  * [data-chart] + [data-scrub] (/services/performance-marketing/), the Decision
- * Chain needs [data-chain] (/services/growth-strategy-measurement/). The FAQ
- * block is common to both.
+ * Chain needs [data-chain] (/services/growth-strategy-measurement/), and the
+ * Discovery Surface needs [data-surface] (/services/seo-ai-search/). The FAQ
+ * block is common to all three.
  *
  * Everything degrades: with JS off the chart renders its authored static state,
  * the Decision Chain renders its authored FRAGMENTED state, every FAQ answer is
@@ -278,6 +279,142 @@
         })(0);
       });
     }, { threshold: .45 });
+    io.observe(host);
+  })();
+
+  /* --- signature visual: Discovery Surface --------------------------------
+   * /services/seo-ai-search/. Three lenses over ONE system — not a progression.
+   * Each says which relationships carry the weight when you look through it, so
+   * the diagram never redraws; only emphasis moves. One paint function renders
+   * BOTH compositions: the horizontal SVG on wide screens and the vertical
+   * branch on mobile. The svg and the vertical list are aria-hidden; the lens
+   * labels, aria-pressed, the two live readouts and a visually-hidden line
+   * carry the meaning.
+   */
+  (function () {
+    var svg = $("[data-surface]");
+    var btns = $$("[data-lens]");
+    if (!svg || btns.length !== 3) return;
+
+    var lens = 0;                        // authored HTML ships TECHNICAL
+    var demoDone = false, demoTimer = 0;
+
+    function setAll(sel, attrs) {
+      $$(sel).forEach(function (el) {
+        Object.keys(attrs).forEach(function (k) {
+          if (k === "style") Object.keys(attrs.style).forEach(function (p) { el.style[p] = attrs.style[p]; });
+          else el.setAttribute(k, attrs[k]);
+        });
+      });
+    }
+
+    // e0 intent->access, e1 access->relevance, e2 relevance->authority,
+    // e3/e4 authority->search / ->ai answers, e5/e6 those -> action
+    var LINKS = [
+      { e0: "on",   e1: "on", e2: "weak", e3: "weak", e4: "weak", e5: "faint", e6: "faint" },
+      { e0: "moss", e1: "on", e2: "moss", e3: "on",   e4: "on",   e5: "weak",  e6: "weak" },
+      { e0: "on",   e1: "on", e2: "on",   e3: "moss", e4: "moss", e5: "moss",  e6: "moss" }
+    ];
+    var LINK_STYLE = {
+      on:    { stroke: "var(--stone)",    opacity: "1",   dash: "0" },
+      weak:  { stroke: "var(--stone)",    opacity: ".45", dash: "4 5" },
+      faint: { stroke: "var(--stone)",    opacity: ".24", dash: "2 6" },
+      moss:  { stroke: "var(--mosstext)", opacity: "1",   dash: "0" }
+    };
+
+    // i intent, a access, r relevance, u authority, s search, x ai answers, c action
+    var NODES = [
+      { i: "on",   a: "moss", r: "on",   u: "dim",  s: "dim",  x: "dim",  c: "dim" },
+      { i: "moss", a: "on",   r: "moss", u: "moss", s: "on",   x: "on",   c: "dim" },
+      { i: "on",   a: "on",   r: "on",   u: "on",   s: "moss", x: "moss", c: "active" }
+    ];
+    // the floors are deliberate: the unlit half of the system stays legible, so
+    // the section never reads as half-empty on arrival
+    var NODE_STYLE = {
+      dim:    { stroke: "var(--stone)",    fill: "var(--bg)",       opacity: ".45", label: "var(--foot)" },
+      on:     { stroke: "var(--stone)",    fill: "var(--bg)",       opacity: "1",   label: "var(--stone)" },
+      moss:   { stroke: "var(--mosstext)", fill: "var(--bg)",       opacity: "1",   label: "var(--mosstext)" },
+      active: { stroke: "var(--mosstext)", fill: "var(--mosstext)", opacity: "1",   label: "var(--mosstext)" }
+    };
+
+    var TIER = ["TECHNICAL", "CONTENT", "DISCOVERY"];
+    var NOTE = [
+      "If the content cannot be reached or read structurally, discovery stops before it starts.",
+      "Useful content answers the commercial question, and the entity behind it makes that answer credible.",
+      "One organic system, surfaced through search and AI answers — both leading to a next step."
+    ];
+    // each mobile connector follows the link into the node beneath it
+    var VLINK = [["i", "e0"], ["a", "e1"], ["r", "e2"], ["u", "e3"], ["c", "e5"]];
+
+    function paint() {
+      var links = LINKS[lens], nodes = NODES[lens];
+
+      Object.keys(links).forEach(function (k) {
+        var v = LINK_STYLE[links[k]];
+        setAll('[data-link="' + k + '"]', { stroke: v.stroke, "stroke-dasharray": v.dash, style: { opacity: v.opacity } });
+      });
+
+      Object.keys(nodes).forEach(function (k) {
+        var v = NODE_STYLE[nodes[k]];
+        setAll('[data-node="' + k + '"]', { stroke: v.stroke, fill: v.fill, style: { opacity: v.opacity } });
+        setAll('[data-nlabel="' + k + '"]', { style: { color: v.label } });
+        setAll('[data-vlabel="' + k + '"]', { style: { color: v.label } });
+        setAll('[data-vnode="' + k + '"]', { style: {
+          borderColor: v.stroke,
+          background: v.fill === "var(--mosstext)" ? "var(--mosstext)" : "var(--bg)",
+          opacity: v.opacity
+        } });
+      });
+
+      VLINK.forEach(function (pair) {
+        var s = LINK_STYLE[links[pair[1]]];
+        setAll('[data-vlink="' + pair[0] + '"]', { style: { background: s.stroke, opacity: s.opacity } });
+      });
+
+      // both readouts are aria-live, so only write when the text actually changes
+      var tier = $("[data-lens-tier]"), note = $("[data-lens-note]");
+      if (tier && tier.textContent !== TIER[lens]) tier.textContent = TIER[lens];
+      if (note && note.textContent !== NOTE[lens]) note.textContent = NOTE[lens];
+
+      btns.forEach(function (b) {
+        b.setAttribute("aria-pressed", String(+b.getAttribute("data-lens") === lens));
+      });
+    }
+
+    function go(next) { lens = next; paint(); }
+
+    btns.forEach(function (b) {
+      b.addEventListener("click", function () { go(+b.getAttribute("data-lens")); });
+    });
+    paint();
+
+    /* self-demonstration — runs once, then never fights the user ----------- */
+    function stopDemo() { demoDone = true; clearTimeout(demoTimer); }
+    btns.forEach(function (b) {
+      ["pointerdown", "keydown", "touchstart"].forEach(function (ev) {
+        b.addEventListener(ev, stopDemo, { once: true });
+      });
+    });
+
+    var host = $("[data-surf-wrap]");
+    if (!host || !("IntersectionObserver" in window)) return;
+
+    var io = new IntersectionObserver(function (ens) {
+      ens.forEach(function (en) {
+        if (!en.isIntersecting || demoDone) return;
+        demoDone = true;
+        io.disconnect();
+        // Deliberately unlike the Decision Chain: reduced motion keeps the
+        // authored TECHNICAL lens and lets the visitor drive, rather than
+        // jumping to the end state.
+        if (rm) return;
+        var seq = [1, 2];
+        (function run(i) {
+          if (i >= seq.length) return;
+          demoTimer = setTimeout(function () { go(seq[i]); run(i + 1); }, i === 0 ? 1000 : 1300);
+        })(0);
+      });
+    }, { threshold: .4 });
     io.observe(host);
   })();
 
