@@ -1,0 +1,223 @@
+/* ===========================================================================
+   /services/affiliate-partnerships/ — page layer over the shared service-detail
+   system. Ported from the final approved design
+   "Tilth Service - Affiliate & Partnership Marketing.dc.html" per
+   TILTH_AFFILIATE_PARTNERSHIP_MARKETING_HANDOFF.md.
+
+   Loaded AFTER assets/service-detail.css. Everything is scoped to .v3-affiliate
+   so Performance Marketing, Growth Strategy and SEO are untouched —
+   service-detail.css itself is not modified at all, which is what keeps those
+   three routes byte-identical.
+
+   Three things genuinely differ from the shared system and live here:
+     1. this page's approved H1 and closing-CTA ladders,
+     2. the hero, which is STACKED at every width (the shared file goes
+        two-column at 1440 and re-splits at 1700), and
+     3. the PARTNER QUALITY MAP, this page's signature interaction.
+
+   Selectors are .v3-service-detail.v3-affiliate / .v3-affiliate [hook] so they
+   outrank the shared rules on SPECIFICITY, not source order — the shared file
+   sets several of these inside larger min-width blocks that also match at wider
+   widths, and relying on order there is the trap CLAUDE.md §6b warns about.
+
+   Layout is CSS-first: every grid, gap and type step below is a media query,
+   correct before any JS runs.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   1. TYPE LADDERS — approved, and monotonic by design.
+
+   H1   30 / 39 / 45 / 45 / 53 / 62 / 66 / 66 / 74 / 76 / 80
+   CTA  24 / 31 / 34 / 34 / 40 / 40 / 40 / 40 / 40 / 52 / 52
+   (at 390 / 480 / 620 / 700 / 768 / 1024 / 1180 / 1200 / 1280 / 1440 / 1700)
+
+   Minimum H1 : closing-CTA ratio is 1.25x, at 390. Neither ladder may ever step
+   down as the viewport widens.
+
+   30px at 390 is deliberate and measured: 30px leaves ~12px clearance, 31px
+   leaves ~1px, and 32px OVERRUNS the painted ink by ~10px and adds a tenth
+   line. Do not "round it up" to match the other service pages.
+
+   Only --h1 is restated here. --h2/--h3/--body/--card/--pad/--sy are identical
+   to the shared ladders, so they are left to cascade.
+   --------------------------------------------------------------------------- */
+.v3-service-detail.v3-affiliate { --h1: 30px; }
+@media (min-width: 480px)  { .v3-service-detail.v3-affiliate { --h1: 39px; } }
+@media (min-width: 620px)  { .v3-service-detail.v3-affiliate { --h1: 45px; } }
+@media (min-width: 768px)  { .v3-service-detail.v3-affiliate { --h1: 53px; } }
+@media (min-width: 1024px) { .v3-service-detail.v3-affiliate { --h1: 62px; } }
+@media (min-width: 1180px) { .v3-service-detail.v3-affiliate { --h1: 66px; } }
+@media (min-width: 1280px) { .v3-service-detail.v3-affiliate { --h1: 74px; } }
+@media (min-width: 1440px) { .v3-service-detail.v3-affiliate { --h1: 76px; } }
+@media (min-width: 1700px) { .v3-service-detail.v3-affiliate { --h1: 80px; } }
+
+.v3-affiliate [data-cta-h] { font-size: 24px; }
+@media (min-width: 480px)  { .v3-affiliate [data-cta-h] { font-size: 31px; } }
+@media (min-width: 620px)  { .v3-affiliate [data-cta-h] { font-size: 34px; } }
+@media (min-width: 768px)  { .v3-affiliate [data-cta-h] { font-size: 40px; } }
+/* stated explicitly so the ladder reads straight down, even though the shared
+   1024px step (46px) already loses to the specificity above */
+@media (min-width: 1024px) { .v3-affiliate [data-cta-h] { font-size: 40px; } }
+@media (min-width: 1440px) { .v3-affiliate [data-cta-h] { font-size: 52px; } }
+
+/* ---------------------------------------------------------------------------
+   2. HERO — STACKED AT EVERY WIDTH (390 -> 1700)
+
+   There is no two-column hero breakpoint on this page. Order is always
+   COPY -> GROWTH SYSTEM PANEL, the panel full width beneath the copy.
+
+   This is the one place the Affiliate page deliberately departs from the shared
+   system: service-detail.css splits [data-hero-grid] 1.55fr/.45fr at 1440 and
+   re-splits it 1.45fr/.55fr at 1700. Both are cancelled here. The reason is the
+   H1 — it is the longest on the site and Syne cannot break mid-word, so every
+   narrower two-column track measured produced an inferior seven-line hero.
+
+   One unconditional declaration is enough: at 0,2,0 it outranks both shared
+   rules (0,1,0) at every width, whichever order the files load in.
+
+   The closing CTA still goes two-column at 1440+ — that is a separate
+   component and is left to the shared rule.
+   --------------------------------------------------------------------------- */
+.v3-affiliate [data-hero-grid] { grid-template-columns: minmax(0, 1fr); }
+
+/* ---------------------------------------------------------------------------
+   3. PROBLEM — five editorial rows, never cards
+
+   The classifier (ACTIVITY / COMMERCIAL MODEL / ATTRIBUTION / CONTROLS /
+   OPERATIONS) sits under the statement on mobile, and becomes a real third
+   editorial column at 1200+.
+
+   These rows use [data-prow] rather than the shared [data-prob-grid], so none
+   of the shared problem rules apply to them.
+   --------------------------------------------------------------------------- */
+.v3-affiliate [data-prow] { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.v3-affiliate [data-prow] [data-ptag] { justify-self: start; }
+@media (min-width: 768px) {
+  .v3-affiliate [data-prow] { grid-template-columns: 44px minmax(0, 1fr); gap: 0 20px; }
+  .v3-affiliate [data-prow] [data-ptag] { grid-column: 2; margin-top: 10px; }
+}
+@media (min-width: 1200px) {
+  .v3-affiliate [data-prow] { grid-template-columns: 44px minmax(0, 1fr) 190px; gap: 0 32px; align-items: baseline; }
+  .v3-affiliate [data-prow] [data-ptag] { grid-column: 3; margin-top: 0; justify-self: end; text-align: right; }
+}
+
+/* ---------------------------------------------------------------------------
+   4. SIGNATURE VISUAL — PARTNER QUALITY MAP
+
+   One network, two views of the SAME program: ACTIVITY and VALUE. Geometry
+   never changes between them — only path strength, node emphasis, endpoint
+   emphasis and the readout. Not stages, not before/after, not a progression.
+
+   Below 900px the desktop SVG is replaced by a genuine mobile composition
+   (six nodes then the governance corridor as five rows), not a shrunken
+   diagram; both are painted by the same [data-view] attribute.
+   --------------------------------------------------------------------------- */
+.v3-affiliate [data-map-head] { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+.v3-affiliate [data-map-foot] { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+.v3-affiliate [data-map-desktop] { display: none; }
+@media (min-width: 620px) {
+  .v3-affiliate [data-viewctl] { max-width: 340px; }
+}
+@media (min-width: 900px) {
+  .v3-affiliate [data-map-desktop] { display: block; }
+  .v3-affiliate [data-map-mobile] { display: none; }
+}
+@media (min-width: 1024px) {
+  .v3-affiliate [data-map-head] { grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: end; }
+  .v3-affiliate [data-map-foot] { grid-template-columns: minmax(0, 1fr) auto; gap: 48px; }
+}
+
+/* The two view controls. Selected state is carried by aria-pressed, which is in
+   the AUTHORED markup — so the correct control is already highlighted before
+   service-detail.js runs, and the JS only has to move the attribute. The
+   approved markup sets each button's resting background/colour/border inline,
+   and an inline style outranks any selector, so the selected override is the
+   one place here that needs !important (CLAUDE.md §6b). */
+.v3-affiliate [data-view-btn] {
+  transition: background-color .3s, color .3s, border-color .3s, box-shadow .3s;
+}
+.v3-affiliate [data-view-btn][aria-pressed="true"] {
+  background-color: var(--moss) !important;
+  color: #101310 !important;
+  border-color: var(--moss) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .28) !important;
+}
+
+/* Map state.
+   The defaults are wrapped in :where() so their specificity is ZERO and both
+   view blocks below outrank them cleanly. This was a real cascade fix in the
+   approved design — with ordinary selectors the defaults tied with the view
+   rules on attribute count and the state styling appeared inert. Do not
+   unwrap them. */
+.v3-affiliate [data-map] path,
+.v3-affiliate [data-map] line,
+.v3-affiliate [data-map] circle {
+  transition: stroke-opacity .3s cubic-bezier(.16, 1, .3, 1),
+              stroke-width .3s cubic-bezier(.16, 1, .3, 1),
+              stroke .3s cubic-bezier(.16, 1, .3, 1),
+              fill-opacity .3s, fill .3s;
+}
+.v3-affiliate [data-map] :where([data-p], [data-s]) { stroke: var(--stone); }
+.v3-affiliate [data-map] :where([data-g])           { stroke: var(--stone); stroke-width: 2; }
+.v3-affiliate [data-map] :where([data-n])           { fill: var(--stone); }
+.v3-affiliate [data-map] :where(text)               { fill: var(--stone); }
+
+/* ACTIVITY — busy, but value is not yet demonstrated. No red, no fraud
+   signalling: a weak path means value is unproven, never that a partner is
+   fraudulent. */
+.v3-affiliate [data-map][data-view="activity"] [data-p]            { stroke-opacity: .5; stroke-width: 1.5; }
+.v3-affiliate [data-map][data-view="activity"] [data-p="u"]        { stroke-dasharray: 58 100; }
+.v3-affiliate [data-map][data-view="activity"] [data-n]            { fill-opacity: .75; }
+.v3-affiliate [data-map][data-view="activity"] [data-s="core"]     { stroke-opacity: .3; stroke-width: 1.5; }
+.v3-affiliate [data-map][data-view="activity"] [data-s="tail"]     { stroke-opacity: .14; stroke-width: 1.5; stroke-dasharray: 3 7; }
+.v3-affiliate [data-map][data-view="activity"] [data-g]            { stroke-opacity: .3; }
+.v3-affiliate [data-map][data-view="activity"] text                { fill-opacity: .62; }
+
+/* VALUE — same network, validated paths carry through the governance corridor.
+   --mosstext rather than canonical Moss is deliberate: in light theme it
+   resolves to the deeper #4A661A, which is what keeps thin paths and small
+   labels legible. */
+.v3-affiliate [data-map][data-view="value"] [data-p="v"]           { stroke: var(--mosstext); stroke-opacity: 1; stroke-width: 2.4; }
+.v3-affiliate [data-map][data-view="value"] [data-p="u"]           { stroke-opacity: .16; stroke-width: 1.5; stroke-dasharray: 52 100; }
+.v3-affiliate [data-map][data-view="value"] [data-n="v"]           { fill: var(--mosstext); fill-opacity: 1; }
+.v3-affiliate [data-map][data-view="value"] [data-n="u"]           { fill-opacity: .28; }
+.v3-affiliate [data-map][data-view="value"] [data-s]               { stroke: var(--mosstext); stroke-opacity: .92; stroke-width: 2.4; stroke-dasharray: none; }
+.v3-affiliate [data-map][data-view="value"] [data-g]               { stroke: var(--mosstext); stroke-opacity: .92; }
+.v3-affiliate [data-map][data-view="value"] text                   { fill: var(--fg); fill-opacity: .92; }
+.v3-affiliate [data-map][data-view="value"] [data-t="scale"]       { fill: var(--mosstext); fill-opacity: 1; }
+
+/* The two readouts are mutually exclusive, so the pair can never be read out
+   together. service-detail.js additionally toggles aria-hidden. */
+.v3-affiliate [data-map][data-view="activity"] [data-readout="value"],
+.v3-affiliate [data-map][data-view="value"] [data-readout="activity"] { display: none; }
+
+/* Mobile composition — the same two views must be visibly different here too,
+   not only in the readout text. */
+.v3-affiliate [data-map] [data-mn],
+.v3-affiliate [data-map] [data-ms],
+.v3-affiliate [data-map] [data-mtick] { background: var(--stone); transition: background .3s, opacity .3s; }
+.v3-affiliate [data-map] [data-mrow]  { transition: opacity .3s; }
+.v3-affiliate [data-map][data-view="activity"] [data-mn]           { opacity: .7; }
+.v3-affiliate [data-map][data-view="activity"] [data-ms="core"]    { opacity: .4; }
+.v3-affiliate [data-map][data-view="activity"] [data-ms="tail"]    { opacity: .16; }
+.v3-affiliate [data-map][data-view="activity"] [data-mtick="core"] { opacity: .5; }
+.v3-affiliate [data-map][data-view="activity"] [data-mtick="tail"] { opacity: .2; }
+.v3-affiliate [data-map][data-view="activity"] [data-mrow="tail"]  { opacity: .45; }
+.v3-affiliate [data-map][data-view="value"] [data-mn="v"]          { background: var(--mosstext); opacity: 1; }
+.v3-affiliate [data-map][data-view="value"] [data-mn="u"]          { opacity: .26; }
+.v3-affiliate [data-map][data-view="value"] [data-ms],
+.v3-affiliate [data-map][data-view="value"] [data-mtick]           { background: var(--mosstext); opacity: .92; }
+.v3-affiliate [data-map][data-view="value"] [data-mrow]            { opacity: 1; }
+
+/* ---------------------------------------------------------------------------
+   5. FAQ PANEL COLLAPSE CONTRACT
+
+   This belongs in CSS, not in a JS-written inline style. Without
+   overflow:hidden a bad max-height SPILLS over the next question instead of
+   clipping, and the accordion would depend on JS for its containment rather
+   than only for its state.
+   --------------------------------------------------------------------------- */
+.v3-affiliate [data-faq-ans] {
+  overflow: hidden;
+  transition: max-height .55s cubic-bezier(.16, 1, .3, 1), opacity .4s;
+}
