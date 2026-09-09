@@ -9,13 +9,15 @@
  * Each signature block is self-contained and returns early when its markup is
  * absent, so a page only runs its own: the spend/return graph needs
  * [data-chart] + [data-scrub] (/services/performance-marketing/), the Decision
- * Chain needs [data-chain] (/services/growth-strategy-measurement/), and the
- * Discovery Surface needs [data-surface] (/services/seo-ai-search/). The FAQ
- * block is common to all three.
+ * Chain needs [data-chain] (/services/growth-strategy-measurement/), the
+ * Discovery Surface needs [data-surface] (/services/seo-ai-search/), and the
+ * Partner Quality Map needs [data-map] (/services/affiliate-partnerships/). The
+ * FAQ block is common to all four.
  *
  * Everything degrades: with JS off the chart renders its authored static state,
- * the Decision Chain renders its authored FRAGMENTED state, every FAQ answer is
- * visible, and no content is behind an interaction.
+ * the Decision Chain renders its authored FRAGMENTED state, the Partner Quality
+ * Map renders its authored ACTIVITY view, every FAQ answer is visible, and no
+ * content is behind an interaction.
  */
 (function () {
   "use strict";
@@ -416,6 +418,86 @@
       });
     }, { threshold: .4 });
     io.observe(host);
+  })();
+
+  /* --- signature visual: Partner Quality Map -------------------------------
+   * /services/affiliate-partnerships/. A BINARY: ACTIVITY and VALUE are two
+   * views of the SAME partner network, not stages and not before/after. The
+   * geometry never moves; only path strength, node emphasis and the readout do.
+   *
+   * All emphasis is CSS, keyed off [data-view] on the wrapper (see
+   * assets/service-detail-affiliate.css), so both the desktop SVG and the
+   * separate mobile composition repaint from one attribute and a re-render can
+   * never strand the diagram mid-state. This block only owns the attribute, the
+   * aria bookkeeping and the one-shot demo.
+   */
+  (function () {
+    var wrap = $("[data-map]");
+    var btns = $$("[data-view-btn]");
+    if (!wrap || btns.length !== 2) return;
+
+    var MAP_DEMO_MS = 900;
+    var view = wrap.getAttribute("data-view") || "activity";   // authored ACTIVITY
+    var userPicked = false, demoDone = false, demoTimer = 0;
+
+    function paint() {
+      if (wrap.getAttribute("data-view") !== view) wrap.setAttribute("data-view", view);
+      btns.forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.getAttribute("data-view-btn") === view));
+      });
+      // only the active readout is exposed, so the two are never read out together
+      $$("[data-readout]").forEach(function (el) {
+        if (el.getAttribute("data-readout") === view) el.removeAttribute("aria-hidden");
+        else el.setAttribute("aria-hidden", "true");
+      });
+    }
+
+    function setView(v) {
+      userPicked = true;
+      clearTimeout(demoTimer);
+      view = v;
+      paint();
+    }
+
+    btns.forEach(function (b) {
+      b.addEventListener("click", function () { setView(b.getAttribute("data-view-btn")); });
+    });
+    paint();
+
+    /* Reduced motion resolves straight to VALUE — deliberately unlike the
+     * Discovery Surface, which keeps its authored lens. VALUE is the explanatory
+     * half of this binary, so a visitor who cannot see the transition should
+     * land on the view that carries the meaning. Both controls stay usable. */
+    if (rm) { view = "value"; paint(); return; }
+
+    if (!("IntersectionObserver" in window)) return;
+
+    // any real interaction cancels the demo permanently, including one that
+    // happens before the map is ever scrolled into view
+    ["pointerdown", "keydown", "touchstart"].forEach(function (ev) {
+      wrap.addEventListener(ev, function () {
+        userPicked = true;
+        clearTimeout(demoTimer);
+      }, { once: true, passive: true });
+    });
+
+    // threshold 0 with a middle-band rootMargin, not a ratio: the map is taller
+    // than the viewport on most screens, so a ratio threshold can never be met.
+    var io = new IntersectionObserver(function (ens) {
+      ens.forEach(function (en) {
+        if (!en.isIntersecting || demoDone) return;
+        demoDone = true;
+        io.disconnect();
+        if (userPicked) return;
+        // already ACTIVITY from the authored state — hold it, then resolve once
+        demoTimer = setTimeout(function () {
+          if (userPicked) return;
+          view = "value";
+          paint();
+        }, MAP_DEMO_MS);
+      });
+    }, { threshold: 0, rootMargin: "-20% 0px -20% 0px" });
+    io.observe(wrap);
   })();
 
   /* --- FAQ disclosure -----------------------------------------------------
