@@ -10,14 +10,16 @@
  * absent, so a page only runs its own: the spend/return graph needs
  * [data-chart] + [data-scrub] (/services/performance-marketing/), the Decision
  * Chain needs [data-chain] (/services/growth-strategy-measurement/), the
- * Discovery Surface needs [data-surface] (/services/seo-ai-search/), and the
- * Partner Quality Map needs [data-map] (/services/affiliate-partnerships/). The
- * FAQ block is common to all four.
+ * Discovery Surface needs [data-surface] (/services/seo-ai-search/), the
+ * Partner Quality Map needs [data-map] (/services/affiliate-partnerships/), and
+ * the Conversion Path needs [data-cp]
+ * (/services/website-design-development/). The FAQ block is common to all five.
  *
  * Everything degrades: with JS off the chart renders its authored static state,
  * the Decision Chain renders its authored FRAGMENTED state, the Partner Quality
- * Map renders its authored ACTIVITY view, every FAQ answer is visible, and no
- * content is behind an interaction.
+ * Map renders its authored ACTIVITY view, the Conversion Path renders its
+ * authored complete route, every FAQ answer is visible, and no content is
+ * behind an interaction.
  */
 (function () {
   "use strict";
@@ -498,6 +500,187 @@
       });
     }, { threshold: 0, rootMargin: "-20% 0px -20% 0px" });
     io.observe(wrap);
+  })();
+
+  /* --- signature visual: Conversion Path -----------------------------------
+   * /services/website-design-development/. One continuous route —
+   * ENTRY → UNDERSTANDING → TRUST → DECISION → ACTION — with LEARNING as a
+   * post-action feedback destination, never a sixth stage. Four underlying
+   * conditions sit beneath the route and the markers ON the path ARE the
+   * control: no tabs, no segmented control, no lens row, no detached panel.
+   *
+   * Every state lives in assets/service-detail-cro.css keyed off
+   * [data-cp][data-friction]. This block sets ONE attribute and syncs the aria
+   * bookkeeping; it never writes geometry, so a re-render cannot strand the
+   * diagram mid-state. Everything here is scoped to this page and exits
+   * immediately when [data-cp] is absent.
+   */
+  (function () {
+    var cp = $("[data-cp]");
+    if (!cp) return;
+
+    var page = $(".v3-cro") || root;
+    var DEMO_IN_MS = 900, DEMO_OUT_MS = 1700;
+    var fric = cp.getAttribute("data-friction") || "none";   // authored "none"
+    var userPicked = false, demoDone = false, demoIn = 0, demoOut = 0;
+
+    var marks = $$("[data-mk],[data-mmk]", page);
+    var readouts = $$("[data-ro]", page);
+
+    function paint() {
+      if (cp.getAttribute("data-friction") !== fric) cp.setAttribute("data-friction", fric);
+      marks.forEach(function (b) {
+        var name = b.getAttribute("data-mk") || b.getAttribute("data-mmk");
+        b.setAttribute("aria-pressed", name === fric ? "true" : "false");
+      });
+      // The inactive readouts are display:none and so already out of the a11y
+      // tree, but aria-hidden is synced explicitly: the container is
+      // aria-live="polite" and must never announce more than the current one.
+      readouts.forEach(function (p) {
+        if (p.getAttribute("data-ro") === fric) p.removeAttribute("aria-hidden");
+        else p.setAttribute("aria-hidden", "true");
+      });
+    }
+
+    // Selecting the active condition again returns to the complete path, so the
+    // default state is always one press away and nothing is a dead end.
+    function setFric(v) {
+      userPicked = true;
+      clearTimeout(demoIn); clearTimeout(demoOut);
+      fric = (fric === v) ? "none" : v;
+      paint();
+    }
+
+    marks.forEach(function (b) {
+      b.addEventListener("click", function () {
+        setFric(b.getAttribute("data-mk") || b.getAttribute("data-mmk"));
+      });
+    });
+    paint();
+
+    // Reserve the readout height at desktop so switching state cannot shift the
+    // section beneath it.
+    var readout = $("[data-cp-readout]", page);
+    function reserve() { if (readout) readout.style.minHeight = innerWidth >= 1024 ? "132px" : "0px"; }
+    reserve();
+    addEventListener("resize", reserve, { passive: true });
+
+    /* One restrained first-entry demonstration: DEFAULT → POSITIONING →
+     * DEFAULT, once. It never cycles the four conditions, and reduced motion
+     * skips it entirely — the authored default stays, rather than forcing a
+     * selected state on a visitor who cannot see the transition. */
+    if (rm || !("IntersectionObserver" in window)) return;
+
+    ["pointerdown", "keydown", "touchstart"].forEach(function (ev) {
+      cp.addEventListener(ev, function () {
+        userPicked = true;
+        clearTimeout(demoIn); clearTimeout(demoOut);
+      }, { once: true, passive: true });
+    });
+
+    // threshold 0 with a middle-band rootMargin, not a ratio: the path can be
+    // taller than the viewport, where a ratio threshold is never satisfied.
+    var io = new IntersectionObserver(function (ens) {
+      ens.forEach(function (en) {
+        if (!en.isIntersecting || demoDone) return;
+        demoDone = true;
+        io.disconnect();
+        if (userPicked) return;
+        demoIn = setTimeout(function () {
+          if (userPicked) return;
+          fric = "positioning"; paint();
+          demoOut = setTimeout(function () {
+            if (userPicked) return;
+            fric = "none"; paint();
+          }, DEMO_OUT_MS);
+        }, DEMO_IN_MS);
+      });
+    }, { threshold: 0, rootMargin: "-20% 0px -20% 0px" });
+    io.observe(cp);
+  })();
+
+  /* --- Website/CRO typography safeguards -----------------------------------
+   * Scoped to .v3-cro so the four already-approved service-detail pages are
+   * untouched. CSS owns every authored size; both passes below are safeguards
+   * that must stay idle at each authored step.
+   */
+  (function () {
+    var page = $(".v3-cro");
+    if (!page) return;
+
+    function syneReady() {
+      try { return document.fonts.check("800 1em Syne"); } catch (e) { return true; }
+    }
+
+    /* Syne cannot break mid-word, so a long display word can overrun its column
+     * and paint over a neighbour while staying inside the viewport. This only
+     * ever shrinks on a REAL painted-ink overrun, measured per character with
+     * whitespace skipped — a wrapped line's trailing space renders past the
+     * content box, and measuring whole text-node ranges (or scrollWidth) reads
+     * that as overrun and shrinks type that already fits. */
+    function fitHeads() {
+      $$("[data-fit]", page).forEach(function (el) {
+        el.style.fontSize = "";                       // re-read the authored size
+        var css = parseFloat(getComputedStyle(el).fontSize);
+        if (!css) return;
+
+        function overrun() {
+          var max = -Infinity;
+          (function walk(n) {
+            if (n.nodeType === 3 && n.nodeValue.trim()) {
+              var t = n.nodeValue;
+              for (var i = 0; i < t.length; i++) {
+                if (!t[i].trim()) continue;
+                var r = document.createRange();
+                r.setStart(n, i); r.setEnd(n, i + 1);
+                var q = r.getClientRects()[0];
+                if (q) max = Math.max(max, q.right);
+              }
+            }
+            if (n.childNodes) [].slice.call(n.childNodes).forEach(walk);
+          })(el);
+          return max - el.getBoundingClientRect().right;
+        }
+
+        if (overrun() <= 4) return;
+        var size = css, floor = css * 0.78, guard = 0;
+        while (overrun() > 4 && size > floor && guard < 12) {
+          size = Math.max(floor, size * 0.95);
+          el.style.fontSize = size.toFixed(1) + "px";
+          guard++;
+        }
+      });
+    }
+
+    // equalise capability titles per visual row so the body copy beneath them
+    // starts on one baseline even when a title wraps
+    function equalise() {
+      var caps = $$("[data-cap-h]", page);
+      caps.forEach(function (el) { el.style.minHeight = "0px"; });
+      if (innerWidth < 700 || !caps.length) return;
+      var rows = {};
+      caps.forEach(function (el) {
+        var top = Math.round(el.getBoundingClientRect().top / 4);
+        (rows[top] = rows[top] || []).push(el);
+      });
+      Object.keys(rows).forEach(function (k) {
+        var max = 0;
+        rows[k].forEach(function (el) { max = Math.max(max, el.getBoundingClientRect().height); });
+        rows[k].forEach(function (el) { el.style.minHeight = Math.ceil(max) + "px"; });
+      });
+    }
+
+    function run() { fitHeads(); equalise(); }
+
+    // Never measure against fallback metrics: a fallback sans is ~55% narrower
+    // than Syne, so a pre-load pass would shrink type that actually fits.
+    if (syneReady()) { run(); requestAnimationFrame(run); }
+    if (document.fonts) {
+      var after = function () { run(); requestAnimationFrame(run); };
+      if (document.fonts.load) document.fonts.load("800 1em Syne").then(after).catch(after);
+      if (document.fonts.ready) document.fonts.ready.then(after);
+    }
+    addEventListener("resize", run, { passive: true });
   })();
 
   /* --- FAQ disclosure -----------------------------------------------------
