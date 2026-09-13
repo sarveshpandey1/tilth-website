@@ -16,7 +16,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -31,15 +31,12 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="twitter:title" content="Conversion-focused website design and development">
 <meta name="twitter:description" content="Websites that connect positioning, UX, SEO, analytics and conversion into one growth system.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
-<!-- The hero H1's <em> is Fraunces italic and is part of the LCP element. Without this
-     preload it was discovered only after CSS parsed and took ~9s on throttled mobile. -->
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/assets/generated.css">
-
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/service-detail.css">
+<link rel="stylesheet" href="/assets/service-detail-cro.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -137,147 +134,417 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 }
 </script>
 </head>
-<body>
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav aria-label="Primary">
-      <a href="/services/" aria-current="true">Services</a>
+<body class="v3 v3-service-detail v3-cro">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/" aria-current="true">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
+    </nav>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss a Project</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
+  </div>
+</header>
+
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
+      <a href="/services/">Services</a>
       <a href="/industries/">Industries</a>
       <a href="/work/">Work</a>
       <a href="/approach/">Approach</a>
       <a href="/insights/">Insights</a>
       <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
     </nav>
-    <div class="meta">India-rooted · Working across markets</div>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/" aria-current="page">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
   </div>
-</header>
+  <a class="v3-menu__cta" href="/contact/">Discuss a Project <span aria-hidden="true">→</span></a>
+</div>
 <main id="main">
 
-<section class="ghero" id="hero">
-  <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/services/">Services</a> <span aria-hidden="true">/</span> <span>Website Design &amp; Development</span></nav>
-    <span class="label">Website Design, Development & CRO</span>
-    <h1>Conversion-focused <em>website</em> design and development.</h1>
-    <p class="lede">Tilth plans, designs and develops marketing websites that connect positioning, user experience, SEO, analytics and conversion into one coordinated growth system — for brands worldwide.</p>
-    <div class="actions">
-      <a class="btn" href="/contact/"><span>Discuss Your Website Project</span> <span class="arrow">→</span></a>
-      <a class="text-cta" href="/work/">See our work →</a>
-    </div>
-  </div>
-</section>
+  <section id="hero" data-depth-label="SURFACE" style="padding:112px var(--pad) 0;background-image:linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:calc(100%/6) 100%">
+    <nav aria-label="Breadcrumb" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;line-height:1.6;color:var(--stone);animation:gFade .8s ease both">
+      <a href="/" style="color:var(--stone)">HOME</a> <span aria-hidden="true" style="color:var(--mosstext);padding:0 6px">/</span> <a href="/services/" style="color:var(--stone)">SERVICES</a> <span aria-hidden="true" style="color:var(--mosstext);padding:0 6px">/</span> <span style="color:var(--fg)">WEBSITE DESIGN, DEVELOPMENT &amp; CRO</span>
+    </nav>
 
-<section class="gsec" id="problem">
-  <div class="wrap">
-    <span class="label">The problem</span>
-    <h2>A website that looks good but limits growth.</h2>
-    <p class="intro">Most sites are built to be launched, not to convert. Before recommending more spend, we look at what the site is actually costing you.</p>
-    <div class="problem-grid">
-      <div class="problem">Traffic arrives, but the site doesn't turn it into qualified leads.</div>
-      <div class="problem">The design looks fine, yet key pages underperform and no one knows why.</div>
-      <div class="problem">Positioning, messaging and page structure don't match how buyers actually decide.</div>
-      <div class="problem">Tracking is incomplete, so you can't see where visitors drop off.</div>
-      <div class="problem">The site is slow or awkward on mobile, and it costs conversions.</div>
-      <div class="problem">You're about to increase media spend on a site that can't convert it.</div>
-    </div>
-  </div>
-</section>
+    <div data-hero-grid style="display:grid;align-items:start">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;line-height:1;color:var(--mosstext);margin-bottom:22px;animation:gFade .8s .05s ease both">WEBSITE DESIGN, DEVELOPMENT &amp; CRO</div>
+        <h1 data-h1 data-fit style="margin:0;font-family:Syne,sans-serif;font-weight:800;font-size:var(--h1);line-height:.94;letter-spacing:-.045em;text-transform:uppercase;animation:gRise 1s cubic-bezier(.16,1,.3,1) both">Con&shy;version-focused <em style="font-style:normal;color:var(--mosstext)">website</em> design and develop&shy;ment.</h1>
+        <p data-hero-p style="margin:32px 0 0;font-size:var(--body);line-height:1.6;max-width:56ch;color:var(--stone);animation:gRise 1s .12s cubic-bezier(.16,1,.3,1) both">Tilth plans, designs and develops marketing websites that connect positioning, user experience, SEO, analytics and conversion into one coordinated growth system — for brands worldwide.</p>
+        <div data-hero-cta style="display:flex;margin-top:36px;animation:gRise 1s .2s cubic-bezier(.16,1,.3,1) both">
+          <a data-herocta href="/contact/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;background:var(--moss);color:#101310;font-family:Syne,sans-serif;font-weight:700;font-size:14.5px;text-transform:uppercase;line-height:1;white-space:nowrap;border-radius:2px">Discuss Your Website Project <span aria-hidden="true">&rarr;</span></a>
+          <a data-textcta href="/work/" data-secondary style="display:inline-flex;align-items:center;height:54px;font-size:14.5px;line-height:1;white-space:nowrap;color:var(--stone)"><span style="border-bottom:1px solid var(--line2);padding-bottom:3px">See our work &rarr;</span></a>
+        </div>
+      </div>
 
-<section class="gsec gsec--light" id="approach">
-  <div class="wrap">
-    <span class="label">The approach</span>
-    <h2>Strategy, design, build and optimisation — one accountable process.</h2>
-    <p class="intro">We don't hand your site between a designer, a developer and an analyst. Tilth runs the whole process, so every decision traces back to a growth goal and can be measured after launch.</p>
-    <div class="cap-grid">
-      <div class="cap"><h3>Strategy &amp; information architecture</h3><p>We start from your growth goals and buyers — sitemap, page priorities and the user journeys that lead to a decision, not a template.</p></div>
-      <div class="cap"><h3>UX &amp; UI design</h3><p>Interface design that makes the next step obvious: clear hierarchy, strong messaging, and a premium look that still converts.</p></div>
-      <div class="cap"><h3>Development</h3><p>Fast, accessible, maintainable builds. Clean markup, responsive from the smallest screen up, and structured for search and analytics.</p></div>
-      <div class="cap"><h3>SEO &amp; analytics foundations</h3><p>Technical SEO, metadata, structured data and conversion tracking wired in from day one — so the site is measurable at launch.</p></div>
-      <div class="cap"><h3>Performance &amp; accessibility</h3><p>Core Web Vitals, image and font strategy, and WCAG-aligned accessibility built in, not bolted on.</p></div>
-      <div class="cap"><h3>CRO &amp; post-launch iteration</h3><p>Launch is the starting line. We test hypotheses, read the data and improve conversion month over month.</p></div>
+      <div data-heropos style="border:1px solid var(--line);padding:22px 22px 24px;animation:gFade 1s .3s ease both">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--stone);padding-bottom:14px;border-bottom:1px solid var(--line)">POSITION IN THE GROWTH SYSTEM</div>
+        <div data-rel style="display:grid;padding-top:18px">
+          <div>
+            <div style="font-family:Syne,sans-serif;font-weight:700;font-size:26px;letter-spacing:-.03em;line-height:1;text-transform:uppercase">Conversion</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--mosstext);margin-top:10px">DEPTH &middot; SHALLOW</div>
+          </div>
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--stone);margin-bottom:12px">CONNECTS WITH</div>
+            <div style="display:flex;flex-direction:column">
+              <a data-connk href="/services/seo-ai-search/" style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:11px 0;border-top:1px solid var(--line);font-size:13.5px;line-height:1.35;color:var(--stone)">SEO, Content &amp; AI Search <span aria-hidden="true" style="color:var(--mosstext)">&rarr;</span></a>
+              <a data-connk href="/services/performance-marketing/" style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:11px 0;border-top:1px solid var(--line);font-size:13.5px;line-height:1.35;color:var(--stone)">Performance Marketing <span aria-hidden="true" style="color:var(--mosstext)">&rarr;</span></a>
+              <a data-connk href="/services/brand-creative/" style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:11px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:13.5px;line-height:1.35;color:var(--stone)">Brand Strategy &amp; Performance Creative <span aria-hidden="true" style="color:var(--mosstext)">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="gsec" id="deliverables">
-  <div class="wrap">
-    <span class="label">What we build</span>
-    <h2>Websites built around your growth strategy.</h2>
-    <div class="types">
-      <span class="type">Corporate marketing websites</span>
-      <span class="type">SaaS websites</span>
-      <span class="type">D2C &amp; ecommerce websites</span>
-      <span class="type">Landing pages</span>
-      <span class="type">Campaign microsites</span>
-      <span class="type">Service-business websites</span>
-      <span class="type">Startup launch websites</span>
+  <section id="problem" data-depth-label="SYMPTOM" style="padding:var(--sy) var(--pad) 0">
+    <div class="v3-reveal" style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;line-height:1;color:var(--mosstext);margin-bottom:22px">THE PROBLEM</div>
+    <div class="v3-reveal" data-prob-head style="display:flex;border-bottom:1px solid var(--line);padding-bottom:24px">
+      <h2 data-h2 data-fit style="margin:0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h2);line-height:1.02;letter-spacing:-.035em;text-transform:uppercase">A website that looks good but limits growth.</h2>
+      <p data-probhint style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.7;color:var(--stone);max-width:32ch">SIX CONDITIONS WE LOOK FOR BEFORE RECOMMENDING A REBUILD</p>
     </div>
-    <div class="proof-row">
-      <article class="proof-card">
-    <div class="proof-card__label">Edtech growth engagement</div>
-    <ul class="proof-card__metrics"><li>Monthly media spend scaled ₹5L → ₹30L</li><li>Monthly revenue reached ₹1.5 crore</li><li>5× return on ad spend</li></ul>
-    <p class="proof-card__summary">Rebuilt tracking and conversion events, then scaled paid media against verified return.</p>
-  </article>
-<article class="proof-card">
-    <div class="proof-card__label">Crypto affiliate growth engagement</div>
-    <ul class="proof-card__metrics"><li>Affiliate contribution grew from ~0%</li><li>Reached ~5–6% of total trading volume within one year</li></ul>
-    <p class="proof-card__summary">Built the affiliate program from scratch — partner validation, commercial model and tracking.</p>
-  </article>
-    </div>
-  </div>
-</section>
+    <p class="v3-reveal" style="margin:26px 0 0;font-size:var(--body);line-height:1.62;color:var(--stone);max-width:62ch">Most sites are built to be launched, not to convert. Before recommending more spend, we look at what the site is actually costing you.</p>
 
-<section class="gsec gsec--light faq" id="faq">
-  <div class="wrap">
-    <span class="label">Questions</span>
-    <h2>Website design & development, answered.</h2>
-    <div class="faq__list">
-      <details class="faq__item"><summary><span>What does a Tilth website engagement include?</span><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>One coordinated process from strategy through launch and beyond: information architecture, UX and UI design, development, conversion copywriting, analytics and SEO foundations, performance, accessibility, and post-launch conversion-rate optimisation.</p></div></details>
-      <details class="faq__item"><summary><span>Do you only design, or do you build the website too?</span><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Both. Tilth plans, designs and develops the site as a single accountable process, so strategy, design, code, measurement and conversion stay connected rather than handed between vendors.</p></div></details>
-      <details class="faq__item"><summary><span>How is this different from a typical web-design agency?</span><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Most web projects optimise for how the site looks. We optimise for what it should do for growth — connecting positioning, user journeys, SEO, analytics and conversion into one system, then improving it with data after launch.</p></div></details>
-      <details class="faq__item"><summary><span>Will the site be set up to measure conversions?</span><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Yes. Conversion events, analytics and tracking are part of the build, so from launch you can see which pages and journeys produce qualified leads — and what to fix next.</p></div></details>
-      <details class="faq__item"><summary><span>Can you redesign an existing website or work on specific pages?</span><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Both. We can run a full redesign or a focused engagement — for example, a homepage, key landing pages, or a conversion-rate optimisation program on your current site.</p></div></details>
+    <div data-prob-list style="display:flex;flex-direction:column;margin-top:20px">
+      <div class="v3-reveal" data-prow style="display:grid;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;line-height:1;color:var(--mosstext)">01</span>
+        <p style="margin:0;font-size:var(--body);line-height:1.55;color:var(--fg);max-width:46ch">Traffic arrives, but the site doesn't turn it into qualified leads.</p>
+        <span data-ptag style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--stone)">TRAFFIC</span>
+      </div>
+      <div class="v3-reveal" data-prow style="display:grid;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;line-height:1;color:var(--mosstext)">02</span>
+        <p style="margin:0;font-size:var(--body);line-height:1.55;color:var(--fg);max-width:46ch">The design looks fine, yet key pages underperform and no one knows why.</p>
+        <span data-ptag style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--stone)">CLARITY</span>
+      </div>
+      <div class="v3-reveal" data-prow style="display:grid;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;line-height:1;color:var(--mosstext)">03</span>
+        <p style="margin:0;font-size:var(--body);line-height:1.55;color:var(--fg);max-width:46ch">Positioning, messaging and page structure don't match how buyers actually decide.</p>
+        <span data-ptag style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--stone)">DECISION PATH</span>
+      </div>
+      <div class="v3-reveal" data-prow style="display:grid;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;line-height:1;color:var(--mosstext)">04</span>
+        <p style="margin:0;font-size:var(--body);line-height:1.55;color:var(--fg);max-width:46ch">Tracking is incomplete, so you can't see where visitors drop off.</p>
+        <span data-ptag style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--stone)">MEASUREMENT</span>
+      </div>
+      <div class="v3-reveal" data-prow style="display:grid;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;line-height:1;color:var(--mosstext)">05</span>
+        <p style="margin:0;font-size:var(--body);line-height:1.55;color:var(--fg);max-width:46ch">The site is slow or awkward on mobile, and it costs conversions.</p>
+        <span data-ptag style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--stone)">PERFORMANCE</span>
+      </div>
+      <div class="v3-reveal" data-prow style="display:grid;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;line-height:1;color:var(--mosstext)">06</span>
+        <p style="margin:0;font-size:var(--body);line-height:1.55;color:var(--fg);max-width:46ch">You're about to increase media spend on a site that can't convert it.</p>
+        <span data-ptag style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--stone)">SCALE</span>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="cta-band cta-band--terra" id="cta">
-  <div class="wrap">
-    <span class="label">Next step</span>
-    <h2>Planning a website that has to <em>perform</em>?</h2>
-    <p>Tell us what the site needs to do for growth. We'll review the foundations before recommending a rebuild, a redesign or a focused conversion project.</p>
-    <div class="cta-band__actions">
-      <a class="btn" href="/contact/"><span>Discuss Your Website Project</span> <span class="arrow">→</span></a>
-      <a class="text-cta" href="/contact/">Request a Foundation Audit →</a>
+  <section id="path" data-depth-label="CONVERSION" style="padding:var(--sy) var(--pad) var(--sy)">
+    <div class="v3-reveal" style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;line-height:1;color:var(--mosstext);margin-bottom:22px">CONVERSION PATH</div>
+    <div class="v3-reveal" data-cp-head style="display:grid;border-bottom:1px solid var(--line);padding-bottom:24px">
+      <h2 data-h2 data-fit style="margin:0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h2);line-height:1.02;letter-spacing:-.035em;text-transform:uppercase">A visitor has to understand, trust, decide and act.</h2>
+      <p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.7;color:var(--stone);max-width:30ch">SELECT A CONDITION ON THE PATH</p>
     </div>
-  </div>
-</section>
+
+    <div data-cp data-friction="none" style="margin-top:40px">
+      <div data-cp-desktop>
+        <div style="position:relative;width:100%">
+          <svg viewBox="0 0 1000 340" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" style="width:100%;height:auto;display:block;overflow:visible">
+            <text x="8" y="16" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1.5px">VISITOR PATH</text>
+            <g>
+              <path data-seg="1" d="M70,232 C140,232 210,186 280,186"></path>
+              <path data-alt="1" d="M70,232 C132,232 148,168 208,180 C246,188 250,214 262,204"></path>
+              <path data-seg="2" d="M280,186 C350,186 410,210 480,210"></path>
+              <path data-alt="2" d="M280,186 C324,186 318,246 372,242 C420,238 428,196 480,210"></path>
+              <path data-seg="3" d="M480,210 C550,210 620,150 690,150"></path>
+              <path data-alt="3" d="M480,210 C528,210 520,258 578,252 C640,246 638,158 690,150"></path>
+              <path data-seg="4" d="M690,150 C760,150 850,108 920,108"></path>
+              <path data-alt="4" d="M690,150 C728,150 736,172 772,172 L800,172 C842,172 862,108 920,108"></path>
+              <path data-fb="full" d="M920,108 C956,178 916,292 796,292 L470,292"></path>
+              <path data-fb="a" d="M920,108 C956,178 916,292 796,292 L688,292"></path>
+              <path data-fb="b" d="M556,292 L470,292"></path>
+              <path data-fb="tick" d="M470,292 L470,262"></path>
+            </g>
+            <g>
+              <circle data-node="entry" cx="70" cy="232" r="5"></circle>
+              <circle data-node="understanding" cx="280" cy="186" r="5"></circle>
+              <circle data-node="trust" cx="480" cy="210" r="5"></circle>
+              <circle data-node="decision" cx="690" cy="150" r="5"></circle>
+              <circle data-node="action" cx="920" cy="108" r="7"></circle>
+              <circle data-node="learning" cx="470" cy="292" r="4"></circle>
+            </g>
+            <g style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:1.5px">
+              <text data-stage="entry" x="58" y="211">ENTRY</text>
+              <text data-stage="understanding" x="280" y="165" text-anchor="middle">UNDERSTANDING</text>
+              <text data-stage="trust" x="480" y="189" text-anchor="middle">TRUST</text>
+              <text data-stage="decision" x="690" y="129" text-anchor="middle">DECISION</text>
+              <text data-stage="action" x="942" y="87" text-anchor="end">ACTION</text>
+              <text data-stage="learning" x="452" y="296" text-anchor="end">LEARNING</text>
+            </g>
+          </svg>
+
+          <button type="button" data-mk="positioning" aria-pressed="false" aria-label="Inspect positioning — entry to understanding" style="position:absolute;left:17.5%;top:61.5%;transform:translate(-50%,-50%);width:44px;height:44px;display:grid;place-items:center">
+            <span data-dot style="width:12px;height:12px;border-radius:50%;display:block"></span>
+            <span data-mlab style="position:absolute;top:36px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1">POSITIONING</span>
+          </button>
+          <button type="button" data-mk="ux" aria-pressed="false" aria-label="Inspect UX — understanding to decision" style="position:absolute;left:37.2%;top:58%;transform:translate(-50%,-50%);width:44px;height:44px;display:grid;place-items:center">
+            <span data-dot style="width:12px;height:12px;border-radius:50%;display:block"></span>
+            <span data-mlab style="position:absolute;top:36px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1">UX</span>
+          </button>
+          <button type="button" data-mk="performance" aria-pressed="false" aria-label="Inspect performance — decision to action" style="position:absolute;left:80%;top:38.5%;transform:translate(-50%,-50%);width:44px;height:44px;display:grid;place-items:center">
+            <span data-dot style="width:12px;height:12px;border-radius:50%;display:block"></span>
+            <span data-mlab style="position:absolute;top:36px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1">PERFORMANCE</span>
+          </button>
+          <button type="button" data-mk="measurement" aria-pressed="false" aria-label="Inspect measurement — the feedback after action" style="position:absolute;left:62%;top:86%;transform:translate(-50%,-50%);width:44px;height:44px;display:grid;place-items:center">
+            <span data-dot style="width:12px;height:12px;border-radius:50%;display:block"></span>
+            <span data-mlab style="position:absolute;bottom:36px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1">MEASUREMENT</span>
+          </button>
+        </div>
+      </div>
+
+      <div data-cp-mobile>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--stone)">VISITOR PATH</div>
+        <div style="display:flex;flex-direction:column;margin-top:20px">
+          <div style="display:flex;align-items:center;gap:14px"><span style="width:10px;height:10px;border-radius:50%;background:var(--stone);flex:0 0 auto;display:block"></span><span data-mstage="entry" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;line-height:1">ENTRY</span></div>
+          <div style="display:flex;align-items:center;gap:18px;padding:8px 0"><span data-mseg="1" style="width:2px;height:56px;margin-left:4px;flex:0 0 auto;display:block"></span>
+            <button type="button" data-mmk="positioning" aria-pressed="false" style="min-height:44px;padding:0 16px;border:1px solid var(--line2);background:transparent;color:var(--fg);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;line-height:1.2;border-radius:2px;cursor:pointer;transition:background .3s,border-color .3s,color .3s,opacity .3s">POSITIONING</button>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px"><span style="width:10px;height:10px;border-radius:50%;background:var(--stone);flex:0 0 auto;display:block"></span><span data-mstage="understanding" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;line-height:1">UNDERSTANDING</span></div>
+          <div style="display:flex;align-items:center;gap:18px;padding:8px 0"><span data-mseg="2" style="width:2px;height:56px;margin-left:4px;flex:0 0 auto;display:block"></span>
+            <button type="button" data-mmk="ux" aria-pressed="false" style="min-height:44px;padding:0 16px;border:1px solid var(--line2);background:transparent;color:var(--fg);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;line-height:1.2;border-radius:2px;cursor:pointer;transition:background .3s,border-color .3s,color .3s,opacity .3s">UX</button>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px"><span style="width:10px;height:10px;border-radius:50%;background:var(--stone);flex:0 0 auto;display:block"></span><span data-mstage="trust" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;line-height:1">TRUST</span></div>
+          <div style="display:flex;align-items:center;gap:18px;padding:8px 0"><span data-mseg="3" style="width:2px;height:40px;margin-left:4px;flex:0 0 auto;display:block"></span></div>
+          <div style="display:flex;align-items:center;gap:14px"><span style="width:10px;height:10px;border-radius:50%;background:var(--stone);flex:0 0 auto;display:block"></span><span data-mstage="decision" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;line-height:1">DECISION</span></div>
+          <div style="display:flex;align-items:center;gap:18px;padding:8px 0"><span data-mseg="4" style="width:2px;height:56px;margin-left:4px;flex:0 0 auto;display:block"></span>
+            <button type="button" data-mmk="performance" aria-pressed="false" style="min-height:44px;padding:0 16px;border:1px solid var(--line2);background:transparent;color:var(--fg);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;line-height:1.2;border-radius:2px;cursor:pointer;transition:background .3s,border-color .3s,color .3s,opacity .3s">PERFORMANCE</button>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px"><span style="width:14px;height:14px;border-radius:50%;background:var(--stone);flex:0 0 auto;margin-left:-2px;display:block"></span><span data-mstage="action" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;line-height:1">ACTION</span></div>
+          <div style="display:flex;align-items:center;gap:18px;padding:8px 0"><span data-mfb style="width:2px;height:56px;margin-left:4px;flex:0 0 auto;display:block"></span>
+            <button type="button" data-mmk="measurement" aria-pressed="false" style="min-height:44px;padding:0 16px;border:1px solid var(--line2);background:transparent;color:var(--fg);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;line-height:1.2;border-radius:2px;cursor:pointer;transition:background .3s,border-color .3s,color .3s,opacity .3s">MEASUREMENT</button>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px"><span style="width:8px;height:8px;border-radius:50%;background:var(--stone);opacity:.6;flex:0 0 auto;margin-left:1px;display:block"></span><span data-mstage="learning" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;line-height:1">LEARNING</span></div>
+        </div>
+      </div>
+
+      <div data-cp-foot style="display:grid;align-items:start;margin-top:34px;padding-top:24px;border-top:1px solid var(--line)">
+        <div aria-live="polite" data-cp-readout>
+          <p data-ro="none" style="margin:0;font-size:15.5px;line-height:1.62;color:var(--stone);max-width:62ch"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:var(--mosstext);margin-bottom:12px">ENTRY &rarr; UNDERSTANDING &rarr; TRUST &rarr; DECISION &rarr; ACTION</span>The path to action is one continuous route, and every step depends on the one before it. Four conditions sit underneath it — positioning, UX, performance and measurement. Select one to see what it does to the route.</p>
+          <p data-ro="positioning" style="margin:0;font-size:15.5px;line-height:1.62;color:var(--stone);max-width:62ch"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:var(--mosstext);margin-bottom:12px">POSITIONING &middot; ENTRY &rarr; UNDERSTANDING</span>If the site doesn't say what you do, who it's for and why it matters, the visitor never gets past arrival. The rest of the path is still there — they just never reach it.</p>
+          <p data-ro="ux" style="margin:0;font-size:15.5px;line-height:1.62;color:var(--stone);max-width:62ch"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:var(--mosstext);margin-bottom:12px">UX &middot; UNDERSTANDING &rarr; DECISION</span>Structure, hierarchy and page order decide how directly someone can move from interest to a decision. When they don't match how buyers decide, the visitor keeps moving — just not toward the action.</p>
+          <p data-ro="performance" style="margin:0;font-size:15.5px;line-height:1.62;color:var(--stone);max-width:62ch"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:var(--mosstext);margin-bottom:12px">PERFORMANCE &middot; DECISION &rarr; ACTION</span>Slow loads and awkward mobile interaction interrupt movement at the point of commitment. The intent was there; the experience broke the momentum.</p>
+          <p data-ro="measurement" style="margin:0;font-size:15.5px;line-height:1.62;color:var(--stone);max-width:62ch"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:var(--mosstext);margin-bottom:12px">MEASUREMENT &middot; AFTER ACTION</span>The visitor can still convert — the path holds. What breaks is the feedback: without complete tracking you can't see where the others dropped, so the site can't be improved on evidence.</p>
+        </div>
+        <p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;line-height:1.6;color:var(--foot)">STRUCTURAL MODEL OF A VISITOR JOURNEY &mdash; NOT A MEASUREMENT REPORT</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach" data-depth-label="MID" style="background:var(--ibg);color:var(--ifg);padding:var(--sy) var(--pad)">
+    <div class="v3-reveal" style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;line-height:1;color:var(--imut);margin-bottom:22px">THE APPROACH</div>
+    <div class="v3-reveal" data-app-head style="display:grid;border-bottom:1px solid var(--iline);padding-bottom:28px;margin-bottom:32px">
+      <h2 data-h2 data-fit style="margin:0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h2);line-height:1.02;letter-spacing:-.035em;text-transform:uppercase">Strategy, design, build and optimisation — one accountable process.</h2>
+      <p style="margin:0;font-size:var(--body);line-height:1.62;color:var(--ibody);max-width:56ch">We don't hand your site between a designer, a developer and an analyst. Tilth runs the whole process, so every decision traces back to a growth goal and can be measured after launch.</p>
+    </div>
+
+    <div data-cap-grid style="display:grid;gap:11px">
+      <div data-cap style="background:var(--itile);border:1px solid var(--iline);border-radius:8px;box-shadow:var(--iedge);padding:26px 24px 28px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--imut)">01</span>
+        <h3 data-cap-h style="margin:14px 0 0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h3);line-height:1.18;letter-spacing:-.02em">Strategy &amp; information architecture</h3>
+        <p style="margin:12px 0 0;font-size:var(--card);line-height:1.62;color:var(--ibody)">We start from your growth goals and buyers — sitemap, page priorities and the user journeys that lead to a decision, not a template.</p>
+      </div>
+      <div data-cap style="background:var(--itile);border:1px solid var(--iline);border-radius:8px;box-shadow:var(--iedge);padding:26px 24px 28px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--imut)">02</span>
+        <h3 data-cap-h style="margin:14px 0 0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h3);line-height:1.18;letter-spacing:-.02em">UX &amp; UI design</h3>
+        <p style="margin:12px 0 0;font-size:var(--card);line-height:1.62;color:var(--ibody)">Interface design that makes the next step obvious: clear hierarchy, strong messaging, and a premium look that still converts.</p>
+      </div>
+      <div data-cap style="background:var(--itile);border:1px solid var(--iline);border-radius:8px;box-shadow:var(--iedge);padding:26px 24px 28px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--imut)">03</span>
+        <h3 data-cap-h style="margin:14px 0 0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h3);line-height:1.18;letter-spacing:-.02em">Development</h3>
+        <p style="margin:12px 0 0;font-size:var(--card);line-height:1.62;color:var(--ibody)">Fast, accessible, maintainable builds. Clean markup, responsive from the smallest screen up, and structured for search and analytics.</p>
+      </div>
+      <div data-cap style="background:var(--itile);border:1px solid var(--iline);border-radius:8px;box-shadow:var(--iedge);padding:26px 24px 28px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--imut)">04</span>
+        <h3 data-cap-h style="margin:14px 0 0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h3);line-height:1.18;letter-spacing:-.02em">SEO &amp; analytics foundations</h3>
+        <p style="margin:12px 0 0;font-size:var(--card);line-height:1.62;color:var(--ibody)">Technical SEO, metadata, structured data and conversion tracking wired in from day one — so the site is measurable at launch.</p>
+      </div>
+      <div data-cap style="background:var(--itile);border:1px solid var(--iline);border-radius:8px;box-shadow:var(--iedge);padding:26px 24px 28px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--imut)">05</span>
+        <h3 data-cap-h style="margin:14px 0 0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h3);line-height:1.18;letter-spacing:-.02em">Performance &amp; accessibility</h3>
+        <p style="margin:12px 0 0;font-size:var(--card);line-height:1.62;color:var(--ibody)">Core Web Vitals, image and font strategy, and WCAG-aligned accessibility built in, not bolted on.</p>
+      </div>
+      <div data-cap style="background:var(--itile);border:1px solid var(--iline);border-radius:8px;box-shadow:var(--iedge);padding:26px 24px 28px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--imut)">06</span>
+        <h3 data-cap-h style="margin:14px 0 0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h3);line-height:1.18;letter-spacing:-.02em">CRO &amp; post-launch iteration</h3>
+        <p style="margin:12px 0 0;font-size:var(--card);line-height:1.62;color:var(--ibody)">Launch is the starting line. We test hypotheses, read the data and improve conversion month over month.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="build" data-depth-label="OUTPUT" style="padding:var(--sy) var(--pad) var(--sy)">
+    <div class="v3-reveal" style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;line-height:1;color:var(--mosstext);margin-bottom:22px">WHAT WE BUILD</div>
+    <h2 class="v3-reveal" data-h2 data-fit style="margin:0 0 40px;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h2);line-height:1.02;letter-spacing:-.035em;text-transform:uppercase">Websites built around your growth strategy.</h2>
+
+    <div style="border-top:1px solid var(--line)">
+      <div class="v3-reveal" data-brow style="display:grid;padding:18px 0;border-bottom:1px solid var(--line)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;line-height:1;color:var(--mosstext)">01</span><span data-bname style="font-family:Syne,sans-serif;font-weight:700;letter-spacing:-.035em;line-height:1.06;text-transform:uppercase">Corporate marketing websites</span></div>
+      <div class="v3-reveal" data-brow style="display:grid;padding:18px 0;border-bottom:1px solid var(--line)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;line-height:1;color:var(--mosstext)">02</span><span data-bname style="font-family:Syne,sans-serif;font-weight:700;letter-spacing:-.035em;line-height:1.06;text-transform:uppercase">SaaS websites</span></div>
+      <div class="v3-reveal" data-brow style="display:grid;padding:18px 0;border-bottom:1px solid var(--line)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;line-height:1;color:var(--mosstext)">03</span><span data-bname style="font-family:Syne,sans-serif;font-weight:700;letter-spacing:-.035em;line-height:1.06;text-transform:uppercase">D2C &amp; ecommerce websites</span></div>
+      <div class="v3-reveal" data-brow style="display:grid;padding:18px 0;border-bottom:1px solid var(--line)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;line-height:1;color:var(--mosstext)">04</span><span data-bname style="font-family:Syne,sans-serif;font-weight:700;letter-spacing:-.035em;line-height:1.06;text-transform:uppercase">Landing pages</span></div>
+      <div class="v3-reveal" data-brow style="display:grid;padding:18px 0;border-bottom:1px solid var(--line)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;line-height:1;color:var(--mosstext)">05</span><span data-bname style="font-family:Syne,sans-serif;font-weight:700;letter-spacing:-.035em;line-height:1.06;text-transform:uppercase">Campaign microsites</span></div>
+      <div class="v3-reveal" data-brow style="display:grid;padding:18px 0;border-bottom:1px solid var(--line)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;line-height:1;color:var(--mosstext)">06</span><span data-bname style="font-family:Syne,sans-serif;font-weight:700;letter-spacing:-.035em;line-height:1.06;text-transform:uppercase">Service-business websites</span></div>
+      <div class="v3-reveal" data-brow style="display:grid;padding:18px 0;border-bottom:1px solid var(--line)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;line-height:1;color:var(--mosstext)">07</span><span data-bname style="font-family:Syne,sans-serif;font-weight:700;letter-spacing:-.035em;line-height:1.06;text-transform:uppercase">Startup launch websites</span></div>
+    </div>
+
+    <div data-proof-grid style="display:grid;gap:40px">
+      <article class="v3-reveal" data-proof style="display:flex;flex-direction:column;padding:0 0 8px">
+        <div data-proof-l style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.5;color:var(--mosstext);padding-bottom:18px;border-bottom:1px solid var(--line)">EDTECH GROWTH ENGAGEMENT</div>
+        <ul data-proof-m style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
+          <li style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Monthly media spend scaled &#8377;5L &rarr; &#8377;30L</li>
+          <li style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Monthly revenue reached &#8377;1.5 crore</li>
+          <li style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">5&times; return on ad spend</li>
+        </ul>
+        <p data-proof-s style="margin:20px 0 0;font-size:15.5px;line-height:1.62;color:var(--stone)">Rebuilt tracking and conversion events, then scaled paid media against verified return.</p>
+      </article>
+      <article class="v3-reveal" data-proof style="display:flex;flex-direction:column;padding:0 0 8px">
+        <div data-proof-l style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.5;color:var(--mosstext);padding-bottom:18px;border-bottom:1px solid var(--line)">CRYPTO AFFILIATE GROWTH ENGAGEMENT</div>
+        <ul data-proof-m style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
+          <li style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Affiliate contribution grew from ~0%</li>
+          <li style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Reached ~5&ndash;6% of total trading volume within one year</li>
+        </ul>
+        <p data-proof-s style="margin:20px 0 0;font-size:15.5px;line-height:1.62;color:var(--stone)">Built the affiliate program from scratch — partner validation, commercial model and tracking.</p>
+      </article>
+    </div>
+    <p style="margin:26px 0 0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;line-height:1.6;color:var(--foot)">GENERAL GROWTH EVIDENCE FROM THE FOUNDER AND CORE TEAM</p>
+  </section>
+
+  <section id="faq" data-depth-label="QUESTIONS" style="background:var(--ibg);color:var(--ifg);padding:var(--sy) var(--pad)">
+    <div data-faq-grid style="display:grid;align-items:start">
+      <div class="v3-reveal">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;line-height:1;color:var(--imut);margin-bottom:22px">QUESTIONS</div>
+        <h2 data-h2 data-fit style="margin:0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h2);line-height:1.02;letter-spacing:-.035em;text-transform:uppercase">Website design &amp; development, answered.</h2>
+        <p style="margin:30px 0 0;font-size:15.5px;line-height:1.75;color:var(--ibody);max-width:40ch">Related services: <a href="/services/seo-ai-search/" style="border-bottom:1px solid var(--ichip);padding-bottom:1px">SEO, Content &amp; AI Search</a> · <a href="/services/performance-marketing/" style="border-bottom:1px solid var(--ichip);padding-bottom:1px">Performance Marketing</a> · <a href="/services/brand-creative/" style="border-bottom:1px solid var(--ichip);padding-bottom:1px">Brand Strategy &amp; Performance Creative</a></p>
+      </div>
+
+      <div>
+        <div style="border-top:1px solid var(--iline)">
+          <h3 style="margin:0"><button data-faq-btn="0" id="faq-b0" aria-controls="faq-p0" aria-expanded="true" style="width:100%;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;text-align:left;background:transparent;border:0;padding:26px 0;font-family:Syne,sans-serif;font-weight:700;font-size:20px;line-height:1.3;letter-spacing:-.02em;color:var(--ifg);cursor:pointer"><span>What does a Tilth website engagement include?</span><span data-faq-ic="0" aria-hidden="true" style="flex:0 0 auto;font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:22px;line-height:1;color:var(--imut)">+</span></button></h3>
+          <div data-faq-ans="0" id="faq-p0" role="region" aria-labelledby="faq-b0">
+            <p style="margin:0;padding:0 0 28px;font-size:16.5px;line-height:1.7;color:var(--ibody);max-width:62ch">One coordinated process from strategy through launch and beyond: information architecture, UX and UI design, development, conversion copywriting, analytics and SEO foundations, performance, accessibility, and post-launch conversion-rate optimisation.</p>
+          </div>
+        </div>
+        <div style="border-top:1px solid var(--iline)">
+          <h3 style="margin:0"><button data-faq-btn="1" id="faq-b1" aria-controls="faq-p1" aria-expanded="false" style="width:100%;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;text-align:left;background:transparent;border:0;padding:26px 0;font-family:Syne,sans-serif;font-weight:700;font-size:20px;line-height:1.3;letter-spacing:-.02em;color:var(--ifg);cursor:pointer"><span>Do you only design, or do you build the website too?</span><span data-faq-ic="1" aria-hidden="true" style="flex:0 0 auto;font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:22px;line-height:1;color:var(--imut)">+</span></button></h3>
+          <div data-faq-ans="1" id="faq-p1" role="region" aria-labelledby="faq-b1">
+            <p style="margin:0;padding:0 0 28px;font-size:16.5px;line-height:1.7;color:var(--ibody);max-width:62ch">Both. Tilth plans, designs and develops the site as a single accountable process, so strategy, design, code, measurement and conversion stay connected rather than handed between vendors.</p>
+          </div>
+        </div>
+        <div style="border-top:1px solid var(--iline)">
+          <h3 style="margin:0"><button data-faq-btn="2" id="faq-b2" aria-controls="faq-p2" aria-expanded="false" style="width:100%;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;text-align:left;background:transparent;border:0;padding:26px 0;font-family:Syne,sans-serif;font-weight:700;font-size:20px;line-height:1.3;letter-spacing:-.02em;color:var(--ifg);cursor:pointer"><span>How is this different from a typical web-design agency?</span><span data-faq-ic="2" aria-hidden="true" style="flex:0 0 auto;font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:22px;line-height:1;color:var(--imut)">+</span></button></h3>
+          <div data-faq-ans="2" id="faq-p2" role="region" aria-labelledby="faq-b2">
+            <p style="margin:0;padding:0 0 28px;font-size:16.5px;line-height:1.7;color:var(--ibody);max-width:62ch">Most web projects optimise for how the site looks. We optimise for what it should do for growth — connecting positioning, user journeys, SEO, analytics and conversion into one system, then improving it with data after launch.</p>
+          </div>
+        </div>
+        <div style="border-top:1px solid var(--iline)">
+          <h3 style="margin:0"><button data-faq-btn="3" id="faq-b3" aria-controls="faq-p3" aria-expanded="false" style="width:100%;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;text-align:left;background:transparent;border:0;padding:26px 0;font-family:Syne,sans-serif;font-weight:700;font-size:20px;line-height:1.3;letter-spacing:-.02em;color:var(--ifg);cursor:pointer"><span>Will the site be set up to measure conversions?</span><span data-faq-ic="3" aria-hidden="true" style="flex:0 0 auto;font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:22px;line-height:1;color:var(--imut)">+</span></button></h3>
+          <div data-faq-ans="3" id="faq-p3" role="region" aria-labelledby="faq-b3">
+            <p style="margin:0;padding:0 0 28px;font-size:16.5px;line-height:1.7;color:var(--ibody);max-width:62ch">Yes. Conversion events, analytics and tracking are part of the build, so from launch you can see which pages and journeys produce qualified leads — and what to fix next.</p>
+          </div>
+        </div>
+        <div style="border-top:1px solid var(--iline);border-bottom:1px solid var(--iline)">
+          <h3 style="margin:0"><button data-faq-btn="4" id="faq-b4" aria-controls="faq-p4" aria-expanded="false" style="width:100%;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;text-align:left;background:transparent;border:0;padding:26px 0;font-family:Syne,sans-serif;font-weight:700;font-size:20px;line-height:1.3;letter-spacing:-.02em;color:var(--ifg);cursor:pointer"><span>Can you redesign an existing website or work on specific pages?</span><span data-faq-ic="4" aria-hidden="true" style="flex:0 0 auto;font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:22px;line-height:1;color:var(--imut)">+</span></button></h3>
+          <div data-faq-ans="4" id="faq-p4" role="region" aria-labelledby="faq-b4">
+            <p style="margin:0;padding:0 0 28px;font-size:16.5px;line-height:1.7;color:var(--ibody);max-width:62ch">Both. We can run a full redesign or a focused engagement — for example, a homepage, key landing pages, or a conversion-rate optimisation program on your current site.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta" data-depth-label="NEXT" style="background:var(--moss);color:#101310;padding:var(--sy) var(--pad)">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;line-height:1;color:rgba(16,19,16,.6);margin-bottom:24px">NEXT STEP</div>
+    <div data-cta-grid style="display:grid">
+      <h2 data-cta-h data-fit style="margin:0;font-family:Syne,sans-serif;font-weight:800;line-height:.94;letter-spacing:-.04em;text-transform:uppercase">Planning a website that has to <span style="color:rgba(16,19,16,.62)">perform</span>?</h2>
+      <div>
+        <p style="margin:0;font-size:var(--body);line-height:1.6;color:rgba(16,19,16,.78);max-width:46ch">Tell us what the site needs to do for growth. We'll review the foundations before recommending a rebuild, a redesign or a focused conversion project.</p>
+        <div data-cta-actions style="display:flex;margin-top:34px">
+          <a data-ctacta href="/contact/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;background:#101310;color:#F3F5F1;font-family:Syne,sans-serif;font-weight:700;font-size:14.5px;text-transform:uppercase;line-height:1;white-space:nowrap;border-radius:2px">Discuss Your Website Project <span aria-hidden="true">&rarr;</span></a>
+          <a data-ctatext href="/contact/" data-secondary style="display:inline-flex;align-items:center;height:54px;font-size:14.5px;line-height:1;white-space:nowrap;color:rgba(16,19,16,.72)"><span style="border-bottom:1px solid rgba(16,19,16,.4);padding-bottom:3px">Request a Foundation Audit &rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </main>
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <p class="addr">Tilth is an India-rooted growth marketing agency working with ambitious brands across India and the US.<br><br>Bengaluru, India · Remote collaboration across India and the US<br><a href="tel:+917007999306">+91 70079 99306</a><br><a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a></p>
-      </div>
-      <div>
-        <h3 class="fcol">Explore</h3>
-        <ul><li><a href="/services/">Services</a></li><li><a href="/approach/">Approach</a></li><li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Legal</h3>
-        <ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/cookie-policy/">Cookie Policy</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Social</h3>
-        <ul><li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li><li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li></ul>
-      </div>
+<footer class="v3-foot v3-foot--rule">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom"><span>© 2026 Tilth. All rights reserved.</span></div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
+    </div>
   </div>
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
+<script src="/service-detail.js" defer></script>
 <script src="/analytics.js" defer></script>
 </body>
 </html>
