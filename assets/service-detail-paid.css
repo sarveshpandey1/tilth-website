@@ -1,0 +1,273 @@
+/* ===========================================================================
+   /services/paid-media/ — page layer over the shared service-detail system.
+   Ported from the final approved design "Tilth Service - Paid Media.dc.html"
+   per TILTH_PAID_MEDIA_HANDOFF.md.
+
+   Loaded AFTER assets/service-detail.css. Everything is scoped to .v3-paid so
+   Performance Marketing, Growth Strategy, SEO, Affiliate and Website/CRO are
+   untouched — service-detail.css itself is not modified at all, which is what
+   keeps those five routes byte-identical.
+
+   Four things genuinely differ from the shared system and live here:
+     1. this page's approved H1 and closing-CTA ladders, plus the no-hyphen /
+        balanced-wrap rule that stops "TO" stranding as its own line,
+     2. a hero that is STACKED at every width (the shared file splits it at
+        1440 and re-splits at 1700),
+     3. the service-architecture relationship row, and
+     4. the COMPOUNDING LOOP, this page's signature.
+
+   Selectors are .v3-service-detail.v3-paid / .v3-paid [hook] so they outrank
+   the shared rules on SPECIFICITY, not source order — the shared file sets
+   several of these inside larger min-width blocks that also match at wider
+   widths, and relying on order there is the trap CLAUDE.md §6b warns about.
+
+   Layout is CSS-first: every grid, gap and type step below is a media query,
+   correct before any JS runs. Per the handoff, no responsive property on this
+   page may live in an inline style — an inline declaration cannot be overridden
+   by a media query, so the desktop treatment leaks into every smaller width.
+   This bit three components during design QA (the problem head, the mobile
+   chips/rail, and the relationship divider); all three are CSS-only here.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   0. BODY MARGIN RESET — page-scoped, and load-bearing for the type ladder.
+
+   brand-v3.css never resets the UA default `body{margin:8px}`, so every
+   measured track in production is 16px narrower than the approved design's
+   (whose helmet sets `body{margin:0}`). Measured here before deciding, as the
+   handoff requires: without this the fit safeguard FIRES at 390 (32 -> 30.4px)
+   and 480 (40 -> 38px), and every other width loses ~16px of the approved
+   painted-ink clearance.
+
+   Scoped to body.v3-paid — the least invasive correction. The Homepage,
+   Services index and the five other service-detail routes keep their existing
+   8px inset and their approved geometry. No global shell normalisation.
+   --------------------------------------------------------------------------- */
+body.v3-paid { margin: 0; }
+
+/* ---------------------------------------------------------------------------
+   1. TYPE LADDERS — approved and frozen.
+
+   H1   32 / 40 / 50 / 54 / 60 / 60 / 68 / 78 / 78 / 84 / 94 / 106
+   CTA  24 / 31 / 34 / 34 / 40 / 40 / 40 / 40 / 40 / 40 / 52 / 52
+   (at 390 / 480 / 620 / 700 / 768 / 900 / 1024 / 1180 / 1200 / 1280 / 1440 / 1700)
+
+   Every H1 step is authored under track / 13.068 (the three-line desktop set,
+   binding line "TO COMPOUND.") or track / 10.513 (the narrow set, binding word
+   "COMPOUND."), so the fit safeguard never fires and no discretionary break is
+   needed anywhere. Minimum H1 : closing-CTA ratio is 1.29x, at 480.
+   --h2/--h3/--body/--card/--pad/--sy match the shared ladders and cascade.
+   --------------------------------------------------------------------------- */
+.v3-service-detail.v3-paid { --h1: 32px; }
+@media (min-width: 480px)  { .v3-service-detail.v3-paid { --h1: 40px; } }
+@media (min-width: 620px)  { .v3-service-detail.v3-paid { --h1: 50px; } }
+@media (min-width: 700px)  { .v3-service-detail.v3-paid { --h1: 54px; } }
+@media (min-width: 768px)  { .v3-service-detail.v3-paid { --h1: 60px; } }
+@media (min-width: 1024px) { .v3-service-detail.v3-paid { --h1: 68px; } }
+@media (min-width: 1180px) { .v3-service-detail.v3-paid { --h1: 78px; } }
+@media (min-width: 1280px) { .v3-service-detail.v3-paid { --h1: 84px; } }
+@media (min-width: 1440px) { .v3-service-detail.v3-paid { --h1: 94px; } }
+@media (min-width: 1700px) { .v3-service-detail.v3-paid { --h1: 106px; } }
+
+.v3-paid [data-cta-h] { font-size: 24px; }
+@media (min-width: 480px)  { .v3-paid [data-cta-h] { font-size: 31px; } }
+@media (min-width: 620px)  { .v3-paid [data-cta-h] { font-size: 34px; } }
+@media (min-width: 768px)  { .v3-paid [data-cta-h] { font-size: 40px; } }
+/* stated so the ladder reads straight down; the shared 1024 step (46px) already
+   loses to the specificity above */
+@media (min-width: 1024px) { .v3-paid [data-cta-h] { font-size: 40px; } }
+@media (min-width: 1440px) { .v3-paid [data-cta-h] { font-size: 52px; } }
+
+/* Measure caps in px, never ch — a ch cap scales with font-size and makes a
+   shrink-to-fit loop non-convergent. */
+@media (min-width: 768px)  { .v3-paid [data-h2] { max-width: 620px; } }
+@media (min-width: 1024px) { .v3-paid [data-h2] { max-width: 820px; } }
+@media (min-width: 1440px) { .v3-paid [data-h2] { max-width: 900px; } }
+
+/* ---------------------------------------------------------------------------
+   2. H1 WRAPPING — zero discretionary breaks, balanced lines
+
+   This page has 0 &shy; and 0 <wbr>. Under default greedy wrapping the word
+   "TO" was stranded as a two-letter line at 8 of the 12 QA widths; balanced
+   wrapping evens the lines instead and removes the orphan at all twelve.
+   text-wrap:balance here is load-bearing — do not switch it to `pretty` (the
+   orphan returns) and do not add com&shy;pound or me&shy;dia.
+   --------------------------------------------------------------------------- */
+.v3-paid [data-h1] { hyphens: none; -webkit-hyphens: none; text-wrap: balance; }
+
+/* ---------------------------------------------------------------------------
+   3. HERO — STACKED AT ALL TWELVE WIDTHS
+
+   service-detail.css splits [data-hero-grid] 1.55fr/.45fr at 1440 and re-splits
+   it 1.45fr/.55fr at 1700. Both are cancelled here. Measured, not preferred: a
+   two-column test forced the H1 down AND still overran — 84→65.5px (−61px) at
+   1280, 94→73.3px (−62px) at 1440, 106→82.7px (−16px) at 1700, each producing
+   an inferior four-line set. One unconditional declaration is enough: at 0,2,0
+   it outranks both shared rules (0,1,0) whichever order the files load in.
+   --------------------------------------------------------------------------- */
+.v3-paid [data-hero-grid] { grid-template-columns: minmax(0, 1fr); }
+
+/* ---------------------------------------------------------------------------
+   4. PROBLEM — five editorial rows, never cards
+   --------------------------------------------------------------------------- */
+@media (min-width: 1100px) {
+  /* the shared file sets the head row but without justify-content */
+  .v3-paid [data-prob-head] { justify-content: space-between; }
+}
+.v3-paid [data-prow] { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.v3-paid [data-prow] [data-ptag] { justify-self: start; }
+@media (min-width: 768px) {
+  .v3-paid [data-prow] { grid-template-columns: 44px minmax(0, 1fr); gap: 0 20px; }
+  .v3-paid [data-prow] [data-ptag] { grid-column: 2; margin-top: 10px; }
+}
+@media (min-width: 1200px) {
+  .v3-paid [data-prow] { grid-template-columns: 44px minmax(0, 1fr) 190px; gap: 0 32px; align-items: baseline; }
+  .v3-paid [data-prow] [data-ptag] { grid-column: 3; margin-top: 0; justify-self: end; text-align: right; }
+}
+
+/* ---------------------------------------------------------------------------
+   5. SERVICE ARCHITECTURE — relationship row
+
+   Stacked below 768 the second block needs its own divider; side by side at
+   768+ the container's top rule already serves both, so it is dropped.
+
+   Two ordering traps, both fixed, both must stay fixed:
+     1. the border-top must live HERE, not inline — an inline declaration
+        outranks the media query and the doubled rule survives;
+     2. the 768 override must sit AFTER the base rule — equal specificity
+        resolves on source order, and with the base rule later it silently loses.
+
+   align-items:start, never center: center produced a 167px vertical stagger
+   between the two blocks' labels.
+   --------------------------------------------------------------------------- */
+.v3-paid [data-relpair] { grid-template-columns: minmax(0, 1fr); }
+.v3-paid [data-relb] { border-top: 1px solid var(--line); }
+@media (min-width: 768px) {
+  .v3-paid [data-relpair] { grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr); align-items: start; gap: 0; }
+  .v3-paid [data-relb] { border-top: 0; }
+}
+
+/* ---------------------------------------------------------------------------
+   6. DELIVERABLES — six editorial rows, 1 -> 2 @620 -> 3 @1200
+   --------------------------------------------------------------------------- */
+.v3-paid [data-dgrid] { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 620px)  { .v3-paid [data-dgrid] { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1200px) { .v3-paid [data-dgrid] { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.v3-paid [data-dname] { font-size: 20px; }
+@media (min-width: 768px)  { .v3-paid [data-dname] { font-size: 23px; } }
+@media (min-width: 1200px) { .v3-paid [data-dname] { font-size: 25px; } }
+
+/* PROOF — shared flat treatment, this page's own rhythm. The approved markup
+   carries gap:40px inline, so the shared 900px column-gap never applies; these
+   restate the design's margins only. */
+.v3-paid [data-proof-grid] { margin-top: 48px; }
+@media (min-width: 768px) { .v3-paid [data-proof-grid] { margin-top: 60px; } }
+
+/* FAQ panel collapse contract. Without overflow:hidden a bad max-height spills
+   over the next question instead of clipping. The closed state is applied by
+   script, never authored, so all three answers are readable with JS off. */
+.v3-paid [data-faq-ans] {
+  overflow: hidden;
+  transition: max-height .55s cubic-bezier(.16, 1, .3, 1), opacity .4s;
+}
+
+/* ===========================================================================
+   7. SIGNATURE — COMPOUNDING LOOP
+
+   Execution moves outward along the upper rail, folds at the channel edge, and
+   the verified signal returns along the lower rail into the next test. It is
+   NOT a state picker — there are no controls inside [data-cl]. One narrative
+   sequence runs once on first viewport entry, then settles into a complete,
+   self-explanatory static state. Nothing loops forever.
+
+   Activation is a data-on attribute per element key (data-k), so specificity is
+   unambiguous and a re-render or theme switch can never strand the diagram
+   mid-sequence.
+   =========================================================================== */
+.v3-paid [data-cl-head] { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+.v3-paid [data-cl-desktop] { display: none; }
+.v3-paid [data-cl-cap-inner] { display: none; }
+
+/* The routed loop needs width: below 1024 its labels render at 8.2–9.3px, under
+   the legibility floor, so the vertical interpretation runs to 1023 instead.
+   Do NOT move this to 900 to match another service page. The interior caption
+   only moves inside the loop at 1200+, where the interior is tall enough to
+   hold it — at 1024 it overflowed the lower rail by 26px. */
+@media (min-width: 1024px) {
+  .v3-paid [data-cl-desktop] { display: block; }
+  .v3-paid [data-cl-mobile] { display: none; }
+  .v3-paid [data-cl-head] { grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: end; }
+}
+@media (min-width: 1200px) {
+  .v3-paid [data-cl-cap-inner] { display: block; }
+  .v3-paid [data-cl-cap-below] { display: none; }
+}
+
+/* Readout rule/spacing lives in CSS, not inline — the band rule below has to be
+   able to drop it when the readout becomes a side rail. */
+.v3-paid [data-cl-cap-below] { margin-top: 34px; padding-top: 24px; border-top: 1px solid var(--line); }
+
+/* DEAD-COLUMN FIX (620–1023). The vertical spine is intrinsically sized (~297px
+   of painted content regardless of viewport), so on its own it filled only
+   31–51% of the track and left the rest of the signature empty — worst at
+   900–1023. In this band the readout moves BESIDE the spine as an editorial
+   rail: the composition changes rather than the void being decorated. Chips
+   wrap inside the narrower column by design. This is an approved responsive
+   composition, not decoration — do not revert it, and do not restore the
+   readout's divider here. */
+@media (min-width: 620px) and (max-width: 1023px) {
+  .v3-paid [data-cl] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 36px; align-items: start; }
+  .v3-paid [data-cl-mobile] { grid-column: 1; }
+  .v3-paid [data-cl-cap-below] { grid-column: 2; margin-top: 0; padding-top: 0; border-top: 0; }
+  .v3-paid [data-cl] > p { grid-column: 1 / -1; }
+}
+@media (min-width: 768px) and (max-width: 1023px) { .v3-paid [data-cl] { gap: 0 48px; } }
+
+/* Rest state — the loop is fully readable BEFORE any motion. The one-time
+   sequence only raises emphasis and draws the carried signal; it never reveals
+   structure. Only the platform fan and labels start at 0: they belong to the
+   execution moment and arrive in phase 2. Do not start from a blank diagram. */
+.v3-paid [data-cl] [data-rail] { fill: none; stroke: var(--stone); stroke-linecap: round; stroke-width: 2; stroke-opacity: .26; transition: stroke-opacity .6s cubic-bezier(.16, 1, .3, 1); }
+.v3-paid [data-cl] [data-rail][data-on] { stroke-opacity: .55; }
+.v3-paid [data-cl] [data-chev] { fill: none; stroke: var(--stone); stroke-width: 1.5; stroke-opacity: .34; stroke-linecap: round; stroke-linejoin: round; }
+.v3-paid [data-cl] [data-node] { fill: var(--stone); fill-opacity: .38; transition: fill-opacity .55s, fill .55s; }
+.v3-paid [data-cl] [data-node][data-on] { fill-opacity: .85; }
+.v3-paid [data-cl] [data-lab] { fill: var(--stone); fill-opacity: .44; transition: fill-opacity .55s, fill .55s; }
+.v3-paid [data-cl] [data-lab][data-on] { fill: var(--fg); fill-opacity: 1; }
+.v3-paid [data-cl] [data-fan] { fill: none; stroke: var(--stone); stroke-width: 1.5; stroke-opacity: 0; transition: stroke-opacity .55s; }
+.v3-paid [data-cl] [data-fan][data-on] { stroke-opacity: .38; }
+.v3-paid [data-cl] [data-plat] { fill: var(--stone); fill-opacity: 0; transition: fill-opacity .55s; }
+.v3-paid [data-cl] [data-plat][data-on] { fill-opacity: .78; }
+
+/* THE CARRIED SIGNAL — one trace, drawn once, then retained. It is the verified
+   learning travelling back into the next cycle; never a click, a conversion,
+   money, or a success state.
+
+   --mosstext, NOT raw --moss: #BEF54F on the light ground measures 1.17:1 and
+   the carried signal all but vanishes. --mosstext resolves to deep moss
+   (#4A661A) in light — 14.58:1 dark / 5.97:1 light. Do not regress this. */
+.v3-paid [data-cl] [data-trace] { fill: none; stroke: var(--mosstext); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1s cubic-bezier(.33, 1, .68, 1); }
+.v3-paid [data-cl] [data-trace][data-on] { stroke-dashoffset: 0; }
+.v3-paid [data-cl] [data-node][data-k="nexttest"][data-on] { fill: var(--mosstext); fill-opacity: 1; }
+.v3-paid [data-cl] [data-lab][data-k="nexttest"][data-on] { fill: var(--mosstext); fill-opacity: 1; }
+
+/* --- mobile / vertical interpretation (below 1024) ------------------------ */
+.v3-paid [data-cl] [data-mdot] { background: var(--stone); opacity: .42; transition: opacity .55s, background .55s; }
+.v3-paid [data-cl] [data-mdot][data-on] { opacity: .9; }
+.v3-paid [data-cl] [data-mlab] { color: var(--stone); opacity: .5; transition: opacity .55s, color .55s; }
+.v3-paid [data-cl] [data-mlab][data-on] { color: var(--fg); opacity: 1; }
+.v3-paid [data-cl] [data-mseg] { background: var(--stone); opacity: .24; transition: opacity .55s; }
+.v3-paid [data-cl] [data-mseg][data-on] { opacity: .5; }
+
+/* The border SHORTHAND lives here, not inline: an inline `border:2px solid`
+   writes border-color:currentcolor as an inline declaration, which outranks
+   every stylesheet state rule and silently kills the Moss state. Same for the
+   chips. This was a real defect caught in QA. */
+.v3-paid [data-cl] [data-mchip] { border: 1px solid var(--line); color: var(--stone); opacity: .45; transition: opacity .55s, color .55s, border-color .55s; }
+.v3-paid [data-cl] [data-mchip][data-on] { opacity: 1; }
+/* the return rail — the device that stops the vertical version reading as six
+   unrelated stacked steps */
+.v3-paid [data-cl] [data-mret] { border: 2px solid var(--stone); border-right: 0; opacity: .24; transition: opacity .8s cubic-bezier(.33, 1, .68, 1), border-color .8s; }
+.v3-paid [data-cl] [data-mret][data-on] { border-color: var(--mosstext); opacity: 1; }
+.v3-paid [data-cl] [data-mnext] { color: var(--stone); opacity: .5; transition: opacity .6s, color .6s; }
+.v3-paid [data-cl] [data-mnext][data-on] { color: var(--mosstext); opacity: 1; }

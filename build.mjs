@@ -17,6 +17,7 @@ import performanceMarketing from "./src/pages/performance-marketing.mjs";
 import growthStrategyMeasurement from "./src/pages/growth-strategy-measurement.mjs";
 import seoAiSearch from "./src/pages/seo-ai-search.mjs";
 import affiliatePartnerships from "./src/pages/affiliate-partnerships.mjs";
+import paidMedia from "./src/pages/paid-media.mjs";
 import { allServicePages } from "./src/templates/servicePage.mjs";
 import { allIndustryPages } from "./src/templates/industryPage.mjs";
 import { allRegionHubs, allRegionChildPages } from "./src/templates/regionHub.mjs";
@@ -31,6 +32,7 @@ const PAGES = [
   growthStrategyMeasurement,
   seoAiSearch,
   affiliatePartnerships,
+  paidMedia,
   ...allServicePages,
   industriesIndex,
   ...allIndustryPages,
