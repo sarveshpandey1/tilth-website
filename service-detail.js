@@ -11,15 +11,17 @@
  * [data-chart] + [data-scrub] (/services/performance-marketing/), the Decision
  * Chain needs [data-chain] (/services/growth-strategy-measurement/), the
  * Discovery Surface needs [data-surface] (/services/seo-ai-search/), the
- * Partner Quality Map needs [data-map] (/services/affiliate-partnerships/), and
- * the Conversion Path needs [data-cp]
- * (/services/website-design-development/). The FAQ block is common to all five.
+ * Partner Quality Map needs [data-map] (/services/affiliate-partnerships/), the
+ * Conversion Path needs [data-cp] (/services/website-design-development/), and
+ * the Compounding Loop needs [data-cl] (/services/paid-media/). The FAQ block
+ * is common to all six.
  *
  * Everything degrades: with JS off the chart renders its authored static state,
  * the Decision Chain renders its authored FRAGMENTED state, the Partner Quality
  * Map renders its authored ACTIVITY view, the Conversion Path renders its
- * authored complete route, every FAQ answer is visible, and no content is
- * behind an interaction.
+ * authored complete route, the Compounding Loop renders its full structure at
+ * rest opacity, every FAQ answer is visible, and no content is behind an
+ * interaction.
  */
 (function () {
   "use strict";
@@ -599,13 +601,93 @@
     io.observe(cp);
   })();
 
-  /* --- Website/CRO typography safeguards -----------------------------------
-   * Scoped to .v3-cro so the four already-approved service-detail pages are
-   * untouched. CSS owns every authored size; both passes below are safeguards
-   * that must stay idle at each authored step.
+  /* --- signature visual: Compounding Loop ----------------------------------
+   * /services/paid-media/. Execution moves outward along the upper rail, folds
+   * at the channel edge, and the verified signal returns along the lower rail
+   * into the next test. It is NOT a state picker — there are zero controls
+   * inside [data-cl]. One narrative sequence runs once on first viewport entry,
+   * then settles into a complete, self-explanatory static state.
+   *
+   * The structure is readable BEFORE motion: every rail, node, chevron and
+   * label is already painted at rest opacity by service-detail-paid.css. The
+   * sequence only raises emphasis and draws the one carried-signal trace.
+   * Activation is a data-on attribute per element key, so a re-render or theme
+   * switch can never strand the diagram mid-sequence.
+   *
+   * The design prototype also carries a polling fallback for the preview host,
+   * which can drop IntersectionObserver callbacks. It is explicitly marked
+   * "PREVIEW-HOST RESILIENCE ONLY — NOT PRODUCTION BEHAVIOUR" and is
+   * deliberately NOT ported: production relies on the real observer, and there
+   * is no page-mount/elapsed-time settle of any kind here.
    */
   (function () {
-    var page = $(".v3-cro");
+    var cl = $("[data-cl]");
+    if (!cl) return;
+
+    // execution outward -> channel edge -> signal -> read -> next cycle
+    var LOOP_PHASES = [
+      ["out", "structure", "launch"],
+      ["execution", "fan", "plat"],
+      ["fold", "signal"],
+      ["ret", "trace", "learn", "reallocate"],
+      ["rise", "nexttest"]
+    ];
+    var LOOP_STEPS_MS = [550, 500, 420, 360, 820];   // cumulative 550/1050/1470/1830/2650
+
+    var timers = [], cancelled = false, ran = false;
+
+    function on(keys) {
+      keys.forEach(function (k) {
+        $$('[data-cl] [data-k="' + k + '"]').forEach(function (el) { el.setAttribute("data-on", ""); });
+      });
+    }
+    function settle() { LOOP_PHASES.forEach(on); }
+
+    // Reduced motion, or no observer support: the complete final state is shown
+    // immediately. It carries the whole meaning on its own — no staged
+    // sequence, no travelling trace, no delayed emphasis.
+    if (rm || !("IntersectionObserver" in window)) { settle(); return; }
+
+    // No controls to cancel, so cancelling means: stop every pending timer and
+    // settle the COMPLETE loop. Never half-complete, never reset, never restart.
+    function cancel() {
+      cancelled = true;
+      timers.forEach(clearTimeout);
+      settle();
+    }
+    ["pointerdown", "keydown", "touchstart"].forEach(function (ev) {
+      cl.addEventListener(ev, cancel, { once: true, passive: true });
+    });
+
+    // Viewport entry is the ONLY trigger. The observer disconnects on the first
+    // eligible intersection, before any timer is scheduled.
+    var io = new IntersectionObserver(function (ens) {
+      ens.forEach(function (en) {
+        if (!en.isIntersecting || ran) return;
+        ran = true;
+        io.disconnect();
+        if (cancelled) return;
+        var t = 0;
+        LOOP_PHASES.forEach(function (group, i) {
+          t += LOOP_STEPS_MS[i];
+          timers.push(setTimeout(function () {
+            if (cancelled) return;
+            on(group);
+          }, t));
+        });
+      });
+    }, { threshold: 0, rootMargin: "-15% 0px -15% 0px" });
+    io.observe(cl);
+  })();
+
+  /* --- typography safeguards (Website/CRO + Paid Media) ---------------------
+   * Scoped to the two pages whose approved handoffs specify this contract, so
+   * the four earlier service-detail pages are untouched. CSS owns every
+   * authored size; both passes below are safeguards that must stay idle at
+   * each authored step.
+   */
+  (function () {
+    var page = $(".v3-cro") || $(".v3-paid");
     if (!page) return;
 
     function syneReady() {
