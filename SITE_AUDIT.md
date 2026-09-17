@@ -1,7 +1,12 @@
 # SITE_AUDIT.md — Tilth website
 
 Audit date: 2026-07-16 · Auditor: senior strategy/SEO/eng review · Repo: `sarveshpandey1/tilth-website`
-Current live domain: https://tilth.in/ · New primary: https://wearetilth.com/
+Live domain **as of the audit date**: https://tilth.in/ · New primary: https://wearetilth.com/
+
+> **This is a point-in-time audit (2026-07-16); read its status columns as historical.**
+> **CURRENT:** the live production domain is `https://wearetilth.com/` (GitHub Pages), and
+> `tilth.in` is the legacy forwarding domain only. For verified current redirect behaviour see
+> DOMAIN_MIGRATION_PLAN.md §4; for current route/sitemap state see REDIRECT_MAP.md §2.
 
 > This audit is grounded in the **actual** repository, not the framework assumptions in the brief.
 > See §1 — the stack is static HTML, not a TS/React/Next app. All recommendations respect Brief §17
