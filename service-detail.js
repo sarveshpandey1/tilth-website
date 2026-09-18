@@ -12,16 +12,18 @@
  * Chain needs [data-chain] (/services/growth-strategy-measurement/), the
  * Discovery Surface needs [data-surface] (/services/seo-ai-search/), the
  * Partner Quality Map needs [data-map] (/services/affiliate-partnerships/), the
- * Conversion Path needs [data-cp] (/services/website-design-development/), and
- * the Compounding Loop needs [data-cl] (/services/paid-media/). The FAQ block
- * is common to all six.
+ * Conversion Path needs [data-cp] (/services/website-design-development/), the
+ * Compounding Loop needs [data-cl] (/services/paid-media/), and the Creative
+ * Grammar needs [data-cg] (/services/brand-creative/). The FAQ block is common
+ * to all seven.
  *
  * Everything degrades: with JS off the chart renders its authored static state,
  * the Decision Chain renders its authored FRAGMENTED state, the Partner Quality
  * Map renders its authored ACTIVITY view, the Conversion Path renders its
  * authored complete route, the Compounding Loop renders its full structure at
- * rest opacity, every FAQ answer is visible, and no content is behind an
- * interaction.
+ * rest opacity, the Creative Grammar renders its core, rules and all three
+ * expressions at rest opacity, every FAQ answer is visible, and no content is
+ * behind an interaction.
  */
 (function () {
   "use strict";
@@ -680,14 +682,101 @@
     io.observe(cl);
   })();
 
-  /* --- typography safeguards (Website/CRO + Paid Media) ---------------------
-   * Scoped to the two pages whose approved handoffs specify this contract, so
+  /* --- signature visual: Creative Grammar ----------------------------------
+   * /services/brand-creative/. One strategic core generates three genuinely
+   * different editorial expressions, and a single Moss alignment rule runs
+   * through all three at the identical vertical fraction — the visual proof of
+   * "consistency is not sameness". It is NOT a picker: there are zero controls
+   * inside [data-cg]. One narrative sequence runs once on first viewport entry,
+   * then settles into a complete, self-explanatory static state.
+   *
+   * The structure is readable BEFORE motion: the core panel, all three rules,
+   * all three expressions and every label are already painted at rest opacity
+   * by service-detail-brand.css. Only the Moss rule, the connectors and the
+   * readout are hidden at rest, and the assembly reveals those. 0 lit does not
+   * mean blank.
+   *
+   * Activation is a data-on attribute per element key, so a re-render or a
+   * theme switch can never strand the assembly mid-state.
+   *
+   * The design prototype also carries a polling fallback (_cgPoll) for the
+   * preview host, which can drop IntersectionObserver callbacks. It is
+   * explicitly marked "PREVIEW-HOST RESILIENCE ONLY — NOT PRODUCTION
+   * BEHAVIOUR" and is deliberately NOT ported: production relies on the real
+   * observer, and there is no page-mount/elapsed-time settle of any kind here.
+   */
+  (function () {
+    var cg = $("[data-cg]");
+    if (!cg) return;
+
+    // core establishes its rules -> generates three expressions -> the rule
+    // they all share becomes visible
+    var CG_PHASES = [
+      ["core", "r1"],
+      ["r2"],
+      ["r3"],
+      ["conn", "e1"],
+      ["e2"],
+      ["e3"],
+      ["grammar"]
+    ];
+    var CG_STEPS_MS = [500, 360, 360, 460, 320, 320, 560]; // cumulative -> 2880ms
+
+    var timers = [], cancelled = false, ran = false;
+
+    function on(keys) {
+      keys.forEach(function (k) {
+        $$('[data-cg] [data-k="' + k + '"]').forEach(function (el) { el.setAttribute("data-on", ""); });
+      });
+    }
+    function settle() { CG_PHASES.forEach(on); }
+
+    // Reduced motion, or no observer support: the complete assembled state is
+    // shown immediately. The static composition carries the whole idea — no
+    // staged assembly, no moving connector build, no motion-dependent meaning.
+    if (rm || !("IntersectionObserver" in window)) { settle(); return; }
+
+    // No controls to cancel, so cancelling means: stop every pending timer and
+    // settle the COMPLETE assembly. Never half-complete, never reset, never
+    // restart, and no surviving timer can overwrite the settled state.
+    function cancel() {
+      cancelled = true;
+      timers.forEach(clearTimeout);
+      settle();
+    }
+    ["pointerdown", "keydown", "touchstart"].forEach(function (ev) {
+      cg.addEventListener(ev, cancel, { once: true, passive: true });
+    });
+
+    // Viewport entry is the ONLY trigger. The observer disconnects on the first
+    // eligible intersection, before any timer is scheduled.
+    var io = new IntersectionObserver(function (ens) {
+      ens.forEach(function (en) {
+        if (!en.isIntersecting || ran) return;
+        ran = true;
+        io.disconnect();
+        if (cancelled) return;
+        var t = 0;
+        CG_PHASES.forEach(function (group, i) {
+          t += CG_STEPS_MS[i];
+          timers.push(setTimeout(function () {
+            if (cancelled) return;
+            on(group);
+          }, t));
+        });
+      });
+    }, { threshold: 0, rootMargin: "-15% 0px -15% 0px" });
+    io.observe(cg);
+  })();
+
+  /* --- typography safeguards (Website/CRO + Paid Media + Brand Creative) ----
+   * Scoped to the three pages whose approved handoffs specify this contract, so
    * the four earlier service-detail pages are untouched. CSS owns every
    * authored size; both passes below are safeguards that must stay idle at
    * each authored step.
    */
   (function () {
-    var page = $(".v3-cro") || $(".v3-paid");
+    var page = $(".v3-cro") || $(".v3-paid") || $(".v3-creative");
     if (!page) return;
 
     function syneReady() {

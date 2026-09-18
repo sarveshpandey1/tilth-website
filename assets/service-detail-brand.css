@@ -1,0 +1,352 @@
+/* ===========================================================================
+   /services/brand-creative/ — page layer over the shared service-detail system.
+   Ported from the final approved design
+   "Tilth Service - Brand Strategy & Performance Creative.dc.html"
+   (SHA-256 f98fb918…466fb945) per
+   TILTH_BRAND_STRATEGY_PERFORMANCE_CREATIVE_HANDOFF.md.
+
+   Loaded AFTER assets/service-detail.css. Everything is scoped to .v3-creative so
+   Performance Marketing, Growth Strategy, SEO, Affiliate, Website/CRO and Paid
+   Media are untouched — service-detail.css itself is not modified at all, which
+   is what keeps those six routes byte-identical.
+
+   Five things genuinely differ from the shared system and live here:
+     1. this page's approved H1 and closing-CTA ladders, plus the hyphenation
+        gate that switches the single H1 break off above 620px,
+     2. a hero that is STACKED at every width (the shared file splits it at
+        1440 and re-splits at 1700),
+     3. the five-item ruled deliverables index — this page has no six-tile
+        deliverables grid, by design,
+     4. the wider 1.2fr closing-CTA composition at 1440, and
+     5. the CREATIVE GRAMMAR, this page's signature.
+
+   Selectors are .v3-service-detail.v3-creative / .v3-creative [hook] so they outrank
+   the shared rules on SPECIFICITY, not source order — the shared file sets
+   several of these inside larger min-width blocks that also match at wider
+   widths, and relying on order there is the trap CLAUDE.md §6b warns about.
+
+   Layout is CSS-first: every grid, gap and type step below is a media query,
+   correct before any JS runs. Per the handoff, no responsive property on this
+   page may live in an inline style — an inline declaration cannot be overridden
+   by a media query, so the desktop treatment leaks into every smaller width.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   0. BODY MARGIN RESET — page-scoped, and load-bearing for the type ladder.
+
+   brand-v3.css never resets the UA default `body{margin:8px}`, so every
+   measured track in production is 16px narrower than the approved design's
+   (whose helmet sets `body{margin:0}`). Measured on this port at all twelve
+   widths BEFORE deciding, as handoff §19 requires.
+
+   Measured WITHOUT the reset (8px inset), painted-ink clearance:
+     620 -> 0.4px · 768 -> 1.6px · 900 -> 1.6px · 1024 -> 4.0px
+   against the approved range of ~1.2px -> 88px, and at 1700 the word "and"
+   was stranded as its own line. The fit safeguard had not fired yet, but 0.4px
+   is inside measurement noise of a real overrun and three widths sat below the
+   approved floor.
+
+   Measured WITH the reset, the ladder lands on the approved geometry at all
+   twelve widths, the safeguard stays idle, and the 1700 orphan is gone.
+
+   Scoped to body.v3-creative — the least invasive correction, and the same one
+   already approved for Website/CRO and Paid Media. The Homepage, Services index
+   and the four earlier service-detail routes keep their existing 8px inset and
+   their approved geometry. No global shell normalisation.
+   --------------------------------------------------------------------------- */
+body.v3-creative { margin: 0; }
+
+/* ---------------------------------------------------------------------------
+   1. TYPE LADDERS — approved and frozen.
+
+   H1   34 / 40 / 43 / 48 / 52 / 62 / 70 / 78 / 78 / 84 / 94 / 106
+   CTA  20 / 24 / 30 / 32 / 34 / 36 / 40 / 40 / 40 / 42 / 42 / 48
+   (at 390 / 480 / 620 / 700 / 768 / 900 / 1024 / 1180 / 1200 / 1280 / 1440 / 1700)
+
+   Measured Syne 800 uppercase tokens the ladder is derived from:
+     PERFORMANCE = 13.20em · FORMANCE = 9.786em · BRAND STRATEGY = 14.802em
+   Below 620 the approved per&shy;formance break carries the line and each step
+   is authored under track / 9.786; from 620 up PERFORMANCE fits whole and each
+   step is authored under track / 13.20. The fit safeguard never fires.
+
+   --h2/--h3/--body/--card/--pad/--sy are identical to the shared ladders and
+   are left to cascade.
+   --------------------------------------------------------------------------- */
+.v3-service-detail.v3-creative { --h1: 34px; }
+@media (min-width: 480px)  { .v3-service-detail.v3-creative { --h1: 40px; } }
+@media (min-width: 620px)  { .v3-service-detail.v3-creative { --h1: 43px; } }
+@media (min-width: 700px)  { .v3-service-detail.v3-creative { --h1: 48px; } }
+@media (min-width: 768px)  { .v3-service-detail.v3-creative { --h1: 52px; } }
+@media (min-width: 900px)  { .v3-service-detail.v3-creative { --h1: 62px; } }
+@media (min-width: 1024px) { .v3-service-detail.v3-creative { --h1: 70px; } }
+@media (min-width: 1180px) { .v3-service-detail.v3-creative { --h1: 78px; } }
+@media (min-width: 1280px) { .v3-service-detail.v3-creative { --h1: 84px; } }
+@media (min-width: 1440px) { .v3-service-detail.v3-creative { --h1: 94px; } }
+@media (min-width: 1700px) { .v3-service-detail.v3-creative { --h1: 106px; } }
+
+/* This closing H2 is the longest in the service family — its binding line
+   BRAND STRATEGY & PERFORMANCE measures 29.85em, so the sizes the other service
+   pages use set it to five and six lines. Authored lower here on purpose, and
+   balanced rather than greedily wrapped; the H1:CTA ratio still clears 1.25
+   everywhere. */
+.v3-creative [data-cta-h] { font-size: 20px; text-wrap: balance; }
+@media (min-width: 480px)  { .v3-creative [data-cta-h] { font-size: 24px; } }
+@media (min-width: 620px)  { .v3-creative [data-cta-h] { font-size: 30px; } }
+@media (min-width: 700px)  { .v3-creative [data-cta-h] { font-size: 32px; } }
+@media (min-width: 768px)  { .v3-creative [data-cta-h] { font-size: 34px; } }
+@media (min-width: 900px)  { .v3-creative [data-cta-h] { font-size: 36px; } }
+@media (min-width: 1024px) { .v3-creative [data-cta-h] { font-size: 40px; } }
+/* 42px, not 44: from 1440 the CTA grid splits, so this heading's track is the
+   1.2fr column (~708px at 1440), not the full page width. */
+@media (min-width: 1280px) { .v3-creative [data-cta-h] { font-size: 42px; } }
+/* Must sit AFTER the 1280/1440 steps — equal specificity resolves on source
+   order, and placed earlier this step is silently overwritten. */
+@media (min-width: 1700px) { .v3-creative [data-cta-h] { font-size: 48px; } }
+
+/* Measure caps in px, never ch — a ch cap scales with font-size and makes a
+   shrink-to-fit loop non-convergent. The shared file caps [data-h2] lower
+   (580/760/820); the approved design uses 620/820/900. */
+@media (min-width: 768px)  { .v3-creative [data-h2] { max-width: 620px; } }
+@media (min-width: 1024px) { .v3-creative [data-h2] { max-width: 820px; } }
+@media (min-width: 1440px) { .v3-creative [data-h2] { max-width: 900px; } }
+
+/* ---------------------------------------------------------------------------
+   2. H1 DISCRETIONARY BREAK — gated, not greedy
+
+   The H1 carries exactly one soft hyphen: per&shy;formance. There are 0 <wbr>
+   elements on the page.
+
+   Below 620 it is LOAD-BEARING: at 390 the track is 354px (with the §0 reset in
+   place), and the unbroken word PERFORMANCE paints ~449px — a ~95px overrun that
+   stays inside the viewport while painting over its neighbour. With the break
+   the widest painted line is ~333px.
+
+   At 620 and above PERFORMANCE fits its track whole, so hyphenation is switched
+   off and the break goes inert. Do not remove the soft hyphen; do not add more.
+   --------------------------------------------------------------------------- */
+.v3-creative [data-h1] { hyphens: manual; -webkit-hyphens: manual; }
+@media (min-width: 620px) {
+  .v3-creative [data-h1] { hyphens: none; -webkit-hyphens: none; }
+}
+
+/* ---------------------------------------------------------------------------
+   2b. 1700 ORPHAN GUARD — balanced wrap at the widest step only
+
+   Greedy wrapping at 1700 strands the connective "AND" as its own line:
+     BRAND STRATEGY / AND / PERFORMANCE / CREATIVE.
+   The track there (1604px, or 1589 with a visible scrollbar) is wide enough to
+   take "BRAND STRATEGY" whole, which pushes "AND" off on its own. The design
+   file reproduces this too; it is a design-QA defect, not an intended wrap.
+
+   text-wrap:balance evens the four lines instead and resolves it to:
+     BRAND / STRATEGY AND / PERFORMANCE / CREATIVE.
+   which is the SAME composition already approved at 620 and 1024 — so the fix
+   converges on the design's own shape rather than inventing a new one.
+
+   Scoped to 1700+ on purpose: at every narrower step the greedy wrap is already
+   the approved one, and balancing there would change approved line sets. The
+   H1 stays at the authored 106px, the single per&shy;formance break stays inert
+   above 620, and no <wbr> or second soft hyphen is introduced.
+
+   `balance` is the only property changed — letter-spacing, size, hero tracks and
+   padding are all untouched, and the safeguard stays idle.
+   --------------------------------------------------------------------------- */
+@media (min-width: 1700px) {
+  .v3-creative [data-h1] { text-wrap: balance; }
+}
+
+/* ---------------------------------------------------------------------------
+   3. HERO — STACKED AT ALL TWELVE WIDTHS
+
+   service-detail.css splits [data-hero-grid] 1.55fr/.45fr at 1440 and re-splits
+   it 1.45fr/.55fr at 1700. Both are cancelled here. Measured, not preferred:
+   the split was built and tested at 1280/1440/1700 and rejected — the fit
+   safeguard fired at all three, the H1 was cut by ~18.5/20.7/23.3px, it STILL
+   overran by ~215–240px, and it added a line. One unconditional declaration is
+   enough: at 0,2,0 it outranks both shared rules (0,1,0) whichever order the
+   files load in.
+   --------------------------------------------------------------------------- */
+.v3-creative [data-hero-grid] { grid-template-columns: minmax(0, 1fr); }
+
+/* ---------------------------------------------------------------------------
+   4. PROBLEM — five editorial rows, never cards
+   --------------------------------------------------------------------------- */
+@media (min-width: 1100px) {
+  /* the shared file sets the head row but without justify-content */
+  .v3-creative [data-prob-head] { justify-content: space-between; }
+}
+.v3-creative [data-prow] { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.v3-creative [data-prow] [data-ptag] { justify-self: start; }
+@media (min-width: 768px) {
+  .v3-creative [data-prow] { grid-template-columns: 44px minmax(0, 1fr); gap: 0 20px; }
+  .v3-creative [data-prow] [data-ptag] { grid-column: 2; margin-top: 10px; }
+}
+@media (min-width: 1200px) {
+  .v3-creative [data-prow] { grid-template-columns: 44px minmax(0, 1fr) 190px; gap: 0 32px; align-items: baseline; }
+  .v3-creative [data-prow] [data-ptag] { grid-column: 3; margin-top: 0; justify-self: end; text-align: right; }
+}
+
+/* ---------------------------------------------------------------------------
+   5. DELIVERABLES — five, one full-width ruled editorial index
+
+   Five items in a 3-up grid orphans two, so this page does not use the shared
+   [data-deliv-grid] card system at all. The fixed 190px right-aligned
+   classifier column is deliberate — it matches the problem-row classifier
+   geometry at wide desktop, rather than a 1fr track that strands a short mono
+   label on the left.
+   --------------------------------------------------------------------------- */
+.v3-creative [data-drow] { grid-template-columns: 38px minmax(0, 1fr); gap: 0 16px; align-items: baseline; }
+.v3-creative [data-dname] { font-size: 22px; }
+@media (min-width: 620px)  { .v3-creative [data-dname] { font-size: 26px; } }
+@media (min-width: 768px)  {
+  .v3-creative [data-drow] { grid-template-columns: 56px minmax(0, 1fr) 190px; gap: 0 24px; }
+  .v3-creative [data-dname] { font-size: 31px; }
+}
+@media (min-width: 1024px) { .v3-creative [data-dname] { font-size: 38px; } }
+@media (min-width: 1440px) {
+  .v3-creative [data-drow] { grid-template-columns: 72px minmax(0, 1fr) 190px; }
+  .v3-creative [data-dname] { font-size: 44px; }
+}
+.v3-creative [data-dnote] { display: none; }
+@media (min-width: 768px) {
+  .v3-creative [data-dnote] { display: block; justify-self: end; text-align: right; }
+}
+
+/* ---------------------------------------------------------------------------
+   6. PROOF + CLOSING CTA composition
+
+   The shared file uses 40/52px proof margins and a 56px column gap; the
+   approved design uses 48/60px and 48px. At 1440 the shared CTA grid is
+   1.1fr/.9fr — at that width this heading's column is only ~700px and
+   text-wrap:balance sets it to FIVE lines. Widen the composition rather than
+   shrinking the type: 1.2fr.
+   --------------------------------------------------------------------------- */
+.v3-creative [data-proof-grid] { margin-top: 48px; }
+@media (min-width: 768px) { .v3-creative [data-proof-grid] { margin-top: 60px; } }
+@media (min-width: 900px) {
+  .v3-creative [data-proof-grid] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; }
+}
+@media (min-width: 1440px) {
+  .v3-creative [data-cta-grid] { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 56px; align-items: end; }
+  .v3-creative [data-cta-actions] { flex-direction: column; align-items: flex-start; gap: 18px; }
+}
+
+/* ===========================================================================
+   7. CREATIVE GRAMMAR — this page's signature.
+
+   Built from REAL LAYOUT BOXES, not an SVG. That is structural, not stylistic:
+   real boxes reflow at every width, the labels stay at readable px sizes
+   instead of scaling down with a fixed viewBox, each expression fills its
+   responsive track so there is no dead column, the shared alignment rule stays
+   measurable in the DOM, and mobile is a real mobile composition rather than a
+   shrunken desktop diagram. Do not convert this to SVG.
+   =========================================================================== */
+.v3-creative [data-cg-head] { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+@media (min-width: 1024px) {
+  .v3-creative [data-cg-head] { grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: end; }
+}
+
+/* --- the strategic core: the rules every expression inherits --------------- */
+.v3-creative [data-core] {
+  border: 1px solid var(--line); padding: 22px 20px 24px; opacity: .5;
+  transition: opacity .6s cubic-bezier(.16, 1, .3, 1), border-color .6s;
+}
+.v3-creative [data-core][data-on] { opacity: 1; border-color: var(--line2); }
+.v3-creative [data-core-rules] { grid-template-columns: minmax(0, 1fr); gap: 14px; margin-top: 18px; }
+@media (min-width: 700px) {
+  .v3-creative [data-core-rules] { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+}
+.v3-creative [data-rule] {
+  padding-top: 14px; border-top: 1px solid var(--line); opacity: .34;
+  transition: opacity .6s cubic-bezier(.16, 1, .3, 1);
+}
+.v3-creative [data-rule][data-on] { opacity: 1; border-top-color: var(--mosstext); }
+.v3-creative [data-rule] [data-rl] { transition: color .5s; }
+.v3-creative [data-rule][data-on] [data-rl] { color: var(--mosstext); }
+
+/* --- GENERATION: core -> each expression -----------------------------------
+   The connector and its expression are ONE grid item (a pair), never two
+   parallel grids. A separate connector grid drifts out of alignment the moment
+   the expression grid has a column-gap — the 1fr thirds of a gapped grid do not
+   coincide with the thirds of an ungapped one — and collapses into three
+   dangling stubs when the expressions stack. Pairing makes both impossible.
+   Do not separate them back out.
+   --------------------------------------------------------------------------- */
+.v3-creative [data-gen] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; align-items: stretch; }
+.v3-creative [data-pair] { display: flex; flex-direction: column; min-width: 0; }
+.v3-creative [data-pair] [data-expr] { flex: 1 1 auto; }
+.v3-creative [data-conn] {
+  align-self: center; width: 2px; height: 26px; background: var(--stone);
+  opacity: 0; transform: scaleY(0); transform-origin: top;
+  transition: opacity .5s, transform .6s cubic-bezier(.16, 1, .3, 1), background .5s;
+}
+.v3-creative [data-conn][data-on] { opacity: .45; transform: scaleY(1); }
+/* Approved breakpoint: 1-column below 620, 3-up at 620 and above. Do NOT move
+   this to 700 — at 620 each expression is ~182px, reviewed at size and
+   accepted: primitives stay legible, the label stays at 10px, 0 collisions. */
+@media (min-width: 620px) {
+  .v3-creative [data-gen] { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 12px; row-gap: 0; }
+  .v3-creative [data-conn] { height: 34px; }
+}
+@media (min-width: 768px)  { .v3-creative [data-gen] { column-gap: 16px; } }
+@media (min-width: 1200px) { .v3-creative [data-gen] { column-gap: 22px; } }
+
+.v3-creative [data-expr] {
+  position: relative; border: 1px solid var(--line); padding: 16px 14px 14px;
+  min-height: 196px; display: flex; flex-direction: column;
+  opacity: 0; transform: translateY(14px);
+  transition: opacity .6s cubic-bezier(.16, 1, .3, 1), transform .6s cubic-bezier(.16, 1, .3, 1), border-color .5s;
+}
+.v3-creative [data-expr][data-on] { opacity: 1; transform: none; }
+@media (min-width: 768px)  { .v3-creative [data-expr] { min-height: 224px; padding: 18px 16px 16px; } }
+@media (min-width: 1200px) { .v3-creative [data-expr] { min-height: 250px; padding: 20px 18px 18px; } }
+
+/* --- abstract editorial primitives — bars and fields, never mock ads ------- */
+.v3-creative [data-p="head"]  { background: var(--fg); opacity: .82; height: 13px; border-radius: 1px; }
+.v3-creative [data-p="head2"] { background: var(--fg); opacity: .82; height: 13px; width: 62%; border-radius: 1px; }
+.v3-creative [data-p="msg"]   { background: var(--stone); opacity: .42; height: 5px; border-radius: 1px; }
+.v3-creative [data-p="img"]   { background: var(--stone); opacity: .14; border: 1px solid var(--line); flex: 1 1 auto; min-height: 44px; }
+.v3-creative [data-p="proof"] { background: var(--stone); opacity: .3; height: 5px; width: 46%; border-radius: 1px; }
+.v3-creative [data-p="cta"]   { height: 22px; border: 1px solid var(--line2); border-radius: 2px; }
+@media (min-width: 768px) {
+  .v3-creative [data-p="head"], .v3-creative [data-p="head2"] { height: 15px; }
+  .v3-creative [data-p="cta"] { height: 26px; }
+}
+
+/* --- THE SHARED RULE — the core proof --------------------------------------
+   One horizontal Moss rule and one vertical Moss tick sit at the SAME fraction
+   of every expression box, whatever that expression's internal arrangement.
+   Resolved fractions, identical across all three at all twelve widths:
+     vertical 0.3807 · horizontal tick 0.221
+   (0.3807 vs the authored 38% is the 1px border above the padding box — the
+   same for all three, which is exactly the point.)
+
+   Moss here means SHARED STRATEGIC GRAMMAR, never winner / better / higher
+   performing. Nothing in this signature ranks the three expressions.
+   --mosstext, not --moss: #BEF54F on the light ground is 1.17:1, while
+   --mosstext resolves to #4A661A in light (dark 14.58:1 / light 5.97:1).
+
+   If the three rules ever land at different heights the page stops making its
+   argument. This is the single most important thing on the page to preserve.
+   --------------------------------------------------------------------------- */
+.v3-creative [data-gr] {
+  position: absolute; left: 0; right: 0; top: 38%; height: 1px; background: var(--mosstext);
+  opacity: 0; transform: scaleX(0); transform-origin: left;
+  transition: opacity .55s, transform .75s cubic-bezier(.16, 1, .3, 1);
+}
+.v3-creative [data-gr][data-on] { opacity: .6; transform: scaleX(1); }
+.v3-creative [data-grtick] {
+  position: absolute; left: 22%; top: 0; bottom: 0; width: 1px; background: var(--mosstext);
+  opacity: 0; transition: opacity .55s;
+}
+.v3-creative [data-grtick][data-on] { opacity: .34; }
+
+/* 10px is the minimum label size on this page — do not go below it. */
+.v3-creative [data-exlab] { transition: color .5s, opacity .5s; opacity: .5; }
+.v3-creative [data-expr][data-on] [data-exlab] { opacity: 1; }
+
+.v3-creative [data-grcap] {
+  opacity: 0; transform: translateY(8px);
+  transition: opacity .6s, transform .6s cubic-bezier(.16, 1, .3, 1);
+}
+.v3-creative [data-grcap][data-on] { opacity: 1; transform: none; }
