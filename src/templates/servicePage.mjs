@@ -117,7 +117,7 @@ ${ctaBlock({
 // serviceContent — those pages import it — so only the generated route is
 // skipped. Every other service route continues to render from this template
 // unchanged.
-const BESPOKE = new Set(["performance-marketing", "growth-strategy-measurement", "seo-ai-search", "affiliate-partnerships", "paid-media"]);
+const BESPOKE = new Set(["performance-marketing", "growth-strategy-measurement", "seo-ai-search", "affiliate-partnerships", "paid-media", "brand-creative"]);
 
 export const allServicePages = Object.keys(serviceContent)
   .filter(slug => !BESPOKE.has(slug))
