@@ -1,0 +1,480 @@
+/* ===========================================================================
+   /services/influencer-pr-events/ — page layer over the shared service-detail
+   system. Ported from the final approved design
+   "Tilth Service - Influencer PR & Events.dc.html"
+   (SHA-256 f1ddff7a…76aad9a5) per TILTH_INFLUENCER_PR_EVENTS_HANDOFF.md.
+
+   Loaded AFTER assets/service-detail.css. Everything is scoped to .v3-influencer
+   so the seven closed service-detail routes are untouched — service-detail.css
+   itself is not modified at all, which is what keeps them byte-identical.
+
+   Class name: .v3-influencer was collision-checked repo-wide before use (0
+   occurrences in any CSS, JS, MJS or HTML). This check is mandatory here: an
+   earlier handoff suggested .v3-brand, which silently collided with the
+   homepage brand-rail component in brand-v3.css and applied white-space:nowrap,
+   Syne 26px and opacity .58 to <body>.
+
+   Six things genuinely differ from the shared system and live here:
+     1. this page's approved H1 and closing-CTA ladders, with ZERO discretionary
+        breaks — balance, not hyphenation,
+     2. a hero that is STACKED at every width (the shared file splits it at
+        1440 and re-splits at 1700),
+     3. the 320px layer column and the two-up connection band whose arrows stay
+        attached to their labels,
+     4. the five-item ruled deliverables index with a 210px classifier column,
+     5. the wider 1.35fr closing-CTA composition at 1440, and
+     6. the DISTRIBUTION FIELD, this page's signature.
+
+   Selectors are .v3-service-detail.v3-influencer / .v3-influencer [hook] so they
+   outrank the shared rules on SPECIFICITY, not source order — the shared file
+   sets several of these inside larger min-width blocks that also match at wider
+   widths, and relying on order there is the trap CLAUDE.md §6b warns about.
+
+   Layout is CSS-first: every grid, gap and type step below is a media query,
+   correct before any JS runs.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   0. BODY MARGIN — measured before deciding, per handoff §19.
+
+   This route moves from the generic/legacy template into Brand v3, so its final
+   margin could not be assumed either way. Measured on the production port at
+   all twelve widths BEFORE writing this rule; see the report for before →
+   decision → after. The approved ladder is authored against a track of
+   viewport − 2×--pad, which is what the design's `body{margin:0}` helmet
+   produces, so the production UA default of 8px narrows every track by 16px.
+
+   Page-scoped only. The Homepage, Services index and the earlier service-detail
+   routes keep their existing 8px inset and their approved geometry. No global
+   shell normalisation.
+   --------------------------------------------------------------------------- */
+body.v3-influencer { margin: 0; }
+
+/* ---------------------------------------------------------------------------
+   1. TYPE LADDERS — approved and frozen.
+
+   H1   30 / 36 / 48 / 54 / 58 / 66 / 68 / 76 / 78 / 86 / 96 / 108
+   CTA  20 / 26 / 32 / 36 / 36 / 36 / 46 / 46 / 48 / 52 / 52 / 58
+   (at 390 / 480 / 620 / 700 / 768 / 900 / 1024 / 1180 / 1200 / 1280 / 1440 / 1700)
+
+   Authored against Syne 800 uppercase tokens measured inside a real rendered
+   page AFTER `await document.fonts.ready`:
+     DISTRIBUTION = 11.569em  (binding H1 word)
+     INFLUENCER,  = 11.006em
+     DISTRIBUTION ENGINE. = 18.513em
+     READY TO WORK ON = 16.683em  (binding CTA line)
+     INFLUENCER, PR & = 15.110em
+   Every H1 step is authored under track / 11.569 and every CTA step under
+   track / 16.683, which is why both safeguards stay idle at all twelve widths.
+
+   A probe run before the real face is applied returns a fallback ~35% narrow
+   and would silently certify a broken ladder — never measure pre-load.
+
+   --h2/--h3/--body/--card/--pad/--sy match the shared ladders and cascade.
+   --------------------------------------------------------------------------- */
+.v3-service-detail.v3-influencer { --h1: 30px; }
+@media (min-width: 480px)  { .v3-service-detail.v3-influencer { --h1: 36px; } }
+@media (min-width: 620px)  { .v3-service-detail.v3-influencer { --h1: 48px; } }
+@media (min-width: 700px)  { .v3-service-detail.v3-influencer { --h1: 54px; } }
+@media (min-width: 768px)  { .v3-service-detail.v3-influencer { --h1: 58px; } }
+@media (min-width: 900px)  { .v3-service-detail.v3-influencer { --h1: 66px; } }
+@media (min-width: 1024px) { .v3-service-detail.v3-influencer { --h1: 68px; } }
+@media (min-width: 1180px) { .v3-service-detail.v3-influencer { --h1: 76px; } }
+@media (min-width: 1200px) { .v3-service-detail.v3-influencer { --h1: 78px; } }
+@media (min-width: 1280px) { .v3-service-detail.v3-influencer { --h1: 86px; } }
+@media (min-width: 1440px) { .v3-service-detail.v3-influencer { --h1: 96px; } }
+@media (min-width: 1700px) { .v3-service-detail.v3-influencer { --h1: 108px; } }
+
+.v3-influencer [data-cta-h] { font-size: 20px; text-wrap: balance; }
+@media (min-width: 480px)  { .v3-influencer [data-cta-h] { font-size: 26px; } }
+@media (min-width: 620px)  { .v3-influencer [data-cta-h] { font-size: 32px; } }
+@media (min-width: 700px)  { .v3-influencer [data-cta-h] { font-size: 36px; } }
+/* stated so the ladder reads straight down; the shared 768 step (42px) already
+   loses to the specificity above */
+@media (min-width: 768px)  { .v3-influencer [data-cta-h] { font-size: 36px; } }
+@media (min-width: 900px)  { .v3-influencer [data-cta-h] { font-size: 36px; } }
+@media (min-width: 1024px) { .v3-influencer [data-cta-h] { font-size: 46px; } }
+@media (min-width: 1200px) { .v3-influencer [data-cta-h] { font-size: 48px; } }
+@media (min-width: 1280px) { .v3-influencer [data-cta-h] { font-size: 52px; } }
+@media (min-width: 1440px) { .v3-influencer [data-cta-h] { font-size: 52px; } }
+/* Must sit AFTER the 1280/1440 steps — equal specificity resolves on source
+   order, and placed earlier this step is silently overwritten. */
+@media (min-width: 1700px) { .v3-influencer [data-cta-h] { font-size: 58px; } }
+
+/* Measure caps in px, never ch — a ch cap scales with font-size and makes a
+   shrink-to-fit loop non-convergent. The shared file caps [data-h2] lower
+   (580/760/820); the approved design uses 620/820/900. */
+@media (min-width: 768px)  { .v3-influencer [data-h2] { max-width: 620px; } }
+@media (min-width: 1024px) { .v3-influencer [data-h2] { max-width: 820px; } }
+@media (min-width: 1440px) { .v3-influencer [data-h2] { max-width: 900px; } }
+
+/* ---------------------------------------------------------------------------
+   2. H1 WRAPPING — ZERO discretionary breaks
+
+   This page has 0 &shy; and 0 <wbr>, and is the first in the family where that
+   is true. DISTRIBUTION (11.569em) is the binding word and it fits its track at
+   every authored size, so no soft hyphen is load-bearing — tested explicitly, a
+   `distri&shy;bution` variant produces an IDENTICAL ink clearance at all twelve
+   widths because balance already finds a break that avoids it.
+
+   The design file contains the string `distri&shy;bution` ONLY inside a CSS
+   comment recording that rejected test. It must never reach markup.
+
+   Balance is also doing editorial work: greedy setting strands AS A on its own
+   line and drops ENGINE. alone at the wide end.
+   --------------------------------------------------------------------------- */
+.v3-influencer [data-h1] { hyphens: none; -webkit-hyphens: none; text-wrap: balance; }
+
+/* ---------------------------------------------------------------------------
+   3. HERO — STACKED AT ALL TWELVE WIDTHS
+
+   service-detail.css splits [data-hero-grid] 1.55fr/.45fr at 1440 and re-splits
+   it 1.45fr/.55fr at 1700. Both are cancelled here. Measured, not preferred:
+   the split was built and tested at 1280/1440/1700 and rejected — the fit
+   safeguard fired at all three, the H1 was cut by ~18.9/21.1/23.8px, it STILL
+   overran by ~114/121/79px, and it added 1–2 lines. One unconditional
+   declaration is enough: at 0,2,0 it outranks both shared rules (0,1,0)
+   whichever order the files load in.
+   --------------------------------------------------------------------------- */
+.v3-influencer [data-hero-grid] { grid-template-columns: minmax(0, 1fr); }
+
+/* ---------------------------------------------------------------------------
+   4. GROWTH SYSTEM PANEL — layer column and the connection band
+
+   320px, not the shared 220: DISTRIBUTION is the longest layer word in the
+   service family, so its column is widened rather than the label shrunk. The
+   layer word is sized against its own column, not the panel.
+   --------------------------------------------------------------------------- */
+.v3-influencer [data-layer] { font-size: 22px; }
+@media (min-width: 480px)  { .v3-influencer [data-layer] { font-size: 26px; } }
+@media (min-width: 1024px) {
+  .v3-influencer [data-layer] { font-size: 24px; }
+  .v3-influencer [data-rel] { grid-template-columns: 320px minmax(0, 1fr); gap: 48px; }
+}
+
+/* CONNECTS WITH — two connections only (a third is forbidden). The stacked hero
+   gives this panel the full viewport width, and laid out as one full-width link
+   per row with a space-between arrow the arrow ended up 922px from its own
+   label at 1700 — a detached affordance. Fixed at the composition level: the
+   two connections sit 2-up from 620 so they fill the band as parallel links.
+
+   display:block, not flex: the label wraps at 1024 (panel track ~251px) and a
+   flex arrow would stay on the first baseline while the text ran on below it.
+   Inline flow keeps the arrow with the last word at every width and wrap state;
+   the arrow is joined to the label with a non-breaking space in the markup. */
+.v3-influencer [data-conns] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+/* stacked, the two rules would double up where the rows meet */
+.v3-influencer [data-conns] > :first-child { margin-bottom: -1px; }
+@media (min-width: 620px) {
+  .v3-influencer [data-conns] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; }
+  .v3-influencer [data-conns] > :first-child { margin-bottom: 0; }
+}
+.v3-influencer [data-conn-a] {
+  display: block; padding: 11px 0;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  font-size: 13.5px; line-height: 1.35; color: var(--stone); text-wrap: pretty;
+  transition: color .3s;
+}
+/* The shared [data-connk] hover adds padding-left:6px, which would shift a
+   block link; these are inline-flow links, so only the colour changes. */
+.v3-influencer [data-conn-a]:hover,
+.v3-influencer [data-conn-a]:focus-visible { color: var(--fg); }
+
+/* ---------------------------------------------------------------------------
+   5. PROBLEM — five editorial rows, never cards
+   210px classifier column at wide desktop, matching the deliverables geometry.
+   --------------------------------------------------------------------------- */
+@media (min-width: 1100px) {
+  /* the shared file sets the head row but without justify-content */
+  .v3-influencer [data-prob-head] { justify-content: space-between; }
+}
+.v3-influencer [data-prow] { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.v3-influencer [data-prow] [data-ptag] { justify-self: start; }
+@media (min-width: 768px) {
+  .v3-influencer [data-prow] { grid-template-columns: 44px minmax(0, 1fr); gap: 0 20px; }
+  .v3-influencer [data-prow] [data-ptag] { grid-column: 2; margin-top: 10px; }
+}
+@media (min-width: 1200px) {
+  .v3-influencer [data-prow] { grid-template-columns: 44px minmax(0, 1fr) 210px; gap: 0 32px; align-items: baseline; }
+  .v3-influencer [data-prow] [data-ptag] { grid-column: 3; margin-top: 0; justify-self: end; text-align: right; }
+}
+
+/* ---------------------------------------------------------------------------
+   6. DELIVERABLES — five, one full-width ruled editorial index
+
+   Five items in a 3-up grid orphans two, so this page does not use the shared
+   [data-deliv-grid] card system at all. The fixed 210px right-aligned
+   classifier column matches the problem-row geometry.
+   --------------------------------------------------------------------------- */
+.v3-influencer [data-drow] { grid-template-columns: 38px minmax(0, 1fr); gap: 0 16px; align-items: baseline; }
+.v3-influencer [data-dname] { font-size: 22px; }
+@media (min-width: 620px)  { .v3-influencer [data-dname] { font-size: 26px; } }
+@media (min-width: 768px)  {
+  .v3-influencer [data-drow] { grid-template-columns: 56px minmax(0, 1fr) 210px; gap: 0 24px; }
+  .v3-influencer [data-dname] { font-size: 31px; }
+}
+@media (min-width: 1024px) { .v3-influencer [data-dname] { font-size: 38px; } }
+@media (min-width: 1440px) {
+  .v3-influencer [data-drow] { grid-template-columns: 72px minmax(0, 1fr) 210px; }
+  .v3-influencer [data-dname] { font-size: 44px; }
+}
+.v3-influencer [data-dnote] { display: none; }
+@media (min-width: 768px) {
+  .v3-influencer [data-dnote] { display: block; justify-self: end; text-align: right; }
+}
+
+/* ---------------------------------------------------------------------------
+   7. PROOF + CLOSING CTA composition
+
+   The shared file uses 40/52px proof margins and a 56px column gap; the
+   approved design uses 48/60px and 48px. At 1440 the shared CTA grid is
+   1.1fr/.9fr — at that width this heading's track falls to 708px, below what
+   52px needs. Widen the composition rather than stepping the type back down
+   from 1280: 1.35fr.
+
+   The FAQ grid also differs: this page's two-item FAQ uses .85fr/1.15fr so the
+   left column (eyebrow, H2 and the Related Services line) balances a shorter
+   right column; the shared file uses .8fr/1.2fr.
+   --------------------------------------------------------------------------- */
+.v3-influencer [data-proof-grid] { margin-top: 48px; }
+@media (min-width: 768px) { .v3-influencer [data-proof-grid] { margin-top: 60px; } }
+@media (min-width: 900px) {
+  .v3-influencer [data-proof-grid] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; }
+}
+@media (min-width: 1180px) {
+  .v3-influencer [data-faq-grid] { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 52px; }
+}
+@media (min-width: 1440px) {
+  .v3-influencer [data-cta-grid] { grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); gap: 56px; align-items: end; }
+  .v3-influencer [data-cta-actions] { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .v3-influencer [data-faq-grid] { gap: 64px; }
+}
+
+/* ===========================================================================
+   8. DISTRIBUTION FIELD — this page's signature, and the eighth in the family.
+
+   One originating signal enters a SHARED FIELD through three parallel
+   distribution modes. All three occupy the same full field width at the same
+   ink coverage and differ ONLY in grain, so no mode reads as reaching further
+   or performing better than another.
+
+   Built from real layout boxes on ONE shared row grid — not an SVG. Real boxes
+   reflow at every width, labels stay at readable px sizes instead of scaling
+   down with a fixed viewBox, each band fills its responsive track so there is
+   no dead column, the rows stay column-aligned BY CONSTRUCTION (drift 0.000px),
+   and mobile is a real mobile composition rather than a shrunken diagram.
+   Do not convert this to SVG.
+   =========================================================================== */
+.v3-influencer [data-df-head] { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+@media (min-width: 1024px) {
+  .v3-influencer [data-df-head] { grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: end; }
+}
+.v3-influencer [data-dfgrid] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+
+/* --- the originating signal: a full-width BAND, never a left rail -----------
+   Measured: a 250px side rail made the band track SHRINK as the window grew
+   (899px at 1180 -> 669px at 1200) — a backwards step inside the signature
+   itself. Banded, the track grows monotonically at all twelve widths and the
+   composition is the same idea on a phone as on a 1700 desktop.
+
+   The panel carries the page's established editorial-row geometry — mono label
+   | content | right-aligned mono note — so a wide band has no dead right side.
+   --------------------------------------------------------------------------- */
+.v3-influencer [data-sigpanel] {
+  border: 1px solid var(--line); padding: 20px 18px 22px;
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px;
+  transition: opacity .6s cubic-bezier(.16, 1, .3, 1), border-color .6s;
+}
+.v3-influencer [data-sigpanel][data-on] { opacity: 1; border-color: var(--line2); }
+.v3-influencer [data-sigl] {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: .14em;
+  line-height: 1; color: var(--stone); padding-bottom: 12px; border-bottom: 1px solid var(--line);
+}
+.v3-influencer [data-sigc] { display: flex; flex-direction: column; gap: 11px; }
+.v3-influencer [data-sigr] {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .13em;
+  line-height: 1.6; color: var(--mosstext);
+}
+@media (min-width: 620px) {
+  .v3-influencer [data-sigpanel] { grid-template-columns: 150px minmax(0, 1fr); gap: 16px 18px; align-items: start; }
+  .v3-influencer [data-sigl] { padding-bottom: 0; border-bottom: 0; }
+  .v3-influencer [data-sigr] { grid-column: 2; }
+}
+@media (min-width: 1024px) {
+  .v3-influencer [data-sigpanel] { grid-template-columns: 176px minmax(0, 1fr) 210px; gap: 0 24px; align-items: center; }
+  .v3-influencer [data-sigr] { grid-column: 3; justify-self: end; text-align: right; }
+}
+
+/* --- Moss signal continuity — a CLOSED defect, do not reopen ----------------
+   The signal runs panel -> drop -> field spine as ONE continuous Moss line.
+   `margin-left:0` puts the drop at the same inline start as [data-field]'s
+   border-left. An earlier build offset the drop to the label column (74/87px)
+   while the spine ran at the left edge, leaving a dangling stub and a spine
+   starting elsewhere — two disconnected marks.
+
+   Required and verified at all twelve widths:
+     panel.bottom = stub.top   (0px gap)
+     stub.bottom  = field.top  (0px gap)
+     stub.left    = field.left (0.00px offset from the Moss spine)
+
+   Do not re-offset the drop to the label column.
+   --------------------------------------------------------------------------- */
+.v3-influencer [data-sigdown] {
+  display: block; width: 2px; height: 22px; margin-left: 0; background: var(--mosstext);
+  opacity: .7; transform-origin: top;
+  transition: opacity .5s, transform .6s cubic-bezier(.16, 1, .3, 1);
+}
+.v3-influencer [data-sigdown][data-on] { opacity: .7; transform: scaleY(1); }
+.v3-influencer [data-field] { position: relative; border-left: 1px solid var(--line); padding-left: 14px; }
+@media (min-width: 620px)  { .v3-influencer [data-field] { padding-left: 18px; } }
+@media (min-width: 1024px) { .v3-influencer [data-field] { padding-left: 24px; } }
+.v3-influencer [data-sigedge] {
+  position: absolute; left: -1px; top: 0; bottom: 0; width: 1px; background: var(--mosstext);
+  opacity: .5; transform-origin: top;
+  transition: opacity .6s, transform .85s cubic-bezier(.16, 1, .3, 1);
+}
+.v3-influencer [data-sigedge][data-on] { opacity: .5; transform: scaleY(1); }
+
+/* --- ONE grid for every row ------------------------------------------------
+   Modes, reinforcement, shared field and the readout all share this grid, which
+   is why row-to-row drift is 0.000px by construction. Do not create parallel
+   grids with slightly different gap maths.
+   --------------------------------------------------------------------------- */
+.v3-influencer [data-mode] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 15px 0; }
+@media (min-width: 620px)  { .v3-influencer [data-mode] { grid-template-columns: 132px minmax(0, 1fr); gap: 0 18px; align-items: center; } }
+@media (min-width: 1024px) { .v3-influencer [data-mode] { grid-template-columns: 152px minmax(0, 1fr); gap: 0 24px; } }
+.v3-influencer [data-mode][data-mrow] {
+  border-bottom: 1px solid var(--line);
+  transition: opacity .6s cubic-bezier(.16, 1, .3, 1), transform .6s cubic-bezier(.16, 1, .3, 1);
+}
+.v3-influencer [data-mode][data-mrow][data-on] { opacity: 1; transform: none; }
+.v3-influencer [data-mstub] {
+  display: inline-block; width: 7px; height: 7px; background: var(--mosstext);
+  opacity: .85; transition: opacity .5s; margin-right: 9px; vertical-align: middle;
+}
+.v3-influencer [data-mrow][data-on] [data-mstub] { opacity: .85; }
+.v3-influencer [data-track] { position: relative; height: 30px; background: var(--grid); }
+@media (min-width: 768px)  { .v3-influencer [data-track] { height: 34px; } }
+@media (min-width: 1200px) { .v3-influencer [data-track] { height: 38px; } }
+
+/* --- NON-COMPARATIVE GRAIN ENCODING ----------------------------------------
+   Every mode occupies the SAME full field width (left:0; right:0) at the same
+   ~30% ink coverage; only the GRAIN differs — creators a fine distributed
+   rhythm, media & PR a broader placed rhythm, events a sparse concentrated one.
+   Nothing reaches farther, nothing is denser, nothing ranks.
+
+   Unequal extents (0->78%, 4->62%, 22->100%) were built and REMOVED: length and
+   position read as a measured claim about comparative effectiveness, and there
+   is no evidence for one. Do not convert the grains back into unequal bars.
+
+   The pairs 3/10, 12/40 and 27/90 are GRAPHICAL CONSTRUCTION VALUES ONLY. They
+   are not business metrics: never expose them to users as data, and never add a
+   legend converting them into reach, frequency, spend or performance.
+   --------------------------------------------------------------------------- */
+.v3-influencer [data-ext] {
+  position: absolute; left: 0; right: 0; top: 0; bottom: 0; opacity: .3;
+  transform-origin: left;
+  transition: transform .85s cubic-bezier(.16, 1, .3, 1), opacity .6s;
+}
+.v3-influencer [data-ext][data-on] { opacity: .3; transform: scaleX(1); }
+.v3-influencer [data-ext="creators"] { background: repeating-linear-gradient(90deg, var(--stone) 0 3px, transparent 3px 10px); }
+.v3-influencer [data-ext="media"]    { background: repeating-linear-gradient(90deg, var(--stone) 0 12px, transparent 12px 40px); }
+.v3-influencer [data-ext="events"]   { background: repeating-linear-gradient(90deg, var(--stone) 0 27px, transparent 27px 90px); }
+
+/* --- REINFORCEMENT ---------------------------------------------------------
+   A qualitative shared state, not a measured overlap: one restrained Moss wash
+   across the WHOLE field once all three modes are active. No fraction, no span,
+   no implied percentage. A 22–62% overlap region with Moss end-caps was built
+   and REMOVED.
+   --------------------------------------------------------------------------- */
+.v3-influencer [data-reinbar] {
+  position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: var(--mosstext); opacity: .22;
+  transform-origin: left;
+  transition: transform .8s cubic-bezier(.16, 1, .3, 1), opacity .6s;
+}
+.v3-influencer [data-reinbar][data-on] { opacity: .22; transform: scaleX(1); }
+.v3-influencer [data-reinrow] { transition: opacity .6s; }
+.v3-influencer [data-reinrow][data-on] { opacity: 1; }
+.v3-influencer [data-axisrow],
+.v3-influencer [data-measrow] { transition: opacity .6s; }
+.v3-influencer [data-axisrow][data-on],
+.v3-influencer [data-measrow][data-on] { opacity: 1; }
+
+/* --- SHARED FIELD ----------------------------------------------------------
+   REACH / AUTHORITY / DEMAND describe the shared market field AS A WHOLE. They
+   are set as ONE inline run beneath ONE full-width rule, NOT three positional
+   columns — an earlier three-column grid with a divider at 33.333% silently
+   mapped left-third -> REACH and made the bands look like they terminated in a
+   zone. No thirds, no dividers, no endpoints.
+
+   Do not map Creators -> Reach, Media -> Authority, Events -> Demand.
+   --------------------------------------------------------------------------- */
+.v3-influencer [data-zones] {
+  display: flex; flex-wrap: wrap; gap: 6px 18px;
+  border-top: 1px solid var(--line2); padding-top: 11px;
+}
+
+/* --- MEASUREMENT HONESTY ---------------------------------------------------
+   Two EQUAL-WEIGHT statements in equal columns. A fixed dashed boundary at
+   66.666% separating "trackable" from "authority-building" was built and
+   REMOVED: there must be NO proportional attribution geometry anywhere in this
+   signature — no percentage, no fixed boundary, no relative size suggesting how
+   much belongs to either category.
+
+   The trackable item is a hollow Stone square, the authority-building item a
+   filled one. Equal size, equal columns.
+   --------------------------------------------------------------------------- */
+.v3-influencer [data-measline] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 9px; }
+@media (min-width: 700px) {
+  .v3-influencer [data-measline] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+}
+.v3-influencer [data-meas] { display: flex; align-items: baseline; gap: 9px; }
+.v3-influencer [data-meas] i {
+  flex: 0 0 auto; width: 7px; height: 7px; font-style: normal;
+  background: var(--stone); opacity: .55; transform: translateY(-1px);
+}
+.v3-influencer [data-meas][data-t] i {
+  width: 7px; height: 7px; background: transparent; box-shadow: inset 0 0 0 1px var(--stone);
+}
+
+.v3-influencer [data-dfcap] {
+  transition: opacity .6s, transform .6s cubic-bezier(.16, 1, .3, 1);
+}
+.v3-influencer [data-dfcap][data-on] { opacity: 1; transform: none; }
+
+/* ---------------------------------------------------------------------------
+   9. PROGRESSIVE ENHANCEMENT — the hidden REST state is JS-gated
+
+   The approved design hides the modes, grain, reinforcement, shared field,
+   readout and caption at rest and reveals them through the assembly. In the
+   design host that is safe because its JS always runs. In production it is not:
+   with JS disabled no [data-on] is ever written, so all three distribution
+   modes, the whole field and the entire explanatory caption would render at
+   opacity 0 — invisible. Measured before fixing: mode rows, grain,
+   reinforcement, shared field, readout and [data-dfcap] all computed opacity 0
+   with scripting off, which breaks handoff §18/§13.2 and CLAUDE.md §12.
+
+   So the REST state is applied only when scripting is present. brand-v3.js adds
+   `v3-js` to <html>, and assets/brand-v3.css already gates the shared
+   .v3-reveal system exactly this way — this follows that established pattern
+   rather than inventing one.
+
+   With JS on: identical to the approved design, and the assembly runs normally.
+   With JS off: the complete static field renders at its final values, which is
+   also what the reduced-motion and crawler cases need.
+
+   :where() so the gate contributes ZERO specificity — each [data-on] rule above
+   must still outrank its own rest rule, and wrapping in a plain descendant
+   selector would raise these to the same weight and leave it to source order.
+   --------------------------------------------------------------------------- */
+:where(html.v3-js) .v3-influencer [data-sigpanel] { opacity: .45; }
+:where(html.v3-js) .v3-influencer [data-sigdown] { opacity: 0; transform: scaleY(0); }
+:where(html.v3-js) .v3-influencer [data-sigedge] { opacity: 0; transform: scaleY(0); }
+:where(html.v3-js) .v3-influencer [data-mode][data-mrow] { opacity: 0; transform: translateY(10px); }
+:where(html.v3-js) .v3-influencer [data-mstub] { opacity: 0; }
+:where(html.v3-js) .v3-influencer [data-ext] { opacity: 0; transform: scaleX(0); }
+:where(html.v3-js) .v3-influencer [data-reinbar] { opacity: 0; transform: scaleX(0); }
+:where(html.v3-js) .v3-influencer [data-reinrow] { opacity: 0; }
+:where(html.v3-js) .v3-influencer [data-axisrow],
+:where(html.v3-js) .v3-influencer [data-measrow] { opacity: 0; }
+:where(html.v3-js) .v3-influencer [data-dfcap] { opacity: 0; transform: translateY(8px); }

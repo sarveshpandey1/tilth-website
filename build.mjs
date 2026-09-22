@@ -19,6 +19,7 @@ import seoAiSearch from "./src/pages/seo-ai-search.mjs";
 import affiliatePartnerships from "./src/pages/affiliate-partnerships.mjs";
 import paidMedia from "./src/pages/paid-media.mjs";
 import brandCreative from "./src/pages/brand-creative.mjs";
+import influencerPrEvents from "./src/pages/influencer-pr-events.mjs";
 import { allServicePages } from "./src/templates/servicePage.mjs";
 import { allIndustryPages } from "./src/templates/industryPage.mjs";
 import { allRegionHubs, allRegionChildPages } from "./src/templates/regionHub.mjs";
@@ -35,6 +36,7 @@ const PAGES = [
   affiliatePartnerships,
   paidMedia,
   brandCreative,
+  influencerPrEvents,
   ...allServicePages,
   industriesIndex,
   ...allIndustryPages,

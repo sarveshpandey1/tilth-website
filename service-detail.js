@@ -13,17 +13,19 @@
  * Discovery Surface needs [data-surface] (/services/seo-ai-search/), the
  * Partner Quality Map needs [data-map] (/services/affiliate-partnerships/), the
  * Conversion Path needs [data-cp] (/services/website-design-development/), the
- * Compounding Loop needs [data-cl] (/services/paid-media/), and the Creative
- * Grammar needs [data-cg] (/services/brand-creative/). The FAQ block is common
- * to all seven.
+ * Compounding Loop needs [data-cl] (/services/paid-media/), the Creative
+ * Grammar needs [data-cg] (/services/brand-creative/), and the Distribution
+ * Field needs [data-df] (/services/influencer-pr-events/). The FAQ block is
+ * common to all eight.
  *
  * Everything degrades: with JS off the chart renders its authored static state,
  * the Decision Chain renders its authored FRAGMENTED state, the Partner Quality
  * Map renders its authored ACTIVITY view, the Conversion Path renders its
  * authored complete route, the Compounding Loop renders its full structure at
  * rest opacity, the Creative Grammar renders its core, rules and all three
- * expressions at rest opacity, every FAQ answer is visible, and no content is
- * behind an interaction.
+ * expressions at rest opacity, the Distribution Field renders its signal panel
+ * and all three mode rows at rest opacity, every FAQ answer is visible, and no
+ * content is behind an interaction.
  */
 (function () {
   "use strict";
@@ -769,14 +771,98 @@
     io.observe(cg);
   })();
 
-  /* --- typography safeguards (Website/CRO + Paid Media + Brand Creative) ----
-   * Scoped to the three pages whose approved handoffs specify this contract, so
-   * the four earlier service-detail pages are untouched. CSS owns every
-   * authored size; both passes below are safeguards that must stay idle at
-   * each authored step.
+  /* --- signature visual: Distribution Field --------------------------------
+   * /services/influencer-pr-events/. One originating signal enters a shared
+   * field through three parallel distribution modes. All three occupy the SAME
+   * full track width at the same ink coverage and differ only in grain, so no
+   * mode reads as reaching further or performing better than another. It is NOT
+   * a picker — there are zero controls inside [data-df]. One narrative sequence
+   * runs once on first viewport entry, then settles into a complete, static
+   * state.
+   *
+   * The structure is readable BEFORE motion: the signal panel, all three mode
+   * rows and every label are already painted at rest opacity by
+   * service-detail-influencer.css. Only the Moss marks, the grains, the
+   * reinforcement wash, the shared-field/readout rows and the caption are
+   * hidden at rest. 0 lit does not mean blank.
+   *
+   * Activation is a data-on attribute per element key, so a re-render or a
+   * theme switch can never strand the assembly mid-state.
+   *
+   * The design prototype also carries a polling fallback (_dfPoll) for the
+   * preview host, which can drop IntersectionObserver callbacks. It is
+   * explicitly marked "PREVIEW-HOST RESILIENCE ONLY — NOT PRODUCTION
+   * BEHAVIOUR" and is deliberately NOT ported: production relies on the real
+   * observer, and there is no page-mount/elapsed-time settle of any kind here.
    */
   (function () {
-    var page = $(".v3-cro") || $(".v3-paid") || $(".v3-creative");
+    var df = $("[data-df]");
+    if (!df) return;
+
+    // signal enters -> three modes -> shared field -> reinforcement ->
+    // field labels -> measurement honesty -> explanatory readout
+    var DF_PHASES = [
+      ["sig"], ["m1"], ["m2"], ["m3"],
+      ["ext"], ["rein"], ["axis"], ["meas"], ["cap"]
+    ];
+    // cumulative 440/710/980/1250/1610/1930/2230/2520/2860
+    var DF_STEPS_MS = [440, 270, 270, 270, 360, 320, 300, 290, 340];
+
+    var timers = [], cancelled = false, ran = false;
+
+    function on(keys) {
+      keys.forEach(function (k) {
+        $$('[data-df] [data-k="' + k + '"]').forEach(function (el) { el.setAttribute("data-on", ""); });
+      });
+    }
+    function settle() { DF_PHASES.forEach(on); }
+
+    // Reduced motion, or no observer support: the complete field is shown
+    // immediately. The static composition carries the whole idea — no staged
+    // assembly, no moving grain build, no motion-dependent meaning.
+    if (rm || !("IntersectionObserver" in window)) { settle(); return; }
+
+    // No controls to cancel, so cancelling means: stop every pending timer and
+    // settle the COMPLETE field. Never half-complete, never reset, never
+    // restart, and no surviving timer can overwrite the settled state.
+    function cancel() {
+      cancelled = true;
+      timers.forEach(clearTimeout);
+      settle();
+    }
+    ["pointerdown", "keydown", "touchstart"].forEach(function (ev) {
+      df.addEventListener(ev, cancel, { once: true, passive: true });
+    });
+
+    // Viewport entry is the ONLY trigger. The observer disconnects on the first
+    // eligible intersection, before any timer is scheduled.
+    var io = new IntersectionObserver(function (ens) {
+      ens.forEach(function (en) {
+        if (!en.isIntersecting || ran) return;
+        ran = true;
+        io.disconnect();
+        if (cancelled) return;
+        var t = 0;
+        DF_PHASES.forEach(function (group, i) {
+          t += DF_STEPS_MS[i];
+          timers.push(setTimeout(function () {
+            if (cancelled) return;
+            on(group);
+          }, t));
+        });
+      });
+    }, { threshold: 0, rootMargin: "-15% 0px -15% 0px" });
+    io.observe(df);
+  })();
+
+  /* --- typography safeguards -----------------------------------------------
+   * Scoped to the four pages whose approved handoffs specify this contract, so
+   * the earlier service-detail pages are untouched. CSS owns every authored
+   * size; both passes below are safeguards that must stay idle at each
+   * authored step.
+   */
+  (function () {
+    var page = $(".v3-cro") || $(".v3-paid") || $(".v3-creative") || $(".v3-influencer");
     if (!page) return;
 
     function syneReady() {
