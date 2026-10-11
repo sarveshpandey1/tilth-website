@@ -10,6 +10,8 @@ import servicesIndex from "./src/pages/services-index.mjs";
 import industriesIndex from "./src/pages/industries-index.mjs";
 import workIndex from "./src/pages/work-index.mjs";
 import approach from "./src/pages/approach.mjs";
+import toolsIndex from "./src/pages/tools-index.mjs";
+import toolsBenchmarks from "./src/pages/tools-benchmarks.mjs";
 import contact from "./src/pages/contact.mjs";
 import thankYou from "./src/pages/thank-you.mjs";
 import about from "./src/pages/about.mjs";
@@ -23,6 +25,7 @@ import brandCreative from "./src/pages/brand-creative.mjs";
 import influencerPrEvents from "./src/pages/influencer-pr-events.mjs";
 import { allServicePages } from "./src/templates/servicePage.mjs";
 import { allIndustryPages } from "./src/templates/industryPage.mjs";
+import { allToolPages } from "./src/templates/toolPage.mjs";
 import { allRegionHubs, allRegionChildPages } from "./src/templates/regionHub.mjs";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
@@ -43,6 +46,9 @@ const PAGES = [
   ...allIndustryPages,
   workIndex,
   approach,
+  toolsIndex,
+  ...allToolPages,
+  toolsBenchmarks,
   contact,
   thankYou,
   about,

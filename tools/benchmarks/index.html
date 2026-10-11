@@ -4,207 +4,409 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1MJEZ4VK26');
-</script>
-<title>Benchmark Sources &amp; Methodology | Tilth Free Tools</title>
-<meta name="description" content="How Tilth's marketing benchmarks are sourced: every figure cites a real source with a date and confidence rating, rate metrics only, ranges not false precision, geography flagged.">
+<!-- Google tag (gtag.js) — deferred loader, commands queue in dataLayer -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1MJEZ4VK26');
+(function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26';document.head.appendChild(s);}
+if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
+['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});})();</script>
+<title>Where Our Marketing Benchmarks Come From | Tilth</title>
+<meta name="description" content="Every benchmark our free tools compare against, with its source, date, geography and an honest confidence rating — 23 records, ranges not false precision, heuristics kept separate.">
 <link rel="canonical" href="https://wearetilth.com/tools/benchmarks/">
+
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="geo.region" content="IN-KA">
-<meta name="geo.placename" content="Bengaluru">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Benchmark sources & methodology — Tilth free tools">
-<meta property="og:description" content="Every benchmark cites a real source with a date and a confidence rating. Rate metrics only, ranges not precision, geography flagged, nothing invented.">
+<meta property="og:title" content="Where our benchmarks come from">
+<meta property="og:description" content="Sourced, dated and confidence-rated marketing benchmarks — and where good data doesn't exist yet.">
 <meta property="og:url" content="https://wearetilth.com/tools/benchmarks/">
 <meta property="og:image" content="https://wearetilth.com/og-image.png">
-<meta property="og:locale" content="en_IN">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Benchmark Sources & Methodology | Tilth">
-<meta name="twitter:description" content="How Tilth sources its marketing benchmarks — transparently, with citations.">
+<meta name="twitter:title" content="Where our benchmarks come from">
+<meta name="twitter:description" content="Sourced, dated and confidence-rated marketing benchmarks — and where good data doesn't exist yet.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<style>
-  .bm-wrap { overflow-x: auto; margin-top: 30px; border: 1px solid var(--rule); border-radius: 14px; }
-  table.bm { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 720px; }
-  table.bm th, table.bm td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
-  table.bm thead th { color: var(--glow); font-weight: 600; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
-  table.bm td { color: var(--text); }
-  table.bm td.metric { color: var(--ink); font-weight: 500; }
-  table.bm tbody tr:last-child td { border-bottom: none; }
-  table.bm a { color: var(--glow); border-bottom: 1px solid var(--rule); }
-  .conf { display: inline-block; font-size: 10px; letter-spacing: .5px; text-transform: uppercase; font-weight: 600; padding: 2px 8px; border-radius: 20px; border: 1px solid var(--rule); white-space: nowrap; }
-  .conf.high, .conf.medhigh { color: var(--glow); border-color: rgba(170,197,108,.5); }
-  .conf.medium { color: var(--text); }
-  .conf.low, .conf.lowmedium { color: var(--terra); border-color: rgba(226,136,90,.5); }
-  .conf.heuristic { color: #CFA04C; border-color: rgba(207,160,76,.5); }
-  .bm-range { font-family: 'Fraunces', serif; }
-  .bm-range b { color: var(--ink); }
-  .bm-note { font-size: 12px; color: var(--olive); margin-top: 4px; }
-</style>
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/core-company.css">
+<link rel="stylesheet" href="/assets/tools.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    { "@type": "BreadcrumbList", "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wearetilth.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://wearetilth.com/tools/" },
-      { "@type": "ListItem", "position": 3, "name": "Benchmark Sources & Methodology", "item": "https://wearetilth.com/tools/benchmarks/" }
-    ] }
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://wearetilth.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Free Tools",
+      "item": "https://wearetilth.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Benchmark sources",
+      "item": "https://wearetilth.com/tools/benchmarks/"
+    }
   ]
 }
 </script>
 </head>
-<body>
-
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav>
-      <a href="/services/">Services</a>
-      <a href="/industries/">Industries</a>
-      <a href="/work/">Work</a>
-      <a href="/insights/">Insights</a>
-      <a href="/tools/">Tools</a>
-      <a href="/about/">About</a>
+<body class="v3 v3-core v3-tkit v3-bench">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
     </nav>
-    <div class="meta">Global growth marketing agency · India-rooted, working with brands worldwide</div>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
   </div>
 </header>
 
-<section class="page-head">
-  <div class="wrap">
-    <span class="label">Free tools</span>
-    <h1>Where our benchmarks <span class="accent">come from</span>.</h1>
-    <p class="standfirst">A benchmark you can't trace is just a number someone made up. Every figure our tools compare against is listed here with its source, date, and an honest confidence rating — and we tell you plainly where good data doesn't exist yet.</p>
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
+      <a href="/services/">Services</a>
+      <a href="/industries/">Industries</a>
+      <a href="/work/">Work</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/">Insights</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
+  </div>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
+<main id="main">
+
+<section id="hero" data-thero data-depth-label="SURFACE">
+  <nav data-crumb aria-label="Breadcrumb"><a href="/">Home</a> <span data-sep aria-hidden="true">/</span> <a href="/tools/">Free Tools</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">Benchmark sources</span></nav>
+  <div data-eyebrow>Free tools</div>
+  <h1 data-h1 data-th1>Where our benchmarks <span data-acc>come from</span>.</h1>
+  <div data-thero-row>
+    <p data-lede>A benchmark you can't trace is just a number someone made up. Every figure our tools compare against is listed here with its source, date, and an honest confidence rating — and we tell you plainly where good data doesn't exist yet.</p>
   </div>
 </section>
 
-<section class="tk">
-  <div class="wrap">
-    <div class="tk-crumb"><a href="/tools/">Free Tools</a> &nbsp;/&nbsp; Benchmark sources</div>
-
-    <div class="tk-note" style="margin-top:30px;">
-      <p><strong>Our rules, kept deliberately strict:</strong></p>
+<section data-sec data-bench-rules data-depth-label="SHALLOW" aria-labelledby="rules-h">
+  <div data-ledger>
+    <div data-lhead>
+      <h2 id="rules-h" data-h2>Our rules, kept deliberately strict:</h2>
     </div>
-    <ul style="list-style:none;padding:0;display:grid;gap:12px;margin-top:16px;">
-      <li style="font-size:14.5px;color:var(--text);line-height:1.6;">→ <strong style="color:var(--ink);">Rate metrics only.</strong> We benchmark percentages and ratios (conversion, churn, click, funnel steps) — not rupee figures like CPC or CAC. A foreign-currency benchmark misleads more than it helps; we'll only add absolute-money benchmarks when we have India-sourced data.</li>
-      <li style="font-size:14.5px;color:var(--text);line-height:1.6;">→ <strong style="color:var(--ink);">Ranges, never false precision.</strong> Sources disagree — ecommerce "average" conversion alone ranges from 1.6% to 2.9% depending on who's counting. We show the low–median–high and cite who said it.</li>
-      <li style="font-size:14.5px;color:var(--text);line-height:1.6;">→ <strong style="color:var(--ink);">Geography is flagged.</strong> Most public data is Global or US-weighted; India-specific benchmarks are genuinely scarce. We label it rather than pretend a US number is an Indian one.</li>
-      <li style="font-size:14.5px;color:var(--text);line-height:1.6;">→ <strong style="color:var(--ink);">Heuristics are kept separate from sourced data.</strong> "3:1 LTV:CAC" is a rule of thumb, not a measured benchmark — it's tagged as such below.</li>
-      <li style="font-size:14.5px;color:var(--text);line-height:1.6;">→ <strong style="color:var(--ink);">Nothing is invented.</strong> If we don't have a verified source for a metric in your context, the tools say so and exclude it — they never fill the gap with a made-up figure.</li>
-    </ul>
+    <ol data-rows>
+      <li><span data-n aria-hidden="true">01</span><p><strong>Rate metrics only.</strong> We benchmark percentages and ratios (conversion, churn, click, funnel steps) — not rupee figures like CPC or CAC. A foreign-currency benchmark misleads more than it helps; we'll only add absolute-money benchmarks when we have India-sourced data.</p></li>
+      <li><span data-n aria-hidden="true">02</span><p><strong>Ranges, never false precision.</strong> Sources disagree — ecommerce &quot;average&quot; conversion alone ranges from 1.6% to 2.9% depending on who's counting. We show the low–median–high and cite who said it.</p></li>
+      <li><span data-n aria-hidden="true">03</span><p><strong>Geography is flagged.</strong> Most public data is Global or US-weighted; India-specific benchmarks are genuinely scarce. We label it rather than pretend a US number is an Indian one.</p></li>
+      <li><span data-n aria-hidden="true">04</span><p><strong>Heuristics are kept separate from sourced data.</strong> &quot;3:1 LTV:CAC&quot; is a rule of thumb, not a measured benchmark — it's tagged as such below.</p></li>
+      <li><span data-n aria-hidden="true">05</span><p><strong>Nothing is invented.</strong> If we don't have a verified source for a metric in your context, the tools say so and exclude it — they never fill the gap with a made-up figure.</p></li>
+    </ol>
+  </div>
+</section>
 
-    <h2 style="font-family:'Fraunces',serif;font-weight:400;font-size:clamp(22px,3vw,30px);color:var(--ink);margin:44px 0 6px;letter-spacing:-.5px;">The current benchmark set</h2>
-    <p class="tk-sub">Rendered live from the same data our tools use — so this page can never fall out of sync. <span id="bm-count"></span></p>
+<section data-sec data-bench-set data-depth-label="DEEP" aria-labelledby="set-h">
+  <h2 id="set-h" data-h2>The current benchmark set</h2>
+  <p data-body>Rendered live from the same data our tools use — so this page can never fall out of sync. <span id="bm-count">23 records.</span></p>
+  <div data-bm-wrap>
+    <table data-bm role="table">
+      <caption data-sr>The current benchmark set — 23 records</caption>
+      <thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Metric</th><th role="columnheader" scope="col">Segment</th><th role="columnheader" scope="col">Geography</th><th role="columnheader" scope="col">Range (low &middot; median &middot; high)</th><th role="columnheader" scope="col">Confidence</th><th role="columnheader" scope="col">Source</th></tr></thead>
+      <tbody role="rowgroup" id="bm-body">
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>Ecommerce conversion rate</span><span data-bnote>Site-wide sessions→purchase. Cross-source range: 1.6% (Statista) to 2.9% (Dynamic Yield).</span></th>
+            <td role="cell" data-th="Segment">All industries</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>1.6% <span data-dot aria-hidden="true">&middot;</span> <b>2.5%</b> <span data-dot aria-hidden="true">&middot;</span> 2.9%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://www.smartinsights.com/ecommerce/ecommerce-analytics/ecommerce-conversion-rates/" target="_blank" rel="noopener">Contentsquare via Smart Insights</a> <span data-bdate>(2025)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>Ecommerce conversion rate — Food &amp; beverage</span><span data-bnote>Low price points and habitual buying lift conversion.</span></th>
+            <td role="cell" data-th="Segment">Food &amp; beverage</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>4.9% <span data-dot aria-hidden="true">&middot;</span> <b>5.5%</b> <span data-dot aria-hidden="true">&middot;</span> 6.2%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://www.smartinsights.com/ecommerce/ecommerce-analytics/ecommerce-conversion-rates/" target="_blank" rel="noopener">Smart Insights</a> <span data-bdate>(2025)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>Ecommerce conversion rate — Luxury</span><span data-bnote>High-consideration purchases convert lower.</span></th>
+            <td role="cell" data-th="Segment">Luxury &amp; jewelry</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>0.8% <span data-dot aria-hidden="true">&middot;</span> <b>1.1%</b> <span data-dot aria-hidden="true">&middot;</span> 1.5%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://www.smartinsights.com/ecommerce/ecommerce-analytics/ecommerce-conversion-rates/" target="_blank" rel="noopener">Smart Insights</a> <span data-bdate>(2025)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>Ecommerce conversion rate — India</span><span data-bnote>India runs below the ~2.5% global average — general ecommerce ~1.6%, category spread ~1.0% (electronics, furniture) to ~2.4% (books &amp; stationery). The source does not disclose sample size or methodology, so treat as directional only.</span></th>
+            <td role="cell" data-th="Segment">All industries</td>
+            <td role="cell" data-th="Geography">India</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>1% <span data-dot aria-hidden="true">&middot;</span> <b>1.6%</b> <span data-dot aria-hidden="true">&middot;</span> 2.4%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="low"><span data-pips aria-hidden="true"><i data-on></i><i></i><i></i><i></i></span>low</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://noirandblanco.com/ecommerce-conversion-benchmark-report/" target="_blank" rel="noopener">Noir &amp; Blanco 2026 Conversion Benchmark Report</a> <span data-bdate>(2026)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>Google Ads (search) conversion rate</span><span data-bnote>Landing-page conversion on paid search — distinct from site-wide CVR. US-weighted; India CPCs/CVRs differ.</span></th>
+            <td role="cell" data-th="Segment">All industries</td>
+            <td role="cell" data-th="Geography">Global (US-weighted)</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>2.55% <span data-dot aria-hidden="true">&middot;</span> <b>7.52%</b> <span data-dot aria-hidden="true">&middot;</span> 14.67%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="med-high"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>med-high</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://www.wordstream.com/blog/2026-google-ads-benchmarks" target="_blank" rel="noopener">WordStream</a> <span data-bdate>(2025–2026)</span><span data-bsample>Sample: ~13,000 campaigns, 23 industries</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>Email open rate</span><span data-bnote>Apple Mail Privacy Protection inflates opens — treat as directional only, prefer click rate.</span></th>
+            <td role="cell" data-th="Segment">All industries</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>21% <span data-dot aria-hidden="true">&middot;</span> <b>28%</b> <span data-dot aria-hidden="true">&middot;</span> 34%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="low"><span data-pips aria-hidden="true"><i data-on></i><i></i><i></i><i></i></span>low</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://mailchimp.com/resources/email-marketing-benchmarks/" target="_blank" rel="noopener">Mailchimp</a> <span data-bdate>(2025)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>Email click-through rate</span><span data-bnote>More reliable than open rate post-MPP.</span></th>
+            <td role="cell" data-th="Segment">All industries</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>2% <span data-dot aria-hidden="true">&middot;</span> <b>3%</b> <span data-dot aria-hidden="true">&middot;</span> 5%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://mailchimp.com/resources/email-marketing-benchmarks/" target="_blank" rel="noopener">Mailchimp / Salesforce</a> <span data-bdate>(2025)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>Email open rate — India</span><span data-bnote>India average ~25.8% across GetResponse’s 4.4B-email set; industry spread ~17–45%. Like all open rates, inflated by Apple Mail Privacy Protection — directional only, prefer click rate. India click-rate data is too inconsistent across sources to publish honestly.</span></th>
+            <td role="cell" data-th="Segment">All industries</td>
+            <td role="cell" data-th="Geography">India</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>20% <span data-dot aria-hidden="true">&middot;</span> <b>26%</b> <span data-dot aria-hidden="true">&middot;</span> 42%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="low"><span data-pips aria-hidden="true"><i data-on></i><i></i><i></i><i></i></span>low</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://blog.campaignhq.co/email-whatsapp-marketing-benchmarks-india/" target="_blank" rel="noopener">GetResponse 2024 (via CampaignHQ, India)</a> <span data-bdate>(2024)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>SaaS monthly churn — B2B SMB</span></th>
+            <td role="cell" data-th="Segment">B2B SMB</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>3% <span data-dot aria-hidden="true">&middot;</span> <b>4%</b> <span data-dot aria-hidden="true">&middot;</span> 5%<span data-bdir>(lower is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://www.vitally.io/post/saas-churn-benchmarks" target="_blank" rel="noopener">Vitally / CustomerGauge</a> <span data-bdate>(2025)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>SaaS monthly churn — B2B Mid-market</span></th>
+            <td role="cell" data-th="Segment">B2B Mid-market</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>1.5% <span data-dot aria-hidden="true">&middot;</span> <b>2.25%</b> <span data-dot aria-hidden="true">&middot;</span> 3%<span data-bdir>(lower is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://www.vitally.io/post/saas-churn-benchmarks" target="_blank" rel="noopener">Vitally / CustomerGauge</a> <span data-bdate>(2025)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>SaaS monthly churn — B2B Enterprise</span><span data-bnote>Best-in-class enterprise &lt; 1% monthly.</span></th>
+            <td role="cell" data-th="Segment">B2B Enterprise</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>1% <span data-dot aria-hidden="true">&middot;</span> <b>1.5%</b> <span data-dot aria-hidden="true">&middot;</span> 2%<span data-bdir>(lower is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://www.vitally.io/post/saas-churn-benchmarks" target="_blank" rel="noopener">Vitally / CustomerGauge</a> <span data-bdate>(2025)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>SaaS monthly churn — B2C</span></th>
+            <td role="cell" data-th="Segment">B2C</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>5% <span data-dot aria-hidden="true">&middot;</span> <b>6.7%</b> <span data-dot aria-hidden="true">&middot;</span> 8%<span data-bdir>(lower is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://customergauge.com/blog/average-churn-rate-by-industry" target="_blank" rel="noopener">CustomerGauge</a> <span data-bdate>(2025)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>B2B visitor → lead</span><span data-bnote>Top 10% reach 8–15%.</span></th>
+            <td role="cell" data-th="Segment">B2B</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>0.8% <span data-dot aria-hidden="true">&middot;</span> <b>2.3%</b> <span data-dot aria-hidden="true">&middot;</span> 5%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://saleshive.com/blog/b2b-lead-benchmarks-digital-marketing-gen" target="_blank" rel="noopener">SalesHive / GrowthSpree</a> <span data-bdate>(2025–2026)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>B2B MQL → SQL</span><span data-bnote>Top performers with strong scoring reach ~40%.</span></th>
+            <td role="cell" data-th="Segment">B2B</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>12% <span data-dot aria-hidden="true">&middot;</span> <b>13%</b> <span data-dot aria-hidden="true">&middot;</span> 21%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://www.data-mania.com/blog/mql-to-sql-conversion-rate-benchmarks-2025/" target="_blank" rel="noopener">Data-Mania / GrowthSpree</a> <span data-bdate>(2025–2026)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>B2B opportunity → customer</span></th>
+            <td role="cell" data-th="Segment">B2B</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>22% <span data-dot aria-hidden="true">&middot;</span> <b>26%</b> <span data-dot aria-hidden="true">&middot;</span> 30%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="low-medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i></i><i></i></span>low-medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://www.growthspreeofficial.com/blogs/b2b-saas-conversion-rate-benchmarks-2026-funnel-stage-vertical" target="_blank" rel="noopener">GrowthSpree</a> <span data-bdate>(2026)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>Cart abandonment rate</span><span data-bnote>Baymard documents a ~70.2% cross-study average (stable near 70% for years). Lower is better; the band is illustrative around that average, not measured quartiles — vertical spread is wide (~45–91%).</span></th>
+            <td role="cell" data-th="Segment">All industries</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>65% <span data-dot aria-hidden="true">&middot;</span> <b>70%</b> <span data-dot aria-hidden="true">&middot;</span> 78%<span data-bdir>(lower is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://baymard.com/lists/cart-abandonment-rate" target="_blank" rel="noopener">Baymard Institute</a> <span data-bdate>(2025)</span><span data-bsample>Sample: meta-analysis of ~50 studies</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>Landing page conversion rate</span><span data-bnote>Median 6.6% across industries; low end ~3.8% (SaaS), high ~12.3% (events &amp; entertainment). Distinct from site-wide ecommerce CVR.</span></th>
+            <td role="cell" data-th="Segment">All industries</td>
+            <td role="cell" data-th="Geography">Global (US-weighted)</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>3.8% <span data-dot aria-hidden="true">&middot;</span> <b>6.6%</b> <span data-dot aria-hidden="true">&middot;</span> 12.3%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://unbounce.com/landing-pages/whats-a-good-conversion-rate/" target="_blank" rel="noopener">Unbounce Conversion Benchmark Report</a> <span data-bdate>(2024 (updated 2025))</span><span data-bsample>Sample: 41,000 landing pages, 57M conversions</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>Meta ads CTR — traffic objective</span><span data-bnote>Traffic-objective click-through rate, US medians (India differs). Range spans lowest (auto repair ~0.8%) to highest (shopping &amp; gifts ~4.1%) industries.</span></th>
+            <td role="cell" data-th="Segment">All industries</td>
+            <td role="cell" data-th="Geography">US</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>0.8% <span data-dot aria-hidden="true">&middot;</span> <b>1.71%</b> <span data-dot aria-hidden="true">&middot;</span> 4.13%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="med-high"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>med-high</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://www.wordstream.com/blog/facebook-ads-benchmarks-2025" target="_blank" rel="noopener">WordStream (LocaliQ)</a> <span data-bdate>(2024–2025)</span><span data-bsample>Sample: 554 US campaigns (medians)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>Meta ads conversion rate — leads objective</span><span data-bnote>Lead-form conversion rate on Meta lead campaigns, US medians. Range from furniture (~3.8%) to restaurants &amp; food (~18.3%).</span></th>
+            <td role="cell" data-th="Segment">All industries</td>
+            <td role="cell" data-th="Geography">US</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>3.77% <span data-dot aria-hidden="true">&middot;</span> <b>7.72%</b> <span data-dot aria-hidden="true">&middot;</span> 18.25%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://www.wordstream.com/blog/facebook-ads-benchmarks-2025" target="_blank" rel="noopener">WordStream (LocaliQ)</a> <span data-bdate>(2024–2025)</span><span data-bsample>Sample: 726 US campaigns (medians)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>SaaS trial → paid — opt-in (no card)</span><span data-bnote>No-card trials ~18% (18.2% organic / 17.4% paid); top quartile 35–45%. A &quot;conversion&quot; here counts a single paid month — weigh with retention.</span></th>
+            <td role="cell" data-th="Segment">Opt-in trial (no credit card)</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>15% <span data-dot aria-hidden="true">&middot;</span> <b>18%</b> <span data-dot aria-hidden="true">&middot;</span> 22%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://firstpagesage.com/seo-blog/saas-free-trial-conversion-rate-benchmarks/" target="_blank" rel="noopener">First Page Sage</a> <span data-bdate>(2025)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>SaaS trial → paid — opt-out (card required)</span><span data-bnote>Card-required trials ~49% (48.8% organic / 51% paid) — about 2.7× opt-in, but far fewer trials start. Trades trial volume for conversion.</span></th>
+            <td role="cell" data-th="Segment">Opt-out trial (credit card required)</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>45% <span data-dot aria-hidden="true">&middot;</span> <b>49%</b> <span data-dot aria-hidden="true">&middot;</span> 55%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://firstpagesage.com/seo-blog/saas-free-trial-conversion-rate-benchmarks/" target="_blank" rel="noopener">First Page Sage</a> <span data-bdate>(2025)</span></td>
+          </tr>
+          <tr role="row" data-brow>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>SaaS freemium free → paid</span><span data-bnote>Free→paid ~2.6–2.8%. Freemium drives sign-up volume but converts low; elite products reach 6–8%.</span></th>
+            <td role="cell" data-th="Segment">Freemium self-serve</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>2% <span data-dot aria-hidden="true">&middot;</span> <b>3%</b> <span data-dot aria-hidden="true">&middot;</span> 5%<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="medium"><span data-pips aria-hidden="true"><i data-on></i><i data-on></i><i data-on></i><i></i></span>medium</span></td>
+            <td role="cell" data-th="Source" data-bsrc><a href="https://firstpagesage.com/seo-blog/saas-free-trial-conversion-rate-benchmarks/" target="_blank" rel="noopener">First Page Sage</a> <span data-bdate>(2025)</span></td>
+          </tr>
+          <tr role="row" data-brow data-heuristic>
+            <th role="rowheader" scope="row" data-bmetric><span data-blabel>LTV : CAC ratio <span data-heur>heuristic</span></span><span data-bnote>A 3:1 reference is a rule of thumb, not a measured benchmark. The right target depends on margin, cash, retention, stage and model.</span></th>
+            <td role="cell" data-th="Segment">General rule of thumb</td>
+            <td role="cell" data-th="Geography">Global</td>
+            <td role="cell" data-th="Range (low &middot; median &middot; high)" data-brange>1:1 <span data-dot aria-hidden="true">&middot;</span> <b>3:1</b> <span data-dot aria-hidden="true">&middot;</span> 3:1<span data-bdir>(higher is better)</span></td>
+            <td role="cell" data-th="Confidence"><span data-conf="reference"><span data-pips aria-hidden="true"><i></i><i></i><i></i><i></i></span>reference</span></td>
+            <td role="cell" data-th="Source" data-bsrc>Common industry heuristic</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  <p data-body data-bench-foot>Confidence reflects source rigour and agreement — e.g. email <em>open</em> rates are marked low because Apple Mail Privacy Protection inflates them. We review and expand this set over time; the goal is depth we can stand behind, not a sprawling half-sourced table.</p>
+</section>
 
-    <div class="bm-wrap">
-      <table class="bm">
-        <thead><tr><th>Metric</th><th>Segment</th><th>Geography</th><th>Range (low · median · high)</th><th>Confidence</th><th>Source</th></tr></thead>
-        <tbody id="bm-body"></tbody>
-      </table>
-    </div>
-
-    <p class="tk-sub" style="margin-top:18px;">Confidence reflects source rigour and agreement — e.g. email <em>open</em> rates are marked low because Apple Mail Privacy Protection inflates them. We review and expand this set over time; the goal is depth we can stand behind, not a sprawling half-sourced table.</p>
-
-    <div class="tk-cta">
-      <h3>Want benchmarks that actually fit your business?</h3>
+<section data-tcta data-depth-label="FOUNDATION" aria-labelledby="cta-h" id="ctaCard">
+  <div data-eyebrow><span data-step aria-hidden="true">04</span>Next step</div>
+  <div data-tcta-grid>
+    <h2 id="cta-h" data-tcta-h>Want benchmarks that actually fit your business?</h2>
+    <div>
       <p>Public benchmarks are a starting point, not the truth about your account. A free foundation audit builds you a measurement baseline from your own data — the only benchmark that really counts.</p>
-      <a href="/contact/" class="btn"><span>Request a free audit</span><span aria-hidden="true">→</span></a>
-    </div>
-
-    <div class="tk-related">
-      <h3>Related</h3>
-      <ul>
-        <li><a href="/tools/">Back to all free tools →</a></li>
-        <li><a href="/tools/ad-spend-profitability-calculator/">Ad Spend Profitability Calculator →</a></li>
-        <li><a href="/tools/ltv-cac-calculator/">LTV : CAC Calculator →</a></li>
-      </ul>
+      <a data-btn data-cta-btn href="/contact/"><span>Request a free audit</span> <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br><a href="tel:+917007999306">+91 70079 99306</a><br>anuja@tilth.in</div>
-      </div>
-      <div>
-        <h2 class="fcol">Navigate</h2>
-        <ul>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/approach/">Approach</a></li>
-          <li><a href="/insights/">Insights</a></li>
-          <li><a href="/tools/">Tools</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Legal</h2>
-        <ul>
-          <li><a href="/privacy/">Privacy Policy</a></li>
-          <li><a href="/terms/">Terms of Service</a></li>
-          <li><a href="/cookie-policy/">Cookie Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Social</h2>
-        <ul>
-          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
-      </div>
+<section data-related aria-labelledby="rel-h">
+  <h2 id="rel-h">Related</h2>
+  <ul>
+    <li><a href="/tools/">Back to all free tools</a></li>
+    <li><a href="/tools/ad-spend-profitability-calculator/">Ad Spend Profitability Calculator</a></li>
+    <li><a href="/tools/ltv-cac-calculator/">LTV : CAC Calculator</a></li>
+  </ul>
+</section>
+
+</main>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Tilth. All rights reserved.</span>
-      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-
-<script type="module">
-import { BENCHMARKS } from '/tools/lib/benchmarks.js';
-(function () {
-  var body = document.getElementById('bm-body');
-  var confClass = { 'high': 'high', 'med-high': 'medhigh', 'medium': 'medium', 'low-medium': 'lowmedium', 'low': 'low', 'reference': 'heuristic' };
-  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
-  BENCHMARKS.forEach(function (b) {
-    var tr = document.createElement('tr');
-    var src = b.url ? '<a href="' + esc(b.url) + '" target="_blank" rel="noopener">' + esc(b.source) + '</a>' : esc(b.source);
-    var status = b.verificationStatus === 'heuristic' ? ' <span class="conf heuristic">heuristic</span>' : '';
-    var note = b.note ? '<div class="bm-note">' + esc(b.note) + '</div>' : '';
-    tr.innerHTML =
-      '<td class="metric">' + esc(b.label) + status + note + '</td>' +
-      '<td>' + esc(b.segment || '—') + '</td>' +
-      '<td>' + esc(b.geography || '—') + '</td>' +
-      '<td class="bm-range">' + esc(b.low) + b.unit + ' · <b>' + esc(b.median) + b.unit + '</b> · ' + esc(b.high) + b.unit + ' <span style="color:var(--olive);font-size:11px;">(' + (b.direction === 'lower' ? 'lower is better' : 'higher is better') + ')</span></td>' +
-      '<td><span class="conf ' + (confClass[b.confidence] || 'medium') + '">' + esc(b.confidence) + '</span></td>' +
-      '<td>' + src + (b.date ? ' <span style="color:var(--olive);">(' + esc(b.date) + ')</span>' : '') + '</td>';
-    body.appendChild(tr);
-  });
-  document.getElementById('bm-count').textContent = BENCHMARKS.length + ' records.';
-})();
-</script>
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>

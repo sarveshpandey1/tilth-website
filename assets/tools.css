@@ -1,0 +1,477 @@
+/* ===========================================================================
+   TOOLS FAMILY — page layer over the shared Brand v3 system.
+   /tools/ (hub) · the six tool worksheets · /tools/benchmarks/ (reference).
+
+   Ported from the frozen Master Design Release:
+     TOOLS/Tilth Tools Hub.dc.html
+     TOOLS/Tilth Tool Template - Ad Spend Calculator.dc.html
+     TOOLS/Tilth Tool Template - Benchmark Analyser.dc.html
+     TOOLS/TOOLS_DESIGN_REPORT.md
+   All three design files carry a byte-identical stylesheet; this is its TOOLS
+   PRODUCT SYSTEM section, with every declaration block copied unchanged.
+
+   One grammar for the whole family. A tool page always reads in the same order
+   — 01 INPUT -> 02 RESULT -> 03 INTERPRETATION -> 04 NEXT ACTION — and every
+   tool is built from the same parts: field, mode tabs, currency, readout,
+   verdict, metric row, note, CTA, related list. There is no signature
+   interaction: the tool is the interaction (report SS19).
+
+   SCOPING. The frozen file authors bare attribute selectors because a .dc
+   prototype owns the whole document. Here every selector carries .v3-tkit, the
+   shared Tools scope class, which every Tools page sets on <body> alongside its
+   page class (.v3-tools hub / .v3-tool worksheet / .v3-bench reference). The
+   frozen :root token blocks become .v3-tkit blocks so the tokens land on the
+   body element instead of the document root. Repo-wide word-boundary collision
+   check at implementation: v3-tools 0 · v3-tool 0 · v3-bench 0 · v3-tkit 0,
+   all clean; v3-calc (12) and v3-toolslink (3) are taken, as the report records,
+   and are not reused.
+
+   The frozen design also depends on the shared Core Company grammar (hero,
+   eyebrow, lede, buttons, sections, ledger, rows, Moss CTA band), which the
+   prototype re-inlines and which production already ships, scoped to .v3-core,
+   in assets/core-company.css. Tools pages therefore load core-company.css and
+   then this file, and carry .v3-core too, rather than duplicating 106 rules.
+   The tool H1 ladder uses its own --th1 token, so the Core Company --h1 ladder
+   is left untouched.
+
+   The shared shell — header, nav, menu, footer, clocks, theme, palette — is the
+   Phase 0 production implementation and is NOT re-declared (Global Rules SSI).
+   --foot in the frozen Tools :root is already the Phase 0 AA-corrected #7E847C.
+
+   TWO PRODUCTION CORRECTIONS to the frozen rules, both noted inline below:
+   the prototype's [data-root] wrapper has no production equivalent, so the
+   hidden-precedence rule attaches to the scope element; and the no-JS honesty
+   line, which the prototype renders only in its raw template, ships always and
+   is hidden once brand-v3.js sets html.v3-js.
+
+   Prototype-only code is not ported: the .dc runtime, reviewState / reviewTool /
+   reviewCurrency / reviewRange / reviewRoute / reviewFill and the QA probes.
+   =========================================================================== */
+
+/* ================= TOOLS PRODUCT SYSTEM =================
+   One grammar for the whole family: the hub, the six tool worksheets and the
+   benchmark reference. A tool page always reads in the same order —
+   01 INPUT → 02 RESULT → 03 INTERPRETATION → 04 NEXT ACTION — and every tool
+   is built from the same parts: field, mode tabs, currency, readout, verdict,
+   metric row, note, CTA, related list. No signature interaction: the tool is
+   the interaction. */
+
+/* focus — the production v3 rule (brand-v3.css): the theme-aware Moss text
+   tone, so the ring holds 3:1+ on Mineral as well as on Carbon */
+.v3-tkit a:focus-visible, .v3-tkit button:focus-visible, .v3-tkit summary:focus-visible, .v3-tkit input:focus-visible, .v3-tkit select:focus-visible, .v3-tkit textarea:focus-visible{outline:2px solid var(--mosstext);outline-offset:3px}
+
+/* compact tool H1 ladder. Measured in Syne 800 uppercase at -.045em: the
+   widest word in the family is ATTRIBUTABLE. = 12.43em (BENCHMARKS 11.97,
+   PROFITABLE? 11.01), so every step sits under track / 12.43 and the tool is
+   on screen sooner than a marketing hero would allow. The hub keeps the
+   marketing ladder (its widest word, MARKETING, is 10.08em). */
+.v3-tkit{--th1:28px}
+@media (min-width:480px){.v3-tkit{--th1:34px}}
+@media (min-width:620px){.v3-tkit{--th1:42px}}
+@media (min-width:700px){.v3-tkit{--th1:46px}}
+@media (min-width:768px){.v3-tkit{--th1:48px}}
+@media (min-width:900px){.v3-tkit{--th1:54px}}
+@media (min-width:1024px){.v3-tkit{--th1:58px}}
+@media (min-width:1180px){.v3-tkit{--th1:62px}}
+@media (min-width:1280px){.v3-tkit{--th1:64px}}
+@media (min-width:1440px){.v3-tkit{--th1:68px}}
+@media (min-width:1700px){.v3-tkit{--th1:72px}}
+.v3-tkit [data-th1]{font-size:var(--th1);line-height:.96}
+/* the H1 accent fragment — Clay on Carbon; on Mineral the approved shared rule:
+   Carbon text carried by a heavy Clay rule (Clay text there is 2.95:1) */
+.v3-tkit [data-acc]{color:var(--acctext);text-decoration:underline;text-decoration-color:var(--accrule);text-decoration-thickness:.1em;text-underline-offset:.08em;text-decoration-skip-ink:none}
+
+/* compact tool hero */
+.v3-tkit [data-thero]{padding:104px var(--pad) 34px}
+@media (min-width:1024px){.v3-tkit [data-thero]{padding:118px var(--pad) 40px}}
+.v3-tkit [data-thero] > [data-eyebrow]{margin:26px 0 18px}
+.v3-tkit [data-thero-row]{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:24px}
+@media (min-width:1024px){.v3-tkit [data-thero-row]{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:56px;align-items:end;margin-top:30px}}
+.v3-tkit [data-thero] [data-lede]{margin:0;max-width:640px;animation:gRise 1s .12s cubic-bezier(.16,1,.3,1) both}
+/* registry meta — audience · time · what you need (the hub card's own line) */
+.v3-tkit [data-tmeta]{margin:0;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;line-height:1.7;color:var(--stone);text-transform:uppercase;padding-left:14px;border-left:1px solid var(--mosstext);animation:gFade 1s .2s ease both}
+.v3-tkit [data-tmeta] b{font-weight:500;color:var(--fg)}
+
+/* ---------- the worksheet ---------- */
+.v3-tkit [data-ws]{padding:0 var(--pad) var(--sy)}
+.v3-tkit [data-toolbar]{display:flex;flex-direction:column;align-items:stretch;gap:16px;padding:18px 0 22px;border-top:1px solid var(--line)}
+@media (min-width:768px){.v3-tkit [data-toolbar]{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 28px}}
+.v3-tkit [data-toolbar] [data-tabs]{flex:0 1 auto}
+/* mode / model / preset tabs — one segmented control for every tool.
+   Selected = filled (shape + fill, never colour alone) + aria-selected. */
+.v3-tkit [data-tabs]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1px solid var(--line2);border-radius:2px;padding:3px;max-width:100%}
+.v3-tkit [data-tabs][data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:620px){.v3-tkit [data-tabs][data-count="3"]{grid-template-columns:repeat(3,minmax(0,auto))}.v3-tkit [data-tabs][data-count="4"]{grid-template-columns:repeat(4,minmax(0,auto))}.v3-tkit [data-tabs][data-count="2"]{grid-template-columns:repeat(2,minmax(0,auto))}}
+@media (min-width:620px){.v3-tkit [data-tabs]{width:fit-content}}
+.v3-tkit [data-tabs][data-count="3"] > :last-child:nth-child(3){grid-column:1 / -1}
+@media (min-width:620px){.v3-tkit [data-tabs][data-count="3"] > :last-child:nth-child(3){grid-column:auto}}
+.v3-tkit [data-tab]{min-height:44px;padding:8px 14px;border:0;border-radius:1px;background:transparent;color:var(--stone);font-family:Chivo,system-ui,sans-serif;font-size:14.5px;line-height:1.2;text-align:center;cursor:pointer;transition:background .25s,color .25s}
+.v3-tkit [data-tab]:hover{color:var(--fg)}
+.v3-tkit [data-tab][aria-selected="true"], .v3-tkit [data-tab][aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.v3-tkit [data-tablabel]{display:block;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:var(--stone);text-transform:uppercase}
+/* currency — a real <select>, its label always visible */
+.v3-tkit [data-cur]{display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:var(--stone);text-transform:uppercase}
+.v3-tkit [data-cur] select, .v3-tkit [data-select]{appearance:none;-webkit-appearance:none;min-height:44px;padding:0 36px 0 14px;border:1px solid var(--stone);border-radius:2px;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23A7ACA5' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat right 14px center;color:var(--fg);font-family:Chivo,system-ui,sans-serif;font-size:16px;letter-spacing:0;text-transform:none;cursor:pointer}
+.v3-tkit [data-cur] select option, .v3-tkit [data-select] option{color:#101310;background:#F3F5F1}
+
+/* two columns from 1024: inputs | readout (sticky). Below, one column with a
+   result dock so the answer is never out of reach while editing. */
+.v3-tkit [data-ws-grid]{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
+@media (min-width:1024px){.v3-tkit [data-ws-grid]{grid-template-columns:minmax(0,1fr) minmax(0,.94fr);gap:48px;align-items:start}
+  .v3-tkit [data-ws-grid] > [data-readout]{position:sticky;top:96px}}
+@media (min-width:1440px){.v3-tkit [data-ws-grid]{gap:72px}}
+.v3-tkit [data-ws-grid][data-stack]{grid-template-columns:minmax(0,1fr)}
+.v3-tkit [data-ws-grid][data-stack] > [data-readout]{position:static}
+
+.v3-tkit [data-ptitle]{display:flex;align-items:baseline;gap:14px;margin:0 0 6px;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h3);line-height:1.15;letter-spacing:-.02em;text-transform:uppercase}
+.v3-tkit [data-step]{flex:0 0 auto;font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:11px;letter-spacing:.12em;color:var(--mosstext)}
+.v3-tkit [data-psub]{margin:0 0 8px;font-size:15px;line-height:1.6;color:var(--stone);max-width:560px}
+.v3-tkit [data-psub] em{font-style:italic;color:var(--fg)}
+
+/* ---------- the field — one component for 58 inputs ----------
+   label + hint stay visible above the control at every width; the unit is
+   set beside the number in mono, never inside the typed value. */
+.v3-tkit [data-field]{display:grid;grid-template-columns:minmax(0,1fr);gap:10px 18px;padding:20px 0 18px;border-bottom:1px solid var(--line)}
+.v3-tkit [data-fields] > [data-field]:first-child{border-top:1px solid var(--line)}
+@media (min-width:480px){.v3-tkit [data-field]{grid-template-columns:minmax(0,1fr) 196px;align-items:end}
+  .v3-tkit [data-field] > input[type=range]{grid-column:1 / -1}}
+.v3-tkit [data-flabel]{display:block;font-size:15.5px;line-height:1.35;color:var(--fg)}
+.v3-tkit [data-flabel] [data-opt]{color:var(--stone);font-weight:400}
+.v3-tkit [data-fhint]{display:block;margin-top:4px;font-size:13.5px;line-height:1.45;color:var(--stone)}
+/* constrained-value message: shown only when the engine's own clamp changes
+   what the result uses. Text + a marker glyph + a rule (never colour alone);
+   tied to the input by aria-describedby, announced politely. */
+.v3-tkit [data-fmsg]{grid-column:1 / -1;margin:2px 0 0;padding:6px 0 0 12px;border-left:2px solid var(--fg);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.02em;line-height:1.5;color:var(--fg)}
+.v3-tkit [data-fmsg]::before{content:"! ";font-weight:500}
+.v3-tkit [data-fmsg]:empty{display:none}
+.v3-tkit [data-field][data-limited] [data-ctl]{border-bottom-style:dashed}
+/* field boundaries use Stone: 7.5:1 on Carbon, 5.5:1 on Mineral — above the
+   3:1 non-text minimum that identifies a control (the hairline token is ~1.8:1) */
+.v3-tkit [data-ctl]{display:flex;align-items:center;gap:6px;min-width:0;min-height:44px;box-sizing:border-box;border-bottom:1px solid var(--stone);padding:4px 0 5px;transition:border-color .2s}
+.v3-tkit [data-ctl]:focus-within{border-bottom-color:var(--mosstext);box-shadow:0 1px 0 0 var(--mosstext)}
+.v3-tkit [data-ctl] input{flex:1 1 auto;min-width:0;width:100%;border:0;background:transparent;color:var(--fg);font-family:Chivo,system-ui,sans-serif;font-size:22px;font-weight:400;line-height:1.2;font-variant-numeric:lining-nums tabular-nums;padding:0;outline:none;-moz-appearance:textfield}
+.v3-tkit [data-ctl] input::-webkit-outer-spin-button, .v3-tkit [data-ctl] input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.v3-tkit [data-ctl] input::placeholder{color:var(--stone);opacity:.7}
+.v3-tkit [data-ctl]:focus-within{outline:2px solid var(--mosstext);outline-offset:4px}
+.v3-tkit [data-ctl] input:focus-visible{outline:none}
+.v3-tkit [data-pre], .v3-tkit [data-suf]{flex:0 0 auto;font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.02em;color:var(--stone);white-space:pre}
+/* the paired slider — a convenience with its own narrower bounds (contract);
+   a 32px hit area, a 2px track, the filled part in the theme's Moss tone */
+.v3-tkit [data-field] input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:32px;margin:4px 0 0;background:transparent;cursor:pointer;--fill:0%}
+.v3-tkit [data-field] input[type=range]::-webkit-slider-runnable-track{height:2px;background:linear-gradient(90deg,var(--mosstext) var(--fill),var(--line2) var(--fill))}
+.v3-tkit [data-field] input[type=range]::-moz-range-track{height:2px;background:var(--line2)}
+.v3-tkit [data-field] input[type=range]::-moz-range-progress{height:2px;background:var(--mosstext)}
+.v3-tkit [data-field] input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-10px;border-radius:50%;background:var(--bg);border:2px solid var(--mosstext);transition:transform .15s}
+.v3-tkit [data-field] input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--bg);border:2px solid var(--mosstext)}
+.v3-tkit [data-field] input[type=range]:active::-webkit-slider-thumb{transform:scale(1.12)}
+.v3-tkit [data-field] input[type=range]:focus-visible{outline:2px solid var(--mosstext);outline-offset:2px}
+/* dense grid — the ad-spend advanced form (10 fields, no sliders) */
+.v3-tkit [data-fields][data-dense]{display:grid;grid-template-columns:minmax(0,1fr);gap:0 28px}
+@media (min-width:480px){.v3-tkit [data-fields][data-dense]{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .v3-tkit [data-fields][data-dense] > [data-field]{grid-template-columns:minmax(0,1fr);align-items:start}
+  .v3-tkit [data-fields][data-dense] > [data-field]:nth-child(2){border-top:1px solid var(--line)}}
+.v3-tkit [data-fields][data-dense] [data-field]{padding:16px 0 14px}
+/* paired variant columns — the A/B form reads A | B from 620 */
+@media (min-width:620px){.v3-tkit [data-fields][data-ab]{display:grid;grid-template-rows:auto auto;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:0 28px}
+  .v3-tkit [data-fields][data-ab] > [data-field]{grid-template-columns:minmax(0,1fr);align-items:start}
+  .v3-tkit [data-fields][data-ab] > [data-field]:nth-child(3){border-top:1px solid var(--line)}}
+/* text fields (UTM) — full-width control under the label */
+.v3-tkit [data-field][data-text]{grid-template-columns:minmax(0,1fr)}
+.v3-tkit [data-field][data-text] [data-ctl] input{font-size:17px;font-variant-numeric:normal}
+.v3-tkit [data-ctxsel]{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding:16px 0}
+.v3-tkit [data-ctxsel] label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:var(--stone);text-transform:uppercase}
+.v3-tkit [data-ctxsel] select{width:100%}
+@media (min-width:620px){.v3-tkit [data-ctxsel]{grid-template-columns:150px minmax(0,1fr);align-items:center}}
+
+/* JS-required honesty: shown only when the scripts cannot run */
+html.v3-js .v3-tkit [data-nojs]{display:none}
+.v3-tkit [data-nojs]{margin:0 0 18px;padding:12px 14px;border:1px dashed var(--line2);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;line-height:1.6;color:var(--fg);text-transform:uppercase}
+
+/* ---------- the readout ----------
+   hierarchy: VERDICT (state + headline) is the primary result; metric rows
+   are supporting values at a clearly lower weight; explanations are body. */
+.v3-tkit [data-readout]{container-type:inline-size;background:var(--raise);border:1px solid var(--line);border-radius:2px;padding:22px 18px 8px;min-width:0}
+@media (min-width:480px){.v3-tkit [data-readout]{padding:26px 26px 10px}}
+.v3-tkit [data-readout] > [data-ptitle]{margin-bottom:18px}
+.v3-tkit [data-verdict]{position:relative;padding:4px 0 22px 18px;border-bottom:1px solid var(--line);box-shadow:inset 3px 0 0 var(--vrule,var(--line2))}
+.v3-tkit [data-vk]{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;line-height:1.4;color:var(--vtext,var(--stone));text-transform:uppercase}
+.v3-tkit [data-vglyph]{flex:0 0 auto;width:11px;height:11px;box-sizing:border-box;border:1.5px solid var(--stone)}
+.v3-tkit [data-vh]{margin:12px 0 0;font-family:Syne,sans-serif;font-weight:700;font-size:clamp(24px,8.4cqi,40px);line-height:1.08;letter-spacing:-.025em;color:var(--fg);overflow-wrap:break-word}
+.v3-tkit [data-vd]{margin:12px 0 0;font-size:15px;line-height:1.6;color:var(--stone);max-width:560px}
+.v3-tkit [data-vd] strong{color:var(--fg);font-weight:500}
+/* states — shape AND colour AND the state word; never colour alone */
+.v3-tkit [data-state="good"]{--vrule:var(--mosstext);--vtext:var(--mosstext)}
+.v3-tkit [data-state="good"] [data-vglyph]{background:var(--mosstext);border-color:var(--mosstext)}
+.v3-tkit [data-state="warn"]{--vrule:var(--fg);--vtext:var(--fg)}
+.v3-tkit [data-state="warn"] [data-vglyph]{border-color:var(--fg);background:linear-gradient(135deg,var(--fg) 0 50%,transparent 50% 100%)}
+.v3-tkit [data-state="bad"]{--vrule:var(--clay);--vtext:var(--acctext)}
+.v3-tkit [data-state="bad"] [data-vglyph]{background:var(--clay);border-color:var(--fg);transform:rotate(45deg) scale(.86)}
+.v3-tkit [data-state="neutral"]{--vrule:var(--line2);--vtext:var(--stone)}
+/* metric rows — supporting values */
+.v3-tkit [data-metric]{padding:18px 0 18px;border-bottom:1px solid var(--line)}
+.v3-tkit [data-metric]:last-child{border-bottom:0}
+.v3-tkit [data-mk]{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.13em;line-height:1.5;color:var(--stone);text-transform:uppercase}
+.v3-tkit [data-mk] [data-mk-note]{text-transform:none;letter-spacing:0;font-family:Chivo,system-ui,sans-serif;font-size:13px}
+.v3-tkit [data-mv]{margin-top:6px;font-family:Syne,sans-serif;font-weight:600;font-size:clamp(22px,6.6cqi,30px);line-height:1.12;letter-spacing:-.02em;color:var(--fg);font-variant-numeric:lining-nums tabular-nums;overflow-wrap:break-word}
+.v3-tkit [data-mv][data-small]{font-size:clamp(19px,5.2cqi,24px)}
+.v3-tkit [data-metric][data-lead] [data-mv]{font-size:clamp(28px,10cqi,46px);font-weight:700}
+.v3-tkit [data-unit], .v3-tkit [data-g]{font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:.56em;letter-spacing:0;color:var(--stone);margin:0 .08em}
+.v3-tkit [data-vh] [data-g]{font-size:.62em;color:inherit}
+.v3-tkit [data-mk] [data-sep2]{font-size:1em}
+.v3-tkit [data-dock-v] [data-g]{font-size:.78em}
+.v3-tkit [data-sep2]{font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:.6em;color:var(--stone);padding:0 .3em}
+.v3-tkit [data-mexp]{margin:8px 0 0;font-size:14px;line-height:1.6;color:var(--stone)}
+.v3-tkit [data-mexp] strong{color:var(--fg);font-weight:500}
+.v3-tkit [data-badge]{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.v3-tkit [data-badge]::before{content:"";width:9px;height:9px;box-sizing:border-box;border:1.5px solid currentColor}
+.v3-tkit [data-badge="Reasonable"]::before{background:currentColor}
+
+/* ---------- the result dock (below 1024 only) ----------
+   a fixed, compact echo of the primary result while the inputs are in view;
+   the full readout stays the announced, authoritative region. */
+.v3-tkit [data-dock]{position:fixed;left:10px;right:10px;bottom:10px;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 10px 10px 16px;background:var(--fg);color:var(--bg);border-radius:3px;box-shadow:0 12px 30px rgba(0,0,0,.28);transform:translateY(140%);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.v3-tkit [data-dock][data-on]{transform:none}
+.v3-tkit [data-dock][hidden]{display:none}
+@media (min-width:1024px){.v3-tkit [data-dock]{display:none!important}}
+.v3-tkit [data-dock-txt]{min-width:0;display:flex;flex-direction:column;gap:3px}
+.v3-tkit [data-dock-k]{display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;line-height:1.3;text-transform:uppercase;opacity:.75}
+.v3-tkit [data-dock-v]{font-family:Syne,sans-serif;font-weight:700;font-size:16px;line-height:1.2;letter-spacing:-.01em;overflow-wrap:anywhere}
+.v3-tkit [data-dock-v] [data-g]{color:inherit}
+.v3-tkit [data-dock] a{flex:0 0 auto;display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid currentColor;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:inherit}
+.v3-tkit [data-dock] a:hover{color:inherit;background:rgba(127,127,127,.15)}
+.v3-tkit [data-dock] a:focus-visible{outline-color:var(--bg)}
+.v3-tkit [data-dock] [data-vglyph]{border-color:currentColor}
+.v3-tkit [data-dock][data-state="good"] [data-vglyph]{background:currentColor}
+.v3-tkit [data-dock][data-state="warn"] [data-vglyph]{background:linear-gradient(135deg,currentColor 0 50%,transparent 50% 100%)}
+.v3-tkit [data-dock][data-state="bad"] [data-vglyph]{background:var(--clay);transform:rotate(45deg) scale(.86)}
+
+/* ---------- interpretation: notes + method ---------- */
+.v3-tkit [data-interp]{padding:0 var(--pad) var(--sy)}
+.v3-tkit [data-interp] > * + *{margin-top:14px}
+.v3-tkit [data-note]{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;padding:22px 0;border-top:1px solid var(--line)}
+@media (min-width:1024px){.v3-tkit [data-note]{grid-template-columns:minmax(0,.42fr) minmax(0,1fr);gap:48px}}
+.v3-tkit [data-note] p{margin:0;font-size:15.5px;line-height:1.7;color:var(--stone);max-width:760px}
+.v3-tkit [data-note] p strong{color:var(--fg);font-weight:500}
+.v3-tkit [data-note] p em{font-style:italic}
+.v3-tkit [data-note-k]{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;line-height:1.5;color:var(--mosstext);text-transform:uppercase;display:flex;gap:14px}
+.v3-tkit [data-method]{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.v3-tkit [data-method] summary{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:56px;padding:12px 0;cursor:pointer;list-style:none;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h3);letter-spacing:-.02em;text-transform:uppercase;color:var(--fg)}
+.v3-tkit [data-method] summary::-webkit-details-marker{display:none}
+.v3-tkit [data-method] summary::after{content:"+";flex:0 0 auto;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:22px;color:var(--stone);transition:transform .3s}
+.v3-tkit [data-method][open] summary::after{transform:rotate(45deg);color:var(--mosstext)}
+.v3-tkit [data-method] p{margin:0 0 22px;font-size:15px;line-height:1.75;color:var(--stone);max-width:820px}
+.v3-tkit [data-method] p em{font-style:italic;color:var(--fg)}
+
+/* ---------- next action ---------- */
+.v3-tkit [data-tcta]{background:var(--moss);color:#101310;padding:calc(var(--sy) * .8) var(--pad)}
+.v3-tkit [data-tcta-grid]{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+/* two columns only from 1280, heading column wide enough that the longest
+   opening pair (THE BENCHMARK ≈ 15em) never strands its first word */
+@media (min-width:1280px){.v3-tkit [data-tcta-grid]{grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:56px;align-items:end}}
+.v3-tkit [data-tcta-h]{margin:0;font-family:Syne,sans-serif;font-weight:800;font-size:calc(var(--ctah) * .72);line-height:.98;letter-spacing:-.035em;text-transform:uppercase;text-wrap:balance;max-width:18em}
+.v3-tkit [data-tcta] p{margin:0;font-size:var(--body);line-height:1.6;color:rgba(16,19,16,.8);max-width:520px}
+.v3-tkit [data-tcta] [data-btn]{margin-top:24px;background:#101310;color:#F3F5F1}
+.v3-tkit [data-tcta] [data-btn]:hover{color:#F3F5F1}
+.v3-tkit [data-tcta] [data-eyebrow]{color:rgba(16,19,16,.62);display:flex;gap:14px}
+.v3-tkit [data-tcta] [data-step]{color:rgba(16,19,16,.62)}
+.v3-tkit [data-tcta] a:focus-visible, .v3-tkit [data-tcta] button:focus-visible{outline-color:#101310}
+.v3-tkit [data-related]{padding:calc(var(--sy) * .7) var(--pad);display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@media (min-width:1024px){.v3-tkit [data-related]{grid-template-columns:minmax(0,.42fr) minmax(0,1fr);gap:48px}}
+.v3-tkit [data-related] h2{margin:0;font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:11px;letter-spacing:.14em;line-height:1.5;color:var(--stone);text-transform:uppercase}
+.v3-tkit [data-related] ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.v3-tkit [data-related] li{border-bottom:1px solid var(--line)}
+.v3-tkit [data-related] li a{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:56px;padding:12px 0;font-size:16px;line-height:1.45;color:var(--fg)}
+.v3-tkit [data-related] li a::after{content:"→";flex:0 0 auto;font-family:'IBM Plex Mono',monospace;color:var(--mosstext);transition:transform .25s}
+.v3-tkit [data-related] li a:hover::after{transform:translateX(4px)}
+.v3-tkit [data-related] li a [data-rk]{display:block;margin-bottom:3px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--stone);text-transform:uppercase}
+
+/* ---------- funnel stage rows ---------- */
+.v3-tkit [data-stages]{border-top:1px solid var(--line);margin-top:8px}
+.v3-tkit [data-stage]{display:grid;grid-template-columns:minmax(0,1fr) 44px;grid-template-areas:"name rm" "count rm" "conv conv";gap:6px 10px;padding:12px 0 12px 12px;border-bottom:1px solid var(--line);box-shadow:inset 2px 0 0 transparent}
+@media (min-width:620px){.v3-tkit [data-stage]{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr) 44px;grid-template-areas:"name count conv rm";align-items:center;gap:10px 16px}}
+.v3-tkit [data-stage] .sname{grid-area:name}.v3-tkit [data-stage] .scount{grid-area:count}.v3-tkit [data-stage] [data-sconv]{grid-area:conv}.v3-tkit [data-stage] .srm{grid-area:rm}
+.v3-tkit [data-stage] input{min-width:0;width:100%;min-height:44px;border:0;border-bottom:1px solid var(--stone);background:transparent;color:var(--fg);font-family:Chivo,system-ui,sans-serif;font-size:16px;padding:6px 0;font-variant-numeric:lining-nums tabular-nums}
+.v3-tkit [data-stage] input:focus-visible{outline:2px solid var(--mosstext);outline-offset:2px}
+.v3-tkit [data-stage] .scount{font-size:18px}
+.v3-tkit [data-sconv]{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;line-height:1.4;color:var(--stone)}
+.v3-tkit [data-sconv] [data-leaktag]{display:none;margin-left:8px;color:var(--acctext)}
+.v3-tkit [data-stage].leak{box-shadow:inset 3px 0 0 var(--clay);background:linear-gradient(90deg,rgba(230,106,61,.08),transparent 60%)}
+.v3-tkit [data-stage].leak [data-leaktag]{display:inline}
+.v3-tkit [data-stage] .srm{align-self:center;width:44px;height:44px;border:1px solid var(--line2);border-radius:2px;background:transparent;color:var(--stone);font-family:'IBM Plex Mono',monospace;font-size:20px;line-height:1;cursor:pointer}
+.v3-tkit [data-stage] .srm:hover{color:var(--fg);border-color:var(--fg)}
+.v3-tkit [data-stage] .srm[aria-disabled="true"]{opacity:.38;cursor:not-allowed}
+.v3-tkit [data-sadd]{margin-top:14px;min-height:44px;padding:0 18px;border:1px solid var(--line2);border-radius:2px;background:transparent;color:var(--fg);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.v3-tkit [data-sadd]:hover{border-color:var(--fg)}
+.v3-tkit [data-subpanel]{margin-top:34px;padding-top:4px}
+
+/* ---------- UTM output ---------- */
+.v3-tkit [data-output]{margin-top:12px;padding:16px;border:1px solid var(--line2);background:var(--bg);font-family:'IBM Plex Mono',monospace;font-size:14px;line-height:1.6;color:var(--fg);overflow-wrap:anywhere;word-break:break-word;min-height:58px}
+.v3-tkit [data-copy]{margin:14px 0 14px;min-height:48px;padding:0 22px;border:0;border-radius:2px;background:var(--moss);color:#101310;font-family:Syne,sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;cursor:pointer}
+.v3-tkit [data-copy]:disabled{background:transparent;color:var(--stone);border:1px dashed var(--line2);cursor:not-allowed}
+.v3-tkit [data-sr]{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+
+/* NUMERIC DISPLAY — the approved global rule, as ONE shared rule (not per
+   page): Syne's default figures are old-style ("₹0" reads "₹o"), so every
+   data-bearing display — results, statistics, scores, benchmark values,
+   the dock, the footer clocks — sets lining figures. Editorial body copy is
+   left alone. */
+.v3-tkit :where([data-vh],[data-mv],[data-score],[data-mval],[data-brange] b,[data-dock-v],[data-gcount],[data-time]){font-variant-numeric:lining-nums tabular-nums}
+/* `hidden` must always win over a component's display value */
+.v3-tkit [hidden]{display:none!important}
+.v3-tkit [data-toolbar][data-empty-bar]{padding:0;min-height:0}
+.v3-tkit [data-toolbar][data-empty-bar] + [data-ws-grid]{padding-top:26px}
+.v3-tkit [data-keep]{white-space:nowrap}
+.v3-tkit [data-vh]{text-wrap:balance}
+/* no-JS line: visible only in the raw template (the injected live markup omits it) */
+
+/* ---------- analyser: score, gauge, metric rows ---------- */
+.v3-tkit [data-score]{margin:14px 0 0;font-family:Syne,sans-serif;font-weight:800;font-size:clamp(56px,22cqi,96px);line-height:.9;letter-spacing:-.05em;font-variant-numeric:lining-nums tabular-nums;color:var(--fg)}
+/* empty state: the score placeholder reads as a placeholder, not a value */
+.v3-tkit [data-verdict][data-state="neutral"] [data-score]{color:var(--stone)}
+.v3-tkit [data-slash]{font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:.22em;letter-spacing:.04em;color:var(--stone);margin-left:.3em}
+.v3-tkit [data-gauge]{position:relative;height:8px;margin:18px 0 0;background:var(--line);overflow:hidden}
+.v3-tkit [data-gauge] > span{position:absolute;left:0;top:0;bottom:0;transition:width .6s cubic-bezier(.16,1,.3,1)}
+.v3-tkit [data-gauge] > i{position:absolute;top:0;bottom:0;width:1px;background:var(--bg);opacity:.8}
+.v3-tkit [data-gauge-scale]{position:relative;height:16px;margin-top:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--stone)}
+.v3-tkit [data-gauge-scale] span{position:absolute;top:0;transform:translateX(-50%)}
+.v3-tkit [data-gauge-scale] span:first-child{transform:none;left:0}
+.v3-tkit [data-gauge-scale] span:last-child{transform:translateX(-100%)}
+/* bands — fill + pattern, never colour alone (the label above names the band) */
+.v3-tkit [data-band="good"]{background:var(--mosstext)}
+.v3-tkit [data-band="warn"]{background:repeating-linear-gradient(135deg,var(--fg) 0 3px,transparent 3px 6px)}
+.v3-tkit [data-band="bad"]{background:var(--clay)}
+.v3-tkit [data-band="none"]{background:transparent}
+.v3-tkit [data-mrows]{margin-top:6px}
+.v3-tkit [data-mrow]{padding:16px 0;border-top:1px solid var(--line)}
+.v3-tkit [data-mrow]:first-child{border-top:0}
+.v3-tkit [data-mrow-top]{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.v3-tkit [data-mlabel]{font-size:15.5px;line-height:1.35;color:var(--fg)}
+.v3-tkit [data-perfword]{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--stone)}
+.v3-tkit [data-perfword]::before{content:"";width:9px;height:9px;box-sizing:border-box;border:1.5px solid currentColor}
+.v3-tkit [data-perf="strong"] [data-perfword]{color:var(--mosstext)}
+.v3-tkit [data-perf="strong"] [data-perfword]::before{background:currentColor}
+.v3-tkit [data-perf="average"] [data-perfword]{color:var(--fg)}
+.v3-tkit [data-perf="average"] [data-perfword]::before{background:linear-gradient(135deg,currentColor 0 50%,transparent 50%)}
+.v3-tkit [data-perf="weak"] [data-perfword]{color:var(--acctext)}
+.v3-tkit [data-perf="weak"] [data-perfword]::before{background:var(--clay);border-color:var(--fg);transform:rotate(45deg) scale(.86)}
+.v3-tkit [data-mrow-mid]{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin-top:6px}
+.v3-tkit [data-mval]{font-family:Syne,sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em;font-variant-numeric:lining-nums tabular-nums}
+.v3-tkit [data-mbench]{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.02em;line-height:1.5;color:var(--stone)}
+.v3-tkit [data-mbar]{position:relative;height:4px;margin-top:10px;background:var(--line)}
+.v3-tkit [data-mbar] > span{position:absolute;left:0;top:0;bottom:0}
+.v3-tkit [data-mnote]{margin-top:8px;display:flex;flex-wrap:wrap;gap:4px 10px;font-size:13px;line-height:1.5}
+.v3-tkit [data-mflag="heuristic"]{color:var(--fg);padding-left:9px;border-left:2px dashed var(--fg)}
+.v3-tkit [data-mflag="fallback"]{color:var(--stone);padding-left:9px;border-left:2px solid var(--stone)}
+.v3-tkit [data-mcite]{margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.04em;line-height:1.6;color:var(--stone)}
+.v3-tkit [data-mcite] a{color:var(--fg);border-bottom:1px solid var(--line2)}
+.v3-tkit [data-vd] [data-weakest]{color:var(--acctext);text-decoration:underline;text-decoration-color:var(--accrule);text-decoration-thickness:2px;text-underline-offset:3px}
+/* priority actions + data-quality disclosure (always visible once scored) */
+.v3-tkit [data-priority]{padding:26px 0 8px;border-top:1px solid var(--line)}
+.v3-tkit [data-prio]{list-style:none;margin:16px 0 0;padding:0;display:block}
+.v3-tkit [data-prio] .action{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;padding:16px 0;border-top:1px solid var(--line)}
+@media (min-width:1024px){.v3-tkit [data-prio] .action{grid-template-columns:minmax(0,.42fr) minmax(0,1fr);gap:48px}}
+.v3-tkit [data-prio] .n{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;line-height:1.6;color:var(--mosstext);text-transform:uppercase}
+.v3-tkit [data-prio] p{margin:0;font-size:15.5px;line-height:1.65;color:var(--fg);max-width:720px}
+.v3-tkit [data-prio] p a{color:var(--mosstext);border-bottom:1px solid currentColor;white-space:nowrap}
+.v3-tkit [data-quality]{padding:20px 20px;border:1px solid var(--line2);border-left:3px solid var(--fg);background:var(--raise)}
+.v3-tkit [data-quality] p{margin:0;font-size:15px;line-height:1.7;color:var(--stone);max-width:900px}
+.v3-tkit [data-quality] p strong{color:var(--fg);font-weight:500}
+.v3-tkit [data-quality] p a{color:var(--fg);border-bottom:1px solid var(--mosstext)}
+
+/* ---------- benchmark reference: rules + the record set ---------- */
+.v3-tkit [data-bench-rules] [data-rows] p{margin:0;font-size:16px;line-height:1.65;color:var(--stone);max-width:720px}
+.v3-tkit [data-bench-rules] [data-rows] strong{color:var(--fg);font-weight:500}
+.v3-tkit [data-bench-set] [data-body] em{font-style:italic}
+.v3-tkit [data-bm-wrap]{margin-top:34px}
+.v3-tkit [data-bm]{width:100%;border-collapse:collapse;font-size:14px;line-height:1.5}
+.v3-tkit [data-bm] thead th{font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:10.5px;letter-spacing:.13em;color:var(--stone);text-transform:uppercase;text-align:left;padding:0 14px 12px 0;border-bottom:1px solid var(--line2);vertical-align:bottom}
+.v3-tkit [data-bm] tbody th, .v3-tkit [data-bm] tbody td{padding:18px 14px 18px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;color:var(--stone);font-weight:400}
+.v3-tkit [data-bmetric]{width:30%}
+.v3-tkit [data-blabel]{display:block;font-size:15.5px;line-height:1.35;color:var(--fg)}
+.v3-tkit [data-bnote]{display:block;margin-top:6px;font-size:13px;line-height:1.55;color:var(--stone)}
+.v3-tkit [data-heur]{display:inline-block;margin-left:8px;padding:1px 7px;border:1px dashed var(--fg);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg);vertical-align:2px}
+.v3-tkit [data-brow][data-heuristic] > *{background:repeating-linear-gradient(135deg,transparent 0 10px,var(--grid) 10px 11px)}
+.v3-tkit [data-brange]{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--fg)!important;white-space:normal}
+.v3-tkit [data-brange] b{font-family:Syne,sans-serif;font-weight:700;font-size:16px}
+.v3-tkit [data-brange] [data-dot]{color:var(--stone)}
+.v3-tkit [data-bdir]{display:block;margin-top:4px;font-size:10.5px;color:var(--stone)}
+.v3-tkit [data-conf]{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg)}
+.v3-tkit [data-pips]{display:inline-flex;gap:2px}
+.v3-tkit [data-pips] i{width:6px;height:10px;border:1px solid var(--stone);box-sizing:border-box}
+.v3-tkit [data-pips] i[data-on]{background:var(--fg);border-color:var(--fg)}
+.v3-tkit [data-bsrc] a{color:var(--fg);border-bottom:1px solid var(--line2)}
+.v3-tkit [data-bdate]{color:var(--stone)}
+.v3-tkit [data-bsample]{display:block;margin-top:4px;font-size:12.5px}
+/* below 1024 each record is a block; explicit ARIA roles keep table semantics */
+@media (max-width:1023px){
+  .v3-tkit [data-bm], .v3-tkit [data-bm] tbody, .v3-tkit [data-bm] tr, .v3-tkit [data-bm] th, .v3-tkit [data-bm] td{display:block}
+  .v3-tkit [data-bm] thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .v3-tkit [data-bm] tbody tr{padding:18px 0;border-bottom:1px solid var(--line)}
+  .v3-tkit [data-bm] tbody tr:first-child{border-top:1px solid var(--line2)}
+  .v3-tkit [data-bm] tbody th, .v3-tkit [data-bm] tbody td{padding:0;border:0}
+  .v3-tkit [data-bmetric]{width:auto;margin-bottom:12px}
+  .v3-tkit [data-bm] tbody td{display:grid;grid-template-columns:minmax(0,118px) minmax(0,1fr);gap:12px;padding:6px 0}
+  .v3-tkit [data-bm] tbody td::before{content:attr(data-th);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;line-height:1.7;color:var(--stone);text-transform:uppercase}
+}
+
+/* ---------- hub ---------- */
+.v3-tkit [data-flagship-sec]{padding:0 var(--pad);background:var(--bg)}
+.v3-tkit [data-flagship]{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;padding:30px 22px 26px;background:var(--ibg);color:var(--ifg);border-radius:2px;box-shadow:var(--iedge);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+@media (min-width:768px){.v3-tkit [data-flagship]{padding:40px 36px 34px}}
+/* the name always gets the full measure (BENCHMARK is ~11em in Syne 800);
+   outcome, meta and the action share the row beneath it */
+@media (min-width:1024px){.v3-tkit [data-flagship]{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);grid-template-areas:"tag tag" "name name" "out go" "meta go";gap:18px 56px;padding:48px 44px 40px;align-items:end}
+  .v3-tkit [data-flag-tag]{grid-area:tag}.v3-tkit [data-flag-name]{grid-area:name}.v3-tkit [data-flag-out]{grid-area:out}.v3-tkit [data-flag-meta]{grid-area:meta}.v3-tkit [data-flagship] [data-go]{grid-area:go;justify-self:end}}
+.v3-tkit [data-flagship]:hover{color:var(--ifg);transform:translateY(-2px)}
+.v3-tkit [data-flagship]:focus-visible{outline:2px solid var(--mosstext);outline-offset:4px}
+.v3-tkit [data-flag-tag]{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--imoss);text-transform:uppercase}
+.v3-tkit [data-flag-name]{margin:0;font-family:Syne,sans-serif;font-weight:800;font-size:calc(var(--h2) * 1.12);line-height:.98;letter-spacing:-.04em;text-transform:uppercase;text-wrap:balance}
+.v3-tkit [data-flag-out]{margin:0;font-size:var(--body);line-height:1.6;color:var(--ibody);max-width:520px}
+.v3-tkit [data-flag-meta]{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;line-height:1.7;color:var(--imut);text-transform:uppercase}
+.v3-tkit [data-flag-meta] [data-bmtag]{color:var(--ifg)}
+.v3-tkit [data-go]{display:inline-flex;align-items:center;gap:8px;font-family:Syne,sans-serif;font-weight:700;font-size:13.5px;text-transform:uppercase;letter-spacing:.01em}
+.v3-tkit [data-flagship] [data-go]{min-height:48px;padding:0 20px;background:var(--ifg);color:var(--ibg);border-radius:2px;justify-self:start}
+.v3-tkit [data-index]{padding-top:calc(var(--sy) * .7)}
+.v3-tkit [data-jump]{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 30px}
+.v3-tkit [data-jump] a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line2);border-radius:2px;font-size:14px;color:var(--fg)}
+.v3-tkit [data-filters]{display:grid;gap:18px;padding:0 0 30px;margin-bottom:6px}
+.v3-tkit [data-frow]{display:grid;gap:10px}
+.v3-tkit [data-frow2]{grid-template-columns:minmax(0,1fr);gap:14px}
+@media (min-width:1024px){.v3-tkit [data-frow2]{grid-template-columns:minmax(0,1fr) 300px;align-items:center}}
+.v3-tkit [data-frow-in]{display:grid;gap:10px}
+@media (min-width:768px){.v3-tkit [data-frow-in]{grid-template-columns:auto minmax(0,1fr);align-items:center;gap:14px}}
+.v3-tkit [data-flabel2]{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:var(--stone);text-transform:uppercase}
+.v3-tkit [data-pills]{display:flex;flex-wrap:wrap;gap:8px}
+.v3-tkit [data-pill]{min-height:44px;padding:0 15px;border:1px solid var(--line2);border-radius:2px;background:transparent;color:var(--stone);font-family:Chivo,system-ui,sans-serif;font-size:14.5px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.v3-tkit [data-pill]:hover{color:var(--fg);border-color:var(--fg)}
+.v3-tkit [data-pill][aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.v3-tkit [data-search]{width:100%;min-height:48px;padding:0 14px;border:1px solid var(--stone);border-radius:2px;background:transparent;color:var(--fg);font-family:Chivo,system-ui,sans-serif;font-size:16px;box-sizing:border-box}
+.v3-tkit [data-search]::placeholder{color:var(--stone)}
+.v3-tkit [data-groups]{display:grid;gap:0}
+.v3-tkit [data-group]{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;padding:26px 0 30px;border-top:1px solid var(--line2)}
+@media (min-width:1024px){.v3-tkit [data-group]{grid-template-columns:minmax(0,.34fr) minmax(0,1fr);gap:48px}}
+.v3-tkit [data-ghead]{margin:0;display:flex;align-items:baseline;gap:14px;font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:11.5px;letter-spacing:.16em;line-height:1.5;color:var(--mosstext);text-transform:uppercase}
+@media (min-width:1024px){.v3-tkit [data-ghead]{position:sticky;top:110px;align-self:start}}
+.v3-tkit [data-gcount]{color:var(--stone)}
+.v3-tkit [data-trows]{list-style:none;margin:0;padding:0}
+.v3-tkit [data-trows] > li + li{border-top:1px solid var(--line)}
+.v3-tkit [data-trow]{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding:18px 0 20px;color:var(--fg)}
+@media (min-width:768px){.v3-tkit [data-trow]{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name go" "out go" "needs go";column-gap:28px}
+  .v3-tkit [data-tname]{grid-area:name}.v3-tkit [data-tout]{grid-area:out}.v3-tkit [data-tneeds]{grid-area:needs}.v3-tkit [data-trow] [data-go]{grid-area:go;align-self:center}}
+.v3-tkit [data-trow]:hover{color:var(--fg)}
+.v3-tkit [data-trow]:hover [data-tname]{color:var(--mosstext)}
+.v3-tkit [data-trow]:hover [data-go]{transform:translateX(4px)}
+.v3-tkit [data-tname]{margin:0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h3);line-height:1.15;letter-spacing:-.02em;text-transform:uppercase;transition:color .25s}
+@media (min-width:1024px){.v3-tkit [data-tname]{font-size:24px}}
+.v3-tkit [data-tout]{margin:0;font-size:15.5px;line-height:1.6;color:var(--stone);max-width:620px}
+.v3-tkit [data-tneeds]{margin:2px 0 0;display:flex;flex-wrap:wrap;gap:4px 18px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;line-height:1.6;color:var(--stone);text-transform:uppercase}
+.v3-tkit [data-trow] [data-go]{color:var(--mosstext);transition:transform .25s;min-height:24px}
+.v3-tkit [data-hub-empty]{margin:24px 0 0;padding:18px;border:1px dashed var(--line2);font-size:15px;color:var(--fg)}
+.v3-tkit [data-evidence]{padding-top:0;display:grid;gap:10px}
+.v3-tkit [data-ev-p]{margin:0;font-size:15.5px;line-height:1.65;color:var(--stone);max-width:900px}
+.v3-tkit [data-ev-p] strong{color:var(--fg);font-weight:500}
+.v3-tkit [data-ev-link]{color:var(--fg);border-bottom:1px solid var(--mosstext)}
+/* hub hero: the marketing ladder, but a tighter run-out so the flagship and
+   the index arrive sooner */
+.v3-tkit [data-hero]:has(+ [data-flagship-sec]){padding-bottom:calc(var(--sy) * .5)}
