@@ -110,6 +110,35 @@ body.v3-industry { margin: 0; }
 }
 
 /* ---------------------------------------------------------------------------
+   2b. HERO ENTRANCE KEYFRAMES
+
+   Both frozen prototypes declare gRise and gFade in their own helmet, and the
+   ported hero markup carries the frozen animation shorthands verbatim:
+     gRise 1s cubic-bezier(.16,1,.3,1) both          (H1)
+     gRise 1s .12s cubic-bezier(.16,1,.3,1) both     (hero paragraph)
+     gRise 1s .2s  cubic-bezier(.16,1,.3,1) both     (hero CTA row)
+     gFade .8s ease both                             (breadcrumb)
+     gFade .8s .05s ease both                        (eyebrow)
+   The names were left undefined in production: they existed only in
+   service-detail.css, which no Industries route loads, so all five references
+   resolved to nothing and the intended entrance never ran. Because `both` fills
+   the end state, every element still painted at its final opacity — the defect
+   was the absent motion, not hidden content. Register I-2.
+
+   Defined here rather than by loading service-detail.css for two keyframes: the
+   Industries routes are the only pages that load this file, and no page loads
+   both stylesheets, so these names cannot collide. The bodies are copied from
+   the frozen helmets exactly; no duration, delay, easing or timing intent is
+   changed, and the shared v3Rise/v3Fade in brand-v3.css are left alone.
+
+   Reduced motion needs nothing here: brand-v3.css already clears
+   `animation: none !important` for `.v3 *` under prefers-reduced-motion, and
+   with the animation gone each element renders at its natural opacity.
+   --------------------------------------------------------------------------- */
+@keyframes gRise { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: none; } }
+@keyframes gFade { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------------------------------------------------------------------------
    3. SHARED PRIMITIVES (both routes)
    CSS-first: every grid, gap and type step is a media query, correct before
    any JS runs.

@@ -64,8 +64,15 @@
      transparent and Clay itself is the text. */
   --acctext: var(--tilth-clay);
   --accrule: transparent;
-  /* Moss text on an inverted band, where the ground is the opposite theme's. */
-  --imoss: var(--tilth-moss);
+  /* Moss text, or a Moss focus ring, on an inverted band — where the ground is
+     the OPPOSITE theme's. --imoss must therefore be the inverse of --mosstext:
+     while the page is dark the band below is Mineral (--ibg), so band-local Moss
+     is the deep Moss, the one approved Moss text token for light surfaces.
+     This token previously resolved to var(--tilth-moss) in BOTH themes, which
+     put bright Moss on Mineral at 1.17:1 — below every threshold — for the
+     .v3-sec--inv focus ring and for the Industries [data-n] numerals.
+     Register I-1. 5.97:1 on Mineral. */
+  --imoss: var(--tilth-moss-deep);
   --ibg: var(--tilth-mineral);
   --ifg: var(--tilth-carbon);
   --imut: var(--tilth-stone-deep);
@@ -101,6 +108,8 @@ html[data-theme="light"] .v3 {
      underline rule, because Clay as text is 2.95:1. */
   --acctext: var(--tilth-carbon);
   --accrule: var(--tilth-clay);
+  /* page light -> the band below is Carbon, so bright Moss is correct here and
+     is unchanged. 14.58:1 on Carbon. */
   --imoss: var(--tilth-moss);
   --ibg: var(--tilth-carbon);
   --ifg: var(--tilth-mineral);

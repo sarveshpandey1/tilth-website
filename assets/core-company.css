@@ -40,23 +40,11 @@ body.v3-core { margin: 0; }
    1. FAMILY TOKENS
    --wash / --iwash / --itile / --iedge and the --ctah CTA step are introduced
    by this family. --acctext / --accrule / --imoss ship in Phase 0 and are not
-   redeclared; --foot is Phase 0's AA-corrected value and must not be reset to
-   the prototype's #5F655D.
+   redeclared; --imoss is the band-local Moss and carries the Register I-1
+   correction in brand-v3.css, so the frozen dark #4A661A / light #BEF54F now
+   come straight from the shell. --foot is Phase 0's AA-corrected value and must
+   not be reset to the prototype's #5F655D.
    --------------------------------------------------------------------------- */
-/* --imoss is the BAND-LOCAL Moss: the Moss used as text or as a focus ring
-   inside an inverted band, whose ground is the opposite theme's. It must
-   therefore be the inverse of --mosstext — deep Moss while the page is dark
-   (the band is Mineral) and bright Moss while the page is light (the band is
-   Carbon). The frozen design sets exactly that: dark #4A661A, light #BEF54F.
-   The Phase 0 shell defines it as var(--tilth-moss) in BOTH themes, which on a
-   dark page puts bright Moss on Mineral at 1.17:1; declared here, page-scoped,
-   from the frozen values, using the shell's own approved palette tokens. The
-   shell's own --imoss is left untouched — its only consumer is the
-   .v3-sec--inv focus ring, which does not appear in this family — and the
-   global correction is logged as a register item rather than made here. */
-.v3-core { --imoss: var(--tilth-moss-deep); }
-html[data-theme="light"] .v3-core { --imoss: var(--tilth-moss); }
-
 .v3-core {
   --wash: rgba(190, 245, 79, .05);
   --iwash: rgba(74, 102, 26, .07);
