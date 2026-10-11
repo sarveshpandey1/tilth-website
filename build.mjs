@@ -9,6 +9,7 @@ import websiteService from "./src/pages/website-service.mjs";
 import servicesIndex from "./src/pages/services-index.mjs";
 import industriesIndex from "./src/pages/industries-index.mjs";
 import workIndex from "./src/pages/work-index.mjs";
+import approach from "./src/pages/approach.mjs";
 import contact from "./src/pages/contact.mjs";
 import thankYou from "./src/pages/thank-you.mjs";
 import about from "./src/pages/about.mjs";
@@ -41,6 +42,7 @@ const PAGES = [
   industriesIndex,
   ...allIndustryPages,
   workIndex,
+  approach,
   contact,
   thankYou,
   about,

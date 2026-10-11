@@ -4,25 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1MJEZ4VK26');
-</script>
+<!-- Google tag (gtag.js) — deferred loader, commands queue in dataLayer -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1MJEZ4VK26');
+(function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26';document.head.appendChild(s);}
+if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
+['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});})();</script>
 <title>Our Approach — The Tilth Cycle | Tilth</title>
 <meta name="description" content="The Tilth Cycle: six phases of marketing done in order — Survey, Tilth, Sowing, Tending, Harvest, Renewal. Foundation work first, growth second.">
 <link rel="canonical" href="https://wearetilth.com/approach/">
+
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="geo.region" content="IN-KA">
-<meta name="geo.placename" content="Bengaluru">
-<meta name="geo.position" content="12.9716;77.5946">
-<meta name="ICBM" content="12.9716, 77.5946">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -32,31 +26,16 @@
 <meta property="og:description" content="Six phases, never worked out of order. The foundation-first method behind Tilth.">
 <meta property="og:url" content="https://wearetilth.com/approach/">
 <meta property="og:image" content="https://wearetilth.com/og-image.png">
-<meta property="og:locale" content="en_IN">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Our Approach — The Tilth Cycle">
 <meta name="twitter:description" content="Six phases, never worked out of order. The foundation-first method behind Tilth.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<style>
-  .intro { padding: 40px 0 70px; }
-  .intro p { font-size: 17px; color: var(--text); max-width: 680px; }
-  .intro p em { color: var(--terra); }
-  .phases { background: var(--green); color: var(--cream); padding: 80px 0; }
-  .phase { display: grid; grid-template-columns: 1fr; gap: 16px; padding: 44px 0; border-top: 1px solid rgba(244,239,230,0.18); }
-  @media (min-width: 820px) { .phase { grid-template-columns: 3fr 9fr; gap: 48px; } }
-  .phase:first-child { border-top: none; padding-top: 0; }
-  .phase .n { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(40px, 6vw, 64px); color: var(--terra); line-height: 1; }
-  .phase h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(24px, 3vw, 30px); margin-bottom: 14px; }
-  .phase p { color: var(--text); font-size: 15.5px; margin-bottom: 12px; max-width: 640px; }
-  .phase .foundation-flag { display: inline-block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--soil); background: var(--terra); padding: 3px 10px; border-radius: 20px; margin-bottom: 14px; font-weight: 600; }
-  .approach-cta { padding: 100px 0; text-align: center; background: radial-gradient(120% 100% at 50% 120%, var(--green) 0%, var(--bg) 65%); }
-  .approach-cta h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(28px, 4vw, 44px); margin-bottom: 16px; color: var(--ink); letter-spacing: -.5px; }
-  .approach-cta p { color: var(--text); max-width: 460px; margin: 0 auto 26px; }
-</style>
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/core-company.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -64,8 +43,18 @@
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wearetilth.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Approach", "item": "https://wearetilth.com/approach/" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://wearetilth.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Approach",
+          "item": "https://wearetilth.com/approach/"
+        }
       ]
     },
     {
@@ -73,12 +62,42 @@
       "name": "The Tilth Cycle — foundation-first marketing",
       "description": "Six phases of marketing, never worked out of order: Survey, Tilth, Sowing, Tending, Harvest, Renewal. Foundation work first, growth second.",
       "step": [
-        { "@type": "HowToStep", "position": 1, "name": "The Survey", "text": "Discovery and strategy — map what's being spent, tracked, and converting, and where money is leaking. This is the free foundation audit." },
-        { "@type": "HowToStep", "position": 2, "name": "The Tilth", "text": "Foundation — tracking and analytics set up correctly, conversion events defined around revenue, audiences built on behaviour, positioning locked." },
-        { "@type": "HowToStep", "position": 3, "name": "The Sowing", "text": "Launch and activation — the right channels and audiences, measured from day one, planted into prepared ground." },
-        { "@type": "HowToStep", "position": 4, "name": "The Tending", "text": "Ongoing growth — daily optimisation against real metrics, reallocating spend toward what works." },
-        { "@type": "HowToStep", "position": 5, "name": "The Harvest", "text": "Measurement and scale — reporting that connects spend to business outcomes, not vanity metrics." },
-        { "@type": "HowToStep", "position": 6, "name": "The Renewal", "text": "Refresh and evolve — prepare the ground for the next season, revisiting the foundation and testing new channels." }
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "The Survey",
+          "text": "Discovery and strategy — map what's being spent, tracked, and converting, and where money is leaking. This is the free foundation audit."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "The Tilth",
+          "text": "Foundation — tracking and analytics set up correctly, conversion events defined around revenue, audiences built on behaviour, positioning locked."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "The Sowing",
+          "text": "Launch and activation — the right channels and audiences, measured from day one, planted into prepared ground."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "The Tending",
+          "text": "Ongoing growth — daily optimisation against real metrics, reallocating spend toward what works."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "The Harvest",
+          "text": "Measurement and scale — reporting that connects spend to business outcomes, not vanity metrics."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "The Renewal",
+          "text": "Refresh and evolve — prepare the ground for the next season, revisiting the foundation and testing new channels."
+        }
       ]
     },
     {
@@ -87,32 +106,50 @@
         {
           "@type": "Question",
           "name": "What is the Tilth Cycle?",
-          "acceptedAnswer": { "@type": "Answer", "text": "It's our six-phase marketing method, never worked out of order: the Survey, the Tilth, the Sowing, the Tending, the Harvest, and the Renewal. The first two phases are foundation work — they decide whether the spend that follows can be measured." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It's our six-phase marketing method, never worked out of order: the Survey, the Tilth, the Sowing, the Tending, the Harvest, and the Renewal. The first two phases are foundation work — they decide whether the spend that follows can be measured."
+          }
         },
         {
           "@type": "Question",
           "name": "Why start with an audit instead of launching campaigns?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Because most budgets are wasted in the phases everyone skips. If tracking, attribution, and positioning aren't right first, every campaign after them is scaled on guesswork. The foundation audit is phase one." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because most budgets are wasted in the phases everyone skips. If tracking, attribution, and positioning aren't right first, every campaign after them is scaled on guesswork. The foundation audit is phase one."
+          }
         },
         {
           "@type": "Question",
           "name": "How long does the foundation phase take?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The Survey (the free audit) usually takes a few working days. The Tilth phase — setting up tracking, events, audiences, and positioning — depends on the state of your current setup and scope." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Survey (the free audit) usually takes a few working days. The Tilth phase — setting up tracking, events, audiences, and positioning — depends on the state of your current setup and scope."
+          }
         },
         {
           "@type": "Question",
           "name": "Do I have to commit to the full cycle?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. The Survey is a free foundation audit with no commitment to the rest — just an honest look at where you are and what to fix first." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The Survey is a free foundation audit with no commitment to the rest — just an honest look at where you are and what to fix first."
+          }
         },
         {
           "@type": "Question",
           "name": "What's the difference between the Survey and the Tilth phases?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The Survey is diagnosis — mapping what's spent, tracked, and converting. The Tilth is the build — fixing the tracking, defining revenue-based conversion events, and locking positioning before launch." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Survey is diagnosis — mapping what's spent, tracked, and converting. The Tilth is the build — fixing the tracking, defining revenue-based conversion events, and locking positioning before launch."
+          }
         },
         {
           "@type": "Question",
           "name": "Is this approach only for large brands?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. It works for early-stage startups and D2C brands too — in fact, getting the foundation right early is cheaper than rebuilding it after scaling on broken data. We work with brands in Bengaluru and globally." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It works for early-stage startups and D2C brands too — in fact, getting the foundation right early is cheaper than rebuilding it after scaling on broken data. We work with brands in Bengaluru and globally."
+          }
         }
       ]
     }
@@ -120,179 +157,212 @@
 }
 </script>
 </head>
-<body>
-
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav>
-      <a href="/services/">Services</a>
-      <a href="/industries/">Industries</a>
-      <a href="/work/">Work</a>
-      <a href="/insights/">Insights</a>
-      <a href="/tools/">Tools</a>
-      <a href="/about/">About</a>
+<body class="v3 v3-core v3-approach">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/" aria-current="page">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
     </nav>
-    <div class="meta">Global growth marketing agency · India-rooted, working with brands worldwide</div>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
   </div>
 </header>
 
-<section class="page-head">
-  <div class="wrap">
-    <span class="label">Our approach</span>
-    <h1>The Tilth Cycle.</h1>
-    <p class="standfirst">Six phases, never worked out of order. Most agencies start at phase three — the launch — because that's the part that looks like work. We don't. The first two phases are where budgets are saved or wasted.</p>
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
+      <a href="/services/">Services</a>
+      <a href="/industries/">Industries</a>
+      <a href="/work/">Work</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/">Insights</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
+  </div>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
+<main id="main">
+
+<section id="hero" data-hero data-depth-label="SURFACE">
+  <nav data-crumb aria-label="Breadcrumb"><a href="/">HOME</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">OUR APPROACH</span></nav>
+  <div data-eyebrow>Our approach</div>
+  <h1 data-h1>The Tilth Cycle.</h1>
+  <p data-lede>Six phases, never worked out of order. Most agencies start at phase three — the launch — because that's the part that looks like work. We don't. The first two phases are where budgets are saved or wasted.</p>
+  <nav data-pindex aria-label="The six phases">
+    <ol>
+      <li data-found><a href="#the-survey"><span data-in>01</span><span data-iname>The Survey</span></a></li>
+      <li data-found><a href="#the-tilth"><span data-in>02</span><span data-iname>The Tilth</span></a></li>
+      <li><a href="#the-sowing"><span data-in>03</span><span data-iname>The Sowing</span></a></li>
+      <li><a href="#the-tending"><span data-in>04</span><span data-iname>The Tending</span></a></li>
+      <li><a href="#the-harvest"><span data-in>05</span><span data-iname>The Harvest</span></a></li>
+      <li><a href="#the-renewal"><span data-in>06</span><span data-iname>The Renewal</span></a></li>
+    </ol>
+  </nav>
+</section>
+
+<section data-sec data-intro aria-label="Introduction">
+  <p class="v3-reveal"><em>Tilth</em> is an old farming word for the health of soil prepared for planting. You can't rush it, and you can't skip it — everything that grows later depends on it. The cycle below is how we apply that to marketing.</p>
+</section>
+
+<section data-sec data-phases-sec aria-label="The six phases">
+  <ol data-phases>
+    <li id="the-survey" data-phase data-found class="v3-reveal">
+      <span data-pn aria-hidden="true">01</span>
+      <div data-phead><span data-flag>Foundation phase</span><h2 data-pname>The Survey</h2></div>
+      <div data-pbody><p>Discovery and strategy. Before touching a single channel, we map the ground: what's being spent, what's being tracked, what's actually converting, and where the money is quietly leaking. This is the free foundation audit — and often the first time a brand sees the real picture.</p><p>Most engagements reveal more in this phase than the client expected. That's not a sales tactic; it's just what happens when someone finally looks properly.</p></div>
+    </li>
+    <li id="the-tilth" data-phase data-found class="v3-reveal">
+      <span data-pn aria-hidden="true">02</span>
+      <div data-phead><span data-flag>Foundation phase</span><h2 data-pname>The Tilth</h2></div>
+      <div data-pbody><p>The work the agency name is built on. Tracking and analytics set up correctly, conversion events defined around revenue, audiences built on behaviour, messaging and positioning locked. This is the unglamorous work most agencies skip because it doesn't look impressive in a pitch deck — and it's exactly why their campaigns underperform.</p><p>Nothing scales until this is solid. That's the whole point.</p></div>
+    </li>
+    <li id="the-sowing" data-phase class="v3-reveal">
+      <span data-pn aria-hidden="true">03</span>
+      <div data-phead><h2 data-pname>The Sowing</h2></div>
+      <div data-pbody><p>Launch and activation. Now — and only now — campaigns go live. Because the foundation is in place, we're planting into prepared ground: the right channels, the right audiences, the right events being measured from day one.</p></div>
+    </li>
+    <li id="the-tending" data-phase class="v3-reveal">
+      <span data-pn aria-hidden="true">04</span>
+      <div data-phead><h2 data-pname>The Tending</h2></div>
+      <div data-pbody><p>Ongoing growth. Daily optimisation against real metrics — reallocating spend toward what works, cutting what doesn't, and compounding the gains. This is where good foundations pay off: every decision is based on data you can actually trust.</p></div>
+    </li>
+    <li id="the-harvest" data-phase class="v3-reveal">
+      <span data-pn aria-hidden="true">05</span>
+      <div data-phead><h2 data-pname>The Harvest</h2></div>
+      <div data-pbody><p>Measurement and scale. Reporting that connects spend to business outcomes — not impressions, reach, or follower counts. When the numbers are real, scaling is a decision, not a gamble.</p></div>
+    </li>
+    <li id="the-renewal" data-phase class="v3-reveal">
+      <span data-pn aria-hidden="true">06</span>
+      <div data-phead><h2 data-pname>The Renewal</h2></div>
+      <div data-pbody><p>Refresh and evolve. Markets shift, audiences move, creative fatigues. We prepare the ground for the next season — revisiting the foundation, testing new channels, and keeping the system healthy rather than letting it quietly decay.</p></div>
+    </li>
+  </ol>
+</section>
+
+<section id="faq" data-sec data-inv aria-labelledby="faq-h">
+  <div data-ledger>
+    <div data-lhead class="v3-reveal">
+      <div data-eyebrow>Questions</div>
+      <h2 id="faq-h" data-h2>The Tilth Cycle <em>FAQs</em>.</h2>
+    </div>
+    <div class="v3-reveal">
+      <div data-faq-item>
+        <h3 style="margin:0"><button type="button" data-faq-btn id="faq-b0" aria-controls="faq-p0" aria-expanded="true"><span>What is the Tilth Cycle?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+        <div data-faq-ans id="faq-p0" role="region" aria-labelledby="faq-b0"><p>It's our six-phase marketing method, never worked out of order: the Survey, the Tilth, the Sowing, the Tending, the Harvest, and the Renewal. The first two phases are foundation work — they decide whether the spend that follows can be measured.</p></div>
+      </div>
+      <div data-faq-item>
+        <h3 style="margin:0"><button type="button" data-faq-btn id="faq-b1" aria-controls="faq-p1" aria-expanded="false"><span>Why start with an audit instead of launching campaigns?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+        <div data-faq-ans id="faq-p1" role="region" aria-labelledby="faq-b1"><p>Because most budgets are wasted in the phases everyone skips. If tracking, attribution, and positioning aren't right first, every campaign after them is scaled on guesswork. The <a href="/insights/marketing-foundation-audit/">foundation audit</a> is phase one.</p></div>
+      </div>
+      <div data-faq-item>
+        <h3 style="margin:0"><button type="button" data-faq-btn id="faq-b2" aria-controls="faq-p2" aria-expanded="false"><span>How long does the foundation phase take?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+        <div data-faq-ans id="faq-p2" role="region" aria-labelledby="faq-b2"><p>The Survey (the free audit) usually takes a few working days. The Tilth phase — setting up tracking, events, audiences, and positioning — depends on the state of your current setup and scope.</p></div>
+      </div>
+      <div data-faq-item>
+        <h3 style="margin:0"><button type="button" data-faq-btn id="faq-b3" aria-controls="faq-p3" aria-expanded="false"><span>Do I have to commit to the full cycle?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+        <div data-faq-ans id="faq-p3" role="region" aria-labelledby="faq-b3"><p>No. The Survey is a free foundation audit with no commitment to the rest — just an honest look at where you are and what to fix first.</p></div>
+      </div>
+      <div data-faq-item>
+        <h3 style="margin:0"><button type="button" data-faq-btn id="faq-b4" aria-controls="faq-p4" aria-expanded="false"><span>What's the difference between the Survey and the Tilth phases?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+        <div data-faq-ans id="faq-p4" role="region" aria-labelledby="faq-b4"><p>The Survey is diagnosis — mapping what's spent, tracked, and converting. The Tilth is the build — fixing the tracking, defining revenue-based conversion events, and locking positioning before launch.</p></div>
+      </div>
+      <div data-faq-item>
+        <h3 style="margin:0"><button type="button" data-faq-btn id="faq-b5" aria-controls="faq-p5" aria-expanded="false"><span>Is this approach only for large brands?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+        <div data-faq-ans id="faq-p5" role="region" aria-labelledby="faq-b5"><p>No. It works for early-stage startups and D2C brands too — in fact, getting the foundation right early is cheaper than rebuilding it after scaling on broken data. We work with brands in <a href="/marketing-agency-bengaluru/">Bengaluru</a> and globally.</p></div>
+      </div>
+      <p data-faqfoot>Want this applied to your setup? <a href="/contact/">Request a free audit &rarr;</a></p>
+    </div>
   </div>
 </section>
 
-<section class="intro">
-  <div class="wrap">
-    <p><em>Tilth</em> is an old farming word for the health of soil prepared for planting. You can't rush it, and you can't skip it — everything that grows later depends on it. The cycle below is how we apply that to marketing.</p>
+<section id="cta" data-moss data-depth-label="FOUNDATION" aria-labelledby="cta-h">
+  <div data-cta-grid>
+    <h2 id="cta-h" data-cta-h>It starts with the Survey.</h2>
+    <div>
+      <p data-cta-p>The free foundation audit is phase one. No commitment to the rest — just an honest look at where you are.</p>
+      <div data-cta-actions>
+        <a data-btn href="/contact/">Request a free audit <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="phases">
-  <div class="wrap">
-
-    <div class="phase">
-      <div class="n">01</div>
-      <div>
-        <span class="foundation-flag">Foundation phase</span>
-        <h2>The Survey</h2>
-        <p>Discovery and strategy. Before touching a single channel, we map the ground: what's being spent, what's being tracked, what's actually converting, and where the money is quietly leaking. This is the free foundation audit — and often the first time a brand sees the real picture.</p>
-        <p>Most engagements reveal more in this phase than the client expected. That's not a sales tactic; it's just what happens when someone finally looks properly.</p>
-      </div>
+</main>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-
-    <div class="phase">
-      <div class="n">02</div>
-      <div>
-        <span class="foundation-flag">Foundation phase</span>
-        <h2>The Tilth</h2>
-        <p>The work the agency name is built on. Tracking and analytics set up correctly, conversion events defined around revenue, audiences built on behaviour, messaging and positioning locked. This is the unglamorous work most agencies skip because it doesn't look impressive in a pitch deck — and it's exactly why their campaigns underperform.</p>
-        <p>Nothing scales until this is solid. That's the whole point.</p>
-      </div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-
-    <div class="phase">
-      <div class="n">03</div>
-      <div>
-        <h2>The Sowing</h2>
-        <p>Launch and activation. Now — and only now — campaigns go live. Because the foundation is in place, we're planting into prepared ground: the right channels, the right audiences, the right events being measured from day one.</p>
-      </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-
-    <div class="phase">
-      <div class="n">04</div>
-      <div>
-        <h2>The Tending</h2>
-        <p>Ongoing growth. Daily optimisation against real metrics — reallocating spend toward what works, cutting what doesn't, and compounding the gains. This is where good foundations pay off: every decision is based on data you can actually trust.</p>
-      </div>
-    </div>
-
-    <div class="phase">
-      <div class="n">05</div>
-      <div>
-        <h2>The Harvest</h2>
-        <p>Measurement and scale. Reporting that connects spend to business outcomes — not impressions, reach, or follower counts. When the numbers are real, scaling is a decision, not a gamble.</p>
-      </div>
-    </div>
-
-    <div class="phase">
-      <div class="n">06</div>
-      <div>
-        <h2>The Renewal</h2>
-        <p>Refresh and evolve. Markets shift, audiences move, creative fatigues. We prepare the ground for the next season — revisiting the foundation, testing new channels, and keeping the system healthy rather than letting it quietly decay.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="faq">
-  <div class="wrap">
-    <span class="label">Questions</span>
-    <h2>The Tilth Cycle <em>FAQs</em>.</h2>
-    <div class="faq__list">
-      <details class="faq__item">
-        <summary><span>What is the Tilth Cycle?</span><span class="ic" aria-hidden="true"></span></summary>
-        <div class="faq__ans"><p>It's our six-phase marketing method, never worked out of order: the Survey, the Tilth, the Sowing, the Tending, the Harvest, and the Renewal. The first two phases are foundation work — they decide whether the spend that follows can be measured.</p></div>
-      </details>
-      <details class="faq__item">
-        <summary><span>Why start with an audit instead of launching campaigns?</span><span class="ic" aria-hidden="true"></span></summary>
-        <div class="faq__ans"><p>Because most budgets are wasted in the phases everyone skips. If tracking, attribution, and positioning aren't right first, every campaign after them is scaled on guesswork. The <a href="/insights/marketing-foundation-audit/">foundation audit</a> is phase one.</p></div>
-      </details>
-      <details class="faq__item">
-        <summary><span>How long does the foundation phase take?</span><span class="ic" aria-hidden="true"></span></summary>
-        <div class="faq__ans"><p>The Survey (the free audit) usually takes a few working days. The Tilth phase — setting up tracking, events, audiences, and positioning — depends on the state of your current setup and scope.</p></div>
-      </details>
-      <details class="faq__item">
-        <summary><span>Do I have to commit to the full cycle?</span><span class="ic" aria-hidden="true"></span></summary>
-        <div class="faq__ans"><p>No. The Survey is a free foundation audit with no commitment to the rest — just an honest look at where you are and what to fix first.</p></div>
-      </details>
-      <details class="faq__item">
-        <summary><span>What's the difference between the Survey and the Tilth phases?</span><span class="ic" aria-hidden="true"></span></summary>
-        <div class="faq__ans"><p>The Survey is diagnosis — mapping what's spent, tracked, and converting. The Tilth is the build — fixing the tracking, defining revenue-based conversion events, and locking positioning before launch.</p></div>
-      </details>
-      <details class="faq__item">
-        <summary><span>Is this approach only for large brands?</span><span class="ic" aria-hidden="true"></span></summary>
-        <div class="faq__ans"><p>No. It works for early-stage startups and D2C brands too — in fact, getting the foundation right early is cheaper than rebuilding it after scaling on broken data. We work with brands in <a href="/marketing-agency-bengaluru/">Bengaluru</a> and globally.</p></div>
-      </details>
-    </div>
-    <p class="faq__foot">Want this applied to your setup? <a href="/contact/">Request a free audit →</a></p>
-  </div>
-</section>
-
-<section class="approach-cta">
-  <div class="wrap">
-    <h2>It starts with the Survey.</h2>
-    <p>The free foundation audit is phase one. No commitment to the rest — just an honest look at where you are.</p>
-    <a href="/contact/" class="btn">Request a free audit →</a>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br><a href="tel:+917007999306">+91 70079 99306</a><br>anuja@tilth.in</div>
-      </div>
-      <div>
-        <h2 class="fcol">Navigate</h2>
-        <ul>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/approach/">Approach</a></li>
-          <li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Legal</h2>
-        <ul>
-          <li><a href="/privacy/">Privacy Policy</a></li>
-          <li><a href="/terms/">Terms of Service</a></li>
-          <li><a href="/cookie-policy/">Cookie Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Social</h2>
-        <ul>
-          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Tilth. All rights reserved.</span>
-      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
+<script src="/core-company.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>
