@@ -16,7 +16,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -31,15 +31,11 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="twitter:title" content="Startups &amp; Scaleups growth marketing">
 <meta name="twitter:description" content="Senior growth direction without a full in-house team — so early-stage companies build a measurable foundation before scaling spend.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
-<!-- The hero H1's <em> is Fraunces italic and is part of the LCP element. Without this
-     preload it was discovered only after CSS parsed and took ~9s on throttled mobile. -->
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/assets/generated.css">
-
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/industries.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -112,133 +108,247 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 }
 </script>
 </head>
-<body>
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav aria-label="Primary">
+<body class="v3 v3-industry">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/" aria-current="true">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
+    </nav>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
+  </div>
+</header>
+
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
       <a href="/services/">Services</a>
-      <a href="/industries/" aria-current="true">Industries</a>
+      <a href="/industries/">Industries</a>
       <a href="/work/">Work</a>
       <a href="/approach/">Approach</a>
       <a href="/insights/">Insights</a>
       <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
     </nav>
-    <div class="meta">India-rooted · Working across markets</div>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
   </div>
-</header>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
 <main id="main">
 
-<section class="ghero" id="hero">
-  <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/industries/">Industries</a> <span aria-hidden="true">/</span> <span>Startups &amp; Scaleups</span></nav>
-    <span class="label">Startups &amp; Scaleups</span>
-    <h1>Growth marketing for <em>startups</em> and scaleups.</h1>
-    <p class="lede">Senior growth direction without a full in-house team — so early-stage companies build a measurable foundation before scaling spend.</p>
-    <div class="actions">
-      <a class="btn" href="/contact/"><span>Discuss Your Growth Project</span> <span class="arrow">→</span></a>
-      <a class="text-cta" href="/services/">Explore services →</a>
+<section id="hero" data-depth-label="SURFACE" style="padding:112px var(--pad) 0;background-image:linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:calc(100%/6) 100%">
+  <nav aria-label="Breadcrumb" style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.14em;line-height:1.6;color:var(--stone);animation:gFade .8s ease both">
+    <a href="/" style="color:var(--stone)">HOME</a> <span aria-hidden="true" style="color:var(--mosstext);padding:0 6px">/</span> <a href="/industries/" style="color:var(--stone)">INDUSTRIES</a> <span aria-hidden="true" style="color:var(--mosstext);padding:0 6px">/</span> <span data-up aria-current="page" style="color:var(--fg)">Startups &amp; Scaleups</span>
+  </nav>
+  <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin:30px 0 22px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.16em;line-height:1.3;animation:gFade .8s .05s ease both">
+    <span data-up style="color:var(--mosstext)">Startups &amp; Scaleups</span>
+  </div>
+  <h1 data-h1 data-len="long" style="margin:0;font-family:Syne,sans-serif;font-weight:800;line-height:.94;letter-spacing:-.045em;text-transform:uppercase;animation:gRise 1s cubic-bezier(.16,1,.3,1) both">Growth marketing for <em>startups</em> and scaleups.</h1>
+  <p style="margin:32px 0 0;font-size:var(--body);line-height:1.6;max-width:58ch;color:var(--stone);animation:gRise 1s .12s cubic-bezier(.16,1,.3,1) both">Senior growth direction without a full in-house team — so early-stage companies build a measurable foundation before scaling spend.</p>
+  <div data-hero-cta style="animation:gRise 1s .2s cubic-bezier(.16,1,.3,1) both">
+    <a href="/contact/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;background:var(--moss);color:#101310;font-family:Syne,sans-serif;font-weight:700;text-transform:uppercase;border-radius:2px">Discuss Your Growth Project <span aria-hidden="true">&rarr;</span></a>
+    <a href="/services/" style="display:inline-flex;align-items:center;height:54px;font-size:14.5px;line-height:1;white-space:nowrap;color:var(--stone)"><span style="border-bottom:1px solid var(--line2);padding-bottom:3px">Explore services &rarr;</span></a>
+  </div>
+  <nav data-fam aria-label="Industries">
+    <div data-fam-top><span style="color:var(--stone)">INDUSTRIES</span><a href="/industries/" style="color:var(--mosstext)">ALL INDUSTRIES &rarr;</a></div>
+    <div data-fam-body>
+      <div>
+        <div data-kind data-up>Startups &amp; Scaleups</div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.14em;line-height:1;color:var(--stone)">SECTORS</div>
+        <ul data-famlist data-four>
+          <li><a data-fam-slug="saas" href="/industries/saas/">SaaS <span data-go aria-hidden="true" style="color:var(--mosstext)">&rarr;</span><span data-here aria-hidden="true"></span></a></li>
+          <li><a data-fam-slug="d2c-ecommerce" href="/industries/d2c-ecommerce/">D2C &amp; Ecommerce <span data-go aria-hidden="true" style="color:var(--mosstext)">&rarr;</span><span data-here aria-hidden="true"></span></a></li>
+          <li><a data-fam-slug="fintech" href="/industries/fintech/">Fintech &amp; Financial Services <span data-go aria-hidden="true" style="color:var(--mosstext)">&rarr;</span><span data-here aria-hidden="true"></span></a></li>
+          <li><a data-fam-slug="edtech" href="/industries/edtech/">Edtech <span data-go aria-hidden="true" style="color:var(--mosstext)">&rarr;</span><span data-here aria-hidden="true"></span></a></li>
+        </ul>
+      </div>
+      <div>
+        <div aria-hidden="true" style="font-size:10.5px;line-height:1">&nbsp;</div>
+        <ul data-famlist>
+          <li><a data-fam-slug="startups" href="/industries/startups/" aria-current="page">Startups &amp; Scaleups <span data-go aria-hidden="true" style="color:var(--mosstext)">&rarr;</span><span data-here aria-hidden="true"></span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</section>
+
+<section id="constraints" data-depth-label="SHALLOW" style="padding:var(--sy) var(--pad)">
+  <div data-ledger>
+    <div data-lhead class="v3-reveal">
+      <div data-eyebrow>THE CONTEXT</div>
+      <h2 data-h2 style="margin:0;font-family:Syne,sans-serif;font-weight:700;line-height:1.02;letter-spacing:-.035em;text-transform:uppercase">Growth constraints in Startups &amp; Scaleups.</h2>
+      <p style="margin:26px 0 0;font-size:var(--body);line-height:1.62;color:var(--stone);max-width:52ch">Early-stage growth is about finding what works before spending to scale it. We give founders senior direction and a measurable foundation, so the first serious marketing investment isn't a guess.</p>
+    </div>
+    <ol data-rows class="v3-reveal">
+      <li><span data-n data-num>01</span><p data-t style="margin:0;font-size:var(--body);line-height:1.55;color:var(--fg);max-width:52ch">You're spending on marketing before you can measure it.</p></li>
+      <li><span data-n data-num>02</span><p data-t style="margin:0;font-size:var(--body);line-height:1.55;color:var(--fg);max-width:52ch">There's no senior growth owner to set direction.</p></li>
+      <li><span data-n data-num>03</span><p data-t style="margin:0;font-size:var(--body);line-height:1.55;color:var(--fg);max-width:52ch">You need a website and tracking before scaling acquisition.</p></li>
+      <li><span data-n data-num>04</span><p data-t style="margin:0;font-size:var(--body);line-height:1.55;color:var(--fg);max-width:52ch">Early channels worked, but growth has plateaued.</p></li>
+      <li><span data-n data-num>05</span><p data-t style="margin:0;font-size:var(--body);line-height:1.55;color:var(--fg);max-width:52ch">You're entering a new market and need a plan.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="focus" data-inv data-depth-label="MID" style="background:var(--ibg);color:var(--ifg);padding:var(--sy) var(--pad)">
+  <div data-ledger>
+    <div data-lhead class="v3-reveal">
+      <div data-eyebrow>WHAT WE FOCUS ON</div>
+      <h2 data-h2 style="margin:0;font-family:Syne,sans-serif;font-weight:700;line-height:1.02;letter-spacing:-.035em;text-transform:uppercase">The metrics that decide Startups &amp; Scaleups growth.</h2>
+    </div>
+    <ol data-rows data-metrics class="v3-reveal">
+      <li><span data-n data-num>01</span><span data-t data-mname>CAC &amp; payback</span></li>
+      <li><span data-n data-num>02</span><span data-t data-mname>Qualified pipeline</span></li>
+      <li><span data-n data-num>03</span><span data-t data-mname>Conversion rate</span></li>
+      <li><span data-n data-num>04</span><span data-t data-mname>Channel efficiency</span></li>
+      <li><span data-n data-num>05</span><span data-t data-mname>Runway impact</span></li>
+    </ol>
+  </div>
+  <div data-ledger data-sub>
+    <div data-lhead class="v3-reveal">
+      <h3 style="margin:0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h3);letter-spacing:-.02em;line-height:1.15;text-transform:uppercase">Relevant services</h3>
+      <p style="margin:14px 0 0;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.7;color:var(--imut);max-width:34ch">LAYER IN THE GROWTH SYSTEM SHOWN BENEATH EACH</p>
+    </div>
+    <ul data-svc class="v3-reveal">
+      <li><a href="/services/growth-strategy-measurement/"><span data-n data-num>01</span><span><span data-sv-name>Growth Strategy &amp; Measurement</span><span data-sv-layer>STRATEGY / MEASUREMENT</span></span><p data-sv-sum>Audits, funnel strategy, analytics, tracking architecture, attribution and the dashboards that make growth measurable.</p><span data-sv-go aria-hidden="true">&rarr;</span></a></li>
+      <li><a href="/services/website-design-development/"><span data-n data-num>02</span><span><span data-sv-name>Website Design, Development &amp; CRO</span><span data-sv-layer>CONVERSION</span></span><p data-sv-sum>Strategy, UX, design, development, analytics, SEO foundations, accessibility and conversion-rate optimisation in one coordinated process.</p><span data-sv-go aria-hidden="true">&rarr;</span></a></li>
+      <li><a href="/services/performance-marketing/"><span data-n data-num>03</span><span><span data-sv-name>Performance Marketing</span><span data-sv-layer>ACQUISITION</span></span><p data-sv-sum>Customer-acquisition strategy, media planning, experimentation, budget allocation and cross-channel optimisation tied to revenue.</p><span data-sv-go aria-hidden="true">&rarr;</span></a></li>
+      <li><a href="/services/seo-ai-search/"><span data-n data-num>04</span><span><span data-sv-name>SEO, Content &amp; AI Search</span><span data-sv-layer>ORGANIC</span></span><p data-sv-sum>Technical and on-page SEO, commercial keyword and intent mapping, content strategy, and visibility across AI answer engines.</p><span data-sv-go aria-hidden="true">&rarr;</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="proof" data-depth-label="DEEP" style="padding:var(--sy) var(--pad)">
+  <div class="v3-reveal" data-eyebrow>SELECTED GROWTH EVIDENCE</div>
+  <div class="v3-reveal" data-ev-head>
+    <h2 data-h2 style="margin:0;font-family:Syne,sans-serif;font-weight:700;line-height:1.02;letter-spacing:-.035em;text-transform:uppercase">Results from comparable engagements.</h2>
+    <p data-ev-hint style="margin:0;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.7;color:var(--stone);max-width:36ch">GENERAL GROWTH EVIDENCE FROM THE FOUNDER AND CORE TEAM &middot; ANONYMISED</p>
+  </div>
+  <div data-proof-grid>
+      <article class="v3-reveal" data-proof="edtech-paid-media">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.5;color:var(--fg);padding-bottom:10px">Edtech growth engagement</div>
+        <div data-proof-meta><span>EDTECH &middot; INDIA</span><span data-rel="comparable">COMPARABLE ENGAGEMENT</span></div>
+        <ul style="list-style:none;margin:0;padding:0"><li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Monthly media spend scaled ₹5L → ₹30L</li><li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Monthly revenue reached ₹1.5 crore</li><li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">5× return on ad spend</li></ul>
+        <p style="margin:20px 0 0;font-size:15.5px;line-height:1.62;color:var(--stone)">Rebuilt tracking and conversion events, then scaled paid media against verified return.</p>
+      </article>
+      <article class="v3-reveal" data-proof="crypto-affiliate">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.5;color:var(--fg);padding-bottom:10px">Crypto affiliate growth engagement</div>
+        <div data-proof-meta><span>CRYPTO &middot; GLOBAL</span><span data-rel="comparable">COMPARABLE ENGAGEMENT</span></div>
+        <ul style="list-style:none;margin:0;padding:0"><li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Affiliate contribution grew from <span data-approx>~</span>0%</li><li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Reached <span data-approx>~</span>5–6% of total trading volume within one year</li></ul>
+        <p style="margin:20px 0 0;font-size:15.5px;line-height:1.62;color:var(--stone)">Built the affiliate program from scratch — partner validation, commercial model and tracking.</p>
+      </article>
+  </div>
+</section>
+
+<section id="faq" data-inv data-depth-label="DEEP" style="background:var(--ibg);color:var(--ifg);padding:var(--sy) var(--pad)">
+  <div data-faq-grid>
+    <div class="v3-reveal">
+      <div data-eyebrow>QUESTIONS</div>
+      <h2 data-h2 style="margin:0;font-family:Syne,sans-serif;font-weight:700;line-height:1.02;letter-spacing:-.035em;text-transform:uppercase">Startups &amp; Scaleups growth, answered.</h2>
+    </div>
+    <div class="v3-reveal">
+      <div data-faq-item>
+        <h3 data-q style="margin:0;padding:26px 0 0;font-family:Syne,sans-serif;font-weight:700;font-size:20px;line-height:1.3;letter-spacing:-.02em">We don't have an internal marketing team — can you help?</h3>
+        <p data-a style="margin:0;padding:12px 0 28px;font-size:16.5px;line-height:1.7;color:var(--ibody);max-width:62ch">Yes. Many early-stage companies work with Tilth for senior strategy and execution before hiring, so the foundation is right before they scale headcount or spend.</p>
+      </div>
+      <div data-faq-item>
+        <h3 data-q style="margin:0;padding:26px 0 0;font-family:Syne,sans-serif;font-weight:700;font-size:20px;line-height:1.3;letter-spacing:-.02em">What should a startup fix first?</h3>
+        <p data-a style="margin:0;padding:12px 0 28px;font-size:16.5px;line-height:1.7;color:var(--ibody);max-width:62ch">Usually measurement and the website — the foundations that make every later marketing rupee or dollar accountable. The Foundation Audit identifies the priority order.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="gsec" id="constraints">
-  <div class="wrap">
-    <span class="label">The context</span>
-    <h2>Growth constraints in Startups &amp; Scaleups.</h2>
-    <p class="intro">Early-stage growth is about finding what works before spending to scale it. We give founders senior direction and a measurable foundation, so the first serious marketing investment isn't a guess.</p>
-    <div class="problem-grid">
-      <div class="problem">You're spending on marketing before you can measure it.</div>
-      <div class="problem">There's no senior growth owner to set direction.</div>
-      <div class="problem">You need a website and tracking before scaling acquisition.</div>
-      <div class="problem">Early channels worked, but growth has plateaued.</div>
-      <div class="problem">You're entering a new market and need a plan.</div>
-    </div>
+<section id="cta" data-depth-label="FOUNDATION" style="background:var(--moss);color:#101310;padding:var(--sy) var(--pad)">
+  <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:24px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.16em;line-height:1.3;color:rgba(16,19,16,.6)">
+    <span>NEXT STEP</span><span aria-hidden="true">/</span><span data-up style="color:#101310">Startups &amp; Scaleups</span>
   </div>
-</section>
-
-<section class="gsec gsec--light" id="metrics">
-  <div class="wrap">
-    <span class="label">What we focus on</span>
-    <h2>The metrics that decide Startups &amp; Scaleups growth.</h2>
-    <ul class="deliv"><li>CAC &amp; payback</li><li>Qualified pipeline</li><li>Conversion rate</li><li>Channel efficiency</li><li>Runway impact</li></ul>
-    <h3 style="font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin:34px 0 14px;color:#15110B">Relevant services</h3>
-    <div class="card-grid">
-      <a class="gcard" href="/services/growth-strategy-measurement/"><span class="gcard__n">Growth Strategy &amp; Measurement</span><span class="gcard__desc" style="margin-top:12px">Audits, funnel strategy, analytics, tracking architecture, attribution and the dashboards that make growth measurable.</span><span class="gcard__more">Explore →</span></a>
-      <a class="gcard" href="/services/website-design-development/"><span class="gcard__n">Website Design, Development &amp; CRO</span><span class="gcard__desc" style="margin-top:12px">Strategy, UX, design, development, analytics, SEO foundations, accessibility and conversion-rate optimisation in one coordinated process.</span><span class="gcard__more">Explore →</span></a>
-      <a class="gcard" href="/services/performance-marketing/"><span class="gcard__n">Performance Marketing</span><span class="gcard__desc" style="margin-top:12px">Customer-acquisition strategy, media planning, experimentation, budget allocation and cross-channel optimisation tied to revenue.</span><span class="gcard__more">Explore →</span></a>
-      <a class="gcard" href="/services/seo-ai-search/"><span class="gcard__n">SEO, Content &amp; AI Search</span><span class="gcard__desc" style="margin-top:12px">Technical and on-page SEO, commercial keyword and intent mapping, content strategy, and visibility across AI answer engines.</span><span class="gcard__more">Explore →</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="gsec" id="proof">
-  <div class="wrap">
-    <span class="label">Evidence</span>
-    <h2>Results from comparable engagements.</h2>
-    <div class="proof-row">
-      <article class="proof-card">
-    <div class="proof-card__label">Edtech growth engagement</div>
-    <ul class="proof-card__metrics"><li>Monthly media spend scaled ₹5L → ₹30L</li><li>Monthly revenue reached ₹1.5 crore</li><li>5× return on ad spend</li></ul>
-    <p class="proof-card__summary">Rebuilt tracking and conversion events, then scaled paid media against verified return.</p>
-  </article>
-<article class="proof-card">
-    <div class="proof-card__label">Crypto affiliate growth engagement</div>
-    <ul class="proof-card__metrics"><li>Affiliate contribution grew from ~0%</li><li>Reached ~5–6% of total trading volume within one year</li></ul>
-    <p class="proof-card__summary">Built the affiliate program from scratch — partner validation, commercial model and tracking.</p>
-  </article>
-    </div>
-  </div>
-</section>
-
-<section class="gsec gsec--light faq" id="faq">
-  <div class="wrap">
-    <span class="label">Questions</span>
-    <h2>Startups &amp; Scaleups growth, answered.</h2>
-    <div class="faq__list">
-      <details class="faq__item"><summary><span>We don't have an internal marketing team — can you help?</span><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Yes. Many early-stage companies work with Tilth for senior strategy and execution before hiring, so the foundation is right before they scale headcount or spend.</p></div></details>
-      <details class="faq__item"><summary><span>What should a startup fix first?</span><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Usually measurement and the website — the foundations that make every later marketing rupee or dollar accountable. The Foundation Audit identifies the priority order.</p></div></details>
-    </div>
-  </div>
-</section>
-
-<section class="cta-band cta-band--terra" id="cta">
-  <div class="wrap">
-    <span class="label">Next step</span>
-    <h2>Growing a Startups &amp; Scaleups business?</h2>
-    <p>Tell us where you are and what you're trying to grow. We'll review the foundations before recommending the work.</p>
-    <div class="cta-band__actions">
-      <a class="btn" href="/contact/"><span>Discuss Your Growth Project</span> <span class="arrow">→</span></a>
-      <a class="text-cta" href="/contact/">Request a Foundation Audit →</a>
+  <div data-cta-grid>
+    <h2 data-cta-h style="margin:0;font-family:Syne,sans-serif;font-weight:800;line-height:.94;letter-spacing:-.04em;text-transform:uppercase">Growing a&nbsp;business?</h2>
+    <div>
+      <p style="margin:0;font-size:var(--body);line-height:1.6;color:rgba(16,19,16,.78);max-width:46ch">Tell us where you are and what you're trying to grow. We'll review the foundations before recommending the work.</p>
+      <div data-cta-actions style="margin-top:34px">
+        <a href="/contact/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;background:#101310;color:#F3F5F1;font-family:Syne,sans-serif;font-weight:700;text-transform:uppercase;border-radius:2px">Discuss Your Growth Project <span aria-hidden="true">&rarr;</span></a>
+        <a href="/contact/" style="display:inline-flex;align-items:center;height:54px;font-size:14.5px;line-height:1;white-space:nowrap;color:rgba(16,19,16,.72)"><span style="border-bottom:1px solid rgba(16,19,16,.4);padding-bottom:3px">Request a Foundation Audit &rarr;</span></a>
+      </div>
     </div>
   </div>
 </section>
 
 </main>
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <p class="addr">Tilth is an India-rooted growth marketing agency working with ambitious brands across India and the US.<br><br>Bengaluru, India · Remote collaboration across India and the US<br><a href="tel:+917007999306">+91 70079 99306</a><br><a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a></p>
-      </div>
-      <div>
-        <h3 class="fcol">Explore</h3>
-        <ul><li><a href="/services/">Services</a></li><li><a href="/approach/">Approach</a></li><li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Legal</h3>
-        <ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/cookie-policy/">Cookie Policy</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Social</h3>
-        <ul><li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li><li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li></ul>
-      </div>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom"><span>© 2026 Tilth. All rights reserved.</span></div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
 <script src="/analytics.js" defer></script>
 </body>
 </html>
