@@ -457,7 +457,20 @@ html[data-theme="light"] .v3-theme-dot { transform: rotate(180deg); }
 @media (min-width: 1024px) { .v3-stat__v { font-size: 40px; } }
 @media (min-width: 1440px) { .v3-stat__v { font-size: 46px; } }
 .v3-stat__v.is-moss { color: var(--mosstext); }
-.v3-stat__v.is-clay { color: var(--clay); }
+/* Register I-5. Raw Clay as text measures 2.95:1 on Mineral and fails, so these
+   accents take the G-4 token pair instead of --clay. On Carbon --acctext IS
+   Clay and --accrule is transparent, so the dark theme is visually unchanged.
+   This stat's siblings include two uncoloured values that resolve to Carbon on
+   Mineral, so --acctext alone would flatten it into them; it therefore carries
+   the Clay rule as well, exactly as the shipped [data-acc] accent does. The
+   rule is supplementary — the figure is fully legible in Carbon at 17.05:1 and
+   the stat's own label states what it measures. */
+.v3-stat__v.is-clay {
+  color: var(--acctext);
+  text-decoration: underline; text-decoration-color: var(--accrule);
+  text-decoration-thickness: 2px; text-underline-offset: .18em;
+  text-decoration-skip-ink: none;
+}
 .v3-stat__v sup, .v3-stat__v .unit { font-size: .6em; }
 .v3-stat__l { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10.5px; letter-spacing: .12em; line-height: 1.4; color: var(--stone); margin-top: 9px; }
 
@@ -538,7 +551,8 @@ html[data-theme="light"] .v3-theme-dot { transform: rotate(180deg); }
 @media (min-width: 768px) { .v3-method__n { font-size: 48px; } }
 @media (min-width: 1024px) { .v3-method__n { font-size: 52px; } }
 @media (min-width: 1440px) { .v3-method__n { font-size: 58px; } }
-.v3-method__n.is-clay { color: var(--clay); }
+/* Register I-5 — siblings are Moss, so --acctext alone stays distinct. */
+.v3-method__n.is-clay { color: var(--acctext); }
 .v3-method__cell h3 { margin: 20px 0 12px; font-weight: 700; font-size: var(--h3); letter-spacing: -.02em; line-height: 1.15; text-transform: uppercase; }
 .v3-method__cell p { margin: 0; font-size: var(--card); line-height: 1.6; color: var(--stone); }
 
@@ -897,6 +911,23 @@ html[data-theme="light"] .v3-theme-dot { transform: rotate(180deg); }
    Moss fill off the selected tile in light theme. */
 :where(html[data-theme="light"]) .v3-tile { background: rgba(var(--tilth-mineral-rgb), .05); box-shadow: inset 0 1px 0 rgba(var(--tilth-mineral-rgb), .09), 0 1px 0 rgba(var(--tilth-carbon-rgb), .45); }
 .v3-tile:hover { border-color: var(--ifg); transform: translateY(-1px); }
+/* Register I-4. The selected tile is a Moss plate, and its focus ring comes
+   from the inverted-band rule above as the band-local Moss. While the page is
+   light that makes ring and plate the same colour, separated only by the 3px
+   outline-offset: the ring clears 3:1 against the Carbon gap it sits in
+   (14.58:1), but it is 1:1 against the component it is marking, so it reads as
+   a slightly larger Moss plate rather than a focus indicator. Drawing this one
+   control's ring INSIDE the plate puts it on the Moss fill, in the same Carbon
+   the plate already uses for its own label — 14.58:1 against the fill in both
+   themes. --moss is theme-constant, so one rule covers both. Specificity
+   (0,4,0) beats .v3 .v3-sec--inv :focus-visible (0,3,0), and only the focused
+   selected state changes: the resting selected tile, the unselected tile and
+   ordinary focus treatment everywhere else are untouched. */
+.v3 .v3-tile[aria-pressed="true"]:focus-visible {
+  outline-color: var(--tilth-carbon);
+  outline-offset: -4px;
+}
+
 .v3-tile[aria-pressed="true"] {
   background: var(--moss); color: var(--tilth-carbon); border-color: var(--moss); font-weight: 500; transform: none;
   box-shadow: inset 0 1px 0 rgba(var(--tilth-mineral-rgb), .30), inset 0 -1px 0 rgba(var(--tilth-carbon-rgb), .16);
@@ -935,7 +966,8 @@ html[data-theme="light"] .v3-theme-dot { transform: rotate(180deg); }
 .v3-eng { background: var(--bg); padding: 28px 22px 32px; display: flex; flex-direction: column; }
 @media (min-width: 1280px) { .v3-eng { padding: 32px 26px 36px; } }
 .v3-eng__n { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10.5px; letter-spacing: .14em; color: var(--mosstext); }
-.v3-eng__n.is-clay { color: var(--clay); }
+/* Register I-5 — siblings are Moss, so --acctext alone stays distinct. */
+.v3-eng__n.is-clay { color: var(--acctext); }
 .v3-eng h3 { margin: 18px 0 12px; font-weight: 700; font-size: var(--h3); letter-spacing: -.02em; line-height: 1.15; text-transform: uppercase; }
 .v3-eng p { margin: 0; font-size: var(--card); line-height: 1.6; color: var(--stone); }
 .v3-eng ul { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
