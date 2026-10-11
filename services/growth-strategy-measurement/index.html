@@ -317,17 +317,17 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
       <article class="v3-reveal" data-proof style="display:flex;flex-direction:column;padding:30px 0 34px;border-bottom:1px solid var(--line)">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.4;color:var(--mosstext)">EDTECH GROWTH ENGAGEMENT</div>
         <ul style="list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:14px">
-          <li style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">Monthly media spend scaled ₹5L → ₹30L</li>
-          <li style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">Monthly revenue reached ₹1.5 crore</li>
-          <li style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">5× return on ad spend</li>
+          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">Monthly media spend scaled ₹5L → ₹30L</li>
+          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">Monthly revenue reached ₹1.5 crore</li>
+          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">5× return on ad spend</li>
         </ul>
         <p data-proof-s style="margin:auto 0 0;padding-top:24px;font-size:15.5px;line-height:1.6;color:var(--stone);max-width:46ch">Rebuilt tracking and conversion events, then scaled paid media against verified return.</p>
       </article>
       <article class="v3-reveal" data-proof style="display:flex;flex-direction:column;padding:30px 0 34px;border-bottom:1px solid var(--line)">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.4;color:var(--mosstext)">CRYPTO AFFILIATE GROWTH ENGAGEMENT</div>
         <ul style="list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:14px">
-          <li style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">Affiliate contribution grew from ~0%</li>
-          <li style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">Reached ~5–6% of total trading volume within one year</li>
+          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">Affiliate contribution grew from <span data-approx>~</span>0%</li>
+          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">Reached <span data-approx>~</span>5–6% of total trading volume within one year</li>
         </ul>
         <p data-proof-s style="margin:auto 0 0;padding-top:24px;font-size:15.5px;line-height:1.6;color:var(--stone);max-width:46ch">Built the affiliate program from scratch — partner validation, commercial model and tracking.</p>
       </article>
@@ -394,24 +394,28 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   <div class="v3-clocks">
     <div class="v3-clock" data-v3-clock="Asia/Kolkata">
       <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
-      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
     <div class="v3-clock" data-v3-clock="Asia/Dubai">
       <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
-      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
     <div class="v3-clock" data-v3-clock="Europe/London">
       <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
-      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
     <div class="v3-clock" data-v3-clock="America/New_York">
       <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
-      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
   <div class="v3-footgrid">
     <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
-    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
     <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
     <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
   </div>

@@ -16,7 +16,7 @@ const brandItem = (b, hidden) => `<li class="v3-brand" data-v3-brand${hidden ? '
 const brandSet = hidden => brandExperience.map(b => brandItem(b, hidden)).join("");
 
 const stat = s => `<div class="v3-stat">
-      <div class="v3-stat__v${s.tone ? ` is-${s.tone}` : ""}">${esc(s.v)}${s.unit ? `<span class="unit">${esc(s.unit)}</span>` : ""}</div>
+      <div class="v3-stat__v${s.tone ? ` is-${s.tone}` : ""}" data-num>${esc(s.v)}${s.unit ? `<span class="unit">${esc(s.unit)}</span>` : ""}</div>
       <div class="v3-stat__l">${esc(s.label)}</div>
     </div>`;
 
@@ -40,8 +40,8 @@ const indCell = i => `<li class="v3-ind" data-v3-ind>${i.href ? `<a href="${i.hr
 const evCard = c => `<article class="v3-ev" data-v3-case="${c.cat}">
       <div class="v3-ev__top"><span class="v3-ev__tag">${esc(c.tag)}</span><span class="v3-ev__dur">${esc(c.dur)}</span></div>
       <div class="v3-ev__metrics">
-        <div><div class="v3-ev__m">${esc(c.m1)}</div><div class="v3-ev__ml">${esc(c.l1)}</div></div>
-        <div><div class="v3-ev__m is-moss">${esc(c.m2)}</div><div class="v3-ev__ml">${esc(c.l2)}</div></div>
+        <div><div class="v3-ev__m" data-num>${esc(c.m1)}</div><div class="v3-ev__ml">${esc(c.l1)}</div></div>
+        <div><div class="v3-ev__m is-moss" data-num>${esc(c.m2)}</div><div class="v3-ev__ml">${esc(c.l2)}</div></div>
       </div>
       <h3>${esc(c.title)}</h3>
       <p>${esc(c.body)}</p>
@@ -198,11 +198,11 @@ const main = `
     </div>
     <div class="v3-spot__metrics">
       <div class="v3-spot__m">
-        <div class="v3-spot__mv" data-v3-spot-m1></div>
+        <div class="v3-spot__mv" data-v3-spot-m1 data-num></div>
         <div class="v3-spot__ml" data-v3-spot-l1></div>
       </div>
       <div class="v3-spot__m is-second">
-        <div class="v3-spot__mv is-moss" data-v3-spot-m2></div>
+        <div class="v3-spot__mv is-moss" data-v3-spot-m2 data-num></div>
         <div class="v3-spot__ml" data-v3-spot-l2></div>
       </div>
     </div>
@@ -225,21 +225,21 @@ const main = `
       <div class="v3-calc__top"><span style="color:var(--mosstext)">LIVE / UNIT ECONOMICS</span><span style="color:var(--stone)">01 / 07</span></div>
       <div class="v3-calc__fields">
         <label>
-          <span class="v3-calc__row">Monthly ad spend<output data-v3-out="spend">₹5,00,000</output></span>
+          <span class="v3-calc__row">Monthly ad spend<output data-v3-out="spend" data-num>₹5,00,000</output></span>
           <input type="range" min="50000" max="3000000" step="50000" value="500000" data-v3-calc-in="spend" aria-label="Monthly ad spend">
         </label>
         <label>
-          <span class="v3-calc__row">New customers / month<output data-v3-out="cust">250</output></span>
+          <span class="v3-calc__row">New customers / month<output data-v3-out="cust" data-num>250</output></span>
           <input type="range" min="10" max="2000" step="10" value="250" data-v3-calc-in="cust" aria-label="New customers per month">
         </label>
         <label>
-          <span class="v3-calc__row">Lifetime value per customer<output data-v3-out="ltv">₹8,000</output></span>
+          <span class="v3-calc__row">Lifetime value per customer<output data-v3-out="ltv" data-num>₹8,000</output></span>
           <input type="range" min="500" max="60000" step="500" value="8000" data-v3-calc-in="ltv" aria-label="Lifetime value per customer">
         </label>
       </div>
       <div class="v3-calc__out">
-        <div><div class="v3-calc__k">CAC</div><div class="v3-calc__v" data-v3-out="cac">₹2,000</div></div>
-        <div><div class="v3-calc__k">LTV : CAC</div><div class="v3-calc__v is-moss" data-v3-out="ratio">4.0×</div></div>
+        <div><div class="v3-calc__k">CAC</div><div class="v3-calc__v" data-v3-out="cac" data-num>₹2,000</div></div>
+        <div><div class="v3-calc__k">LTV : CAC</div><div class="v3-calc__v is-moss" data-v3-out="ratio" data-num>4.0×</div></div>
         <div style="min-width:0"><div class="v3-calc__k">VERDICT</div><div class="v3-calc__verdict" data-v3-out="verdict">Healthy. There's room to scale — if tracking can prove it.</div></div>
       </div>
     </div>

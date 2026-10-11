@@ -52,10 +52,20 @@
   --ghost: rgba(var(--tilth-mineral-rgb), .07);
   --headbg: rgba(var(--tilth-carbon-rgb), .9);
   /* the design's #5F655D measured 3.12:1 on Carbon — below the 4.5 AA floor for
-     the footer meta and the small mono labels that share this token. Derived from
-     Mineral instead of a new grey, which lands at ~5.0:1 and stays dimmer than
-     --stone so the hierarchy the design intended is preserved. */
-  --foot: rgba(var(--tilth-mineral-rgb), .5);
+     the footer meta and the small mono labels that share this token.
+     Master Design Release, Register G-1: the approved value is an explicit hex,
+     not an alpha of Mineral. 4.88:1 on Carbon. An explicit colour is also stable
+     over --raise (4.55:1), where an alpha composites against the card instead of
+     the page and the real ratio drifts with the surface. Still dimmer than
+     --stone, so the hierarchy the design intended is preserved. */
+  --foot: #7E847C;
+  /* Clay as text measures 2.95:1 on Mineral and fails AA, so Register G-4 carries
+     an accent word as foreground text plus a Clay rule. On Carbon the rule is
+     transparent and Clay itself is the text. */
+  --acctext: var(--tilth-clay);
+  --accrule: transparent;
+  /* Moss text on an inverted band, where the ground is the opposite theme's. */
+  --imoss: var(--tilth-moss);
   --ibg: var(--tilth-mineral);
   --ifg: var(--tilth-carbon);
   --imut: var(--tilth-stone-deep);
@@ -84,8 +94,14 @@ html[data-theme="light"] .v3 {
   --mosstext: var(--tilth-moss-deep);
   --ghost: rgba(var(--tilth-carbon-rgb), .08);
   --headbg: rgba(var(--tilth-mineral-rgb), .9);
-  /* light-theme counterpart — #6E756C measured 4.33:1, also under AA */
-  --foot: rgba(var(--tilth-carbon-rgb), .62);
+  /* light-theme counterpart — #6E756C measured 4.33:1, also under AA.
+     Register G-1 approved value: 5.01:1 on Mineral, 4.55:1 over --raise. */
+  --foot: #646B62;
+  /* Register G-4: on Mineral the accent word is Carbon text carried by a Clay
+     underline rule, because Clay as text is 2.95:1. */
+  --acctext: var(--tilth-carbon);
+  --accrule: var(--tilth-clay);
+  --imoss: var(--tilth-moss);
   --ibg: var(--tilth-carbon);
   --ifg: var(--tilth-mineral);
   --imut: var(--tilth-stone);
@@ -146,8 +162,45 @@ html[data-theme="light"] .v3 {
 .v3 :where(a):hover { color: var(--mosstext); }
 .v3 ::selection { background: var(--moss); color: var(--tilth-carbon); }
 .v3 :focus-visible { outline: 2px solid var(--mosstext); outline-offset: 3px; }
+/* On an inverted band the ground is the opposite theme's, so --mosstext (which
+   tracks the page theme) can land on the wrong side. --imoss is the band-local
+   Moss. Register I. */
+.v3 .v3-sec--inv :focus-visible { outline-color: var(--imoss); }
 .v3 h1, .v3 h2, .v3 h3 { font-family: Syne, sans-serif; }
 .v3 img { max-width: 100%; }
+
+/* --- approved global treatments (Master Design Release, Register G) ---------
+   Implemented once here, never per family. */
+
+/* G-4 — accent word. Clay is 2.95:1 as text on Mineral, so in light theme the
+   word is foreground-coloured and a Clay rule carries the accent instead. On
+   Carbon --accrule is transparent and Clay is the text, unchanged from the
+   approved dark design. Clay remains a non-text accent elsewhere. */
+.v3 [data-acc] {
+  color: var(--acctext);
+  text-decoration: underline;
+  text-decoration-color: var(--accrule);
+  text-decoration-thickness: 2px;
+  text-underline-offset: .18em;
+}
+
+/* G-5 — Syne draws "~" as a mid-height dot, so "~0%" reads as "·0%". Only the
+   glyph is set in Chivo; the surrounding Syne metric is untouched. Applied to
+   Syne metrics only, never to editorial body copy (which is already Chivo). */
+.v3 [data-approx] {
+  font-family: Chivo, system-ui, sans-serif;
+  font-weight: inherit;
+  font-size: .94em;
+  letter-spacing: 0;
+}
+
+/* G-6 — lining figures for numeric / data displays: statistics, proof figures,
+   calculator outputs, benchmark values, clocks, and dates / read-times in meta.
+   :where() keeps this at zero specificity so a component can still opt out.
+   Deliberately not forced onto editorial body copy. */
+.v3 :where([data-num], [data-time], [data-count], [data-meta]) {
+  font-variant-numeric: lining-nums tabular-nums;
+}
 
 .v3-mono {
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
@@ -659,7 +712,7 @@ html[data-theme="light"] .v3-theme-dot { transform: rotate(180deg); }
 .v3-clock__dot { width: 5px; height: 5px; border-radius: 50%; background: var(--stone); transition: background .5s; }
 .v3-clock__dot.is-day { background: var(--mosstext); box-shadow: none; }
 .v3-clock__dot.is-night { background: transparent; box-shadow: inset 0 0 0 1px var(--stone); }
-.v3-clock__t { font-family: Syne, sans-serif; font-weight: 600; font-size: 19px; letter-spacing: -.02em; line-height: 1; font-variant-numeric: tabular-nums; }
+.v3-clock__t { font-family: Syne, sans-serif; font-weight: 600; font-size: 19px; letter-spacing: -.02em; line-height: 1; font-variant-numeric: lining-nums tabular-nums; }
 @media (min-width: 1024px) { .v3-clock__t { font-size: 22px; } }
 .v3-clock__suffix { font-size: .58em; font-weight: 500; letter-spacing: .04em; margin-left: 5px; opacity: .62; }
 .v3-footgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; padding-bottom: 36px; border-bottom: 1px solid var(--line); }
