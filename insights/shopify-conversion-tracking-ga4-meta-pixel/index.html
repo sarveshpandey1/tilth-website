@@ -108,31 +108,31 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
           "name": "Does Shopify have GA4 tracking built in?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Shopify has a native Google & YouTube channel that can push e-commerce events to GA4 without custom code, but it has to be configured correctly — connected to the right GA4 property, with enhanced e-commerce events turned on — or it silently under-reports purchases."
+            "text": "Shopify's native Google & YouTube channel can push e-commerce events to GA4 without custom code, but it needs to be connected to the right GA4 property with enhanced e-commerce events turned on, or it under-reports purchases."
           }
         },
         {
           "@type": "Question",
-          "name": "Do I need Meta Conversions API if I already have the Meta Pixel on Shopify?",
+          "name": "Do I need Meta Conversions API if I already have the Pixel?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. The browser-side Pixel alone misses a meaningful share of events due to ad blockers, iOS privacy settings, and cookie restrictions. Conversions API sends the same events server-side from Shopify, and Meta deduplicates the two — recovering conversions the Pixel alone would lose."
+            "text": "Yes. Browser-side Pixel tracking alone misses events due to ad blockers and privacy settings. Conversions API sends the same events server-side, and Meta deduplicates the two, recovering conversions the Pixel alone would lose."
           }
         },
         {
           "@type": "Question",
-          "name": "Why is my Shopify GA4 purchase value different from my actual revenue?",
+          "name": "Why is my GA4 purchase value different from my actual revenue?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The most common causes are the purchase event firing on every page load of the order-status page (double counting on refresh), tax or shipping being included or excluded inconsistently, and currency mismatches between GA4 settings and the store's checkout currency. Each of these is checkable in GA4's DebugView."
+            "text": "Common causes are the purchase event firing on every reload of the order-status page, inconsistent tax/shipping inclusion, and currency mismatches. Each is checkable in GA4's DebugView."
           }
         },
         {
           "@type": "Question",
-          "name": "Can I set up Shopify conversion tracking myself, or do I need a developer?",
+          "name": "Do I need a developer to set this up?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The native GA4 and Meta Pixel integrations in Shopify's admin don't require code for a standard store. Conversions API can be enabled through Shopify's built-in Meta integration without a developer in most cases; custom event matching for complex checkouts is where developer help typically becomes worthwhile."
+            "text": "The native GA4 and Meta Pixel integrations don't require code for a standard store, and Conversions API can usually be enabled through Shopify's built-in Meta integration. Developer help becomes worthwhile for custom or complex checkout flows."
           }
         },
         {
@@ -140,7 +140,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
           "name": "How do I know if my Shopify tracking is actually working?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Place a real test order, then check that it appears as a single Purchase event in GA4 DebugView with the correct value, and as a single Purchase event in Meta Events Manager showing both Browser and Server as the source with a high deduplication match rate."
+            "text": "Place a real test order, then confirm it appears once in GA4 DebugView with the correct value, and once in Meta Events Manager with both Browser and Server sources and a high match rate."
           }
         }
       ]

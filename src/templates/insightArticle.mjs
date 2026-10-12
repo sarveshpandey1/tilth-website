@@ -29,9 +29,19 @@
 //
 // Head metadata and the JSON-LD graph are the published values, passed through
 // untouched from src/insights-content.mjs: headline, description, dates,
-// author, publisher, image, articleSection, inLanguage and the FAQPage node.
-// Language signals are preserved exactly as published and recorded for the
-// later SEO phase, not normalised here.
+// author, publisher, image, articleSection and inLanguage. Language signals are
+// preserved exactly as published and recorded for the later SEO phase, not
+// normalised here.
+//
+// FAQPage IS THE ONE EXCEPTION, and deliberately so (owner decision, Phase 4b).
+// The published graph's FAQPage had drifted from the page: across the 14 FAQ
+// articles it declared 72 questions against 70 visible ones, 25 of its questions
+// appeared nowhere on the page, and not one of its answers matched the visible
+// answer verbatim. The approved visible FAQ is authoritative, so the FAQPage
+// node is now GENERATED from the same `faq` array that renders the visible
+// disclosure — one source for both. The two cannot drift again.
+// Nothing else in the graph is touched: BlogPosting, BreadcrumbList and every
+// other field still pass through exactly as published.
 //
 // Prototype-only code is not ported: the .dc runtime, reviewArticle, the
 // ART_HTML data block and the review title observer.
@@ -41,6 +51,31 @@ import { esc } from "../render.mjs";
 const HEAD_EXTRA = `<link rel="stylesheet" href="/assets/core-company.css">
 <link rel="stylesheet" href="/assets/insights.css">
 <script type="module" src="/insights-article.js"></script>`;
+
+// The visible answer is authored markup — only <p> and <a>, single-paragraph,
+// and the only entity in the set is &amp; (audited across all 70 answers).
+// acceptedAnswer.text is the text a reader actually sees, so tags come off and
+// that entity is decoded. Questions carry no markup at all.
+function plain(htmlStr) {
+  return String(htmlStr)
+    .replace(/<[^>]+>/g, "")
+    .replace(/&amp;/g, "&")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+// FAQPage built from the same data the visible disclosure renders.
+function faqSchema(a) {
+  if (!a.faq.length) return null;
+  return {
+    "@type": "FAQPage",
+    mainEntity: a.faq.map(f => ({
+      "@type": "Question",
+      name: plain(f.q),
+      acceptedAnswer: { "@type": "Answer", text: plain(f.a) }
+    }))
+  };
+}
 
 function faqBlock(a) {
   if (!a.faq.length) return "";
@@ -88,8 +123,13 @@ ${a.bodyHtml}
 }
 
 function page(a) {
-  // the published graph, passed through; BreadcrumbList included as published
-  const schema = a.schema.flatMap(g => g["@graph"] || [g]);
+  // The published graph, passed through, minus its stale FAQPage node, which is
+  // regenerated from the visible FAQ above. Node order is preserved: the
+  // generated FAQPage takes the position the published one held.
+  const published = a.schema.flatMap(g => g["@graph"] || [g]);
+  const generated = faqSchema(a);
+  const schema = published.map(n => (n["@type"] === "FAQPage" ? generated : n)).filter(Boolean);
+  if (generated && !published.some(n => n["@type"] === "FAQPage")) schema.push(generated);
   return {
     path: `/insights/${a.slug}/`,
     shell: "v3",
