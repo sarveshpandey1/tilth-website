@@ -1,0 +1,289 @@
+/* ===========================================================================
+   REGIONAL FAMILY — one system for 13 routes.
+   India 7:  /india/ · /india/services/{performance-marketing,
+             seo-content-marketing,affiliate-marketing}/ ·
+             /india/industries/{fintech,d2c-ecommerce,saas}/
+   US 6:     /us/ · /us/services/{performance-marketing,seo-content-marketing,
+             website-cro}/ · /us/industries/{saas,d2c-ecommerce}/
+
+   Ported from the frozen Master Design Release:
+     REGIONAL/Tilth Regional Hub Template - India.dc.html
+       c1db0d42…11af  119,294 B
+     REGIONAL/Tilth Regional Detail Template - US Website CRO.dc.html
+       529aa898…9b21  244,001 B
+     REGIONAL/REGIONAL_DESIGN_REPORT.md
+       da4db65f…bcc0
+
+   The two frozen prototypes carry a BYTE-IDENTICAL stylesheet (diff: 0), so
+   there is one Regional layer, not one per template. Two shells — hub and
+   detail — differ only in breadcrumb depth and the hub-only approval-gated
+   proof block; everything else is the same six data-driven section types.
+
+   ROUTE ASYMMETRY IS INTENTIONAL and is a data fact, not a style fact: India
+   has affiliate-marketing and fintech, US has website-cro, and five of the
+   eleven children have no counterpart. Nothing here mirrors a market, and no
+   rule is keyed to india or us. Band colour is assigned by BLOCK ORDER (plain
+   and inverted alternate), never by market: India and US share every colour and
+   no meaning is carried by colour. There is no switcher, no flag and no second
+   navigation (report §2 rule 3, §8).
+
+   Scoped to .v3-rg, over .v3-core. The frozen helmet re-inlines the whole Core
+   Company grammar; that grammar is already production in core-company.css,
+   which these pages load first, so none of it is duplicated here. Verified
+   before porting: 86 frozen core-grammar selector-rules, 70 byte-identical to
+   core-company.css, 9 differing only in the two established production
+   substitutions ('IBM Plex Mono', ui-monospace, monospace and the v3Rise /
+   v3Fade keyframe names), 7 absent and unused by these routes' markup
+   ([data-mono], [data-pnote] — no occurrence; [data-approx], the keyframes and
+   the reduced-motion reset all ship in brand-v3.css).
+
+   Collision-audited before naming: v3-rg, data-rg-* and --rg* each have 0
+   word-boundary occurrences anywhere else in the repo, so nothing is reused
+   from Services, Industries, Core, Tools, Insights or Bengaluru with a
+   different meaning.
+
+   NO GLOBAL SYSTEM CHANGES (report §25). Shell, nav, footer, theme, focus ring,
+   the Clay/light rule (no Clay is used here), the Syne tilde rule, lining
+   numerals, the FAQ disclosure contract, the proof component, the ledger and
+   the Moss CTA band are all the Phase 0 production implementation and are not
+   re-declared. No regional variant of any shared component exists.
+
+   NO SIGNATURE INTERACTION and NO REVEAL MOTION on reading content: the markup
+   carries no [data-reveal] on any of the 13 routes (0 occurrences across all
+   thirteen frozen mains), so nothing here depends on IntersectionObserver.
+
+   Prototype-only code is not ported: the .dc runtime, reviewRegion,
+   reviewRoute, reviewState (proof-absent), the MAIN_HTML / META route stores,
+   the review title map and the display-fit safeguard — the ladders below are
+   authored under their binding units at every width and the frozen QA records
+   the safeguard as never firing across all 156 renders, so the 102 [data-fit]
+   hooks have no consumer and are dropped, as in Core Company, Insights and
+   Bengaluru.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   0. BODY MARGIN RESET — page-scoped, and load-bearing for the type ladder.
+   brand-v3.css never resets the UA default body{margin:8px}; the frozen
+   prototypes set body{margin:0}, and every step below was measured against
+   that full-width track. Same correction and scoping as .v3-core / .v3-bl.
+   --------------------------------------------------------------------------- */
+body.v3-rg { margin: 0; }
+
+/* ---------------------------------------------------------------------------
+   1. THE READING COLOUR — the one token this family introduces.
+   In the frozen prototypes --rgtext is set by the .dc THEMES object at runtime
+   (dark #D6DBD2 / light #2C312A), not in the helmet, so the stylesheet reads it
+   as var(--rgtext, #D6DBD2). Production has no such runtime, so the token is
+   declared here for both themes with the frozen values; the fallback in the
+   rules below is kept exactly as authored and never fires.
+
+   The frozen design gives the family its own token deliberately (report §24
+   #11): in the Insights prototypes the theme script sets --body to a COLOUR,
+   which collides with the core --body FONT-SIZE token. Regional keeps --body
+   intact as a size and carries its colour in --rgtext. Page-scoped, so it
+   cannot reach .v3-ins{--prose} or .v3-bl{--bltext}, which happen to hold the
+   same pair of values.
+
+   Measured: #D6DBD2 on --bg #101310 = 13.29:1 · #2C312A on #F3F5F1 = 12.12:1.
+   --------------------------------------------------------------------------- */
+.v3-rg { --rgtext: #D6DBD2; }
+html[data-theme="light"] .v3-rg { --rgtext: #2C312A; }
+/* H1 ladder — regional H1s are 55–69-character sentences. Widest single word
+   across all 13: ACCOUNTABILITY. (measured in Syne 800 uppercase -.045em).
+   Every step is authored under that word so no H1 needs the fit safeguard. */
+.v3-rg{--rgh1:23px;--rglead:19px;--rgrun:20px}
+@media (min-width:480px){.v3-rg{--rgh1:28px}}
+@media (min-width:620px){.v3-rg{--rgh1:34px;--rglead:21px}}
+@media (min-width:700px){.v3-rg{--rgh1:36px}}
+@media (min-width:768px){.v3-rg{--rgrun:22px}}
+@media (min-width:900px){.v3-rg{--rgh1:42px;--rglead:22px}}
+@media (min-width:1024px){.v3-rg{--rgh1:48px;--rgrun:24px}}
+@media (min-width:1180px){.v3-rg{--rgh1:54px;--rglead:24px}}
+@media (min-width:1280px){.v3-rg{--rgh1:58px}}
+@media (min-width:1440px){.v3-rg{--rgh1:66px;--rglead:26px;--rgrun:26px}}
+@media (min-width:1700px){.v3-rg{--rgh1:76px}}
+
+/* closing CTA heading — regional CTA headings carry ACCOUNTABILITY. (14.44em),
+   wider than any core-company CTA word, so the band uses its own step under
+   column / 14.8 (two-column band from 1440) */
+.v3-rg{--rgcta:23px}
+@media (min-width:480px){.v3-rg{--rgcta:28px}}
+@media (min-width:620px){.v3-rg{--rgcta:36px}}
+@media (min-width:768px){.v3-rg{--rgcta:44px}}
+@media (min-width:1024px){.v3-rg{--rgcta:54px}}
+@media (min-width:1440px){.v3-rg{--rgcta:46px}}
+@media (min-width:1700px){.v3-rg{--rgcta:56px}}
+.v3-rg [data-rg-cta] [data-cta-h]{font-size:var(--rgcta)}
+/* source CTA labels run to 38 characters ("Discuss Your Ecommerce Growth
+   Strategy"); below 700 the label may wrap inside the full-width button */
+@media (max-width:699px){.v3-rg [data-rg-hero] [data-btn], .v3-rg [data-rg-cta] [data-btn]{white-space:normal;line-height:1.25;padding-top:12px;padding-bottom:12px}}
+
+.v3-rg [data-rg-hero] [data-h1]{font-size:var(--rgh1);line-height:.97;text-wrap:wrap;max-width:none}
+.v3-rg [data-rg-hero] [data-lede]{max-width:640px}
+.v3-rg [data-crumb] [data-rg-cr]{text-transform:uppercase}
+
+/* body tokens for both grounds */
+.v3-rg [data-rg-p]{margin:0;font-size:var(--body);line-height:1.68;color:var(--rgtext,#D6DBD2);max-width:680px}
+.v3-rg [data-rg-p] + [data-rg-p]{margin-top:18px}
+/* in-prose link (India hub → /marketing-agency-bengaluru/): quiet, but
+   identifiable without colour — an underline in the ground's Moss text tone */
+.v3-rg [data-rg-p] a{color:var(--fg);text-decoration:underline;text-decoration-color:var(--mosstext);text-decoration-thickness:1px;text-underline-offset:3px}
+.v3-rg [data-inv] [data-rg-p] a{color:var(--ifg);text-decoration-color:var(--imoss)}
+.v3-rg [data-inv] [data-rg-p]{color:var(--ibody)}
+.v3-rg [data-rg-lead] [data-rg-p]:first-child{font-size:var(--rglead);line-height:1.5;font-weight:300;color:var(--fg);letter-spacing:-.005em}
+.v3-rg [data-inv][data-rg-lead] [data-rg-p]:first-child, .v3-rg [data-inv] [data-rg-lead] [data-rg-p]:first-child{color:var(--ifg)}
+.v3-rg [data-rg-intro]{margin:20px 0 0;font-size:var(--body);line-height:1.6;color:var(--stone);max-width:520px}
+.v3-rg [data-inv] [data-rg-intro]{color:var(--imut)}
+.v3-rg [data-rg-eb]{display:block;margin:0 0 18px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.16em;line-height:1.4;color:var(--mosstext);text-transform:uppercase}
+.v3-rg [data-inv] [data-rg-eb]{color:var(--imoss)}
+
+/* block = one band; blocks alternate grounds. Hairline between same-ground
+   neighbours is never needed (they cannot be adjacent). */
+.v3-rg [data-rg-block]{padding:var(--sy) var(--pad)}
+.v3-rg [data-rg-block] + [data-rg-block]:not([data-inv]):not(:first-child){border-top:0}
+.v3-rg [data-rg-block] > [data-rg-sec] + [data-rg-sec]{margin-top:calc(var(--sy) * .7);padding-top:calc(var(--sy) * .55);border-top:1px solid var(--line)}
+.v3-rg [data-inv][data-rg-block] > [data-rg-sec] + [data-rg-sec]{border-top-color:var(--iline)}
+.v3-rg [data-rg-block][data-rg-first]{padding-top:0}
+.v3-rg [data-rg-block][data-rg-first] > [data-rg-sec]:first-child{border-top:1px solid var(--line);padding-top:clamp(34px,4.5vw,56px)}
+.v3-rg [data-rg-sec] [data-h2]{font-size:calc(var(--h2) * .92)}
+/* 1100–1439: the ledger head column is narrowest relative to the type step;
+   widest section-H2 unit "WHY PERFORMANCE" (11.93em) must fit it */
+@media (min-width:1100px) and (max-width:1439px){.v3-rg [data-rg-sec] [data-h2]{font-size:calc(var(--h2) * .85)}}
+
+/* ledger reuse: heading column + content column at >=1100 */
+.v3-rg [data-rg-sec] [data-ledger]{gap:28px}
+@media (min-width:1100px){.v3-rg [data-rg-sec] [data-ledger] > [data-lhead]{position:static}}
+
+/* RUN — 2+ consecutive one-paragraph prose sections (7–10 on the children)
+   become one ruled capability ledger. Each row is still its own <section>
+   with its own H2, so the outline and every SEO heading are untouched. */
+.v3-rg [data-rg-run]{border-top:1px solid var(--line)}
+.v3-rg [data-inv] [data-rg-run]{border-top-color:var(--iline)}
+.v3-rg [data-rg-row]{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;padding:26px 0 28px;border-bottom:1px solid var(--line)}
+.v3-rg [data-inv] [data-rg-row]{border-bottom-color:var(--iline)}
+@media (min-width:900px){.v3-rg [data-rg-row]{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px;padding:30px 0 32px}}
+@media (min-width:1440px){.v3-rg [data-rg-row]{gap:72px;padding:34px 0 36px}}
+.v3-rg [data-rg-row] [data-rg-eb]{margin-bottom:10px}
+.v3-rg [data-rg-row] h2{margin:0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--rgrun);line-height:1.12;letter-spacing:-.025em;color:var(--fg);text-wrap:balance}
+.v3-rg [data-inv] [data-rg-row] h2{color:var(--ifg)}
+.v3-rg [data-rg-row] [data-rg-p]{max-width:640px}
+@media (min-width:900px){.v3-rg [data-rg-row] [data-rg-p]{padding-top:24px}}
+
+/* LIST — who-for */
+.v3-rg [data-rg-list]{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);max-width:680px}
+.v3-rg [data-inv] [data-rg-list]{border-top-color:var(--iline)}
+.v3-rg [data-rg-list] li{position:relative;padding:15px 0 15px 26px;border-bottom:1px solid var(--line);font-size:var(--body);line-height:1.6;color:var(--rgtext,#D6DBD2)}
+.v3-rg [data-inv] [data-rg-list] li{border-bottom-color:var(--iline);color:var(--ibody)}
+.v3-rg [data-rg-list] li::before{content:"";position:absolute;left:2px;top:1.5em;width:10px;height:1px;background:var(--mosstext)}
+.v3-rg [data-inv] [data-rg-list] li::before{background:var(--imoss)}
+
+/* LINK ROWS — cards with an href (services / industries / related services).
+   A ruled index, not a card grid: name + one line + arrow, whole row is the link. */
+.v3-rg [data-rg-links]{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);border-top:1px solid var(--line)}
+.v3-rg [data-inv] [data-rg-links]{border-top-color:var(--iline)}
+@media (min-width:768px){.v3-rg [data-rg-links][data-compact]{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px}}
+.v3-rg [data-rg-links] > li{border-bottom:1px solid var(--line)}
+.v3-rg [data-inv] [data-rg-links] > li{border-bottom-color:var(--iline)}
+.v3-rg [data-rg-links] a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 18px;align-items:baseline;min-height:44px;padding:20px 0 22px;color:var(--fg)}
+.v3-rg [data-inv] [data-rg-links] a{color:var(--ifg)}
+@media (min-width:1100px){.v3-rg [data-rg-links]:not([data-compact]) a{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr) auto;gap:6px 32px}}
+.v3-rg [data-rg-links] h3{margin:0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h3);line-height:1.2;letter-spacing:-.02em}
+.v3-rg [data-rg-links] p{grid-column:1;margin:0;font-size:var(--card);line-height:1.6;color:var(--rgtext,#D6DBD2)}
+.v3-rg [data-inv] [data-rg-links] p{color:var(--ibody)}
+@media (min-width:1100px){.v3-rg [data-rg-links]:not([data-compact]) p{grid-column:2;grid-row:1}}
+.v3-rg [data-rg-go]{grid-column:2;grid-row:1;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;color:var(--mosstext);transition:transform .3s}
+.v3-rg [data-inv] [data-rg-go]{color:var(--imoss)}
+@media (min-width:1100px){.v3-rg [data-rg-links]:not([data-compact]) [data-rg-go]{grid-column:3}}
+.v3-rg [data-rg-links] a:hover [data-rg-go]{transform:translateX(4px)}
+.v3-rg [data-rg-links] a:hover h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+
+/* TILES — cards without an href (channels, why-tilth benefit cards) */
+.v3-rg [data-rg-tiles]{display:grid;grid-template-columns:minmax(0,1fr);gap:11px}
+@media (min-width:700px){.v3-rg [data-rg-tiles]{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.v3-rg [data-rg-tile]{border:1px solid var(--line);border-radius:8px;padding:22px 22px 24px;background:var(--raise)}
+.v3-rg [data-inv] [data-rg-tile]{border-color:var(--iline);background:var(--itile);box-shadow:var(--iedge)}
+.v3-rg [data-rg-tile] h3{margin:0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h3);line-height:1.2;letter-spacing:-.02em;color:var(--fg)}
+.v3-rg [data-inv] [data-rg-tile] h3{color:var(--ifg)}
+.v3-rg [data-rg-tile] p{margin:10px 0 0;font-size:var(--card);line-height:1.6;color:var(--rgtext,#D6DBD2)}
+.v3-rg [data-inv] [data-rg-tile] p{color:var(--ibody)}
+.v3-rg [data-rg-sec] [data-rg-p] + [data-rg-tiles]{margin-top:30px}
+
+/* STEPS — three numbered phases */
+.v3-rg [data-rg-steps]{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);border-top:1px solid var(--line)}
+.v3-rg [data-inv] [data-rg-steps]{border-top-color:var(--iline)}
+@media (min-width:900px){.v3-rg [data-rg-steps]{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:32px;border-top:0}}
+.v3-rg [data-rg-steps] li{padding:20px 0 22px;border-bottom:1px solid var(--line)}
+.v3-rg [data-inv] [data-rg-steps] li{border-bottom-color:var(--iline)}
+@media (min-width:900px){.v3-rg [data-rg-steps] li{border-bottom:0;border-top:2px solid var(--mosstext);padding-top:20px}
+  .v3-rg [data-inv] [data-rg-steps] li{border-top-color:var(--imoss)}}
+.v3-rg [data-rg-steps] h3{margin:10px 0 0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h3);line-height:1.2;letter-spacing:-.02em;color:var(--fg)}
+.v3-rg [data-inv] [data-rg-steps] h3{color:var(--ifg)}
+.v3-rg [data-rg-steps] p{margin:8px 0 0;font-size:var(--card);line-height:1.6;color:var(--rgtext,#D6DBD2)}
+.v3-rg [data-inv] [data-rg-steps] p{color:var(--ibody)}
+
+/* INSIGHTS — three article entries (39 inbound links into the Insights family) */
+.v3-rg [data-rg-ins]{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);border-top:1px solid var(--line)}
+.v3-rg [data-inv] [data-rg-ins]{border-top-color:var(--iline)}
+.v3-rg [data-rg-ins] li{padding:20px 0 22px;border-bottom:1px solid var(--line)}
+.v3-rg [data-inv] [data-rg-ins] li{border-bottom-color:var(--iline)}
+.v3-rg [data-rg-ins] time{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.12em;line-height:1.4;color:var(--stone);text-transform:uppercase}
+.v3-rg [data-inv] [data-rg-ins] time{color:var(--imut)}
+.v3-rg [data-rg-ins] h3{margin:10px 0 0;font-family:Syne,sans-serif;font-weight:600;font-size:19px;line-height:1.28;letter-spacing:-.015em}
+@media (min-width:1024px){.v3-rg [data-rg-ins] h3{font-size:20px}}
+/* the title link is the entry's tap target: block-level with 10px padding so a
+   one-line title still clears 44px */
+.v3-rg [data-rg-ins] h3{margin-top:2px}
+.v3-rg [data-rg-ins] h3 a{display:block;padding:10px 0;color:var(--fg);text-decoration:underline;text-decoration-color:var(--mosstext);text-decoration-thickness:1px;text-underline-offset:4px}
+.v3-rg [data-inv] [data-rg-ins] h3 a{color:var(--ifg);text-decoration-color:var(--imoss)}
+.v3-rg [data-rg-ins] p{margin:0;font-size:var(--card);line-height:1.6;color:var(--rgtext,#D6DBD2)}
+.v3-rg [data-inv] [data-rg-ins] p{color:var(--ibody)}
+
+/* section text CTA */
+.v3-rg [data-rg-sec] [data-textlink]{margin-top:22px}
+.v3-rg [data-inv] [data-textlink]{color:var(--imut)}
+.v3-rg [data-inv] [data-textlink] > span{border-bottom-color:var(--ichip)}
+
+/* FAQ — shared v3 disclosure; colours follow whichever ground the block lands on */
+.v3-rg [data-rg-faq] h3{margin:0}
+.v3-rg [data-rg-faq] [data-faq-item]{border-top:1px solid var(--line)}
+.v3-rg [data-rg-faq] [data-faq-item]:last-child{border-bottom:1px solid var(--line)}
+.v3-rg [data-inv] [data-rg-faq] [data-faq-item]{border-top-color:var(--iline)}
+.v3-rg [data-inv] [data-rg-faq] [data-faq-item]:last-child{border-bottom-color:var(--iline)}
+.v3-rg [data-rg-faq] [data-faq-btn]{color:var(--fg);font-size:18px}
+.v3-rg [data-inv] [data-rg-faq] [data-faq-btn]{color:var(--ifg)}
+@media (min-width:768px){.v3-rg [data-rg-faq] [data-faq-btn]{font-size:19.5px}}
+/* 18px glyph: the 45deg open state keeps its ink inside the button */
+.v3-rg [data-rg-faq] [data-faq-ic]{font-size:18px;color:var(--stone)!important}
+.v3-rg [data-rg-faq] [data-faq-btn][aria-expanded="true"] [data-faq-ic]{color:var(--mosstext)!important}
+.v3-rg [data-inv] [data-rg-faq] [data-faq-ic]{color:var(--imut)!important}
+.v3-rg [data-inv] [data-rg-faq] [data-faq-btn][aria-expanded="true"] [data-faq-ic]{color:var(--imoss)!important}
+.v3-rg [data-rg-faq] [data-faq-ans] p{margin:0;padding:0 0 24px;font-size:16.5px;line-height:1.7;color:var(--rgtext,#D6DBD2);max-width:640px}
+.v3-rg [data-inv] [data-rg-faq] [data-faq-ans] p{color:var(--ibody)}
+
+/* PROOF (hubs only, approval-gated) — the shared Core proof component; on the
+   plain ground its tokens are the page tokens */
+.v3-rg [data-rg-proof] [data-proof-grid]{border-top:1px solid var(--line);padding-top:26px}
+.v3-rg [data-inv] [data-rg-proof] [data-proof-grid]{border-top-color:var(--iline)}
+.v3-rg [data-rg-proof] [data-proof] li{font-size:18px}
+@media (min-width:1280px){.v3-rg [data-rg-proof] [data-proof] li{font-size:20px}}
+
+
+/* ---------------------------------------------------------------------------
+   INLINE STYLES, TRANSLATED. The frozen prototypes set exactly two inline
+   styles inside <main> across all 13 routes; production keeps presentation in
+   the stylesheet, so each is reproduced with its exact declarations.
+
+     style="color:var(--fg)"          x13  the breadcrumb's aria-current span —
+                                           already shipped as
+                                           .v3-core [data-crumb] [aria-current]
+                                           (core-company.css), so nothing is
+                                           added for it here.
+     style="margin:0;font-weight:400" x4   the two proof <h3 data-plabel> on
+                                           each of the two hubs.
+
+   The proof rule exists because the frozen design keeps the heading LEVEL while
+   the visible role is a label: the h3 carries [data-plabel] under the section's
+   own h2, so it needs the UA h3 margin and bold removed, nothing more. The FAQ
+   h3 equivalent is already in the frozen layer above as [data-rg-faq] h3.
+   --------------------------------------------------------------------------- */
+.v3-rg [data-rg-proof] [data-plabel]{margin:0;font-weight:400}

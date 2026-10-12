@@ -16,7 +16,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -31,47 +31,12 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="twitter:title" content="Growth marketing for US SaaS teams building predictable pipeline">
 <meta name="twitter:description" content="Positioning, demand generation, conversion, activation and measurement connected for SaaS teams.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
-<!-- The hero H1's <em> is Fraunces italic and is part of the LCP element. Without this
-     preload it was discovered only after CSS parsed and took ~9s on throttled mobile. -->
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/assets/generated.css">
-<style>
-  /* Regional pages reuse the global system; these are the only additions. */
-  .rlist{list-style:none;margin:var(--space-block) 0 0;padding:0;display:grid;gap:12px;max-width:70ch}
-  .rlist li{position:relative;padding-left:20px;font-size:16px;line-height:1.65;color:var(--text)}
-  .rlist li::before{content:"";position:absolute;left:0;top:.65em;width:7px;height:1px;background:var(--terra)}
-  .gsec--light .rlist li{color:#4B4239}
-  .rprose{font-size:16px;line-height:1.7;color:var(--text);max-width:68ch;margin-top:18px}
-  .gsec--light .rprose{color:#4B4239}
-  .rhero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px}
-  /* compact industry cards sit 2-up then 4-up rather than the 3-up service grid */
-  @media(min-width:640px){.card-grid--compact{grid-template-columns:1fr 1fr}}
-  @media(min-width:1000px){.card-grid--compact{grid-template-columns:repeat(4,1fr)}}
-  .card-grid--compact .gcard{min-height:0}
-  /* benefit + insight cards reuse the homepage patterns */
-  .igrid{display:grid;gap:16px;margin-top:var(--space-block)}
-  @media(min-width:760px){.igrid{grid-template-columns:repeat(3,1fr)}}
-  .icard{border:1px solid var(--rule);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px}
-  .icard__date{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--glow)}
-  .icard__title{font-family:'Fraunces',serif;font-weight:500;font-size:18px;line-height:1.3;margin:0}
-  .icard__title a{color:var(--ink);text-decoration:none}
-  .icard__title a:hover,.icard__title a:focus-visible{color:var(--glow)}
-  .icard__ex{font-size:14px;line-height:1.6;color:var(--text);margin:0}
-  .cap__n{display:block;font-family:'Fraunces',serif;color:var(--terra);font-size:14px;margin-bottom:6px}
-  /* FAQ inside a cream section inherits light-theme tokens — force dark-on-cream */
-  .gsec--light .faq__item{border-color:rgba(26,21,16,.14)}
-  .gsec--light .faq__item summary{color:#15110B}
-  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#55722F}
-  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#55722F}
-  .gsec--light .faq__ans p{color:#4B4239}
-  .faq__item summary h3{font:inherit;color:inherit;margin:0;font-weight:inherit;letter-spacing:inherit}
-  html.jsr .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-  html.jsr .reveal.in{opacity:1;transform:none}
-</style>
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/core-company.css">
+<link rel="stylesheet" href="/assets/regional.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -204,275 +169,271 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 }
 </script>
 </head>
-<body>
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav aria-label="Primary">
+<body class="v3 v3-core v3-rg">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
+    </nav>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
+  </div>
+</header>
+
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
       <a href="/services/">Services</a>
       <a href="/industries/">Industries</a>
       <a href="/work/">Work</a>
       <a href="/approach/">Approach</a>
       <a href="/insights/">Insights</a>
       <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
     </nav>
-    <div class="meta">India-rooted · Working across markets</div>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
   </div>
-</header>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
 <main id="main">
 
-<section class="ghero rhero" id="hero">
-  <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/us/">United States</a> <span aria-hidden="true">/</span> <span>SaaS</span></nav>
-    <p class="label">SaaS growth for US companies</p>
-    <h1>Growth marketing for US SaaS teams building predictable pipeline.</h1>
-    <p class="lede">Tilth connects positioning, demand generation, conversion, activation and measurement so SaaS teams can see what is creating qualified pipeline and product progress.</p>
-    <div class="actions">
-      <a class="btn" href="/contact/"><span>Discuss Your SaaS Growth Strategy</span> <span class="arrow">→</span></a>
-      <a class="text-cta" href="/services/">Explore Relevant Services →</a>
+<section id="hero" data-hero data-rg-hero data-depth-label="SURFACE">
+  <nav data-crumb aria-label="Breadcrumb"><a href="/" data-rg-cr>Home</a> <span data-sep aria-hidden="true">/</span> <a href="/us/" data-rg-cr>United States</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page" data-rg-cr>SaaS</span></nav>
+  <div data-eyebrow>SaaS growth for US companies</div>
+  <h1 data-h1>Growth marketing for US SaaS teams building predictable pipeline.</h1>
+  <p data-lede>Tilth connects positioning, demand generation, conversion, activation and measurement so SaaS teams can see what is creating qualified pipeline and product progress.</p>
+  <div data-actions>
+    <a data-btn href="/contact/">Discuss Your SaaS Growth Strategy <span aria-hidden="true">&rarr;</span></a>
+    <a data-textlink href="/services/"><span>Explore Relevant Services &rarr;</span></a>
+  </div>
+</section>
+
+  <div data-rg-block data-rg-kind="prose" data-rg-first data-depth-label="SHALLOW">
+    <section id="connected-funnel" data-rg-sec data-rg-type="prose" data-rg-lead aria-labelledby="connected-funnel-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>The challenge</span>
+          <h2 id="connected-funnel-h" data-h2>Predictable SaaS growth requires one connected funnel.</h2>
+        </div>
+        <div>
+          <p data-rg-p>Marketing may report leads, sales may report pipeline and product may report activation, but the company still lacks a shared view of what is creating quality growth.</p>
+          <p data-rg-p>Tilth helps connect these stages so strategy and channel decisions reflect the full journey from discovery to revenue or product value.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="run" data-inv data-depth-label="SHALLOW">
+    <div data-rg-run>
+      <section id="icp" data-rg-row data-rg-type="prose" aria-labelledby="icp-h">
+        <div><span data-rg-eb>Positioning</span><h2 id="icp-h">ICP and positioning</h2></div>
+        <p data-rg-p>A clear ideal customer profile, problem definition and differentiated message give demand-generation activity a stronger foundation. We review how the product is explained across campaigns, website pages and content.</p>
+      </section>
+      <section id="demand" data-rg-row data-rg-type="prose" aria-labelledby="demand-h">
+        <div><span data-rg-eb>Demand</span><h2 id="demand-h">Demand generation</h2></div>
+        <p data-rg-p>Demand may come from paid acquisition, search, expert content, partnerships and focused landing experiences. The mix should reflect the audience, buying journey, deal value and sales motion.</p>
+      </section>
+      <section id="demo-trial" data-rg-row data-rg-type="prose" aria-labelledby="demo-trial-h">
+        <div><span data-rg-eb>Conversion</span><h2 id="demo-trial-h">Demo and trial conversion</h2></div>
+        <p data-rg-p>The path from interest to demo or trial should communicate value, fit and next steps clearly. Tilth reviews forms, landing pages, qualification, follow-up and message continuity.</p>
+      </section>
+      <section id="activation" data-rg-row data-rg-type="prose" aria-labelledby="activation-h">
+        <div><span data-rg-eb>Activation</span><h2 id="activation-h">Product activation</h2></div>
+        <p data-rg-p>For trial or product-led models, activation should reflect a meaningful product action rather than signup alone. This creates a stronger signal for acquisition and onboarding decisions.</p>
+      </section>
+      <section id="content-authority" data-rg-row data-rg-type="prose" aria-labelledby="content-authority-h">
+        <div><span data-rg-eb>Organic</span><h2 id="content-authority-h">Content authority and SEO</h2></div>
+        <p data-rg-p>SaaS buyers search for problems, categories, workflows, alternatives, integrations and implementation guidance. A useful content system connects these searches to the product and commercial journey.</p>
+      </section>
+      <section id="paid" data-rg-row data-rg-type="prose" aria-labelledby="paid-h">
+        <div><span data-rg-eb>Paid</span><h2 id="paid-h">Paid acquisition</h2></div>
+        <p data-rg-p>Paid channels can support category capture, account or audience targeting, retargeting and offer testing. Measurement should connect spend with qualified pipeline, trial quality or another downstream signal.</p>
+      </section>
+      <section id="website" data-rg-row data-rg-type="prose" aria-labelledby="website-h">
+        <div><span data-rg-eb>Website</span><h2 id="website-h">Website conversion</h2></div>
+        <p data-rg-p>The website should explain the problem, product, use cases, proof and next action without forcing the buyer to interpret the value. Tilth can improve structure, messaging, analytics and landing pages.</p>
+      </section>
+      <section id="alignment" data-rg-row data-rg-type="prose" aria-labelledby="alignment-h">
+        <div><span data-rg-eb>Alignment</span><h2 id="alignment-h">Sales and marketing alignment</h2></div>
+        <p data-rg-p>Growth improves when marketing and sales agree on qualification, funnel stages, feedback and reporting. Tilth can help define the shared view required for better decisions.</p>
+      </section>
+      <section id="measurement" data-rg-row data-rg-type="prose" aria-labelledby="measurement-h">
+        <div><span data-rg-eb>Measurement</span><h2 id="measurement-h">Pipeline and revenue measurement</h2></div>
+        <p data-rg-p>The measurement framework may connect source, lead, qualification, demo, trial, activation, opportunity, pipeline and revenue. The exact model depends on the sales motion and available systems.</p>
+      </section>
+      <section id="collaboration" data-rg-row data-rg-type="prose" aria-labelledby="collaboration-h">
+        <div><span data-rg-eb>Working together</span><h2 id="collaboration-h">Distributed collaboration</h2></div>
+        <p data-rg-p>For US teams working with Tilth from India, the engagement can combine scheduled reviews, agreed overlap hours, shared documentation and asynchronous updates.</p>
+      </section>
+    </div>
+  </div>
+
+  <div data-rg-block data-rg-kind="cards" data-depth-label="MID">
+    <section id="services" data-rg-sec data-rg-type="cards" aria-labelledby="services-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Services</span>
+          <h2 id="services-h" data-h2>Relevant Tilth services</h2>
+        </div>
+        <div>
+          <ul data-rg-links data-compact>
+            <li><a href="/services/growth-strategy-measurement/"><h3>Growth Strategy &amp; Measurement</h3><p>ICP, funnel definitions, analytics and reporting.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/us/services/seo-content-marketing/"><h3>SEO &amp; Content</h3><p>Commercial pages, expert content and organic discovery.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/us/services/performance-marketing/"><h3>Performance Marketing</h3><p>Paid acquisition, experimentation and funnel analysis.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/us/services/website-cro/"><h3>Websites &amp; CRO</h3><p>Messaging, landing pages and conversion.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/services/affiliate-partnerships/"><h3>Affiliate &amp; Partnerships</h3><p>Distribution through relevant ecosystems or partners.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+          <a data-textlink href="/services/"><span>Explore relevant services &rarr;</span></a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="insights" data-inv data-depth-label="MID">
+    <section id="insights" data-rg-sec data-rg-type="insights" aria-labelledby="insights-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Related insights</span>
+          <h2 id="insights-h" data-h2>Thinking on demand and measurement</h2>
+        </div>
+        <div>
+          <ul data-rg-ins>
+            <li><time datetime="2026-05-18" data-time>18 May 2026</time><h3><a href="/insights/marketing-attribution-explained-simply/">Marketing attribution for small businesses, explained simply</a></h3><p>What attribution models actually do, where they mislead, and how to make practical decisions with them.</p></li>
+            <li><time datetime="2026-05-28" data-time>28 May 2026</time><h3><a href="/insights/seo-not-bringing-leads/">Why your SEO isn't bringing leads (and how to fix it)</a></h3><p>Rankings and traffic without pipeline usually means intent, page type or conversion is the missing piece.</p></li>
+            <li><time datetime="2026-06-23" data-time>23 Jun 2026</time><h3><a href="/insights/questions-before-hiring-marketing-agency/">12 questions to ask before hiring a marketing agency (and the red-flag answers)</a></h3><p>The questions that separate a partner who will move your numbers from one who will just keep you busy.</p></li>
+          </ul>
+          <a data-textlink href="/insights/"><span>Explore all insights &rarr;</span></a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="faq" data-depth-label="MID">
+    <section id="faq" data-rg-sec data-rg-type="faq" aria-labelledby="faq-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>FAQ</span>
+          <h2 id="faq-h" data-h2>Questions about SaaS growth marketing</h2>
+        </div>
+        <div>
+          <div data-rg-faq>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b0" aria-controls="faq-p0" aria-expanded="true"><span>What does a SaaS growth marketing agency do?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p0" role="region" aria-labelledby="faq-b0"><div><p>It connects positioning, demand generation, paid acquisition, SEO, website conversion, demos or trials, activation and measurement around the SaaS revenue model.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b1" aria-controls="faq-p1" aria-expanded="false"><span>Can Tilth support product-led and sales-led SaaS companies?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p>Yes. The growth system can be adapted to demo-led, sales-led, trial-led or product-led journeys based on the product and customer model.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b2" aria-controls="faq-p2" aria-expanded="false"><span>How does Tilth collaborate with US SaaS teams?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p>The engagement can use agreed overlap hours, scheduled reviews, shared documentation and asynchronous updates. The operating rhythm is agreed during setup.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b3" aria-controls="faq-p3" aria-expanded="false"><span>Can Tilth work with an internal sales or product team?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p>Yes. Growth measurement often requires collaboration across marketing, sales and product. Tilth can work with internal stakeholders to define stages and feedback loops.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b4" aria-controls="faq-p4" aria-expanded="false"><span>Which metrics matter for SaaS growth?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p>Usually the ones that span the marketing and sales handoff: qualified leads, demos or trials, activation, opportunity creation, pipeline and revenue. What matters most is that marketing, sales and product work from the same definitions, so the reporting describes one funnel rather than three separate views of it.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b5" aria-controls="faq-p5" aria-expanded="false"><span>How does an engagement begin?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p5" role="region" aria-labelledby="faq-b5"><div><p>Tilth reviews the ICP, positioning, acquisition channels, sales or product journey and current measurement to identify the most important growth constraint.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<section id="cta" data-moss data-rg-cta data-depth-label="FOUNDATION" aria-labelledby="cta-h">
+  <div data-eyebrow>Next step</div>
+  <div data-cta-grid>
+    <h2 id="cta-h" data-cta-h>Create a clearer path from demand to pipeline and product value.</h2>
+    <div>
+      <p data-cta-p>Tell us how marketing, sales and product currently measure the same funnel, and where pipeline quality becomes unclear. We'll help identify what to connect first and how reviews can run across time zones.</p>
+      <div data-cta-actions>
+        <a data-btn href="/contact/">Discuss Your SaaS Growth Strategy <span aria-hidden="true">&rarr;</span></a>
+      </div>
     </div>
   </div>
 </section>
-
-<section class="gsec reveal" id="connected-funnel" aria-labelledby="connected-funnel-h">
-  <div class="wrap">
-    <p class="label">The challenge</p>
-    <h2 id="connected-funnel-h">Predictable SaaS growth requires one connected funnel.</h2>
-    
-    <p class="rprose">Marketing may report leads, sales may report pipeline and product may report activation, but the company still lacks a shared view of what is creating quality growth.</p>
-    <p class="rprose">Tilth helps connect these stages so strategy and channel decisions reflect the full journey from discovery to revenue or product value.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="icp" aria-labelledby="icp-h">
-  <div class="wrap">
-    <p class="label">Positioning</p>
-    <h2 id="icp-h">ICP and positioning</h2>
-    
-    <p class="rprose">A clear ideal customer profile, problem definition and differentiated message give demand-generation activity a stronger foundation. We review how the product is explained across campaigns, website pages and content.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="demand" aria-labelledby="demand-h">
-  <div class="wrap">
-    <p class="label">Demand</p>
-    <h2 id="demand-h">Demand generation</h2>
-    
-    <p class="rprose">Demand may come from paid acquisition, search, expert content, partnerships and focused landing experiences. The mix should reflect the audience, buying journey, deal value and sales motion.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="demo-trial" aria-labelledby="demo-trial-h">
-  <div class="wrap">
-    <p class="label">Conversion</p>
-    <h2 id="demo-trial-h">Demo and trial conversion</h2>
-    
-    <p class="rprose">The path from interest to demo or trial should communicate value, fit and next steps clearly. Tilth reviews forms, landing pages, qualification, follow-up and message continuity.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="activation" aria-labelledby="activation-h">
-  <div class="wrap">
-    <p class="label">Activation</p>
-    <h2 id="activation-h">Product activation</h2>
-    
-    <p class="rprose">For trial or product-led models, activation should reflect a meaningful product action rather than signup alone. This creates a stronger signal for acquisition and onboarding decisions.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="content-authority" aria-labelledby="content-authority-h">
-  <div class="wrap">
-    <p class="label">Organic</p>
-    <h2 id="content-authority-h">Content authority and SEO</h2>
-    
-    <p class="rprose">SaaS buyers search for problems, categories, workflows, alternatives, integrations and implementation guidance. A useful content system connects these searches to the product and commercial journey.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="paid" aria-labelledby="paid-h">
-  <div class="wrap">
-    <p class="label">Paid</p>
-    <h2 id="paid-h">Paid acquisition</h2>
-    
-    <p class="rprose">Paid channels can support category capture, account or audience targeting, retargeting and offer testing. Measurement should connect spend with qualified pipeline, trial quality or another downstream signal.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="website" aria-labelledby="website-h">
-  <div class="wrap">
-    <p class="label">Website</p>
-    <h2 id="website-h">Website conversion</h2>
-    
-    <p class="rprose">The website should explain the problem, product, use cases, proof and next action without forcing the buyer to interpret the value. Tilth can improve structure, messaging, analytics and landing pages.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="alignment" aria-labelledby="alignment-h">
-  <div class="wrap">
-    <p class="label">Alignment</p>
-    <h2 id="alignment-h">Sales and marketing alignment</h2>
-    
-    <p class="rprose">Growth improves when marketing and sales agree on qualification, funnel stages, feedback and reporting. Tilth can help define the shared view required for better decisions.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="measurement" aria-labelledby="measurement-h">
-  <div class="wrap">
-    <p class="label">Measurement</p>
-    <h2 id="measurement-h">Pipeline and revenue measurement</h2>
-    
-    <p class="rprose">The measurement framework may connect source, lead, qualification, demo, trial, activation, opportunity, pipeline and revenue. The exact model depends on the sales motion and available systems.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="collaboration" aria-labelledby="collaboration-h">
-  <div class="wrap">
-    <p class="label">Working together</p>
-    <h2 id="collaboration-h">Distributed collaboration</h2>
-    
-    <p class="rprose">For US teams working with Tilth from India, the engagement can combine scheduled reviews, agreed overlap hours, shared documentation and asynchronous updates.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="services" aria-labelledby="services-h">
-  <div class="wrap">
-    <p class="label">Services</p>
-    <h2 id="services-h">Relevant Tilth services</h2>
-    
-    
-    <div class="card-grid card-grid--compact">
-      <a class="gcard gcard--featured" href="/services/growth-strategy-measurement/">
-        <h3 class="gcard__name">Growth Strategy &amp; Measurement</h3>
-        <p class="gcard__desc">ICP, funnel definitions, analytics and reporting.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/us/services/seo-content-marketing/">
-        <h3 class="gcard__name">SEO &amp; Content</h3>
-        <p class="gcard__desc">Commercial pages, expert content and organic discovery.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/us/services/performance-marketing/">
-        <h3 class="gcard__name">Performance Marketing</h3>
-        <p class="gcard__desc">Paid acquisition, experimentation and funnel analysis.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/us/services/website-cro/">
-        <h3 class="gcard__name">Websites &amp; CRO</h3>
-        <p class="gcard__desc">Messaging, landing pages and conversion.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/services/affiliate-partnerships/">
-        <h3 class="gcard__name">Affiliate &amp; Partnerships</h3>
-        <p class="gcard__desc">Distribution through relevant ecosystems or partners.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-    </div><div class="actions" style="margin-top:28px"><a class="text-cta" href="/services/">Explore relevant services →</a></div>
-  </div>
-</section>
-
-<section class="gsec reveal" id="insights" aria-labelledby="insights-h">
-  <div class="wrap">
-    <p class="label">Related insights</p>
-    <h2 id="insights-h">Thinking on demand and measurement</h2>
-    
-    
-    <div class="igrid">
-      <article class="icard">
-        <time class="icard__date" datetime="2026-05-18">18 May 2026</time>
-        <h3 class="icard__title"><a href="/insights/marketing-attribution-explained-simply/">Marketing attribution for small businesses, explained simply</a></h3>
-        <p class="icard__ex">What attribution models actually do, where they mislead, and how to make practical decisions with them.</p>
-      </article>
-      <article class="icard">
-        <time class="icard__date" datetime="2026-05-28">28 May 2026</time>
-        <h3 class="icard__title"><a href="/insights/seo-not-bringing-leads/">Why your SEO isn't bringing leads (and how to fix it)</a></h3>
-        <p class="icard__ex">Rankings and traffic without pipeline usually means intent, page type or conversion is the missing piece.</p>
-      </article>
-      <article class="icard">
-        <time class="icard__date" datetime="2026-06-23">23 Jun 2026</time>
-        <h3 class="icard__title"><a href="/insights/questions-before-hiring-marketing-agency/">12 questions to ask before hiring a marketing agency (and the red-flag answers)</a></h3>
-        <p class="icard__ex">The questions that separate a partner who will move your numbers from one who will just keep you busy.</p>
-      </article>
-    </div><div class="actions" style="margin-top:28px"><a class="text-cta" href="/insights/">Explore all insights →</a></div>
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="faq" aria-labelledby="faq-h">
-  <div class="wrap">
-    <p class="label">FAQ</p>
-    <h2 id="faq-h">Questions about SaaS growth marketing</h2>
-    
-    
-    <div class="faq__list">
-      <details class="faq__item"><summary><h3>What does a SaaS growth marketing agency do?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>It connects positioning, demand generation, paid acquisition, SEO, website conversion, demos or trials, activation and measurement around the SaaS revenue model.</p></div></details>
-      <details class="faq__item"><summary><h3>Can Tilth support product-led and sales-led SaaS companies?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Yes. The growth system can be adapted to demo-led, sales-led, trial-led or product-led journeys based on the product and customer model.</p></div></details>
-      <details class="faq__item"><summary><h3>How does Tilth collaborate with US SaaS teams?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>The engagement can use agreed overlap hours, scheduled reviews, shared documentation and asynchronous updates. The operating rhythm is agreed during setup.</p></div></details>
-      <details class="faq__item"><summary><h3>Can Tilth work with an internal sales or product team?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Yes. Growth measurement often requires collaboration across marketing, sales and product. Tilth can work with internal stakeholders to define stages and feedback loops.</p></div></details>
-      <details class="faq__item"><summary><h3>Which metrics matter for SaaS growth?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Usually the ones that span the marketing and sales handoff: qualified leads, demos or trials, activation, opportunity creation, pipeline and revenue. What matters most is that marketing, sales and product work from the same definitions, so the reporting describes one funnel rather than three separate views of it.</p></div></details>
-      <details class="faq__item"><summary><h3>How does an engagement begin?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Tilth reviews the ICP, positioning, acquisition channels, sales or product journey and current measurement to identify the most important growth constraint.</p></div></details>
-    </div>
-  </div>
-</section>
-
-<section class="cta-band cta-band--terra" id="cta">
-  <div class="wrap">
-    <span class="label">Next step</span>
-    <h2>Create a clearer path from demand to pipeline and product value.</h2>
-    <p>Tell us how marketing, sales and product currently measure the same funnel, and where pipeline quality becomes unclear. We'll help identify what to connect first and how reviews can run across time zones.</p>
-    <div class="cta-band__actions">
-      <a class="btn" href="/contact/"><span>Discuss Your SaaS Growth Strategy</span> <span class="arrow">→</span></a>
-      
-    </div>
-  </div>
-</section>
-
-<script>
-(function(){
-  var root=document.documentElement, rm=false;
-  try{ rm=matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
-  var els=[].slice.call(document.querySelectorAll('.reveal'));
-  if(!els.length || rm || !('IntersectionObserver' in window)) return;
-  root.classList.add('jsr');
-  var io=new IntersectionObserver(function(ens){ens.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
-  els.forEach(function(el){ io.observe(el); });
-})();
-</script>
 
 </main>
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <p class="addr">Tilth is an India-rooted growth marketing agency working with ambitious brands across India and the US.<br><br>Bengaluru, India · Remote collaboration across India and the US<br><a href="tel:+917007999306">+91 70079 99306</a><br><a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a></p>
-      </div>
-      <div>
-        <h3 class="fcol">Explore</h3>
-        <ul><li><a href="/services/">Services</a></li><li><a href="/approach/">Approach</a></li><li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Legal</h3>
-        <ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/cookie-policy/">Cookie Policy</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Social</h3>
-        <ul><li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li><li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li></ul>
-      </div>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom"><span>© 2026 Tilth. All rights reserved.</span></div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
+<script src="/regional.js" defer></script>
 <script src="/analytics.js" defer></script>
 </body>
 </html>

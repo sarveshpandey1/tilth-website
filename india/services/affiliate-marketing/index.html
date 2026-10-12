@@ -16,7 +16,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -31,47 +31,12 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="twitter:title" content="Affiliate and partnership programmes built for accountable growth">
 <meta name="twitter:description" content="Partner strategy, commercial models, onboarding, tracking, quality controls and optimisation.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
-<!-- The hero H1's <em> is Fraunces italic and is part of the LCP element. Without this
-     preload it was discovered only after CSS parsed and took ~9s on throttled mobile. -->
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/assets/generated.css">
-<style>
-  /* Regional pages reuse the global system; these are the only additions. */
-  .rlist{list-style:none;margin:var(--space-block) 0 0;padding:0;display:grid;gap:12px;max-width:70ch}
-  .rlist li{position:relative;padding-left:20px;font-size:16px;line-height:1.65;color:var(--text)}
-  .rlist li::before{content:"";position:absolute;left:0;top:.65em;width:7px;height:1px;background:var(--terra)}
-  .gsec--light .rlist li{color:#4B4239}
-  .rprose{font-size:16px;line-height:1.7;color:var(--text);max-width:68ch;margin-top:18px}
-  .gsec--light .rprose{color:#4B4239}
-  .rhero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px}
-  /* compact industry cards sit 2-up then 4-up rather than the 3-up service grid */
-  @media(min-width:640px){.card-grid--compact{grid-template-columns:1fr 1fr}}
-  @media(min-width:1000px){.card-grid--compact{grid-template-columns:repeat(4,1fr)}}
-  .card-grid--compact .gcard{min-height:0}
-  /* benefit + insight cards reuse the homepage patterns */
-  .igrid{display:grid;gap:16px;margin-top:var(--space-block)}
-  @media(min-width:760px){.igrid{grid-template-columns:repeat(3,1fr)}}
-  .icard{border:1px solid var(--rule);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px}
-  .icard__date{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--glow)}
-  .icard__title{font-family:'Fraunces',serif;font-weight:500;font-size:18px;line-height:1.3;margin:0}
-  .icard__title a{color:var(--ink);text-decoration:none}
-  .icard__title a:hover,.icard__title a:focus-visible{color:var(--glow)}
-  .icard__ex{font-size:14px;line-height:1.6;color:var(--text);margin:0}
-  .cap__n{display:block;font-family:'Fraunces',serif;color:var(--terra);font-size:14px;margin-bottom:6px}
-  /* FAQ inside a cream section inherits light-theme tokens — force dark-on-cream */
-  .gsec--light .faq__item{border-color:rgba(26,21,16,.14)}
-  .gsec--light .faq__item summary{color:#15110B}
-  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#55722F}
-  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#55722F}
-  .gsec--light .faq__ans p{color:#4B4239}
-  .faq__item summary h3{font:inherit;color:inherit;margin:0;font-weight:inherit;letter-spacing:inherit}
-  html.jsr .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-  html.jsr .reveal.in{opacity:1;transform:none}
-</style>
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/core-company.css">
+<link rel="stylesheet" href="/assets/regional.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -204,275 +169,302 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 }
 </script>
 </head>
-<body>
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav aria-label="Primary">
+<body class="v3 v3-core v3-rg">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
+    </nav>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
+  </div>
+</header>
+
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
       <a href="/services/">Services</a>
       <a href="/industries/">Industries</a>
       <a href="/work/">Work</a>
       <a href="/approach/">Approach</a>
       <a href="/insights/">Insights</a>
       <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
     </nav>
-    <div class="meta">India-rooted · Working across markets</div>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
   </div>
-</header>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
 <main id="main">
 
-<section class="ghero rhero" id="hero">
-  <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/india/">India</a> <span aria-hidden="true">/</span> <span>Affiliate Marketing</span></nav>
-    <p class="label">Affiliate marketing in India</p>
-    <h1>Affiliate and partnership programmes built for accountable growth.</h1>
-    <p class="lede">Tilth connects partner strategy, commercial models, onboarding, tracking, quality controls and optimisation so the channel can grow without losing accountability.</p>
-    <div class="actions">
-      <a class="btn" href="/contact/"><span>Discuss Your Affiliate Programme</span> <span class="arrow">→</span></a>
-      <a class="text-cta" href="/approach/">Explore Our Approach →</a>
+<section id="hero" data-hero data-rg-hero data-depth-label="SURFACE">
+  <nav data-crumb aria-label="Breadcrumb"><a href="/" data-rg-cr>Home</a> <span data-sep aria-hidden="true">/</span> <a href="/india/" data-rg-cr>India</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page" data-rg-cr>Affiliate Marketing</span></nav>
+  <div data-eyebrow>Affiliate marketing in India</div>
+  <h1 data-h1>Affiliate and partnership programmes built for accountable growth.</h1>
+  <p data-lede>Tilth connects partner strategy, commercial models, onboarding, tracking, quality controls and optimisation so the channel can grow without losing accountability.</p>
+  <div data-actions>
+    <a data-btn href="/contact/">Discuss Your Affiliate Programme <span aria-hidden="true">&rarr;</span></a>
+    <a data-textlink href="/approach/"><span>Explore Our Approach &rarr;</span></a>
+  </div>
+</section>
+
+  <div data-rg-block data-rg-kind="prose" data-rg-first data-depth-label="SHALLOW">
+    <section id="struggle" data-rg-sec data-rg-type="prose" data-rg-lead aria-labelledby="struggle-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>The problem</span>
+          <h2 id="struggle-h" data-h2>Why affiliate programmes struggle</h2>
+        </div>
+        <div>
+          <p data-rg-p>Affiliate growth can appear attractive because payment is linked to performance, but weak programme design can create low-quality users, unclear attribution, margin pressure, fraud risk or partner relationships that are difficult to scale.</p>
+          <p data-rg-p>Tilth treats affiliate marketing as an operating system. The programme needs clear eligibility, commercial logic, tracking, partner communication and quality controls before the partner base expands.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="list" data-inv data-depth-label="SHALLOW">
+    <section id="who-for" data-rg-sec data-rg-type="list" aria-labelledby="who-for-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Who it's for</span>
+          <h2 id="who-for-h" data-h2>Who this service is for</h2>
+        </div>
+        <div>
+          <ul data-rg-list>
+            <li>Brands launching an affiliate or partnership channel for the first time.</li>
+            <li>Teams with an existing programme that is not producing enough quality or scale.</li>
+            <li>Companies that need clearer partner terms, attribution or fraud controls.</li>
+            <li>Businesses where publishers, creators, communities, distributors or referral partners influence acquisition.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="run" data-depth-label="MID">
+    <div data-rg-run>
+      <section id="strategy" data-rg-row data-rg-type="prose" aria-labelledby="strategy-h">
+        <div><span data-rg-eb>Strategy</span><h2 id="strategy-h">Partner strategy</h2></div>
+        <p data-rg-p>The programme should begin with the role partners are expected to play. Tilth defines target partner types, acquisition stages, value exchange, quality requirements and the commercial outcome the programme is designed to influence.</p>
+      </section>
+      <section id="onboarding" data-rg-row data-rg-type="prose" aria-labelledby="onboarding-h">
+        <div><span data-rg-eb>Recruitment</span><h2 id="onboarding-h">Partner discovery and onboarding</h2></div>
+        <p data-rg-p>Partner recruitment is more effective when the offer, audience fit and operating requirements are clear. Tilth can support partner research, outreach workflows, qualification, onboarding materials and programme communication.</p>
+      </section>
+      <section id="commercial" data-rg-row data-rg-type="prose" aria-labelledby="commercial-h">
+        <div><span data-rg-eb>Commercials</span><h2 id="commercial-h">Commercial and commission models</h2></div>
+        <p data-rg-p>The payout model should reflect customer value, margin, conversion quality and the stage being rewarded. Tilth can help structure fixed, percentage, tiered or milestone-based approaches where appropriate, without publishing unapproved commercial terms.</p>
+      </section>
+      <section id="tracking" data-rg-row data-rg-type="prose" aria-labelledby="tracking-h">
+        <div><span data-rg-eb>Measurement</span><h2 id="tracking-h">Tracking and attribution</h2></div>
+        <p data-rg-p>Clear partner links, codes, event definitions and reporting are essential. Tilth reviews how users are attributed, which conversion stages are measured and how duplicate or disputed credit should be handled.</p>
+      </section>
+      <section id="fraud" data-rg-row data-rg-type="prose" aria-labelledby="fraud-h">
+        <div><span data-rg-eb>Quality</span><h2 id="fraud-h">Fraud and quality controls</h2></div>
+        <p data-rg-p>Programme growth should not reward activity that does not create business value. Quality rules can include validation windows, minimum criteria, duplication checks, suspicious-behaviour reviews and payout approval processes based on verified data.</p>
+      </section>
+      <section id="communication" data-rg-row data-rg-type="prose" aria-labelledby="communication-h">
+        <div><span data-rg-eb>Partners</span><h2 id="communication-h">Partner communication and optimisation</h2></div>
+        <p data-rg-p>Partners need clear offers, assets, updates and feedback. Tilth can establish a rhythm for programme communication, performance review and partner segmentation so the strongest relationships receive the right support.</p>
+      </section>
+    </div>
+  </div>
+
+  <div data-rg-block data-rg-kind="connect" data-inv data-depth-label="MID">
+    <section id="industries" data-rg-sec data-rg-type="cards" aria-labelledby="industries-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Industries</span>
+          <h2 id="industries-h" data-h2>Relevant industries</h2>
+          <p data-rg-intro>Affiliate and partnership models can be relevant to FinTech, D2C and ecommerce, SaaS, education and other categories where trusted communities or third-party distribution influence acquisition.</p>
+        </div>
+        <div>
+          <ul data-rg-links data-compact>
+            <li><a href="/india/industries/fintech/"><h3>FinTech</h3><p>Communities, publishers and verified-outcome models.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/india/industries/d2c-ecommerce/"><h3>D2C &amp; Ecommerce</h3><p>Creators, publishers and referral distribution.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/india/industries/saas/"><h3>SaaS</h3><p>Ecosystem, integration and referral partners.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/industries/edtech/"><h3>EdTech</h3><p>Counsellors, communities and education networks.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section id="process" data-rg-sec data-rg-type="steps" aria-labelledby="process-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>How we work</span>
+          <h2 id="process-h" data-h2>The Tilth process</h2>
+        </div>
+        <div>
+          <ol data-rg-steps>
+            <li><span data-n aria-hidden="true">01</span><h3>Design</h3><p>Define the programme role, target partners, commercial model and tracking requirements.</p></li>
+            <li><span data-n aria-hidden="true">02</span><h3>Activate</h3><p>Recruit, qualify and onboard partners with clear materials and expectations.</p></li>
+            <li><span data-n aria-hidden="true">03</span><h3>Optimise</h3><p>Review quality, contribution, partner performance and programme economics over time.</p></li>
+          </ol>
+          <a data-textlink href="/approach/"><span>Explore the Tilth approach &rarr;</span></a>
+        </div>
+      </div>
+    </section>
+    <section id="related-services" data-rg-sec data-rg-type="cards" aria-labelledby="related-services-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Works with</span>
+          <h2 id="related-services-h" data-h2>Related Tilth services</h2>
+        </div>
+        <div>
+          <ul data-rg-links data-compact>
+            <li><a href="/services/growth-strategy-measurement/"><h3>Growth Strategy &amp; Measurement</h3><p>Programme economics, funnel definitions and reporting.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="insights" data-depth-label="MID">
+    <section id="insights" data-rg-sec data-rg-type="insights" aria-labelledby="insights-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Related insights</span>
+          <h2 id="insights-h" data-h2>Thinking on partner-led growth</h2>
+        </div>
+        <div>
+          <ul data-rg-ins>
+            <li><time datetime="2026-06-17" data-time>17 Jun 2026</time><h3><a href="/insights/affiliate-program-not-converting/">Why your affiliate program isn't driving revenue (and how to fix it)</a></h3><p>Partner quality, tracking, commercial model and fraud controls — where affiliate programmes usually break.</p></li>
+            <li><time datetime="2026-05-23" data-time>23 May 2026</time><h3><a href="/insights/measure-influencer-marketing-roi/">How to measure influencer marketing ROI properly</a></h3><p>Moving past reach and likes to tracking, attribution and the commercial outcome of creator partnerships.</p></li>
+            <li><time datetime="2026-05-18" data-time>18 May 2026</time><h3><a href="/insights/marketing-attribution-explained-simply/">Marketing attribution for small businesses, explained simply</a></h3><p>What attribution models actually do, where they mislead, and how to make practical decisions with them.</p></li>
+          </ul>
+          <a data-textlink href="/insights/"><span>Explore all insights &rarr;</span></a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="faq" data-inv data-depth-label="DEEP">
+    <section id="faq" data-rg-sec data-rg-type="faq" aria-labelledby="faq-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>FAQ</span>
+          <h2 id="faq-h" data-h2>Questions about affiliate programmes</h2>
+        </div>
+        <div>
+          <div data-rg-faq>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b0" aria-controls="faq-p0" aria-expanded="true"><span>What does an affiliate marketing agency do?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p0" role="region" aria-labelledby="faq-b0"><div><p>It helps a brand design, launch, manage or improve a partner programme. The work can include programme strategy, partner discovery, onboarding, commercial models, tracking, fraud controls, communication and optimisation.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b1" aria-controls="faq-p1" aria-expanded="false"><span>Does Tilth recruit affiliate partners?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p>Tilth can support partner research, outreach workflows, qualification and onboarding depending on the engagement scope and target partner types.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b2" aria-controls="faq-p2" aria-expanded="false"><span>How are affiliate commissions structured?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p>Commission structures depend on the business model, margin, customer value and conversion stage. They may be fixed, percentage-based, tiered or linked to verified milestones. Tilth does not apply one universal model.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b3" aria-controls="faq-p3" aria-expanded="false"><span>How is affiliate performance tracked?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p>Performance can be tracked through links, referral codes, platform or backend events and agreed conversion definitions. The measurement setup should distinguish raw activity from verified business outcomes.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b4" aria-controls="faq-p4" aria-expanded="false"><span>How does Tilth manage fraud and low-quality traffic?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p>Controls may include validation rules, duplicate checks, quality thresholds, suspicious-activity reviews and payout approval based on verified data. The exact controls depend on the category and available systems.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b5" aria-controls="faq-p5" aria-expanded="false"><span>Can Tilth improve an existing affiliate programme?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p5" role="region" aria-labelledby="faq-b5"><div><p>Yes. Tilth can review programme economics, partner quality, attribution, communication, reporting and operational gaps before recommending the changes required to improve performance.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<section id="cta" data-moss data-rg-cta data-depth-label="FOUNDATION" aria-labelledby="cta-h">
+  <div data-eyebrow>Next step</div>
+  <div data-cta-grid>
+    <h2 id="cta-h" data-cta-h>Build a partner channel with clearer quality and accountability.</h2>
+    <div>
+      <p data-cta-p>Share the current programme, partner model and conversion stages. We'll help identify what needs to be designed, fixed or scaled.</p>
+      <div data-cta-actions>
+        <a data-btn href="/contact/">Discuss Your Affiliate Programme <span aria-hidden="true">&rarr;</span></a>
+      </div>
     </div>
   </div>
 </section>
-
-<section class="gsec reveal" id="struggle" aria-labelledby="struggle-h">
-  <div class="wrap">
-    <p class="label">The problem</p>
-    <h2 id="struggle-h">Why affiliate programmes struggle</h2>
-    
-    <p class="rprose">Affiliate growth can appear attractive because payment is linked to performance, but weak programme design can create low-quality users, unclear attribution, margin pressure, fraud risk or partner relationships that are difficult to scale.</p>
-    <p class="rprose">Tilth treats affiliate marketing as an operating system. The programme needs clear eligibility, commercial logic, tracking, partner communication and quality controls before the partner base expands.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="who-for" aria-labelledby="who-for-h">
-  <div class="wrap">
-    <p class="label">Who it's for</p>
-    <h2 id="who-for-h">Who this service is for</h2>
-    
-    
-    <ul class="rlist">
-      <li>Brands launching an affiliate or partnership channel for the first time.</li>
-      <li>Teams with an existing programme that is not producing enough quality or scale.</li>
-      <li>Companies that need clearer partner terms, attribution or fraud controls.</li>
-      <li>Businesses where publishers, creators, communities, distributors or referral partners influence acquisition.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="gsec reveal" id="strategy" aria-labelledby="strategy-h">
-  <div class="wrap">
-    <p class="label">Strategy</p>
-    <h2 id="strategy-h">Partner strategy</h2>
-    
-    <p class="rprose">The programme should begin with the role partners are expected to play. Tilth defines target partner types, acquisition stages, value exchange, quality requirements and the commercial outcome the programme is designed to influence.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="onboarding" aria-labelledby="onboarding-h">
-  <div class="wrap">
-    <p class="label">Recruitment</p>
-    <h2 id="onboarding-h">Partner discovery and onboarding</h2>
-    
-    <p class="rprose">Partner recruitment is more effective when the offer, audience fit and operating requirements are clear. Tilth can support partner research, outreach workflows, qualification, onboarding materials and programme communication.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="commercial" aria-labelledby="commercial-h">
-  <div class="wrap">
-    <p class="label">Commercials</p>
-    <h2 id="commercial-h">Commercial and commission models</h2>
-    
-    <p class="rprose">The payout model should reflect customer value, margin, conversion quality and the stage being rewarded. Tilth can help structure fixed, percentage, tiered or milestone-based approaches where appropriate, without publishing unapproved commercial terms.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="tracking" aria-labelledby="tracking-h">
-  <div class="wrap">
-    <p class="label">Measurement</p>
-    <h2 id="tracking-h">Tracking and attribution</h2>
-    
-    <p class="rprose">Clear partner links, codes, event definitions and reporting are essential. Tilth reviews how users are attributed, which conversion stages are measured and how duplicate or disputed credit should be handled.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="fraud" aria-labelledby="fraud-h">
-  <div class="wrap">
-    <p class="label">Quality</p>
-    <h2 id="fraud-h">Fraud and quality controls</h2>
-    
-    <p class="rprose">Programme growth should not reward activity that does not create business value. Quality rules can include validation windows, minimum criteria, duplication checks, suspicious-behaviour reviews and payout approval processes based on verified data.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="communication" aria-labelledby="communication-h">
-  <div class="wrap">
-    <p class="label">Partners</p>
-    <h2 id="communication-h">Partner communication and optimisation</h2>
-    
-    <p class="rprose">Partners need clear offers, assets, updates and feedback. Tilth can establish a rhythm for programme communication, performance review and partner segmentation so the strongest relationships receive the right support.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="industries" aria-labelledby="industries-h">
-  <div class="wrap">
-    <p class="label">Industries</p>
-    <h2 id="industries-h">Relevant industries</h2>
-    <p class="intro">Affiliate and partnership models can be relevant to FinTech, D2C and ecommerce, SaaS, education and other categories where trusted communities or third-party distribution influence acquisition.</p>
-    
-    <div class="card-grid card-grid--compact">
-      <a class="gcard gcard--featured" href="/india/industries/fintech/">
-        <h3 class="gcard__name">FinTech</h3>
-        <p class="gcard__desc">Communities, publishers and verified-outcome models.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/india/industries/d2c-ecommerce/">
-        <h3 class="gcard__name">D2C &amp; Ecommerce</h3>
-        <p class="gcard__desc">Creators, publishers and referral distribution.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/india/industries/saas/">
-        <h3 class="gcard__name">SaaS</h3>
-        <p class="gcard__desc">Ecosystem, integration and referral partners.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/industries/edtech/">
-        <h3 class="gcard__name">EdTech</h3>
-        <p class="gcard__desc">Counsellors, communities and education networks.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="process" aria-labelledby="process-h">
-  <div class="wrap">
-    <p class="label">How we work</p>
-    <h2 id="process-h">The Tilth process</h2>
-    
-    
-    <div class="cap-grid">
-      <div class="cap"><span class="cap__n">01</span><h3>Design</h3><p>Define the programme role, target partners, commercial model and tracking requirements.</p></div>
-      <div class="cap"><span class="cap__n">02</span><h3>Activate</h3><p>Recruit, qualify and onboard partners with clear materials and expectations.</p></div>
-      <div class="cap"><span class="cap__n">03</span><h3>Optimise</h3><p>Review quality, contribution, partner performance and programme economics over time.</p></div>
-    </div><div class="actions" style="margin-top:28px"><a class="text-cta" href="/approach/">Explore the Tilth approach →</a></div>
-  </div>
-</section>
-
-<section class="gsec reveal" id="related-services" aria-labelledby="related-services-h">
-  <div class="wrap">
-    <p class="label">Works with</p>
-    <h2 id="related-services-h">Related Tilth services</h2>
-    
-    
-    <div class="card-grid card-grid--compact">
-      <a class="gcard gcard--featured" href="/services/growth-strategy-measurement/">
-        <h3 class="gcard__name">Growth Strategy &amp; Measurement</h3>
-        <p class="gcard__desc">Programme economics, funnel definitions and reporting.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="gsec reveal" id="insights" aria-labelledby="insights-h">
-  <div class="wrap">
-    <p class="label">Related insights</p>
-    <h2 id="insights-h">Thinking on partner-led growth</h2>
-    
-    
-    <div class="igrid">
-      <article class="icard">
-        <time class="icard__date" datetime="2026-06-17">17 Jun 2026</time>
-        <h3 class="icard__title"><a href="/insights/affiliate-program-not-converting/">Why your affiliate program isn't driving revenue (and how to fix it)</a></h3>
-        <p class="icard__ex">Partner quality, tracking, commercial model and fraud controls — where affiliate programmes usually break.</p>
-      </article>
-      <article class="icard">
-        <time class="icard__date" datetime="2026-05-23">23 May 2026</time>
-        <h3 class="icard__title"><a href="/insights/measure-influencer-marketing-roi/">How to measure influencer marketing ROI properly</a></h3>
-        <p class="icard__ex">Moving past reach and likes to tracking, attribution and the commercial outcome of creator partnerships.</p>
-      </article>
-      <article class="icard">
-        <time class="icard__date" datetime="2026-05-18">18 May 2026</time>
-        <h3 class="icard__title"><a href="/insights/marketing-attribution-explained-simply/">Marketing attribution for small businesses, explained simply</a></h3>
-        <p class="icard__ex">What attribution models actually do, where they mislead, and how to make practical decisions with them.</p>
-      </article>
-    </div><div class="actions" style="margin-top:28px"><a class="text-cta" href="/insights/">Explore all insights →</a></div>
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="faq" aria-labelledby="faq-h">
-  <div class="wrap">
-    <p class="label">FAQ</p>
-    <h2 id="faq-h">Questions about affiliate programmes</h2>
-    
-    
-    <div class="faq__list">
-      <details class="faq__item"><summary><h3>What does an affiliate marketing agency do?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>It helps a brand design, launch, manage or improve a partner programme. The work can include programme strategy, partner discovery, onboarding, commercial models, tracking, fraud controls, communication and optimisation.</p></div></details>
-      <details class="faq__item"><summary><h3>Does Tilth recruit affiliate partners?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Tilth can support partner research, outreach workflows, qualification and onboarding depending on the engagement scope and target partner types.</p></div></details>
-      <details class="faq__item"><summary><h3>How are affiliate commissions structured?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Commission structures depend on the business model, margin, customer value and conversion stage. They may be fixed, percentage-based, tiered or linked to verified milestones. Tilth does not apply one universal model.</p></div></details>
-      <details class="faq__item"><summary><h3>How is affiliate performance tracked?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Performance can be tracked through links, referral codes, platform or backend events and agreed conversion definitions. The measurement setup should distinguish raw activity from verified business outcomes.</p></div></details>
-      <details class="faq__item"><summary><h3>How does Tilth manage fraud and low-quality traffic?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Controls may include validation rules, duplicate checks, quality thresholds, suspicious-activity reviews and payout approval based on verified data. The exact controls depend on the category and available systems.</p></div></details>
-      <details class="faq__item"><summary><h3>Can Tilth improve an existing affiliate programme?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Yes. Tilth can review programme economics, partner quality, attribution, communication, reporting and operational gaps before recommending the changes required to improve performance.</p></div></details>
-    </div>
-  </div>
-</section>
-
-<section class="cta-band cta-band--terra" id="cta">
-  <div class="wrap">
-    <span class="label">Next step</span>
-    <h2>Build a partner channel with clearer quality and accountability.</h2>
-    <p>Share the current programme, partner model and conversion stages. We'll help identify what needs to be designed, fixed or scaled.</p>
-    <div class="cta-band__actions">
-      <a class="btn" href="/contact/"><span>Discuss Your Affiliate Programme</span> <span class="arrow">→</span></a>
-      
-    </div>
-  </div>
-</section>
-
-<script>
-(function(){
-  var root=document.documentElement, rm=false;
-  try{ rm=matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
-  var els=[].slice.call(document.querySelectorAll('.reveal'));
-  if(!els.length || rm || !('IntersectionObserver' in window)) return;
-  root.classList.add('jsr');
-  var io=new IntersectionObserver(function(ens){ens.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
-  els.forEach(function(el){ io.observe(el); });
-})();
-</script>
 
 </main>
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <p class="addr">Tilth is an India-rooted growth marketing agency working with ambitious brands across India and the US.<br><br>Bengaluru, India · Remote collaboration across India and the US<br><a href="tel:+917007999306">+91 70079 99306</a><br><a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a></p>
-      </div>
-      <div>
-        <h3 class="fcol">Explore</h3>
-        <ul><li><a href="/services/">Services</a></li><li><a href="/approach/">Approach</a></li><li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Legal</h3>
-        <ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/cookie-policy/">Cookie Policy</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Social</h3>
-        <ul><li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li><li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li></ul>
-      </div>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom"><span>© 2026 Tilth. All rights reserved.</span></div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
+<script src="/regional.js" defer></script>
 <script src="/analytics.js" defer></script>
 </body>
 </html>

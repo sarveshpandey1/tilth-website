@@ -103,6 +103,20 @@ export const regions = {
         type: "prose", id: "bengaluru", eyebrow: "Based in Bengaluru",
         h2: "Based in Bengaluru. Built for collaboration across India.",
         light: true,
+        // OWNER-APPROVED LINK (Regional design report §0 decision 2, §16).
+        // The existing word "Bengaluru" in the first paragraph below becomes a
+        // quiet editorial link to the local page. No copy changes: the anchor
+        // wraps text that is already there. It is the only in-prose link in the
+        // regional family, it is not a nav item, CTA or city directory, and the
+        // second mention in the next paragraph stays plain text.
+        // It also clarifies the India -> Bengaluru hierarchy: /india/ owns the
+        // regional market, services, industries and working model, while
+        // /marketing-agency-bengaluru/ owns local relevance and company
+        // credibility. The remaining source overlap between the two pages (the
+        // working-model paragraph and the near-duplicate "outside Bengaluru"
+        // FAQ) is DEFERRED - SEO / IA / LATER COPY; neither page is rewritten,
+        // merged, redirected or re-canonicalised here.
+        inlineLinks: [{ paragraph: 0, text: "Bengaluru", href: "/marketing-agency-bengaluru/" }],
         paragraphs: [
           "Tilth operates from Bengaluru and works remotely with teams across India. Collaboration can be structured around regular reviews, shared documentation, clear owners and the client's operating rhythm.",
           "Where useful and operationally possible, in-person discussions can be arranged in Bengaluru. The engagement should remain effective whether the client team is in the same city or distributed across markets."
