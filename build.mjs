@@ -16,6 +16,7 @@ import insightsIndex from "./src/pages/insights-index.mjs";
 import contact from "./src/pages/contact.mjs";
 import thankYou from "./src/pages/thank-you.mjs";
 import about from "./src/pages/about.mjs";
+import bengaluru from "./src/pages/bengaluru.mjs";
 import home from "./src/pages/home.mjs";
 import performanceMarketing from "./src/pages/performance-marketing.mjs";
 import growthStrategyMeasurement from "./src/pages/growth-strategy-measurement.mjs";
@@ -56,6 +57,7 @@ const PAGES = [
   contact,
   thankYou,
   about,
+  bengaluru,
   ...allRegionHubs,
   ...allRegionChildPages
 ];
