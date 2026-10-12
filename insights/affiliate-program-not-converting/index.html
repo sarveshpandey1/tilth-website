@@ -4,23 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1MJEZ4VK26');
-</script>
+<!-- Google tag (gtag.js) — deferred loader, commands queue in dataLayer -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1MJEZ4VK26');
+(function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26';document.head.appendChild(s);}
+if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
+['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});})();</script>
 <title>Why your affiliate program isn't driving revenue (and how to fix it) | Tilth</title>
 <meta name="description" content="Most affiliate programs look busy and contribute almost nothing. Five reasons your affiliate channel isn't driving revenue — and how to rebuild it around results.">
 <link rel="canonical" href="https://wearetilth.com/insights/affiliate-program-not-converting/">
+
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="geo.region" content="IN-KA">
-<meta name="geo.placename" content="Bengaluru">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -30,45 +26,18 @@
 <meta property="og:description" content="Five reasons your affiliate channel looks busy but contributes almost nothing — and how to rebuild it around results.">
 <meta property="og:url" content="https://wearetilth.com/insights/affiliate-program-not-converting/">
 <meta property="og:image" content="https://wearetilth.com/og-image.png">
-<meta property="article:published_time" content="2026-06-17">
-<meta property="article:author" content="Anuja">
-<meta property="article:section" content="Affiliates">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Why your affiliate program isn't driving revenue (and how to fix it)">
-<meta name="twitter:description" content="Five reasons your affiliate channel looks busy but contributes almost nothing.">
+<meta name="twitter:description" content="Five reasons your affiliate channel looks busy but contributes almost nothing — and how to rebuild it around results.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<style>
-  .article { padding: 36px 0 40px; }
-  .crumb { font-size: 12px; letter-spacing: .5px; color: var(--olive); margin-bottom: 28px; }
-  .crumb a { color: var(--glow); }
-  .article-head .post-meta { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--glow); margin-bottom: 16px; }
-  .article-head .post-meta .dot { color: var(--terra); margin: 0 8px; }
-  .article-head h1 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(32px, 5vw, 54px); line-height: 1.08; letter-spacing: -1px; color: var(--ink); margin-bottom: 22px; }
-  .article-head .standfirst { font-size: 19px; color: var(--text); line-height: 1.6; max-width: 60ch; }
-  .byline { display: flex; align-items: center; gap: 14px; margin: 30px 0 0; padding-top: 24px; border-top: 1px solid var(--rule); }
-  .byline img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
-  .byline .who { font-size: 14px; color: var(--ink); font-weight: 500; }
-  .byline .who span { display: block; color: var(--olive); font-weight: 400; font-size: 13px; }
-  .prose { margin-top: 44px; }
-  .prose h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(22px, 3vw, 30px); color: var(--ink); letter-spacing: -.5px; margin: 44px 0 14px; line-height: 1.2; }
-  .prose p { font-size: 17px; line-height: 1.75; color: var(--text); margin-bottom: 20px; }
-  .prose ul, .prose ol { margin: 0 0 20px 0; padding-left: 22px; }
-  .prose li { font-size: 17px; line-height: 1.7; color: var(--text); margin-bottom: 12px; }
-  .prose li strong { color: var(--ink); }
-  .prose a { color: var(--glow); border-bottom: 1px solid var(--glow); }
-  .prose blockquote { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(21px, 3vw, 28px); line-height: 1.4; color: var(--ink); border-left: 2px solid var(--terra); padding-left: 24px; margin: 34px 0; }
-  .article-cta { margin-top: 50px; padding: 34px; background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; }
-  .article-cta h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 24px; color: var(--ink); margin-bottom: 10px; }
-  .article-cta p { color: var(--text); margin-bottom: 20px; max-width: 52ch; }
-  .article-bio { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--rule); display: flex; gap: 18px; align-items: flex-start; }
-  .article-bio img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex: none; }
-  .article-bio p { font-size: 14.5px; color: var(--text); margin: 0; }
-  .article-bio strong { color: var(--ink); }
-</style>
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/core-company.css">
+<link rel="stylesheet" href="/assets/insights.css">
+<script type="module" src="/insights-article.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -76,9 +45,24 @@
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wearetilth.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://wearetilth.com/insights/" },
-        { "@type": "ListItem", "position": 3, "name": "Why your affiliate program isn't driving revenue", "item": "https://wearetilth.com/insights/affiliate-program-not-converting/" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://wearetilth.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://wearetilth.com/insights/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Why your affiliate program isn't driving revenue",
+          "item": "https://wearetilth.com/insights/affiliate-program-not-converting/"
+        }
       ]
     },
     {
@@ -92,47 +76,109 @@
       "url": "https://wearetilth.com/insights/affiliate-program-not-converting/",
       "mainEntityOfPage": "https://wearetilth.com/insights/affiliate-program-not-converting/",
       "articleSection": "Affiliates",
-      "keywords": ["affiliate program not converting", "affiliate marketing ROI", "affiliate program revenue", "affiliate payouts", "partner marketing"],
+      "keywords": [
+        "affiliate program not converting",
+        "affiliate marketing ROI",
+        "affiliate program revenue",
+        "affiliate payouts",
+        "partner marketing"
+      ],
       "wordCount": 880,
-      "author": { "@type": "Person", "name": "Anuja", "jobTitle": "Founder", "url": "https://wearetilth.com/about/" },
-      "publisher": { "@type": "Organization", "name": "Tilth", "url": "https://wearetilth.com/", "logo": { "@type": "ImageObject", "url": "https://wearetilth.com/favicon.svg" } }
+      "author": {
+        "@type": "Person",
+        "name": "Anuja",
+        "jobTitle": "Founder",
+        "url": "https://wearetilth.com/about/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tilth",
+        "url": "https://wearetilth.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://wearetilth.com/favicon.svg"
+        }
+      }
     }
   ]
 }
 </script>
 </head>
-<body>
-
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav>
-      <a href="/services/">Services</a>
-      <a href="/industries/">Industries</a>
-      <a href="/work/">Work</a>
-      <a href="/insights/">Insights</a>
-      <a href="/tools/">Tools</a>
-      <a href="/about/">About</a>
+<body class="v3 v3-core v3-ins v3-article">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/" aria-current="true">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
     </nav>
-    <div class="meta">Global growth marketing agency · India-rooted, working with brands worldwide</div>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
   </div>
 </header>
 
-<article class="wrap-narrow article">
-  <div class="crumb"><a href="/insights/">Insights</a> &nbsp;/&nbsp; Affiliates</div>
-
-  <header class="article-head">
-    <div class="post-meta">Affiliates<span class="dot">·</span>6 min read<span class="dot">·</span>17 Jun 2026</div>
-    <h1>Why your affiliate program isn't driving revenue (and how to fix it)</h1>
-    <p class="standfirst">Plenty of partners, plenty of clicks, plenty of dashboard activity — and almost no revenue. If that's your affiliate channel, the problem usually isn't the partners. It's how the program was built.</p>
-    <div class="byline">
-      <img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">
-      <div class="who">Anuja<span>Founder, Tilth · 10+ years in performance marketing</span></div>
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
+      <a href="/services/">Services</a>
+      <a href="/industries/">Industries</a>
+      <a href="/work/">Work</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/">Insights</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
     </div>
-  </header>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
+  </div>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
+<main id="main">
 
-  <div class="prose">
-    <p>Affiliate marketing is one of the few channels where you only pay for results — which makes it strange how often it produces none. The usual story: a brand signs up dozens of partners, the dashboard fills with clicks and sign-ups, and a year later nobody can point to revenue the channel actually caused. Here's why that happens, and how to turn it around.</p>
+<article data-article id="article" data-depth-label="SHALLOW">
+  <div data-acol>
+    <header data-ahead>
+      <nav data-crumb aria-label="Breadcrumb"><a href="/">Home</a> <span data-sep aria-hidden="true">/</span> <a href="/insights/">Insights</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">Affiliates</span></nav>
+      <div data-postmeta data-meta><span data-pm-sec>Affiliates</span><span data-dot aria-hidden="true">·</span><span>6 min read</span><span data-dot aria-hidden="true">·</span><span>17 Jun 2026</span></div>
+      <h1 data-ah1>Why your affiliate program isn't driving revenue (and how to fix it)</h1>
+      <p data-standfirst>Plenty of partners, plenty of clicks, plenty of dashboard activity — and almost no revenue. If that's your affiliate channel, the problem usually isn't the partners. It's how the program was built.</p>
+      <div data-byline>
+        <img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">
+        <div data-who><span>Anuja Founder, Tilth · 10+ years in performance marketing</span></div>
+      </div>
+    </header>
+    <div data-prose>
+<p>Affiliate marketing is one of the few channels where you only pay for results — which makes it strange how often it produces none. The usual story: a brand signs up dozens of partners, the dashboard fills with clicks and sign-ups, and a year later nobody can point to revenue the channel actually caused. Here's why that happens, and how to turn it around.</p>
 
     <h2>1. You recruited for reach, not fit</h2>
     <p>Most programs onboard anyone with an audience. But a partner whose audience doesn't match your buyer sends traffic that never converts — it just inflates the click count. <strong>Vet partners on audience fit and unit economics first</strong>, not on follower numbers. Ten partners whose audience is your customer will beat a hundred who merely have a big list.</p>
@@ -153,62 +199,60 @@
 
     <h2>How to rebuild it</h2>
     <p>Start narrow: a handful of partners whose audience is genuinely your customer, payouts tied to real revenue, and a clear back-calculation of margin per partner. Drop the partners who only convert on coupons. Done right, affiliates become one of the most efficient channels you have — we've taken a brand's effectively dead affiliate channel to <strong>5–6% of total trading volume within a year</strong> using exactly this approach.</p>
-
-    <div class="article-cta">
-      <h3>Affiliate channel busy but not paying off?</h3>
-      <p>A free foundation audit will show you which partners are incremental, which are coupon-stacking, and where your payouts are eating margin. No pitch attached.</p>
-      <a href="/contact/" class="btn"><span>Request a free audit</span><span aria-hidden="true">→</span></a>
     </div>
-
-    <div class="article-bio">
+    <div data-bio>
       <img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">
       <p><strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has spent 10+ years building affiliate programs across fintech, crypto, edtech, and D2C — rebuilding dead channels into real revenue. <a href="/about/">Read her story →</a></p>
     </div>
+    <aside data-acta aria-labelledby="acta-h">
+      <div data-eyebrow>Next step</div>
+      <h2 id="acta-h">Affiliate channel busy but not paying off?</h2>
+      <p>A free foundation audit will show you which partners are incremental, which are coupon-stacking, and where your payouts are eating margin. No pitch attached.</p>
+      <a data-btn href="/contact/"><span>Request a free audit</span> <span aria-hidden="true">&rarr;</span></a>
+    </aside>
   </div>
 </article>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br><a href="tel:+917007999306">+91 70079 99306</a><br>anuja@tilth.in</div>
-      </div>
-      <div>
-        <h2 class="fcol">Navigate</h2>
-        <ul>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/approach/">Approach</a></li>
-          <li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Legal</h2>
-        <ul>
-          <li><a href="/privacy/">Privacy Policy</a></li>
-          <li><a href="/terms/">Terms of Service</a></li>
-          <li><a href="/cookie-policy/">Cookie Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Social</h2>
-        <ul>
-          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
-      </div>
+</main>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Tilth. All rights reserved.</span>
-      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>
