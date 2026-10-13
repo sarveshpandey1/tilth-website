@@ -54,11 +54,13 @@
 // published graph's FAQPage kept five longer, separately maintained answers —
 // 0 of 5 matched the visible text — and the approved visible wording wins.
 //
-// OPEN, DEFERRED: og:locale. The published page sent en_IN; the shared shell
-// sends en_US for every page and is not changed here. Whether this route joins
-// an India hreflang cluster is an undesigned production SEO decision that
-// belongs with Regional (report §22 / Regional brief Q6), which is also where a
-// shell-level locale field would be introduced. Flagged, not silently settled.
+// og:locale RESOLVED in Phase 8 (register B-4). The published page sent en_IN;
+// Phases 5-7 could not restore it without a shared-shell field, so it was
+// flagged. Phase 8 added the route-specific ogLocale field to renderPage, and
+// this India-market route sends en_IN again. Whether the route should also join
+// the /india/ hreflang cluster is a separate question and stays open: the page
+// is a local-relevance page, not a regional alternative of /us/, so no
+// reciprocal alternate is fabricated for it.
 //
 // Prototype-only code is not ported: the .dc runtime, the reviewState gates
 // (default / founder-absent / proof-absent / experience-absent) and the
@@ -411,6 +413,7 @@ export default {
   description: "Tilth is a foundation-first performance marketing agency in Bengaluru. We fix tracking, attribution, and targeting across paid ads, affiliates, SEO, influencer, PR & branding — before you scale. Get a free audit.",
   ogTitle: "Performance Marketing Agency in Bengaluru | Tilth",
   ogDescription: "A foundation-first marketing agency in Bengaluru. We fix what's broken across every channel before you spend. Free audit, no pitch.",
+  ogLocale: "en_IN",
   schema: [breadcrumb, localBusiness, service, faqSchema],
   bodyScripts: ["/bengaluru.js"],
   main

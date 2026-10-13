@@ -239,6 +239,13 @@ export function footer() {
 </footer>`;
 }
 
+// og:locale is the one market-specific head signal a page may override
+// (Phase 8, register B-2 / B-4). It defaults to en_US — the global English
+// signal every non-regional route keeps — and is set to en_IN only where the
+// market intent is unambiguous: the seven /india/* routes and
+// /marketing-agency-bengaluru/. It is deliberately NOT conflated with
+// <html lang>, schema inLanguage or hreflang, which are different signals and
+// are left exactly as they were.
 // Full HTML document
 export function renderPage(p) {
   const canonical = site.base + p.path;
@@ -287,7 +294,7 @@ ${(p.hreflang || []).map(h => `<link rel="alternate" hreflang="${h.lang}" href="
 <meta property="og:description" content="${esc(ogDesc)}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${site.base}/og-image.png">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="${p.ogLocale || "en_US"}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(ogTitle)}">
 <meta name="twitter:description" content="${esc(ogDesc)}">

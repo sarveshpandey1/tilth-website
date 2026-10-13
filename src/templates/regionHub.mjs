@@ -397,6 +397,13 @@ const faqSchemaOf = sections => {
   } : null;
 };
 
+// og:locale per market (Phase 8, register B-2). The seven India routes were
+// publishing en_US, which contradicted the hub cluster's own en-IN alternate;
+// they now send en_IN. The six US routes keep en_US, which was already right.
+// Nothing else about language is touched: <html lang> stays "en" because the
+// copy is one English, and no child hreflang is fabricated.
+const localeFor = path => (path.startsWith("/india/") ? "en_IN" : "en_US");
+
 const page = (p, { bcItems, sections, hero: h, finalCta, proof = false, hreflang = null }) => {
   const bc = breadcrumbs(bcItems);
   const blocks = buildBlocks(sections, { proofBefore: proof && proofRecords.length ? proofRecords : null });
@@ -409,6 +416,7 @@ const page = (p, { bcItems, sections, hero: h, finalCta, proof = false, hreflang
     description: p.description,
     ogTitle: p.ogTitle,
     ogDescription: p.ogDescription,
+    ogLocale: localeFor(p.path),
     hreflang: hreflang || undefined,
     schema: [orgSchema(), websiteSchema(), bc.schema, faqSchemaOf(sections)].filter(Boolean),
     bodyScripts: ["/regional.js"],

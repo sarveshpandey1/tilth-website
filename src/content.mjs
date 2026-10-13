@@ -27,7 +27,7 @@ export const serviceContent = {
     faqs: [
       ["Is this a one-off audit or an ongoing engagement?", "It can be either. Many teams start with a fixed-scope Foundation Audit, then continue into an ongoing partnership to implement and refine the measurement system."],
       ["Do you implement the tracking, or just advise?", "Both. We define the measurement strategy and can implement the tracking, conversion events and reporting, then validate that the data is accurate before you rely on it."],
-      ["We already have analytics set up. Why do we need this?", "Most accounts have analytics installed but not aligned to revenue — events fire, but they don't answer business questions. We check whether your data can actually support budget decisions, and fix it where it can't."]
+      ["We already have analytics set up. Why do we need this?", "Most accounts have analytics installed but not aligned to revenue — events fire, but they don’t answer business questions. We check whether your data can actually support budget decisions, and fix it where it can’t."]
     ]
   },
 
@@ -113,7 +113,7 @@ export const serviceContent = {
     deliverables: ["Technical SEO audit", "Keyword & intent map", "Content roadmap", "Internal-linking plan", "AI-search recommendations", "Organic reporting"],
     faqs: [
       ["What are AEO and GEO?", "Answer-engine optimisation and generative-engine optimisation — making your content discoverable in AI-driven answers and assistants. We treat them as part of a modern organic strategy, not a separate magic trick."],
-      ["How long does SEO take to show results?", "It depends on your starting authority, competition and how much content equity already exists. We validate expectations against your own Search Console data rather than promising timelines we can't guarantee."],
+      ["How long does SEO take to show results?", "It depends on your starting authority, competition and how much content equity already exists. We validate expectations against your own Search Console data rather than promising timelines we can’t guarantee."],
       ["Do you write the content or just plan it?", "Both. We build the strategy and can produce or direct the content, always tied to commercial intent and conversion."]
     ]
   },

@@ -23,7 +23,7 @@
 // submit outside wearetilth.com so a design review never sends a real enquiry;
 // production must post as authored, so that guard stays out.
 import { site, clients } from "../data.mjs";
-import { breadcrumbs, esc } from "../render.mjs";
+import { breadcrumbs, esc, orgSchema } from "../render.mjs";
 
 const path = "/contact/";
 const bc = breadcrumbs([{ name: "Home", path: "/" }, { name: "Contact", path }]);
@@ -51,8 +51,20 @@ const approvedClients = clients
   .filter(c => c.textDisplayApproved)
   .sort((a, b) => a.displayOrder - b.displayOrder);
 
+// ONE ENTITY, ONE SHAPE (register C-6, reconciled in Phase 8).
+// This route used to publish a reduced node under the SAME @id as the
+// site-wide organisation but with a different @type — `Organization` here
+// against ["ProfessionalService", "MarketingAgency"] on the other fifteen
+// routes. Two @type sets on one @id is a contradiction for any consumer that
+// merges by @id, and it also dropped the entity-level email, telephone,
+// address, areaServed, logo, image, description, slogan and sameAs.
+//
+// It now emits the canonical orgSchema() and adds only what this route
+// genuinely contributes: the sales ContactPoint. Nothing is invented — the
+// email, telephone and areaServed values are the same approved facts the rest
+// of the site already publishes, and the ContactPoint wording is unchanged.
 const contactSchema = {
-  "@type": "Organization", "@id": `${site.base}/#org`, name: "Tilth", url: `${site.base}/`,
+  ...orgSchema(),
   contactPoint: { "@type": "ContactPoint", email: site.email, telephone: `+${site.phoneHref.replace(/^\+?/, "")}`, contactType: "sales", areaServed: ["US", "IN", "Worldwide"], availableLanguage: ["English"] }
 };
 

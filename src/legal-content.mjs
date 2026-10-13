@@ -12,13 +12,20 @@
 // (2,912 / 1,617 / 1,692 characters; 500 / 262 / 280 words), and every href
 // matches (8 / 2 / 4).
 //
-// THE OPERATIVE EMAIL IS DEPARTED FROM NOWHERE. anuja@tilth.in appears 5 times
-// in the Privacy body, 2 in Terms and 2 in the Cookie Policy, exactly as
-// published, including the data-subject-request route in Privacy "Your
-// rights". The Brand v3 visible address (anuja@wearetilth.com) does NOT
-// override operative legal wording; it is display text governed by the shared
-// footer, which publishes no email at all. Replacing these 9 occurrences is
-// LEGAL / OWNER CONTENT CONFIRMATION and is not done here.
+// THE OPERATIVE EMAIL — OWNER DECISION, EXECUTED (Phase 8).
+// The owner has confirmed the official domain https://wearetilth.com/ and the
+// official contact address anuja@wearetilth.com. The 9 operative occurrences
+// of the former address (5 in the Privacy body, 2 in Terms, 2 in the Cookie
+// Policy) are therefore replaced here, including the data-subject-request
+// route in Privacy "Your rights" and the legal and cookie/privacy contact
+// clauses. That is the ONLY change made under this approval: every surrounding
+// word, clause, date, data category and governing-law phrase is untouched, no
+// other policy wording is rewritten, Contact form behaviour is unchanged, and
+// the "Last updated" dates are deliberately NOT moved, because the address
+// change is not a revision of the policy's substance (register J-8 stands).
+// Replacing the address does not resolve the remaining policy conflicts
+// (contact fields, Tools telemetry, browser storage, font providers, Facebook,
+// consent); those stay blocked on legal.
 //
 // MARKUP-ONLY CHANGES carried over from the frozen design, none of which
 // touches a word of legal text:
@@ -66,7 +73,7 @@ export const legalDocs = [
 
     <h2>Information we collect</h2>
     <p><strong>Contact form.</strong> If you submit the form on our contact page, we collect the details you provide — your name, email address, phone number, brand or website, the channels you select, and your message. We use this only to reply to you and discuss working together. The form is delivered to us by FormSubmit, a third-party form-to-email service; its handling of the submission is governed by the <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit<span data-sr> (opens in a new tab)</span></a> service.</p>
-    <p><strong>Email.</strong> If you email us at anuja@tilth.in, we receive whatever information you choose to include in that email. We use it only to reply and discuss working together.</p>
+    <p><strong>Email.</strong> If you email us at anuja@wearetilth.com, we receive whatever information you choose to include in that email. We use it only to reply and discuss working together.</p>
 
     <h2>Analytics</h2>
     <p>We use Google Analytics 4 to understand how visitors use the site — which pages are viewed, the device and browser used, approximate location (city or country, derived from IP), and how visitors arrived. This is collected via cookies and analysed in aggregate to help us improve the site; we do not use it to identify you personally. Google's handling of this data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy<span data-sr> (opens in a new tab)</span></a>. You can opt out using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on<span data-sr> (opens in a new tab)</span></a>.</p>
@@ -81,13 +88,13 @@ export const legalDocs = [
     <p>Our site links to external profiles (LinkedIn, Instagram, X, Facebook). Once you follow those links, you are subject to the privacy policies of those platforms, not ours.</p>
 
     <h2>Your rights</h2>
-    <p>You can ask us to delete any personal information you've sent us — a form submission or email correspondence — at any time. Just email <a href="mailto:anuja@tilth.in">anuja@tilth.in</a> and we will. You can also opt out of analytics using the browser add-on linked above.</p>
+    <p>You can ask us to delete any personal information you've sent us — a form submission or email correspondence — at any time. Just email <a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a> and we will. You can also opt out of analytics using the browser add-on linked above.</p>
 
     <h2>Changes to this policy</h2>
     <p>As Tilth grows, we may add or change the tools we use. If and when we do, we will update this policy to reflect exactly what is collected and why, and change the "last updated" date above.</p>
 
     <h2>Contact</h2>
-    <p>Questions about this policy? Email <a href="mailto:anuja@tilth.in">anuja@tilth.in</a>.</p>`
+    <p>Questions about this policy? Email <a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>.</p>`
   },
   {
     slug: "terms",
@@ -123,7 +130,7 @@ export const legalDocs = [
     <p>These terms are governed by the laws of India, and any disputes fall under the jurisdiction of the courts of Bengaluru, Karnataka.</p>
 
     <h2>Contact</h2>
-    <p>Questions about these terms? Email <a href="mailto:anuja@tilth.in">anuja@tilth.in</a>.</p>`
+    <p>Questions about these terms? Email <a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>.</p>`
   },
   {
     slug: "cookie-policy",
@@ -158,7 +165,7 @@ export const legalDocs = [
     <p>If we later add other tools that use cookies, we will update this page first and provide consent options where required by law.</p>
 
     <h2>Contact</h2>
-    <p>Questions? Email <a href="mailto:anuja@tilth.in">anuja@tilth.in</a>.</p>`
+    <p>Questions? Email <a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>.</p>`
   },
 ];
 
