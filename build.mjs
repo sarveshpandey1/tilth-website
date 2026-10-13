@@ -30,6 +30,7 @@ import { allIndustryPages } from "./src/templates/industryPage.mjs";
 import { allToolPages } from "./src/templates/toolPage.mjs";
 import { allInsightArticles } from "./src/templates/insightArticle.mjs";
 import { allRegionHubs, allRegionChildPages } from "./src/templates/regionHub.mjs";
+import { allLegalPages } from "./src/templates/legalPage.mjs";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 
@@ -59,7 +60,8 @@ const PAGES = [
   about,
   bengaluru,
   ...allRegionHubs,
-  ...allRegionChildPages
+  ...allRegionChildPages,
+  ...allLegalPages
 ];
 
 function outPathFor(routePath) {

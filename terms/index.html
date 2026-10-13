@@ -4,72 +4,116 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1MJEZ4VK26');
-</script>
+<!-- Google tag (gtag.js) — deferred loader, commands queue in dataLayer -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1MJEZ4VK26');
+(function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26';document.head.appendChild(s);}
+if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
+['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});})();</script>
 <title>Terms of Service — Tilth</title>
 <meta name="description" content="Tilth's terms of service for wearetilth.com — acceptable use, disclaimers on past results, and governing law (Bengaluru, India).">
 <link rel="canonical" href="https://wearetilth.com/terms/">
+
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#15110B">
+<meta property="og:site_name" content="Tilth">
+<meta name="twitter:site" content="@Anuja_tilth">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Terms of Service — Tilth">
+<meta property="og:description" content="Tilth's terms of service for wearetilth.com — acceptable use, disclaimers on past results, and governing law (Bengaluru, India).">
+<meta property="og:url" content="https://wearetilth.com/terms/">
+<meta property="og:image" content="https://wearetilth.com/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Terms of Service — Tilth">
+<meta name="twitter:description" content="Tilth's terms of service for wearetilth.com — acceptable use, disclaimers on past results, and governing law (Bengaluru, India).">
+<meta name="twitter:image" content="https://wearetilth.com/og-image.png">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<style>
-  .doc { padding: 116px 0 90px; }
-  .doc .label { color: var(--glow); margin-bottom: 16px; display: block; }
-  .doc h1 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(34px, 5.2vw, 52px); line-height: 1.1; margin-bottom: 10px; color: var(--ink); letter-spacing: -.5px; }
-  .doc .updated { color: var(--olive); font-size: 14px; margin-bottom: 40px; }
-  .doc h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; margin: 36px 0 12px; color: var(--ink); }
-  .doc p { margin-bottom: 14px; font-size: 16px; line-height: 1.7; color: var(--text); }
-  .doc ul { margin: 0 0 14px; padding-left: 22px; }
-  .doc li { margin-bottom: 8px; font-size: 16px; color: var(--text); }
-  .doc a { color: var(--glow); border-bottom: 1px solid var(--glow); }
-  .doc .note { background: var(--surface); border: 1px solid var(--rule); border-left: 3px solid var(--terra); border-radius: 12px; padding: 18px 22px; margin: 22px 0; font-size: 15px; color: var(--text); }
-  .back { display: inline-block; margin-top: 28px; color: var(--glow); font-weight: 600; font-size: 14.5px; border-bottom: 1.5px solid var(--glow); padding-bottom: 3px; }
-</style>
-</head>
-<body>
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/legal.css">
 
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav>
-      <a href="/services/">Services</a>
-      <a href="/industries/">Industries</a>
-      <a href="/work/">Work</a>
-      <a href="/insights/">Insights</a>
-      <a href="/tools/">Tools</a>
-      <a href="/about/">About</a>
+</head>
+<body class="v3 v3-lg">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
     </nav>
-    <div class="meta">Global growth marketing agency · India-rooted, working with brands worldwide</div>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
   </div>
 </header>
 
-<main class="doc">
-  <div class="wrap-narrow">
-    <span class="label">Legal</span>
-    <h1>Terms of Service</h1>
-    <div class="updated">Last updated: 14 June 2026</div>
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
+      <a href="/services/">Services</a>
+      <a href="/industries/">Industries</a>
+      <a href="/work/">Work</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/">Insights</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
+  </div>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
+<main id="main">
 
-    <p>These terms govern your use of the website <strong>wearetilth.com</strong>. By using the site, you agree to them. They are intentionally straightforward.</p>
+<article id="doc" data-legal aria-labelledby="doc-h1">
+  <header data-lhd>
+    <span data-leb>Legal</span>
+    <h1 id="doc-h1" data-lh1>Terms of Service</h1>
+    <p data-updated data-meta>Last updated: <time datetime="2026-06-14">14 June 2026</time></p>
+  </header>
+  <div data-lbody>
+      <p>These terms govern your use of the website <strong>wearetilth.com</strong>. By using the site, you agree to them. They are intentionally straightforward.</p>
 
     <h2>About this site</h2>
     <p>wearetilth.com is the marketing website of Tilth, a marketing agency based in Bengaluru, India, founded by Anuja. The site exists to describe our services and let prospective clients get in touch.</p>
 
     <h2>Information on this site</h2>
     <p>The content here — including descriptions of our approach, services, and past results — is provided for general information. Figures and examples drawn from past work are illustrative of experience and are not a guarantee of similar results. Marketing outcomes depend on many factors specific to each business.</p>
-    <div class="note">Any specific engagement between Tilth and a client is governed by a separate written agreement, not by these website terms.</div>
+    <div data-lnote role="note">Any specific engagement between Tilth and a client is governed by a separate written agreement, not by these website terms.</div>
 
     <h2>Acceptable use</h2>
     <p>You agree not to misuse this site — for example, by attempting to disrupt it, gain unauthorised access, or copy its content for misleading purposes. The Tilth name, branding, and written content are ours.</p>
@@ -85,53 +129,50 @@
 
     <h2>Contact</h2>
     <p>Questions about these terms? Email <a href="mailto:anuja@tilth.in">anuja@tilth.in</a>.</p>
-
-    <a href="/" class="back">← Back to home</a>
   </div>
+  <p data-lback><a href="/">← Back to home</a></p>
+</article>
+
 </main>
-
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br><a href="tel:+917007999306">+91 70079 99306</a><br>anuja@tilth.in</div>
-      </div>
-      <div>
-        <h2 class="fcol">Navigate</h2>
-        <ul>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/approach/">Approach</a></li>
-          <li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Legal</h2>
-        <ul>
-          <li><a href="/privacy/">Privacy Policy</a></li>
-          <li><a href="/terms/">Terms of Service</a></li>
-          <li><a href="/cookie-policy/">Cookie Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Social</h2>
-        <ul>
-          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
-      </div>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Tilth. All rights reserved.</span>
-      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>

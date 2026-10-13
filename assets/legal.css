@@ -1,0 +1,126 @@
+/* ===========================================================================
+   LEGAL FAMILY — one reading template for three documents.
+   /privacy/ · /terms/ · /cookie-policy/
+
+   Ported from the frozen Master Design Release:
+     LEGAL_UTILITIES/Tilth Legal Template - Privacy.dc.html
+       c0391d79…ea71  66,983 B
+     LEGAL_UTILITIES/LEGAL_UTILITIES_DESIGN_REPORT.md
+       hash-verified against 00_HASH_MANIFEST.sha256
+
+   A DOCUMENT, NOT A LANDING PAGE. The approved family deliberately has no
+   hero, no CTA band, no signature interaction, no motion, no cards, no sticky
+   rail, no table of contents and no schema. One measured column — 690px, 720px
+   from 1440 — is shared by the title, the date, the body and the back link, so
+   every line starts on the same edge. None of that is re-litigated here.
+
+   WHY THIS FAMILY DOES NOT LOAD core-company.css.
+   Every family before it did, because the frozen helmets re-inline the Core
+   Company grammar and those families use parts of it. Legal uses NONE of it:
+   checked hook by hook against the frozen markup, [data-hero], [data-h1],
+   [data-h2], [data-lede], [data-ledger], [data-lhead], [data-proof],
+   [data-faq-btn], [data-btn], [data-moss], [data-sec], [data-inv],
+   [data-eyebrow], [data-crumb], [data-textlink], [data-actions],
+   [data-reveal] and [data-fit] are all 0 occurrences in all three documents.
+   Loading ~106 unused rules to obtain one token would be the wrong trade, so
+   the one token Legal does borrow from that layer is declared below instead.
+
+   Scoped to .v3-lg. Collision-audited before naming: v3-lg has 0
+   word-boundary occurrences anywhere in the repo, and of the frozen
+   attributes data-legal / data-lhd / data-leb / data-lh1 / data-updated /
+   data-lbody / data-lback each have 0. Two needed handling:
+
+     data-note  TRANSLATED to data-lnote. assets/tools.css owns [data-note]
+                with an incompatible meaning — a two-column caveat row inside
+                the Tools worksheet. Both are scoped, so they could not collide
+                at runtime, but an attribute name carrying two different
+                meanings is exactly what the collision rule exists to prevent.
+                Legal's quiet ruled caveat gets its own name. A wrapper change
+                only: role="note" and the text are untouched.
+     data-sr    KEPT. assets/insights.css and assets/tools.css already define
+                it, per family, with byte-identical declarations and the same
+                meaning (a screen-reader-only label). Legal follows that
+                precedent rather than inventing a third name.
+
+   NO GLOBAL SYSTEM CHANGES (report §21). Nav, footer and its Privacy / Terms
+   of Service / Cookie Policy links, theme, focus ring, footer AA contrast, the
+   Clay/light rule (no Clay is used here) and the lining-numeral rule on the
+   date's [data-meta] are all the Phase 0 production implementation and are not
+   re-declared.
+
+   NO MOTION AT ALL: no keyframes, no transitions on reading content, no
+   [data-reveal]. Nothing to disable under reduced motion.
+
+   Prototype-only code is not ported: the .dc runtime, reviewDoc
+   (privacy / terms / cookie-policy), the MAIN_HTML / META document stores and
+   the review title map. Each legal URL renders its own document directly.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   0. BODY MARGIN RESET — page-scoped, and load-bearing for the measure.
+   brand-v3.css never resets the UA default body{margin:8px}; the frozen
+   prototype sets body{margin:0}, and the column and cpl figures were measured
+   against that. Same correction and scoping as every other family layer.
+   --------------------------------------------------------------------------- */
+body.v3-lg { margin: 0; }
+
+/* ---------------------------------------------------------------------------
+   1. THE TWO BORROWED TOKENS.
+
+   --sy is the only thing Legal takes from the Core Company layer. The frozen
+   helmet's :root carries that family's vertical rhythm (62 / 84 / 108 / 132),
+   deliberately tighter than the shell's 66 / 88 / 112 / 140, and
+   [data-legal]'s padding-bottom reads it — so the frozen page heights depend
+   on these exact values. Declared here at the frozen numbers rather than
+   pulled in with 106 unused rules. Equal specificity to .v3, so it wins on
+   source order: legal.css loads after brand-v3.css.
+   --pad (18 / 32 / 40 / 48), --line, --line2, --raise, --fg and --mosstext are
+   identical in both and are left to the shell.
+
+   --lgtext is the reading colour. In the frozen prototype it is set by the .dc
+   THEMES object at runtime (dark #D6DBD2 / light #2C312A), not in the helmet,
+   so the stylesheet reads it as var(--lgtext, #D6DBD2). Production has no such
+   runtime, so it is declared here for both themes with the frozen values; the
+   fallback below is kept as authored and never fires. Page-scoped, so it
+   cannot reach .v3-ins{--prose}, .v3-bl{--bltext} or .v3-rg{--rgtext}, and the
+   shared --body font-size token stays untouched.
+   Measured: #D6DBD2 on --bg #101310 = 13.29:1 · #2C312A on #F3F5F1 = 12.12:1.
+   --------------------------------------------------------------------------- */
+.v3-lg { --sy: 62px; --lgtext: #D6DBD2; }
+@media (min-width: 768px)  { .v3-lg { --sy: 84px; } }
+@media (min-width: 1024px) { .v3-lg { --sy: 108px; } }
+@media (min-width: 1440px) { .v3-lg { --sy: 132px; } }
+html[data-theme="light"] .v3-lg { --lgtext: #2C312A; }
+
+/* screen-reader-only label, as in .v3-ins / .v3-tkit — same declarations */
+.v3-lg [data-sr]{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.v3-lg{--lh1:32px;--lfs:17px;--lmeasure:690px}
+@media (min-width:480px){.v3-lg{--lh1:36px}}
+@media (min-width:768px){.v3-lg{--lh1:44px;--lfs:17.5px}}
+@media (min-width:1024px){.v3-lg{--lh1:50px}}
+@media (min-width:1440px){.v3-lg{--lh1:56px;--lfs:18px;--lmeasure:720px}}
+
+.v3-lg [data-legal]{max-width:var(--lmeasure);margin:0 auto;padding:118px var(--pad) var(--sy);box-sizing:content-box}
+@media (min-width:1024px){.v3-lg [data-legal]{padding-top:150px}}
+.v3-lg [data-lhd]{padding-bottom:28px;border-bottom:1px solid var(--line2);margin-bottom:8px}
+.v3-lg [data-leb]{display:block;margin:0 0 18px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.16em;line-height:1.3;color:var(--mosstext);text-transform:uppercase}
+.v3-lg [data-lh1]{margin:0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--lh1);line-height:1.02;letter-spacing:-.03em;color:var(--fg);text-wrap:balance}
+/* the date is operative text, not decoration: full-strength colour, real <time> */
+.v3-lg [data-updated]{margin:18px 0 0;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px;letter-spacing:.08em;line-height:1.5;color:var(--fg)}
+
+/* reading body — 65–80 characters per line at every width */
+.v3-lg [data-lbody]{font-size:var(--lfs);line-height:1.72;color:var(--lgtext,#D6DBD2);overflow-wrap:break-word}
+.v3-lg [data-lbody] > p{margin:1.05em 0 0}
+.v3-lg [data-lbody] strong{font-weight:500;color:var(--fg)}
+.v3-lg [data-lbody] h2{margin:2.1em 0 0;padding-top:22px;border-top:1px solid var(--line);font-family:Syne,sans-serif;font-weight:700;font-size:22px;line-height:1.18;letter-spacing:-.02em;color:var(--fg);text-wrap:balance}
+@media (min-width:768px){.v3-lg [data-lbody] h2{font-size:25px}}
+@media (min-width:1440px){.v3-lg [data-lbody] h2{font-size:27px}}
+.v3-lg [data-lbody] h2 + *{margin-top:.7em}
+.v3-lg [data-lbody] a{color:var(--fg);text-decoration:underline;text-decoration-color:var(--mosstext);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+.v3-lg [data-lbody] a:hover{color:var(--mosstext);text-decoration-thickness:2px}
+.v3-lg [data-lbody] code{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.84em;padding:.08em .38em;border:1px solid var(--line);border-radius:2px;background:var(--raise);color:var(--fg)}
+/* the source's .note callouts: quiet, ruled, never a card */
+.v3-lg [data-lnote]{margin:1.3em 0 0;padding:16px 0 16px 20px;border-left:2px solid var(--mosstext);font-size:calc(var(--lfs) - .5px);line-height:1.68;color:var(--fg);background:transparent}
+.v3-lg [data-lback]{margin:56px 0 0;padding-top:22px;border-top:1px solid var(--line)}
+.v3-lg [data-lback] a{display:inline-flex;align-items:center;min-height:44px;font-size:15px;color:var(--fg);text-decoration:underline;text-decoration-color:var(--mosstext);text-underline-offset:4px}
+

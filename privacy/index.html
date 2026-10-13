@@ -4,81 +4,125 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1MJEZ4VK26');
-</script>
+<!-- Google tag (gtag.js) — deferred loader, commands queue in dataLayer -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1MJEZ4VK26');
+(function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26';document.head.appendChild(s);}
+if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
+['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});})();</script>
 <title>Privacy Policy — Tilth</title>
 <meta name="description" content="How Tilth handles your data on wearetilth.com — what the contact form and Google Analytics collect, and the choices you have.">
 <link rel="canonical" href="https://wearetilth.com/privacy/">
+
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#15110B">
+<meta property="og:site_name" content="Tilth">
+<meta name="twitter:site" content="@Anuja_tilth">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Privacy Policy — Tilth">
+<meta property="og:description" content="How Tilth handles your data on wearetilth.com — what the contact form and Google Analytics collect, and the choices you have.">
+<meta property="og:url" content="https://wearetilth.com/privacy/">
+<meta property="og:image" content="https://wearetilth.com/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy Policy — Tilth">
+<meta name="twitter:description" content="How Tilth handles your data on wearetilth.com — what the contact form and Google Analytics collect, and the choices you have.">
+<meta name="twitter:image" content="https://wearetilth.com/og-image.png">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<style>
-  .doc { padding: 116px 0 90px; }
-  .doc .label { color: var(--glow); margin-bottom: 16px; display: block; }
-  .doc h1 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(34px, 5.2vw, 52px); line-height: 1.1; margin-bottom: 10px; color: var(--ink); letter-spacing: -.5px; }
-  .doc .updated { color: var(--olive); font-size: 14px; margin-bottom: 40px; }
-  .doc h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; margin: 36px 0 12px; color: var(--ink); }
-  .doc p { margin-bottom: 14px; font-size: 16px; line-height: 1.7; color: var(--text); }
-  .doc ul { margin: 0 0 14px; padding-left: 22px; }
-  .doc li { margin-bottom: 8px; font-size: 16px; color: var(--text); }
-  .doc a { color: var(--glow); border-bottom: 1px solid var(--glow); }
-  .doc .note { background: var(--surface); border: 1px solid var(--rule); border-left: 3px solid var(--terra); border-radius: 12px; padding: 18px 22px; margin: 22px 0; font-size: 15px; color: var(--text); }
-  .back { display: inline-block; margin-top: 28px; color: var(--glow); font-weight: 600; font-size: 14.5px; border-bottom: 1.5px solid var(--glow); padding-bottom: 3px; }
-</style>
-</head>
-<body>
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/legal.css">
 
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav>
-      <a href="/services/">Services</a>
-      <a href="/industries/">Industries</a>
-      <a href="/work/">Work</a>
-      <a href="/insights/">Insights</a>
-      <a href="/tools/">Tools</a>
-      <a href="/about/">About</a>
+</head>
+<body class="v3 v3-lg">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
     </nav>
-    <div class="meta">Global growth marketing agency · India-rooted, working with brands worldwide</div>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
   </div>
 </header>
 
-<main class="doc">
-  <div class="wrap-narrow">
-    <span class="label">Legal</span>
-    <h1>Privacy Policy</h1>
-    <div class="updated">Last updated: 18 June 2026</div>
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
+      <a href="/services/">Services</a>
+      <a href="/industries/">Industries</a>
+      <a href="/work/">Work</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/">Insights</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
+  </div>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
+<main id="main">
 
-    <p>This policy explains what happens to your information when you visit <strong>wearetilth.com</strong>. We have deliberately kept this site simple, and the same goes for how we handle data.</p>
+<article id="doc" data-legal aria-labelledby="doc-h1">
+  <header data-lhd>
+    <span data-leb>Legal</span>
+    <h1 id="doc-h1" data-lh1>Privacy Policy</h1>
+    <p data-updated data-meta>Last updated: <time datetime="2026-06-18">18 June 2026</time></p>
+  </header>
+  <div data-lbody>
+      <p>This policy explains what happens to your information when you visit <strong>wearetilth.com</strong>. We have deliberately kept this site simple, and the same goes for how we handle data.</p>
 
     <h2>The short version</h2>
-    <div class="note">We keep data collection to a minimum. We use Google Analytics to understand how the site is used, and we offer a contact form so you can request a free audit. We don't sell your data, we don't run advertising pixels, and we don't send marketing emails you didn't ask for.</div>
+    <div data-lnote role="note">We keep data collection to a minimum. We use Google Analytics to understand how the site is used, and we offer a contact form so you can request a free audit. We don't sell your data, we don't run advertising pixels, and we don't send marketing emails you didn't ask for.</div>
 
     <h2>Information we collect</h2>
-    <p><strong>Contact form.</strong> If you submit the form on our contact page, we collect the details you provide — your name, email address, phone number, brand or website, the channels you select, and your message. We use this only to reply to you and discuss working together. The form is delivered to us by FormSubmit, a third-party form-to-email service; its handling of the submission is governed by the <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit</a> service.</p>
+    <p><strong>Contact form.</strong> If you submit the form on our contact page, we collect the details you provide — your name, email address, phone number, brand or website, the channels you select, and your message. We use this only to reply to you and discuss working together. The form is delivered to us by FormSubmit, a third-party form-to-email service; its handling of the submission is governed by the <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit<span data-sr> (opens in a new tab)</span></a> service.</p>
     <p><strong>Email.</strong> If you email us at anuja@tilth.in, we receive whatever information you choose to include in that email. We use it only to reply and discuss working together.</p>
 
     <h2>Analytics</h2>
-    <p>We use Google Analytics 4 to understand how visitors use the site — which pages are viewed, the device and browser used, approximate location (city or country, derived from IP), and how visitors arrived. This is collected via cookies and analysed in aggregate to help us improve the site; we do not use it to identify you personally. Google's handling of this data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. You can opt out using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
+    <p>We use Google Analytics 4 to understand how visitors use the site — which pages are viewed, the device and browser used, approximate location (city or country, derived from IP), and how visitors arrived. This is collected via cookies and analysed in aggregate to help us improve the site; we do not use it to identify you personally. Google's handling of this data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy<span data-sr> (opens in a new tab)</span></a>. You can opt out using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on<span data-sr> (opens in a new tab)</span></a>.</p>
 
     <h2>Google Fonts</h2>
-    <p>This site uses Google Fonts to display its typefaces. When the fonts load, your browser connects to Google's servers, and in doing so your IP address is visible to Google. This is standard for most websites using Google Fonts, but we want to be transparent that it happens. Google's handling of this data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+    <p>This site uses Google Fonts to display its typefaces. When the fonts load, your browser connects to Google's servers, and in doing so your IP address is visible to Google. This is standard for most websites using Google Fonts, but we want to be transparent that it happens. Google's handling of this data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy<span data-sr> (opens in a new tab)</span></a>.</p>
 
     <h2>Hosting</h2>
-    <p>This site is hosted on GitHub Pages. Like most web hosts, GitHub may collect standard technical information (such as IP addresses) in server logs for security and operational purposes. This is governed by <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's Privacy Statement</a>.</p>
+    <p>This site is hosted on GitHub Pages. Like most web hosts, GitHub may collect standard technical information (such as IP addresses) in server logs for security and operational purposes. This is governed by <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's Privacy Statement<span data-sr> (opens in a new tab)</span></a>.</p>
 
     <h2>External links</h2>
     <p>Our site links to external profiles (LinkedIn, Instagram, X, Facebook). Once you follow those links, you are subject to the privacy policies of those platforms, not ours.</p>
@@ -91,53 +135,50 @@
 
     <h2>Contact</h2>
     <p>Questions about this policy? Email <a href="mailto:anuja@tilth.in">anuja@tilth.in</a>.</p>
-
-    <a href="/" class="back">← Back to home</a>
   </div>
+  <p data-lback><a href="/">← Back to home</a></p>
+</article>
+
 </main>
-
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br><a href="tel:+917007999306">+91 70079 99306</a><br>anuja@tilth.in</div>
-      </div>
-      <div>
-        <h2 class="fcol">Navigate</h2>
-        <ul>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/approach/">Approach</a></li>
-          <li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Legal</h2>
-        <ul>
-          <li><a href="/privacy/">Privacy Policy</a></li>
-          <li><a href="/terms/">Terms of Service</a></li>
-          <li><a href="/cookie-policy/">Cookie Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Social</h2>
-        <ul>
-          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
-      </div>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Tilth. All rights reserved.</span>
-      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>
