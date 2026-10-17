@@ -18,7 +18,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -28,52 +28,17 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta property="og:description" content="Tilth connects strategy, acquisition, conversion and measurement to help Indian brands build stronger growth systems and scale what works.">
 <meta property="og:url" content="https://wearetilth.com/india/">
 <meta property="og:image" content="https://wearetilth.com/og-image.png">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="A growth marketing agency for ambitious brands in India">
 <meta name="twitter:description" content="Tilth connects strategy, acquisition, conversion and measurement to help Indian brands build stronger growth systems and scale what works.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
-<!-- The hero H1's <em> is Fraunces italic and is part of the LCP element. Without this
-     preload it was discovered only after CSS parsed and took ~9s on throttled mobile. -->
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/assets/generated.css">
-<style>
-  /* Regional pages reuse the global system; these are the only additions. */
-  .rlist{list-style:none;margin:var(--space-block) 0 0;padding:0;display:grid;gap:12px;max-width:70ch}
-  .rlist li{position:relative;padding-left:20px;font-size:16px;line-height:1.65;color:var(--text)}
-  .rlist li::before{content:"";position:absolute;left:0;top:.65em;width:7px;height:1px;background:var(--terra)}
-  .gsec--light .rlist li{color:#4B4239}
-  .rprose{font-size:16px;line-height:1.7;color:var(--text);max-width:68ch;margin-top:18px}
-  .gsec--light .rprose{color:#4B4239}
-  .rhero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px}
-  /* compact industry cards sit 2-up then 4-up rather than the 3-up service grid */
-  @media(min-width:640px){.card-grid--compact{grid-template-columns:1fr 1fr}}
-  @media(min-width:1000px){.card-grid--compact{grid-template-columns:repeat(4,1fr)}}
-  .card-grid--compact .gcard{min-height:0}
-  /* benefit + insight cards reuse the homepage patterns */
-  .igrid{display:grid;gap:16px;margin-top:var(--space-block)}
-  @media(min-width:760px){.igrid{grid-template-columns:repeat(3,1fr)}}
-  .icard{border:1px solid var(--rule);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px}
-  .icard__date{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--glow)}
-  .icard__title{font-family:'Fraunces',serif;font-weight:500;font-size:18px;line-height:1.3;margin:0}
-  .icard__title a{color:var(--ink);text-decoration:none}
-  .icard__title a:hover,.icard__title a:focus-visible{color:var(--glow)}
-  .icard__ex{font-size:14px;line-height:1.6;color:var(--text);margin:0}
-  .cap__n{display:block;font-family:'Fraunces',serif;color:var(--terra);font-size:14px;margin-bottom:6px}
-  /* FAQ inside a cream section inherits light-theme tokens — force dark-on-cream */
-  .gsec--light .faq__item{border-color:rgba(26,21,16,.14)}
-  .gsec--light .faq__item summary{color:#15110B}
-  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#55722F}
-  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#55722F}
-  .gsec--light .faq__ans p{color:#4B4239}
-  .faq__item summary h3{font:inherit;color:inherit;margin:0;font-weight:inherit;letter-spacing:inherit}
-  html.jsr .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-  html.jsr .reveal.in{opacity:1;transform:none}
-</style>
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/core-company.css">
+<link rel="stylesheet" href="/assets/regional.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -200,259 +165,332 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 }
 </script>
 </head>
-<body>
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav aria-label="Primary">
+<body class="v3 v3-core v3-rg">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
+    </nav>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
+  </div>
+</header>
+
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
       <a href="/services/">Services</a>
       <a href="/industries/">Industries</a>
       <a href="/work/">Work</a>
       <a href="/approach/">Approach</a>
       <a href="/insights/">Insights</a>
       <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
     </nav>
-    <div class="meta">India-rooted · Working across markets</div>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
   </div>
-</header>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
 <main id="main">
 
-<section class="ghero rhero" id="hero">
-  <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <span>India</span></nav>
-    <p class="label">Growth marketing in India</p>
-    <h1>A growth marketing agency for ambitious brands in India.</h1>
-    <p class="lede">Tilth connects strategy, acquisition, conversion and measurement to help Indian brands build stronger growth systems and scale what works.</p>
-    <div class="actions">
-      <a class="btn" href="/contact/"><span>Discuss Your Growth Strategy</span> <span class="arrow">→</span></a>
-      <a class="text-cta" href="/services/">Explore Our Services →</a>
-    </div>
+<section id="hero" data-hero data-rg-hero data-depth-label="SURFACE">
+  <nav data-crumb aria-label="Breadcrumb"><a href="/" data-rg-cr>Home</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page" data-rg-cr>India</span></nav>
+  <div data-eyebrow>Growth marketing in India</div>
+  <h1 data-h1>A growth marketing agency for ambitious brands in India.</h1>
+  <p data-lede>Tilth connects strategy, acquisition, conversion and measurement to help Indian brands build stronger growth systems and scale what works.</p>
+  <div data-actions>
+    <a data-btn href="/contact/">Discuss Your Growth Strategy <span aria-hidden="true">&rarr;</span></a>
+    <a data-textlink href="/services/"><span>Explore Our Services &rarr;</span></a>
   </div>
 </section>
 
-<section class="gsec reveal" id="market" aria-labelledby="market-h">
-  <div class="wrap">
-    <p class="label">The India growth challenge</p>
-    <h2 id="market-h">Growth in India needs more than channel execution.</h2>
-    <p class="intro">The opportunity is large, but the growth system has to be connected.</p>
-    <p class="rprose">Indian brands often grow across several channels at once: paid media, organic search, affiliates, partnerships, sales teams, marketplaces and websites. When these channels are managed separately, teams may see more activity without gaining a clear view of what is actually driving qualified demand, revenue or retention.</p>
-    <p class="rprose">Tilth helps connect the parts that sit beneath performance. We look at positioning, measurement, funnel stages, creative, channel economics and conversion before recommending where more budget or effort should go. The goal is not to add another campaign. It is to create a clearer system for deciding what to fix, what to test and what to scale.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="services" aria-labelledby="services-h">
-  <div class="wrap">
-    <p class="label">Services for Indian brands</p>
-    <h2 id="services-h">Growth marketing services for Indian brands</h2>
-    <p class="intro">Strategy, acquisition and conversion connected through one operating view.</p>
-    
-    <div class="card-grid">
-      <a class="gcard gcard--featured" href="/india/services/performance-marketing/">
-        <h3 class="gcard__name">Performance Marketing</h3>
-        <p class="gcard__desc">Plan and manage paid acquisition around agreed business outcomes, not platform metrics alone. This can include channel strategy, campaign structure, creative testing, conversion tracking, budget allocation and performance reviews across supported platforms.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/india/services/seo-content-marketing/">
-        <h3 class="gcard__name">SEO &amp; Content Marketing</h3>
-        <p class="gcard__desc">Build organic visibility through technical SEO, commercial-page optimisation, search-intent mapping, content architecture, internal linking and useful expert-led content.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/india/services/affiliate-marketing/">
-        <h3 class="gcard__name">Affiliate &amp; Partnership Marketing</h3>
-        <p class="gcard__desc">Design or improve partner programmes through commercial models, partner discovery, onboarding, tracking, quality controls and performance reporting.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/services/growth-strategy-measurement/">
-        <h3 class="gcard__name">Growth Strategy &amp; Measurement</h3>
-        <p class="gcard__desc">Clarify the growth model, define funnel stages, improve analytics and create reporting that helps teams make better decisions.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/services/website-design-development/">
-        <h3 class="gcard__name">Websites &amp; Conversion Optimisation</h3>
-        <p class="gcard__desc">Improve the experience between attention and action through information architecture, landing pages, analytics, technical foundations and conversion-focused design.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-    </div><div class="actions" style="margin-top:28px"><a class="text-cta" href="/services/">Explore all services →</a></div>
-  </div>
-</section>
-
-<section class="gsec reveal" id="industries" aria-labelledby="industries-h">
-  <div class="wrap">
-    <p class="label">Industries we understand</p>
-    <h2 id="industries-h">Industries we understand</h2>
-    <p class="intro">Different business models require different growth decisions.</p>
-    
-    <div class="card-grid card-grid--compact">
-      <a class="gcard gcard--featured" href="/india/industries/saas/">
-        <h3 class="gcard__name">SaaS</h3>
-        <p class="gcard__desc">Demand generation, demos, trials, activation, pipeline visibility and revenue attribution.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/india/industries/d2c-ecommerce/">
-        <h3 class="gcard__name">D2C &amp; Ecommerce</h3>
-        <p class="gcard__desc">Acquisition economics, creative testing, product-page conversion, average order value and repeat purchase.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/india/industries/fintech/">
-        <h3 class="gcard__name">FinTech</h3>
-        <p class="gcard__desc">Trust, education, compliance-aware communication, onboarding funnels, verification, activation and retention.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/industries/edtech/">
-        <h3 class="gcard__name">EdTech</h3>
-        <p class="gcard__desc">Lead quality, counselling funnels, enrolment conversion, cohort economics and long consideration cycles.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="approach" aria-labelledby="approach-h">
-  <div class="wrap">
-    <p class="label">How we work</p>
-    <h2 id="approach-h">Fix the constraint before increasing the budget.</h2>
-    <p class="intro">Tilth uses a foundation-first approach to growth.</p>
-    
-    <div class="cap-grid">
-      <div class="cap"><span class="cap__n">01</span><h3>Diagnose the constraint</h3><p>We review acquisition, tracking, funnel performance, creative and conversion to identify what is limiting growth.</p></div>
-      <div class="cap"><span class="cap__n">02</span><h3>Build the growth system</h3><p>We improve measurement, positioning, funnel stages, channel coordination and testing processes.</p></div>
-      <div class="cap"><span class="cap__n">03</span><h3>Scale what works</h3><p>We increase investment after performance becomes measurable, repeatable and connected to agreed business outcomes.</p></div>
-    </div><div class="actions" style="margin-top:28px"><a class="text-cta" href="/approach/">Explore the Tilth approach →</a></div>
-  </div>
-</section>
-
-<section class="gsec reveal" id="why-tilth" aria-labelledby="why-tilth-h">
-  <div class="wrap">
-    <p class="label">Why Tilth</p>
-    <h2 id="why-tilth-h">India-rooted. Senior-led. Close to the work.</h2>
-    
-    <p class="rprose">Tilth is built for teams that want strategic thinking and execution to stay connected. The people shaping the recommendation remain close to the work, the reporting and the decisions that follow.</p>
-    <p class="rprose">That means fewer handoffs, clearer ownership and a stronger link between what the business needs and what the marketing team is asked to deliver.</p>
-    <div class="card-grid">
-      <div class="gcard">
-        <h3 class="gcard__name">Founder-led strategy</h3>
-        <p class="gcard__desc">Senior involvement in diagnosis, priorities and the direction of the engagement.</p>
+  <div data-rg-block data-rg-kind="prose" data-rg-first data-depth-label="SHALLOW">
+    <section id="market" data-rg-sec data-rg-type="prose" data-rg-lead aria-labelledby="market-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>The India growth challenge</span>
+          <h2 id="market-h" data-h2>Growth in India needs more than channel execution.</h2>
+          <p data-rg-intro>The opportunity is large, but the growth system has to be connected.</p>
+        </div>
+        <div>
+          <p data-rg-p>Indian brands often grow across several channels at once: paid media, organic search, affiliates, partnerships, sales teams, marketplaces and websites. When these channels are managed separately, teams may see more activity without gaining a clear view of what is actually driving qualified demand, revenue or retention.</p>
+          <p data-rg-p>Tilth helps connect the parts that sit beneath performance. We look at positioning, measurement, funnel stages, creative, channel economics and conversion before recommending where more budget or effort should go. The goal is not to add another campaign. It is to create a clearer system for deciding what to fix, what to test and what to scale.</p>
+        </div>
       </div>
-      <div class="gcard">
-        <h3 class="gcard__name">Hands-on execution</h3>
-        <p class="gcard__desc">Recommendations are designed with implementation realities in mind.</p>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="connect" data-inv data-depth-label="SHALLOW">
+    <section id="services" data-rg-sec data-rg-type="cards" aria-labelledby="services-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Services for Indian brands</span>
+          <h2 id="services-h" data-h2>Growth marketing services for Indian brands</h2>
+          <p data-rg-intro>Strategy, acquisition and conversion connected through one operating view.</p>
+        </div>
+        <div>
+          <ul data-rg-links>
+            <li><a href="/india/services/performance-marketing/"><h3>Performance Marketing</h3><p>Plan and manage paid acquisition around agreed business outcomes, not platform metrics alone. This can include channel strategy, campaign structure, creative testing, conversion tracking, budget allocation and performance reviews across supported platforms.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/india/services/seo-content-marketing/"><h3>SEO &amp; Content Marketing</h3><p>Build organic visibility through technical SEO, commercial-page optimisation, search-intent mapping, content architecture, internal linking and useful expert-led content.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/india/services/affiliate-marketing/"><h3>Affiliate &amp; Partnership Marketing</h3><p>Design or improve partner programmes through commercial models, partner discovery, onboarding, tracking, quality controls and performance reporting.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/services/growth-strategy-measurement/"><h3>Growth Strategy &amp; Measurement</h3><p>Clarify the growth model, define funnel stages, improve analytics and create reporting that helps teams make better decisions.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/services/website-design-development/"><h3>Websites &amp; Conversion Optimisation</h3><p>Improve the experience between attention and action through information architecture, landing pages, analytics, technical foundations and conversion-focused design.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+          <a data-textlink href="/services/"><span>Explore all services &rarr;</span></a>
+        </div>
       </div>
-      <div class="gcard">
-        <h3 class="gcard__name">One accountable partner</h3>
-        <p class="gcard__desc">Strategy, channels, measurement and conversion are considered together.</p>
+    </section>
+    <section id="industries" data-rg-sec data-rg-type="cards" aria-labelledby="industries-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Industries we understand</span>
+          <h2 id="industries-h" data-h2>Industries we understand</h2>
+          <p data-rg-intro>Different business models require different growth decisions.</p>
+        </div>
+        <div>
+          <ul data-rg-links data-compact>
+            <li><a href="/india/industries/saas/"><h3>SaaS</h3><p>Demand generation, demos, trials, activation, pipeline visibility and revenue attribution.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/india/industries/d2c-ecommerce/"><h3>D2C &amp; Ecommerce</h3><p>Acquisition economics, creative testing, product-page conversion, average order value and repeat purchase.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/india/industries/fintech/"><h3>FinTech</h3><p>Trust, education, compliance-aware communication, onboarding funnels, verification, activation and retention.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/industries/edtech/"><h3>EdTech</h3><p>Lead quality, counselling funnels, enrolment conversion, cohort economics and long consideration cycles.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+        </div>
       </div>
-      <div class="gcard">
-        <h3 class="gcard__name">Built around business outcomes</h3>
-        <p class="gcard__desc">Success is defined through agreed commercial or funnel outcomes, not isolated activity metrics.</p>
+    </section>
+    <section id="approach" data-rg-sec data-rg-type="steps" aria-labelledby="approach-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>How we work</span>
+          <h2 id="approach-h" data-h2>Fix the constraint before increasing the budget.</h2>
+          <p data-rg-intro>Tilth uses a foundation-first approach to growth.</p>
+        </div>
+        <div>
+          <ol data-rg-steps>
+            <li><span data-n aria-hidden="true">01</span><h3>Diagnose the constraint</h3><p>We review acquisition, tracking, funnel performance, creative and conversion to identify what is limiting growth.</p></li>
+            <li><span data-n aria-hidden="true">02</span><h3>Build the growth system</h3><p>We improve measurement, positioning, funnel stages, channel coordination and testing processes.</p></li>
+            <li><span data-n aria-hidden="true">03</span><h3>Scale what works</h3><p>We increase investment after performance becomes measurable, repeatable and connected to agreed business outcomes.</p></li>
+          </ol>
+          <a data-textlink href="/approach/"><span>Explore the Tilth approach &rarr;</span></a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="cards" data-depth-label="MID">
+    <section id="why-tilth" data-rg-sec data-rg-type="cards" aria-labelledby="why-tilth-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Why Tilth</span>
+          <h2 id="why-tilth-h" data-h2>India-rooted. Senior-led. Close to the work.</h2>
+        </div>
+        <div>
+          <p data-rg-p>Tilth is built for teams that want strategic thinking and execution to stay connected. The people shaping the recommendation remain close to the work, the reporting and the decisions that follow.</p>
+          <p data-rg-p>That means fewer handoffs, clearer ownership and a stronger link between what the business needs and what the marketing team is asked to deliver.</p>
+          <div data-rg-tiles>
+            <div data-rg-tile><h3>Founder-led strategy</h3><p>Senior involvement in diagnosis, priorities and the direction of the engagement.</p></div>
+            <div data-rg-tile><h3>Hands-on execution</h3><p>Recommendations are designed with implementation realities in mind.</p></div>
+            <div data-rg-tile><h3>One accountable partner</h3><p>Strategy, channels, measurement and conversion are considered together.</p></div>
+            <div data-rg-tile><h3>Built around business outcomes</h3><p>Success is defined through agreed commercial or funnel outcomes, not isolated activity metrics.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="prose" data-inv data-depth-label="MID">
+    <section id="bengaluru" data-rg-sec data-rg-type="prose" aria-labelledby="bengaluru-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Based in Bengaluru</span>
+          <h2 id="bengaluru-h" data-h2>Based in Bengaluru. Built for collaboration across India.</h2>
+        </div>
+        <div>
+          <p data-rg-p>Tilth operates from <a href="/marketing-agency-bengaluru/">Bengaluru</a> and works remotely with teams across India. Collaboration can be structured around regular reviews, shared documentation, clear owners and the client's operating rhythm.</p>
+          <p data-rg-p>Where useful and operationally possible, in-person discussions can be arranged in Bengaluru. The engagement should remain effective whether the client team is in the same city or distributed across markets.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="proof" id="proof-block" data-depth-label="MID">
+    <section id="proof" data-rg-sec data-rg-proof aria-labelledby="proof-h">
+      <div data-ledger>
+        <div data-lhead>
+          <h2 id="proof-h" data-h2>Experience from the founder and core team.</h2>
+        </div>
+        <div>
+          <div data-proof-grid>
+            <article data-proof>
+              <h3 data-plabel>Edtech growth engagement</h3>
+              <div data-pmeta>EDTECH &middot; INDIA</div>
+              <ul>
+                <li>Monthly media spend scaled ₹5L → ₹30L</li>
+                <li>Monthly revenue reached ₹1.5 crore</li>
+                <li>5× return on ad spend</li>
+              </ul>
+              <p data-psum>Rebuilt tracking and conversion events, then scaled paid media against verified return.</p>
+            </article>
+            <article data-proof>
+              <h3 data-plabel>Crypto affiliate growth engagement</h3>
+              <div data-pmeta>CRYPTO &middot; GLOBAL</div>
+              <ul>
+                <li>Affiliate contribution grew from <span data-approx>~</span>0%</li>
+                <li>Reached <span data-approx>~</span>5–6% of total trading volume within one year</li>
+              </ul>
+              <p data-psum>Built the affiliate program from scratch — partner validation, commercial model and tracking.</p>
+            </article>
+          </div>
+          <a data-textlink href="/work/"><span>See the work &rarr;</span></a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="insights" data-inv data-depth-label="DEEP">
+    <section id="insights" data-rg-sec data-rg-type="insights" aria-labelledby="insights-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Insights for Indian growth teams</span>
+          <h2 id="insights-h" data-h2>Practical thinking for Indian growth teams</h2>
+        </div>
+        <div>
+          <ul data-rg-ins>
+            <li><time datetime="2026-06-28" data-time>28 Jun 2026</time><h3><a href="/insights/startup-marketing-budget-india/">Marketing budget for an early-stage startup in India: how to set it</a></h3><p>Sensible percentages, why CAC matters more than a flat %, how to split it, and how to budget without wasting money.</p></li>
+            <li><time datetime="2026-06-27" data-time>27 Jun 2026</time><h3><a href="/insights/marketing-agency-for-d2c-brands/">How to choose a marketing agency for your D2C brand in India</a></h3><p>What to look for, the questions that matter, and the red flags to avoid — a founder's honest buyer's guide.</p></li>
+            <li><time datetime="2026-06-07" data-time>7 Jun 2026</time><h3><a href="/insights/google-ads-budget-india-startups/">How much should you spend on Google Ads in India to start?</a></h3><p>How to set a starting Google Ads budget in India, what it buys, and how to know when to scale it.</p></li>
+          </ul>
+          <a data-textlink href="/insights/"><span>Explore all insights &rarr;</span></a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="faq" data-depth-label="DEEP">
+    <section id="faq" data-rg-sec data-rg-type="faq" aria-labelledby="faq-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>FAQ</span>
+          <h2 id="faq-h" data-h2>Questions about working with a growth marketing agency in India.</h2>
+        </div>
+        <div>
+          <div data-rg-faq>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b0" aria-controls="faq-p0" aria-expanded="true"><span>What does a growth marketing agency in India do?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p0" role="region" aria-labelledby="faq-b0"><div><p>A growth marketing agency connects strategy, acquisition, conversion and measurement so that marketing decisions can be made across the full funnel. The work may include paid media, SEO, content, affiliate growth, analytics, websites and conversion optimisation, depending on the constraint that is limiting the business.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b1" aria-controls="faq-p1" aria-expanded="false"><span>How is Tilth different from a traditional digital marketing agency?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p>Tilth begins with the growth system rather than a single channel. We first look at the business model, customer journey, tracking, funnel and conversion. Channel execution is then planned around the issues that need to be solved and the outcomes that need to be measured.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b2" aria-controls="faq-p2" aria-expanded="false"><span>Does Tilth handle both strategy and execution?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p>Yes. Tilth is designed to connect strategic direction with implementation. The exact scope depends on the engagement, but it can include diagnosis, planning, campaign or content execution, measurement, optimisation and ongoing review.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b3" aria-controls="faq-p3" aria-expanded="false"><span>Which industries does Tilth work with in India?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p>Tilth has experience across SaaS, D2C and ecommerce, FinTech, EdTech and other growth-stage businesses. The recommendation is shaped around the economics, customer journey and regulatory or operational realities of the category.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b4" aria-controls="faq-p4" aria-expanded="false"><span>Can Tilth work with companies outside Bengaluru?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p>Yes. Tilth can work remotely with teams across India. Reviews, documentation, reporting and communication can be organised around the client's working rhythm, regardless of location.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b5" aria-controls="faq-p5" aria-expanded="false"><span>How does a new engagement begin?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p5" role="region" aria-labelledby="faq-b5"><div><p>A new engagement usually begins with a discussion about the growth goal, current channels, existing data and the point at which progress is slowing. Tilth then identifies what needs to be reviewed before recommending the right scope of work.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<section id="cta" data-moss data-rg-cta data-depth-label="FOUNDATION" aria-labelledby="cta-h">
+  <div data-eyebrow>Next step</div>
+  <div data-cta-grid>
+    <h2 id="cta-h" data-cta-h>Build a stronger growth system for your next stage.</h2>
+    <div>
+      <p data-cta-p>Tell us where growth is slowing, what you have already tried and what success looks like. We'll help identify the right place to start.</p>
+      <div data-cta-actions>
+        <a data-btn href="/contact/">Discuss Your Growth Strategy <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </div>
 </section>
-
-<section class="gsec gsec--light reveal" id="bengaluru" aria-labelledby="bengaluru-h">
-  <div class="wrap">
-    <p class="label">Based in Bengaluru</p>
-    <h2 id="bengaluru-h">Based in Bengaluru. Built for collaboration across India.</h2>
-    
-    <p class="rprose">Tilth operates from Bengaluru and works remotely with teams across India. Collaboration can be structured around regular reviews, shared documentation, clear owners and the client's operating rhythm.</p>
-    <p class="rprose">Where useful and operationally possible, in-person discussions can be arranged in Bengaluru. The engagement should remain effective whether the client team is in the same city or distributed across markets.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="insights" aria-labelledby="insights-h">
-  <div class="wrap">
-    <p class="label">Insights for Indian growth teams</p>
-    <h2 id="insights-h">Practical thinking for Indian growth teams</h2>
-    
-    
-    <div class="igrid">
-      <article class="icard">
-        <time class="icard__date" datetime="2026-06-28">28 Jun 2026</time>
-        <h3 class="icard__title"><a href="/insights/startup-marketing-budget-india/">Marketing budget for an early-stage startup in India: how to set it</a></h3>
-        <p class="icard__ex">Sensible percentages, why CAC matters more than a flat %, how to split it, and how to budget without wasting money.</p>
-      </article>
-      <article class="icard">
-        <time class="icard__date" datetime="2026-06-27">27 Jun 2026</time>
-        <h3 class="icard__title"><a href="/insights/marketing-agency-for-d2c-brands/">How to choose a marketing agency for your D2C brand in India</a></h3>
-        <p class="icard__ex">What to look for, the questions that matter, and the red flags to avoid — a founder's honest buyer's guide.</p>
-      </article>
-      <article class="icard">
-        <time class="icard__date" datetime="2026-06-07">7 Jun 2026</time>
-        <h3 class="icard__title"><a href="/insights/google-ads-budget-india-startups/">How much should you spend on Google Ads in India to start?</a></h3>
-        <p class="icard__ex">How to set a starting Google Ads budget in India, what it buys, and how to know when to scale it.</p>
-      </article>
-    </div><div class="actions" style="margin-top:28px"><a class="text-cta" href="/insights/">Explore all insights →</a></div>
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="faq" aria-labelledby="faq-h">
-  <div class="wrap">
-    <p class="label">FAQ</p>
-    <h2 id="faq-h">Questions about working with a growth marketing agency in India.</h2>
-    
-    
-    <div class="faq__list">
-      <details class="faq__item"><summary><h3>What does a growth marketing agency in India do?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>A growth marketing agency connects strategy, acquisition, conversion and measurement so that marketing decisions can be made across the full funnel. The work may include paid media, SEO, content, affiliate growth, analytics, websites and conversion optimisation, depending on the constraint that is limiting the business.</p></div></details>
-      <details class="faq__item"><summary><h3>How is Tilth different from a traditional digital marketing agency?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Tilth begins with the growth system rather than a single channel. We first look at the business model, customer journey, tracking, funnel and conversion. Channel execution is then planned around the issues that need to be solved and the outcomes that need to be measured.</p></div></details>
-      <details class="faq__item"><summary><h3>Does Tilth handle both strategy and execution?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Yes. Tilth is designed to connect strategic direction with implementation. The exact scope depends on the engagement, but it can include diagnosis, planning, campaign or content execution, measurement, optimisation and ongoing review.</p></div></details>
-      <details class="faq__item"><summary><h3>Which industries does Tilth work with in India?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Tilth has experience across SaaS, D2C and ecommerce, FinTech, EdTech and other growth-stage businesses. The recommendation is shaped around the economics, customer journey and regulatory or operational realities of the category.</p></div></details>
-      <details class="faq__item"><summary><h3>Can Tilth work with companies outside Bengaluru?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Yes. Tilth can work remotely with teams across India. Reviews, documentation, reporting and communication can be organised around the client's working rhythm, regardless of location.</p></div></details>
-      <details class="faq__item"><summary><h3>How does a new engagement begin?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>A new engagement usually begins with a discussion about the growth goal, current channels, existing data and the point at which progress is slowing. Tilth then identifies what needs to be reviewed before recommending the right scope of work.</p></div></details>
-    </div>
-  </div>
-</section>
-
-<section class="cta-band cta-band--terra" id="cta">
-  <div class="wrap">
-    <span class="label">Next step</span>
-    <h2>Build a stronger growth system for your next stage.</h2>
-    <p>Tell us where growth is slowing, what you have already tried and what success looks like. We'll help identify the right place to start.</p>
-    <div class="cta-band__actions">
-      <a class="btn" href="/contact/"><span>Discuss Your Growth Strategy</span> <span class="arrow">→</span></a>
-      
-    </div>
-  </div>
-</section>
-
-<script>
-(function(){
-  var root=document.documentElement, rm=false;
-  try{ rm=matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
-  var els=[].slice.call(document.querySelectorAll('.reveal'));
-  if(!els.length || rm || !('IntersectionObserver' in window)) return;
-  root.classList.add('jsr');
-  var io=new IntersectionObserver(function(ens){ens.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
-  els.forEach(function(el){ io.observe(el); });
-})();
-</script>
 
 </main>
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <p class="addr">Tilth is an India-rooted growth marketing agency working with ambitious brands across India and the US.<br><br>Bengaluru, India · Remote collaboration across India and the US<br><a href="tel:+917007999306">+91 70079 99306</a><br><a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a></p>
-      </div>
-      <div>
-        <h3 class="fcol">Explore</h3>
-        <ul><li><a href="/services/">Services</a></li><li><a href="/approach/">Approach</a></li><li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Legal</h3>
-        <ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/cookie-policy/">Cookie Policy</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Social</h3>
-        <ul><li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li><li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li></ul>
-      </div>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom"><span>© 2026 Tilth. All rights reserved.</span></div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
+<script src="/regional.js" defer></script>
 <script src="/analytics.js" defer></script>
 </body>
 </html>

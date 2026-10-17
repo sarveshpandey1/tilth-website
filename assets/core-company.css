@@ -1,0 +1,440 @@
+/* ===========================================================================
+   CORE COMPANY FAMILY — page layer over the shared Brand v3 system.
+   /work/ · /approach/ · /about/ · /contact/ (+ /thank-you/, the Contact
+   success state and its own route).
+
+   Ported from the frozen Master Design Release:
+     CORE_COMPANY/Tilth Work.dc.html      c5187de7…e068
+     CORE_COMPANY/Tilth Approach.dc.html  70f2b0bd…d06d
+     CORE_COMPANY/Tilth About.dc.html     0ede9d28…9a40
+     CORE_COMPANY/Tilth Contact.dc.html   47a70567…2dc4
+     CORE_COMPANY/CORE_COMPANY_DESIGN_REPORT.md  38e1a937…678b
+
+   "One grammar, four compositions." The family shares a hero, an H1 ladder, a
+   ledger, capability tiles, the proof component, client markers, the FAQ
+   disclosure and the Moss CTA band; each page adds only its primary component.
+
+   Scoped to .v3-core (the grammar) plus .v3-work / .v3-approach / .v3-about /
+   .v3-enquiry / .v3-thanks (the compositions). v3-contact is NOT used: it is
+   taken by the homepage contact band (brand-v3.css:663).
+
+   The shared shell — header, nav, menu, footer, clocks, theme, focus ring,
+   Clay tokens, tilde and lining numerals — is the Phase 0 production
+   implementation and is NOT re-declared here (Global Rules §I, report §4).
+   Where the frozen preview and the production shell differ (plain-Moss focus,
+   the .dc menu), production wins per the phase brief §16.
+
+   Prototype-only code is not ported: the .dc runtime, reviewState,
+   reviewRoute, the review submit guard and the review title logic.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   0. BODY MARGIN RESET — page-scoped, and load-bearing for the type ladder.
+   brand-v3.css never resets the UA default body{margin:8px}; all four frozen
+   prototypes set body{margin:0}. Every H1 step below was measured against that
+   full-width track. Same correction and scoping as .v3-paid / .v3-industries.
+   --------------------------------------------------------------------------- */
+body.v3-core { margin: 0; }
+
+/* ---------------------------------------------------------------------------
+   1. FAMILY TOKENS
+   --wash / --iwash / --itile / --iedge and the --ctah CTA step are introduced
+   by this family. --acctext / --accrule / --imoss ship in Phase 0 and are not
+   redeclared; --imoss is the band-local Moss and carries the Register I-1
+   correction in brand-v3.css, so the frozen dark #4A661A / light #BEF54F now
+   come straight from the shell. --foot is Phase 0's AA-corrected value and must
+   not be reset to the prototype's #5F655D.
+   --------------------------------------------------------------------------- */
+.v3-core {
+  --wash: rgba(190, 245, 79, .05);
+  --iwash: rgba(74, 102, 26, .07);
+  --itile: rgba(16, 19, 16, .028);
+  --iedge: inset 0 1px 0 rgba(255, 255, 255, .7);
+  --ctah: 30px;
+}
+
+/* ---------------------------------------------------------------------------
+   2. H1 LADDER — ONE ladder for the whole family (report §3).
+   Measured in Syne 800 uppercase at -.045em on the real face: widest single
+   word PROMISES. = 8.94em (SOMEONE 8.54, MESSAGE 8.07); binding two-word unit
+   THE WORK. = 9.37em. The hero is stacked at every width, so the track is the
+   full content width and every step is authored under track / 9.37. The 390
+   step is set under track / 10.02 (PROOF, NOT) — at 36px "NOT" stood alone.
+   --------------------------------------------------------------------------- */
+/* The family also authors its own vertical rhythm and tile-heading step. Read
+   from the frozen :root, these are deliberately tighter than the Phase 0 shell
+   (--sy 62/84/108/132 vs 66/88/112/140; --h3 19/19.5/20/21 vs 19/20/21/22) and
+   are redeclared here, page-scoped. --pad (18/32/40/48), --body (16/16.5/17)
+   and --card (15) are identical in both and are left to the shell. Scoping
+   matters: no shell component reads --sy or --h3 (only .v3-sec, .v3-contact,
+   .v3-method__cell and .v3-eng do, none of which appear in this family), and
+   the header and footer read neither. Equal specificity to .v3, so these win
+   on source order — core-company.css loads after brand-v3.css. */
+.v3-core { --h1: 34px; --h2: 24px; --h3: 19px; --sy: 62px; }
+@media (min-width: 480px)  { .v3-core { --h1: 44px;  --h2: 27px; --ctah: 36px; } }
+@media (min-width: 620px)  { .v3-core { --h1: 56px;  --h2: 31px; --ctah: 44px; } }
+@media (min-width: 700px)  { .v3-core { --h1: 62px; } }
+@media (min-width: 768px)  { .v3-core { --h1: 66px;  --h2: 36px; --h3: 19.5px; --sy: 84px;  --ctah: 52px; } }
+@media (min-width: 900px)  { .v3-core { --h1: 76px; } }
+@media (min-width: 1024px) { .v3-core { --h1: 84px;  --h2: 44px; --h3: 20px;   --sy: 108px; --ctah: 60px; } }
+@media (min-width: 1180px) { .v3-core { --h1: 90px; } }
+@media (min-width: 1280px) { .v3-core { --h1: 96px; } }
+@media (min-width: 1440px) { .v3-core { --h1: 100px; --h2: 48px; --h3: 21px;   --sy: 132px; --ctah: 58px; } }
+@media (min-width: 1700px) { .v3-core { --h1: 110px; --h2: 54px; --ctah: 66px; } }
+
+/* ---------------------------------------------------------------------------
+   3. SHARED GRAMMAR — used by every page in the family.
+   CSS-first: every grid, gap and type step is a media query, correct before
+   any JS runs.
+   --------------------------------------------------------------------------- */
+.v3-core [data-inv] a:hover { color: var(--imoss); }
+.v3-core [data-inv] a:focus-visible,
+.v3-core [data-inv] button:focus-visible { outline-color: var(--imoss); }
+.v3-core [data-moss] a:hover { color: #101310; }
+.v3-core [data-moss] a:focus-visible,
+.v3-core [data-moss] button:focus-visible { outline-color: #101310; }
+
+.v3-core [data-h1] { margin: 0; font-family: Syne, sans-serif; font-weight: 800; font-size: var(--h1); line-height: .94; letter-spacing: -.045em; text-transform: uppercase; text-wrap: balance; hyphens: none; -webkit-hyphens: none; max-width: 100%; }
+.v3-core [data-h1] em { font-style: normal; color: var(--mosstext); }
+.v3-core [data-h2] { margin: 0; font-family: Syne, sans-serif; font-weight: 700; font-size: var(--h2); line-height: 1.02; letter-spacing: -.035em; text-transform: uppercase; text-wrap: balance; max-width: 100%; }
+.v3-core [data-h2] em { font-style: normal; color: var(--mosstext); }
+.v3-core [data-inv] [data-h2] em { color: var(--imoss); }
+@media (min-width: 768px)  { .v3-core [data-h2] { max-width: 640px; } }
+@media (min-width: 1024px) { .v3-core [data-h2] { max-width: 820px; } }
+/* section-opening H2 that stands above a tile grid rather than beside copy */
+.v3-core [data-h2][data-gap] { margin-bottom: 40px; }
+
+.v3-core [data-eyebrow] { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: .16em; line-height: 1.3; color: var(--mosstext); margin: 0 0 22px; text-transform: uppercase; }
+.v3-core [data-inv] [data-eyebrow] { color: var(--imut); }
+.v3-core [data-moss] [data-eyebrow] { color: rgba(16, 19, 16, .6); }
+.v3-core [data-lede] { margin: 30px 0 0; font-size: var(--body); line-height: 1.6; max-width: 600px; color: var(--stone); }
+.v3-core [data-body] { margin: 0; font-size: var(--body); line-height: 1.65; color: var(--stone); max-width: 640px; }
+.v3-core [data-inv] [data-body] { color: var(--ibody); }
+
+/* hero — stacked at every width */
+.v3-core [data-hero] { padding: 112px var(--pad) var(--sy); background-image: linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: calc(100% / 6) 100%; }
+.v3-core [data-crumb] { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: .14em; line-height: 1.6; color: var(--stone); animation: v3Fade .8s ease both; }
+.v3-core [data-crumb] a { color: var(--stone); }
+.v3-core [data-crumb] [data-sep] { color: var(--mosstext); padding: 0 6px; }
+.v3-core [data-crumb] [aria-current] { color: var(--fg); }
+.v3-core [data-hero] > [data-eyebrow] { margin: 30px 0 22px; }
+.v3-core [data-hero] [data-h1] { animation: v3Rise 1s cubic-bezier(.16, 1, .3, 1) both; }
+.v3-core [data-hero] [data-lede] { animation: v3Rise 1s .12s cubic-bezier(.16, 1, .3, 1) both; }
+
+/* buttons — the approved CTA grammar (primary fill + quiet text link) */
+.v3-core [data-actions] { display: flex; flex-direction: column; align-items: stretch; gap: 14px; margin-top: 36px; animation: v3Rise 1s .2s cubic-bezier(.16, 1, .3, 1) both; }
+@media (min-width: 560px) { .v3-core [data-actions] { flex-direction: row; align-items: center; gap: 26px; } }
+.v3-core [data-btn] { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 18px; background: var(--moss); color: #101310; font-family: Syne, sans-serif; font-weight: 700; font-size: 12.5px; line-height: 1.25; text-align: center; text-transform: uppercase; border: 0; border-radius: 2px; cursor: pointer; transition: background .3s, color .3s, transform .3s; }
+@media (min-width: 480px) { .v3-core [data-btn] { font-size: 14.5px; padding: 0 28px; white-space: nowrap; line-height: 1; } }
+.v3-core [data-btn]:hover { color: #101310; }
+.v3-core [data-moss] [data-btn] { background: #101310; color: #F3F5F1; }
+.v3-core [data-moss] [data-btn]:hover { color: #F3F5F1; }
+.v3-core [data-textlink] { display: inline-flex; align-items: center; min-height: 44px; font-size: 14.5px; line-height: 1.3; color: var(--stone); }
+.v3-core [data-textlink] > span { border-bottom: 1px solid var(--line2); padding-bottom: 3px; }
+.v3-core [data-moss] [data-textlink] { color: rgba(16, 19, 16, .72); }
+.v3-core [data-moss] [data-textlink] > span { border-bottom-color: rgba(16, 19, 16, .4); }
+
+/* sections */
+.v3-core [data-sec] { padding: var(--sy) var(--pad); }
+.v3-core [data-inv] { background: var(--ibg); color: var(--ifg); }
+
+/* the ledger — heading column beside content column (approved in Industries) */
+.v3-core [data-ledger] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 30px; }
+@media (min-width: 1100px) {
+  .v3-core [data-ledger] { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 64px; align-items: start; }
+  .v3-core [data-ledger] > [data-lhead] { position: sticky; top: 120px; }
+}
+@media (min-width: 1440px) { .v3-core [data-ledger] { gap: 88px; } }
+
+/* numbered editorial rows */
+.v3-core [data-rows] { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.v3-core [data-rows] > li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 0 14px; align-items: baseline; padding: 22px 0; border-bottom: 1px solid var(--line); }
+@media (min-width: 768px) { .v3-core [data-rows] > li { grid-template-columns: 52px minmax(0, 1fr); gap: 0 20px; padding: 26px 0; } }
+.v3-core [data-n] { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: .12em; line-height: 1; color: var(--mosstext); }
+.v3-core [data-inv] [data-n] { color: var(--imoss); }
+
+/* capability tiles — 4 -> 2x2 -> 1 (never 3+1) */
+.v3-core [data-tiles] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 11px; }
+@media (min-width: 700px)  { .v3-core [data-tiles] { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1200px) { .v3-core [data-tiles][data-four] { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.v3-core [data-tile] { background: var(--itile); border: 1px solid var(--iline); border-radius: 8px; box-shadow: var(--iedge); padding: 24px 22px 26px; }
+@media (min-width: 768px) { .v3-core [data-tile] { padding: 26px 24px 28px; } }
+.v3-core [data-tile] h3 { margin: 14px 0 0; font-family: Syne, sans-serif; font-weight: 700; font-size: var(--h3); line-height: 1.18; letter-spacing: -.02em; }
+.v3-core [data-tile] p { margin: 12px 0 0; font-size: var(--card); line-height: 1.62; color: var(--ibody); }
+
+/* PROOF — one component for every page that shows the two approved anonymous
+   records (Work at lead scale, About at standard scale, and the frozen
+   Industries detail). Figures render exactly as recorded; only scale changes. */
+.v3-core [data-proof-grid] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 44px; }
+@media (min-width: 900px) { .v3-core [data-proof-grid] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; } }
+.v3-core [data-proof] [data-plabel] { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10.5px; letter-spacing: .14em; line-height: 1.5; color: var(--fg); text-transform: uppercase; padding-bottom: 10px; }
+.v3-core [data-proof] [data-pmeta] { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: .14em; line-height: 1.5; color: var(--stone); padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.v3-core [data-proof] ul { list-style: none; margin: 0; padding: 0; }
+.v3-core [data-proof] li { font-family: Syne, sans-serif; font-weight: 600; font-size: 20px; letter-spacing: -.02em; line-height: 1.3; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.v3-core [data-proof] [data-psum] { margin: 20px 0 0; font-size: 15.5px; line-height: 1.62; color: var(--stone); }
+.v3-core [data-inv] [data-proof] [data-plabel] { color: var(--ifg); }
+.v3-core [data-inv] [data-proof] [data-pmeta] { color: var(--imut); border-bottom-color: var(--iline); }
+.v3-core [data-inv] [data-proof] li { border-bottom-color: var(--iline); }
+.v3-core [data-inv] [data-proof] [data-psum] { color: var(--ibody); }
+
+/* client text markers — text only, never logos. A stacked list, one name per
+   ruled line: an inline "A · B" run wraps at several widths and strands the
+   separator at the start of a line (family issue #3). */
+.v3-core [data-markers] { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.v3-core [data-markers] li { font-family: Syne, sans-serif; font-weight: 600; letter-spacing: -.03em; line-height: 1.1; color: var(--fg); padding: 10px 0; border-bottom: 1px solid var(--line); }
+.v3-core [data-markers] li:first-child { padding-top: 0; }
+
+/* FAQ — the approved v3 disclosure contract: real <button>, aria-expanded,
+   aria-controls -> a real id, every answer shipped at natural height so it is
+   readable and crawlable with JS off; service-detail.js applies the collapse. */
+.v3-core [data-faq-ans] { overflow: hidden; transition: max-height .55s cubic-bezier(.16, 1, .3, 1), opacity .4s; }
+.v3-core [data-faq-btn] { width: 100%; display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; text-align: left; background: transparent; border: 0; padding: 24px 0; min-height: 44px; font-family: Syne, sans-serif; font-weight: 700; font-size: 19px; line-height: 1.3; letter-spacing: -.02em; color: var(--ifg); cursor: pointer; }
+@media (min-width: 768px) { .v3-core [data-faq-btn] { font-size: 20px; padding: 26px 0; } }
+/* Fixed 24x24 box: the open state rotates the glyph 45deg, and a box that
+   cannot resize means the rotation changes neither the button's height nor the
+   question's wrap. Measured: the rotated glyph's ink reaches 3.1px past the
+   button's right edge into the page gutter at every width — no page overflow
+   and no collision with the question, which stays 33px clear at the tightest
+   width. The frozen design measures the same. */
+.v3-core [data-faq-ic] { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-weight: 400; font-size: 22px; line-height: 1; color: var(--imut); transition: transform .35s, color .35s; }
+.v3-core [data-faq-ans] p { margin: 0; padding: 0 0 26px; font-size: 16.5px; line-height: 1.7; color: var(--ibody); max-width: 640px; }
+.v3-core [data-faq-ans] a { border-bottom: 1px solid var(--ichip); padding-bottom: 1px; color: var(--ifg); }
+.v3-core [data-faq-item] { border-top: 1px solid var(--iline); }
+.v3-core [data-faq-item]:last-child { border-bottom: 1px solid var(--iline); }
+
+/* closing CTA band — Moss, one primary + one quiet secondary */
+.v3-core [data-moss] { background: var(--moss); color: #101310; padding: var(--sy) var(--pad); }
+.v3-core [data-cta-grid] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 30px; }
+@media (min-width: 1440px) { .v3-core [data-cta-grid] { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 56px; align-items: end; } }
+.v3-core [data-cta-h] { margin: 0; font-family: Syne, sans-serif; font-weight: 800; font-size: var(--ctah); line-height: .94; letter-spacing: -.04em; text-transform: uppercase; text-wrap: balance; max-width: 100%; }
+.v3-core [data-cta-p] { margin: 0; font-size: var(--body); line-height: 1.6; color: rgba(16, 19, 16, .78); max-width: 460px; }
+.v3-core [data-cta-actions] { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; margin-top: 32px; }
+@media (min-width: 700px)  { .v3-core [data-cta-actions] { flex-direction: row; align-items: center; gap: 26px; } }
+@media (min-width: 1440px) { .v3-core [data-cta-actions] { flex-direction: column; align-items: flex-start; gap: 16px; } }
+
+/* ===========================================================================
+   4. WORK — evidence. Primary component: EVIDENCE PLATES, the proof component
+   at lead scale. Each anonymous record is a full-width plate: attribution and
+   summary in one column, the recorded figures as large editorial statements in
+   the other. Figures are set verbatim; the scale changes, the words never do.
+   Not the homepage evidence grid/filter (.v3-ev* / .v3-filt*).
+   =========================================================================== */
+.v3-work [data-plates] { border-top: 1px solid var(--line); }
+.v3-work [data-plate] { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "figs" "sum"; gap: 22px; padding: 30px 0 34px; border-bottom: 1px solid var(--line); }
+.v3-work [data-plate] > [data-phead] { grid-area: head; }
+.v3-work [data-plate] > ul { grid-area: figs; }
+.v3-work [data-plate] > [data-psum] { grid-area: sum; margin: 0; }
+.v3-work [data-plate] [data-pmeta] { border-bottom: 0; padding-bottom: 0; }
+.v3-work [data-plate] ul { border-top: 1px solid var(--line); }
+.v3-work [data-plate] li { font-size: 22px; line-height: 1.22; padding: 16px 0; }
+.v3-work [data-plate] li:last-child { border-bottom: 0; }
+@media (min-width: 620px) { .v3-work [data-plate] li { font-size: 26px; } }
+@media (min-width: 900px) {
+  .v3-work [data-plate] { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); grid-template-areas: "head figs" "sum figs"; grid-template-rows: auto 1fr; gap: 0 56px; padding: 40px 0 44px; }
+  .v3-work [data-plate] ul { border-top: 0; }
+  .v3-work [data-plate] li:first-child { padding-top: 0; }
+  .v3-work [data-plate] > [data-psum] { margin-top: 26px; align-self: start; }
+}
+@media (min-width: 1024px) { .v3-work [data-plate] li { font-size: 30px; } }
+@media (min-width: 1440px) {
+  .v3-work [data-plate] li { font-size: 36px; padding: 20px 0; }
+  .v3-work [data-plate] { gap: 0 88px; }
+}
+@media (min-width: 1700px) { .v3-work [data-plate] li { font-size: 40px; } }
+.v3-work [data-plate-n] { display: block; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: .12em; color: var(--mosstext); margin-bottom: 18px; }
+
+/* selected experience: H2 beside the two text markers */
+.v3-work [data-xp] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 26px; }
+@media (min-width: 1100px) { .v3-work [data-xp] { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 64px; align-items: end; } }
+.v3-work [data-xp] [data-markers] li { font-size: 34px; color: var(--ifg); border-bottom-color: var(--iline); }
+.v3-work [data-xp] [data-markers] li:last-child { border-bottom: 0; padding-bottom: 0; }
+@media (min-width: 620px)  { .v3-work [data-xp] [data-markers] li { font-size: 44px; } }
+@media (min-width: 1024px) { .v3-work [data-xp] [data-markers] li { font-size: 52px; } }
+@media (min-width: 1440px) { .v3-work [data-xp] [data-markers] li { font-size: 60px; } }
+.v3-work [data-xp] [data-markers] { padding-top: 18px; border-top: 1px solid var(--iline); }
+@media (min-width: 1100px) { .v3-work [data-xp] [data-markers] { padding-top: 0; border-top: 0; } }
+.v3-work [data-cs-head] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; margin-bottom: 40px; }
+@media (min-width: 1100px) { .v3-work [data-cs-head] { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 64px; align-items: end; margin-bottom: 52px; } }
+
+/* ===========================================================================
+   5. APPROACH — methodology. Primary component: the PHASE INDEX plus the
+   six-phase sequence. No cycle diagram (a loop would collide with the
+   COMPOUNDING LOOP) and no sequential lighting chain (the DECISION CHAIN).
+   No depth labels on phases, no timings, deliverables or service mappings —
+   the source assigns none. Depth readout on hero and CTA only.
+   =========================================================================== */
+.v3-approach [data-pindex] { margin-top: 44px; animation: v3Fade 1s .3s ease both; }
+.v3-approach [data-pindex] ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+@media (min-width: 700px)  { .v3-approach [data-pindex] ol { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1180px) { .v3-approach [data-pindex] ol { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+.v3-approach [data-pindex] li { background: var(--bg); position: relative; }
+.v3-approach [data-pindex] li[data-found]::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--mosstext); }
+.v3-approach [data-pindex] a { display: flex; flex-direction: column; gap: 10px; min-height: 44px; padding: 16px 14px 18px; transition: background .35s; }
+@media (min-width: 768px) { .v3-approach [data-pindex] a { padding: 18px 18px 20px; } }
+.v3-approach [data-pindex] a:hover { background: var(--wash); }
+.v3-approach [data-in] { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10.5px; letter-spacing: .14em; color: var(--stone); }
+.v3-approach [data-pindex] li[data-found] [data-in] { color: var(--mosstext); }
+.v3-approach [data-iname] { font-family: Syne, sans-serif; font-weight: 700; font-size: 16px; letter-spacing: -.02em; line-height: 1.1; text-transform: uppercase; color: var(--fg); }
+@media (min-width: 1024px) { .v3-approach [data-iname] { font-size: 18px; } }
+
+/* intro — one editorial paragraph, set larger than body */
+.v3-approach [data-intro] { padding-top: 0; }
+.v3-approach [data-intro] p { margin: 0; max-width: 880px; font-size: 20px; line-height: 1.5; color: var(--fg); }
+@media (min-width: 768px)  { .v3-approach [data-intro] p { font-size: 24px; } }
+@media (min-width: 1440px) { .v3-approach [data-intro] p { font-size: 28px; max-width: 1000px; } }
+.v3-approach [data-intro] em { font-style: normal; color: var(--mosstext); }
+
+/* THE SIX PHASES — one ordered list; the two Foundation phases sit together on
+   their own raised ground with a Moss inset rule, making the page's argument
+   ("foundation first") structural. Every row carries the same inner gutter so
+   all six align on one grid; the flagged pair adds only its ground. */
+.v3-approach [data-phases-sec] { padding-top: 0; }
+.v3-approach [data-phases] { list-style: none; margin: 0; padding: 0; }
+.v3-approach [data-phase][data-found] { background: var(--raise); box-shadow: inset 2px 0 0 var(--mosstext); }
+.v3-approach [data-phase] { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: "n" "head" "body"; gap: 0; margin: 0 calc(var(--pad) * -1); padding: 34px var(--pad) 38px; border-bottom: 1px solid var(--line); scroll-margin-top: 96px; }
+.v3-approach [data-phase][data-found] + [data-phase][data-found] { border-top: 0; }
+.v3-approach [data-phase][data-found]:has(+ [data-phase][data-found]) { border-bottom-color: var(--line); }
+@media (min-width: 768px) { .v3-approach [data-phase] { grid-template-columns: 96px minmax(0, 1fr); grid-template-areas: "n head" "n body"; column-gap: 24px; margin: 0; padding: 44px 28px 48px; } }
+@media (min-width: 1100px) { .v3-approach [data-phase] { grid-template-columns: 120px minmax(0, .8fr) minmax(0, 1.2fr); grid-template-areas: "n head body"; column-gap: 40px; align-items: start; } }
+@media (min-width: 1440px) { .v3-approach [data-phase] { grid-template-columns: 150px minmax(0, .8fr) minmax(0, 1.2fr); column-gap: 56px; padding: 56px 28px 60px; } }
+.v3-approach [data-pn] { grid-area: n; font-family: Syne, sans-serif; font-weight: 800; font-size: 44px; line-height: .9; letter-spacing: -.04em; color: var(--stone); margin-bottom: 16px; }
+@media (min-width: 768px)  { .v3-approach [data-pn] { font-size: 56px; margin: 0; } }
+@media (min-width: 1440px) { .v3-approach [data-pn] { font-size: 72px; } }
+.v3-approach [data-phase][data-found] [data-pn] { color: var(--mosstext); }
+.v3-approach [data-phead] { grid-area: head; }
+.v3-approach [data-flag] { display: block; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10.5px; letter-spacing: .14em; line-height: 1; color: var(--mosstext); text-transform: uppercase; margin-bottom: 14px; }
+.v3-approach [data-pname] { margin: 0; font-family: Syne, sans-serif; font-weight: 700; font-size: 28px; line-height: 1.02; letter-spacing: -.035em; text-transform: uppercase; }
+@media (min-width: 620px)  { .v3-approach [data-pname] { font-size: 34px; } }
+@media (min-width: 1024px) { .v3-approach [data-pname] { font-size: 40px; } }
+@media (min-width: 1440px) { .v3-approach [data-pname] { font-size: 46px; } }
+.v3-approach [data-pbody] { grid-area: body; margin-top: 18px; }
+@media (min-width: 1100px) { .v3-approach [data-pbody] { margin-top: 0; } }
+.v3-approach [data-pbody] p { margin: 0; font-size: var(--body); line-height: 1.65; color: var(--stone); max-width: 640px; }
+.v3-approach [data-pbody] p + p { margin-top: 16px; color: var(--fg); }
+.v3-approach [data-faqfoot] { margin: 28px 0 0; font-size: 15.5px; line-height: 1.6; color: var(--ibody); }
+.v3-approach [data-faqfoot] a { color: var(--ifg); border-bottom: 1px solid var(--ichip); padding-bottom: 2px; display: inline-block; min-height: 24px; }
+
+/* ===========================================================================
+   6. ABOUT — founder and company credibility. Primary component: the FOUNDER
+   PANEL, approval-gated and omitted cleanly when the gate fails.
+   =========================================================================== */
+.v3-about [data-lead-p] { margin: 0; font-size: 19px; line-height: 1.55; color: var(--fg); max-width: 700px; }
+@media (min-width: 768px)  { .v3-about [data-lead-p] { font-size: 22px; } }
+@media (min-width: 1100px) { .v3-about [data-lead-p] { padding-top: 38px; } }
+@media (min-width: 1440px) { .v3-about [data-lead-p] { font-size: 24px; } }
+
+/* The heading is the existing eyebrow word "Founder" promoted to an H2 (an
+   outline fix, no new copy), set as a mono label so the visual stays the
+   source's eyebrow. Portrait at its 4:5 crop, capped near its delivered size. */
+.v3-about [data-founder-h] { margin: 0 0 26px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-weight: 400; font-size: 11.5px; letter-spacing: .16em; line-height: 1.3; color: var(--mosstext); text-transform: uppercase; }
+.v3-about [data-founder] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 30px; border-top: 1px solid var(--line); padding-top: 30px; }
+@media (min-width: 900px)  { .v3-about [data-founder] { grid-template-columns: 300px minmax(0, 1fr); gap: 56px; align-items: start; padding-top: 40px; } }
+@media (min-width: 1280px) { .v3-about [data-founder] { grid-template-columns: 340px minmax(0, 1fr); gap: 80px; } }
+.v3-about [data-portrait] { margin: 0; max-width: 300px; }
+@media (min-width: 1280px) { .v3-about [data-portrait] { max-width: 340px; } }
+.v3-about [data-portrait] img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; filter: grayscale(1) contrast(1.08); background: var(--raise); }
+.v3-about [data-portrait] figcaption { margin-top: 14px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10.5px; letter-spacing: .14em; line-height: 1.5; color: var(--stone); text-transform: uppercase; }
+.v3-about [data-quote] { margin: 0 0 26px; font-family: Syne, sans-serif; font-weight: 700; font-size: 28px; line-height: 1.04; letter-spacing: -.035em; text-transform: uppercase; text-wrap: balance; max-width: 820px; }
+@media (min-width: 620px)  { .v3-about [data-quote] { font-size: 36px; } }
+@media (min-width: 1024px) { .v3-about [data-quote] { font-size: 44px; } }
+@media (min-width: 1440px) { .v3-about [data-quote] { font-size: 52px; } }
+/* Clay accent. On Carbon, Clay text is 5.6:1. On Mineral (light theme) Clay
+   text is 2.95:1 — below the 3:1 large-text floor — so there the words take
+   Carbon and Clay carries the emphasis as a heavy rule. The --acctext /
+   --accrule tokens ship in Phase 0 (Register G-4); no new palette colour. */
+.v3-about [data-fcopy] [data-textlink] { margin-top: 22px; }
+.v3-about [data-accent] { color: var(--acctext); text-decoration: underline; text-decoration-color: var(--accrule); text-decoration-thickness: .12em; text-underline-offset: .1em; text-decoration-skip-ink: none; }
+
+/* ===========================================================================
+   7. CONTACT (.v3-enquiry) — conversion. Primary component: the ENQUIRY form,
+   first in the DOM and on screen, with the reassurance aside as a sticky rail
+   from 1024 so its direct contacts stay in reach. Focus order = visual order.
+   v3-contact is NOT used here: brand-v3.css:663 already owns it.
+   =========================================================================== */
+.v3-enquiry [data-hero-tight] { padding-bottom: calc(var(--sy) * .55); }
+.v3-enquiry [data-form-sec] { padding-top: 0; }
+.v3-enquiry [data-cgrid] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 56px; border-top: 1px solid var(--line); padding-top: 34px; }
+@media (min-width: 1024px) { .v3-enquiry [data-cgrid] { grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); gap: 56px; padding-top: 44px; align-items: start; } }
+@media (min-width: 1440px) { .v3-enquiry [data-cgrid] { gap: 96px; } }
+
+/* the honeypot — off-screen, never display:none (functional contract §6) */
+.v3-enquiry .contact-form .hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+
+.v3-enquiry [data-form] { display: flex; flex-direction: column; gap: 26px; position: relative; }
+.v3-enquiry [data-row2] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 26px; }
+@media (min-width: 620px) { .v3-enquiry [data-row2] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; } }
+.v3-enquiry [data-field] { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.v3-enquiry [data-field] label { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10.5px; letter-spacing: .14em; line-height: 1.5; color: var(--stone); text-transform: uppercase; }
+.v3-enquiry [data-req] { color: var(--mosstext); margin-left: 4px; }
+/* 16px inputs so iOS never zooms on focus */
+.v3-enquiry [data-field] input,
+.v3-enquiry [data-field] textarea,
+.v3-enquiry [data-field] select { width: 100%; box-sizing: border-box; font-family: Chivo, system-ui, sans-serif; font-size: 16px; line-height: 1.4; color: var(--fg); background: transparent; border: 0; border-bottom: 1px solid var(--line2); border-radius: 0; padding: 12px 0; min-height: 48px; outline: none; transition: border-color .25s; }
+.v3-enquiry [data-field] textarea { min-height: 132px; resize: vertical; }
+.v3-enquiry [data-field] ::placeholder { color: var(--stone); opacity: .7; }
+.v3-enquiry [data-field] input:hover,
+.v3-enquiry [data-field] textarea:hover,
+.v3-enquiry [data-field] select:hover { border-bottom-color: var(--stone); }
+.v3-enquiry [data-field] input:focus,
+.v3-enquiry [data-field] textarea:focus,
+.v3-enquiry [data-field] select:focus { border-bottom-color: var(--mosstext); }
+.v3-enquiry [data-field] input:focus-visible,
+.v3-enquiry [data-field] textarea:focus-visible,
+.v3-enquiry [data-field] select:focus-visible { outline: 2px solid var(--moss); outline-offset: 4px; }
+/* native validation, styled — the browser's own message still reports the
+   error; after the visitor has interacted, an invalid control's rule turns
+   Clay and a valid required control's rule turns Moss. No custom error UI. */
+/* The invalid rule must outrank :focus. After a failed submit the browser
+   focuses the FIRST invalid control, and `[data-field] input:focus` (0,3,1)
+   beat the attribute-only `[data-field] :user-invalid` (0,3,0) — so the one
+   field the browser was pointing the visitor at painted the Moss confirmation
+   colour instead of the Clay error rule. Naming the element on the invalid
+   selector makes it (0,3,1) too, and it is later in source, so it wins.
+   :user-valid:required is (0,4,0) and already outranks focus. */
+.v3-enquiry [data-field] input:user-invalid,
+.v3-enquiry [data-field] textarea:user-invalid,
+.v3-enquiry [data-field] select:user-invalid { border-bottom: 2px solid var(--clay); }
+.v3-enquiry [data-field] :user-valid:required { border-bottom-color: var(--mosstext); }
+.v3-enquiry [data-select] { position: relative; }
+.v3-enquiry [data-select] select { appearance: none; -webkit-appearance: none; padding-right: 32px; cursor: pointer; }
+.v3-enquiry [data-select]::after { content: ""; position: absolute; right: 6px; top: 50%; width: 8px; height: 8px; border-right: 1.5px solid var(--stone); border-bottom: 1.5px solid var(--stone); transform: translateY(-70%) rotate(45deg); pointer-events: none; }
+.v3-enquiry [data-select] select:invalid { color: var(--stone); }
+/* the native option list renders in a fixed light scheme so it stays legible
+   in both themes without changing the global theme system */
+.v3-enquiry [data-select] option { color: #101310; background: #F3F5F1; }
+.v3-enquiry [data-consent] { display: flex; align-items: flex-start; gap: 14px; min-height: 44px; padding: 6px 0; font-size: 15.5px; line-height: 1.5; color: var(--fg); cursor: pointer; }
+.v3-enquiry [data-consent] input { flex: 0 0 auto; width: 22px; height: 22px; margin: 1px 0 0; accent-color: var(--moss); cursor: pointer; }
+.v3-enquiry [data-consent] input:focus-visible { outline: 2px solid var(--moss); outline-offset: 3px; }
+.v3-enquiry [data-consent] input:user-invalid { outline: 2px solid var(--clay); outline-offset: 2px; }
+/* one quiet privacy link under the consent line (owner decision 2026-10-10):
+   aligned to the consent text, label "Privacy", OUTSIDE the <label> so it can
+   never toggle the checkbox. No vendor disclosure. */
+.v3-enquiry [data-privacy] { margin: -6px 0 0; padding-left: 36px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; line-height: 1; }
+.v3-enquiry [data-privacy] a { display: inline-flex; align-items: center; min-height: 24px; color: var(--stone); border-bottom: 1px solid var(--line2); padding: 4px 0 2px; }
+.v3-enquiry [data-privacy] a:hover { color: var(--fg); }
+.v3-enquiry [data-privacy] a:focus-visible { outline: 2px solid var(--moss); outline-offset: 3px; }
+.v3-enquiry [data-submit-row] { display: flex; flex-direction: column; align-items: stretch; margin-top: 4px; }
+@media (min-width: 620px) { .v3-enquiry [data-submit-row] { flex-direction: row; align-items: center; } }
+
+/* the aside rail */
+.v3-enquiry [data-aside] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; border-top: 1px solid var(--line); }
+@media (min-width: 620px) and (max-width: 1023px) { .v3-enquiry [data-aside] { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; } }
+@media (min-width: 1024px) {
+  .v3-enquiry [data-aside] { position: sticky; top: 116px; max-height: calc(100vh - 140px); overflow-y: auto; scrollbar-width: none; border-top: 0; border-left: 1px solid var(--line); padding-left: 32px; }
+  .v3-enquiry [data-aside]::-webkit-scrollbar { display: none; }
+  .v3-enquiry [data-ablock]:first-child { padding-top: 0; }
+  .v3-enquiry [data-ablock]:last-child { border-bottom: 0; }
+}
+.v3-enquiry [data-ablock] { padding: 22px 0 24px; border-bottom: 1px solid var(--line); }
+.v3-enquiry [data-ah] { margin: 0 0 12px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-weight: 400; font-size: 10.5px; letter-spacing: .14em; line-height: 1.5; color: var(--mosstext); text-transform: uppercase; }
+.v3-enquiry [data-ablock] p { margin: 0; font-size: 15.5px; line-height: 1.65; color: var(--stone); }
+.v3-enquiry [data-ablock] [data-markers] li { font-size: 24px; }
+.v3-enquiry [data-ablock] [data-markers] li:last-child { border-bottom: 0; padding-bottom: 0; }
+.v3-enquiry [data-direct] { color: var(--fg); border-bottom: 1px solid var(--line2); padding-bottom: 1px; word-break: break-word; }
+.v3-enquiry [data-ablock] [data-textlink] { min-height: 0; color: var(--fg); line-height: 1.5; }
+
+/* ===========================================================================
+   8. THANK-YOU (.v3-thanks) — the Contact success state, and its own route.
+   Reached only via the form's _next redirect; noindex, per the source.
+   =========================================================================== */
+.v3-thanks [data-ty-tiles] h3 a { color: inherit; border-bottom: 1px solid var(--ichip); padding-bottom: 2px; }

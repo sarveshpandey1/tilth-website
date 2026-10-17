@@ -4,23 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1MJEZ4VK26');
-</script>
+<!-- Google tag (gtag.js) — deferred loader, commands queue in dataLayer -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1MJEZ4VK26');
+(function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26';document.head.appendChild(s);}
+if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
+['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});})();</script>
 <title>Marketing Agency vs Freelancer vs In-House: Which Is Right for Your Startup? | Tilth</title>
 <meta name="description" content="Marketing agency vs freelancer vs in-house — an honest comparison for early-stage startups in India. Costs, trade-offs, when each makes sense, and what to fix before you hire anyone.">
 <link rel="canonical" href="https://wearetilth.com/insights/agency-vs-freelancer-vs-inhouse/">
+
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="geo.region" content="IN-KA">
-<meta name="geo.placename" content="Bengaluru">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -30,55 +26,18 @@
 <meta property="og:description" content="An honest comparison for early-stage startups — costs, trade-offs, when each makes sense, and what to fix before you hire anyone.">
 <meta property="og:url" content="https://wearetilth.com/insights/agency-vs-freelancer-vs-inhouse/">
 <meta property="og:image" content="https://wearetilth.com/og-image.png">
-<meta property="article:published_time" content="2026-06-23">
-<meta property="article:author" content="Anuja">
-<meta property="article:section" content="Hiring">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Marketing agency vs freelancer vs in-house: which is right for your startup?">
-<meta name="twitter:description" content="Costs, trade-offs, and when each makes sense — for early-stage startups.">
+<meta name="twitter:description" content="An honest comparison for early-stage startups — costs, trade-offs, when each makes sense, and what to fix before you hire anyone.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<style>
-  .article { padding: 36px 0 40px; }
-  .crumb { font-size: 12px; letter-spacing: .5px; color: var(--olive); margin-bottom: 28px; }
-  .crumb a { color: var(--glow); }
-  .article-head .post-meta { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--glow); margin-bottom: 16px; }
-  .article-head .post-meta .dot { color: var(--terra); margin: 0 8px; }
-  .article-head h1 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(32px, 5vw, 54px); line-height: 1.08; letter-spacing: -1px; color: var(--ink); margin-bottom: 22px; }
-  .article-head .standfirst { font-size: 19px; color: var(--text); line-height: 1.6; max-width: 60ch; }
-  .byline { display: flex; align-items: center; gap: 14px; margin: 30px 0 0; padding-top: 24px; border-top: 1px solid var(--rule); }
-  .byline img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
-  .byline .who { font-size: 14px; color: var(--ink); font-weight: 500; }
-  .byline .who span { display: block; color: var(--olive); font-weight: 400; font-size: 13px; }
-  .prose { margin-top: 44px; }
-  .prose h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(22px, 3vw, 30px); color: var(--ink); letter-spacing: -.5px; margin: 44px 0 14px; line-height: 1.2; }
-  .prose h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px; color: var(--ink); margin: 30px 0 8px; line-height: 1.25; }
-  .prose p { font-size: 17px; line-height: 1.75; color: var(--text); margin-bottom: 20px; }
-  .prose ul, .prose ol { margin: 0 0 20px 0; padding-left: 22px; }
-  .prose li { font-size: 17px; line-height: 1.7; color: var(--text); margin-bottom: 12px; }
-  .prose li strong { color: var(--ink); }
-  .prose a { color: var(--glow); border-bottom: 1px solid var(--glow); }
-  .prose blockquote { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(21px, 3vw, 28px); line-height: 1.4; color: var(--ink); border-left: 2px solid var(--terra); padding-left: 24px; margin: 34px 0; }
-  .ctable { width: 100%; border-collapse: collapse; margin: 24px 0 28px; font-size: 15px; }
-  .ctable th, .ctable td { text-align: left; padding: 13px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
-  .ctable thead th { color: var(--glow); font-weight: 600; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
-  .ctable td { color: var(--text); }
-  .ctable td:first-child, .ctable th:first-child { color: var(--ink); font-weight: 500; }
-  .ctable tbody tr:last-child td { border-bottom: none; }
-  .ctable-wrap { overflow-x: auto; }
-  .faq { margin-top: 48px; border-top: 1px solid var(--rule); padding-top: 8px; }
-  .faq h2 { margin-top: 32px; }
-  .article-cta { margin-top: 50px; padding: 34px; background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; }
-  .article-cta h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 24px; color: var(--ink); margin-bottom: 10px; }
-  .article-cta p { color: var(--text); margin-bottom: 20px; max-width: 52ch; }
-  .article-bio { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--rule); display: flex; gap: 18px; align-items: flex-start; }
-  .article-bio img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex: none; }
-  .article-bio p { font-size: 14.5px; color: var(--text); margin: 0; }
-  .article-bio strong { color: var(--ink); }
-</style>
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/core-company.css">
+<link rel="stylesheet" href="/assets/insights.css">
+<script type="module" src="/insights-article.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -86,9 +45,24 @@
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wearetilth.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://wearetilth.com/insights/" },
-        { "@type": "ListItem", "position": 3, "name": "Marketing agency vs freelancer vs in-house", "item": "https://wearetilth.com/insights/agency-vs-freelancer-vs-inhouse/" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://wearetilth.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://wearetilth.com/insights/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Marketing agency vs freelancer vs in-house",
+          "item": "https://wearetilth.com/insights/agency-vs-freelancer-vs-inhouse/"
+        }
       ]
     },
     {
@@ -102,10 +76,29 @@
       "url": "https://wearetilth.com/insights/agency-vs-freelancer-vs-inhouse/",
       "mainEntityOfPage": "https://wearetilth.com/insights/agency-vs-freelancer-vs-inhouse/",
       "articleSection": "Hiring",
-      "keywords": ["marketing agency vs freelancer", "agency vs in-house marketing", "should a startup hire a marketing agency", "in-house vs agency", "marketing for startups India"],
+      "keywords": [
+        "marketing agency vs freelancer",
+        "agency vs in-house marketing",
+        "should a startup hire a marketing agency",
+        "in-house vs agency",
+        "marketing for startups India"
+      ],
       "wordCount": 1600,
-      "author": { "@type": "Person", "name": "Anuja", "jobTitle": "Founder", "url": "https://wearetilth.com/about/" },
-      "publisher": { "@type": "Organization", "name": "Tilth", "url": "https://wearetilth.com/", "logo": { "@type": "ImageObject", "url": "https://wearetilth.com/favicon.svg" } }
+      "author": {
+        "@type": "Person",
+        "name": "Anuja",
+        "jobTitle": "Founder",
+        "url": "https://wearetilth.com/about/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tilth",
+        "url": "https://wearetilth.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://wearetilth.com/favicon.svg"
+        }
+      }
     },
     {
       "@type": "FAQPage",
@@ -113,27 +106,42 @@
         {
           "@type": "Question",
           "name": "Should an early-stage startup hire a marketing agency or a freelancer?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Early-stage startups often start with a freelancer for a single, well-defined need because it's flexible and low-cost. An agency makes more sense once you need several channels working together and want tested playbooks rather than a single point of failure. The deciding factor is how broad and ongoing the work is." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Startups often start with a freelancer for a single, well-defined need because it's flexible and low-cost. An agency makes more sense once you need several channels working together and want tested playbooks rather than a single point of failure."
+          }
         },
         {
           "@type": "Question",
-          "name": "Is an agency or an in-house team cheaper?",
-          "acceptedAnswer": { "@type": "Answer", "text": "For most early-stage startups an agency or freelancer is cheaper than a full in-house team, because you avoid salaries, tools, and the cost of hiring. In-house becomes more cost-effective only when the work is steady, full-time, and central enough to justify dedicated headcount." }
+          "name": "Is an agency or in-house team cheaper?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For most early-stage startups an agency or freelancer is cheaper, because you avoid salaries, tools, and hiring costs. In-house only becomes cost-effective when the work is steady, full-time, and central enough to justify dedicated headcount."
+          }
         },
         {
           "@type": "Question",
           "name": "When should a startup build an in-house marketing team?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Hire in-house when marketing needs are constant, deeply tied to the product, and large enough to keep a full-time person genuinely busy — usually around or after Series A. Many companies start with a single in-house generalist who owns strategy while agencies or freelancers execute specialist work." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When marketing needs are constant, tied to the product, and large enough to keep a full-time person busy — usually around or after Series A. Many start with one in-house generalist who owns strategy while agencies execute."
+          }
         },
         {
           "@type": "Question",
           "name": "What is the hybrid marketing model?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The hybrid model is one in-house marketing lead or generalist who owns strategy and priorities, supported by an agency or freelancers for specialist, multi-channel execution. It's the most common and pragmatic setup for growing startups." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One in-house lead owning strategy and priorities, supported by an agency or freelancers for specialist, multi-channel execution. It's the most common setup for growing startups."
+          }
         },
         {
           "@type": "Question",
-          "name": "Can a marketing agency work alongside our in-house team or freelancer?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Many agencies, including Tilth, work alongside in-house teams and freelancers — often starting with a foundation audit that gives everyone a shared, honest picture of what's working before deciding who should own what." }
+          "name": "Can an agency work alongside our in-house team?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Many agencies, including Tilth, work alongside in-house teams and freelancers — often starting with a foundation audit so everyone shares an honest picture before deciding who owns what."
+          }
         }
       ]
     }
@@ -141,72 +149,95 @@
 }
 </script>
 </head>
-<body>
-
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav>
-      <a href="/services/">Services</a>
-      <a href="/industries/">Industries</a>
-      <a href="/work/">Work</a>
-      <a href="/insights/">Insights</a>
-      <a href="/tools/">Tools</a>
-      <a href="/about/">About</a>
+<body class="v3 v3-core v3-ins v3-article">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/" aria-current="true">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
     </nav>
-    <div class="meta">Global growth marketing agency · India-rooted, working with brands worldwide</div>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
   </div>
 </header>
 
-<article class="wrap-narrow article">
-  <div class="crumb"><a href="/insights/">Insights</a> &nbsp;/&nbsp; Hiring</div>
-
-  <header class="article-head">
-    <div class="post-meta">Hiring<span class="dot">·</span>8 min read<span class="dot">·</span>23 Jun 2026</div>
-    <h1>Marketing agency vs freelancer vs in-house: which is right for your startup?</h1>
-    <p class="standfirst">Every founder hits this fork: hire a marketing agency, bring on a freelancer, or build an in-house team. There's no universal answer — but there is a right answer for where you are right now. Here's an honest comparison, the costs and trade-offs of each, and the one thing that matters more than who you hire.</p>
-    <div class="byline">
-      <img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">
-      <div class="who">Anuja<span>Founder, Tilth · 10+ years in performance marketing</span></div>
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
+      <a href="/services/">Services</a>
+      <a href="/industries/">Industries</a>
+      <a href="/work/">Work</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/">Insights</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
     </div>
-  </header>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
+  </div>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
+<main id="main">
 
-  <div class="prose">
-    <p>When marketing starts to matter, the hiring question arrives fast — and the wrong call is expensive in both directions. Hire a full in-house team too early and you're paying salaries before you know what works. Lean on a cheap freelancer too long and growth stalls the moment you need more than one skill. This guide compares a <strong>marketing agency vs a freelancer vs an in-house team</strong> for an early-stage startup, so you can match the choice to your stage.</p>
+<article data-article id="article" data-depth-label="SHALLOW">
+  <div data-acol>
+    <header data-ahead>
+      <nav data-crumb aria-label="Breadcrumb"><a href="/">Home</a> <span data-sep aria-hidden="true">/</span> <a href="/insights/">Insights</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">Hiring</span></nav>
+      <div data-postmeta data-meta><span data-pm-sec>Hiring</span><span data-dot aria-hidden="true">·</span><span>8 min read</span><span data-dot aria-hidden="true">·</span><span>23 Jun 2026</span></div>
+      <h1 data-ah1>Marketing agency vs freelancer vs in-house: which is right for your startup?</h1>
+      <p data-standfirst>Every founder hits this fork: hire a marketing agency, bring on a freelancer, or build an in-house team. There's no universal answer — but there is a right answer for where you are right now. Here's an honest comparison, the costs and trade-offs of each, and the one thing that matters more than who you hire.</p>
+      <div data-byline>
+        <img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">
+        <div data-who><span>Anuja Founder, Tilth · 10+ years in performance marketing</span></div>
+      </div>
+    </header>
+    <div data-prose>
+<p>When marketing starts to matter, the hiring question arrives fast — and the wrong call is expensive in both directions. Hire a full in-house team too early and you're paying salaries before you know what works. Lean on a cheap freelancer too long and growth stalls the moment you need more than one skill. This guide compares a <strong>marketing agency vs a freelancer vs an in-house team</strong> for an early-stage startup, so you can match the choice to your stage.</p>
 
     <h2>The quick comparison</h2>
     <div class="ctable-wrap">
-    <table class="ctable">
+    <div data-tbl><table data-stack class="ctable">
       <thead>
         <tr><th>Option</th><th>Typical cost</th><th>Best for</th><th>Watch out for</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Freelancer</td>
-          <td>Lowest — pay per project or part-time</td>
-          <td>One specific, well-defined skill or short project</td>
-          <td>Single point of failure; limited breadth; availability</td>
-        </tr>
-        <tr>
-          <td>Agency</td>
-          <td>Mid — monthly retainer</td>
-          <td>Coordinated, multi-channel execution with tested playbooks</td>
-          <td>Less dedicated than in-house; fit and seniority vary</td>
-        </tr>
-        <tr>
-          <td>In-house</td>
-          <td>Highest — salary, tools, hiring cost</td>
-          <td>Steady, ongoing work deeply tied to the product</td>
-          <td>Slow to hire; one person can't cover every channel</td>
-        </tr>
-        <tr>
-          <td>Hybrid</td>
-          <td>Mid–high</td>
-          <td>An in-house lead owning strategy + agency/freelance execution</td>
-          <td>Needs clear ownership to avoid overlap</td>
-        </tr>
+        <tr><td data-th="Option">Freelancer</td><td data-th="Typical cost">Lowest — pay per project or part-time</td><td data-th="Best for">One specific, well-defined skill or short project</td><td data-th="Watch out for">Single point of failure; limited breadth; availability</td></tr>
+        <tr><td data-th="Option">Agency</td><td data-th="Typical cost">Mid — monthly retainer</td><td data-th="Best for">Coordinated, multi-channel execution with tested playbooks</td><td data-th="Watch out for">Less dedicated than in-house; fit and seniority vary</td></tr>
+        <tr><td data-th="Option">In-house</td><td data-th="Typical cost">Highest — salary, tools, hiring cost</td><td data-th="Best for">Steady, ongoing work deeply tied to the product</td><td data-th="Watch out for">Slow to hire; one person can't cover every channel</td></tr>
+        <tr><td data-th="Option">Hybrid</td><td data-th="Typical cost">Mid–high</td><td data-th="Best for">An in-house lead owning strategy + agency/freelance execution</td><td data-th="Watch out for">Needs clear ownership to avoid overlap</td></tr>
       </tbody>
-    </table>
+    </table></div>
     </div>
 
     <h2>When a freelancer makes sense</h2>
@@ -232,81 +263,83 @@
 
     <h2>The thing that matters more than who you hire</h2>
     <p>Here's what a decade of watching this play out taught me: <strong>whichever route you pick, it fails the same way if the foundation is broken.</strong> A freelancer scaling ads on bad tracking, an agency optimising toward the wrong conversion event, an in-house hire reporting numbers no one can trust — same problem, different payroll. Before you commit to anyone, get an honest read on whether your <a href="/insights/marketing-foundation-audit/">tracking, attribution, and targeting</a> are sound. That decision shapes whether <em>any</em> of these hires can succeed.</p>
-
-    <div class="article-cta">
-      <h3>Not sure what to hire for yet?</h3>
-      <p>A free foundation audit shows you exactly what's working and what's broken — so you hire (agency, freelancer, or in-house) for the real gap, not a guessed one. No pitch attached.</p>
-      <a href="/contact/" class="btn"><span>Request a free audit</span><span aria-hidden="true">→</span></a>
     </div>
-
-    <div class="faq">
-      <h2>Agency vs freelancer vs in-house — FAQs</h2>
-
-      <h3>Should an early-stage startup hire a marketing agency or a freelancer?</h3>
-      <p>Startups often start with a freelancer for a single, well-defined need because it's flexible and low-cost. An agency makes more sense once you need several channels working together and want tested playbooks rather than a single point of failure.</p>
-
-      <h3>Is an agency or in-house team cheaper?</h3>
-      <p>For most early-stage startups an agency or freelancer is cheaper, because you avoid salaries, tools, and hiring costs. In-house only becomes cost-effective when the work is steady, full-time, and central enough to justify dedicated headcount.</p>
-
-      <h3>When should a startup build an in-house marketing team?</h3>
-      <p>When marketing needs are constant, tied to the product, and large enough to keep a full-time person busy — usually around or after Series A. Many start with one in-house generalist who owns strategy while agencies execute.</p>
-
-      <h3>What is the hybrid marketing model?</h3>
-      <p>One in-house lead owning strategy and priorities, supported by an agency or freelancers for specialist, multi-channel execution. It's the most common setup for growing startups.</p>
-
-      <h3>Can an agency work alongside our in-house team?</h3>
-      <p>Yes. Many agencies, including <a href="/marketing-agency-bengaluru/">Tilth</a>, work alongside in-house teams and freelancers — often starting with a foundation audit so everyone shares an honest picture before deciding who owns what.</p>
-    </div>
-
-    <div class="article-bio">
+      <section data-afaq aria-labelledby="faq-h">
+        <h2 id="faq-h">Agency vs freelancer vs in-house — FAQs</h2>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b0" aria-controls="faq-p0" aria-expanded="true"><span>Should an early-stage startup hire a marketing agency or a freelancer?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p0" role="region" aria-labelledby="faq-b0"><div><p>Startups often start with a freelancer for a single, well-defined need because it's flexible and low-cost. An agency makes more sense once you need several channels working together and want tested playbooks rather than a single point of failure.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b1" aria-controls="faq-p1" aria-expanded="false"><span>Is an agency or in-house team cheaper?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p>For most early-stage startups an agency or freelancer is cheaper, because you avoid salaries, tools, and hiring costs. In-house only becomes cost-effective when the work is steady, full-time, and central enough to justify dedicated headcount.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b2" aria-controls="faq-p2" aria-expanded="false"><span>When should a startup build an in-house marketing team?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p>When marketing needs are constant, tied to the product, and large enough to keep a full-time person busy — usually around or after Series A. Many start with one in-house generalist who owns strategy while agencies execute.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b3" aria-controls="faq-p3" aria-expanded="false"><span>What is the hybrid marketing model?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p>One in-house lead owning strategy and priorities, supported by an agency or freelancers for specialist, multi-channel execution. It's the most common setup for growing startups.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b4" aria-controls="faq-p4" aria-expanded="false"><span>Can an agency work alongside our in-house team?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p>Yes. Many agencies, including <a href="/marketing-agency-bengaluru/">Tilth</a>, work alongside in-house teams and freelancers — often starting with a foundation audit so everyone shares an honest picture before deciding who owns what.</p></div></div>
+        </div>
+      </section>
+    <div data-bio>
       <img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">
       <p><strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C, working with startups as a freelancer, an agency partner, and an embedded lead. <a href="/about/">Read her story →</a></p>
     </div>
+    <aside data-acta aria-labelledby="acta-h">
+      <div data-eyebrow>Next step</div>
+      <h2 id="acta-h">Not sure what to hire for yet?</h2>
+      <p>A free foundation audit shows you exactly what's working and what's broken — so you hire (agency, freelancer, or in-house) for the real gap, not a guessed one. No pitch attached.</p>
+      <a data-btn href="/contact/"><span>Request a free audit</span> <span aria-hidden="true">&rarr;</span></a>
+    </aside>
   </div>
 </article>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br><a href="tel:+917007999306">+91 70079 99306</a><br>anuja@tilth.in</div>
-      </div>
-      <div>
-        <h2 class="fcol">Navigate</h2>
-        <ul>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/approach/">Approach</a></li>
-          <li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Legal</h2>
-        <ul>
-          <li><a href="/privacy/">Privacy Policy</a></li>
-          <li><a href="/terms/">Terms of Service</a></li>
-          <li><a href="/cookie-policy/">Cookie Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Social</h2>
-        <ul>
-          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
-      </div>
+</main>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Tilth. All rights reserved.</span>
-      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>

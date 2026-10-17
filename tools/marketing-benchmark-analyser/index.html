@@ -4,23 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1MJEZ4VK26');
-</script>
+<!-- Google tag (gtag.js) — deferred loader, commands queue in dataLayer -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1MJEZ4VK26');
+(function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26';document.head.appendChild(s);}
+if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
+['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});})();</script>
 <title>Marketing Benchmark Analyser — Score Your Metrics Honestly | Tilth</title>
 <meta name="description" content="Free marketing benchmark analyser: enter the metrics that fit your business model and get an honest health score, benchmark comparison, your biggest issue, and prioritised actions.">
 <link rel="canonical" href="https://wearetilth.com/tools/marketing-benchmark-analyser/">
+
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="geo.region" content="IN-KA">
-<meta name="geo.placename" content="Bengaluru">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -30,417 +26,265 @@
 <meta property="og:description" content="Enter the metrics that fit your model, compare to sourced benchmarks, and get prioritised actions. Free, no sign-up.">
 <meta property="og:url" content="https://wearetilth.com/tools/marketing-benchmark-analyser/">
 <meta property="og:image" content="https://wearetilth.com/og-image.png">
-<meta property="og:locale" content="en_IN">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Marketing Benchmark Analyser | Tilth">
-<meta name="twitter:description" content="An honest marketing health score, benchmark comparison, and prioritised actions. Free.">
+<meta name="twitter:title" content="Marketing Benchmark Analyser — an honest health score">
+<meta name="twitter:description" content="Enter the metrics that fit your model, compare to sourced benchmarks, and get prioritised actions. Free, no sign-up.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<style>
-  .an-models { display: flex; flex-wrap: wrap; gap: 8px; margin: 34px 0 14px; }
-  .anm { font-family: 'Work Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--text); background: transparent; border: 1px solid var(--rule); border-radius: 40px; padding: 8px 16px; cursor: pointer; transition: color .3s, border-color .3s, background .3s; }
-  .anm:hover { color: var(--ink); border-color: var(--glow); }
-  .anm.active { background: var(--glow); border-color: var(--glow); color: var(--bg); }
-  .an-seg { margin: 0 0 4px; }
-  .an-seg label { font-size: 13px; color: var(--ink); font-weight: 500; margin-right: 10px; }
-  .an-seg select { background: var(--bg); border: 1px solid var(--rule); border-radius: 8px; padding: 8px 12px; color: var(--ink); font-family: 'Work Sans', sans-serif; font-size: 14px; }
-  .an-fields { display: grid; gap: 14px; }
-  @media (min-width: 560px) { .an-fields { grid-template-columns: 1fr 1fr; } }
-  .an-field label { display: block; font-size: 13px; color: var(--ink); font-weight: 500; margin-bottom: 5px; }
-  .an-field .h { font-size: 11.5px; color: var(--olive); font-weight: 400; }
-  .an-field .tk-val { display: flex; width: 100%; }
-  .an-field .tk-val input { width: 100%; }
-
-  .score-hero { text-align: center; padding: 8px 0 6px; }
-  .score-hero .num { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(56px, 12vw, 92px); line-height: 1; letter-spacing: -2px; }
-  .score-hero .num .slash { color: var(--olive); font-size: .4em; }
-  .score-hero .lbl { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--olive); font-weight: 600; margin-top: 6px; }
-  .gauge { height: 8px; background: var(--bg); border-radius: 6px; overflow: hidden; margin: 18px 0 4px; }
-  .gauge span { display: block; height: 100%; border-radius: 6px; transition: width .5s var(--ease), background .4s; }
-
-  .mrow { padding: 15px 0; border-top: 1px solid var(--rule); }
-  .mrow:first-child { border-top: 0; }
-  .mrow .top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-  .mrow .mlabel { font-size: 14.5px; color: var(--ink); font-weight: 500; }
-  .mrow .mval { font-family: 'Fraunces', serif; font-size: 17px; color: var(--ink); white-space: nowrap; }
-  .mrow .mbench { font-size: 12px; color: var(--olive); margin-top: 3px; }
-  .mbadge { font-size: 10px; letter-spacing: .5px; text-transform: uppercase; font-weight: 700; padding: 2px 9px; border-radius: 20px; white-space: nowrap; }
-  .mbadge.strong { color: var(--glow); background: rgba(170,197,108,.14); }
-  .mbadge.average { color: #CFA04C; background: rgba(207,160,76,.14); }
-  .mbadge.weak { color: var(--terra); background: rgba(226,136,90,.14); }
-  .mbadge.none { color: var(--olive); background: var(--bg); }
-  .mbar { height: 6px; background: var(--bg); border-radius: 4px; overflow: hidden; margin-top: 10px; }
-  .mbar span { display: block; height: 100%; border-radius: 4px; }
-  .mnote { font-size: 11.5px; color: var(--olive); margin-top: 7px; }
-
-  .actions { list-style: none; padding: 0; display: grid; gap: 14px; }
-  .action { background: var(--bg); border: 1px solid var(--rule); border-radius: 12px; padding: 16px 18px; }
-  .action .n { font-family: 'Fraunces', serif; font-style: italic; color: var(--glow); font-size: 15px; }
-  .action p { font-size: 14px; color: var(--text); line-height: 1.55; margin: 6px 0 0; }
-  .action a { color: var(--glow); border-bottom: 1px solid var(--glow); font-weight: 600; font-size: 13.5px; }
-</style>
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/core-company.css">
+<link rel="stylesheet" href="/assets/tools.css">
+<script type="module" src="/tools-worksheet.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "BreadcrumbList", "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wearetilth.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://wearetilth.com/tools/" },
-      { "@type": "ListItem", "position": 3, "name": "Marketing Benchmark Analyser", "item": "https://wearetilth.com/tools/marketing-benchmark-analyser/" }
-    ] },
-    { "@type": "WebApplication", "name": "Marketing Benchmark Analyser", "url": "https://wearetilth.com/tools/marketing-benchmark-analyser/",
-      "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web)",
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://wearetilth.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Free Tools",
+          "item": "https://wearetilth.com/tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Marketing Benchmark Analyser",
+          "item": "https://wearetilth.com/tools/marketing-benchmark-analyser/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Marketing Benchmark Analyser",
+      "url": "https://wearetilth.com/tools/marketing-benchmark-analyser/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any (web)",
       "description": "Scores a business's marketing metrics against sourced industry benchmarks by model, highlights the biggest issue, and returns prioritised actions.",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-      "publisher": { "@type": "Organization", "name": "Tilth", "url": "https://wearetilth.com/" } }
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tilth",
+        "url": "https://wearetilth.com/"
+      }
+    }
   ]
 }
 </script>
 </head>
-<body>
-
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav>
-      <a href="/services/">Services</a>
-      <a href="/industries/">Industries</a>
-      <a href="/work/">Work</a>
-      <a href="/insights/">Insights</a>
-      <a href="/tools/">Tools</a>
-      <a href="/about/">About</a>
+<body class="v3 v3-core v3-tkit v3-tool">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
     </nav>
-    <div class="meta">Global growth marketing agency · India-rooted, working with brands worldwide</div>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
   </div>
 </header>
 
-<section class="page-head">
-  <div class="wrap">
-    <span class="label">Free tool · Flagship</span>
-    <h1>How healthy is your marketing, <span class="accent">honestly?</span></h1>
-    <p class="standfirst">Pick your model, enter the metrics you actually have, and get a transparent health score against sourced benchmarks — plus your single biggest problem and what to do about it. We only score what we can verify; anything we can't, we leave out rather than guess.</p>
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
   </div>
-</section>
-
-<section class="tk">
-  <div class="wrap">
-    <div class="tk-crumb"><a href="/tools/">Free Tools</a> &nbsp;/&nbsp; Marketing Benchmark Analyser</div>
-
-    <div class="an-models" id="anModels" role="tablist" aria-label="Business model">
-      <button class="anm active" data-m="ecommerce" type="button">Ecommerce / D2C</button>
-      <button class="anm" data-m="saas" type="button">SaaS / subscription</button>
-      <button class="anm" data-m="lead" type="button">B2B / lead generation</button>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
+      <a href="/services/">Services</a>
+      <a href="/industries/">Industries</a>
+      <a href="/work/">Work</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/">Insights</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
     </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
+  </div>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
+<main id="main">
 
-    <div class="tk-calc">
-      <div class="tk-panel">
-        <h2>Your metrics</h2>
-        <p class="tk-sub">Enter what you know — leave the rest blank. Only filled metrics are scored.</p>
-        <div class="an-seg" id="segWrap" hidden>
+  <section id="hero" data-thero data-depth-label="SURFACE">
+    <nav data-crumb aria-label="Breadcrumb"><a href="/">Home</a> <span data-sep aria-hidden="true">/</span> <a href="/tools/">Free Tools</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">Marketing Benchmark Analyser</span></nav>
+    <div data-eyebrow>Free tool · Flagship</div>
+    <h1 data-h1 data-th1>How healthy is your marketing, <span data-acc>honestly?</span></h1>
+    <div data-thero-row>
+      <p data-lede>Pick your model, enter the metrics you actually have, and get a transparent health score against sourced benchmarks — plus your single biggest problem and what to do about it. We only score what we can verify; anything we can't, we leave out rather than guess.</p>
+      <p data-tmeta><b>Founders &amp; marketing leads</b> · ~3 min<br>Needs: Your key metrics (conversion, churn, LTV:CAC…)</p>
+    </div>
+  </section>
+
+  <section data-ws data-tool-key="analyser" id="calculator" data-depth-label="SHALLOW" aria-label="Marketing Benchmark Analyser">
+    <div data-toolbar>
+      <div data-tabs data-count="3" id="anModels" role="tablist" aria-label="Business model">
+        <button data-tab data-m="ecommerce" role="tab" aria-selected="true" type="button">Ecommerce / D2C</button>
+        <button data-tab data-m="saas" role="tab" aria-selected="false" type="button">SaaS / subscription</button>
+        <button data-tab data-m="lead" role="tab" aria-selected="false" type="button">B2B / lead generation</button>
+      </div>
+    </div>
+    <div data-ws-grid data-analyser>
+      <div data-inputs>
+        <h2 data-ptitle><span data-step aria-hidden="true">01</span>Your metrics</h2>
+        <p data-psub>Enter what you know — leave the rest blank. Only filled metrics are scored.</p>
+        <div data-ctxsel id="segWrap" hidden>
           <label for="seg">Segment</label>
-          <select id="seg">
+          <select data-select id="seg">
             <option value="B2B SMB">B2B — SMB</option>
             <option value="B2B Mid-market">B2B — Mid-market</option>
             <option value="B2B Enterprise">B2B — Enterprise</option>
             <option value="B2C">B2C</option>
           </select>
         </div>
-        <div class="an-seg" id="trialWrap" hidden>
+        <div data-ctxsel id="trialWrap" hidden>
           <label for="trialSel">Trial model</label>
-          <select id="trialSel">
+          <select data-select id="trialSel">
             <option value="optin">Opt-in trial (no card)</option>
             <option value="optout">Opt-out trial (card required)</option>
             <option value="freemium">Freemium (free → paid)</option>
           </select>
         </div>
-        <div class="an-fields" id="anFields"></div>
-      </div>
-
-      <div class="tk-results">
-        <div class="tk-verdict neutral" id="verdict" aria-live="polite">
-          <div class="score-hero">
-            <div class="num"><span id="score">—</span><span class="slash">/100</span></div>
-            <div class="lbl" id="scoreLbl">Marketing health score</div>
-          </div>
-          <div class="gauge"><span id="gauge" style="width:0%;background:var(--olive)"></span></div>
-          <div class="detail" id="vd" style="margin-top:14px;">Enter at least one metric to see your score.</div>
-        </div>
-        <div class="tk-rcard">
-          <div class="k">Metric-by-metric</div>
-          <div id="mrows" style="margin-top:6px;"><p class="exp">Your metrics will appear here, each compared to its benchmark.</p></div>
+        <div data-fields id="anFields">
+          <div data-field><div data-fhead><label data-flabel for="in_ecommerce_conversion_rate">Website conversion rate</label><span data-fhint id="in_ecommerce_conversion_rate-h">Visitors → purchase</span></div><div data-ctl><input type="number" id="in_ecommerce_conversion_rate" data-metric="ecommerce_conversion_rate" min="0" step="0.1" inputmode="decimal" placeholder="—" aria-describedby="in_ecommerce_conversion_rate-h"><span data-suf>%</span></div></div>
+          <div data-field><div data-fhead><label data-flabel for="in_cart_abandonment_rate">Cart abandonment rate</label><span data-fhint id="in_cart_abandonment_rate-h">Carts started but not bought</span></div><div data-ctl><input type="number" id="in_cart_abandonment_rate" data-metric="cart_abandonment_rate" min="0" step="0.1" inputmode="decimal" placeholder="—" aria-describedby="in_cart_abandonment_rate-h"><span data-suf>%</span></div></div>
+          <div data-field><div data-fhead><label data-flabel for="in_landing_page_conversion_rate">Landing page conversion rate</label><span data-fhint id="in_landing_page_conversion_rate-h">Campaign landing pages</span></div><div data-ctl><input type="number" id="in_landing_page_conversion_rate" data-metric="landing_page_conversion_rate" min="0" step="0.1" inputmode="decimal" placeholder="—" aria-describedby="in_landing_page_conversion_rate-h"><span data-suf>%</span></div></div>
+          <div data-field><div data-fhead><label data-flabel for="in_meta_ads_ctr">Meta ads CTR</label><span data-fhint id="in_meta_ads_ctr-h">Facebook/Instagram, traffic</span></div><div data-ctl><input type="number" id="in_meta_ads_ctr" data-metric="meta_ads_ctr" min="0" step="0.1" inputmode="decimal" placeholder="—" aria-describedby="in_meta_ads_ctr-h"><span data-suf>%</span></div></div>
+          <div data-field><div data-fhead><label data-flabel for="in_email_click_rate">Email click-through rate</label><span data-fhint id="in_email_click_rate-h">Avg across campaigns</span></div><div data-ctl><input type="number" id="in_email_click_rate" data-metric="email_click_rate" min="0" step="0.1" inputmode="decimal" placeholder="—" aria-describedby="in_email_click_rate-h"><span data-suf>%</span></div></div>
+          <div data-field><div data-fhead><label data-flabel for="in_ltv_cac_ratio">LTV : CAC ratio</label><span data-fhint id="in_ltv_cac_ratio-h">From the LTV:CAC tool</span></div><div data-ctl><input type="number" id="in_ltv_cac_ratio" data-metric="ltv_cac_ratio" min="0" step="0.1" inputmode="decimal" placeholder="—" aria-describedby="in_ltv_cac_ratio-h"><span data-suf>:1</span></div></div>
         </div>
       </div>
+      <section data-readout id="result" aria-labelledby="result-h">
+        <h2 data-ptitle id="result-h"><span data-step aria-hidden="true">02</span>Result</h2>
+        <p data-nojs>This calculator runs in your browser. Turn on JavaScript to see your result.</p>
+        
+        <div data-verdict data-state="neutral" id="verdict" aria-live="polite">
+          <div data-vk><span data-vglyph aria-hidden="true"></span><span id="scoreLbl">Marketing health score</span></div>
+          <div data-score><span id="score">—</span><span data-slash>/100</span></div>
+          <div data-gauge aria-hidden="true"><span id="gauge" data-band="none" style="width:0%"></span><i style="left:50%"></i><i style="left:70%"></i></div>
+          <div data-gauge-scale aria-hidden="true"><span>0</span><span style="left:50%">50</span><span style="left:70%">70</span><span style="left:100%">100</span></div>
+          <p data-vd id="vd">Enter at least one metric to see your score.</p>
+        </div>
+        <div data-metric>
+          <div data-mk>Metric-by-metric</div>
+          <div id="mrows" data-mrows><p data-mexp>Your metrics will appear here, each compared to its benchmark.</p></div>
+        </div>
+      </section>
     </div>
+  </section>
 
-    <div class="tk-rcard" id="priorityCard" style="margin-top:22px;" hidden>
-      <div class="k">Do these first — highest impact</div>
-      <ol class="actions" id="actions" style="margin-top:14px;"></ol>
-    </div>
-
-    <div class="tk-note" id="quality" hidden>
+  <div data-interp data-depth-label="MID">
+    <section data-priority id="priorityCard" aria-labelledby="pri-h" hidden>
+      <h2 data-ptitle id="pri-h"><span data-step aria-hidden="true">03</span>Do these first — highest impact</h2>
+      <ol data-prio id="actions"></ol>
+    </section>
+    <div data-quality id="quality" hidden>
       <p id="qualityText"></p>
     </div>
+  </div>
 
-    <div class="tk-cta" id="ctaCard">
-      <h3 id="ctaH">The benchmark that matters most is your own baseline</h3>
-      <p id="ctaP">Public benchmarks are a starting point. A free foundation audit builds a measurement baseline from your own data and tells you which of these numbers you can actually trust.</p>
-      <a href="/contact/" class="btn" id="ctaBtn"><span id="ctaBtnT">Request a free audit</span><span aria-hidden="true">→</span></a>
+  <section data-tcta data-depth-label="FOUNDATION" aria-labelledby="ctaH" id="ctaCard">
+    <div data-eyebrow><span data-step aria-hidden="true">04</span>Next step</div>
+    <div data-tcta-grid>
+      <h2 id="ctaH" data-tcta-h>The benchmark that matters most is your own baseline</h2>
+      <div>
+        <p id="ctaP">Public benchmarks are a starting point. A free foundation audit builds a measurement baseline from your own data and tells you which of these numbers you can actually trust.</p>
+        <a data-btn data-cta-btn href="/contact/" id="ctaBtn"><span id="ctaBtnT">Request a free audit</span> <span aria-hidden="true">&rarr;</span></a>
+      </div>
     </div>
+  </section>
 
-    <div class="tk-related">
-      <h3>Related</h3>
-      <ul>
-        <li><a href="/tools/benchmarks/">How these benchmarks are sourced →</a></li>
-        <li><a href="/tools/ad-spend-profitability-calculator/">Ad Spend Profitability Calculator →</a></li>
-        <li><a href="/tools/ltv-cac-calculator/">LTV : CAC Calculator →</a></li>
-      </ul>
+  <section data-related aria-labelledby="rel-h">
+    <h2 id="rel-h">Related</h2>
+    <ul>
+      <li><a href="/tools/benchmarks/">How these benchmarks are sourced</a></li>
+      <li><a href="/tools/ad-spend-profitability-calculator/">Ad Spend Profitability Calculator</a></li>
+      <li><a href="/tools/ltv-cac-calculator/">LTV : CAC Calculator</a></li>
+    </ul>
+  </section>
+  <div data-dock hidden aria-hidden="true"><div data-dock-txt><span data-dock-k><span data-vglyph aria-hidden="true"></span><span></span></span><span data-dock-v></span></div><a href="#result" tabindex="-1">Result <span aria-hidden="true">↓</span></a></div>
+</main>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
   </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br><a href="tel:+917007999306">+91 70079 99306</a><br>anuja@tilth.in</div>
-      </div>
-      <div>
-        <h2 class="fcol">Navigate</h2>
-        <ul>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/approach/">Approach</a></li>
-          <li><a href="/insights/">Insights</a></li>
-          <li><a href="/tools/">Tools</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Legal</h2>
-        <ul>
-          <li><a href="/privacy/">Privacy Policy</a></li>
-          <li><a href="/terms/">Terms of Service</a></li>
-          <li><a href="/cookie-policy/">Cookie Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Social</h2>
-        <ul>
-          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Tilth. All rights reserved.</span>
-      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
     </div>
   </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-
-<script type="module">
-import { lookupBenchmark, classifyAgainst, scoreMetric } from '/tools/lib/benchmarks.js';
-import { track, trackOnce, scoreBand } from '/tools/lib/analytics.js';
-(function () {
-  track('tool_viewed', { tool: 'analyser' });
-  var currentCta = 'foundation', _rt;
-  function scheduleResultTrack(overall, n) { clearTimeout(_rt); _rt = setTimeout(function () { track('result_viewed', { tool: 'analyser', model: model, band: scoreBand(overall), metrics: n }); }, 1400); }
-  // metric config per model
-  var MODELS = {
-    ecommerce: [
-      { metric: 'ecommerce_conversion_rate', label: 'Website conversion rate', unit: '%', hint: 'Visitors → purchase' },
-      { metric: 'cart_abandonment_rate', label: 'Cart abandonment rate', unit: '%', hint: 'Carts started but not bought' },
-      { metric: 'landing_page_conversion_rate', label: 'Landing page conversion rate', unit: '%', hint: 'Campaign landing pages' },
-      { metric: 'meta_ads_ctr', label: 'Meta ads CTR', unit: '%', hint: 'Facebook/Instagram, traffic' },
-      { metric: 'email_click_rate', label: 'Email click-through rate', unit: '%', hint: 'Avg across campaigns' },
-      { metric: 'ltv_cac_ratio', label: 'LTV : CAC ratio', unit: ':1', hint: 'From the LTV:CAC tool' }
-    ],
-    saas: [
-      { metric: 'saas_monthly_churn', label: 'Monthly churn', unit: '%', hint: 'Customers lost / month', seg: true },
-      { metric: 'saas_trial_to_paid', label: 'Trial / freemium → paid', unit: '%', hint: 'Depends on trial model (select above)', trial: true },
-      { metric: 'ltv_cac_ratio', label: 'LTV : CAC ratio', unit: ':1', hint: 'Lifetime value ÷ CAC' },
-      { metric: 'landing_page_conversion_rate', label: 'Landing page conversion rate', unit: '%', hint: 'Sign-up / demo pages' },
-      { metric: 'meta_ads_ctr', label: 'Meta ads CTR', unit: '%', hint: 'Facebook/Instagram, traffic' },
-      { metric: 'email_click_rate', label: 'Email click-through rate', unit: '%', hint: 'Lifecycle emails' }
-    ],
-    lead: [
-      { metric: 'b2b_visitor_to_lead', label: 'Visitor → lead', unit: '%', hint: 'Site visitors that enquire' },
-      { metric: 'landing_page_conversion_rate', label: 'Landing page conversion rate', unit: '%', hint: 'Campaign landing pages' },
-      { metric: 'meta_ads_lead_conversion_rate', label: 'Meta lead-ad conversion rate', unit: '%', hint: 'Lead-form completion' },
-      { metric: 'b2b_mql_to_sql', label: 'MQL → SQL', unit: '%', hint: 'Marketing → sales qualified' },
-      { metric: 'b2b_opportunity_to_customer', label: 'Opportunity → customer', unit: '%', hint: 'Win rate' },
-      { metric: 'ltv_cac_ratio', label: 'LTV : CAC ratio', unit: ':1', hint: 'Lifetime value ÷ CAC' }
-    ]
-  };
-  var ACTIONS = {
-    ecommerce_conversion_rate: { rec: 'Your site converts below benchmark — the leak is usually in the funnel, not the traffic.', tool: '/tools/conversion-funnel-calculator/', toolLabel: 'Map your funnel', cta: 'funnel' },
-    email_click_rate: { rec: 'Email engagement trails benchmark — segment the list and test subject lines and CTAs before sending more.', cta: 'measurement' },
-    cart_abandonment_rate: { rec: 'More carts are abandoned than the norm — the leak is usually checkout friction: surprise shipping/fees, forced account creation, or too few payment options.', tool: '/tools/conversion-funnel-calculator/', toolLabel: 'Map your checkout funnel', cta: 'funnel' },
-    landing_page_conversion_rate: { rec: 'Landing pages convert below benchmark — tighten message-match to the ad, cut the form, and make one clear offer per page before buying more clicks.', tool: '/tools/conversion-funnel-calculator/', toolLabel: 'Map your funnel', cta: 'funnel' },
-    meta_ads_ctr: { rec: 'Meta click-through is below benchmark — the creative or audience isn’t landing. Test new hooks/formats and tighten targeting before raising budget.', cta: 'measurement' },
-    meta_ads_lead_conversion_rate: { rec: 'Lead-ad completion trails benchmark — shorten the form, pre-fill where you can, and match the offer to the ad’s promise.', tool: '/tools/conversion-funnel-calculator/', toolLabel: 'Map your funnel', cta: 'funnel' },
-    saas_monthly_churn: { rec: 'Churn is above benchmark — for a subscription business, keeping customers beats buying new ones. Fix onboarding and early value first.', tool: '/tools/ltv-cac-calculator/', toolLabel: 'Model churn in LTV:CAC', cta: 'economics' },
-    saas_trial_to_paid: { rec: 'Trial → paid is below benchmark — most trials stall before first value. Shorten time-to-value, guide activation, and capture payment at the value moment (card-required trials convert far higher, at the cost of fewer starts).', tool: '/tools/ltv-cac-calculator/', toolLabel: 'Model it in LTV:CAC', cta: 'economics' },
-    saas_freemium_conversion: { rec: 'Freemium free → paid is below benchmark — the paywall or upgrade trigger isn’t compelling. Gate the right feature, prompt at the value moment, and check the free tier isn’t so generous no one needs to pay.', cta: 'economics' },
-    ltv_cac_ratio: { rec: 'Your unit economics are thin — acquisition cost or payback needs work before you scale spend.', tool: '/tools/ad-spend-profitability-calculator/', toolLabel: 'Check ad-spend economics', cta: 'economics' },
-    b2b_visitor_to_lead: { rec: 'Too few visitors become leads — usually a targeting or landing-page/offer problem, not traffic volume.', tool: '/tools/conversion-funnel-calculator/', toolLabel: 'Map your funnel', cta: 'funnel' },
-    b2b_mql_to_sql: { rec: 'Leads stall before sales — tighten scoring and ICP so sales gets fewer, better-qualified leads.', cta: 'measurement' },
-    b2b_opportunity_to_customer: { rec: 'Opportunities aren’t closing — revisit qualification, pricing and the offer rather than top-of-funnel volume.', cta: 'sales' }
-  };
-  var CTA = {
-    funnel: { h: 'Ask Tilth to review your funnel', t: 'Your weakest link is a conversion step, not traffic. We map where people drop and fix the leak.', b: 'Ask us to review your funnel' },
-    measurement: { h: 'Request a measurement audit', t: 'These numbers are only worth acting on if they’re measured right. We check the tracking first.', b: 'Request a measurement audit' },
-    economics: { h: 'Review your acquisition economics', t: 'Thin unit economics don’t fix themselves at scale. We pressure-test CAC, payback and margin.', b: 'Review your economics with Tilth' },
-    sales: { h: 'Tighten the bottom of your funnel', t: 'Opportunities that don’t close are a qualification and offer problem. We help align marketing and sales.', b: 'Talk to Tilth' },
-    foundation: { h: 'The benchmark that matters most is your own baseline', t: 'Public benchmarks are a starting point. A free foundation audit builds a baseline from your own data.', b: 'Request a free audit' }
-  };
-
-  var model = 'ecommerce';
-  var fieldsEl = document.getElementById('anFields'), segWrap = document.getElementById('segWrap'), segEl = document.getElementById('seg'),
-      trialWrap = document.getElementById('trialWrap'), trialSel = document.getElementById('trialSel');
-  var scoreEl = document.getElementById('score'), scoreLbl = document.getElementById('scoreLbl'), gaugeEl = document.getElementById('gauge'),
-      vEl = document.getElementById('verdict'), vd = document.getElementById('vd'), mrows = document.getElementById('mrows'),
-      priorityCard = document.getElementById('priorityCard'), actionsEl = document.getElementById('actions'),
-      quality = document.getElementById('quality'), qualityText = document.getElementById('qualityText'),
-      ctaH = document.getElementById('ctaH'), ctaP = document.getElementById('ctaP'), ctaBtnT = document.getElementById('ctaBtnT');
-
-  function color(score) { return score >= 70 ? 'var(--glow)' : score >= 50 ? '#CFA04C' : 'var(--terra)'; }
-  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
-
-  function buildFields() {
-    fieldsEl.innerHTML = '';
-    segWrap.hidden = !MODELS[model].some(function (m) { return m.seg; });
-    trialWrap.hidden = !MODELS[model].some(function (m) { return m.trial; });
-    MODELS[model].forEach(function (m) {
-      var d = document.createElement('div'); d.className = 'an-field';
-      var pct = m.unit === '%';
-      d.innerHTML = '<label for="in_' + m.metric + '">' + esc(m.label) + ' <span class="h">· ' + esc(m.hint) + '</span></label>' +
-        '<span class="tk-val ' + (pct ? 'pct' : '') + '">' + (pct ? '' : '') +
-        '<input type="number" id="in_' + m.metric + '" data-metric="' + m.metric + '" min="0" step="0.1" inputmode="decimal" placeholder="—">' +
-        (pct ? '<span class="suf">%</span>' : '<span class="suf" style="right:auto;left:13px;color:var(--olive)">' + esc(m.unit) + '</span>') + '</span>';
-      fieldsEl.appendChild(d);
-    });
-    fieldsEl.querySelectorAll('input').forEach(function (i) { i.addEventListener('input', function () { trackOnce('an-started', 'tool_started', { tool: 'analyser' }); render(); }); });
-  }
-
-  // Resolve a config entry to the metric + segment context to score it against.
-  // Segment is scoped PER METRIC (churn segment must not leak onto other metrics),
-  // and the trial field switches metric/segment based on the trial-model selector.
-  function resolve(m) {
-    var lookupMetric = m.metric, label = m.label, ctx = { businessModel: model };
-    if (m.seg) ctx.segment = segEl.value;
-    if (m.trial) {
-      var tv = trialSel.value;
-      if (tv === 'freemium') { lookupMetric = 'saas_freemium_conversion'; label = 'Freemium free → paid'; }
-      else if (tv === 'optout') { lookupMetric = 'saas_trial_to_paid'; label = 'Trial → paid (card required)'; ctx.segment = 'Opt-out trial (credit card required)'; }
-      else { lookupMetric = 'saas_trial_to_paid'; label = 'Trial → paid (no card)'; ctx.segment = 'Opt-in trial (no credit card)'; }
-    }
-    return { metric: lookupMetric, label: label, unit: m.unit, ctx: ctx };
-  }
-
-  function render() {
-    var scored = [], rowsHtml = '', anyFallback = false, anyLowConf = false, entered = 0;
-
-    MODELS[model].forEach(function (m) {
-      var input = document.getElementById('in_' + m.metric);
-      var raw = parseFloat(input.value);
-      if (isNaN(raw)) return;
-      entered++;
-      var r = resolve(m);
-      var mm = { metric: r.metric, label: r.label, unit: r.unit };
-      var b = lookupBenchmark(r.metric, r.ctx);
-      if (!b) {
-        rowsHtml += '<div class="mrow"><div class="top"><span class="mlabel">' + esc(mm.label) + '</span><span class="mbadge none">no benchmark</span></div>' +
-          '<div class="mbench">' + raw + mm.unit + ' — no verified benchmark for your context, so this isn’t scored.</div></div>';
-        return;
-      }
-      var sc = scoreMetric(raw, b);
-      var cls = classifyAgainst(raw, b);
-      var badge = cls.performance === 'strong' ? 'strong' : cls.performance === 'weak' ? 'weak' : 'average';
-      scored.push({ m: mm, b: b, value: raw, score: sc, perf: cls.performance });
-      if (b.fallback) anyFallback = true;
-      if (b.confidence === 'low') anyLowConf = true;
-      var heur = b.verificationStatus === 'heuristic' ? ' <span style="color:#CFA04C">(rule of thumb, not a sourced benchmark)</span>' : '';
-      var fb = b.fallback ? ' <span style="color:var(--olive)">(broader benchmark used)</span>' : '';
-      rowsHtml += '<div class="mrow"><div class="top"><span class="mlabel">' + esc(mm.label) + '</span><span class="mbadge ' + badge + '">' + esc(cls.performance) + '</span></div>' +
-        '<div class="top" style="margin-top:2px;"><span class="mval">' + raw + mm.unit + '</span>' +
-        '<span class="mbench">benchmark ' + b.low + b.unit + '–' + b.high + b.unit + ' (median ' + b.median + b.unit + ')</span></div>' +
-        '<div class="mbar"><span style="width:' + sc.toFixed(0) + '%;background:' + color(sc) + '"></span></div>' +
-        (heur || fb ? '<div class="mnote">' + heur + fb + '</div>' : '') + '</div>';
-    });
-
-    mrows.innerHTML = rowsHtml || '<p class="exp">Your metrics will appear here, each compared to its benchmark.</p>';
-
-    if (!scored.length) {
-      scoreEl.textContent = '—'; gaugeEl.style.width = '0%'; gaugeEl.style.background = 'var(--olive)';
-      vEl.className = 'tk-verdict neutral'; scoreLbl.textContent = 'Marketing health score';
-      vd.textContent = entered ? 'None of the metrics you entered have a verified benchmark for this context yet — try another, or see the sources page.' : 'Enter at least one metric to see your score.';
-      priorityCard.hidden = true; quality.hidden = true;
-      currentCta = 'foundation'; ctaH.textContent = CTA.foundation.h; ctaP.textContent = CTA.foundation.t; ctaBtnT.textContent = CTA.foundation.b;
-      return;
-    }
-
-    var overall = Math.round(scored.reduce(function (s, x) { return s + x.score; }, 0) / scored.length);
-    scheduleResultTrack(overall, scored.length);
-    scoreEl.textContent = overall;
-    gaugeEl.style.width = overall + '%'; gaugeEl.style.background = color(overall);
-    vEl.className = 'tk-verdict ' + (overall >= 70 ? 'good' : overall >= 50 ? 'warn' : 'bad');
-
-    var sortAsc = scored.slice().sort(function (a, b) { return a.score - b.score; });
-    var weakest = sortAsc[0], strongest = sortAsc[sortAsc.length - 1];
-    scoreLbl.textContent = overall >= 70 ? 'Healthy — above benchmark overall' : overall >= 50 ? 'Mixed — room to improve' : 'Below benchmark — needs work';
-    vd.innerHTML = 'Scored on <strong>' + scored.length + '</strong> metric' + (scored.length > 1 ? 's' : '') + '. Strongest: <strong>' + esc(strongest.m.label) + '</strong>. Weakest — and your priority: <strong style="color:var(--terra)">' + esc(weakest.m.label) + '</strong>.';
-
-    // priority actions: weakest first, up to 3, only for below-strong metrics
-    var priorities = sortAsc.filter(function (x) { return x.perf !== 'strong' && ACTIONS[x.m.metric]; }).slice(0, 3);
-    if (priorities.length) {
-      actionsEl.innerHTML = priorities.map(function (x, i) {
-        var a = ACTIONS[x.m.metric];
-        var link = a.tool ? ' <a href="' + a.tool + '">' + esc(a.toolLabel) + ' →</a>' : '';
-        return '<li class="action"><span class="n">0' + (i + 1) + ' · ' + esc(x.m.label) + '</span><p>' + esc(a.rec) + link + '</p></li>';
-      }).join('');
-      priorityCard.hidden = false;
-    } else {
-      actionsEl.innerHTML = '<li class="action"><p>No weak spots among the metrics you entered — every one is at or above benchmark. Keep measuring, and add more metrics for a fuller picture.</p></li>';
-      priorityCard.hidden = false;
-    }
-
-    // data quality + confidence
-    var q = [];
-    if (scored.length < 3) q.push('This score is based on only ' + scored.length + ' metric' + (scored.length > 1 ? 's' : '') + ' — add more for a fuller, more reliable picture.');
-    if (anyFallback) q.push('Some comparisons used a broader benchmark than your exact segment (shown per metric).');
-    if (anyLowConf) q.push('One or more benchmarks are low-confidence (e.g. email open rates are inflated by Apple’s privacy changes).');
-    q.push('Benchmarks are Global/US-weighted — India-specific data is limited, so read these as directional. ' +
-      '<a href="/tools/benchmarks/" style="color:var(--glow);border-bottom:1px solid var(--glow)">See sources →</a>');
-    qualityText.innerHTML = '<strong>Confidence &amp; data quality:</strong> ' + q.join(' ');
-    quality.hidden = false;
-
-    // contextual CTA from weakest actionable metric
-    currentCta = (ACTIONS[weakest.m.metric] && ACTIONS[weakest.m.metric].cta) || 'foundation';
-    var cta = CTA[currentCta] || CTA.foundation;
-    ctaH.textContent = cta.h; ctaP.textContent = cta.t; ctaBtnT.textContent = cta.b;
-  }
-
-  document.querySelectorAll('#anModels .anm').forEach(function (b) {
-    b.addEventListener('click', function () {
-      document.querySelectorAll('#anModels .anm').forEach(function (x) { x.classList.toggle('active', x === b); });
-      model = b.getAttribute('data-m');
-      buildFields(); render();
-      track('business_model_selected', { tool: 'analyser', model: model });
-    });
-  });
-  segEl.addEventListener('change', render);
-  trialSel.addEventListener('change', render);
-  document.getElementById('ctaBtn').addEventListener('click', function () { track('cta_clicked', { tool: 'analyser', cta: currentCta }); });
-  buildFields(); render();
-})();
-</script>
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>

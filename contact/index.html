@@ -16,7 +16,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -31,15 +31,11 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="twitter:title" content="Tell us what you're trying to grow">
 <meta name="twitter:description" content="Start a growth conversation with Tilth — a global, foundation-first growth marketing agency.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
-<!-- The hero H1's <em> is Fraunces italic and is part of the LCP element. Without this
-     preload it was discovered only after CSS parsed and took ~9s on throttled mobile. -->
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/assets/generated.css">
-<style>.contact-form .hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}</style>
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/core-company.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -62,10 +58,42 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
       ]
     },
     {
-      "@type": "Organization",
+      "@type": [
+        "ProfessionalService",
+        "MarketingAgency"
+      ],
       "@id": "https://wearetilth.com/#org",
       "name": "Tilth",
       "url": "https://wearetilth.com/",
+      "email": "anuja@wearetilth.com",
+      "telephone": "+917007999306",
+      "description": "Global growth marketing agency, India-rooted, working with brands worldwide. Foundation-first: strategy, website, measurement, creative and acquisition strengthened before scaling growth.",
+      "slogan": "Grow deep. Market smart.",
+      "logo": "https://wearetilth.com/favicon.svg",
+      "image": "https://wearetilth.com/anuja.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "Country",
+          "name": "India"
+        },
+        "Worldwide"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/tilth-in/",
+        "https://www.instagram.com/tilth.in/",
+        "https://x.com/Anuja_tilth",
+        "https://www.facebook.com/profile.php?id=61590502284155"
+      ],
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "anuja@wearetilth.com",
@@ -85,112 +113,173 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 }
 </script>
 </head>
-<body>
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav aria-label="Primary">
+<body class="v3 v3-core v3-enquiry">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
+    </nav>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
+  </div>
+</header>
+
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
       <a href="/services/">Services</a>
       <a href="/industries/">Industries</a>
       <a href="/work/">Work</a>
       <a href="/approach/">Approach</a>
       <a href="/insights/">Insights</a>
       <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
     </nav>
-    <div class="meta">India-rooted · Working across markets</div>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
   </div>
-</header>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
 <main id="main">
 
-<section class="ghero" id="hero" style="padding-bottom:20px">
-  <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <span>Contact</span></nav>
-    <span class="label">Contact</span>
-    <h1>Tell us what you're trying to <em>grow</em>.</h1>
-    <p class="lede">Share what's working, what isn't, and where you need clarity. We'll review the foundations before recommending another channel, campaign or website change.</p>
-  </div>
+<section id="hero" data-hero data-hero-tight data-depth-label="SURFACE">
+  <nav data-crumb aria-label="Breadcrumb"><a href="/">HOME</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">CONTACT</span></nav>
+  <div data-eyebrow>Contact</div>
+  <h1 data-h1>Tell us what you're trying to <em>grow</em>.</h1>
+  <p data-lede>Share what's working, what isn't, and where you need clarity. We'll review the foundations before recommending another channel, campaign or website change.</p>
 </section>
 
-<section class="gsec" id="contact-form" style="padding-top:20px">
-  <div class="wrap">
-    <div class="contact-grid">
-      <aside class="contact-aside">
-        <h3>What happens next</h3>
-        <p class="who">You'll usually hear back within one working day. We read what you send, and reply with a short, honest view of where to start — not a template pitch.</p>
-        <h3>Selected experience</h3>
-        <div class="trust__markers" style="margin-top:8px"><span class="trust__marker" style="font-size:20px">PayDirect</span><span class="trust__dot" aria-hidden="true">·</span><span class="trust__marker" style="font-size:20px">Ommora</span></div>
-        <h3>Ways to work with us</h3>
-        <p class="who"><a class="text-cta" href="/services/">Foundation Audit · Growth Project · Ongoing Partnership →</a></p>
-        <h3>Direct</h3>
-        <p class="who">Email <a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a><br>Call or WhatsApp <a href="tel:+917007999306">+91 70079 99306</a><br>Remote-first, collaborating across time zones.</p>
-      </aside>
+<section id="contact-form" data-sec data-form-sec data-depth-label="FOUNDATION">
+  <div data-cgrid>
+    <form class="contact-form" action="https://formsubmit.co/anuja@wearetilth.com" method="POST" data-form>
+      <input type="hidden" name="_subject" value="New growth enquiry — wearetilth.com">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <!-- return to our own success page so the visitor stays on-brand and generate_lead can fire (T-016) -->
+      <input type="hidden" name="_next" value="https://wearetilth.com/thank-you/">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-      <form class="contact-form" action="https://formsubmit.co/anuja@wearetilth.com" method="POST">
-        <input type="hidden" name="_subject" value="New growth enquiry — wearetilth.com">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <!-- return to our own success page so the visitor stays on-brand and generate_lead can fire (T-016) -->
-        <input type="hidden" name="_next" value="https://wearetilth.com/thank-you/">
-        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div data-row2>
+        <div data-field><label for="f-name">Name<span data-req aria-hidden="true">*</span></label><input id="f-name" name="name" type="text" required autocomplete="name"></div>
+        <div data-field><label for="f-email">Work email<span data-req aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
+      </div>
+      <div data-row2>
+        <div data-field><label for="f-company">Company</label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
+        <div data-field><label for="f-website">Website</label><input id="f-website" name="website" type="url" inputmode="url" placeholder="https://" autocomplete="url"></div>
+      </div>
+      <div data-row2>
+        <div data-field><label for="f-country">Country</label><input id="f-country" name="country" type="text" autocomplete="country-name"></div>
+        <div data-field><label for="f-tz">Time zone</label><input id="f-tz" name="timezone" type="text" placeholder="e.g. PST, IST"></div>
+      </div>
+      <div data-field><label for="f-need">What do you need help with?<span data-req aria-hidden="true">*</span></label>
+        <div data-select><select id="f-need" name="need" required><option value="" disabled selected>Choose one…</option><option>Scaling customer acquisition</option><option>Improving paid-media performance</option><option>Increasing organic visibility</option><option>Building or redesigning a website</option><option>Fixing tracking and attribution</option><option>Growing affiliate partnerships</option><option>Clarifying brand positioning</option><option>Not sure yet</option></select></div>
+      </div>
+      <div data-field><label for="f-goal">Primary business goal</label><input id="f-goal" name="goal" type="text" placeholder="e.g. lower CAC, more qualified pipeline, launch a new site"></div>
+      <div data-field><label for="f-challenge">Current challenge</label><textarea id="f-challenge" name="challenge" rows="5" placeholder="What's working, what isn't, and where you need clarity."></textarea></div>
+      <div data-field><label for="f-budget">Budget range (optional)</label>
+        <div data-select><select id="f-budget" name="budget"><option>Not sure yet</option><option>Under $5k / month</option><option>$5k–$15k / month</option><option>$15k–$50k / month</option><option>$50k+ / month</option><option>One-off project</option></select></div>
+      </div>
 
-        <div class="row2">
-          <div><label for="f-name">Name</label><input id="f-name" name="name" type="text" required autocomplete="name"></div>
-          <div><label for="f-email">Work email</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
-        </div>
-        <div class="row2">
-          <div><label for="f-company">Company</label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
-          <div><label for="f-website">Website</label><input id="f-website" name="website" type="url" inputmode="url" placeholder="https://" autocomplete="url"></div>
-        </div>
-        <div class="row2">
-          <div><label for="f-country">Country</label><input id="f-country" name="country" type="text" autocomplete="country-name"></div>
-          <div><label for="f-tz">Time zone</label><input id="f-tz" name="timezone" type="text" placeholder="e.g. PST, IST"></div>
-        </div>
-        <label for="f-need">What do you need help with?</label>
-        <select id="f-need" name="need" required>
-          <option value="" disabled selected>Choose one…</option>
-          <option>Scaling customer acquisition</option><option>Improving paid-media performance</option><option>Increasing organic visibility</option><option>Building or redesigning a website</option><option>Fixing tracking and attribution</option><option>Growing affiliate partnerships</option><option>Clarifying brand positioning</option><option>Not sure yet</option>
-        </select>
-        <label for="f-goal">Primary business goal</label>
-        <input id="f-goal" name="goal" type="text" placeholder="e.g. lower CAC, more qualified pipeline, launch a new site">
-        <label for="f-challenge">Current challenge</label>
-        <textarea id="f-challenge" name="challenge" placeholder="What's working, what isn't, and where you need clarity."></textarea>
-        <label for="f-budget">Budget range (optional)</label>
-        <select id="f-budget" name="budget">
-          <option>Not sure yet</option><option>Under $5k / month</option><option>$5k–$15k / month</option><option>$15k–$50k / month</option><option>$50k+ / month</option><option>One-off project</option>
-        </select>
+      <label class="consent" data-consent><input type="checkbox" name="consent" required> <span>I'm happy for Tilth to contact me about my enquiry.<span data-req aria-hidden="true">*</span></span></label>
+      <p data-privacy><a href="/privacy/">Privacy</a></p>
+      <div data-submit-row>
+        <button data-btn type="submit"><span>Discuss Your Growth Project</span> <span aria-hidden="true">&rarr;</span></button>
+      </div>
+    </form>
 
-        <label class="consent"><input type="checkbox" name="consent" required> I'm happy for Tilth to contact me about my enquiry.</label>
-        <button class="btn" type="submit"><span>Discuss Your Growth Project</span> <span class="arrow">→</span></button>
-      </form>
-    </div>
+    <aside data-aside aria-label="About your enquiry">
+      <div data-ablock>
+        <h2 data-ah>What happens next</h2>
+        <p>You'll usually hear back within one working day. We read what you send, and reply with a short, honest view of where to start — not a template pitch.</p>
+      </div>
+      <div data-ablock>
+        <h2 data-ah>Selected experience</h2>
+        <ul data-markers><li>PayDirect</li><li>Ommora</li></ul>
+      </div>
+      <div data-ablock>
+        <h2 data-ah>Ways to work with us</h2>
+        <p><a data-textlink href="/services/"><span>Foundation Audit &middot; Growth Project &middot; Ongoing Partnership &rarr;</span></a></p>
+      </div>
+      <div data-ablock>
+        <h2 data-ah>Direct</h2>
+        <p>Email <a data-direct href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a><br>Call or WhatsApp <a data-direct href="tel:+917007999306">+91 70079 99306</a><br>Remote-first, collaborating across time zones.</p>
+      </div>
+    </aside>
   </div>
 </section>
 
 </main>
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <p class="addr">Tilth is an India-rooted growth marketing agency working with ambitious brands across India and the US.<br><br>Bengaluru, India · Remote collaboration across India and the US<br><a href="tel:+917007999306">+91 70079 99306</a><br><a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a></p>
-      </div>
-      <div>
-        <h3 class="fcol">Explore</h3>
-        <ul><li><a href="/services/">Services</a></li><li><a href="/approach/">Approach</a></li><li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Legal</h3>
-        <ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/cookie-policy/">Cookie Policy</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Social</h3>
-        <ul><li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li><li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li></ul>
-      </div>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom"><span>© 2026 Tilth. All rights reserved.</span></div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
 <script src="/analytics.js" defer></script>
 </body>
 </html>

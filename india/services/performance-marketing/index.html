@@ -16,7 +16,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -26,52 +26,17 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta property="og:description" content="Tilth connects media planning, campaign execution, creative testing, tracking and funnel analysis for Indian brands.">
 <meta property="og:url" content="https://wearetilth.com/india/services/performance-marketing/">
 <meta property="og:image" content="https://wearetilth.com/og-image.png">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Performance marketing built around measurable business outcomes">
 <meta name="twitter:description" content="Tilth connects media planning, campaign execution, creative testing, tracking and funnel analysis for Indian brands.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
-<!-- The hero H1's <em> is Fraunces italic and is part of the LCP element. Without this
-     preload it was discovered only after CSS parsed and took ~9s on throttled mobile. -->
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/assets/generated.css">
-<style>
-  /* Regional pages reuse the global system; these are the only additions. */
-  .rlist{list-style:none;margin:var(--space-block) 0 0;padding:0;display:grid;gap:12px;max-width:70ch}
-  .rlist li{position:relative;padding-left:20px;font-size:16px;line-height:1.65;color:var(--text)}
-  .rlist li::before{content:"";position:absolute;left:0;top:.65em;width:7px;height:1px;background:var(--terra)}
-  .gsec--light .rlist li{color:#4B4239}
-  .rprose{font-size:16px;line-height:1.7;color:var(--text);max-width:68ch;margin-top:18px}
-  .gsec--light .rprose{color:#4B4239}
-  .rhero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px}
-  /* compact industry cards sit 2-up then 4-up rather than the 3-up service grid */
-  @media(min-width:640px){.card-grid--compact{grid-template-columns:1fr 1fr}}
-  @media(min-width:1000px){.card-grid--compact{grid-template-columns:repeat(4,1fr)}}
-  .card-grid--compact .gcard{min-height:0}
-  /* benefit + insight cards reuse the homepage patterns */
-  .igrid{display:grid;gap:16px;margin-top:var(--space-block)}
-  @media(min-width:760px){.igrid{grid-template-columns:repeat(3,1fr)}}
-  .icard{border:1px solid var(--rule);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px}
-  .icard__date{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--glow)}
-  .icard__title{font-family:'Fraunces',serif;font-weight:500;font-size:18px;line-height:1.3;margin:0}
-  .icard__title a{color:var(--ink);text-decoration:none}
-  .icard__title a:hover,.icard__title a:focus-visible{color:var(--glow)}
-  .icard__ex{font-size:14px;line-height:1.6;color:var(--text);margin:0}
-  .cap__n{display:block;font-family:'Fraunces',serif;color:var(--terra);font-size:14px;margin-bottom:6px}
-  /* FAQ inside a cream section inherits light-theme tokens — force dark-on-cream */
-  .gsec--light .faq__item{border-color:rgba(26,21,16,.14)}
-  .gsec--light .faq__item summary{color:#15110B}
-  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#55722F}
-  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#55722F}
-  .gsec--light .faq__ans p{color:#4B4239}
-  .faq__item summary h3{font:inherit;color:inherit;margin:0;font-weight:inherit;letter-spacing:inherit}
-  html.jsr .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-  html.jsr .reveal.in{opacity:1;transform:none}
-</style>
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/core-company.css">
+<link rel="stylesheet" href="/assets/regional.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -204,297 +169,318 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 }
 </script>
 </head>
-<body>
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav aria-label="Primary">
+<body class="v3 v3-core v3-rg">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
+    </nav>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
+  </div>
+</header>
+
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
       <a href="/services/">Services</a>
       <a href="/industries/">Industries</a>
       <a href="/work/">Work</a>
       <a href="/approach/">Approach</a>
       <a href="/insights/">Insights</a>
       <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
     </nav>
-    <div class="meta">India-rooted · Working across markets</div>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
   </div>
-</header>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
 <main id="main">
 
-<section class="ghero rhero" id="hero">
-  <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/india/">India</a> <span aria-hidden="true">/</span> <span>Performance Marketing</span></nav>
-    <p class="label">Performance marketing in India</p>
-    <h1>Performance marketing built around measurable business outcomes.</h1>
-    <p class="lede">Tilth connects media planning, campaign execution, creative testing, tracking and funnel analysis so paid growth decisions are based on evidence, not platform activity alone.</p>
-    <div class="actions">
-      <a class="btn" href="/contact/"><span>Discuss Your Performance Strategy</span> <span class="arrow">→</span></a>
-      <a class="text-cta" href="/approach/">Explore Our Approach →</a>
-    </div>
+<section id="hero" data-hero data-rg-hero data-depth-label="SURFACE">
+  <nav data-crumb aria-label="Breadcrumb"><a href="/" data-rg-cr>Home</a> <span data-sep aria-hidden="true">/</span> <a href="/india/" data-rg-cr>India</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page" data-rg-cr>Performance Marketing</span></nav>
+  <div data-eyebrow>Performance marketing in India</div>
+  <h1 data-h1>Performance marketing built around measurable business outcomes.</h1>
+  <p data-lede>Tilth connects media planning, campaign execution, creative testing, tracking and funnel analysis so paid growth decisions are based on evidence, not platform activity alone.</p>
+  <div data-actions>
+    <a data-btn href="/contact/">Discuss Your Performance Strategy <span aria-hidden="true">&rarr;</span></a>
+    <a data-textlink href="/approach/"><span>Explore Our Approach &rarr;</span></a>
   </div>
 </section>
 
-<section class="gsec reveal" id="stall" aria-labelledby="stall-h">
-  <div class="wrap">
-    <p class="label">The problem</p>
-    <h2 id="stall-h">Why performance marketing programmes stall</h2>
-    
-    <p class="rprose">More spend does not automatically create more growth. Campaigns can appear efficient while lead quality declines, conversion tracking remains incomplete or the website fails to convert the demand being generated.</p>
-    <p class="rprose">Tilth looks beyond the ad account. We review the customer journey, funnel stages, tracking, creative, channel economics and conversion experience to identify what is limiting performance before increasing investment.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="who-for" aria-labelledby="who-for-h">
-  <div class="wrap">
-    <p class="label">Who it's for</p>
-    <h2 id="who-for-h">Who this service is for</h2>
-    
-    
-    <ul class="rlist">
-      <li>Brands that are investing in paid media but cannot clearly connect spend to business outcomes.</li>
-      <li>Teams that need stronger campaign structure, creative testing or funnel visibility.</li>
-      <li>Companies that want an external partner to work alongside an internal marketing team.</li>
-      <li>Growth-stage businesses preparing to scale acquisition with better measurement and control.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="gsec reveal" id="channels" aria-labelledby="channels-h">
-  <div class="wrap">
-    <p class="label">Channels</p>
-    <h2 id="channels-h">Channels and capabilities</h2>
-    
-    
-    <div class="card-grid card-grid--compact">
-      <div class="gcard">
-        <h3 class="gcard__name">Google Ads</h3>
-        <p class="gcard__desc">Search, display, video or app campaigns where relevant to the agreed strategy and account setup.</p>
+  <div data-rg-block data-rg-kind="prose" data-rg-first data-depth-label="SHALLOW">
+    <section id="stall" data-rg-sec data-rg-type="prose" data-rg-lead aria-labelledby="stall-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>The problem</span>
+          <h2 id="stall-h" data-h2>Why performance marketing programmes stall</h2>
+        </div>
+        <div>
+          <p data-rg-p>More spend does not automatically create more growth. Campaigns can appear efficient while lead quality declines, conversion tracking remains incomplete or the website fails to convert the demand being generated.</p>
+          <p data-rg-p>Tilth looks beyond the ad account. We review the customer journey, funnel stages, tracking, creative, channel economics and conversion experience to identify what is limiting performance before increasing investment.</p>
+        </div>
       </div>
-      <div class="gcard">
-        <h3 class="gcard__name">Meta Ads</h3>
-        <p class="gcard__desc">Campaign planning, audience strategy, creative testing and conversion-focused optimisation.</p>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="list" data-inv data-depth-label="SHALLOW">
+    <section id="who-for" data-rg-sec data-rg-type="list" aria-labelledby="who-for-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Who it's for</span>
+          <h2 id="who-for-h" data-h2>Who this service is for</h2>
+        </div>
+        <div>
+          <ul data-rg-list>
+            <li>Brands that are investing in paid media but cannot clearly connect spend to business outcomes.</li>
+            <li>Teams that need stronger campaign structure, creative testing or funnel visibility.</li>
+            <li>Companies that want an external partner to work alongside an internal marketing team.</li>
+            <li>Growth-stage businesses preparing to scale acquisition with better measurement and control.</li>
+          </ul>
+        </div>
       </div>
-      <div class="gcard">
-        <h3 class="gcard__name">LinkedIn Ads</h3>
-        <p class="gcard__desc">B2B campaign planning where the audience, offer and economics support paid acquisition.</p>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="cards" data-depth-label="MID">
+    <section id="channels" data-rg-sec data-rg-type="cards" aria-labelledby="channels-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Channels</span>
+          <h2 id="channels-h" data-h2>Channels and capabilities</h2>
+        </div>
+        <div>
+          <div data-rg-tiles>
+            <div data-rg-tile><h3>Google Ads</h3><p>Search, display, video or app campaigns where relevant to the agreed strategy and account setup.</p></div>
+            <div data-rg-tile><h3>Meta Ads</h3><p>Campaign planning, audience strategy, creative testing and conversion-focused optimisation.</p></div>
+            <div data-rg-tile><h3>LinkedIn Ads</h3><p>B2B campaign planning where the audience, offer and economics support paid acquisition.</p></div>
+            <div data-rg-tile><h3>Measurement</h3><p>GA4, conversion events, funnel definitions, attribution inputs and reporting aligned to business outcomes.</p></div>
+          </div>
+        </div>
       </div>
-      <div class="gcard">
-        <h3 class="gcard__name">Measurement</h3>
-        <p class="gcard__desc">GA4, conversion events, funnel definitions, attribution inputs and reporting aligned to business outcomes.</p>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="run" data-inv data-depth-label="MID">
+    <div data-rg-run>
+      <section id="strategy" data-rg-row data-rg-type="prose" aria-labelledby="strategy-h">
+        <div><span data-rg-eb>Strategy first</span><h2 id="strategy-h">Campaign strategy before channel activity</h2></div>
+        <p data-rg-p>The engagement begins by clarifying the offer, audience, conversion action, economics and measurement. This creates a stronger basis for deciding which channels to use, how campaigns should be structured and what the team should learn from each test.</p>
+      </section>
+      <section id="tracking" data-rg-row data-rg-type="prose" aria-labelledby="tracking-h">
+        <div><span data-rg-eb>Measurement</span><h2 id="tracking-h">Tracking and attribution</h2></div>
+        <p data-rg-p>Performance decisions are only as reliable as the measurement beneath them. Tilth reviews event tracking, conversion definitions, landing-page behaviour and funnel stages so that the team can distinguish platform-reported activity from meaningful business progress.</p>
+      </section>
+      <section id="creative" data-rg-row data-rg-type="prose" aria-labelledby="creative-h">
+        <div><span data-rg-eb>Creative</span><h2 id="creative-h">Creative testing that produces learning</h2></div>
+        <p data-rg-p>Creative testing should do more than produce more assets. We organise tests around clear hypotheses: audience problem, message, proof, format, offer or call to action. The aim is to build a repeatable learning system rather than depend on occasional winning ads.</p>
+      </section>
+      <section id="funnel" data-rg-row data-rg-type="prose" aria-labelledby="funnel-h">
+        <div><span data-rg-eb>Conversion</span><h2 id="funnel-h">Funnel and conversion optimisation</h2></div>
+        <p data-rg-p>If traffic is arriving but performance is weak, the issue may sit after the click. Tilth reviews the landing experience, form or checkout friction, page clarity, message continuity and conversion events before recommending more spend.</p>
+      </section>
+      <section id="reporting" data-rg-row data-rg-type="prose" aria-labelledby="reporting-h">
+        <div><span data-rg-eb>Reporting</span><h2 id="reporting-h">Reporting for better decisions</h2></div>
+        <p data-rg-p>Reporting should explain what changed, why it may have changed and what decision should follow. Reviews can combine channel metrics with funnel and commercial indicators so the team can prioritise the next action.</p>
+      </section>
+    </div>
+  </div>
+
+  <div data-rg-block data-rg-kind="connect" data-depth-label="MID">
+    <section id="industries" data-rg-sec data-rg-type="cards" aria-labelledby="industries-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Industries</span>
+          <h2 id="industries-h" data-h2>Relevant industries</h2>
+          <p data-rg-intro>This service is particularly relevant to SaaS, D2C and ecommerce, FinTech and EdTech companies where acquisition economics, funnel stages and conversion quality materially affect scale.</p>
+        </div>
+        <div>
+          <ul data-rg-links data-compact>
+            <li><a href="/india/industries/fintech/"><h3>FinTech</h3><p>Trust, onboarding, verification and activation funnels.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/india/industries/saas/"><h3>SaaS</h3><p>Demand generation, demos, trials and pipeline visibility.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/india/industries/d2c-ecommerce/"><h3>D2C &amp; Ecommerce</h3><p>Acquisition economics, creative testing and product-page conversion.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/industries/edtech/"><h3>EdTech</h3><p>Lead quality, counselling funnels and enrolment conversion.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section id="process" data-rg-sec data-rg-type="steps" aria-labelledby="process-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>How we work</span>
+          <h2 id="process-h" data-h2>The Tilth process</h2>
+        </div>
+        <div>
+          <ol data-rg-steps>
+            <li><span data-n aria-hidden="true">01</span><h3>Diagnose</h3><p>Review the account, measurement, funnel, creative and conversion.</p></li>
+            <li><span data-n aria-hidden="true">02</span><h3>Build</h3><p>Create the campaign, tracking and testing system required for clearer learning.</p></li>
+            <li><span data-n aria-hidden="true">03</span><h3>Scale</h3><p>Increase investment after performance becomes measurable and repeatable.</p></li>
+          </ol>
+          <a data-textlink href="/approach/"><span>Explore the Tilth approach &rarr;</span></a>
+        </div>
+      </div>
+    </section>
+    <section id="related-services" data-rg-sec data-rg-type="cards" aria-labelledby="related-services-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Works with</span>
+          <h2 id="related-services-h" data-h2>Related Tilth services</h2>
+        </div>
+        <div>
+          <ul data-rg-links data-compact>
+            <li><a href="/services/growth-strategy-measurement/"><h3>Growth Strategy &amp; Measurement</h3><p>Funnel definitions, analytics and decision-ready reporting.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/services/website-design-development/"><h3>Websites &amp; Conversion Optimisation</h3><p>Landing experience, friction and conversion tracking.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="insights" data-inv data-depth-label="DEEP">
+    <section id="insights" data-rg-sec data-rg-type="insights" aria-labelledby="insights-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Related insights</span>
+          <h2 id="insights-h" data-h2>Practical thinking on paid growth</h2>
+        </div>
+        <div>
+          <ul data-rg-ins>
+            <li><time datetime="2026-05-13" data-time>13 May 2026</time><h3><a href="/insights/what-is-performance-marketing/">What is performance marketing (and how it differs from digital marketing)?</a></h3><p>A plain-English explanation of performance marketing, what it covers and how it differs from digital marketing.</p></li>
+            <li><time datetime="2026-06-07" data-time>7 Jun 2026</time><h3><a href="/insights/google-ads-budget-india-startups/">How much should you spend on Google Ads in India to start?</a></h3><p>How to set a starting Google Ads budget in India, what it buys, and how to know when to scale it.</p></li>
+            <li><time datetime="2026-06-17" data-time>17 Jun 2026</time><h3><a href="/insights/meta-ads-not-converting/">Meta Ads not converting? A 7-point tracking audit</a></h3><p>Before blaming creative or audiences, check the seven tracking failures that quietly break Meta Ads performance.</p></li>
+          </ul>
+          <a data-textlink href="/insights/"><span>Explore all insights &rarr;</span></a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="faq" data-depth-label="DEEP">
+    <section id="faq" data-rg-sec data-rg-type="faq" aria-labelledby="faq-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>FAQ</span>
+          <h2 id="faq-h" data-h2>Questions about performance marketing</h2>
+        </div>
+        <div>
+          <div data-rg-faq>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b0" aria-controls="faq-p0" aria-expanded="true"><span>What does a performance marketing agency do?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p0" role="region" aria-labelledby="faq-b0"><div><p>A performance marketing agency plans, runs and improves acquisition programmes around measurable outcomes. The work can include media planning, campaign management, creative testing, conversion tracking, funnel analysis, reporting and budget decisions.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b1" aria-controls="faq-p1" aria-expanded="false"><span>How is performance marketing different from paid media?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p>Paid media refers to the advertising channels and campaign execution. Performance marketing is broader: it connects those channels to measurement, creative, funnel performance, conversion and commercial outcomes.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b2" aria-controls="faq-p2" aria-expanded="false"><span>Which advertising channels does Tilth manage?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p>Tilth can support Google Ads, Meta Ads and LinkedIn Ads where they are relevant to the strategy and scope. The final channel mix depends on the audience, offer, economics and available measurement.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b3" aria-controls="faq-p3" aria-expanded="false"><span>How does Tilth measure campaign performance?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p>Measurement is defined around agreed business or funnel outcomes. Depending on the business, this may include qualified leads, signups, demos, purchases, activation, revenue or another meaningful conversion stage.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b4" aria-controls="faq-p4" aria-expanded="false"><span>Can Tilth work with an existing internal marketing team?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p>Yes. Tilth can operate as an extension of an internal team, own a defined workstream or support strategy, measurement and optimisation alongside existing channel owners.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b5" aria-controls="faq-p5" aria-expanded="false"><span>How does an engagement begin?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p5" role="region" aria-labelledby="faq-b5"><div><p>The first step is a review of the business goal, current channels, tracking, funnel and performance data. Tilth then recommends the areas that need to be fixed or tested before additional scale.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<section id="cta" data-moss data-rg-cta data-depth-label="FOUNDATION" aria-labelledby="cta-h">
+  <div data-eyebrow>Next step</div>
+  <div data-cta-grid>
+    <h2 id="cta-h" data-cta-h>Make paid growth easier to measure and easier to improve.</h2>
+    <div>
+      <p data-cta-p>Share your current channels, the outcome you need to improve and where performance is losing clarity. We'll help identify the right place to start.</p>
+      <div data-cta-actions>
+        <a data-btn href="/contact/">Discuss Your Performance Strategy <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </div>
 </section>
-
-<section class="gsec gsec--light reveal" id="strategy" aria-labelledby="strategy-h">
-  <div class="wrap">
-    <p class="label">Strategy first</p>
-    <h2 id="strategy-h">Campaign strategy before channel activity</h2>
-    
-    <p class="rprose">The engagement begins by clarifying the offer, audience, conversion action, economics and measurement. This creates a stronger basis for deciding which channels to use, how campaigns should be structured and what the team should learn from each test.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="tracking" aria-labelledby="tracking-h">
-  <div class="wrap">
-    <p class="label">Measurement</p>
-    <h2 id="tracking-h">Tracking and attribution</h2>
-    
-    <p class="rprose">Performance decisions are only as reliable as the measurement beneath them. Tilth reviews event tracking, conversion definitions, landing-page behaviour and funnel stages so that the team can distinguish platform-reported activity from meaningful business progress.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="creative" aria-labelledby="creative-h">
-  <div class="wrap">
-    <p class="label">Creative</p>
-    <h2 id="creative-h">Creative testing that produces learning</h2>
-    
-    <p class="rprose">Creative testing should do more than produce more assets. We organise tests around clear hypotheses: audience problem, message, proof, format, offer or call to action. The aim is to build a repeatable learning system rather than depend on occasional winning ads.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="funnel" aria-labelledby="funnel-h">
-  <div class="wrap">
-    <p class="label">Conversion</p>
-    <h2 id="funnel-h">Funnel and conversion optimisation</h2>
-    
-    <p class="rprose">If traffic is arriving but performance is weak, the issue may sit after the click. Tilth reviews the landing experience, form or checkout friction, page clarity, message continuity and conversion events before recommending more spend.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="reporting" aria-labelledby="reporting-h">
-  <div class="wrap">
-    <p class="label">Reporting</p>
-    <h2 id="reporting-h">Reporting for better decisions</h2>
-    
-    <p class="rprose">Reporting should explain what changed, why it may have changed and what decision should follow. Reviews can combine channel metrics with funnel and commercial indicators so the team can prioritise the next action.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="industries" aria-labelledby="industries-h">
-  <div class="wrap">
-    <p class="label">Industries</p>
-    <h2 id="industries-h">Relevant industries</h2>
-    <p class="intro">This service is particularly relevant to SaaS, D2C and ecommerce, FinTech and EdTech companies where acquisition economics, funnel stages and conversion quality materially affect scale.</p>
-    
-    <div class="card-grid card-grid--compact">
-      <a class="gcard gcard--featured" href="/india/industries/fintech/">
-        <h3 class="gcard__name">FinTech</h3>
-        <p class="gcard__desc">Trust, onboarding, verification and activation funnels.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/india/industries/saas/">
-        <h3 class="gcard__name">SaaS</h3>
-        <p class="gcard__desc">Demand generation, demos, trials and pipeline visibility.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/india/industries/d2c-ecommerce/">
-        <h3 class="gcard__name">D2C &amp; Ecommerce</h3>
-        <p class="gcard__desc">Acquisition economics, creative testing and product-page conversion.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/industries/edtech/">
-        <h3 class="gcard__name">EdTech</h3>
-        <p class="gcard__desc">Lead quality, counselling funnels and enrolment conversion.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="process" aria-labelledby="process-h">
-  <div class="wrap">
-    <p class="label">How we work</p>
-    <h2 id="process-h">The Tilth process</h2>
-    
-    
-    <div class="cap-grid">
-      <div class="cap"><span class="cap__n">01</span><h3>Diagnose</h3><p>Review the account, measurement, funnel, creative and conversion.</p></div>
-      <div class="cap"><span class="cap__n">02</span><h3>Build</h3><p>Create the campaign, tracking and testing system required for clearer learning.</p></div>
-      <div class="cap"><span class="cap__n">03</span><h3>Scale</h3><p>Increase investment after performance becomes measurable and repeatable.</p></div>
-    </div><div class="actions" style="margin-top:28px"><a class="text-cta" href="/approach/">Explore the Tilth approach →</a></div>
-  </div>
-</section>
-
-<section class="gsec reveal" id="related-services" aria-labelledby="related-services-h">
-  <div class="wrap">
-    <p class="label">Works with</p>
-    <h2 id="related-services-h">Related Tilth services</h2>
-    
-    
-    <div class="card-grid card-grid--compact">
-      <a class="gcard gcard--featured" href="/services/growth-strategy-measurement/">
-        <h3 class="gcard__name">Growth Strategy &amp; Measurement</h3>
-        <p class="gcard__desc">Funnel definitions, analytics and decision-ready reporting.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/services/website-design-development/">
-        <h3 class="gcard__name">Websites &amp; Conversion Optimisation</h3>
-        <p class="gcard__desc">Landing experience, friction and conversion tracking.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="gsec reveal" id="insights" aria-labelledby="insights-h">
-  <div class="wrap">
-    <p class="label">Related insights</p>
-    <h2 id="insights-h">Practical thinking on paid growth</h2>
-    
-    
-    <div class="igrid">
-      <article class="icard">
-        <time class="icard__date" datetime="2026-05-13">13 May 2026</time>
-        <h3 class="icard__title"><a href="/insights/what-is-performance-marketing/">What is performance marketing (and how it differs from digital marketing)?</a></h3>
-        <p class="icard__ex">A plain-English explanation of performance marketing, what it covers and how it differs from digital marketing.</p>
-      </article>
-      <article class="icard">
-        <time class="icard__date" datetime="2026-06-07">7 Jun 2026</time>
-        <h3 class="icard__title"><a href="/insights/google-ads-budget-india-startups/">How much should you spend on Google Ads in India to start?</a></h3>
-        <p class="icard__ex">How to set a starting Google Ads budget in India, what it buys, and how to know when to scale it.</p>
-      </article>
-      <article class="icard">
-        <time class="icard__date" datetime="2026-06-17">17 Jun 2026</time>
-        <h3 class="icard__title"><a href="/insights/meta-ads-not-converting/">Meta Ads not converting? A 7-point tracking audit</a></h3>
-        <p class="icard__ex">Before blaming creative or audiences, check the seven tracking failures that quietly break Meta Ads performance.</p>
-      </article>
-    </div><div class="actions" style="margin-top:28px"><a class="text-cta" href="/insights/">Explore all insights →</a></div>
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="faq" aria-labelledby="faq-h">
-  <div class="wrap">
-    <p class="label">FAQ</p>
-    <h2 id="faq-h">Questions about performance marketing</h2>
-    
-    
-    <div class="faq__list">
-      <details class="faq__item"><summary><h3>What does a performance marketing agency do?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>A performance marketing agency plans, runs and improves acquisition programmes around measurable outcomes. The work can include media planning, campaign management, creative testing, conversion tracking, funnel analysis, reporting and budget decisions.</p></div></details>
-      <details class="faq__item"><summary><h3>How is performance marketing different from paid media?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Paid media refers to the advertising channels and campaign execution. Performance marketing is broader: it connects those channels to measurement, creative, funnel performance, conversion and commercial outcomes.</p></div></details>
-      <details class="faq__item"><summary><h3>Which advertising channels does Tilth manage?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Tilth can support Google Ads, Meta Ads and LinkedIn Ads where they are relevant to the strategy and scope. The final channel mix depends on the audience, offer, economics and available measurement.</p></div></details>
-      <details class="faq__item"><summary><h3>How does Tilth measure campaign performance?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Measurement is defined around agreed business or funnel outcomes. Depending on the business, this may include qualified leads, signups, demos, purchases, activation, revenue or another meaningful conversion stage.</p></div></details>
-      <details class="faq__item"><summary><h3>Can Tilth work with an existing internal marketing team?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Yes. Tilth can operate as an extension of an internal team, own a defined workstream or support strategy, measurement and optimisation alongside existing channel owners.</p></div></details>
-      <details class="faq__item"><summary><h3>How does an engagement begin?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>The first step is a review of the business goal, current channels, tracking, funnel and performance data. Tilth then recommends the areas that need to be fixed or tested before additional scale.</p></div></details>
-    </div>
-  </div>
-</section>
-
-<section class="cta-band cta-band--terra" id="cta">
-  <div class="wrap">
-    <span class="label">Next step</span>
-    <h2>Make paid growth easier to measure and easier to improve.</h2>
-    <p>Share your current channels, the outcome you need to improve and where performance is losing clarity. We'll help identify the right place to start.</p>
-    <div class="cta-band__actions">
-      <a class="btn" href="/contact/"><span>Discuss Your Performance Strategy</span> <span class="arrow">→</span></a>
-      
-    </div>
-  </div>
-</section>
-
-<script>
-(function(){
-  var root=document.documentElement, rm=false;
-  try{ rm=matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
-  var els=[].slice.call(document.querySelectorAll('.reveal'));
-  if(!els.length || rm || !('IntersectionObserver' in window)) return;
-  root.classList.add('jsr');
-  var io=new IntersectionObserver(function(ens){ens.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
-  els.forEach(function(el){ io.observe(el); });
-})();
-</script>
 
 </main>
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <p class="addr">Tilth is an India-rooted growth marketing agency working with ambitious brands across India and the US.<br><br>Bengaluru, India · Remote collaboration across India and the US<br><a href="tel:+917007999306">+91 70079 99306</a><br><a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a></p>
-      </div>
-      <div>
-        <h3 class="fcol">Explore</h3>
-        <ul><li><a href="/services/">Services</a></li><li><a href="/approach/">Approach</a></li><li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Legal</h3>
-        <ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/cookie-policy/">Cookie Policy</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Social</h3>
-        <ul><li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li><li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li></ul>
-      </div>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom"><span>© 2026 Tilth. All rights reserved.</span></div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
+<script src="/regional.js" defer></script>
 <script src="/analytics.js" defer></script>
 </body>
 </html>

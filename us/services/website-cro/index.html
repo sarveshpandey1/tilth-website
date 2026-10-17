@@ -16,7 +16,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -31,47 +31,12 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="twitter:title" content="Websites and conversion systems built to turn attention into action">
 <meta name="twitter:description" content="Website strategy, UX, development, analytics and conversion optimisation as one connected system.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
-<!-- The hero H1's <em> is Fraunces italic and is part of the LCP element. Without this
-     preload it was discovered only after CSS parsed and took ~9s on throttled mobile. -->
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/assets/generated.css">
-<style>
-  /* Regional pages reuse the global system; these are the only additions. */
-  .rlist{list-style:none;margin:var(--space-block) 0 0;padding:0;display:grid;gap:12px;max-width:70ch}
-  .rlist li{position:relative;padding-left:20px;font-size:16px;line-height:1.65;color:var(--text)}
-  .rlist li::before{content:"";position:absolute;left:0;top:.65em;width:7px;height:1px;background:var(--terra)}
-  .gsec--light .rlist li{color:#4B4239}
-  .rprose{font-size:16px;line-height:1.7;color:var(--text);max-width:68ch;margin-top:18px}
-  .gsec--light .rprose{color:#4B4239}
-  .rhero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px}
-  /* compact industry cards sit 2-up then 4-up rather than the 3-up service grid */
-  @media(min-width:640px){.card-grid--compact{grid-template-columns:1fr 1fr}}
-  @media(min-width:1000px){.card-grid--compact{grid-template-columns:repeat(4,1fr)}}
-  .card-grid--compact .gcard{min-height:0}
-  /* benefit + insight cards reuse the homepage patterns */
-  .igrid{display:grid;gap:16px;margin-top:var(--space-block)}
-  @media(min-width:760px){.igrid{grid-template-columns:repeat(3,1fr)}}
-  .icard{border:1px solid var(--rule);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px}
-  .icard__date{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--glow)}
-  .icard__title{font-family:'Fraunces',serif;font-weight:500;font-size:18px;line-height:1.3;margin:0}
-  .icard__title a{color:var(--ink);text-decoration:none}
-  .icard__title a:hover,.icard__title a:focus-visible{color:var(--glow)}
-  .icard__ex{font-size:14px;line-height:1.6;color:var(--text);margin:0}
-  .cap__n{display:block;font-family:'Fraunces',serif;color:var(--terra);font-size:14px;margin-bottom:6px}
-  /* FAQ inside a cream section inherits light-theme tokens — force dark-on-cream */
-  .gsec--light .faq__item{border-color:rgba(26,21,16,.14)}
-  .gsec--light .faq__item summary{color:#15110B}
-  .gsec--light .faq__item summary:hover,.gsec--light .faq__item[open] summary{color:#55722F}
-  .gsec--light .faq__item .ic::before,.gsec--light .faq__item .ic::after{background:#55722F}
-  .gsec--light .faq__ans p{color:#4B4239}
-  .faq__item summary h3{font:inherit;color:inherit;margin:0;font-weight:inherit;letter-spacing:inherit}
-  html.jsr .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-  html.jsr .reveal.in{opacity:1;transform:none}
-</style>
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/core-company.css">
+<link rel="stylesheet" href="/assets/regional.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -204,295 +169,296 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 }
 </script>
 </head>
-<body>
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav aria-label="Primary">
+<body class="v3 v3-core v3-rg">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
+    </nav>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
+  </div>
+</header>
+
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
       <a href="/services/">Services</a>
       <a href="/industries/">Industries</a>
       <a href="/work/">Work</a>
       <a href="/approach/">Approach</a>
       <a href="/insights/">Insights</a>
       <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
     </nav>
-    <div class="meta">India-rooted · Working across markets</div>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
   </div>
-</header>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
 <main id="main">
 
-<section class="ghero rhero" id="hero">
-  <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/us/">United States</a> <span aria-hidden="true">/</span> <span>Website &amp; CRO</span></nav>
-    <p class="label">Websites &amp; CRO for US companies</p>
-    <h1>Websites and conversion systems built to turn attention into action.</h1>
-    <p class="lede">Tilth connects website strategy, UX, development, analytics and conversion optimisation so the experience supports the business outcome it was built to create.</p>
-    <div class="actions">
-      <a class="btn" href="/contact/"><span>Discuss Your Website Project</span> <span class="arrow">→</span></a>
-      <a class="text-cta" href="/work/">See Our Work →</a>
+<section id="hero" data-hero data-rg-hero data-depth-label="SURFACE">
+  <nav data-crumb aria-label="Breadcrumb"><a href="/" data-rg-cr>Home</a> <span data-sep aria-hidden="true">/</span> <a href="/us/" data-rg-cr>United States</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page" data-rg-cr>Website &amp; CRO</span></nav>
+  <div data-eyebrow>Websites &amp; CRO for US companies</div>
+  <h1 data-h1>Websites and conversion systems built to turn attention into action.</h1>
+  <p data-lede>Tilth connects website strategy, UX, development, analytics and conversion optimisation so the experience supports the business outcome it was built to create.</p>
+  <div data-actions>
+    <a data-btn href="/contact/">Discuss Your Website Project <span aria-hidden="true">&rarr;</span></a>
+    <a data-textlink href="/work/"><span>See Our Work &rarr;</span></a>
+  </div>
+</section>
+
+  <div data-rg-block data-rg-kind="prose" data-rg-first data-depth-label="SHALLOW">
+    <section id="underperform" data-rg-sec data-rg-type="prose" data-rg-lead aria-labelledby="underperform-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>The problem</span>
+          <h2 id="underperform-h" data-h2>Why websites underperform</h2>
+        </div>
+        <div>
+          <p data-rg-p>A website can look polished and still fail to explain the offer, guide the visitor or measure the right actions. Performance often breaks across positioning, information architecture, message continuity, speed, trust, analytics or the path to conversion.</p>
+          <p data-rg-p>Tilth treats the website as part of the growth system, not a separate design asset.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="run" data-inv data-depth-label="SHALLOW">
+    <div data-rg-run>
+      <section id="strategy" data-rg-row data-rg-type="prose" aria-labelledby="strategy-h">
+        <div><span data-rg-eb>Strategy</span><h2 id="strategy-h">Website strategy</h2></div>
+        <p data-rg-p>We begin with the audience, offer, user journey, business objective and content requirements. This creates a clearer basis for deciding what pages are needed, what each page should accomplish and how visitors should move through the site.</p>
+      </section>
+      <section id="ia" data-rg-row data-rg-type="prose" aria-labelledby="ia-h">
+        <div><span data-rg-eb>Structure</span><h2 id="ia-h">Information architecture</h2></div>
+        <p data-rg-p>Navigation, page hierarchy and internal links should reflect how users discover and evaluate the business. Tilth plans the relationship between homepage, services, industries, proof, Insights and conversion pages before visual design begins.</p>
+      </section>
+      <section id="ux" data-rg-row data-rg-type="prose" aria-labelledby="ux-h">
+        <div><span data-rg-eb>Design</span><h2 id="ux-h">UX and interface design</h2></div>
+        <p data-rg-p>The interface should make information easier to understand and action. We focus on hierarchy, readability, interaction, trust and responsive behaviour rather than adding motion without a purpose.</p>
+      </section>
+      <section id="development" data-rg-row data-rg-type="prose" aria-labelledby="development-h">
+        <div><span data-rg-eb>Build</span><h2 id="development-h">Development</h2></div>
+        <p data-rg-p>Development should preserve accessibility, performance, SEO foundations and maintainability. The exact technology and implementation model depend on the existing stack and project scope.</p>
+      </section>
+      <section id="technical-seo" data-rg-row data-rg-type="prose" aria-labelledby="technical-seo-h">
+        <div><span data-rg-eb>Foundations</span><h2 id="technical-seo-h">Technical SEO foundations</h2></div>
+        <p data-rg-p>A new or redesigned site should include crawlable content, logical headings, metadata, canonicals, structured data where appropriate, internal links, XML sitemaps and redirect planning.</p>
+      </section>
+      <section id="analytics" data-rg-row data-rg-type="prose" aria-labelledby="analytics-h">
+        <div><span data-rg-eb>Measurement</span><h2 id="analytics-h">Analytics and conversion tracking</h2></div>
+        <p data-rg-p>We define the actions the website is expected to influence and implement or improve the measurement required to understand them. This may include form submissions, bookings, signups, downloads, product actions or other agreed events.</p>
+      </section>
+      <section id="landing" data-rg-row data-rg-type="prose" aria-labelledby="landing-h">
+        <div><span data-rg-eb>Pages</span><h2 id="landing-h">Landing-page optimisation</h2></div>
+        <p data-rg-p>Landing pages should maintain message continuity from the source, answer the key objections and make the next step clear. Tilth can review or build pages around a specific campaign, service, audience or offer.</p>
+      </section>
+      <section id="testing" data-rg-row data-rg-type="prose" aria-labelledby="testing-h">
+        <div><span data-rg-eb>Testing</span><h2 id="testing-h">Conversion testing</h2></div>
+        <p data-rg-p>Testing should begin with a clear hypothesis and enough traffic or evidence to justify the effort. Not every change requires an A/B test; some issues are better addressed through usability, analytics or qualitative review.</p>
+      </section>
+      <section id="accessibility" data-rg-row data-rg-type="prose" aria-labelledby="accessibility-h">
+        <div><span data-rg-eb>Quality</span><h2 id="accessibility-h">Accessibility and performance</h2></div>
+        <p data-rg-p>Readable contrast, keyboard navigation, motion preferences, responsive layouts and fast loading improve the experience for users and reduce technical friction. These are treated as part of the build rather than optional polish.</p>
+      </section>
+    </div>
+  </div>
+
+  <div data-rg-block data-rg-kind="connect" data-depth-label="MID">
+    <section id="industries" data-rg-sec data-rg-type="cards" aria-labelledby="industries-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Industries</span>
+          <h2 id="industries-h" data-h2>Relevant industries</h2>
+          <p data-rg-intro>The service is relevant to SaaS, D2C and ecommerce, FinTech and EdTech companies that depend on the website to explain, convert or activate demand.</p>
+        </div>
+        <div>
+          <ul data-rg-links data-compact>
+            <li><a href="/us/industries/saas/"><h3>SaaS</h3><p>Product explanation, use cases and demo or trial paths.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/us/industries/d2c-ecommerce/"><h3>D2C &amp; Ecommerce</h3><p>Product-page experience and checkout friction.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/industries/fintech/"><h3>FinTech</h3><p>Trust, comprehension and onboarding clarity.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/industries/edtech/"><h3>EdTech</h3><p>Programme information and enquiry conversion.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section id="process" data-rg-sec data-rg-type="steps" aria-labelledby="process-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>How we work</span>
+          <h2 id="process-h" data-h2>The Tilth process</h2>
+        </div>
+        <div>
+          <ol data-rg-steps>
+            <li><span data-n aria-hidden="true">01</span><h3>Diagnose</h3><p>Review the audience, journey, content, analytics and conversion issues.</p></li>
+            <li><span data-n aria-hidden="true">02</span><h3>Design and build</h3><p>Create the structure, interface and technical implementation required.</p></li>
+            <li><span data-n aria-hidden="true">03</span><h3>Improve</h3><p>Use evidence to refine the pages and conversion journey after launch.</p></li>
+          </ol>
+          <a data-textlink href="/approach/"><span>Explore the Tilth approach &rarr;</span></a>
+        </div>
+      </div>
+    </section>
+    <section id="related-services" data-rg-sec data-rg-type="cards" aria-labelledby="related-services-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Works with</span>
+          <h2 id="related-services-h" data-h2>Related Tilth services</h2>
+        </div>
+        <div>
+          <ul data-rg-links data-compact>
+            <li><a href="/us/services/seo-content-marketing/"><h3>SEO &amp; Content</h3><p>Technical foundations and commercial pages.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="/services/growth-strategy-measurement/"><h3>Growth Strategy &amp; Measurement</h3><p>Funnel definitions, analytics and reporting.</p><span data-rg-go aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="insights" data-inv data-depth-label="MID">
+    <section id="insights" data-rg-sec data-rg-type="insights" aria-labelledby="insights-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>Related insights</span>
+          <h2 id="insights-h" data-h2>Thinking on websites and conversion</h2>
+        </div>
+        <div>
+          <ul data-rg-ins>
+            <li><time datetime="2026-06-12" data-time>12 Jun 2026</time><h3><a href="/insights/shopify-conversion-tracking-ga4-meta-pixel/">How to set up conversion tracking on Shopify (GA4 + Meta Pixel)</a></h3><p>A step-by-step setup for Shopify stores so purchases, checkouts and revenue report accurately.</p></li>
+            <li><time datetime="2026-06-17" data-time>17 Jun 2026</time><h3><a href="/insights/ga4-conversion-tracking/">GA4 conversion tracking: the setup checklist before you scale ads</a></h3><p>The GA4 events, conversions and checks to get right before increasing budget, so the numbers can be trusted.</p></li>
+            <li><time datetime="2026-06-22" data-time>22 Jun 2026</time><h3><a href="/insights/marketing-foundation-audit/">What a marketing foundation audit actually checks (and why it comes first)</a></h3><p>The tracking, funnel, positioning and conversion checks that should happen before anyone increases spend.</p></li>
+          </ul>
+          <a data-textlink href="/insights/"><span>Explore all insights &rarr;</span></a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-rg-block data-rg-kind="faq" data-depth-label="MID">
+    <section id="faq" data-rg-sec data-rg-type="faq" aria-labelledby="faq-h">
+      <div data-ledger>
+        <div data-lhead>
+          <span data-rg-eb>FAQ</span>
+          <h2 id="faq-h" data-h2>Questions about websites and CRO</h2>
+        </div>
+        <div>
+          <div data-rg-faq>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b0" aria-controls="faq-p0" aria-expanded="true"><span>Does Tilth design and develop websites?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p0" role="region" aria-labelledby="faq-b0"><div><p>Tilth can support website strategy, information architecture, UX, interface design, development and conversion optimisation depending on the project scope and existing technology.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b1" aria-controls="faq-p1" aria-expanded="false"><span>Can Tilth improve an existing website without rebuilding it?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p>Yes. The work can focus on specific pages, analytics, information architecture, conversion issues or landing experiences without requiring a complete rebuild.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b2" aria-controls="faq-p2" aria-expanded="false"><span>Does website design include SEO?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p>Tilth includes core SEO foundations such as crawlable content, heading structure, metadata, canonicals, internal linking, structured data where relevant and redirect planning. Ongoing SEO may require a separate scope.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b3" aria-controls="faq-p3" aria-expanded="false"><span>What is conversion rate optimisation?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p>CRO is the process of improving the experience so more qualified visitors complete a meaningful action. It can use analytics, usability review, research, page changes and testing.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b4" aria-controls="faq-p4" aria-expanded="false"><span>Does Tilth guarantee a conversion lift?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p>No. Conversion performance depends on traffic quality, offer, audience, product, data and implementation. Tilth improves the system and tests evidence-based changes without guaranteeing a fixed result.</p></div></div>
+            </div>
+            <div data-faq-item>
+              <h3><button type="button" data-faq-btn id="faq-b5" aria-controls="faq-p5" aria-expanded="false"><span>How does Tilth work with US teams?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+              <div data-faq-ans id="faq-p5" role="region" aria-labelledby="faq-b5"><div><p>The project can use scheduled reviews, agreed overlap hours, documented decisions and asynchronous feedback. The working rhythm is confirmed during project setup.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<section id="cta" data-moss data-rg-cta data-depth-label="FOUNDATION" aria-labelledby="cta-h">
+  <div data-eyebrow>Next step</div>
+  <div data-cta-grid>
+    <h2 id="cta-h" data-cta-h>Build a website that supports the growth system around it.</h2>
+    <div>
+      <p data-cta-p>Tell us what the website needs to help users understand or do. We'll identify whether the priority is strategy, structure, design, development, measurement or conversion.</p>
+      <div data-cta-actions>
+        <a data-btn href="/contact/">Discuss Your Website Project <span aria-hidden="true">&rarr;</span></a>
+      </div>
     </div>
   </div>
 </section>
-
-<section class="gsec reveal" id="underperform" aria-labelledby="underperform-h">
-  <div class="wrap">
-    <p class="label">The problem</p>
-    <h2 id="underperform-h">Why websites underperform</h2>
-    
-    <p class="rprose">A website can look polished and still fail to explain the offer, guide the visitor or measure the right actions. Performance often breaks across positioning, information architecture, message continuity, speed, trust, analytics or the path to conversion.</p>
-    <p class="rprose">Tilth treats the website as part of the growth system, not a separate design asset.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="strategy" aria-labelledby="strategy-h">
-  <div class="wrap">
-    <p class="label">Strategy</p>
-    <h2 id="strategy-h">Website strategy</h2>
-    
-    <p class="rprose">We begin with the audience, offer, user journey, business objective and content requirements. This creates a clearer basis for deciding what pages are needed, what each page should accomplish and how visitors should move through the site.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="ia" aria-labelledby="ia-h">
-  <div class="wrap">
-    <p class="label">Structure</p>
-    <h2 id="ia-h">Information architecture</h2>
-    
-    <p class="rprose">Navigation, page hierarchy and internal links should reflect how users discover and evaluate the business. Tilth plans the relationship between homepage, services, industries, proof, Insights and conversion pages before visual design begins.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="ux" aria-labelledby="ux-h">
-  <div class="wrap">
-    <p class="label">Design</p>
-    <h2 id="ux-h">UX and interface design</h2>
-    
-    <p class="rprose">The interface should make information easier to understand and action. We focus on hierarchy, readability, interaction, trust and responsive behaviour rather than adding motion without a purpose.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="development" aria-labelledby="development-h">
-  <div class="wrap">
-    <p class="label">Build</p>
-    <h2 id="development-h">Development</h2>
-    
-    <p class="rprose">Development should preserve accessibility, performance, SEO foundations and maintainability. The exact technology and implementation model depend on the existing stack and project scope.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="technical-seo" aria-labelledby="technical-seo-h">
-  <div class="wrap">
-    <p class="label">Foundations</p>
-    <h2 id="technical-seo-h">Technical SEO foundations</h2>
-    
-    <p class="rprose">A new or redesigned site should include crawlable content, logical headings, metadata, canonicals, structured data where appropriate, internal links, XML sitemaps and redirect planning.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="analytics" aria-labelledby="analytics-h">
-  <div class="wrap">
-    <p class="label">Measurement</p>
-    <h2 id="analytics-h">Analytics and conversion tracking</h2>
-    
-    <p class="rprose">We define the actions the website is expected to influence and implement or improve the measurement required to understand them. This may include form submissions, bookings, signups, downloads, product actions or other agreed events.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="landing" aria-labelledby="landing-h">
-  <div class="wrap">
-    <p class="label">Pages</p>
-    <h2 id="landing-h">Landing-page optimisation</h2>
-    
-    <p class="rprose">Landing pages should maintain message continuity from the source, answer the key objections and make the next step clear. Tilth can review or build pages around a specific campaign, service, audience or offer.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="testing" aria-labelledby="testing-h">
-  <div class="wrap">
-    <p class="label">Testing</p>
-    <h2 id="testing-h">Conversion testing</h2>
-    
-    <p class="rprose">Testing should begin with a clear hypothesis and enough traffic or evidence to justify the effort. Not every change requires an A/B test; some issues are better addressed through usability, analytics or qualitative review.</p>
-    
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="accessibility" aria-labelledby="accessibility-h">
-  <div class="wrap">
-    <p class="label">Quality</p>
-    <h2 id="accessibility-h">Accessibility and performance</h2>
-    
-    <p class="rprose">Readable contrast, keyboard navigation, motion preferences, responsive layouts and fast loading improve the experience for users and reduce technical friction. These are treated as part of the build rather than optional polish.</p>
-    
-  </div>
-</section>
-
-<section class="gsec reveal" id="industries" aria-labelledby="industries-h">
-  <div class="wrap">
-    <p class="label">Industries</p>
-    <h2 id="industries-h">Relevant industries</h2>
-    <p class="intro">The service is relevant to SaaS, D2C and ecommerce, FinTech and EdTech companies that depend on the website to explain, convert or activate demand.</p>
-    
-    <div class="card-grid card-grid--compact">
-      <a class="gcard gcard--featured" href="/us/industries/saas/">
-        <h3 class="gcard__name">SaaS</h3>
-        <p class="gcard__desc">Product explanation, use cases and demo or trial paths.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/us/industries/d2c-ecommerce/">
-        <h3 class="gcard__name">D2C &amp; Ecommerce</h3>
-        <p class="gcard__desc">Product-page experience and checkout friction.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/industries/fintech/">
-        <h3 class="gcard__name">FinTech</h3>
-        <p class="gcard__desc">Trust, comprehension and onboarding clarity.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/industries/edtech/">
-        <h3 class="gcard__name">EdTech</h3>
-        <p class="gcard__desc">Programme information and enquiry conversion.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="process" aria-labelledby="process-h">
-  <div class="wrap">
-    <p class="label">How we work</p>
-    <h2 id="process-h">The Tilth process</h2>
-    
-    
-    <div class="cap-grid">
-      <div class="cap"><span class="cap__n">01</span><h3>Diagnose</h3><p>Review the audience, journey, content, analytics and conversion issues.</p></div>
-      <div class="cap"><span class="cap__n">02</span><h3>Design and build</h3><p>Create the structure, interface and technical implementation required.</p></div>
-      <div class="cap"><span class="cap__n">03</span><h3>Improve</h3><p>Use evidence to refine the pages and conversion journey after launch.</p></div>
-    </div><div class="actions" style="margin-top:28px"><a class="text-cta" href="/approach/">Explore the Tilth approach →</a></div>
-  </div>
-</section>
-
-<section class="gsec reveal" id="related-services" aria-labelledby="related-services-h">
-  <div class="wrap">
-    <p class="label">Works with</p>
-    <h2 id="related-services-h">Related Tilth services</h2>
-    
-    
-    <div class="card-grid card-grid--compact">
-      <a class="gcard gcard--featured" href="/us/services/seo-content-marketing/">
-        <h3 class="gcard__name">SEO &amp; Content</h3>
-        <p class="gcard__desc">Technical foundations and commercial pages.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-      <a class="gcard gcard--featured" href="/services/growth-strategy-measurement/">
-        <h3 class="gcard__name">Growth Strategy &amp; Measurement</h3>
-        <p class="gcard__desc">Funnel definitions, analytics and reporting.</p>
-        <span class="gcard__more" aria-hidden="true">Explore →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="gsec reveal" id="insights" aria-labelledby="insights-h">
-  <div class="wrap">
-    <p class="label">Related insights</p>
-    <h2 id="insights-h">Thinking on websites and conversion</h2>
-    
-    
-    <div class="igrid">
-      <article class="icard">
-        <time class="icard__date" datetime="2026-06-12">12 Jun 2026</time>
-        <h3 class="icard__title"><a href="/insights/shopify-conversion-tracking-ga4-meta-pixel/">How to set up conversion tracking on Shopify (GA4 + Meta Pixel)</a></h3>
-        <p class="icard__ex">A step-by-step setup for Shopify stores so purchases, checkouts and revenue report accurately.</p>
-      </article>
-      <article class="icard">
-        <time class="icard__date" datetime="2026-06-17">17 Jun 2026</time>
-        <h3 class="icard__title"><a href="/insights/ga4-conversion-tracking/">GA4 conversion tracking: the setup checklist before you scale ads</a></h3>
-        <p class="icard__ex">The GA4 events, conversions and checks to get right before increasing budget, so the numbers can be trusted.</p>
-      </article>
-      <article class="icard">
-        <time class="icard__date" datetime="2026-06-22">22 Jun 2026</time>
-        <h3 class="icard__title"><a href="/insights/marketing-foundation-audit/">What a marketing foundation audit actually checks (and why it comes first)</a></h3>
-        <p class="icard__ex">The tracking, funnel, positioning and conversion checks that should happen before anyone increases spend.</p>
-      </article>
-    </div><div class="actions" style="margin-top:28px"><a class="text-cta" href="/insights/">Explore all insights →</a></div>
-  </div>
-</section>
-
-<section class="gsec gsec--light reveal" id="faq" aria-labelledby="faq-h">
-  <div class="wrap">
-    <p class="label">FAQ</p>
-    <h2 id="faq-h">Questions about websites and CRO</h2>
-    
-    
-    <div class="faq__list">
-      <details class="faq__item"><summary><h3>Does Tilth design and develop websites?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Tilth can support website strategy, information architecture, UX, interface design, development and conversion optimisation depending on the project scope and existing technology.</p></div></details>
-      <details class="faq__item"><summary><h3>Can Tilth improve an existing website without rebuilding it?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Yes. The work can focus on specific pages, analytics, information architecture, conversion issues or landing experiences without requiring a complete rebuild.</p></div></details>
-      <details class="faq__item"><summary><h3>Does website design include SEO?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>Tilth includes core SEO foundations such as crawlable content, heading structure, metadata, canonicals, internal linking, structured data where relevant and redirect planning. Ongoing SEO may require a separate scope.</p></div></details>
-      <details class="faq__item"><summary><h3>What is conversion rate optimisation?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>CRO is the process of improving the experience so more qualified visitors complete a meaningful action. It can use analytics, usability review, research, page changes and testing.</p></div></details>
-      <details class="faq__item"><summary><h3>Does Tilth guarantee a conversion lift?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>No. Conversion performance depends on traffic quality, offer, audience, product, data and implementation. Tilth improves the system and tests evidence-based changes without guaranteeing a fixed result.</p></div></details>
-      <details class="faq__item"><summary><h3>How does Tilth work with US teams?</h3><span class="ic" aria-hidden="true"></span></summary><div class="faq__ans"><p>The project can use scheduled reviews, agreed overlap hours, documented decisions and asynchronous feedback. The working rhythm is confirmed during project setup.</p></div></details>
-    </div>
-  </div>
-</section>
-
-<section class="cta-band cta-band--terra" id="cta">
-  <div class="wrap">
-    <span class="label">Next step</span>
-    <h2>Build a website that supports the growth system around it.</h2>
-    <p>Tell us what the website needs to help users understand or do. We'll identify whether the priority is strategy, structure, design, development, measurement or conversion.</p>
-    <div class="cta-band__actions">
-      <a class="btn" href="/contact/"><span>Discuss Your Website Project</span> <span class="arrow">→</span></a>
-      
-    </div>
-  </div>
-</section>
-
-<script>
-(function(){
-  var root=document.documentElement, rm=false;
-  try{ rm=matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
-  var els=[].slice.call(document.querySelectorAll('.reveal'));
-  if(!els.length || rm || !('IntersectionObserver' in window)) return;
-  root.classList.add('jsr');
-  var io=new IntersectionObserver(function(ens){ens.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
-  els.forEach(function(el){ io.observe(el); });
-})();
-</script>
 
 </main>
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <p class="addr">Tilth is an India-rooted growth marketing agency working with ambitious brands across India and the US.<br><br>Bengaluru, India · Remote collaboration across India and the US<br><a href="tel:+917007999306">+91 70079 99306</a><br><a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a></p>
-      </div>
-      <div>
-        <h3 class="fcol">Explore</h3>
-        <ul><li><a href="/services/">Services</a></li><li><a href="/approach/">Approach</a></li><li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Legal</h3>
-        <ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/cookie-policy/">Cookie Policy</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Social</h3>
-        <ul><li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li><li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li></ul>
-      </div>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom"><span>© 2026 Tilth. All rights reserved.</span></div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
+<script src="/regional.js" defer></script>
 <script src="/analytics.js" defer></script>
 </body>
 </html>

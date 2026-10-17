@@ -4,63 +4,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1MJEZ4VK26');
-</script>
-<title>Free Marketing Tools — Calculators for Brands &amp; Marketers | Tilth</title>
-<meta name="description" content="Free, no-sign-up calculators for marketers: ad spend profitability, LTV:CAC, a UTM link builder, A/B test significance, and a conversion funnel calculator. From Tilth.">
+<!-- Google tag (gtag.js) — deferred loader, commands queue in dataLayer -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1MJEZ4VK26');
+(function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26';document.head.appendChild(s);}
+if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
+['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});})();</script>
+<title>Free Marketing Tools &amp; Calculators | Tilth</title>
+<meta name="description" content="Free marketing calculators for founders and marketers — ad spend profitability, LTV:CAC, conversion funnel, A/B significance, UTM builder, and a benchmark analyser. No sign-up.">
 <link rel="canonical" href="https://wearetilth.com/tools/">
+
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="geo.region" content="IN-KA">
-<meta name="geo.placename" content="Bengaluru">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Free marketing tools for brands & marketers">
-<meta property="og:description" content="Ad spend profitability, LTV:CAC, UTM builder, A/B significance, and a conversion funnel calculator — free, no sign-up.">
+<meta property="og:title" content="Free marketing tools that don't flatter your numbers">
+<meta property="og:description" content="Honest calculators for ad spend, LTV:CAC, funnels, A/B tests and campaign tracking.">
 <meta property="og:url" content="https://wearetilth.com/tools/">
 <meta property="og:image" content="https://wearetilth.com/og-image.png">
-<meta property="og:locale" content="en_IN">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Free marketing tools | Tilth">
-<meta name="twitter:description" content="Free calculators for marketers — profitability, LTV:CAC, UTM builder, A/B testing, funnel.">
+<meta name="twitter:title" content="Free marketing tools that don't flatter your numbers">
+<meta name="twitter:description" content="Honest calculators for ad spend, LTV:CAC, funnels, A/B tests and campaign tracking.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<style>
-  .hub-filters { margin: 30px 0 24px; }
-  .hub-f-label { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--glow); font-weight: 600; margin-bottom: 12px; }
-  .hub-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
-  .hub-pill { font-family: 'Work Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--text); background: transparent; border: 1px solid var(--rule); border-radius: 40px; padding: 8px 16px; cursor: pointer; transition: color .3s, border-color .3s, background .3s; }
-  .hub-pill:hover { color: var(--ink); border-color: var(--glow); }
-  .hub-pill.active { background: var(--glow); border-color: var(--glow); color: var(--bg); }
-  .hub-row { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; justify-content: space-between; }
-  .hub-models { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-  .hub-models .hub-f-label { margin: 0 4px 0 0; }
-  .hub-search { background: var(--bg); border: 1px solid var(--rule); border-radius: 40px; padding: 9px 18px; color: var(--ink); font-family: 'Work Sans', sans-serif; font-size: 14px; flex: 1; min-width: 180px; max-width: 280px; }
-  .hub-search:focus { outline: none; border-color: var(--glow); }
-  .tool-meta { font-size: 11.5px; color: var(--olive); margin-bottom: 16px; line-height: 1.6; }
-  .tool-meta .bm { color: var(--glow); font-weight: 600; }
-  .featured { display: block; background: var(--surface); border: 1px solid rgba(170,197,108,.5); border-radius: 18px; padding: 30px 30px 28px; margin-top: 30px; transition: transform .4s var(--ease), box-shadow .4s; }
-  .featured:hover { transform: translateY(-3px); box-shadow: 0 18px 44px -26px rgba(0,0,0,.55); }
-  .featured .tag { display: inline-block; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 700; color: var(--terra); border: 1px solid rgba(226,136,90,.5); border-radius: 20px; padding: 2px 9px; margin-bottom: 14px; }
-  .featured h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(24px, 3.4vw, 32px); color: var(--ink); letter-spacing: -.5px; margin-bottom: 10px; }
-  .featured p { color: var(--text); max-width: 60ch; margin-bottom: 14px; }
-  .featured .go { color: var(--glow); font-weight: 600; font-size: 14px; }
-  .hub-empty { margin-top: 24px; font-family: 'Fraunces', serif; font-style: italic; color: var(--olive); }
-</style>
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/core-company.css">
+<link rel="stylesheet" href="/assets/tools.css">
+<script type="module" src="/tools-hub.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -68,194 +45,279 @@
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wearetilth.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://wearetilth.com/tools/" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://wearetilth.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Free Tools",
+          "item": "https://wearetilth.com/tools/"
+        }
       ]
     },
     {
       "@type": "ItemList",
       "name": "Free marketing tools",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Ad Spend Profitability Calculator", "url": "https://wearetilth.com/tools/ad-spend-profitability-calculator/" },
-        { "@type": "ListItem", "position": 2, "name": "LTV : CAC Calculator", "url": "https://wearetilth.com/tools/ltv-cac-calculator/" },
-        { "@type": "ListItem", "position": 3, "name": "UTM Campaign URL Builder", "url": "https://wearetilth.com/tools/utm-builder/" },
-        { "@type": "ListItem", "position": 4, "name": "A/B Test Significance Calculator", "url": "https://wearetilth.com/tools/ab-test-calculator/" },
-        { "@type": "ListItem", "position": 5, "name": "Conversion Funnel Calculator", "url": "https://wearetilth.com/tools/conversion-funnel-calculator/" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Marketing Benchmark Analyser",
+          "url": "https://wearetilth.com/tools/marketing-benchmark-analyser/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ad Spend Profitability Calculator",
+          "url": "https://wearetilth.com/tools/ad-spend-profitability-calculator/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "LTV : CAC Calculator",
+          "url": "https://wearetilth.com/tools/ltv-cac-calculator/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Conversion Funnel Calculator",
+          "url": "https://wearetilth.com/tools/conversion-funnel-calculator/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "A/B Test Significance Calculator",
+          "url": "https://wearetilth.com/tools/ab-test-calculator/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "UTM Campaign URL Builder",
+          "url": "https://wearetilth.com/tools/utm-builder/"
+        }
       ]
     }
   ]
 }
 </script>
 </head>
-<body>
-
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav>
-      <a href="/services/">Services</a>
-      <a href="/industries/">Industries</a>
-      <a href="/work/">Work</a>
-      <a href="/insights/">Insights</a>
-      <a href="/tools/">Tools</a>
-      <a href="/about/">About</a>
+<body class="v3 v3-core v3-tkit v3-tools">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
     </nav>
-    <div class="meta">Global growth marketing agency · India-rooted, working with brands worldwide</div>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
   </div>
 </header>
 
-<section class="page-head">
-  <div class="wrap">
-    <span class="label">Free tools</span>
-    <h1>Marketing tools that don't <span class="accent">flatter</span> your numbers.</h1>
-    <p class="standfirst">Free, no-sign-up calculators for founders and marketers — built the way we think about marketing: measure honestly first, then decide. Nothing is stored; everything runs in your browser.</p>
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
+      <a href="/services/">Services</a>
+      <a href="/industries/">Industries</a>
+      <a href="/work/">Work</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/">Insights</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
+  </div>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
+<main id="main">
+
+<section id="hero" data-hero data-depth-label="SURFACE">
+  <nav data-crumb aria-label="Breadcrumb"><a href="/">Home</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">Free Tools</span></nav>
+  <div data-eyebrow>Free tools</div>
+  <h1 data-h1>Marketing tools that don't <span data-acc>flatter</span> your numbers.</h1>
+  <p data-lede>Free, no-sign-up calculators for founders and marketers — built the way we think about marketing: measure honestly first, then decide. Everything runs in your browser; your raw input values stay on your device.</p>
+</section>
+
+<section data-flagship-sec data-inv data-depth-label="SHALLOW" aria-labelledby="flag-h">
+  <div id="featured">
+    <a data-flagship data-tool="marketing-benchmark-analyser" href="/tools/marketing-benchmark-analyser/">
+      <span data-flag-tag>Flagship &middot; Diagnose</span>
+      <h2 id="flag-h" data-flag-name>Marketing Benchmark Analyser</h2>
+      <p data-flag-out>A transparent marketing health score, your biggest problem, and prioritised actions.</p>
+      <span data-flag-meta>Founders &amp; marketing leads &middot; ~3 min &middot; <span data-bmtag>includes sourced benchmarks</span></span>
+      <span data-go>Open the analyser <span aria-hidden="true">&rarr;</span></span>
+    </a>
   </div>
 </section>
 
-<section class="tk">
-  <div class="wrap">
-    <!-- Featured flagship (rendered from the registry) -->
-    <div id="featured"></div>
-
-    <!-- Filters -->
-    <div class="hub-filters">
-      <div class="hub-f-label">What are you trying to solve?</div>
-      <div class="hub-pills" id="objPills"></div>
-      <div class="hub-row">
-        <div class="hub-models" id="modelPills"><span class="hub-f-label">For:</span></div>
-        <input type="search" id="hubSearch" class="hub-search" placeholder="Search tools…" aria-label="Search tools">
-      </div>
+<section data-sec data-index data-depth-label="MID" aria-label="All tools">
+  <nav data-jump id="hubJump" aria-label="Tool groups"><a href="#plan">Plan &amp; budget</a><a href="#optimise">Optimise conversion</a><a href="#experiment">Run an experiment</a><a href="#track">Track &amp; measure</a></nav>
+  <div data-filters id="hubFilters" hidden>
+    <div data-frow>
+      <span data-flabel2 id="obj-l">What are you trying to solve?</span>
+      <div data-pills id="objPills" role="group" aria-labelledby="obj-l"><button data-pill type="button" data-obj="" aria-pressed="true">All</button><button data-pill type="button" data-obj="diagnose" aria-pressed="false">Diagnose a problem</button><button data-pill type="button" data-obj="plan" aria-pressed="false">Plan &amp; budget</button><button data-pill type="button" data-obj="optimise" aria-pressed="false">Optimise conversion</button><button data-pill type="button" data-obj="experiment" aria-pressed="false">Run an experiment</button><button data-pill type="button" data-obj="track" aria-pressed="false">Track &amp; measure</button></div>
     </div>
+    <div data-frow data-frow2>
+      <div data-frow-in><span data-flabel2 id="mod-l">For:</span>
+      <div data-pills id="modelPills" role="group" aria-labelledby="mod-l"><button data-pill type="button" data-model="" aria-pressed="true">Any</button><button data-pill type="button" data-model="ecommerce" aria-pressed="false">Ecommerce / D2C</button><button data-pill type="button" data-model="saas" aria-pressed="false">SaaS / subscription</button><button data-pill type="button" data-model="lead" aria-pressed="false">Lead generation</button></div></div>
+      <input type="search" id="hubSearch" data-search placeholder="Search tools…" aria-label="Search tools">
+    </div>
+  </div>
+  <div id="toolGrid" data-groups>
+      <section data-group id="plan" aria-labelledby="g-plan">
+        <h2 id="g-plan" data-ghead><span data-gcount aria-hidden="true">02</span>Plan &amp; budget</h2>
+        <ul data-trows>
+          <li data-tool-row="ad-spend-calculator"><a data-trow data-tool="ad-spend-calculator" href="/tools/ad-spend-profitability-calculator/">
+            <h3 data-tname>Ad Spend Profitability Calculator</h3>
+            <p data-tout>Break-even ROAS, the most you can profitably pay per customer, and profit after ads.</p>
+            <p data-tneeds><span>Performance marketers &middot; ~1–3 min</span><span>Needs: Order value, margin/costs, CAC</span></p>
+            <span data-go>Open tool <span aria-hidden="true">&rarr;</span></span>
+          </a></li>
+          <li data-tool-row="ltv-cac-calculator"><a data-trow data-tool="ltv-cac-calculator" href="/tools/ltv-cac-calculator/">
+            <h3 data-tname>LTV : CAC Calculator</h3>
+            <p data-tout>Lifetime value, LTV:CAC ratio and payback — by business model.</p>
+            <p data-tneeds><span>Founders &amp; growth &middot; ~2 min</span><span>Needs: Order value/ARPA, retention, CAC</span></p>
+            <span data-go>Open tool <span aria-hidden="true">&rarr;</span></span>
+          </a></li>
+        </ul>
+      </section>
+      <section data-group id="optimise" aria-labelledby="g-optimise">
+        <h2 id="g-optimise" data-ghead><span data-gcount aria-hidden="true">01</span>Optimise conversion</h2>
+        <ul data-trows>
+          <li data-tool-row="conversion-funnel-calculator"><a data-trow data-tool="conversion-funnel-calculator" href="/tools/conversion-funnel-calculator/">
+            <h3 data-tname>Conversion Funnel Calculator</h3>
+            <p data-tout>Traffic-to-revenue, and a real multi-stage funnel with the biggest leak found.</p>
+            <p data-tneeds><span>Growth &amp; CRO &middot; ~2 min</span><span>Needs: Stage counts or traffic/CR/AOV</span></p>
+            <span data-go>Open tool <span aria-hidden="true">&rarr;</span></span>
+          </a></li>
+        </ul>
+      </section>
+      <section data-group id="experiment" aria-labelledby="g-experiment">
+        <h2 id="g-experiment" data-ghead><span data-gcount aria-hidden="true">01</span>Run an experiment</h2>
+        <ul data-trows>
+          <li data-tool-row="ab-test-calculator"><a data-trow data-tool="ab-test-calculator" href="/tools/ab-test-calculator/">
+            <h3 data-tname>A/B Test Significance Calculator</h3>
+            <p data-tout>Whether your test result is real: p-value, confidence interval, and a plain verdict.</p>
+            <p data-tneeds><span>CRO &amp; product &middot; ~1 min</span><span>Needs: Visitors &amp; conversions per variant</span></p>
+            <span data-go>Open tool <span aria-hidden="true">&rarr;</span></span>
+          </a></li>
+        </ul>
+      </section>
+      <section data-group id="track" aria-labelledby="g-track">
+        <h2 id="g-track" data-ghead><span data-gcount aria-hidden="true">01</span>Track &amp; measure</h2>
+        <ul data-trows>
+          <li data-tool-row="utm-builder"><a data-trow data-tool="utm-builder" href="/tools/utm-builder/">
+            <h3 data-tname>UTM Campaign URL Builder</h3>
+            <p data-tout>Clean, consistently-tagged campaign links so every click is attributable.</p>
+            <p data-tneeds><span>Marketers &amp; agencies &middot; ~1 min</span><span>Needs: Destination URL + campaign fields</span></p>
+            <span data-go>Open tool <span aria-hidden="true">&rarr;</span></span>
+          </a></li>
+        </ul>
+      </section>
+  </div>
+  <p data-hub-empty id="hubEmpty" role="status" hidden>No tools match those filters — clear one to see more.</p>
+</section>
 
-    <div class="tools-grid" id="toolGrid"></div>
-    <p class="hub-empty" id="hubEmpty" hidden>No tools match those filters — clear one to see more.</p>
+<section data-sec data-evidence data-depth-label="DEEP" aria-label="Benchmarks and privacy">
+  <p data-ev-p>Some tools compare your numbers against industry benchmarks — see exactly <a data-ev-link href="/tools/benchmarks/">where those come from and how we source them <span aria-hidden="true">&rarr;</span></a></p>
+  <p data-ev-p>Everything runs in your browser: <strong>your raw input values stay on your device.</strong> Anonymous, banded usage data may be recorded to understand how the tools are used.</p>
+</section>
 
-    <p style="margin-top:30px;font-size:14px;color:var(--olive);">Some tools compare your numbers against industry benchmarks — see exactly <a href="/tools/benchmarks/" style="color:var(--glow);border-bottom:1px solid var(--glow);">where those come from and how we source them →</a> &nbsp;·&nbsp; Everything runs in your browser: <strong style="color:var(--text)">no inputs are stored or sent anywhere.</strong></p>
-
-    <div class="tk-cta">
-      <h3>Numbers are only as honest as the tracking behind them</h3>
+<section data-tcta data-depth-label="FOUNDATION" aria-labelledby="cta-h" id="ctaCard">
+  <div data-eyebrow><span data-step aria-hidden="true">04</span>Next step</div>
+  <div data-tcta-grid>
+    <h2 id="cta-h" data-tcta-h>Numbers are only as honest as the tracking behind them</h2>
+    <div>
       <p>These tools assume your inputs are real. Most brands find their CAC, ROAS, and conversions are being mismeasured. A free foundation audit checks the tracking underneath — so the numbers you plug in actually mean something.</p>
-      <a href="/contact/" class="btn"><span>Request a free audit</span><span aria-hidden="true">→</span></a>
-    </div>
-
-    <div class="tk-related" style="margin-top:44px;">
-      <h3>From the field notes</h3>
-      <ul>
-        <li><a href="/insights/audit-your-ad-spend/">How to tell if your ad spend is actually profitable →</a></li>
-        <li><a href="/insights/marketing-attribution-explained-simply/">Marketing attribution for small businesses, explained simply →</a></li>
-        <li><a href="/insights/startup-marketing-budget-india/">Marketing budget for an early-stage startup in India →</a></li>
-      </ul>
+      <a data-btn data-cta-btn href="/contact/"><span>Request a free audit</span> <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br><a href="tel:+917007999306">+91 70079 99306</a><br>anuja@tilth.in</div>
-      </div>
-      <div>
-        <h2 class="fcol">Navigate</h2>
-        <ul>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/approach/">Approach</a></li>
-          <li><a href="/insights/">Insights</a></li>
-          <li><a href="/tools/">Tools</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Legal</h2>
-        <ul>
-          <li><a href="/privacy/">Privacy Policy</a></li>
-          <li><a href="/terms/">Terms of Service</a></li>
-          <li><a href="/cookie-policy/">Cookie Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Social</h2>
-        <ul>
-          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
-      </div>
+<section data-related aria-labelledby="rel-h">
+  <h2 id="rel-h">From the field notes</h2>
+  <ul>
+    <li><a href="/insights/audit-your-ad-spend/">How to tell if your ad spend is actually profitable</a></li>
+    <li><a href="/insights/marketing-attribution-explained-simply/">Marketing attribution for small businesses, explained simply</a></li>
+    <li><a href="/insights/startup-marketing-budget-india/">Marketing budget for an early-stage startup in India</a></li>
+  </ul>
+</section>
+
+</main>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Tilth. All rights reserved.</span>
-      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-
-<script type="module">
-import { TOOLS, OBJECTIVES, MODELS, filterTools } from '/tools/lib/registry.js';
-import { track, trackOnce } from '/tools/lib/analytics.js';
-(function () {
-  track('tool_viewed', { tool: 'hub' });
-  var state = { objective: '', model: '', query: '' };
-  var featured = document.getElementById('featured'), grid = document.getElementById('toolGrid'),
-      empty = document.getElementById('hubEmpty'), objPills = document.getElementById('objPills'),
-      modelPills = document.getElementById('modelPills'), search = document.getElementById('hubSearch');
-  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
-
-  // featured flagship
-  var f = TOOLS.find(function (t) { return t.flagship; });
-  if (f) {
-    featured.innerHTML = '<a class="featured" data-tool="' + f.id + '" href="' + f.route + '"><span class="tag">Flagship · ' + esc(f.category) + '</span>' +
-      '<h2>' + esc(f.name) + '</h2><p>' + esc(f.outcome) + '</p>' +
-      '<div class="tool-meta">' + esc(f.audience) + ' · ' + esc(f.time) + ' · <span class="bm">includes sourced benchmarks</span></div>' +
-      '<span class="go">Open the analyser →</span></a>';
-  }
-
-  // pills
-  function pill(label, active) { return '<button class="hub-pill' + (active ? ' active' : '') + '" type="button">' + esc(label) + '</button>'; }
-  objPills.innerHTML = pill('All', true) + OBJECTIVES.map(function (o) { return '<button class="hub-pill" type="button" data-obj="' + o.id + '">' + esc(o.label) + '</button>'; }).join('');
-  objPills.firstChild.setAttribute('data-obj', '');
-  modelPills.insertAdjacentHTML('beforeend', pill('Any', true) + MODELS.map(function (m) { return '<button class="hub-pill" type="button" data-model="' + m.id + '">' + esc(m.label) + '</button>'; }).join(''));
-  modelPills.querySelector('.hub-pill').setAttribute('data-model', '');
-
-  function card(t) {
-    var bm = t.benchmarks ? ' · <span class="bm">benchmarks</span>' : '';
-    return '<a class="tool-card" data-tool="' + t.id + '" href="' + t.route + '">' +
-      '<span class="cat">' + esc(t.category) + bm + '</span>' +
-      '<h2>' + esc(t.name) + '</h2>' +
-      '<p>' + esc(t.outcome) + '</p>' +
-      '<div class="tool-meta">' + esc(t.audience) + ' · ' + esc(t.time) + '<br>Needs: ' + esc(t.inputs) + '</div>' +
-      '<span class="go">Open tool →</span></a>';
-  }
-
-  function render() {
-    var list = filterTools(state).filter(function (t) { return !t.flagship; });
-    grid.innerHTML = list.map(card).join('');
-    empty.hidden = list.length > 0;
-  }
-
-  objPills.addEventListener('click', function (e) {
-    var b = e.target.closest('.hub-pill'); if (!b) return;
-    objPills.querySelectorAll('.hub-pill').forEach(function (x) { x.classList.toggle('active', x === b); });
-    state.objective = b.getAttribute('data-obj') || ''; render();
-    track('objective_selected', { objective: state.objective || 'all' });
-  });
-  modelPills.addEventListener('click', function (e) {
-    var b = e.target.closest('.hub-pill'); if (!b) return;
-    modelPills.querySelectorAll('.hub-pill').forEach(function (x) { x.classList.toggle('active', x === b); });
-    state.model = b.getAttribute('data-model') || ''; render();
-    track('business_model_selected', { tool: 'hub', model: state.model || 'any' });
-  });
-  search.addEventListener('input', function () { state.query = search.value; render(); if (search.value) trackOnce('hubsearch', 'tool_search', {}); });
-
-  function trackOpen(e) { var a = e.target.closest('a[data-tool]'); if (a) track('tool_opened', { tool: a.getAttribute('data-tool'), from: 'hub' }); }
-  featured.addEventListener('click', trackOpen);
-  grid.addEventListener('click', trackOpen);
-
-  render();
-})();
-</script>
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>

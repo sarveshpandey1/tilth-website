@@ -4,23 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1MJEZ4VK26');
-</script>
+<!-- Google tag (gtag.js) — deferred loader, commands queue in dataLayer -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1MJEZ4VK26');
+(function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26';document.head.appendChild(s);}
+if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
+['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});})();</script>
 <title>A/B Test Significance Calculator — Is Your Result Real? | Tilth</title>
 <meta name="description" content="Free A/B test significance calculator: enter visitors and conversions for each variant to see conversion rates, uplift, and statistical confidence before you call a winner.">
 <link rel="canonical" href="https://wearetilth.com/tools/ab-test-calculator/">
+
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="geo.region" content="IN-KA">
-<meta name="geo.placename" content="Bengaluru">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -30,15 +26,18 @@
 <meta property="og:description" content="Check statistical significance before you call an A/B test. Free, no sign-up.">
 <meta property="og:url" content="https://wearetilth.com/tools/ab-test-calculator/">
 <meta property="og:image" content="https://wearetilth.com/og-image.png">
-<meta property="og:locale" content="en_IN">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="A/B Test Significance Calculator | Tilth">
-<meta name="twitter:description" content="Is your winning variant actually winning? Check significance — free.">
+<meta name="twitter:title" content="A/B Test Significance Calculator — is your result real or noise?">
+<meta name="twitter:description" content="Check statistical significance before you call an A/B test. Free, no sign-up.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/core-company.css">
+<link rel="stylesheet" href="/assets/tools.css">
+<script type="module" src="/tools-worksheet.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -46,9 +45,24 @@
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wearetilth.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://wearetilth.com/tools/" },
-        { "@type": "ListItem", "position": 3, "name": "A/B Test Significance Calculator", "item": "https://wearetilth.com/tools/ab-test-calculator/" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://wearetilth.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Free Tools",
+          "item": "https://wearetilth.com/tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "A/B Test Significance Calculator",
+          "item": "https://wearetilth.com/tools/ab-test-calculator/"
+        }
       ]
     },
     {
@@ -58,209 +72,219 @@
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Any (web)",
       "description": "Calculates conversion rates, relative uplift, and statistical confidence (two-proportion z-test) for an A/B test from visitor and conversion counts.",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-      "publisher": { "@type": "Organization", "name": "Tilth", "url": "https://wearetilth.com/" }
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tilth",
+        "url": "https://wearetilth.com/"
+      }
     }
   ]
 }
 </script>
 </head>
-<body>
-
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav>
-      <a href="/services/">Services</a>
-      <a href="/industries/">Industries</a>
-      <a href="/work/">Work</a>
-      <a href="/insights/">Insights</a>
-      <a href="/tools/">Tools</a>
-      <a href="/about/">About</a>
+<body class="v3 v3-core v3-tkit v3-tool">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
     </nav>
-    <div class="meta">Global growth marketing agency · India-rooted, working with brands worldwide</div>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
   </div>
 </header>
 
-<section class="page-head">
-  <div class="wrap">
-    <span class="label">Free tool</span>
-    <h1>Is your winner actually <span class="accent">winning?</span></h1>
-    <p class="standfirst">Most A/B tests get called too early, on too little data — and the "winner" was just noise. Enter the visitors and conversions for each variant to see the real conversion rates, the uplift, and how confident you can actually be.</p>
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
   </div>
-</section>
-
-<section class="tk">
-  <div class="wrap">
-    <div class="tk-crumb"><a href="/tools/">Free Tools</a> &nbsp;/&nbsp; A/B Test Significance Calculator</div>
-
-    <div class="tk-calc">
-      <div class="tk-panel">
-        <h2>Your test results</h2>
-        <p class="tk-sub">Enter totals for each variant.</p>
-
-        <div class="tk-field">
-          <div class="tk-ftop"><div><label class="tk-label" for="nA">Variant A — visitors</label><div class="tk-hint">The control</div></div>
-            <span class="tk-val bare"><input type="number" id="nA" min="1" step="1" value="1500" inputmode="numeric"></span></div>
-        </div>
-        <div class="tk-field">
-          <div class="tk-ftop"><div><label class="tk-label" for="cA">Variant A — conversions</label><div class="tk-hint">Sign-ups, sales, etc.</div></div>
-            <span class="tk-val bare"><input type="number" id="cA" min="0" step="1" value="75" inputmode="numeric"></span></div>
-        </div>
-        <div class="tk-field">
-          <div class="tk-ftop"><div><label class="tk-label" for="nB">Variant B — visitors</label><div class="tk-hint">The challenger</div></div>
-            <span class="tk-val bare"><input type="number" id="nB" min="1" step="1" value="1500" inputmode="numeric"></span></div>
-        </div>
-        <div class="tk-field">
-          <div class="tk-ftop"><div><label class="tk-label" for="cB">Variant B — conversions</label><div class="tk-hint">Sign-ups, sales, etc.</div></div>
-            <span class="tk-val bare"><input type="number" id="cB" min="0" step="1" value="105" inputmode="numeric"></span></div>
-        </div>
-      </div>
-
-      <div class="tk-results">
-        <div class="tk-verdict neutral" id="verdict" aria-live="polite">
-          <div class="k" id="vk">Verdict</div>
-          <div class="headline" id="vh">—</div>
-          <div class="detail" id="vd">—</div>
-        </div>
-        <div class="tk-rcard">
-          <div class="k">Conversion rates</div>
-          <div class="v"><span id="rA">—</span><span class="unit">% A</span> &nbsp;·&nbsp; <span id="rB">—</span><span class="unit">% B</span></div>
-          <p class="exp">The share of each variant's visitors that converted.</p>
-        </div>
-        <div class="tk-rcard">
-          <div class="k">Relative uplift (B vs A)</div>
-          <div class="v"><span id="uplift">—</span><span class="unit">%</span></div>
-          <p class="exp">How much better (or worse) B converts than A, in relative terms.</p>
-        </div>
-        <div class="tk-rcard">
-          <div class="k">Significance — two-sided p-value</div>
-          <div class="v">p = <span id="pval">—</span></div>
-          <p class="exp"><span id="confLine">—</span> A p-value under 0.05 means: <em>if the two variants truly performed the same</em>, a gap this large would appear less than 5% of the time. It is not the probability that B is better.</p>
-        </div>
-        <div class="tk-rcard">
-          <div class="k">95% confidence interval — B minus A</div>
-          <div class="v"><span id="ciLow">—</span> to <span id="ciHigh">—</span><span class="unit"> pp</span></div>
-          <p class="exp">The plausible range for the true difference in conversion rate, in percentage points. If this range includes zero, you can't yet rule out "no real difference".</p>
-        </div>
-      </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
+      <a href="/services/">Services</a>
+      <a href="/industries/">Industries</a>
+      <a href="/work/">Work</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/">Insights</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
     </div>
-
-    <div class="tk-note">
-      <p><strong>Significance isn't the whole story.</strong> Even below p = 0.05, run the test for full business cycles (weekdays and weekends behave differently), don't stop the moment it crosses the line, and make sure both variants got enough conversions — a handful can look significant and still be a fluke. A low p-value says the gap is unlikely to be a fluke; it can't tell you it's worth shipping.</p>
-    </div>
-
-    <details class="tk-note" style="border-left-color:var(--glow);">
-      <summary style="cursor:pointer;font-weight:600;color:var(--ink);font-size:14.5px;">Method &amp; formula</summary>
-      <p style="margin-top:12px;">Two-proportion z-test using the normal approximation. The test statistic uses the <em>pooled</em> conversion rate for its standard error; the confidence interval uses the <em>unpooled</em> (Wald) standard error of the difference. The two-sided p-value is 2 × (1 − Φ(|z|)), where Φ is the standard normal CDF. Below roughly 30 conversions per variant the normal approximation is unreliable and a warning is shown. This tool does not correct for repeated "peeking" or for testing many variants at once — decide your test length in advance, and treat a very uneven traffic split as a possible sample-ratio problem.</p>
-    </details>
-
-    <div class="tk-cta">
-      <h3>A test is only as clean as the tracking under it</h3>
-      <p>If your conversion events fire inconsistently between variants, the whole test is compromised before the maths begins. A free foundation audit verifies your tracking is measuring the same thing, the same way, everywhere — so your experiments are trustworthy.</p>
-      <a href="/contact/" class="btn"><span>Request a free audit</span><span aria-hidden="true">→</span></a>
-    </div>
-
-    <div class="tk-related">
-      <h3>Related</h3>
-      <ul>
-        <li><a href="/insights/seo-not-bringing-leads/">Why your SEO isn't bringing leads (and how to fix it) →</a></li>
-        <li><a href="/insights/meta-ads-not-converting/">Meta Ads not converting? A 7-point tracking audit →</a></li>
-        <li><a href="/insights/ga4-conversion-tracking/">GA4 conversion tracking: the setup checklist before you scale ads →</a></li>
-      </ul>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
     </div>
   </div>
-</section>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
+<main id="main">
 
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br><a href="tel:+917007999306">+91 70079 99306</a><br>anuja@tilth.in</div>
+  <section id="hero" data-thero data-depth-label="SURFACE">
+    <nav data-crumb aria-label="Breadcrumb"><a href="/">Home</a> <span data-sep aria-hidden="true">/</span> <a href="/tools/">Free Tools</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">A/B Test Significance Calculator</span></nav>
+    <div data-eyebrow>Free tool</div>
+    <h1 data-h1 data-th1>Is your winner actually <span data-acc>winning?</span></h1>
+    <div data-thero-row>
+      <p data-lede>Most A/B tests get called too early, on too little data — and the "winner" was just noise. Enter the visitors and conversions for each variant to see the real conversion rates, the uplift, and how confident you can actually be.</p>
+      <p data-tmeta><b>CRO &amp; product</b> · ~1 min<br>Needs: Visitors &amp; conversions per variant</p>
+    </div>
+  </section>
+
+  <section data-ws data-tool-key="ab-test" id="calculator" data-depth-label="SHALLOW" aria-label="A/B Test Significance Calculator">
+    <div data-toolbar data-empty-bar></div>
+    <div data-ws-grid>
+      <div data-inputs>
+        <h2 data-ptitle><span data-step aria-hidden="true">01</span>Your test results</h2>
+        <p data-psub>Enter totals for each variant.</p>
+        <div data-fields data-ab>
+        <div data-field>
+          <div data-fhead><label data-flabel for="nA">Variant A — visitors</label><span data-fhint id="nA-h">The control</span></div>
+          <div data-ctl><input type="number" id="nA" min="1" step="1" value="1500" inputmode="numeric" aria-describedby="nA-h nA-msg"></div>
+          <p data-fmsg id="nA-msg" aria-live="polite"></p>
+        </div>
+        <div data-field>
+          <div data-fhead><label data-flabel for="cA">Variant A — conversions</label><span data-fhint id="cA-h">Sign-ups, sales, etc.</span></div>
+          <div data-ctl><input type="number" id="cA" min="0" step="1" value="75" inputmode="numeric" aria-describedby="cA-h cA-msg"></div>
+          <p data-fmsg id="cA-msg" aria-live="polite"></p>
+        </div>
+        <div data-field>
+          <div data-fhead><label data-flabel for="nB">Variant B — visitors</label><span data-fhint id="nB-h">The challenger</span></div>
+          <div data-ctl><input type="number" id="nB" min="1" step="1" value="1500" inputmode="numeric" aria-describedby="nB-h nB-msg"></div>
+          <p data-fmsg id="nB-msg" aria-live="polite"></p>
+        </div>
+        <div data-field>
+          <div data-fhead><label data-flabel for="cB">Variant B — conversions</label><span data-fhint id="cB-h">Sign-ups, sales, etc.</span></div>
+          <div data-ctl><input type="number" id="cB" min="0" step="1" value="105" inputmode="numeric" aria-describedby="cB-h cB-msg"></div>
+          <p data-fmsg id="cB-msg" aria-live="polite"></p>
+        </div>
+        </div>
       </div>
+      <section data-readout id="result" aria-labelledby="result-h">
+        <h2 data-ptitle id="result-h"><span data-step aria-hidden="true">02</span>Result</h2>
+        <p data-nojs>This calculator runs in your browser. Turn on JavaScript to see your result.</p>
+        
+        <div data-verdict data-state="neutral" id="verdict" aria-live="polite">
+          <div data-vk><span data-vglyph aria-hidden="true"></span><span id="vk">Verdict</span></div>
+          <div data-vh id="vh">—</div>
+          <p data-vd id="vd">—</p>
+        </div>
+        <div data-metric>
+          <div data-mk>Conversion rates</div>
+          <div data-mv><span id="rA">—</span><span data-unit>% A</span><span data-sep2 aria-hidden="true">·</span><span id="rB">—</span><span data-unit>% B</span></div>
+          <p data-mexp>The share of each variant's visitors that converted.</p>
+        </div>
+        <div data-metric>
+          <div data-mk>Relative uplift (B vs A)</div>
+          <div data-mv><span id="uplift">—</span><span data-unit>%</span></div>
+          <p data-mexp>How much better (or worse) B converts than A, in relative terms.</p>
+        </div>
+        <div data-metric>
+          <div data-mk>Significance — two-sided p-value</div>
+          <div data-mv data-small><span data-unit>p =</span> <span id="pval">—</span></div>
+          <p data-mexp><span id="confLine">—</span> A p-value under 0.05 means: <em>if the two variants truly performed the same</em>, a gap this large would appear less than 5% of the time. It is not the probability that B is better.</p>
+        </div>
+        <div data-metric>
+          <div data-mk>95% confidence interval — B minus A</div>
+          <div data-mv data-small><span id="ciLow">—</span> <span data-unit>to</span> <span id="ciHigh">—</span><span data-unit> pp</span></div>
+          <p data-mexp>The plausible range for the true difference in conversion rate, in percentage points. If this range includes zero, you can't yet rule out "no real difference".</p>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <div data-interp data-depth-label="MID">
+    <div data-note><p data-note-k><span data-step aria-hidden="true">03</span>Significance isn't the whole story.</p><p>Even below p = 0.05, run the test for full business cycles (weekdays and weekends behave differently), don't stop the moment it crosses the line, and make sure both variants got enough conversions — a handful can look significant and still be a fluke. A low p-value says the gap is unlikely to be a fluke; it can't tell you it's worth shipping.</p></div>
+      <details data-method><summary>Method &amp; formula</summary><p>Two-proportion z-test using the normal approximation. The test statistic uses the <em>pooled</em> conversion rate for its standard error; the confidence interval uses the <em>unpooled</em> (Wald) standard error of the difference. The two-sided p-value is 2 × (1 − Φ(|z|)), where Φ is the standard normal CDF. Below roughly 30 conversions per variant the normal approximation is unreliable and a warning is shown. This tool does not correct for repeated "peeking" or for testing many variants at once — decide your test length in advance, and treat a very uneven traffic split as a possible sample-ratio problem.</p></details>
+  </div>
+
+  <section data-tcta data-depth-label="FOUNDATION" aria-labelledby="cta-h" id="ctaCard">
+    <div data-eyebrow><span data-step aria-hidden="true">04</span>Next step</div>
+    <div data-tcta-grid>
+      <h2 id="cta-h" data-tcta-h>A test is only as clean as the tracking under it</h2>
       <div>
-        <h2 class="fcol">Navigate</h2>
-        <ul>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/approach/">Approach</a></li>
-          <li><a href="/insights/">Insights</a></li>
-          <li><a href="/tools/">Tools</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Legal</h2>
-        <ul>
-          <li><a href="/privacy/">Privacy Policy</a></li>
-          <li><a href="/terms/">Terms of Service</a></li>
-          <li><a href="/cookie-policy/">Cookie Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Social</h2>
-        <ul>
-          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
+        <p>If your conversion events fire inconsistently between variants, the whole test is compromised before the maths begins. A free foundation audit verifies your tracking is measuring the same thing, the same way, everywhere — so your experiments are trustworthy.</p>
+        <a data-btn data-cta-btn href="/contact/"><span>Request a free audit</span> <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Tilth. All rights reserved.</span>
-      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+  </section>
+
+  <section data-related aria-labelledby="rel-h">
+    <h2 id="rel-h">Related</h2>
+    <ul>
+      <li><a href="/insights/seo-not-bringing-leads/">Why your SEO isn't bringing leads (and how to fix it)</a></li>
+      <li><a href="/insights/meta-ads-not-converting/">Meta Ads not converting? A 7-point tracking audit</a></li>
+      <li><a href="/insights/ga4-conversion-tracking/">GA4 conversion tracking: the setup checklist before you scale ads</a></li>
+    </ul>
+  </section>
+  <div data-dock hidden aria-hidden="true"><div data-dock-txt><span data-dock-k><span data-vglyph aria-hidden="true"></span><span></span></span><span data-dock-v></span></div><a href="#result" tabindex="-1">Result <span aria-hidden="true">↓</span></a></div>
+</main>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-
-<script type="module">
-import { abTest } from '/tools/lib/calc.js';
-(function () {
-  var nA = document.getElementById('nA'), cA = document.getElementById('cA'),
-      nB = document.getElementById('nB'), cB = document.getElementById('cB');
-  var rAEl = document.getElementById('rA'), rBEl = document.getElementById('rB'), upEl = document.getElementById('uplift');
-  var pvalEl = document.getElementById('pval'), confLineEl = document.getElementById('confLine'),
-      ciLowEl = document.getElementById('ciLow'), ciHighEl = document.getElementById('ciHigh');
-  var vEl = document.getElementById('verdict'), vk = document.getElementById('vk'), vh = document.getElementById('vh'), vd = document.getElementById('vd');
-
-  function pos(el, min) { var v = parseFloat(el.value); if (isNaN(v) || v < min) v = min; return v; }
-  function fmtP(p) { return p < 0.001 ? '<0.001' : p.toFixed(3); }
-  function pp(x) { return (x >= 0 ? '+' : '') + x.toFixed(2); }
-
-  function render() {
-    var r = abTest({ nA: pos(nA, 1), cA: pos(cA, 0), nB: pos(nB, 1), cB: pos(cB, 0) });
-
-    rAEl.textContent = (r.rateA * 100).toFixed(2);
-    rBEl.textContent = (r.rateB * 100).toFixed(2);
-    upEl.textContent = isFinite(r.uplift) ? (r.uplift >= 0 ? '+' : '') + r.uplift.toFixed(1) : '∞';
-    pvalEl.textContent = fmtP(r.pValue);
-    confLineEl.textContent = 'Confidence ≈ ' + r.confidence.toFixed(1) + '% (1 − p).';
-    ciLowEl.textContent = pp(r.ciLow); ciHighEl.textContent = pp(r.ciHigh);
-
-    var srm = (r.split < 0.35 || r.split > 0.65) ? ' Also: your traffic split is quite uneven (' + Math.round(r.split * 100) + '/' + Math.round((1 - r.split) * 100) + ') — check for a sample-ratio problem.' : '';
-
-    if (r.minConversions < 30) {
-      vEl.className = 'tk-verdict warn'; vk.textContent = 'Too little data';
-      vh.textContent = 'Keep the test running';
-      vd.textContent = 'With fewer than ~30 conversions in a variant, the normal approximation behind these numbers is unreliable (p = ' + fmtP(r.pValue) + '). Gather more data before trusting the result.' + srm;
-    } else if (r.significant) {
-      var winner = r.rateB > r.rateA ? 'B' : 'A';
-      vEl.className = 'tk-verdict good'; vk.textContent = 'Statistically significant';
-      vh.textContent = 'Variant ' + winner + ' wins — p = ' + fmtP(r.pValue);
-      vd.textContent = 'If the two variants truly performed the same, a gap this large would appear under 5% of the time. The true difference (B − A) is likely between ' + pp(r.ciLow) + ' and ' + pp(r.ciHigh) + ' pp. Confirm it held across full weekly cycles before shipping.' + srm;
-    } else {
-      vEl.className = 'tk-verdict neutral'; vk.textContent = 'Not significant yet';
-      vh.textContent = 'p = ' + fmtP(r.pValue) + ' — above 0.05';
-      vd.textContent = 'The data can’t rule out that this gap is chance — the 95% interval (' + pp(r.ciLow) + ' to ' + pp(r.ciHigh) + ' pp) still includes zero. Keep running, or accept there may be no real difference.' + srm;
-    }
-  }
-
-  [nA, cA, nB, cB].forEach(function (f) { f.addEventListener('input', render); });
-  render();
-})();
-</script>
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>

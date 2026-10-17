@@ -4,23 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1MJEZ4VK26');
-</script>
+<!-- Google tag (gtag.js) — deferred loader, commands queue in dataLayer -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1MJEZ4VK26');
+(function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26';document.head.appendChild(s);}
+if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
+['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});})();</script>
 <title>UTM Campaign URL Builder — Free UTM Link Generator | Tilth</title>
 <meta name="description" content="Free UTM builder: generate correctly tagged campaign URLs (utm_source, medium, campaign, term, content) so every click is attributable in GA4. No sign-up.">
 <link rel="canonical" href="https://wearetilth.com/tools/utm-builder/">
+
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="geo.region" content="IN-KA">
-<meta name="geo.placename" content="Bengaluru">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -30,15 +26,18 @@
 <meta property="og:description" content="Generate correctly tagged campaign URLs so every click is measurable. Free, no sign-up.">
 <meta property="og:url" content="https://wearetilth.com/tools/utm-builder/">
 <meta property="og:image" content="https://wearetilth.com/og-image.png">
-<meta property="og:locale" content="en_IN">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="UTM Campaign URL Builder | Tilth">
-<meta name="twitter:description" content="Generate correctly tagged, attributable campaign URLs — free.">
+<meta name="twitter:title" content="UTM Campaign URL Builder — clean, attributable campaign links">
+<meta name="twitter:description" content="Generate correctly tagged campaign URLs so every click is measurable. Free, no sign-up.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/core-company.css">
+<link rel="stylesheet" href="/assets/tools.css">
+<script type="module" src="/tools-worksheet.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -46,9 +45,24 @@
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wearetilth.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://wearetilth.com/tools/" },
-        { "@type": "ListItem", "position": 3, "name": "UTM Campaign URL Builder", "item": "https://wearetilth.com/tools/utm-builder/" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://wearetilth.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Free Tools",
+          "item": "https://wearetilth.com/tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "UTM Campaign URL Builder",
+          "item": "https://wearetilth.com/tools/utm-builder/"
+        }
       ]
     },
     {
@@ -58,190 +72,210 @@
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Any (web)",
       "description": "Generates correctly tagged campaign URLs with utm_source, utm_medium, utm_campaign, utm_term, and utm_content parameters for accurate GA4 attribution.",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-      "publisher": { "@type": "Organization", "name": "Tilth", "url": "https://wearetilth.com/" }
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tilth",
+        "url": "https://wearetilth.com/"
+      }
     }
   ]
 }
 </script>
 </head>
-<body>
-
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav>
-      <a href="/services/">Services</a>
-      <a href="/industries/">Industries</a>
-      <a href="/work/">Work</a>
-      <a href="/insights/">Insights</a>
-      <a href="/tools/">Tools</a>
-      <a href="/about/">About</a>
+<body class="v3 v3-core v3-tkit v3-tool">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
     </nav>
-    <div class="meta">Global growth marketing agency · India-rooted, working with brands worldwide</div>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
   </div>
 </header>
 
-<section class="page-head">
-  <div class="wrap">
-    <span class="label">Free tool</span>
-    <h1>Every click, <span class="accent">attributable</span>.</h1>
-    <p class="standfirst">Untagged links are where attribution goes to die — traffic lands in "direct / none" and you never learn what worked. Build clean, consistent UTM links so GA4 can tell you exactly which campaign drove the result.</p>
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
   </div>
-</section>
-
-<section class="tk">
-  <div class="wrap">
-    <div class="tk-crumb"><a href="/tools/">Free Tools</a> &nbsp;/&nbsp; UTM Campaign URL Builder</div>
-
-    <div class="tk-panel" style="margin-top:36px;">
-      <h2>Build your link</h2>
-      <p class="tk-sub">Fill the fields — the tagged URL updates live below. Keep values lowercase and consistent (e.g. always <em>facebook</em>, never <em>FB</em>).</p>
-
-      <div class="tk-field">
-        <div class="tk-ftop"><div><label class="tk-label" for="url">Destination URL</label><div class="tk-hint">The page you're linking to</div></div></div>
-        <input class="tk-text" type="text" id="url" placeholder="https://wearetilth.com/contact/" inputmode="url" autocomplete="off">
-      </div>
-      <div class="tk-field">
-        <div class="tk-ftop"><div><label class="tk-label" for="source">Campaign source · utm_source</label><div class="tk-hint">Where the traffic comes from</div></div></div>
-        <input class="tk-text" type="text" id="source" list="sourceList" placeholder="e.g. google, facebook, newsletter" autocomplete="off">
-        <datalist id="sourceList"><option value="google"><option value="facebook"><option value="instagram"><option value="linkedin"><option value="twitter"><option value="newsletter"><option value="whatsapp"></datalist>
-      </div>
-      <div class="tk-field">
-        <div class="tk-ftop"><div><label class="tk-label" for="medium">Campaign medium · utm_medium</label><div class="tk-hint">The marketing channel type</div></div></div>
-        <input class="tk-text" type="text" id="medium" list="mediumList" placeholder="e.g. cpc, email, social" autocomplete="off">
-        <datalist id="mediumList"><option value="cpc"><option value="email"><option value="social"><option value="banner"><option value="affiliate"><option value="referral"><option value="organic"></datalist>
-      </div>
-      <div class="tk-field">
-        <div class="tk-ftop"><div><label class="tk-label" for="campaign">Campaign name · utm_campaign</label><div class="tk-hint">The specific campaign</div></div></div>
-        <input class="tk-text" type="text" id="campaign" placeholder="e.g. diwali_sale_2026" autocomplete="off">
-      </div>
-      <div class="tk-field">
-        <div class="tk-ftop"><div><label class="tk-label" for="term">Campaign term · utm_term <span style="color:var(--olive);font-weight:400">(optional)</span></label><div class="tk-hint">Paid keyword, if any</div></div></div>
-        <input class="tk-text" type="text" id="term" placeholder="e.g. marketing_agency_bengaluru" autocomplete="off">
-      </div>
-      <div class="tk-field">
-        <div class="tk-ftop"><div><label class="tk-label" for="content">Campaign content · utm_content <span style="color:var(--olive);font-weight:400">(optional)</span></label><div class="tk-hint">To tell two versions apart (A/B)</div></div></div>
-        <input class="tk-text" type="text" id="content" placeholder="e.g. hero_cta_v2" autocomplete="off">
-      </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
+      <a href="/services/">Services</a>
+      <a href="/industries/">Industries</a>
+      <a href="/work/">Work</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/">Insights</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
     </div>
-
-    <div class="tk-rcard" style="margin-top:22px;">
-      <div class="k">Your tagged URL</div>
-      <div class="tk-output" id="output" style="margin-top:10px;">Enter a destination URL to begin.</div>
-      <button class="tk-copy" id="copyBtn" type="button" disabled>Copy link</button>
-    </div>
-
-    <div class="tk-note">
-      <p><strong>The point isn't the link — it's the convention.</strong> UTMs only work if everyone tags the same way every time. Pick one spelling and case for each source and medium and never deviate; <em>facebook / cpc</em> and <em>FB / CPC</em> become two different sources in GA4 and quietly split your data. Agree the naming rules once, then use this builder to enforce them.</p>
-    </div>
-
-    <div class="tk-cta">
-      <h3>UTMs are only step one of trustworthy tracking</h3>
-      <p>Clean links don't help if the conversion events on the other end are broken. A free foundation audit checks your GA4 setup end to end — tagging, events, and attribution — so the traffic you tag actually gets credited correctly.</p>
-      <a href="/contact/" class="btn"><span>Request a free audit</span><span aria-hidden="true">→</span></a>
-    </div>
-
-    <div class="tk-related">
-      <h3>Related</h3>
-      <ul>
-        <li><a href="/insights/marketing-attribution-explained-simply/">Marketing attribution for small businesses, explained simply →</a></li>
-        <li><a href="/insights/ga4-conversion-tracking/">GA4 conversion tracking: the setup checklist before you scale ads →</a></li>
-        <li><a href="/insights/measure-influencer-marketing-roi/">How to measure influencer marketing ROI properly →</a></li>
-      </ul>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
     </div>
   </div>
-</section>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
+<main id="main">
 
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <div class="addr">Tilth — Marketing Agency<br>Bengaluru, India<br><a href="tel:+917007999306">+91 70079 99306</a><br>anuja@tilth.in</div>
+  <section id="hero" data-thero data-depth-label="SURFACE">
+    <nav data-crumb aria-label="Breadcrumb"><a href="/">Home</a> <span data-sep aria-hidden="true">/</span> <a href="/tools/">Free Tools</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">UTM Campaign URL Builder</span></nav>
+    <div data-eyebrow>Free tool</div>
+    <h1 data-h1 data-th1>Every click, <span data-acc>attributable</span>.</h1>
+    <div data-thero-row>
+      <p data-lede>Untagged links are where attribution goes to die — traffic lands in "direct / none" and you never learn what worked. Build clean, consistent UTM links so GA4 can tell you exactly which campaign drove the result.</p>
+      <p data-tmeta><b>Marketers &amp; agencies</b> · ~1 min<br>Needs: Destination URL + campaign fields</p>
+    </div>
+  </section>
+
+  <section data-ws data-tool-key="utm-builder" id="calculator" data-depth-label="SHALLOW" aria-label="UTM Campaign URL Builder">
+    <div data-toolbar data-empty-bar></div>
+    <div data-ws-grid>
+      <div data-inputs>
+        <h2 data-ptitle><span data-step aria-hidden="true">01</span>Build your link</h2>
+        <p data-psub>Fill the fields — the tagged URL updates live below. Keep values lowercase and consistent (e.g. always <em>facebook</em>, never <em>FB</em>).</p>
+        <div data-fields>
+        <div data-field data-text>
+          <div data-fhead><label data-flabel for="url">Destination URL</label><span data-fhint id="url-h">The page you're linking to</span></div>
+          <div data-ctl><input type="text" id="url" placeholder="https://wearetilth.com/contact/" inputmode="url" autocomplete="off" aria-describedby="url-h url-msg"></div>
+          <p data-fmsg id="url-msg" aria-live="polite"></p>
+        </div>
+        <div data-field data-text>
+          <div data-fhead><label data-flabel for="source">Campaign source · utm_source</label><span data-fhint id="source-h">Where the traffic comes from</span></div>
+          <div data-ctl><input type="text" id="source" list="sourceList" placeholder="e.g. google, facebook, newsletter" autocomplete="off" aria-describedby="source-h source-msg"></div>
+          <datalist id="sourceList"><option value="google"><option value="facebook"><option value="instagram"><option value="linkedin"><option value="twitter"><option value="newsletter"><option value="whatsapp"></datalist>
+          <p data-fmsg id="source-msg" aria-live="polite"></p>
+        </div>
+        <div data-field data-text>
+          <div data-fhead><label data-flabel for="medium">Campaign medium · utm_medium</label><span data-fhint id="medium-h">The marketing channel type</span></div>
+          <div data-ctl><input type="text" id="medium" list="mediumList" placeholder="e.g. cpc, email, social" autocomplete="off" aria-describedby="medium-h medium-msg"></div>
+          <datalist id="mediumList"><option value="cpc"><option value="email"><option value="social"><option value="banner"><option value="affiliate"><option value="referral"><option value="organic"></datalist>
+          <p data-fmsg id="medium-msg" aria-live="polite"></p>
+        </div>
+        <div data-field data-text>
+          <div data-fhead><label data-flabel for="campaign">Campaign name · utm_campaign</label><span data-fhint id="campaign-h">The specific campaign</span></div>
+          <div data-ctl><input type="text" id="campaign" placeholder="e.g. diwali_sale_2026" autocomplete="off" aria-describedby="campaign-h campaign-msg"></div>
+          <p data-fmsg id="campaign-msg" aria-live="polite"></p>
+        </div>
+        <div data-field data-text>
+          <div data-fhead><label data-flabel for="term">Campaign term · utm_term <span data-opt>(optional)</span></label><span data-fhint id="term-h">Paid keyword, if any</span></div>
+          <div data-ctl><input type="text" id="term" placeholder="e.g. marketing_agency_bengaluru" autocomplete="off" aria-describedby="term-h term-msg"></div>
+          <p data-fmsg id="term-msg" aria-live="polite"></p>
+        </div>
+        <div data-field data-text>
+          <div data-fhead><label data-flabel for="content">Campaign content · utm_content <span data-opt>(optional)</span></label><span data-fhint id="content-h">To tell two versions apart (A/B)</span></div>
+          <div data-ctl><input type="text" id="content" placeholder="e.g. hero_cta_v2" autocomplete="off" aria-describedby="content-h content-msg"></div>
+          <p data-fmsg id="content-msg" aria-live="polite"></p>
+        </div>
+        </div>
       </div>
+      <section data-readout id="result" aria-labelledby="result-h">
+        <h2 data-ptitle id="result-h"><span data-step aria-hidden="true">02</span>Result</h2>
+        <p data-nojs>This calculator runs in your browser. Turn on JavaScript to see your result.</p>
+        
+        <div data-metric>
+          <div data-mk>Your tagged URL</div>
+          <div data-output id="output">Enter a destination URL to begin.</div>
+          <button data-copy id="copyBtn" type="button" disabled="disabled">Copy link</button>
+          <span data-sr id="copyStatus" role="status" aria-live="polite"></span>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <div data-interp data-depth-label="MID">
+    <div data-note><p data-note-k><span data-step aria-hidden="true">03</span>The point isn't the link — it's the convention.</p><p>UTMs only work if everyone tags the same way every time. Pick one spelling and case for each source and medium and never deviate; <em>facebook / cpc</em> and <em>FB / CPC</em> become two different sources in GA4 and quietly split your data. Agree the naming rules once, then use this builder to enforce them.</p></div>
+  </div>
+
+  <section data-tcta data-depth-label="FOUNDATION" aria-labelledby="cta-h" id="ctaCard">
+    <div data-eyebrow><span data-step aria-hidden="true">04</span>Next step</div>
+    <div data-tcta-grid>
+      <h2 id="cta-h" data-tcta-h>UTMs are only step one of trustworthy tracking</h2>
       <div>
-        <h2 class="fcol">Navigate</h2>
-        <ul>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/approach/">Approach</a></li>
-          <li><a href="/insights/">Insights</a></li>
-          <li><a href="/tools/">Tools</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Legal</h2>
-        <ul>
-          <li><a href="/privacy/">Privacy Policy</a></li>
-          <li><a href="/terms/">Terms of Service</a></li>
-          <li><a href="/cookie-policy/">Cookie Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="fcol">Social</h2>
-        <ul>
-          <li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
+        <p>Clean links don't help if the conversion events on the other end are broken. A free foundation audit checks your GA4 setup end to end — tagging, events, and attribution — so the traffic you tag actually gets credited correctly.</p>
+        <a data-btn data-cta-btn href="/contact/"><span>Request a free audit</span> <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Tilth. All rights reserved.</span>
-      <span>Tilth · Marketing Agency · Bengaluru, India</span>
+  </section>
+
+  <section data-related aria-labelledby="rel-h">
+    <h2 id="rel-h">Related</h2>
+    <ul>
+      <li><a href="/insights/marketing-attribution-explained-simply/">Marketing attribution for small businesses, explained simply</a></li>
+      <li><a href="/insights/ga4-conversion-tracking/">GA4 conversion tracking: the setup checklist before you scale ads</a></li>
+      <li><a href="/insights/measure-influencer-marketing-roi/">How to measure influencer marketing ROI properly</a></li>
+    </ul>
+  </section>
+</main>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-
-<script type="module">
-import { track, trackOnce } from '/tools/lib/analytics.js';
-
-(function () {
-  var url = document.getElementById('url'), source = document.getElementById('source'),
-      medium = document.getElementById('medium'), campaign = document.getElementById('campaign'),
-      term = document.getElementById('term'), content = document.getElementById('content');
-  var output = document.getElementById('output'), copyBtn = document.getElementById('copyBtn');
-  var fields = [url, source, medium, campaign, term, content];
-
-  function build() {
-    var base = url.value.trim();
-    if (!base) { output.textContent = 'Enter a destination URL to begin.'; copyBtn.disabled = true; copyBtn.textContent = 'Copy link'; return; }
-    if (!/^https?:\/\//i.test(base)) base = 'https://' + base;
-    var map = [['utm_source', source], ['utm_medium', medium], ['utm_campaign', campaign], ['utm_term', term], ['utm_content', content]];
-    var parts = [];
-    map.forEach(function (p) { var v = p[1].value.trim(); if (v) parts.push(p[0] + '=' + encodeURIComponent(v)); });
-    var qs = parts.join('&');
-    var full = qs ? base + (base.indexOf('?') >= 0 ? '&' : '?') + qs : base;
-    output.textContent = full;
-    copyBtn.disabled = false;
-    trackOnce('utm-started', 'tool_started', { tool: 'utm-builder' });
-  }
-
-  fields.forEach(function (f) { f.addEventListener('input', build); });
-
-  copyBtn.addEventListener('click', function () {
-    var text = output.textContent;
-    function done() { copyBtn.textContent = 'Copied ✓'; setTimeout(function () { copyBtn.textContent = 'Copy link'; }, 1600); }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done, function () { fallback(text); done(); });
-    } else { fallback(text); done(); }
-    track('cta_clicked', { tool: 'utm-builder', cta: 'copy-link' });
-  });
-  function fallback(text) {
-    var ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
-    document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} document.body.removeChild(ta);
-  }
-
-  var _cta = document.querySelector('.tk-cta .btn');
-  if (_cta) _cta.addEventListener('click', function () { track('cta_clicked', { tool: 'utm-builder', cta: 'measurement' }); });
-
-  track('tool_viewed', { tool: 'utm-builder' });
-  build();
-})();
-</script>
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
+<script src="/analytics.js" defer></script>
 </body>
 </html>

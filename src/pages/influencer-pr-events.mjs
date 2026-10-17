@@ -276,17 +276,17 @@ const main = `
       <article class="v3-reveal" data-proof style="display:flex;flex-direction:column;padding:0 0 8px">
         <div data-proof-l style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.5;color:var(--mosstext);padding-bottom:18px;border-bottom:1px solid var(--line)">EDTECH GROWTH ENGAGEMENT</div>
         <ul data-proof-m style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
-          <li style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Monthly media spend scaled &#8377;5L &rarr; &#8377;30L</li>
-          <li style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Monthly revenue reached &#8377;1.5 crore</li>
-          <li style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">5&times; return on ad spend</li>
+          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Monthly media spend scaled &#8377;5L &rarr; &#8377;30L</li>
+          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Monthly revenue reached &#8377;1.5 crore</li>
+          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">5&times; return on ad spend</li>
         </ul>
         <p data-proof-s style="margin:20px 0 0;font-size:15.5px;line-height:1.62;color:var(--stone)">Rebuilt tracking and conversion events, then scaled paid media against verified return.</p>
       </article>
       <article class="v3-reveal" data-proof style="display:flex;flex-direction:column;padding:0 0 8px">
         <div data-proof-l style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.5;color:var(--mosstext);padding-bottom:18px;border-bottom:1px solid var(--line)">CRYPTO AFFILIATE GROWTH ENGAGEMENT</div>
         <ul data-proof-m style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
-          <li style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Affiliate contribution grew from ~0%</li>
-          <li style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Reached ~5&ndash;6% of total trading volume within one year</li>
+          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Affiliate contribution grew from <span data-approx>~</span>0%</li>
+          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Reached <span data-approx>~</span>5&ndash;6% of total trading volume within one year</li>
         </ul>
         <p data-proof-s style="margin:20px 0 0;font-size:15.5px;line-height:1.62;color:var(--stone)">Built the affiliate program from scratch — partner validation, commercial model and tracking.</p>
       </article>

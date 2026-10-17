@@ -189,12 +189,16 @@ export function v3Footer({ rule = false } = {}) {
   <div class="v3-clocks">
     ${V3_CLOCKS.map(c => `<div class="v3-clock" data-v3-clock="${c.tz}">
       <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>${c.city}</span>
-      <span class="v3-clock__t">—<span class="v3-clock__suffix"></span></span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>`).join("\n    ")}
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
   <div class="v3-footgrid">
     <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
-    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
     <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="${s.linkedin}" target="_blank" rel="noopener">LinkedIn</a><a href="${s.instagram}" target="_blank" rel="noopener">Instagram</a><a href="${s.x}" target="_blank" rel="noopener">X / Twitter</a></div>
     <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
   </div>
@@ -235,6 +239,13 @@ export function footer() {
 </footer>`;
 }
 
+// og:locale is the one market-specific head signal a page may override
+// (Phase 8, register B-2 / B-4). It defaults to en_US — the global English
+// signal every non-regional route keeps — and is set to en_IN only where the
+// market intent is unambiguous: the seven /india/* routes and
+// /marketing-agency-bengaluru/. It is deliberately NOT conflated with
+// <html lang>, schema inLanguage or hreflang, which are different signals and
+// are left exactly as they were.
 // Full HTML document
 export function renderPage(p) {
   const canonical = site.base + p.path;
@@ -283,7 +294,7 @@ ${(p.hreflang || []).map(h => `<link rel="alternate" hreflang="${h.lang}" href="
 <meta property="og:description" content="${esc(ogDesc)}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${site.base}/og-image.png">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="${p.ogLocale || "en_US"}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(ogTitle)}">
 <meta name="twitter:description" content="${esc(ogDesc)}">

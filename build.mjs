@@ -9,9 +9,14 @@ import websiteService from "./src/pages/website-service.mjs";
 import servicesIndex from "./src/pages/services-index.mjs";
 import industriesIndex from "./src/pages/industries-index.mjs";
 import workIndex from "./src/pages/work-index.mjs";
+import approach from "./src/pages/approach.mjs";
+import toolsIndex from "./src/pages/tools-index.mjs";
+import toolsBenchmarks from "./src/pages/tools-benchmarks.mjs";
+import insightsIndex from "./src/pages/insights-index.mjs";
 import contact from "./src/pages/contact.mjs";
 import thankYou from "./src/pages/thank-you.mjs";
 import about from "./src/pages/about.mjs";
+import bengaluru from "./src/pages/bengaluru.mjs";
 import home from "./src/pages/home.mjs";
 import performanceMarketing from "./src/pages/performance-marketing.mjs";
 import growthStrategyMeasurement from "./src/pages/growth-strategy-measurement.mjs";
@@ -22,7 +27,10 @@ import brandCreative from "./src/pages/brand-creative.mjs";
 import influencerPrEvents from "./src/pages/influencer-pr-events.mjs";
 import { allServicePages } from "./src/templates/servicePage.mjs";
 import { allIndustryPages } from "./src/templates/industryPage.mjs";
+import { allToolPages } from "./src/templates/toolPage.mjs";
+import { allInsightArticles } from "./src/templates/insightArticle.mjs";
 import { allRegionHubs, allRegionChildPages } from "./src/templates/regionHub.mjs";
+import { allLegalPages } from "./src/templates/legalPage.mjs";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 
@@ -41,11 +49,19 @@ const PAGES = [
   industriesIndex,
   ...allIndustryPages,
   workIndex,
+  approach,
+  toolsIndex,
+  ...allToolPages,
+  toolsBenchmarks,
+  insightsIndex,
+  ...allInsightArticles,
   contact,
   thankYou,
   about,
+  bengaluru,
   ...allRegionHubs,
-  ...allRegionChildPages
+  ...allRegionChildPages,
+  ...allLegalPages
 ];
 
 function outPathFor(routePath) {

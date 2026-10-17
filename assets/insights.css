@@ -1,0 +1,258 @@
+/* ===========================================================================
+   INSIGHTS FAMILY — page layer over the shared Brand v3 system.
+   /insights/ (hub) + the 18 article routes.
+
+   Ported from the frozen Master Design Release:
+     INSIGHTS/Tilth Insights.dc.html
+     INSIGHTS/Tilth Insight Article Template - Marketing Agency Cost India.dc.html
+     INSIGHTS/INSIGHTS_DESIGN_REPORT.md
+   Both design files carry a byte-identical stylesheet; this is its INSIGHTS
+   EDITORIAL SYSTEM section, with every declaration block copied unchanged
+   except for the five noted below.
+
+   Lighter than the service pages: sentence-case Syne headlines, a measured
+   Chivo reading column, hairlines instead of panels, and no reveal motion on
+   reading content. Two templates — the hub index and the article — plus the
+   seven prose patterns the 18 real articles actually use. No signature
+   interaction: editorial reading is the interaction (report SS18).
+
+   SCOPING. The frozen file authors bare attribute selectors because a .dc
+   prototype owns the whole document. Here every selector carries .v3-ins, the
+   shared Insights scope class, which both templates set on <body> alongside
+   their page class (.v3-insights hub / .v3-article article). Repo-wide
+   word-boundary collision check at implementation: v3-insights 0 · v3-article 0
+   · v3-ins 0, all clean.
+
+   The frozen design also depends on the shared Core Company grammar — it uses
+   data-hero, data-eyebrow, data-crumb, data-sep, data-lede, data-h1, data-btn
+   and data-n — which production already ships, scoped to .v3-core, in
+   assets/core-company.css. Insights pages therefore load core-company.css and
+   then this file, and carry .v3-core too. The article H1 uses its own --ah1
+   token and the prose its own --bodyfs, so no Core ladder is disturbed.
+
+   THE --body TOKEN COLLISION (brief SS18, resolved inside this family, with
+   zero shared-shell changes). The frozen Insights CSS writes
+   `color: var(--body)` in five rules — [data-prose], prose table cells, the FAQ
+   answer paragraph, the bio paragraph and the article CTA paragraph — while its
+   own :root declares --body as a FONT-SIZE (16 / 16.5 / 17px, inherited from
+   the Core Company grammar it re-inlines). The prototype gets away with it
+   because its .dc theme runtime writes --body onto documentElement.style as a
+   COLOUR at mount: #D6DBD2 on dark, #2C312A on light. Those are the frozen
+   reading colours, read straight out of the prototype's THEMES object, and they
+   measure 13.29:1 and 12.12:1 — a deliberately slightly dimmed long-form
+   reading tone rather than full --fg at 17.05:1.
+   Production has no such runtime, and --body is a size token only, so
+   `color: var(--body)` would simply be dropped and the prose would inherit
+   --fg. The five rules therefore use an Insights-scoped --prose token carrying
+   exactly the frozen values. Nothing global is touched, and no previous family
+   can see it. Reading sizes come from --bodyfs (17 / 18 / 18.5px), this
+   family's own token.
+   Related, same root cause: three Core Company rules the hub reuses
+   ([data-lede], [data-body], [data-cta-p]) ask for `font-size: var(--body)`.
+   In the prototype the colour override made that invalid and they fell back to
+   the inherited 16px; in production they correctly resolve to the Core ladder
+   (16 / 16.5 / 17px). That is the faithful reading of the frozen CSS and is
+   recorded rather than worked around.
+
+   The shared shell — header, nav, menu, footer, clocks, theme, palette, the
+   global focus ring and the lining-numeral rule — is the Phase 0 production
+   implementation and is NOT re-declared (Global Rules SSI). Only three shared
+   rules are carried here because this family needs them scoped: the `hidden`
+   precedence rule, the Insights [data-acc] thickness, and the sr-only utility.
+   The prototype's [data-root] wrapper has no production equivalent, so the
+   hidden-precedence rule attaches to the scope element.
+
+   Prototype-only code is not ported: the .dc runtime, reviewArticle, the
+   ART_HTML data block and the review title observer.
+   =========================================================================== */
+
+/* --- the three shared rules this family needs scoped ---------------------- */
+.v3-ins [hidden]{display:none!important}
+.v3-ins [data-acc]{color:var(--acctext);text-decoration:underline;text-decoration-color:var(--accrule);text-decoration-thickness:.1em;text-underline-offset:.08em;text-decoration-skip-ink:none}
+.v3-ins [data-sr]{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ================= INSIGHTS — EDITORIAL SYSTEM =================
+   Lighter than the service pages: sentence-case Syne headlines, a measured
+   Chivo reading column, hairlines instead of panels, no reveal motion on
+   reading content. Two templates — the hub index and the article — plus the
+   seven prose patterns the 18 articles actually use. */
+
+/* reading tokens */
+.v3-ins{--measure:680px;--wide:880px;--ah1:30px;--bodyfs:17px}
+/* the frozen reading colour (prototype THEMES: --body #D6DBD2 / #2C312A),
+   carried as this family's own token because --body is a size token here */
+.v3-ins{--prose:#D6DBD2}
+html[data-theme="light"] .v3-ins{--prose:#2C312A}
+@media (min-width:480px){.v3-ins{--ah1:33px}}
+@media (min-width:620px){.v3-ins{--ah1:38px}}
+@media (min-width:768px){.v3-ins{--ah1:42px;--bodyfs:18px}}
+@media (min-width:1024px){.v3-ins{--ah1:48px}}
+@media (min-width:1280px){.v3-ins{--ah1:52px}}
+@media (min-width:1440px){.v3-ins{--ah1:56px;--bodyfs:18.5px}}
+@media (min-width:1700px){.v3-ins{--ah1:58px}}
+
+/* ---------- HUB ---------- */
+.v3-ins [data-hero][data-ins-hero]{padding-bottom:calc(var(--sy) * .5)}
+.v3-ins [data-hubwrap]{padding:0 var(--pad) var(--sy)}
+.v3-ins [data-hubgrid]{display:grid;grid-template-columns:minmax(0,1fr);gap:26px}
+/* the filter rail exists only when JS can run it; without it the list takes the width */
+@media (min-width:1180px){.v3-ins [data-hubgrid]:has(> [data-filters]:not([hidden])){grid-template-columns:260px minmax(0,1fr);gap:64px;align-items:start}
+  .v3-ins [data-hubgrid] > [data-filters]{position:sticky;top:104px}}
+.v3-ins [data-filters]{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line2);padding-top:18px}
+.v3-ins [data-flabel]{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:var(--stone);text-transform:uppercase}
+.v3-ins [data-cats]{display:flex;flex-wrap:wrap;gap:8px}
+@media (min-width:1180px){.v3-ins [data-cats]{flex-direction:column;gap:2px}}
+.v3-ins [data-cat-btn]{display:inline-flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:0 14px;border:1px solid var(--line2);border-radius:2px;background:transparent;color:var(--stone);font-family:Chivo,system-ui,sans-serif;font-size:14.5px;line-height:1.2;text-align:left;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+@media (min-width:1180px){.v3-ins [data-cat-btn]{border-color:transparent;border-left:2px solid var(--line);padding:0 12px}}
+.v3-ins [data-cat-btn]:hover{color:var(--fg);border-color:var(--fg)}
+.v3-ins [data-cat-btn][aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+@media (min-width:1180px){.v3-ins [data-cat-btn][aria-pressed="true"]{background:transparent;color:var(--fg);border-left-color:var(--mosstext);font-weight:500}}
+.v3-ins [data-cat-btn] [data-count]{font-family:'IBM Plex Mono',monospace;font-size:11px;color:inherit;opacity:.75}
+.v3-ins [data-hub-empty]{margin:0;padding:18px 0;border-top:1px solid var(--line);font-size:16px;color:var(--fg)}
+
+/* the index — one ruled list, newest first; not a card grid */
+.v3-ins [data-ilist]{list-style:none;margin:0;padding:0;border-top:1px solid var(--line2)}
+.v3-ins [data-ilist] > li{border-bottom:1px solid var(--line)}
+.v3-ins [data-entry]{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding:22px 0 24px;color:var(--fg)}
+@media (min-width:768px){.v3-ins [data-entry]{grid-template-columns:minmax(0,1fr) 200px;grid-template-areas:"meta thumb" "title thumb" "ex thumb" "go thumb";column-gap:36px;padding:28px 0 30px;align-items:start}
+  .v3-ins [data-emeta]{grid-area:meta}.v3-ins [data-etitle]{grid-area:title}.v3-ins [data-eex]{grid-area:ex}.v3-ins [data-ego]{grid-area:go}.v3-ins [data-thumb]{grid-area:thumb}
+/* PRODUCTION: the frozen [data-thumb] is a neutral review placeholder. Production
+   renders the approved /assets/insight-cards/<slug>.webp inside it, so the image
+   fills the 2:1 plate and the placeholder grid never shows. */
+.v3-ins [data-thumb] img{display:block;width:100%;height:100%;object-fit:cover}}
+@media (min-width:1440px){.v3-ins [data-entry]{grid-template-columns:minmax(0,1fr) 240px;column-gap:48px}}
+.v3-ins [data-entry]:hover{color:var(--fg)}
+.v3-ins [data-entry]:hover [data-etitle]{color:var(--mosstext)}
+.v3-ins [data-entry]:hover [data-ego]{transform:translateX(4px)}
+.v3-ins [data-emeta]{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;line-height:1.6;color:var(--stone);text-transform:uppercase}
+.v3-ins [data-emeta] [data-ecat]{color:var(--mosstext)}
+.v3-ins [data-etitle]{margin:0;font-family:Syne,sans-serif;font-weight:700;font-size:21px;line-height:1.16;letter-spacing:-.02em;text-wrap:balance;transition:color .2s}
+@media (min-width:768px){.v3-ins [data-etitle]{font-size:24px}}
+@media (min-width:1440px){.v3-ins [data-etitle]{font-size:26px}}
+.v3-ins [data-eex]{margin:2px 0 0;font-size:15.5px;line-height:1.6;color:var(--stone);max-width:640px}
+.v3-ins [data-ego]{display:inline-flex;align-items:center;gap:6px;margin-top:4px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--mosstext);text-transform:uppercase;transition:transform .25s}
+/* the 1000×500 decorative card art — production: <img alt="" width="1000" height="500" loading="lazy">;
+   in this design file a neutral 2:1 plate stands in (the WebP files are not in the package) */
+.v3-ins [data-thumb]{display:none;aspect-ratio:2 / 1;border:1px solid var(--line);background:linear-gradient(var(--grid) 1px,transparent 1px) 0 0 / 100% 25%,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0 / 12.5% 100%,var(--raise)}
+@media (min-width:768px){.v3-ins [data-thumb]{display:block;margin-top:4px}}
+
+/* ---------- ARTICLE ---------- */
+.v3-ins [data-article]{padding:108px var(--pad) var(--sy)}
+.v3-ins [data-acol]{max-width:var(--wide);margin:0 auto}
+.v3-ins [data-ahead]{padding-bottom:30px;border-bottom:1px solid var(--line)}
+.v3-ins [data-ahead] [data-crumb]{margin-bottom:26px}
+.v3-ins [data-postmeta]{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;line-height:1.6;color:var(--stone);text-transform:uppercase}
+.v3-ins [data-postmeta] [data-pm-sec]{color:var(--mosstext)}
+.v3-ins [data-postmeta] [data-dot]{color:var(--stone);opacity:.7}
+.v3-ins [data-ah1]{margin:16px 0 0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--ah1);line-height:1.04;letter-spacing:-.03em;text-wrap:balance;max-width:var(--wide);hyphens:none}
+.v3-ins [data-standfirst]{margin:20px 0 0;font-size:19px;line-height:1.55;color:var(--fg);max-width:760px}
+@media (min-width:768px){.v3-ins [data-standfirst]{font-size:21px}}
+@media (min-width:1440px){.v3-ins [data-standfirst]{font-size:22px}}
+/* byline — quiet: small greyscale portrait, name, role */
+.v3-ins [data-byline]{display:flex;align-items:center;gap:14px;margin-top:26px}
+.v3-ins [data-byline] img{width:44px;height:44px;border-radius:50%;object-fit:cover;filter:grayscale(1) contrast(1.05);background:var(--raise);flex:0 0 auto}
+.v3-ins [data-byline] [data-who]{display:flex;flex-direction:column;gap:2px;font-size:15px;line-height:1.3;color:var(--fg)}
+.v3-ins [data-byline] [data-who] span{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:var(--stone);text-transform:uppercase}
+
+/* the reading column */
+.v3-ins [data-prose]{max-width:var(--measure);padding-top:12px;font-size:var(--bodyfs);line-height:1.72;color:var(--prose)}
+.v3-ins [data-prose] > *{margin:0}
+.v3-ins [data-prose] > * + *{margin-top:1.05em}
+.v3-ins [data-prose] p{max-width:var(--measure)}
+.v3-ins [data-prose] strong{color:var(--fg);font-weight:600}
+.v3-ins [data-prose] em{font-style:italic}
+.v3-ins [data-prose] a{color:var(--fg);text-decoration:underline;text-decoration-color:var(--mosstext);text-decoration-thickness:1px;text-underline-offset:3px}
+.v3-ins [data-prose] a:hover{color:var(--mosstext);text-decoration-thickness:2px}
+/* P1 — H2 sections: Syne, sentence case, a hairline above; clearly heavier than H3 */
+.v3-ins [data-prose] h2{margin-top:2.3em;padding-top:26px;border-top:1px solid var(--line);font-family:Syne,sans-serif;font-weight:700;font-size:24px;line-height:1.16;letter-spacing:-.02em;color:var(--fg);text-wrap:balance}
+@media (min-width:768px){.v3-ins [data-prose] h2{font-size:28px}}
+@media (min-width:1440px){.v3-ins [data-prose] h2{font-size:30px}}
+.v3-ins [data-prose] h2 + *{margin-top:.75em}
+/* P2 — H3 sub-sections: Chivo semibold, no rule — one step down, never a rival */
+.v3-ins [data-prose] h3{margin-top:1.7em;font-family:Chivo,system-ui,sans-serif;font-weight:600;font-size:19px;line-height:1.35;letter-spacing:-.005em;color:var(--fg)}
+@media (min-width:768px){.v3-ins [data-prose] h3{font-size:20px}}
+.v3-ins [data-prose] h2 + h3{margin-top:1.1em}
+.v3-ins [data-prose] h3 + *{margin-top:.45em}
+/* lists */
+.v3-ins [data-prose] ul, .v3-ins [data-prose] ol{padding:0;list-style:none}
+.v3-ins [data-prose] li{position:relative;padding-left:28px}
+.v3-ins [data-prose] li + li{margin-top:.55em}
+.v3-ins [data-prose] ul > li::before{content:"";position:absolute;left:4px;top:.82em;width:10px;height:2px;background:var(--mosstext)}
+.v3-ins [data-prose] ol{counter-reset:ol}
+.v3-ins [data-prose] ol > li{counter-increment:ol}
+.v3-ins [data-prose] ol > li::before{content:counter(ol, decimal-leading-zero);position:absolute;left:0;top:.28em;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:var(--mosstext);font-variant-numeric:lining-nums tabular-nums}
+/* P3 — the single pull-quote on every article */
+.v3-ins [data-prose] blockquote{margin-top:2em;margin-bottom:.4em;padding:4px 0 4px 22px;border-left:3px solid var(--mosstext);font-family:Syne,sans-serif;font-weight:600;font-size:22px;line-height:1.3;letter-spacing:-.015em;color:var(--fg);text-wrap:pretty}
+@media (min-width:768px){.v3-ins [data-prose] blockquote{font-size:25px;padding-left:28px}}
+@media (min-width:1440px){.v3-ins [data-prose] blockquote{font-size:27px}}
+.v3-ins [data-prose] blockquote + *{margin-top:2em}
+/* P7 — inline code: byte-exact event / parameter names */
+.v3-ins [data-prose] code{font-family:'IBM Plex Mono',monospace;font-size:.84em;padding:.08em .38em;border:1px solid var(--line);border-radius:2px;background:var(--raise);color:var(--fg);overflow-wrap:anywhere}
+/* P6 — numbered question + green/red answer flags (questions-before-hiring) */
+.v3-ins [data-prose] h3 .qn{display:inline-block;min-width:2.3em;font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:.68em;letter-spacing:.06em;color:var(--mosstext);vertical-align:.12em;font-variant-numeric:lining-nums tabular-nums}
+.v3-ins [data-prose] p.flag{position:relative;padding-left:24px}
+.v3-ins [data-prose] p.flag + p.flag{margin-top:.5em}
+.v3-ins [data-prose] p.flag::before{content:"";position:absolute;left:2px;top:.55em;width:10px;height:10px;box-sizing:border-box}
+.v3-ins [data-prose] p.flag.good::before{background:var(--mosstext)}
+.v3-ins [data-prose] p.flag.bad::before{background:var(--clay);border:1.5px solid var(--fg);transform:rotate(45deg) scale(.86)}
+.v3-ins [data-prose] p.flag.bad strong{color:var(--acctext)}
+.v3-ins [data-prose] p.flag.good strong{color:var(--mosstext)}
+/* P4 / P5 — money tables + caveat note, and the comparison table.
+   Tables may use the wide measure; below 768 multi-column tables become one
+   labelled block per row (no horizontal page scroll; figures untouched). */
+.v3-ins [data-prose] [data-tbl]{margin-top:1.6em;max-width:var(--wide);width:100%}
+@media (min-width:1024px){.v3-ins [data-prose] [data-tbl]{width:min(var(--wide), calc(100vw - 2 * var(--pad)))}}
+.v3-ins [data-prose] table{width:100%;border-collapse:collapse;font-size:15.5px;line-height:1.5}
+.v3-ins [data-prose] thead th{font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:10.5px;letter-spacing:.12em;line-height:1.5;color:var(--stone);text-transform:uppercase;text-align:left;vertical-align:bottom;padding:0 16px 10px 0;border-bottom:1px solid var(--line2)}
+.v3-ins [data-prose] tbody td{padding:13px 16px 13px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--prose)}
+.v3-ins [data-prose] tbody td:first-child{color:var(--fg)}
+.v3-ins [data-prose] tbody td:not(:first-child){font-variant-numeric:lining-nums tabular-nums}
+.v3-ins [data-prose] .price-table tbody td:last-child, .v3-ins [data-prose] .budget-table tbody td:last-child{font-weight:500;color:var(--fg);white-space:normal}
+.v3-ins [data-prose] p.price-note{margin-top:.7em;padding-left:14px;border-left:2px solid var(--line2);font-size:14px;line-height:1.6;color:var(--stone)}
+.v3-ins [data-prose] .ctable-wrap{overflow:visible}
+@media (max-width:767px){
+  .v3-ins [data-prose] table[data-stack], .v3-ins [data-prose] table[data-stack] tbody, .v3-ins [data-prose] table[data-stack] tr, .v3-ins [data-prose] table[data-stack] td{display:block}
+  .v3-ins [data-prose] table[data-stack] thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .v3-ins [data-prose] table[data-stack] tbody tr{padding:14px 0;border-bottom:1px solid var(--line)}
+  .v3-ins [data-prose] table[data-stack] tbody tr:first-child{border-top:1px solid var(--line2)}
+  .v3-ins [data-prose] table[data-stack] tbody td{display:grid;grid-template-columns:minmax(0,96px) minmax(0,1fr);gap:12px;padding:4px 0;border:0}
+  .v3-ins [data-prose] table[data-stack] tbody td::before{content:attr(data-th);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;line-height:1.9;color:var(--stone);text-transform:uppercase}
+  .v3-ins [data-prose] table[data-stack] tbody td:first-child{font-family:Syne,sans-serif;font-weight:700;font-size:16.5px;color:var(--fg);grid-template-columns:minmax(0,1fr);padding-bottom:6px}
+  .v3-ins [data-prose] table[data-stack] tbody td:first-child::before{display:none}
+}
+
+/* T2-opt — FAQ: the approved v3 disclosure (button + aria-expanded +
+   aria-controls; answers ship at natural height; JS collapses) */
+.v3-ins [data-afaq]{max-width:var(--measure);margin-top:64px}
+.v3-ins [data-afaq] > h2{margin:0 0 18px;font-family:Syne,sans-serif;font-weight:700;font-size:24px;line-height:1.16;letter-spacing:-.02em;color:var(--fg);text-wrap:balance}
+@media (min-width:768px){.v3-ins [data-afaq] > h2{font-size:28px}}
+.v3-ins [data-afaq] [data-faq-item]{border-top:1px solid var(--line)}
+.v3-ins [data-afaq] [data-faq-item]:last-child{border-bottom:1px solid var(--line)}
+.v3-ins [data-afaq] h3{margin:0}
+.v3-ins [data-afaq] [data-faq-btn]{color:var(--fg);font-family:Chivo,system-ui,sans-serif;font-weight:600;font-size:17.5px;line-height:1.4;letter-spacing:0;padding:18px 0}
+@media (min-width:768px){.v3-ins [data-afaq] [data-faq-btn]{font-size:18.5px;padding:20px 0}}
+/* the shared faqPaint() writes inverted-section colours inline; on the article
+   ground the icon takes the page tones instead */
+/* 18px glyph: the 45° open-state rotation keeps even its layout box inside the button */
+.v3-ins [data-afaq] [data-faq-ic]{color:var(--stone)!important;font-size:18px}
+.v3-ins [data-afaq] [data-faq-btn][aria-expanded="true"] [data-faq-ic]{color:var(--mosstext)!important}
+.v3-ins [data-afaq] [data-faq-ans] p{margin:0;padding:0 0 22px;font-size:16.5px;line-height:1.7;max-width:640px;color:var(--prose)}
+.v3-ins [data-afaq] [data-faq-ans] a{color:var(--fg);text-decoration:underline;text-decoration-color:var(--mosstext);text-underline-offset:3px;border:0;padding:0}
+
+/* author bio — quiet, editorial; carries the /about/ (+ Bengaluru) links */
+.v3-ins [data-bio]{display:grid;grid-template-columns:56px minmax(0,1fr);gap:18px;max-width:var(--measure);margin-top:56px;padding-top:24px;border-top:1px solid var(--line2)}
+.v3-ins [data-bio] img{width:56px;height:56px;border-radius:50%;object-fit:cover;filter:grayscale(1) contrast(1.05);background:var(--raise)}
+.v3-ins [data-bio] p{margin:0;font-size:15.5px;line-height:1.65;color:var(--prose)}
+.v3-ins [data-bio] p strong{color:var(--fg);font-weight:600}
+.v3-ins [data-bio] a{color:var(--fg);text-decoration:underline;text-decoration-color:var(--mosstext);text-underline-offset:3px}
+.v3-ins [data-bio] a:hover{color:var(--mosstext)}
+
+/* next step — the article's own CTA; restrained: one ruled panel, one button */
+.v3-ins [data-acta]{max-width:var(--measure);margin-top:40px;padding:26px 24px 28px;border:1px solid var(--line2);border-left:3px solid var(--mosstext);background:var(--raise)}
+.v3-ins [data-acta] [data-eyebrow]{margin:0 0 12px}
+.v3-ins [data-acta] h2{margin:0;font-family:Syne,sans-serif;font-weight:700;font-size:22px;line-height:1.18;letter-spacing:-.02em;color:var(--fg);text-wrap:balance}
+@media (min-width:768px){.v3-ins [data-acta] h2{font-size:25px}}
+.v3-ins [data-acta] p{margin:12px 0 0;font-size:16px;line-height:1.65;max-width:600px;color:var(--prose)}
+.v3-ins [data-acta] [data-btn]{margin-top:20px}
+.v3-ins [data-backlink]{display:inline-flex;align-items:center;min-height:44px;margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--stone);text-transform:uppercase}
+.v3-ins [data-backlink]:hover{color:var(--fg)}

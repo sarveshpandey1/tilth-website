@@ -16,7 +16,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="robots" content="index, follow">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="theme-color" content="#15110B">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -31,15 +31,11 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <meta name="twitter:title" content="Our work — proof, not promises">
 <meta name="twitter:description" content="Anonymous result snapshots and selected experience across ambitious brands.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
-<!-- The hero H1's <em> is Fraunces italic and is part of the LCP element. Without this
-     preload it was discovered only after CSS parsed and took ~9s on throttled mobile. -->
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/assets/generated.css">
-
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/core-company.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -61,101 +57,180 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 }
 </script>
 </head>
-<body>
-<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">TILTH</a>
-    <nav aria-label="Primary">
+<body class="v3 v3-core v3-work">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/" aria-current="page">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
+    </nav>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
+  </div>
+</header>
+
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
       <a href="/services/">Services</a>
       <a href="/industries/">Industries</a>
-      <a href="/work/" aria-current="page">Work</a>
+      <a href="/work/">Work</a>
       <a href="/approach/">Approach</a>
       <a href="/insights/">Insights</a>
       <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
     </nav>
-    <div class="meta">India-rooted · Working across markets</div>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
   </div>
-</header>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
 <main id="main">
 
-<section class="ghero" id="hero">
-  <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <span>Work</span></nav>
-    <span class="label">Work</span>
-    <h1>Proof, not <em>promises</em>.</h1>
-    <p class="lede">We prioritise engagements over logos, and outcomes over vanity metrics. Some results are shared anonymously to respect client confidentiality — named case studies are added as clients approve them.</p>
-    <div class="actions">
-      <a class="btn" href="/contact/"><span>Discuss a Project</span> <span class="arrow">→</span></a>
-      <a class="text-cta" href="/services/">Explore services →</a>
+<section id="hero" data-hero data-depth-label="SURFACE">
+  <nav data-crumb aria-label="Breadcrumb"><a href="/">HOME</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">WORK</span></nav>
+  <div data-eyebrow>Work</div>
+  <h1 data-h1>Proof, not <em>promises</em>.</h1>
+  <p data-lede>We prioritise engagements over logos, and outcomes over vanity metrics. Some results are shared anonymously to respect client confidentiality — named case studies are added as clients approve them.</p>
+  <div data-actions>
+    <a data-btn href="/contact/">Discuss a Project <span aria-hidden="true">&rarr;</span></a>
+    <a data-textlink href="/services/"><span>Explore services &rarr;</span></a>
+  </div>
+</section>
+
+
+<section id="clients" data-sec data-inv data-depth-label="SHALLOW" aria-labelledby="clients-h">
+  <div data-xp class="v3-reveal">
+    <div>
+      <div data-eyebrow>Selected experience</div>
+      <h2 id="clients-h" data-h2>Teams we've helped grow.</h2>
     </div>
+    <ul data-markers aria-label="Selected experience"><li>PayDirect</li><li>Ommora</li></ul>
   </div>
 </section>
 
-<section class="gsec gsec--light" id="clients">
-  <div class="wrap">
-    <span class="label">Selected experience</span>
-    <h2>Teams we've helped grow.</h2>
-    <div class="trust__markers" style="margin-top:28px"><span class="trust__marker">PayDirect</span><span class="trust__dot" aria-hidden="true">·</span><span class="trust__marker">Ommora</span></div>
-  </div>
-</section>
-
-<section class="gsec" id="case-studies">
-  <div class="wrap">
-    <span class="label">Result snapshots</span>
-    <h2>Outcomes from real engagements.</h2>
-    <p class="intro">Presented anonymously, with figures exactly as they were achieved — no client names, logos or reinterpreted numbers.</p>
-    <div class="proof-row">
-      <article class="proof-card">
-    <div class="proof-card__label">Edtech growth engagement</div>
-    <ul class="proof-card__metrics"><li>Monthly media spend scaled ₹5L → ₹30L</li><li>Monthly revenue reached ₹1.5 crore</li><li>5× return on ad spend</li></ul>
-    <p class="proof-card__summary">Rebuilt tracking and conversion events, then scaled paid media against verified return.</p>
-  </article>
-<article class="proof-card">
-    <div class="proof-card__label">Crypto affiliate growth engagement</div>
-    <ul class="proof-card__metrics"><li>Affiliate contribution grew from ~0%</li><li>Reached ~5–6% of total trading volume within one year</li></ul>
-    <p class="proof-card__summary">Built the affiliate program from scratch — partner validation, commercial model and tracking.</p>
-  </article>
+<section id="case-studies" data-sec data-depth-label="DEEP" aria-labelledby="cs-h">
+  <div data-cs-head class="v3-reveal">
+    <div>
+      <div data-eyebrow>Result snapshots</div>
+      <h2 id="cs-h" data-h2>Outcomes from real engagements.</h2>
     </div>
+    <p data-body>Presented anonymously, with figures exactly as they were achieved — no client names, logos or reinterpreted numbers.</p>
+  </div>
+  <div data-plates>
+      <article data-plate data-proof class="v3-reveal">
+        <div data-phead>
+          <span data-plate-n aria-hidden="true">01</span>
+          <div data-plabel>Edtech growth engagement</div>
+          <div data-pmeta>EDTECH &middot; INDIA</div>
+        </div>
+        <ul>
+          <li>Monthly media spend scaled ₹5L → ₹30L</li>
+          <li>Monthly revenue reached ₹1.5 crore</li>
+          <li>5× return on ad spend</li>
+        </ul>
+        <p data-psum>Rebuilt tracking and conversion events, then scaled paid media against verified return.</p>
+      </article>
+      <article data-plate data-proof class="v3-reveal">
+        <div data-phead>
+          <span data-plate-n aria-hidden="true">02</span>
+          <div data-plabel>Crypto affiliate growth engagement</div>
+          <div data-pmeta>CRYPTO &middot; GLOBAL</div>
+        </div>
+        <ul>
+          <li>Affiliate contribution grew from <span data-approx>~</span>0%</li>
+          <li>Reached <span data-approx>~</span>5–6% of total trading volume within one year</li>
+        </ul>
+        <p data-psum>Built the affiliate program from scratch — partner validation, commercial model and tracking.</p>
+      </article>
   </div>
 </section>
 
-<section class="cta-band cta-band--terra" id="cta">
-  <div class="wrap">
-    <span class="label">Next step</span>
-    <h2>Want results like these?</h2>
-    <p>Tell us what you're trying to grow. We'll review the foundations before recommending the work — and show you where the biggest opportunities are.</p>
-    <div class="cta-band__actions">
-      <a class="btn" href="/contact/"><span>Discuss Your Growth Project</span> <span class="arrow">→</span></a>
-      <a class="text-cta" href="/contact/">Request a Foundation Audit →</a>
+<section id="cta" data-moss data-depth-label="FOUNDATION" aria-labelledby="cta-h">
+  <div data-eyebrow>Next step</div>
+  <div data-cta-grid>
+    <h2 id="cta-h" data-cta-h>Want results like these?</h2>
+    <div>
+      <p data-cta-p>Tell us what you're trying to grow. We'll review the foundations before recommending the work — and show you where the biggest opportunities are.</p>
+      <div data-cta-actions>
+        <a data-btn href="/contact/">Discuss Your Growth Project <span aria-hidden="true">&rarr;</span></a>
+        <a data-textlink href="/contact/"><span>Request a Foundation Audit &rarr;</span></a>
+      </div>
     </div>
   </div>
 </section>
 
 </main>
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">Grow deep. Market smart.</div>
-        <p class="addr">Tilth is an India-rooted growth marketing agency working with ambitious brands across India and the US.<br><br>Bengaluru, India · Remote collaboration across India and the US<br><a href="tel:+917007999306">+91 70079 99306</a><br><a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a></p>
-      </div>
-      <div>
-        <h3 class="fcol">Explore</h3>
-        <ul><li><a href="/services/">Services</a></li><li><a href="/approach/">Approach</a></li><li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Legal</h3>
-        <ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/cookie-policy/">Cookie Policy</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Social</h3>
-        <ul><li><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></li><li><a href="https://www.facebook.com/profile.php?id=61590502284155" target="_blank" rel="noopener">Facebook</a></li></ul>
-      </div>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
     </div>
-    <div class="footer-bottom"><span>© 2026 Tilth. All rights reserved.</span></div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
   </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
 </footer>
-<script src="/nav.js" defer></script>
+<script src="/brand-v3.js" defer></script>
 <script src="/analytics.js" defer></script>
 </body>
 </html>

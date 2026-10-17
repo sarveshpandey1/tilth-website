@@ -1,0 +1,216 @@
+/* ===========================================================================
+   BENGALURU — LOCAL SEO / CREDIBILITY PAGE
+   /marketing-agency-bengaluru/ (the route is unchanged; no alternate city
+   route, no redirect).
+
+   Ported from the frozen Master Design Release:
+     BENGALURU/Tilth Marketing Agency Bengaluru.dc.html
+       80eb9b99…1b4d  69,844 B
+     BENGALURU/BENGALURU_DESIGN_REPORT.md
+
+   "Local ledger." The page is composed entirely from the CORE COMPANY
+   grammar — hero, ledger, numbered rows, the shared proof component, the v3
+   FAQ disclosure and the Moss CTA band — so this file carries ONLY the page's
+   own rules. The frozen helmet re-inlines that grammar verbatim; it is already
+   production in assets/core-company.css, which this page loads first, so
+   nothing from it is duplicated here. Verified before porting: 86 frozen
+   core-grammar selector-rules, 70 byte-identical to core-company.css, 9
+   differing only in the two established production substitutions
+   ('IBM Plex Mono', ui-monospace, monospace and the v3Rise / v3Fade keyframe
+   names), 7 absent and unused by this page's markup ([data-mono], [data-pnote]
+   — no occurrence; [data-approx], @keyframes and the reduced-motion reset all
+   ship in brand-v3.css).
+
+   Scoped to .v3-bl, over .v3-core. Page rules live under data-bl-* exactly as
+   the frozen design authors them (report §21: no shared component gained a
+   Bengaluru variant, and .v3-lp* is not used). Collision-audited before
+   naming: v3-bl, data-bl-* and --bl* each have 0 word-boundary occurrences
+   anywhere else in the repo.
+
+   NO GLOBAL SYSTEM CHANGES (report §21). The shell, canonical email, footer
+   legal links, footer AA contrast, the Clay/light rule, the Syne tilde rule,
+   lining numerals and the focus ring are all the Phase 0 production
+   implementation and are not re-declared.
+
+   NO REVEAL MOTION on reading content: the copy is the SEO payload and is
+   present at first paint. The markup carries no [data-reveal] (0 occurrences
+   in the frozen main), so nothing on this page depends on IntersectionObserver.
+
+   Prototype-only code is not ported: the .dc runtime, reviewState
+   (default / founder-absent / proof-absent / experience-absent) and the
+   display-fit safeguard — the H1 ladder below is authored under its binding
+   unit at every width, which the frozen QA confirms at 12/12 (report §15.1:
+   "fit fired: no" at every width), so the eight [data-fit] hooks have no
+   consumer and are dropped, as in the Core Company and Insights families.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   0. BODY MARGIN RESET — page-scoped, and load-bearing for the type ladder.
+   brand-v3.css never resets the UA default body{margin:8px}; the frozen
+   prototype sets body{margin:0}, and every H1 step below was measured against
+   that full-width track. Same correction and scoping as .v3-core / .v3-tkit.
+   --------------------------------------------------------------------------- */
+body.v3-bl { margin: 0; }
+
+/* ---------------------------------------------------------------------------
+   1. THE READING COLOUR — the one token this page introduces.
+   In the frozen prototype --bltext is set by the .dc THEMES object at runtime
+   (dark #D6DBD2 / light #2C312A), not in the helmet, so the stylesheet reads
+   it as var(--bltext, #D6DBD2). Production has no such runtime, so the token
+   is declared here for both themes with the frozen values; the fallback in the
+   rules below is kept exactly as authored and never fires.
+
+   The frozen design gives this page its own token rather than reusing the
+   Insights one on purpose (report §20, issue 7): in the Insights prototypes
+   the theme script sets --body to a COLOUR, which collides with the core
+   --body FONT-SIZE token. Production resolved that in the Insights layer as
+   .v3-ins{--prose}; Bengaluru keeps the frozen name --bltext. The two happen
+   to carry the same pair of values, and both are page-scoped, so neither can
+   reach the other family or the shared --body size token.
+
+   Measured: #D6DBD2 on --bg #101310 = 13.29:1 · #2C312A on #F3F5F1 = 12.12:1.
+   --------------------------------------------------------------------------- */
+.v3-bl { --bltext: #D6DBD2; }
+html[data-theme="light"] .v3-bl { --bltext: #2C312A; }
+/* H1 ladder — the source H1 is a 10-word sentence, so it runs on its own
+   ladder beneath the core company one (measured, Syne 800 uppercase -.045em):
+   "A PERFORMANCE" 14.58em (the article is tied to its noun with a no-break
+   space, so "A" is never stranded) · "MARKETING AGENCY" 17.27em ·
+   "MARKETING AGENCY IN" 19.17em.
+     390–480  six lines   — size <= track / 14.9
+     620      five lines
+     >= 700   four lines  — size <= track / 18.4 (768+: track / 19.6):
+            A PERFORMANCE / MARKETING AGENCY IN / BENGALURU, BUILT ON / FOUNDATIONS.
+   Monotonic, and the fit safeguard stays idle at every width. */
+.v3-bl{--blh1:24px;--blq:20px}
+@media (min-width:480px){.v3-bl{--blh1:29px;--blq:21px}}
+@media (min-width:620px){.v3-bl{--blh1:35px;--blq:23px}}
+@media (min-width:700px){.v3-bl{--blh1:36px}}
+@media (min-width:768px){.v3-bl{--blq:25px}}
+@media (min-width:900px){.v3-bl{--blh1:42px}}
+@media (min-width:1024px){.v3-bl{--blh1:48px;--blq:27px}}
+@media (min-width:1180px){.v3-bl{--blh1:56px}}
+@media (min-width:1280px){.v3-bl{--blh1:60px;--blq:29px}}
+@media (min-width:1440px){.v3-bl{--blh1:68px;--blq:31px}}
+@media (min-width:1700px){.v3-bl{--blh1:80px;--blq:33px}}
+
+.v3-bl [data-bl-hero] [data-h1]{font-size:var(--blh1);line-height:.96;text-wrap:wrap}
+.v3-bl [data-bl-intro]{display:grid;grid-template-columns:minmax(0,1fr);gap:30px;margin-top:34px;animation:v3Rise 1s .12s cubic-bezier(.16,1,.3,1) both}
+@media (min-width:1180px){.v3-bl [data-bl-intro]{grid-template-columns:minmax(0,640px) auto;justify-content:space-between;align-items:end;gap:64px}}
+.v3-bl [data-bl-intro] [data-lede]{margin:0;max-width:640px}
+.v3-bl [data-bl-ctarow]{display:flex;flex-direction:column;align-items:stretch;gap:12px}
+@media (min-width:560px){.v3-bl [data-bl-ctarow]{flex-direction:row;align-items:center;gap:24px;flex-wrap:wrap}}
+@media (min-width:1180px){.v3-bl [data-bl-ctarow]{flex-direction:column;align-items:flex-start;gap:12px}}
+.v3-bl [data-bl-call]{font-size:14.5px;line-height:1.5;color:var(--stone)}
+.v3-bl [data-bl-call] a, .v3-bl [data-bl-contact] a{display:inline-flex;align-items:center;min-height:44px;color:var(--fg);text-decoration:underline;text-decoration-color:var(--mosstext);text-underline-offset:4px;text-decoration-thickness:1px;font-variant-numeric:lining-nums}
+
+/* in-prose links — identifiable without colour: an underline in the theme's
+   Moss text tone (the Insights reading link, shared grammar) */
+.v3-bl [data-bl-p] a{color:var(--fg);text-decoration:underline;text-decoration-color:var(--mosstext);text-underline-offset:3px;text-decoration-thickness:1px}
+.v3-bl [data-inv] [data-bl-p] a{color:var(--ifg);text-decoration-color:var(--imoss)}
+.v3-bl [data-bl-p] strong{font-weight:500;color:var(--fg)}
+.v3-bl [data-inv] [data-bl-p] strong{color:var(--ifg)}
+.v3-bl [data-bl-p] em{font-style:italic;color:var(--fg)}
+.v3-bl [data-bl-p]{margin:0;font-size:var(--body);line-height:1.68;color:var(--bltext,#D6DBD2);max-width:660px}
+.v3-bl [data-inv] [data-bl-p]{color:var(--ibody)}
+.v3-bl [data-bl-p] + [data-bl-p]{margin-top:18px}
+
+/* §2 — the problem statement: the source gives it no heading, so it is set
+   as the page's opening statement, not promoted to a section */
+.v3-bl [data-bl-open]{padding-top:0}
+.v3-bl [data-bl-rule]{padding-top:clamp(30px,4vw,48px);border-top:1px solid var(--line)}
+.v3-bl [data-bl-statement]{margin:0;font-family:Chivo,system-ui,sans-serif;font-weight:300;font-size:var(--blq);line-height:1.45;letter-spacing:-.005em;color:var(--fg);max-width:1040px}
+.v3-bl [data-bl-statement] strong{font-weight:500;color:var(--fg)}
+
+/* ledger heads on this page carry a lead line under the H2 */
+.v3-bl [data-lhead] [data-bl-p]{margin-top:22px}
+
+/* §3 — six channels: a ruled two-column ledger, not a card grid. Channel
+   names stay the source's own; none is linked to a service route (the six
+   channels and the eight services are a recorded, unresolved mismatch). */
+.v3-bl [data-bl-ch]{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);border-top:1px solid var(--line)}
+@media (min-width:620px){.v3-bl [data-bl-ch]{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px}}
+.v3-bl [data-bl-ch] li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:0 12px;align-items:baseline;padding:20px 0 22px;border-bottom:1px solid var(--line)}
+@media (min-width:768px){.v3-bl [data-bl-ch] li{padding:24px 0 26px}}
+.v3-bl [data-bl-ch] h3{margin:0;font-family:Syne,sans-serif;font-weight:700;font-size:var(--h3);line-height:1.2;letter-spacing:-.02em;color:var(--fg)}
+.v3-bl [data-bl-ch] p{grid-column:2;margin:8px 0 0;font-size:var(--card);line-height:1.6;color:var(--bltext,#D6DBD2)}
+.v3-bl [data-bl-after]{margin-top:28px}
+
+/* §5 + §6 — two short answers grouped as one local-relevance pair */
+.v3-bl [data-bl-pair]{display:grid;grid-template-columns:minmax(0,1fr);gap:48px}
+@media (min-width:900px){.v3-bl [data-bl-pair]{grid-template-columns:repeat(2,minmax(0,1fr));gap:56px}}
+@media (min-width:1440px){.v3-bl [data-bl-pair]{gap:88px}}
+.v3-bl [data-bl-pair] > div{border-top:1px solid var(--line);padding-top:26px}
+.v3-bl [data-bl-pair] [data-h2]{font-size:calc(var(--h2) * .78);margin-bottom:20px}
+
+/* EXPERIENCE — approval-gated, imported verbatim from approved records (the
+   18-article author bio; caseStudies[] via the shared proof component).
+   Not Bengaluru-specific proof, and labelled with its own market. */
+.v3-bl [data-bl-exp]{display:grid;grid-template-columns:minmax(0,1fr);gap:48px;margin-top:40px}
+@media (min-width:1024px){.v3-bl [data-bl-exp]{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:start}}
+@media (min-width:1440px){.v3-bl [data-bl-exp]{gap:96px}}
+.v3-bl [data-bl-founder]{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;border-top:1px solid var(--line);padding-top:26px}
+@media (min-width:480px){.v3-bl [data-bl-founder]{grid-template-columns:132px minmax(0,1fr);gap:24px;align-items:start}}
+@media (min-width:1440px){.v3-bl [data-bl-founder]{grid-template-columns:160px minmax(0,1fr);gap:30px}}
+.v3-bl [data-bl-founder] figure{margin:0;max-width:160px}
+.v3-bl [data-bl-founder] img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;filter:grayscale(1) contrast(1.08);background:var(--raise)}
+.v3-bl [data-bl-founder] figcaption{margin-top:10px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.5;color:var(--stone);text-transform:uppercase}
+.v3-bl [data-bl-founder] h3, .v3-bl [data-bl-proofh]{margin:0 0 12px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:400;font-size:11px;letter-spacing:.16em;line-height:1.4;color:var(--mosstext);text-transform:uppercase}
+.v3-bl [data-bl-founder] [data-textlink]{margin-top:10px}
+.v3-bl [data-bl-proofwrap] [data-proof-grid]{gap:36px;border-top:1px solid var(--line);padding-top:26px}
+@media (min-width:700px){.v3-bl [data-bl-proofwrap] [data-proof-grid]{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}}
+.v3-bl [data-bl-proofwrap] [data-proof] li{font-size:17.5px;padding:13px 0}
+@media (min-width:1280px){.v3-bl [data-bl-proofwrap] [data-proof] li{font-size:19px}}
+.v3-bl [data-bl-proofwrap] [data-proof] [data-psum]{font-size:15px}
+.v3-bl [data-bl-proofwrap] > [data-textlink]{margin-top:18px}
+
+/* FAQ — the shared v3 disclosure inside the ledger */
+.v3-bl [data-bl-faq] [data-faq-btn]{font-size:18px}
+@media (min-width:768px){.v3-bl [data-bl-faq] [data-faq-btn]{font-size:19.5px}}
+/* 18px glyph: the 45deg open-state rotation keeps its ink inside the button
+   (the same correction the Insights FAQ carries) */
+.v3-bl [data-bl-faq] [data-faq-ic]{font-size:18px}
+.v3-bl [data-faq-ans] [data-bl-ans]{margin:0;padding:0 0 26px;font-size:16.5px;line-height:1.7;color:var(--ibody);max-width:640px}
+
+/* closing band — the source's one bottom CTA + the contact line */
+.v3-bl [data-moss] [data-acc]{color:#101310;text-decoration-color:var(--clay)}
+.v3-bl [data-bl-contact]{margin:30px 0 0;font-size:14.5px;line-height:1.55;color:rgba(16,19,16,.78);max-width:640px}
+.v3-bl [data-bl-contact] a{color:#101310;text-decoration-color:rgba(16,19,16,.55)}
+.v3-bl [data-bl-contact] [data-sep]{padding:0 8px;color:rgba(16,19,16,.5)}
+
+
+/* ---------------------------------------------------------------------------
+   INLINE STYLES, TRANSLATED. The frozen prototype sets four inline styles
+   inside <main>; production keeps presentation in the stylesheet, so each is
+   reproduced here with its exact declarations and nothing added.
+
+     style="margin:0"            x5  the five FAQ <h3> wrappers
+     style="margin:0;font-weight:400" x2  the two proof <h3 data-plabel>
+     style="padding-top:0"       x2  #channels and #experience
+     style="color:var(--fg)"     x1  the breadcrumb's aria-current span —
+                                     already shipped as
+                                     .v3-core [data-crumb] [aria-current]
+                                     (core-company.css), so nothing is added.
+
+   The h3 rules exist because the frozen design keeps the heading LEVEL while
+   the visible role is a label or a disclosure trigger: the FAQ h3 wraps the
+   button and the proof h3 carries [data-plabel] under the section's own h2.
+   Both need the UA h3 margin and bold removed, nothing more.
+   --------------------------------------------------------------------------- */
+.v3-bl [data-bl-faq] h3{margin:0}
+.v3-bl [data-bl-proofwrap] [data-plabel]{margin:0;font-weight:400}
+.v3-bl [data-bl-flush]{padding-top:0}
+
+/* ---------------------------------------------------------------------------
+   THE OPEN FAQ GLYPH. The frozen prototype paints the open state from JS
+   (ic.style.transform = 'rotate(45deg)'; ic.style.color = 'var(--imoss)').
+   Production expresses it in CSS instead, keyed on the same aria-expanded the
+   script already owns, and gates it behind html.v3-js (brand-v3.js:22) so the
+   no-JS rendering is unchanged.
+
+   Why: with JS off every answer ships open (report §17 — 5/5 visible), and all
+   five triggers must therefore read "+". An inline style cannot make that
+   distinction; this can. With JS on the painted result is identical to the
+   prototype's.
+   --------------------------------------------------------------------------- */
+html.v3-js .v3-bl [data-faq-btn][aria-expanded="true"] [data-faq-ic]{transform:rotate(45deg);color:var(--imoss)}

@@ -1,0 +1,434 @@
+/* ===========================================================================
+   INDUSTRIES FAMILY — page layer over the shared Brand v3 system.
+   Covers /industries/ (hub) and the five /industries/<slug>/ detail routes.
+
+   Ported from the frozen Master Design Release:
+     INDUSTRIES/Tilth Industries.dc.html                        5e85dae2…3d83
+     INDUSTRIES/Tilth Industry Detail Template - Edtech.dc.html 502309fa…7368
+     INDUSTRIES/INDUSTRIES_DESIGN_REPORT.md                     f036e6b0…e7f1
+
+   Scoped to .v3-industries (hub) and .v3-industry (detail) so no other route
+   is touched. The shared shell — header, nav, menu, footer, clocks, theme,
+   focus ring, Clay rule, tilde, lining numerals — is the Phase 0 production
+   implementation and is NOT re-declared here (Global Rules §I, §13).
+
+   Prototype-only code is deliberately not ported: the .dc runtime, the
+   reviewIndustry prop / ?industry= refill and the preview clone. Production
+   renders each route statically from industryContent. The frozen FAQ row hook
+   data-qa is renamed data-faq-item, since §L lists that token as do-not-port
+   while the frozen CSS depends on the rules it carries.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   0. BODY MARGIN RESET — page-scoped, and load-bearing for the type ladders.
+
+   brand-v3.css never resets the UA default body{margin:8px}, but both frozen
+   prototypes set body{margin:0} in their helmet. Every H1 step in the design
+   report was measured against that full-width track, so without this reset the
+   production track is 16px narrower at every width and the fit safeguard can
+   fire on the narrow steps. Same correction, same scoping, as .v3-paid /
+   .v3-cro / .v3-creative / .v3-influencer.
+   --------------------------------------------------------------------------- */
+body.v3-industries,
+body.v3-industry { margin: 0; }
+
+/* ---------------------------------------------------------------------------
+   1. FAMILY TOKENS
+
+   --wash / --iwash are the plate and row hover washes; --sname, --kind and
+   --mname are display steps this family introduces. Scoped to the page classes
+   rather than added to the shared token block, because Phase 0 froze the
+   shared shell.
+   --------------------------------------------------------------------------- */
+.v3-industries,
+.v3-industry {
+  --wash: rgba(190, 245, 79, .05);
+  --iwash: rgba(16, 19, 16, .04);
+}
+
+/* ---------------------------------------------------------------------------
+   2. H1 / H2 LADDERS
+
+   HUB — "Growth marketing for the sectors we know deeply."
+   Measured in Syne 800 uppercase at -.045em: MARKETING = 10.08em is the
+   binding unbreakable word. The hero is stacked at every width, so the track
+   is the full content width and every step sits under track / 10.08. Balanced
+   wrapping prevents a stranded DEEPLY.
+
+   DETAIL — two measured ladders chosen by the route's own copy:
+     --h1  default, titles with no "and" pair (Edtech, SaaS).
+           Binding measure FOR EDTECH. = 11.06em.
+     --h1l data-len="long", titles joined by "and" (Fintech, D2C, Startups).
+           Binding measure AND SCALEUPS. = 12.92em, so "and" never stands
+           alone. ECOMMERCE 11.35em is the widest single word.
+   The ladders meet at 1024, where both phrases fit.
+   --------------------------------------------------------------------------- */
+.v3-industries { --h1: 34px; --h2: 26px; --sname: 28px; }
+.v3-industry   { --h1: 31px; --h1l: 27px; --h2: 24px; --mname: 22px; --kind: 22px; }
+
+@media (min-width: 480px) {
+  .v3-industries { --h1: 40px; --h2: 28px; --sname: 32px; }
+  .v3-industry   { --h1: 38px; --h1l: 34px; --h2: 27px; --mname: 24px; }
+}
+@media (min-width: 620px) {
+  .v3-industries { --h1: 48px; --h2: 31px; }
+  .v3-industry   { --h1: 50px; --h1l: 45px; --h2: 31px; --mname: 27px; }
+}
+@media (min-width: 700px) {
+  .v3-industries { --h1: 52px; }
+  .v3-industry   { --h1: 56px; --h1l: 51px; }
+}
+@media (min-width: 768px) {
+  .v3-industries { --h1: 56px; --h2: 36px; --sname: 30px; }
+  .v3-industry   { --h1: 60px; --h1l: 54px; --h2: 36px; --mname: 30px; --kind: 28px; }
+}
+@media (min-width: 900px) {
+  .v3-industries { --h1: 62px; }
+  .v3-industry   { --h1: 70px; --h1l: 64px; }
+}
+@media (min-width: 1024px) {
+  .v3-industries { --h1: 66px; --h2: 44px; --sname: 34px; }
+  .v3-industry   { --h1: 72px; --h1l: 72px; --h2: 44px; --mname: 34px; }
+}
+@media (min-width: 1100px) { .v3-industry { --mname: 30px; } }
+@media (min-width: 1180px) {
+  .v3-industries { --h1: 70px; }
+  .v3-industry   { --h1: 80px; --h1l: 80px; }
+}
+@media (min-width: 1200px) { .v3-industries { --sname: 28px; } }
+@media (min-width: 1280px) {
+  .v3-industries { --h1: 72px; }
+  .v3-industry   { --h1: 86px; --h1l: 86px; --mname: 34px; }
+}
+@media (min-width: 1440px) {
+  .v3-industries { --h1: 74px; --h2: 48px; --sname: 32px; }
+  .v3-industry   { --h1: 94px; --h1l: 94px; --h2: 48px; --mname: 38px; --kind: 32px; }
+}
+@media (min-width: 1700px) {
+  .v3-industries { --h1: 86px; --h2: 54px; --sname: 36px; }
+  .v3-industry   { --h1: 106px; --h1l: 106px; --h2: 54px; --mname: 42px; }
+}
+
+/* ---------------------------------------------------------------------------
+   2b. HERO ENTRANCE KEYFRAMES
+
+   Both frozen prototypes declare gRise and gFade in their own helmet, and the
+   ported hero markup carries the frozen animation shorthands verbatim:
+     gRise 1s cubic-bezier(.16,1,.3,1) both          (H1)
+     gRise 1s .12s cubic-bezier(.16,1,.3,1) both     (hero paragraph)
+     gRise 1s .2s  cubic-bezier(.16,1,.3,1) both     (hero CTA row)
+     gFade .8s ease both                             (breadcrumb)
+     gFade .8s .05s ease both                        (eyebrow)
+   The names were left undefined in production: they existed only in
+   service-detail.css, which no Industries route loads, so all five references
+   resolved to nothing and the intended entrance never ran. Because `both` fills
+   the end state, every element still painted at its final opacity — the defect
+   was the absent motion, not hidden content. Register I-2.
+
+   Defined here rather than by loading service-detail.css for two keyframes: the
+   Industries routes are the only pages that load this file, and no page loads
+   both stylesheets, so these names cannot collide. The bodies are copied from
+   the frozen helmets exactly; no duration, delay, easing or timing intent is
+   changed, and the shared v3Rise/v3Fade in brand-v3.css are left alone.
+
+   Reduced motion needs nothing here: brand-v3.css already clears
+   `animation: none !important` for `.v3 *` under prefers-reduced-motion, and
+   with the animation gone each element renders at its natural opacity.
+   --------------------------------------------------------------------------- */
+@keyframes gRise { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: none; } }
+@keyframes gFade { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------------------------------------------------------------------------
+   3. SHARED PRIMITIVES (both routes)
+   CSS-first: every grid, gap and type step is a media query, correct before
+   any JS runs.
+   --------------------------------------------------------------------------- */
+.v3-industries [data-cta-grid],
+.v3-industry [data-cta-grid] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; }
+
+.v3-industries [data-h1],
+.v3-industry [data-h1] { font-size: var(--h1); text-wrap: balance; hyphens: none; -webkit-hyphens: none; max-width: 100%; }
+.v3-industry [data-h1][data-len="long"] { font-size: var(--h1l); }
+.v3-industries [data-h1] em,
+.v3-industry [data-h1] em { font-style: normal; color: var(--mosstext); }
+
+.v3-industries [data-h2],
+.v3-industry [data-h2] { font-size: var(--h2); max-width: 100%; }
+@media (min-width: 768px)  { .v3-industries [data-h2], .v3-industry [data-h2] { max-width: 620px; } }
+@media (min-width: 1024px) { .v3-industries [data-h2], .v3-industry [data-h2] { max-width: 820px; } }
+@media (min-width: 1440px) { .v3-industries [data-h2] { max-width: 900px; } }
+
+.v3-industry [data-up] { text-transform: uppercase; }
+
+/* Inverted sections: Moss-as-text must use the inverted ground's token — on
+   Mineral that is deep moss, on Carbon it is Moss. --imoss ships in Phase 0. */
+.v3-industry [data-inv] a:hover { color: var(--imoss); }
+.v3-industry [data-inv] a:focus-visible { outline-color: var(--imoss); }
+
+/* hero CTA pair */
+.v3-industries [data-hero-cta],
+.v3-industry [data-hero-cta] { display: flex; flex-direction: column; align-items: stretch; gap: 14px; }
+.v3-industry [data-hero-cta] { margin-top: 36px; }
+.v3-industries [data-hero-cta] a:first-child,
+.v3-industry [data-hero-cta] a:first-child { font-size: 12.5px; padding: 0 18px; white-space: normal; text-align: center; line-height: 1.25; }
+@media (min-width: 480px) {
+  .v3-industries [data-hero-cta] a:first-child,
+  .v3-industry [data-hero-cta] a:first-child { font-size: 14.5px; padding: 0 28px; white-space: nowrap; line-height: 1; }
+}
+@media (min-width: 560px) {
+  .v3-industries [data-hero-cta],
+  .v3-industry [data-hero-cta] { flex-direction: row; align-items: center; gap: 26px; }
+}
+
+/* closing CTA actions */
+.v3-industries [data-cta-actions],
+.v3-industry [data-cta-actions] { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.v3-industries [data-cta-actions] a:first-child,
+.v3-industry [data-cta-actions] a:first-child { font-size: 12.5px; padding: 0 18px; white-space: normal; text-align: center; line-height: 1.25; }
+@media (min-width: 480px) {
+  .v3-industries [data-cta-actions] a:first-child,
+  .v3-industry [data-cta-actions] a:first-child { font-size: 14.5px; padding: 0 28px; white-space: nowrap; line-height: 1; }
+}
+@media (min-width: 700px) {
+  .v3-industries [data-cta-actions],
+  .v3-industry [data-cta-actions] { flex-direction: row; align-items: center; gap: 26px; }
+}
+@media (min-width: 1440px) {
+  .v3-industries [data-cta-grid],
+  .v3-industry [data-cta-grid] { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 56px; align-items: end; }
+  .v3-industries [data-cta-actions],
+  .v3-industry [data-cta-actions] { flex-direction: column; align-items: flex-start; gap: 18px; }
+}
+
+.v3-industries [data-cta-h] { font-size: 26px; text-wrap: balance; max-width: 100%; }
+@media (min-width: 480px)  { .v3-industries [data-cta-h] { font-size: 34px; } }
+@media (min-width: 620px)  { .v3-industries [data-cta-h] { font-size: 40px; } }
+@media (min-width: 768px)  { .v3-industries [data-cta-h] { font-size: 48px; } }
+@media (min-width: 1024px) { .v3-industries [data-cta-h] { font-size: 56px; } }
+@media (min-width: 1440px) { .v3-industries [data-cta-h] { font-size: 52px; } }
+@media (min-width: 1700px) { .v3-industries [data-cta-h] { font-size: 60px; } }
+
+.v3-industry [data-cta-h] { font-size: 34px; text-wrap: balance; max-width: 100%; }
+@media (min-width: 480px)  { .v3-industry [data-cta-h] { font-size: 42px; } }
+@media (min-width: 620px)  { .v3-industry [data-cta-h] { font-size: 52px; } }
+@media (min-width: 768px)  { .v3-industry [data-cta-h] { font-size: 58px; } }
+@media (min-width: 1024px) { .v3-industry [data-cta-h] { font-size: 68px; } }
+@media (min-width: 1440px) { .v3-industry [data-cta-h] { font-size: 62px; } }
+@media (min-width: 1700px) { .v3-industry [data-cta-h] { font-size: 72px; } }
+
+/* ===========================================================================
+   4. HUB — "Sectors stand side by side; the stage runs across them."
+
+   The four sectors are parallel columns of equal standing. Startups &
+   Scaleups is not a fifth column: it is a horizontal band on the sector
+   grid's own column positions, which the sector rules visibly run down into.
+   The distinction is carried by composition alone — no taxonomy copy.
+   4 (1200+) -> 2x2 (768-1199) -> 1. Never 3+1.
+   =========================================================================== */
+.v3-industries [data-sec-head] { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding-bottom: 24px; }
+@media (min-width: 1100px) { .v3-industries [data-sec-head] { flex-direction: row; justify-content: space-between; align-items: flex-end; gap: 40px; } }
+
+.v3-industries [data-sgrid] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--line); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.v3-industries [data-sector] { background: var(--bg); display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; padding: 26px 0 28px; gap: 0; transition: background .45s cubic-bezier(.16, 1, .3, 1); }
+@media (min-width: 768px) {
+  .v3-industries [data-sgrid] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .v3-industries [data-sector] { padding: 28px 24px 30px; }
+}
+@media (min-width: 1200px) {
+  .v3-industries [data-sgrid] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .v3-industries [data-sector] { padding: 28px 22px 30px; }
+}
+@media (min-width: 1440px) { .v3-industries [data-sector] { padding: 30px 26px 32px; } }
+
+/* Subgrid aligns names, contexts, metrics and services on shared lines. */
+@supports (grid-template-rows: subgrid) {
+  @media (min-width: 768px) { .v3-industries [data-sector] { grid-row: span 6; grid-template-rows: subgrid; } }
+}
+.v3-industries [data-sector] [data-sname] { font-size: var(--sname); transition: color .4s; }
+
+@media (hover: hover) {
+  .v3-industries [data-sector]:hover { background: var(--wash); }
+  .v3-industries [data-sector]:hover [data-sname] { color: var(--mosstext); }
+  .v3-industries [data-sector]:hover [data-arrow] { transform: translateX(5px); }
+}
+
+/* Each plate is ONE destination: its name is the link, stretched over the
+   plate. The quiet editorial service links sit above that stretched area, so
+   there are no nested anchors. */
+.v3-industries [data-sector],
+.v3-industries [data-stage] { position: relative; }
+.v3-industries [data-plate-link] { color: inherit; }
+.v3-industries [data-plate-link]::after { content: ""; position: absolute; inset: 0; z-index: 0; }
+.v3-industries [data-plate-link]:focus,
+.v3-industries [data-plate-link]:focus-visible { outline: 0; }
+.v3-industries [data-sector]:has([data-plate-link]:focus),
+.v3-industries [data-stage]:has([data-plate-link]:focus) { outline: 2px solid var(--moss); outline-offset: -2px; }
+.v3-industries [data-svc-link] { position: relative; z-index: 1; color: inherit; text-decoration: underline; text-decoration-color: var(--line2); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color .3s, text-decoration-color .3s; }
+.v3-industries [data-svc-link]:hover { color: var(--mosstext); text-decoration-color: currentColor; }
+.v3-industries [data-arrow] { display: inline-block; transition: transform .45s cubic-bezier(.16, 1, .3, 1); }
+
+/* Runs: below 768 one inline editorial line (a phone is not a stacked
+   desktop — five ruled rows per sector made each plate ~1,350px); from 768
+   ruled lists aligned across the columns. */
+.v3-industries [data-run] { list-style: none; margin: 0; padding: 0; font-size: 14px; line-height: 1.65; }
+.v3-industries [data-run] li { display: inline; }
+.v3-industries [data-run] li:not(:last-child)::after { content: "\00a0\00b7\2002"; color: var(--stone); opacity: .7; }
+@media (min-width: 768px) {
+  .v3-industries [data-run] li { display: block; padding: 8px 0; border-top: 1px solid var(--line); line-height: 1.4; }
+  .v3-industries [data-run] li:not(:last-child)::after { content: none; }
+  .v3-industries [data-run] li:last-child { border-bottom: 1px solid var(--line); }
+}
+
+/* Phone index: the five routes in one glance before the plates. */
+.v3-industries [data-sindex] { display: block; margin: 0 0 8px; border-top: 1px solid var(--line); }
+.v3-industries [data-sindex] a { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; gap: 0 10px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--line); font-family: Syne, sans-serif; font-weight: 700; font-size: 17px; letter-spacing: -.02em; line-height: 1.2; text-transform: uppercase; }
+.v3-industries [data-sindex] a span:first-child,
+.v3-industries [data-sindex] a span:last-child { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-weight: 400; font-size: 10.5px; letter-spacing: .14em; text-transform: none; }
+.v3-industries [data-sindex] [data-ilab] { display: block; padding: 22px 0 10px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: .14em; color: var(--stone); }
+@media (min-width: 768px) { .v3-industries [data-sindex] { display: none; } }
+
+/* The connector: the sector columns' rules continue down into the band. */
+.v3-industries [data-xover] { display: none; }
+@media (min-width: 768px) {
+  .v3-industries [data-xover] { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); height: 34px; }
+  .v3-industries [data-xover] span { border-right: 1px solid var(--line); }
+  .v3-industries [data-xover] span:last-child { border-right: 0; }
+  .v3-industries [data-xover] span:nth-child(n+3) { display: none; }
+  .v3-industries [data-xover] span:nth-child(2) { border-right: 0; }
+}
+@media (min-width: 1200px) {
+  .v3-industries [data-xover] { grid-template-columns: repeat(4, minmax(0, 1fr)); height: 40px; }
+  .v3-industries [data-xover] span:nth-child(n+3) { display: block; }
+  .v3-industries [data-xover] span:nth-child(2) { border-right: 1px solid var(--line); }
+}
+
+/* The stage band reuses the sector grid's exact column positions (same
+   fractions, same 1px gutters) so the columns above run into ONE continuous
+   surface: name | context | metrics | services. */
+.v3-industries [data-stage] { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: "name" "intro" "metrics" "services" "go"; gap: 22px; margin-top: 28px; padding: 26px 20px 30px; background: var(--raise); border-top: 1px solid var(--line2); border-bottom: 1px solid var(--line); transition: background .45s cubic-bezier(.16, 1, .3, 1); }
+.v3-industries [data-stage] > [data-a="name"]     { grid-area: name; }
+.v3-industries [data-stage] > [data-a="intro"]    { grid-area: intro; }
+.v3-industries [data-stage] > [data-a="metrics"]  { grid-area: metrics; }
+.v3-industries [data-stage] > [data-a="services"] { grid-area: services; }
+.v3-industries [data-stage] > [data-a="go"]       { grid-area: go; align-self: start; }
+@media (min-width: 768px) {
+  .v3-industries [data-stage] { margin-top: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "name intro" "go intro" "metrics services"; grid-template-rows: auto 1fr auto; gap: 0 1px; padding: 30px 0 32px; }
+  .v3-industries [data-stage] > div { padding: 0 24px; }
+  .v3-industries [data-stage] > [data-a="go"] { margin-top: 22px; }
+  .v3-industries [data-stage] > [data-a="metrics"],
+  .v3-industries [data-stage] > [data-a="services"] { margin-top: 28px; }
+}
+@media (min-width: 1200px) {
+  .v3-industries [data-stage] { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-areas: "name intro metrics services" "go intro metrics services"; grid-template-rows: auto 1fr; }
+  .v3-industries [data-stage] > div { padding: 0 22px; }
+  .v3-industries [data-stage] > [data-a="metrics"],
+  .v3-industries [data-stage] > [data-a="services"] { margin-top: 0; }
+}
+@media (min-width: 1440px) { .v3-industries [data-stage] > div { padding: 0 26px; } }
+@media (hover: hover) {
+  .v3-industries [data-stage]:hover { background: var(--wash); }
+  .v3-industries [data-stage]:hover [data-sname] { color: var(--mosstext); }
+  .v3-industries [data-stage]:hover [data-arrow] { transform: translateX(5px); }
+}
+.v3-industries [data-stage] [data-sname] { font-size: var(--sname); transition: color .4s; }
+
+/* ===========================================================================
+   5. DETAIL — six sections following the source order and headings.
+   =========================================================================== */
+
+/* INDUSTRIES FAMILY PANEL — the industry analogue of the service pages'
+   position panel. Shows the current page and the sibling routes (the four
+   sectors, then Startups & Scaleups set apart) and adds no taxonomy copy.
+   Same component on all five routes; only aria-current moves. */
+.v3-industry [data-fam] { border: 1px solid var(--line); margin-top: 44px; animation: gFade 1s .3s ease both; }
+.v3-industry [data-fam-top] { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; padding: 16px 18px 14px; border-bottom: 1px solid var(--line); font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10.5px; letter-spacing: .14em; line-height: 1.4; }
+.v3-industry [data-fam-body] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+.v3-industry [data-fam-body] > div { padding: 18px 18px 20px; }
+.v3-industry [data-fam-body] > div + div { border-top: 1px solid var(--line); }
+.v3-industry [data-kind] { font-family: Syne, sans-serif; font-weight: 700; font-size: var(--kind); letter-spacing: -.03em; line-height: 1.05; text-transform: uppercase; }
+.v3-industry [data-famlist] { list-style: none; margin: 10px 0 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); }
+.v3-industry [data-famlist] li { border-top: 1px solid var(--line); }
+.v3-industry [data-famlist] li:last-child { border-bottom: 1px solid var(--line); }
+.v3-industry [data-famlist] a { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; padding: 11px 0; font-size: 14px; line-height: 1.35; color: var(--stone); }
+.v3-industry [data-famlist] a[aria-current] { color: var(--fg); font-weight: 500; }
+.v3-industry [data-famlist] a[aria-current] [data-here] { display: inline-block; }
+.v3-industry [data-famlist] a[aria-current] [data-go] { display: none; }
+.v3-industry [data-here] { display: none; width: 8px; height: 8px; flex: 0 0 auto; background: var(--mosstext); transform: translateY(-1px); }
+@media (min-width: 620px) {
+  .v3-industry [data-famlist][data-four] { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; }
+  .v3-industry [data-famlist][data-four] li:nth-last-child(2) { border-bottom: 1px solid var(--line); }
+}
+@media (min-width: 768px) {
+  .v3-industry [data-fam-top] { padding: 16px 22px 14px; }
+  .v3-industry [data-fam-body] > div { padding: 20px 22px 22px; }
+}
+@media (min-width: 1024px) {
+  .v3-industry [data-fam-body] { grid-template-columns: minmax(0, .62fr) minmax(0, 1.5fr) minmax(0, .7fr); }
+  .v3-industry [data-fam-body] > div + div { border-top: 0; border-left: 1px solid var(--line); }
+}
+
+/* section heads */
+.v3-industry [data-eyebrow] { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: .16em; line-height: 1; color: var(--mosstext); margin-bottom: 22px; }
+.v3-industry [data-inv] [data-eyebrow] { color: var(--imut); }
+
+/* THE CONTEXT — heading + intro beside count-agnostic constraint rows. */
+.v3-industry [data-ledger] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 30px; }
+@media (min-width: 1100px) {
+  .v3-industry [data-ledger] { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 64px; align-items: start; }
+  .v3-industry [data-ledger] > [data-lhead] { position: sticky; top: 120px; }
+}
+@media (min-width: 1440px) { .v3-industry [data-ledger] { gap: 88px; } }
+
+.v3-industry [data-rows] { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.v3-industry [data-rows] > li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 0 14px; align-items: baseline; padding: 22px 0; border-bottom: 1px solid var(--line); }
+@media (min-width: 768px) { .v3-industry [data-rows] > li { grid-template-columns: 52px minmax(0, 1fr); gap: 0 20px; padding: 26px 0; } }
+.v3-industry [data-n] { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: .12em; line-height: 1; color: var(--mosstext); }
+.v3-industry [data-inv] [data-n] { color: var(--imoss); }
+
+/* WHAT WE FOCUS ON — metrics as an editorial index, services as rows. */
+.v3-industry [data-inv] [data-rows] { border-top-color: var(--iline); }
+.v3-industry [data-inv] [data-rows] > li { border-bottom-color: var(--iline); }
+.v3-industry [data-mname] { font-family: Syne, sans-serif; font-weight: 700; font-size: var(--mname); letter-spacing: -.035em; line-height: 1.06; text-transform: uppercase; }
+.v3-industry [data-metrics] > li { padding: 18px 0; }
+@media (min-width: 768px) { .v3-industry [data-metrics] > li { padding: 20px 0; } }
+
+.v3-industry [data-svc] { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--iline); }
+.v3-industry [data-svc] a { display: grid; grid-template-columns: 34px minmax(0, 1fr) 18px; gap: 6px 14px; align-items: baseline; padding: 22px 0; border-bottom: 1px solid var(--iline); transition: padding-left .55s cubic-bezier(.16, 1, .3, 1), background .45s; }
+.v3-industry [data-svc] [data-sv-name] { font-family: Syne, sans-serif; font-weight: 700; font-size: 19px; letter-spacing: -.025em; line-height: 1.18; text-transform: uppercase; }
+.v3-industry [data-svc] [data-sv-layer] { display: block; margin-top: 9px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: .14em; line-height: 1.4; color: var(--imut); }
+.v3-industry [data-svc] [data-sv-sum] { grid-column: 2; margin: 6px 0 0; font-size: 15px; line-height: 1.6; color: var(--ibody); }
+.v3-industry [data-svc] [data-sv-go] { grid-column: 3; grid-row: 1; justify-self: end; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; line-height: 1; }
+@media (min-width: 768px) {
+  .v3-industry [data-svc] a { grid-template-columns: 52px minmax(0, .9fr) minmax(0, 1.1fr) 20px; gap: 0 22px; padding: 26px 0; }
+  .v3-industry [data-svc] [data-sv-sum] { grid-column: 3; grid-row: 1; margin: 0; }
+  .v3-industry [data-svc] [data-sv-go] { grid-column: 4; }
+}
+@media (min-width: 1100px) and (max-width: 1439px) {
+  .v3-industry [data-svc] a { grid-template-columns: 44px minmax(0, 1fr) 18px; gap: 6px 18px; }
+  .v3-industry [data-svc] [data-sv-sum] { grid-column: 2; grid-row: 2; margin: 8px 0 0; }
+  .v3-industry [data-svc] [data-sv-go] { grid-column: 3; grid-row: 1; }
+}
+@media (hover: hover) { .v3-industry [data-svc] a:hover { padding-left: 12px; background: var(--iwash); } }
+.v3-industry [data-sub] { margin-top: var(--sy); }
+
+/* SELECTED GROWTH EVIDENCE — each record carries an explicit relation tag.
+   SAME SECTOR (filled Moss square) only when the record's industry equals the
+   route; COMPARABLE ENGAGEMENT (outline square) otherwise. */
+.v3-industry [data-ev-head] { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+@media (min-width: 1100px) {
+  .v3-industry [data-ev-head] { flex-direction: row; justify-content: space-between; align-items: flex-end; gap: 40px; }
+  .v3-industry [data-ev-hint] { text-align: right; }
+}
+.v3-industry [data-proof-grid] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 44px; margin-top: 36px; }
+@media (min-width: 900px) { .v3-industry [data-proof-grid] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; margin-top: 44px; } }
+.v3-industry [data-proof-meta] { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 18px; padding-bottom: 14px; border-bottom: 1px solid var(--line); font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: .14em; line-height: 1.5; color: var(--stone); }
+.v3-industry [data-rel] { display: inline-flex; align-items: center; gap: 8px; color: var(--stone); }
+.v3-industry [data-rel]::before { content: ""; width: 7px; height: 7px; flex: 0 0 auto; box-shadow: inset 0 0 0 1px var(--stone); }
+.v3-industry [data-rel="same"] { color: var(--mosstext); }
+.v3-industry [data-rel="same"]::before { background: var(--mosstext); box-shadow: none; }
+
+/* QUESTIONS — every answer is visible; no accordion, so nothing is hidden. */
+.v3-industry [data-faq-grid] { display: grid; grid-template-columns: minmax(0, 1fr); gap: 34px; align-items: start; }
+@media (min-width: 1100px) { .v3-industry [data-faq-grid] { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 64px; } }
+.v3-industry [data-faq-item] { border-top: 1px solid var(--iline); }
+.v3-industry [data-faq-item]:last-child { border-bottom: 1px solid var(--iline); }
