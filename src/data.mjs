@@ -6,7 +6,6 @@ export const site = {
   wordmark: "TILTH",
   base: "https://wearetilth.com",
   ga: "G-1MJEZ4VK26",
-  positioning: "India-rooted · Working across India and the US",
   tagline: "Grow deep. Market smart.",
   email: "anuja@wearetilth.com", // wearetilth.com mailbox confirmed active (workbook T-014)
   phone: "+91 70079 99306",
@@ -19,18 +18,6 @@ export const site = {
     x: "https://x.com/Anuja_tilth",
     facebook: "https://www.facebook.com/profile.php?id=61590502284155"
   }
-};
-
-// Primary navigation (Brief §22/§50). Items flip on as their sections are built.
-export const nav = {
-  primary: [
-    { label: "Services", href: "/services/", live: true },
-    { label: "Industries", href: "/industries/", live: false },
-    { label: "Work", href: "/work/", live: false },
-    { label: "Approach", href: "/approach/", live: true },
-    { label: "Insights", href: "/insights/", live: true },
-    { label: "About", href: "/about/", live: true }
-  ]
 };
 
 // ---------------------------------------------------------------------------
