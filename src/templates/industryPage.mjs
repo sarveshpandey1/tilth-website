@@ -208,7 +208,7 @@ export function industryPage(slug) {
     ogTitle: `${ind.name} growth marketing`,
     ogDescription: c.heroLede,
     schema: [
-      { "@type": "Service", name: `${ind.name} growth marketing`, provider: { "@id": `${site.base}/#org` }, areaServed: [{ "@type": "Country", name: "United States" }, { "@type": "Country", name: "India" }, "Worldwide"], description: c.heroLede, url: site.base + path },
+      { "@type": "Service", name: `${ind.name} growth marketing`, provider: { "@id": `${site.base}/#org` }, areaServed: [{ "@type": "Country", name: "United States" }, { "@type": "Country", name: "India" }], description: c.heroLede, url: site.base + path },
       bc.schema, faqSchema
     ],
     main

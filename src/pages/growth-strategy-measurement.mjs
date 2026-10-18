@@ -34,7 +34,7 @@ const bc = breadcrumbs([
 const serviceSchema = {
   "@type": "Service", name: svc.name, serviceType: svc.keyword,
   provider: { "@id": `${site.base}/#org` },
-  areaServed: [{ "@type": "Country", name: "United States" }, { "@type": "Country", name: "India" }, "Worldwide"],
+  areaServed: [{ "@type": "Country", name: "United States" }, { "@type": "Country", name: "India" }],
   description: svc.summary, url: site.base + path
 };
 const faqSchema = {

@@ -4,14 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1MJEZ4VK26');
-</script>
+<!-- Google tag (gtag.js) — consent-gated, deferred loader -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+window.__tilthGaId='G-1MJEZ4VK26';
+window.__tilthEnableGa=function(){if(window.__tilthGaStarted)return;window.__tilthGaStarted=true;
+gtag('consent','update',{analytics_storage:'granted'});gtag('js',new Date());gtag('config',window.__tilthGaId);
+var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+window.__tilthGaId;document.head.appendChild(s);}
+if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
+['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});};
+(function(){var c='unset';try{c=localStorage.getItem('tilth-analytics-consent')||'unset';}catch(e){}
+window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();</script>
 <title>Page not found | Tilth</title>
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#15110B">
@@ -19,6 +22,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/assets/consent.css">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
@@ -45,7 +49,7 @@
       <a href="/tools/">Tools</a>
       <a href="/about/">About</a>
     </nav>
-    <div class="meta">Global growth marketing agency · India-rooted, working with brands worldwide</div>
+    <div class="meta">India-rooted · Working across India and the US</div>
   </div>
 </header>
 
@@ -65,10 +69,12 @@
     <div class="footer-bottom">
       <span>© 2026 Tilth. All rights reserved.</span>
       <span>Tilth · Marketing Agency · Bengaluru, India</span>
+      <a href="/cookie-policy/" data-tilth-consent-open>Cookie settings</a>
     </div>
   </div>
 </footer>
 
 <script src="/nav.js" defer></script>
+<script src="/consent.js" defer></script>
 </body>
 </html>

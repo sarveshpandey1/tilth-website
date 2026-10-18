@@ -4,11 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-<!-- Google tag (gtag.js) — deferred loader, commands queue in dataLayer -->
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1MJEZ4VK26');
-(function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26';document.head.appendChild(s);}
+<!-- Google tag (gtag.js) — consent-gated, deferred loader -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+window.__tilthGaId='G-1MJEZ4VK26';
+window.__tilthEnableGa=function(){if(window.__tilthGaStarted)return;window.__tilthGaStarted=true;
+gtag('consent','update',{analytics_storage:'granted'});gtag('js',new Date());gtag('config',window.__tilthGaId);
+var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+window.__tilthGaId;document.head.appendChild(s);}
 if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
-['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});})();</script>
+['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});};
+(function(){var c='unset';try{c=localStorage.getItem('tilth-analytics-consent')||'unset';}catch(e){}
+window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();</script>
 <title>Marketing Budget for an Early-Stage Startup in India: How to Set It | Tilth</title>
 <meta name="description" content="How to set a marketing budget for an early-stage startup in India — sensible percentages, why CAC matters more than a flat %, how to split it, and how to budget without wasting money.">
 <link rel="canonical" href="https://wearetilth.com/insights/startup-marketing-budget-india/">
@@ -35,6 +41,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/consent.css">
 <link rel="stylesheet" href="/assets/core-company.css">
 <link rel="stylesheet" href="/assets/insights.css">
 <script type="module" src="/insights-article.js"></script>
@@ -342,7 +349,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
        lost an inbound link on every page that migrated to v3. -->
   <div class="v3-footgrid">
     <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
-    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a><a href="/cookie-policy/" data-tilth-consent-open>Cookie settings</a></div>
     <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
     <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
   </div>
@@ -356,5 +363,6 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 </footer>
 <script src="/brand-v3.js" defer></script>
 <script src="/analytics.js" defer></script>
+<script src="/consent.js" defer></script>
 </body>
 </html>

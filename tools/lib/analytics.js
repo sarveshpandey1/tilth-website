@@ -1,7 +1,8 @@
 /* ------------------------------------------------------------------
  * Tilth tools — privacy-safe product analytics (ESM).
  *
- * Pushes named GA4 events. NEVER pass raw revenue, CAC, margin or other
+ * Pushes named GA4 events, and only with analytics consent granted.
+ * NEVER pass raw revenue, CAC, margin or other
  * confidential inputs — bucket them into coarse bands first (band() /
  * scoreBand()). Analytics must never break a tool, so everything is guarded.
  *
@@ -19,9 +20,18 @@
  *   cta_clicked            [tool, cta]
  * ------------------------------------------------------------------ */
 
+// Consent gate: window.__tilthAnalyticsConsent is the canonical site-wide state.
+// With analytics denied or unset nothing is emitted and nothing is queued, so a
+// tool used before a choice is made sends no telemetry at all. Tool maths is
+// untouched by this — analytics must never change a result.
+export function consentGranted() {
+  return typeof window !== 'undefined' && window.__tilthAnalyticsConsent === 'granted';
+}
+
 export function track(event, params = {}) {
   try {
     if (typeof window === 'undefined') return;
+    if (!consentGranted()) return;
     if (typeof window.gtag === 'function') window.gtag('event', event, params);
     else (window.dataLayer = window.dataLayer || []).push(Object.assign({ event }, params));
   } catch (e) { /* never let analytics throw into a tool */ }
@@ -46,6 +56,9 @@ export function band(value, edges) {
 const _once = new Set();
 export function trackOnce(key, event, params = {}) {
   if (_once.has(key)) return;
+  // Do not consume the once-key while suppressed, otherwise granting consent
+  // mid-session would permanently lose that event for the page.
+  if (!consentGranted()) return;
   _once.add(key);
   track(event, params);
 }
