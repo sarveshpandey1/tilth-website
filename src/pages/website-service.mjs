@@ -67,10 +67,10 @@ const main = `
       <div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;line-height:1;color:var(--mosstext);margin-bottom:22px;animation:gFade .8s .05s ease both">WEBSITE DESIGN, DEVELOPMENT &amp; CRO</div>
         <h1 data-h1 data-fit style="margin:0;font-family:Syne,sans-serif;font-weight:800;font-size:var(--h1);line-height:.94;letter-spacing:-.045em;text-transform:uppercase;animation:gRise 1s cubic-bezier(.16,1,.3,1) both">Con&shy;version-focused <em style="font-style:normal;color:var(--mosstext)">website</em> design and develop&shy;ment.</h1>
-        <p data-hero-p style="margin:32px 0 0;font-size:var(--body);line-height:1.6;max-width:56ch;color:var(--stone);animation:gRise 1s .12s cubic-bezier(.16,1,.3,1) both">Tilth plans, designs and develops marketing websites that connect positioning, user experience, SEO, analytics and conversion into one coordinated growth system — for brands worldwide.</p>
+        <p data-hero-p style="margin:32px 0 0;font-size:var(--body);line-height:1.6;max-width:56ch;color:var(--stone);animation:gRise 1s .12s cubic-bezier(.16,1,.3,1) both">Tilth plans, designs and develops marketing websites that connect positioning, user experience, SEO, analytics and conversion into one coordinated growth system — for brands in India and the US.</p>
         <div data-hero-cta style="display:flex;margin-top:36px;animation:gRise 1s .2s cubic-bezier(.16,1,.3,1) both">
-          <a data-herocta href="/contact/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;background:var(--moss);color:#101310;font-family:Syne,sans-serif;font-weight:700;font-size:14.5px;text-transform:uppercase;line-height:1;white-space:nowrap;border-radius:2px">Discuss Your Website Project <span aria-hidden="true">&rarr;</span></a>
-          <a data-textcta href="/work/" data-secondary style="display:inline-flex;align-items:center;height:54px;font-size:14.5px;line-height:1;white-space:nowrap;color:var(--stone)"><span style="border-bottom:1px solid var(--line2);padding-bottom:3px">See our work &rarr;</span></a>
+          <a data-herocta href="/contact/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;background:var(--moss);color:#101310;font-family:Syne,sans-serif;font-weight:700;font-size:14.5px;text-transform:uppercase;line-height:1;white-space:nowrap;border-radius:2px">Discuss your website project <span aria-hidden="true">&rarr;</span></a>
+          <a data-textcta href="/work/" data-secondary style="display:inline-flex;align-items:center;height:54px;font-size:14.5px;line-height:1;white-space:nowrap;color:var(--stone)"><span style="border-bottom:1px solid var(--line2);padding-bottom:3px">See the work &rarr;</span></a>
         </div>
       </div>
 
@@ -294,24 +294,22 @@ const main = `
 
     <div data-proof-grid style="display:grid;gap:40px">
       <article class="v3-reveal" data-proof style="display:flex;flex-direction:column;padding:0 0 8px">
-        <div data-proof-l style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.5;color:var(--mosstext);padding-bottom:18px;border-bottom:1px solid var(--line)">EDTECH GROWTH ENGAGEMENT</div>
+        <div data-proof-l style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.5;color:var(--mosstext);padding-bottom:18px;border-bottom:1px solid var(--line)">EDTECH GROWTH ENGAGEMENT &middot; EDTECH · INDIA</div>
         <ul data-proof-m style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
-          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Monthly media spend scaled &#8377;5L &rarr; &#8377;30L</li>
-          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Monthly revenue reached &#8377;1.5 crore</li>
-          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">5&times; return on ad spend</li>
+          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">6&times; media scale</li>
+          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Verified 5&times; return on ad spend</li>
         </ul>
         <p data-proof-s style="margin:20px 0 0;font-size:15.5px;line-height:1.62;color:var(--stone)">Rebuilt tracking and conversion events, then scaled paid media against verified return.</p>
       </article>
       <article class="v3-reveal" data-proof style="display:flex;flex-direction:column;padding:0 0 8px">
-        <div data-proof-l style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.5;color:var(--mosstext);padding-bottom:18px;border-bottom:1px solid var(--line)">CRYPTO AFFILIATE GROWTH ENGAGEMENT</div>
+        <div data-proof-l style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.5;color:var(--mosstext);padding-bottom:18px;border-bottom:1px solid var(--line)">CRYPTO AFFILIATE GROWTH ENGAGEMENT &middot; CRYPTO · GLOBAL</div>
         <ul data-proof-m style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
-          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Affiliate contribution grew from <span data-approx>~</span>0%</li>
-          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">Reached <span data-approx>~</span>5&ndash;6% of total trading volume within one year</li>
+          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">2&ndash;3&times; affiliate channel growth</li>
         </ul>
-        <p data-proof-s style="margin:20px 0 0;font-size:15.5px;line-height:1.62;color:var(--stone)">Built the affiliate program from scratch — partner validation, commercial model and tracking.</p>
+        <p data-proof-s style="margin:20px 0 0;font-size:15.5px;line-height:1.62;color:var(--stone)">Partner validation, commercial model and tracking, built ground up.</p>
       </article>
     </div>
-    <p style="margin:26px 0 0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;line-height:1.6;color:var(--foot)">GENERAL GROWTH EVIDENCE FROM THE FOUNDER AND CORE TEAM</p>
+    <p style="margin:26px 0 0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;line-height:1.6;color:var(--foot)">Selected experience from our founder and core team — broader growth experience.</p>
   </section>
 
   <section id="faq" data-depth-label="QUESTIONS" style="background:var(--ibg);color:var(--ifg);padding:var(--sy) var(--pad)">
@@ -362,10 +360,10 @@ const main = `
     <div data-cta-grid style="display:grid">
       <h2 data-cta-h data-fit style="margin:0;font-family:Syne,sans-serif;font-weight:800;line-height:.94;letter-spacing:-.04em;text-transform:uppercase">Planning a website that has to <span style="color:rgba(16,19,16,.62)">perform</span>?</h2>
       <div>
-        <p style="margin:0;font-size:var(--body);line-height:1.6;color:rgba(16,19,16,.78);max-width:46ch">Tell us what the site needs to do for growth. We'll review the foundations before recommending a rebuild, a redesign or a focused conversion project.</p>
+        <p style="margin:0;font-size:var(--body);line-height:1.6;color:rgba(16,19,16,.78);max-width:46ch">Start with a conversation — the first one is free. We'll look at where growth is getting stuck and whether there's a clear next step.</p>
         <div data-cta-actions style="display:flex;margin-top:34px">
-          <a data-ctacta href="/contact/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;background:#101310;color:#F3F5F1;font-family:Syne,sans-serif;font-weight:700;font-size:14.5px;text-transform:uppercase;line-height:1;white-space:nowrap;border-radius:2px">Discuss Your Website Project <span aria-hidden="true">&rarr;</span></a>
-          <a data-ctatext href="/contact/" data-secondary style="display:inline-flex;align-items:center;height:54px;font-size:14.5px;line-height:1;white-space:nowrap;color:rgba(16,19,16,.72)"><span style="border-bottom:1px solid rgba(16,19,16,.4);padding-bottom:3px">Request a Foundation Audit &rarr;</span></a>
+          <a data-ctacta href="/contact/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;background:#101310;color:#F3F5F1;font-family:Syne,sans-serif;font-weight:700;font-size:14.5px;text-transform:uppercase;line-height:1;white-space:nowrap;border-radius:2px">Discuss your website project <span aria-hidden="true">&rarr;</span></a>
+          <a data-ctatext href="/contact/" data-secondary style="display:inline-flex;align-items:center;height:54px;font-size:14.5px;line-height:1;white-space:nowrap;color:rgba(16,19,16,.72)"><span style="border-bottom:1px solid rgba(16,19,16,.4);padding-bottom:3px">See the work &rarr;</span></a>
         </div>
       </div>
     </div>
@@ -379,13 +377,13 @@ export default {
   // hero, the WHAT WE BUILD index and the CONVERSION PATH, layered over the
   // shared service-detail system without touching it.
   shellClass: "v3-service-detail v3-cro",
-  navCta: "Discuss a Project",
+  navCta: "Discuss your growth",
   footRule: true,
   headExtra: `<link rel="stylesheet" href="/assets/service-detail.css">
 <link rel="stylesheet" href="/assets/service-detail-cro.css">`,
   bodyScripts: ["/service-detail.js"],
   title: "Website Design & Development Agency | Conversion-Focused | Tilth",
-  description: "Tilth designs and develops conversion-focused marketing websites — strategy, UX, UI, development, SEO, analytics and CRO in one coordinated process for brands worldwide.",
+  description: "Tilth designs and develops conversion-focused marketing websites — strategy, UX, UI, development, SEO, analytics and CRO in one coordinated process, for brands in India and the US.",
   ogTitle: "Conversion-focused website design and development",
   ogDescription: "Websites that connect positioning, UX, SEO, analytics and conversion into one growth system.",
   ogType: "website",

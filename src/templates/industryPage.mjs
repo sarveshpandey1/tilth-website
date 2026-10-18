@@ -24,7 +24,7 @@
 // [data-qa]{border-top} / :last-child{border-bottom} — so dropping it would
 // remove the rules. It is renamed to data-faq-item instead: no listed token
 // reaches production and the borders are unchanged.
-import { site, services, industries, caseStudies, serviceGraph } from "../data.mjs";
+import { site, services, industries, proofFor, serviceGraph } from "../data.mjs";
 import { industryContent } from "../content.mjs";
 import { breadcrumbs, esc } from "../render.mjs";
 
@@ -54,7 +54,12 @@ const proofCard = (cs, ind) => {
   // Today that is Edtech alone; every other route frames both records as
   // comparable. No homepage D2C/SaaS metrics are imported, and no proof is
   // invented for the routes that have none.
-  const same = String(cs.industry).toLowerCase() === String(ind.name).toLowerCase();
+  // SAME SECTOR on a genuine sector match. Demi.ai's record industry is
+  // "SaaS / AI", so the route name is matched against the record's leading
+  // sector token too, which makes it SAME SECTOR on /industries/saas/ (pack §13).
+  const indName = String(ind.name).toLowerCase();
+  const recSectors = String(cs.industry).toLowerCase().split("/").map(x => x.trim());
+  const same = recSectors.includes(indName);
   const metrics = cs.metrics.map(m => `<li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.3;padding:16px 0;border-bottom:1px solid var(--line)">${esc(m).replace(/~/g, '<span data-approx>~</span>')}</li>`).join("");
   return `<article class="v3-reveal" data-proof="${esc(cs.slug)}">
         <div style="${MONO};font-size:10.5px;letter-spacing:.14em;line-height:1.5;color:var(--fg);padding-bottom:10px">${esc(cs.anonLabel)}</div>
@@ -71,7 +76,9 @@ export function industryPage(slug) {
   const path = `/industries/${slug}/`;
   const bc = breadcrumbs([{ name: "Home", path: "/" }, { name: "Industries", path: "/industries/" }, { name: ind.name, path }]);
   const rel = c.services.map(s => services.find(x => x.slug === s)).filter(Boolean);
-  const proof = caseStudies.filter(cs => cs.publishApproved);
+  // §2 placement matrix decides which records this route carries and in what
+  // order: SaaS leads with Demi.ai, every other sector shows Edtech + Affiliate.
+  const proof = proofFor(path);
 
   // The long ladder is selected by the copy itself, not per page.
   const longH1 = / and /.test(c.heroTitle);
@@ -89,7 +96,7 @@ export function industryPage(slug) {
   <h1 data-h1 data-len="${longH1 ? "long" : "short"}" style="margin:0;font-family:Syne,sans-serif;font-weight:800;line-height:.94;letter-spacing:-.045em;text-transform:uppercase;animation:gRise 1s cubic-bezier(.16,1,.3,1) both">${c.heroTitle}</h1>
   <p style="margin:32px 0 0;font-size:var(--body);line-height:1.6;max-width:58ch;color:var(--stone);animation:gRise 1s .12s cubic-bezier(.16,1,.3,1) both">${esc(c.heroLede)}</p>
   <div data-hero-cta style="animation:gRise 1s .2s cubic-bezier(.16,1,.3,1) both">
-    <a href="/contact/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;background:var(--moss);color:#101310;font-family:Syne,sans-serif;font-weight:700;text-transform:uppercase;border-radius:2px">Discuss Your Growth Project <span aria-hidden="true">&rarr;</span></a>
+    <a href="/contact/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;background:var(--moss);color:#101310;font-family:Syne,sans-serif;font-weight:700;text-transform:uppercase;border-radius:2px">Discuss your growth project <span aria-hidden="true">&rarr;</span></a>
     <a href="/services/" style="display:inline-flex;align-items:center;height:54px;font-size:14.5px;line-height:1;white-space:nowrap;color:var(--stone)"><span style="border-bottom:1px solid var(--line2);padding-bottom:3px">Explore services &rarr;</span></a>
   </div>
   <nav data-fam aria-label="Industries">
@@ -151,8 +158,8 @@ export function industryPage(slug) {
 <section id="proof" data-depth-label="DEEP" style="padding:var(--sy) var(--pad)">
   <div class="v3-reveal" data-eyebrow>SELECTED GROWTH EVIDENCE</div>
   <div class="v3-reveal" data-ev-head>
-    <h2 data-h2 style="margin:0;font-family:Syne,sans-serif;font-weight:700;line-height:1.02;letter-spacing:-.035em;text-transform:uppercase">Results from comparable engagements.</h2>
-    <p data-ev-hint style="margin:0;${MONO};font-size:10.5px;letter-spacing:.14em;line-height:1.7;color:var(--stone);max-width:36ch">GENERAL GROWTH EVIDENCE FROM THE FOUNDER AND CORE TEAM &middot; ANONYMISED</p>
+    <h2 data-h2 style="margin:0;font-family:Syne,sans-serif;font-weight:700;line-height:1.02;letter-spacing:-.035em;text-transform:uppercase">${proof.some(cs => String(cs.industry).toLowerCase().split("/").map(x => x.trim()).includes(String(ind.name).toLowerCase())) ? `Selected ${ind.name} experience.` : "Results from comparable engagements."}</h2>
+    <p data-ev-hint style="margin:0;${MONO};font-size:10.5px;letter-spacing:.14em;line-height:1.7;color:var(--stone);max-width:36ch">SELECTED EXPERIENCE FROM OUR FOUNDER AND CORE TEAM &middot; ANONYMISED</p>
   </div>
   <div data-proof-grid>
       ${proof.map(cs => proofCard(cs, ind)).join("\n      ")}
@@ -181,10 +188,10 @@ export function industryPage(slug) {
   <div data-cta-grid>
     <h2 data-cta-h style="margin:0;font-family:Syne,sans-serif;font-weight:800;line-height:.94;letter-spacing:-.04em;text-transform:uppercase">Growing a&nbsp;business?</h2>
     <div>
-      <p style="margin:0;font-size:var(--body);line-height:1.6;color:rgba(16,19,16,.78);max-width:46ch">Tell us where you are and what you're trying to grow. We'll review the foundations before recommending the work.</p>
+      <p style="margin:0;font-size:var(--body);line-height:1.6;color:rgba(16,19,16,.78);max-width:46ch">Start with a conversation — the first one is free. We'll look at where growth is getting stuck and whether there's a clear next step.</p>
       <div data-cta-actions style="margin-top:34px">
-        <a href="/contact/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;background:#101310;color:#F3F5F1;font-family:Syne,sans-serif;font-weight:700;text-transform:uppercase;border-radius:2px">Discuss Your Growth Project <span aria-hidden="true">&rarr;</span></a>
-        <a href="/contact/" style="display:inline-flex;align-items:center;height:54px;font-size:14.5px;line-height:1;white-space:nowrap;color:rgba(16,19,16,.72)"><span style="border-bottom:1px solid rgba(16,19,16,.4);padding-bottom:3px">Request a Foundation Audit &rarr;</span></a>
+        <a href="/contact/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;background:#101310;color:#F3F5F1;font-family:Syne,sans-serif;font-weight:700;text-transform:uppercase;border-radius:2px">Discuss your growth project <span aria-hidden="true">&rarr;</span></a>
+        <a href="/contact/" style="display:inline-flex;align-items:center;height:54px;font-size:14.5px;line-height:1;white-space:nowrap;color:rgba(16,19,16,.72)"><span style="border-bottom:1px solid rgba(16,19,16,.4);padding-bottom:3px">See the work &rarr;</span></a>
       </div>
     </div>
   </div>

@@ -69,7 +69,7 @@
 // so the eight [data-fit] hooks are dropped as they were in Core Company and
 // Insights.
 import { esc } from "../render.mjs";
-import { site, caseStudies } from "../data.mjs";
+import { site, proofFor } from "../data.mjs";
 
 const path = "/marketing-agency-bengaluru/";
 const url = site.base + path;
@@ -110,7 +110,7 @@ const FAQ = [
   },
   {
     q: "How much does a marketing agency in Bengaluru cost?",
-    a: "Most digital marketing agencies in Bengaluru charge a monthly retainer that varies with scope, usually separate from the ad spend paid to Google and Meta. Tilth scopes engagements after a free foundation audit, so you only invest once you know what needs fixing."
+    a: "Most digital marketing agencies in Bengaluru charge a monthly retainer that varies with scope, usually separate from the ad spend paid to Google and Meta. Tilth scopes engagements after a free first conversation, so you only invest once you know what needs fixing."
   },
   {
     q: "Do you only work with brands in Bengaluru?",
@@ -122,7 +122,7 @@ const FAQ = [
   },
   {
     q: "How do I get started?",
-    a: "Start with a <a href=\"/contact/\">free marketing foundation audit</a>. We'll tell you honestly what's broken and what's worth fixing first — no pitch attached."
+    a: "Start with a <a href=\"/contact/\">free conversation</a>. We'll tell you honestly what's broken and what's worth fixing first — no pitch attached."
   }
 ];
 
@@ -131,7 +131,7 @@ const FAQ = [
 // very route (the article version links "Tilth, a foundation-first marketing
 // agency in Bengaluru" here) and with "Read her story →" lifted out as the
 // block's own quiet text link.
-const FOUNDER_BIO = "<strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C helping brands spend on marketing they can actually measure.";
+const FOUNDER_BIO = "<strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure.";
 
 // ---------------------------------------------------------------------------
 // RENDERING
@@ -144,7 +144,9 @@ const num = i => String(i + 1).padStart(2, "0");
 // (Phase 0, Register G-5 — the same helper /work/ uses).
 const approx = m => esc(m).replace(/~/g, "<span data-approx>~</span>");
 
-const records = caseStudies.filter(c => c.publishApproved);
+// §2 placement matrix — Edtech + Affiliate only; Demi.ai is NOT approved
+// for this route and must never arrive here by propagation.
+const records = proofFor("/marketing-agency-bengaluru/");
 
 const channels = CHANNELS.map((c, i) => `
           <li><span data-n aria-hidden="true">${num(i)}</span><h3>${c.name}</h3><p>${c.body}</p></li>`).join("");
@@ -173,7 +175,7 @@ const main = `
   <div data-bl-intro>
     <p data-lede>Tilth is a foundation-first marketing agency in Bengaluru. We fix the tracking, attribution, and targeting under your spend — across paid ads, affiliates, SEO, influencer, PR, and branding — before you scale a single rupee.</p>
     <div data-bl-ctarow>
-      <a data-btn href="/contact/">Request a free audit <span aria-hidden="true">&rarr;</span></a>
+      <a data-btn href="/contact/">Discuss your growth project <span aria-hidden="true">&rarr;</span></a>
       <span data-bl-call>or call / WhatsApp <a href="tel:${site.phoneHref}">${esc(site.phone)}</a></span>
     </div>
   </div>
@@ -204,7 +206,7 @@ const main = `
     </div>
     <div>
       <p data-bl-p>Most digital marketing agencies in Bengaluru start spending on day one. We don't. Before we run a campaign, we run a <a href="/insights/marketing-foundation-audit/">marketing foundation audit</a> — checking whether your data is even true.</p>
-      <p data-bl-p>Fix the foundation and every channel after it becomes measurable. That's the whole idea behind <a href="/approach/">the Tilth Cycle</a> — grow deep, then market smart.</p>
+      <p data-bl-p>Fix the foundation and every channel after it becomes measurable. That's the whole idea behind <a href="/approach/">the Tilth Cycle</a>.</p>
     </div>
   </div>
 </section>
@@ -257,7 +259,7 @@ const main = `
     <div>
       <p data-cta-p>We'll review your current setup and tell you, honestly, what's broken — no pitch attached.</p>
       <div data-cta-actions>
-        <a data-btn href="/contact/">Request a free audit <span aria-hidden="true">&rarr;</span></a>
+        <a data-btn href="/contact/">Discuss your growth project <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </div>
@@ -292,7 +294,7 @@ const main = `
 //     areaServed  City Bengaluru + Country India + "Worldwide" — "based in
 //                 Bengaluru and works with brands across India and globally".
 //     founder     Person Anuja, jobTitle Founder — the visible EXPERIENCE block.
-//     makesOffer  the free foundation audit at price 0 INR — the hero and the
+//     makesOffer  the Foundation Audit, with NO price representation — it is
 //                 closing CTA both offer it free.
 //     telephone, sameAs, knowsAbout, image, logo, url, name, description,
 //                 BreadcrumbList (now mirrored by the visible breadcrumb) and
@@ -367,9 +369,7 @@ const localBusiness = {
   ],
   makesOffer: {
     "@type": "Offer",
-    name: "Free marketing foundation audit",
-    price: "0",
-    priceCurrency: "INR"
+    name: "Marketing Foundation Audit"
   },
   sameAs: [site.social.linkedin, site.social.instagram, site.social.x, site.social.facebook]
 };
@@ -410,9 +410,9 @@ export default {
   shellClass: "v3-core v3-bl",
   headExtra: HEAD_EXTRA,
   title: "Performance Marketing Agency in Bengaluru | Tilth",
-  description: "Tilth is a foundation-first performance marketing agency in Bengaluru. We fix tracking, attribution, and targeting across paid ads, affiliates, SEO, influencer, PR & branding — before you scale. Get a free audit.",
+  description: "Tilth is a foundation-first performance marketing agency in Bengaluru. We fix tracking, attribution, and targeting across paid ads, affiliates, SEO, influencer, PR & branding — before you scale. Start with a conversation.",
   ogTitle: "Performance Marketing Agency in Bengaluru | Tilth",
-  ogDescription: "A foundation-first marketing agency in Bengaluru. We fix what's broken across every channel before you spend. Free audit, no pitch.",
+  ogDescription: "A foundation-first marketing agency in Bengaluru. We fix what's broken across every channel before you spend. Start with a conversation.",
   ogLocale: "en_IN",
   schema: [breadcrumb, localBusiness, service, faqSchema],
   bodyScripts: ["/bengaluru.js"],

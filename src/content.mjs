@@ -4,7 +4,7 @@
 export const serviceContent = {
   "growth-strategy-measurement": {
     heroTitle: "Growth strategy and <em>measurement</em> that ties spend to revenue.",
-    heroLede: "Before you scale a channel, you need to know which parts of the growth system actually pay back. We build the strategy, tracking and reporting that make that answer clear.",
+    heroLede: "Before you scale a channel, you need to know which parts of the growth system actually pay back. We build the strategy, tracking and reporting that performance decisions depend on.",
     problemsHeading: "When the numbers don't add up",
     problems: [
       "Channel reports look fine, but they don't reconcile with revenue.",
@@ -33,7 +33,7 @@ export const serviceContent = {
 
   "performance-marketing": {
     heroTitle: "Performance marketing built to <em>scale</em> efficiently.",
-    heroLede: "When acquisition costs climb and paid media stops scaling, the fix usually isn't more budget. We find what's capping efficiency, then scale against verified return.",
+    heroLede: "Our core discipline. When acquisition costs climb and paid media stops scaling, the fix is rarely more budget — we find what's capping efficiency, then scale against verified return, in India and the US.",
     problemsHeading: "When paid media stops scaling",
     problems: [
       "Customer-acquisition costs keep rising and margins are shrinking.",
@@ -62,7 +62,7 @@ export const serviceContent = {
 
   "paid-media": {
     heroTitle: "Paid media that's built to <em>compound</em>.",
-    heroLede: "Google, Meta and LinkedIn campaigns structured around real conversions — so spend scales against verified results instead of vanity metrics.",
+    heroLede: "Google, Meta and LinkedIn campaigns structured around real conversions — the channel execution inside our performance marketing system.",
     problemsHeading: "When campaigns run but don't compound",
     problems: [
       "Account structure is messy and hard to scale.",
@@ -141,7 +141,7 @@ export const serviceContent = {
     ],
     deliverables: ["Program strategy", "Commercial model", "Partner shortlist & validation", "Tracking & fraud plan", "Onboarding kit", "Performance reporting"],
     faqs: [
-      ["Can you build a program from scratch?", "Yes. We've built affiliate programs from zero — model, partners, tracking and controls — and grown them into a meaningful share of revenue."],
+      ["Can you build a program from scratch?", "Yes. Our founder and core team have built affiliate programs from zero — model, partners, tracking and controls — and scaled the affiliate channel 2–3×."],
       ["How do you prevent low-quality or fraudulent activity?", "Through validated partners, payout structures tied to quality outcomes, and tracking with fraud safeguards — so the program rewards real customers."],
       ["Is this only for large companies?", "No. A well-designed program can be one of the most capital-efficient channels for a growing business, precisely because you pay for results."]
     ]
@@ -149,7 +149,7 @@ export const serviceContent = {
 
   "brand-creative": {
     heroTitle: "Brand strategy and performance <em>creative</em>.",
-    heroLede: "Positioning that's clear, and creative that's built to be tested — so brand and performance pull in the same direction.",
+    heroLede: "Positioning that's clear, and creative that's built to be tested — so the brand strengthens performance instead of competing with it.",
     problemsHeading: "When creative and positioning hold growth back",
     problems: [
       "Positioning is fuzzy, so messaging doesn't land.",
@@ -179,7 +179,7 @@ export const serviceContent = {
 
 serviceContent["influencer-pr-events"] = {
   heroTitle: "Influencer, PR and events as a <em>distribution</em> engine.",
-  heroLede: "Creator partnerships, digital PR and activations work best when they're connected to the growth system — building authority and demand you can actually measure.",
+  heroLede: "Creator partnerships, digital PR and activations work best when they're connected to the growth system — supporting performance with authority and demand — measured wherever it can be.",
   problemsHeading: "When authority-building isn't connected to growth",
   problems: [
     "Influencer spend generates reach but no measurable pipeline.",
@@ -208,7 +208,7 @@ serviceContent["influencer-pr-events"] = {
 export const industryContent = {
   saas: {
     heroTitle: "Growth marketing for <em>SaaS</em> companies.",
-    heroLede: "From trial to expansion, SaaS growth lives or dies on acquisition efficiency and measurement. We help SaaS teams across markets acquire the right users and prove what works.",
+    heroLede: "From trial to expansion, SaaS growth lives or dies on acquisition efficiency and measurement. We help SaaS teams in India and the US acquire the right users and prove what works.",
     intro: "SaaS growth is a compounding system: acquisition, activation, conversion and retention all feed each other. When one is measured badly, the whole model looks broken. We start by making the system measurable.",
     problems: [
       "CAC is rising faster than LTV can justify.",
@@ -274,7 +274,7 @@ export const industryContent = {
     metrics: ["Cost per enrolment", "Return on ad spend", "Lead quality", "Funnel conversion", "Creative performance"],
     services: ["performance-marketing", "paid-media", "growth-strategy-measurement", "brand-creative"],
     faqs: [
-      ["Have you scaled edtech spend before?", "Yes — our anonymous edtech engagement scaled monthly media spend from ₹5L to ₹30L at a 5× return, after rebuilding tracking and conversion events first."],
+      ["Have you scaled edtech spend before?", "Yes — our anonymous edtech engagement scaled monthly media six-fold at a verified 5× return, after rebuilding tracking and conversion events first."],
       ["How do you handle seasonal demand?", "With budgeting and forecasting grounded in channel economics, and a testing system that keeps creative fresh through peak periods."]
     ]
   },
@@ -305,7 +305,7 @@ export const industryContent = {
 export const serviceRelationship = {
   "performance-marketing": {
     heading: "Where Paid Media fits",
-    body: `Performance marketing is the umbrella: strategy, paid acquisition, creative experimentation, tracking, attribution, funnel analysis, conversion, reporting and scaling. When the work narrows to running the channels themselves — Google, Meta and LinkedIn campaign structure, audiences, creative, budget management and platform optimisation — that specialist execution sits under <a href="/services/paid-media/">Paid Media</a>.`
+    body: `Performance marketing is the system: acquisition strategy, channel allocation, measurement, unit economics, conversion and experimentation — the decisions about where money goes and whether it pays back. Most engagements need both; some teams already run their channels and need the system around them. The channel execution — Google, Meta and LinkedIn structure, audiences, creative and platform optimisation — sits under <a href="/services/paid-media/">Paid Media</a>.`
   },
   "paid-media": {
     heading: "How this connects to the wider system",

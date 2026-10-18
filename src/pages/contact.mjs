@@ -22,7 +22,7 @@
 // and — explicitly — the review submit guard. The prototype intercepts a valid
 // submit outside wearetilth.com so a design review never sends a real enquiry;
 // production must post as authored, so that guard stays out.
-import { site, clients } from "../data.mjs";
+import { site, brandExperience, brandExperienceLabel } from "../data.mjs";
 import { breadcrumbs, esc, orgSchema } from "../render.mjs";
 
 const path = "/contact/";
@@ -41,15 +41,18 @@ const needs = [
   "Building or redesigning a website", "Fixing tracking and attribution", "Growing affiliate partnerships",
   "Clarifying brand positioning", "Not sure yet"
 ];
-const budgets = ["Not sure yet", "Under $5k / month", "$5k–$15k / month", "$15k–$50k / month", "$50k+ / month", "One-off project"];
+// Owner-approved monthly budget bands (content pack §10). "One-off project"
+// is dropped because it does not answer a monthly-budget question. The field
+// name and behaviour are unchanged.
+const budgets = ["Not sure yet", "Under ₹10L / ~US$12K", "₹10L–₹25L / ~US$12K–30K", "₹25L–₹50L / ~US$30K–60K", "₹50L–₹1Cr / ~US$60K–120K", "₹1Cr+ / ~US$120K+"];
 
 // The aside's text markers come from the same approval gate as /work/, not from
 // hardcoded names: the frozen design and the previous build both wrote PayDirect
 // and Ommora into the markup, so withdrawing a client's display approval left
 // their name on this page. Derived here, and the block is omitted when empty.
-const approvedClients = clients
-  .filter(c => c.textDisplayApproved)
-  .sort((a, b) => a.displayOrder - b.displayOrder);
+// Canonical founder brand-experience list (content pack §3) — brands our
+// founder has worked with, not Tilth clients.
+const approvedClients = brandExperience;
 
 // ONE ENTITY, ONE SHAPE (register C-6, reconciled in Phase 8).
 // This route used to publish a reduced node under the SAME @id as the
@@ -103,7 +106,8 @@ const main = `
       </div>
       <div data-field><label for="f-goal">Primary business goal</label><input id="f-goal" name="goal" type="text" placeholder="e.g. lower CAC, more qualified pipeline, launch a new site"></div>
       <div data-field><label for="f-challenge">Current challenge</label><textarea id="f-challenge" name="challenge" rows="5" placeholder="What's working, what isn't, and where you need clarity."></textarea></div>
-      <div data-field><label for="f-budget">Budget range (optional)</label>
+      <div data-field><label for="f-budget">Monthly marketing / acquisition budget (optional)</label>
+        <p data-fhint style="margin:0 0 10px;font-size:13px;line-height:1.5;color:var(--stone)">Total monthly budget across channels, not our fee.</p>
         <div data-select><select id="f-budget" name="budget">${budgets.map(b => `<option>${esc(b)}</option>`).join("")}</select></div>
       </div>
 
@@ -117,10 +121,10 @@ const main = `
     <aside data-aside aria-label="About your enquiry">
       <div data-ablock>
         <h2 data-ah>What happens next</h2>
-        <p>You'll usually hear back ${esc(site.responseTime)}. We read what you send, and reply with a short, honest view of where to start — not a template pitch.</p>
+        <p>You'll usually hear back ${esc(site.responseTime)}. The first conversation is free: we'll look at where growth is getting stuck and whether there's a clear next step. If it needs deeper diagnosis, we'll scope a Foundation Audit around it.</p>
       </div>
       ${approvedClients.length ? `<div data-ablock>
-        <h2 data-ah>Selected experience</h2>
+        <h2 data-ah>${esc(brandExperienceLabel)}</h2>
         <ul data-markers>${approvedClients.map(c => `<li>${esc(c.name)}</li>`).join("")}</ul>
       </div>` : ""}
       <div data-ablock>

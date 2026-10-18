@@ -60,13 +60,23 @@ export const heroServiceChips = [
 // brand_logos — text wordmarks only. Owner directive: do not recreate or imitate
 // official logo designs. `logo` stays null until approved image files exist; the
 // component swaps text→img without a layout change when populated. (T-004/T-005)
+// Canonical brand-experience list (content pack §3). These are brands our
+// FOUNDER has worked with — never "Tilth clients" and never "teams we've helped
+// grow". The label travels with the list wherever it renders (Home, Work,
+// Contact). "Omorra" is the owner-confirmed spelling; "Demi.ai" the owner-
+// confirmed casing. No durations in the strip.
+export const brandExperienceLabel = "Selected brands our founder has worked with";
 export const brandExperience = [
-  { name: "PayDirect", logo: null },
-  { name: "Ommora", logo: null },
+  { name: "Pi42", logo: null },
+  { name: "Shark Exchange", logo: null },
+  { name: "GammaFloww", logo: null },
+  { name: "Demi.ai", logo: null },
   { name: "Density Exchange", logo: null },
   { name: "CareerLabs", logo: null },
   { name: "FusionFit", logo: null },
-  { name: "Demi.AI", logo: null }
+  { name: "Omorra", logo: null },
+  { name: "Page 3", logo: null },
+  { name: "PayDirect", logo: null }
 ];
 
 // industry_links — only sectors with a substantive live page (T-006).
@@ -177,7 +187,7 @@ export const industries = [
 
 // Engagement models (Brief §25) — no public prices.
 export const engagements = [
-  { name: "Foundation Audit", cta: "Request a Foundation Audit", href: "/contact/",
+  { name: "Foundation Audit", cta: "Ask about a Foundation Audit", href: "/contact/",
     desc: "A diagnostic engagement across strategy, tracking, website, funnel, campaigns, SEO, partnerships and measurement.",
     receives: ["Audit report", "Priority issues", "Measurement review", "Channel review", "Recommended roadmap"] },
   { name: "Growth Project", cta: "Discuss Your Growth Project", href: "/contact/",
@@ -189,22 +199,78 @@ export const engagements = [
 ];
 
 // Clients — TEXT-ONLY markers until approvals land (Brief §7). Render assets/links/case studies only when true.
+// Client approval gate. NOTE: since content pack §3 the visible brand lists on
+// Home, Work and Contact render `brandExperience` under the founder-experience
+// label, so this array is no longer a display source. It is kept as the record
+// of per-client display approval (logos, website links, case studies,
+// testimonials all still gated here) for when a named client case study is
+// approved. Spelling tracks the owner-confirmed "Omorra".
 export const clients = [
   { name: "PayDirect", industry: "Fintech", market: "Global", textDisplayApproved: true, logoApproved: false, logoAsset: null, websiteLinkApproved: false, websiteUrl: null, caseStudyApproved: false, caseStudySlug: null, testimonialApproved: false, displayOrder: 1 },
-  { name: "Ommora", industry: "Consumer", market: "Global", textDisplayApproved: true, logoApproved: false, logoAsset: null, websiteLinkApproved: false, websiteUrl: null, caseStudyApproved: false, caseStudySlug: null, testimonialApproved: false, displayOrder: 2 }
+  { name: "Omorra", industry: "Consumer", market: "Global", textDisplayApproved: true, logoApproved: false, logoAsset: null, websiteLinkApproved: false, websiteUrl: null, caseStudyApproved: false, caseStudySlug: null, testimonialApproved: false, displayOrder: 2 }
 ];
 
-// Anonymous, verified proof (Brief §8). Do NOT attach client names/logos/screenshots or recompute.
+// Canonical proof records (content pack §2). ONE factual source per record; a
+// route renders only the records the placement matrix assigns it (see
+// proofFor()), never the whole set. Do NOT attach client logos/screenshots or
+// recompute. No rupee-denominated proof or scale figure appears here: the only
+// rupee amounts on the site are the approved Contact budget bands. No
+// trading-volume percentages. Demi.ai is named with approval and carries NO
+// outcome, because none is approved and none is invented.
 export const caseStudies = [
   { slug: "edtech-paid-media", clientNameApproved: false, anonLabel: "Edtech growth engagement",
-    industry: "Edtech", market: "India", metrics: ["Monthly media spend scaled ₹5L → ₹30L", "Monthly revenue reached ₹1.5 crore", "5× return on ad spend"],
+    industry: "Edtech", market: "India", metrics: ["6× media scale", "Verified 5× return on ad spend"],
     summary: "Rebuilt tracking and conversion events, then scaled paid media against verified return.",
+    servicesInvolved: ["Performance Marketing", "Paid Media", "Growth Strategy & Measurement"],
     publishApproved: true },
   { slug: "crypto-affiliate", clientNameApproved: false, anonLabel: "Crypto affiliate growth engagement",
-    industry: "Crypto", market: "Global", metrics: ["Affiliate contribution grew from ~0%", "Reached ~5–6% of total trading volume within one year"],
-    summary: "Built the affiliate program from scratch — partner validation, commercial model and tracking.",
+    industry: "Crypto", market: "Global", metrics: ["2–3× affiliate channel growth"],
+    summary: "Partner validation, commercial model and tracking, built ground up.",
+    servicesInvolved: ["Affiliate & Partnership Marketing", "Growth Strategy & Measurement"],
+    publishApproved: true },
+  { slug: "demi-ai", clientNameApproved: true, anonLabel: "Demi.ai",
+    industry: "SaaS / AI", market: "US", metrics: ["Paid acquisition across Google Ads and Meta", "App-download and website user acquisition"],
+    summary: "Performance marketing for a US AI product, acquiring both app users and direct website users.",
+    servicesInvolved: ["Performance Marketing", "Paid Media"],
     publishApproved: true }
 ];
+
+// Proof attribution (content pack §2). Exactly one line per proof block.
+export const proofAttribution = "Selected experience from our founder and core team.";
+export const proofAttributionGrid = "Selected experience from our founder and core team · anonymised unless named with permission.";
+
+// §2 placement matrix. A record appears on a route only if listed here, so
+// Demi.ai never turns up automatically on an unrelated service, industry or
+// regional page. Regional children carry no proof block at all.
+const PROOF_PLACEMENT = {
+  "/": ["demi-ai", "edtech-paid-media", "crypto-affiliate"],
+  "/work/": ["edtech-paid-media", "crypto-affiliate", "demi-ai"],
+  "/about/": ["edtech-paid-media", "crypto-affiliate"],
+  "/services/performance-marketing/": ["demi-ai", "edtech-paid-media"],
+  "/services/paid-media/": ["demi-ai", "edtech-paid-media"],
+  "/services/growth-strategy-measurement/": ["edtech-paid-media", "crypto-affiliate"],
+  "/services/affiliate-partnerships/": ["crypto-affiliate", "edtech-paid-media"],
+  "/services/seo-ai-search/": ["edtech-paid-media", "crypto-affiliate"],
+  "/services/website-design-development/": ["edtech-paid-media", "crypto-affiliate"],
+  "/services/brand-creative/": ["edtech-paid-media", "crypto-affiliate"],
+  "/services/influencer-pr-events/": ["edtech-paid-media", "crypto-affiliate"],
+  "/industries/saas/": ["demi-ai", "edtech-paid-media", "crypto-affiliate"],
+  "/industries/edtech/": ["edtech-paid-media", "crypto-affiliate"],
+  "/industries/fintech/": ["edtech-paid-media", "crypto-affiliate"],
+  "/industries/d2c-ecommerce/": ["edtech-paid-media", "crypto-affiliate"],
+  "/industries/startups/": ["edtech-paid-media", "crypto-affiliate"],
+  "/india/": ["edtech-paid-media", "crypto-affiliate"],
+  "/marketing-agency-bengaluru/": ["edtech-paid-media", "crypto-affiliate"],
+  "/us/": ["demi-ai", "edtech-paid-media", "crypto-affiliate"]
+};
+
+// Records for a route, in the matrix's order. Unlisted route -> no proof block.
+export function proofFor(path) {
+  const slugs = PROOF_PLACEMENT[path];
+  if (!slugs) return [];
+  const by = Object.fromEntries(caseStudies.filter(c => c.publishApproved).map(c => [c.slug, c]));
+  return slugs.map(s => by[s]).filter(Boolean);
+}
 
 // Public technology stacks — default hidden until approved (Brief §10).
 export const technologyStacks = [
@@ -217,7 +283,7 @@ export const technologyStacks = [
 
 // Team — only approved people render (Brief §34). Anuja approved; others require confirmation.
 export const team = [
-  { name: "Anuja", title: "Founder, Tilth", photo: "/anuja.jpg", bio: "10+ years across fitness, edtech, fintech, SaaS and D2C.", approved: true, linkedin: null },
+  { name: "Anuja", title: "Founder, Tilth", photo: "/anuja.jpg", bio: "10+ years of hands-on growth experience across 10+ industries — including fintech, SaaS, D2C, edtech, consumer and fitness.", approved: true, linkedin: null },
   { name: "Sarvesh Pandey", title: null, photo: null, bio: null, approved: false, linkedin: null }
 ];
 
@@ -271,61 +337,72 @@ export const serviceSymptoms = [
 // ---------------------------------------------------------------------------
 
 export const homeV3 = {
-  kicker: { left: "GROWTH MARKETING AGENCY", right: "FOUNDER-LED / INDIA-ROOTED / GLOBAL" },
-  heroLede: "A growth marketing agency built on stronger foundations. We strengthen the systems beneath your growth — measurement, funnel, positioning, creative — then scale performance against verified return.",
+  // The kicker is a two-end mono row; the pack's "PERFORMANCE MARKETING · INDIA
+  // + US" maps onto the existing left/right spans, so no layout changes.
+  kicker: { left: "PERFORMANCE MARKETING", right: "INDIA + US" },
+  heroLede: "Performance marketing built on stronger foundations, and led by someone who has done the work. We fix what's capping your return — measurement, funnel, positioning, creative — then scale acquisition against verified results.",
   strata: ["DISTRIBUTION", "CREATIVE", "FUNNEL", "POSITIONING", "MEASUREMENT"],
+  // Top-level credibility strip (content pack §2). US$10M+ is the SINGLE scale
+  // figure on the site; no other budget or spend amount is used as a credential.
+  statsCaption: "Founder and core-team experience.",
   stats: [
-    { v: "10", unit: "yrs", tone: "", label: "EXPERIENCE BEHIND TILTH" },
-    { v: "05", unit: "", tone: "", label: "INDUSTRIES WORKED" },
-    { v: "5×", unit: "", tone: "moss", label: "VERIFIED RETURN, EDTECH" },
-    { v: "₹1.5", unit: "Cr", tone: "clay", label: "MONTHLY REVENUE REACHED" }
+    { v: "10+", unit: "yrs", tone: "", label: "HANDS-ON GROWTH EXPERIENCE" },
+    { v: "10+", unit: "", tone: "", label: "INDUSTRIES" },
+    { v: "India + US", unit: "", tone: "moss", label: "PERFORMANCE EXPERIENCE" },
+    { v: "US$10M+", unit: "", tone: "clay", label: "CUMULATIVE MARKETING BUDGET MANAGED" }
   ],
   method: [
     { n: "01", name: "Diagnose", desc: "We map the growth system end to end — tracking, funnel, creative, channels — and find what's actually capping return. No new spend until we know where it leaks." },
     { n: "02", name: "Build the foundation", desc: "Clean measurement, defined funnel stages, positioning that converts, and a creative testing loop — the layer everything compounds on." },
     { n: "03", name: "Scale against proof", desc: "Only once the foundation holds do we push budget — against verified return, with every rupee attributable to a stage." }
   ],
+  // Performance Marketing is the front door (content pack §1); the hierarchy is
+  // expressed through order and wording, with no printed category labels.
+  // .v3-srow__title is already text-transform:uppercase, so titles stay
+  // sentence case here and render uppercase.
   services: [
-    { n: "01", title: "Growth strategy & measurement", href: "/services/growth-strategy-measurement/", body: "Strategy, tracking and reporting that tie spend to revenue, so you know what pays back before you scale it." },
-    { n: "02", title: "Performance & paid media", href: "/services/performance-marketing/", body: "Google, Meta and LinkedIn structured around real conversions, so spend compounds against verified return." },
-    { n: "03", title: "SEO & AI search", href: "/services/seo-ai-search/", body: "Technical, content and intent foundations that turn search — including AI answer engines — into qualified pipeline." },
-    { n: "04", title: "Affiliate & partnerships", href: "/services/affiliate-partnerships/", body: "Programs that reward real customers, turning partners into one of your most efficient channels." },
+    { n: "01", title: "Performance marketing & paid media", href: "/services/performance-marketing/", body: "Acquisition strategy, channel allocation and Google, Meta and LinkedIn execution, scaled against verified return." },
+    { n: "02", title: "Growth strategy & measurement", href: "/services/growth-strategy-measurement/", body: "Tracking, attribution and reporting that tie spend to revenue, so you know what pays back before you scale it." },
+    { n: "03", title: "Affiliate & partnerships", href: "/services/affiliate-partnerships/", body: "Programs that reward real customers, turning partners into one of your most efficient channels." },
+    { n: "04", title: "SEO & AI search", href: "/services/seo-ai-search/", body: "Technical, content and intent foundations that turn search — including AI answer engines — into qualified pipeline." },
     { n: "05", title: "Websites that convert", href: "/services/website-design-development/", body: "Fast, conversion-focused sites so the traffic you pay for has somewhere worth landing." }
   ],
-  // rail labels from the design; FITNESS has no industry page yet so it renders as plain text
+  // rail labels from the design; CONSUMER and FITNESS have no industry page yet
+  // so they render as plain text. +MORE points at the hub.
   industries: [
+    { label: "FINTECH", href: "/industries/fintech/" },
     { label: "SAAS", href: "/industries/saas/" },
     { label: "D2C & ECOMMERCE", href: "/industries/d2c-ecommerce/" },
-    { label: "FINTECH", href: "/industries/fintech/" },
     { label: "EDTECH", href: "/industries/edtech/" },
-    { label: "FITNESS", href: null }
+    { label: "CONSUMER", href: null },
+    { label: "FITNESS", href: null },
+    { label: "+MORE", href: "/industries/" }
   ],
   filters: [
-    { id: "all", label: "ALL" }, { id: "edtech", label: "EDTECH" }, { id: "fintech", label: "FINTECH" },
-    { id: "d2c", label: "D2C" }, { id: "saas", label: "SAAS" }
+    { id: "all", label: "ALL" }, { id: "saas", label: "SAAS" },
+    { id: "edtech", label: "EDTECH" }, { id: "crypto", label: "CRYPTO" }
   ],
-  // Evidence cards. The first two mirror the approval-gated records in caseStudies;
-  // the D2C and SaaS cards come from the approved design and are new claims — they
-  // publish because the design was approved, but they are gated here so they can be
-  // pulled without touching markup if client consent is ever in question.
+  // Evidence cards (content pack §4), in the §2 placement order for "/":
+  // Demi.ai · Edtech · Affiliate. The unapproved D2C (+64% / −31%) and anonymous
+  // SaaS (2.4× / −22%) cards are REMOVED — they were never part of the locked
+  // proof system. Durations are dropped except Edtech's "9 MONTHS", which
+  // strengthens the 6× case. The crypto card carries a single metric, so its
+  // second slot is deliberately left empty rather than filled with a figure.
   cases: [
-    { cat: "edtech", tag: "EDTECH", dur: "9 MONTHS", m1: "₹5L→30L", l1: "MONTHLY MEDIA, SCALED", m2: "5×", l2: "RETURN ON AD SPEND",
-      title: "Six times the media spend, on rebuilt measurement",
-      body: "Conversion tracking and campaign structure were rebuilt before any scale. Once spend was attributable to a stage, monthly investment grew six-fold — reaching ₹1.5Cr in monthly revenue at a verified 5×.", publishApproved: true },
-    { cat: "fintech", tag: "FINTECH", dur: "12 MONTHS", m1: "0→6%", l1: "SHARE OF TRADING VOLUME", m2: "Zero", l2: "FRAUD WRITE-OFFS",
+    { cat: "saas", tag: "SAAS / AI · US", dur: "", m1: "Google + Meta", l1: "CHANNELS", m2: "App + web", l2: "ACQUISITION",
+      title: "US SaaS acquisition across app and web",
+      body: "Performance marketing for Demi.ai, a US AI product — paid acquisition across Google Ads and Meta, for both app downloads and direct website users.", publishApproved: true },
+    { cat: "edtech", tag: "EDTECH · INDIA", dur: "9 MONTHS", m1: "6×", l1: "MEDIA SCALE", m2: "5×", l2: "VERIFIED ROAS",
+      title: "6× media scale at a verified 5× ROAS",
+      body: "Conversion tracking and campaign structure were rebuilt before any scale. Once spend was attributable to a stage, monthly media grew six-fold — at a verified 5× return.", publishApproved: true },
+    { cat: "crypto", tag: "CRYPTO · GLOBAL", dur: "", m1: "2–3×", l1: "AFFILIATE CHANNEL GROWTH", m2: "", l2: "",
       title: "An affiliate channel built from nothing",
-      body: "Partner validation, commercial model, tracking and fraud controls, built ground up. Within a year it carried 5–6% of total volume as the lowest-CAC channel in the mix.", publishApproved: true },
-    { cat: "d2c", tag: "D2C", dur: "6 MONTHS", m1: "+64%", l1: "CONVERSION RATE", m2: "−31%", l2: "BLENDED CAC",
-      title: "A site that finally earned its traffic",
-      body: "The ads were fine; the landing experience wasn’t. Message-to-page mapping and a conversion rebuild lifted every paid channel at once, without adding budget.", publishApproved: true },
-    { cat: "saas", tag: "SAAS", dur: "8 MONTHS", m1: "2.4×", l1: "QUALIFIED PIPELINE", m2: "−22%", l2: "COST PER SQL",
-      title: "Pipeline that sales agreed was pipeline",
-      body: "Lead scoring and stage definitions were rewritten with the sales team, then paid search was restructured around the intent that actually closed.", publishApproved: true }
+      body: "Partner validation, commercial model, tracking and fraud controls, built ground up — then the affiliate channel was scaled 2–3×.", publishApproved: true }
   ],
   symptoms: [
     { id: "flat", label: "Spend up, returns flat", layer: "Measurement", depth: "DEEP — deepest", pct: 100,
       cause: "Almost always attribution. Platform-reported conversions double-count, and the channels taking credit aren't the channels creating demand — so budget keeps flowing to the loudest report.",
-      fix: "A tracking and attribution rebuild: server-side events, deduplicated conversions, one source of truth. Two to three weeks, before a rupee moves." },
+      fix: "A tracking and attribution rebuild: server-side events, deduplicated conversions, one source of truth. Two to three weeks, before budget moves." },
     { id: "blind", label: "Can't tell what's working", layer: "Measurement", depth: "DEEP — deepest", pct: 100,
       cause: "The funnel has no defined stages, so there's nothing to attribute to. Every report answers a slightly different question and none of them tie to revenue.",
       fix: "Define the funnel stages first, instrument each one, then build a single decision-ready view. Reporting becomes a diagnosis, not a defence." },

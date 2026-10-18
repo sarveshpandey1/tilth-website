@@ -114,8 +114,8 @@ const main = `
   <div data-tcta-grid>
     <h2 id="cta-h" data-tcta-h>Want benchmarks that actually fit your business?</h2>
     <div>
-      <p>Public benchmarks are a starting point, not the truth about your account. A free foundation audit builds you a measurement baseline from your own data — the only benchmark that really counts.</p>
-      <a data-btn data-cta-btn href="/contact/"><span>Request a free audit</span> <span aria-hidden="true">&rarr;</span></a>
+      <p>Public benchmarks are a starting point, not the truth about your account. A Foundation Audit builds you a measurement baseline from your own data — the only benchmark that really counts.</p>
+      <a data-btn data-cta-btn href="/contact/"><span>Discuss your growth project</span> <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>

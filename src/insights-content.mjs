@@ -524,9 +524,9 @@ export const insightArticles = [
     faqHeading: null,
     faq: [
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has spent 10+ years building affiliate programs across fintech, crypto, edtech, and D2C — rebuilding dead channels into real revenue. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Affiliate channel busy but not paying off?`, body: `A free foundation audit will show you which partners are incremental, which are coupon-stacking, and where your payouts are eating margin. No pitch attached.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has 10+ years of hands-on growth experience building affiliate programs across 10+ industries — rebuilding dead channels into real revenue. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Affiliate channel busy but not paying off?`, body: `A Foundation Audit will show you which partners are incremental, which are coupon-stacking, and where your payouts are eating margin. No pitch attached.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>Affiliate marketing is one of the few channels where you only pay for results — which makes it strange how often it produces none. The usual story: a brand signs up dozens of partners, the dashboard fills with clicks and sign-ups, and a year later nobody can point to revenue the channel actually caused. Here's why that happens, and how to turn it around.</p>
 
     <h2>1. You recruited for reach, not fit</h2>
@@ -547,7 +547,7 @@ export const insightArticles = [
     <p>Healthy programs are gardens, not warehouses. You vet partners before they join, and you offboard the ones who send volume but no value. Without that discipline, the program slowly fills with partners who cost attention and budget while contributing nothing.</p>
 
     <h2>How to rebuild it</h2>
-    <p>Start narrow: a handful of partners whose audience is genuinely your customer, payouts tied to real revenue, and a clear back-calculation of margin per partner. Drop the partners who only convert on coupons. Done right, affiliates become one of the most efficient channels you have — we've taken a brand's effectively dead affiliate channel to <strong>5–6% of total trading volume within a year</strong> using exactly this approach.</p>`
+    <p>Start narrow: a handful of partners whose audience is genuinely your customer, payouts tied to real revenue, and a clear back-calculation of margin per partner. Drop the partners who only convert on coupons. Done right, affiliates become one of the most efficient channels you have — we've scaled a brand's effectively dead affiliate channel <strong>2–3×</strong> using exactly this approach.</p>`
   },
   {
     slug: "agency-vs-freelancer-vs-inhouse",
@@ -695,9 +695,9 @@ export const insightArticles = [
       { q: `Can an agency work alongside our in-house team?`,
         a: `<p>Yes. Many agencies, including <a href="/marketing-agency-bengaluru/">Tilth</a>, work alongside in-house teams and freelancers — often starting with a foundation audit so everyone shares an honest picture before deciding who owns what.</p>` },
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C, working with startups as a freelancer, an agency partner, and an embedded lead. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Not sure what to hire for yet?`, body: `A free foundation audit shows you exactly what's working and what's broken — so you hire (agency, freelancer, or in-house) for the real gap, not a guessed one. No pitch attached.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, working with startups as a freelancer, an agency partner, and an embedded lead. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Not sure what to hire for yet?`, body: `A Foundation Audit shows you exactly what's working and what's broken — so you hire (agency, freelancer, or in-house) for the real gap, not a guessed one. No pitch attached.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>When marketing starts to matter, the hiring question arrives fast — and the wrong call is expensive in both directions. Hire a full in-house team too early and you're paying salaries before you know what works. Lean on a cheap freelancer too long and growth stalls the moment you need more than one skill. This guide compares a <strong>marketing agency vs a freelancer vs an in-house team</strong> for an early-stage startup, so you can match the choice to your stage.</p>
 
     <h2>The quick comparison</h2>
@@ -830,9 +830,9 @@ export const insightArticles = [
     faqHeading: null,
     faq: [
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C — running paid ads and building affiliate programs, and fixing the same foundational mistakes every time. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Not sure where your spend is leaking?`, body: `That's exactly what the free foundation audit is for. We'll review your current setup and tell you, honestly, what's broken — before you spend more.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has 10+ years of hands-on growth experience across 10+ industries — running paid ads and building affiliate programs, and fixing the same foundational mistakes every time. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Not sure where your spend is leaking?`, body: `That's exactly what the Foundation Audit is for. We'll review your current setup and tell you, honestly, what's broken — before you spend more.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>Most marketing teams can tell you their cost per click, their click-through rate, and how many conversions the dashboard reported last week. Far fewer can answer the only question that actually matters to the business: <em>for every rupee we put into ads, how many came back?</em></p>
     <p>That gap is where budgets quietly die. The campaign looks active, the charts trend up and to the right, and yet the bank balance doesn't move. Before you scale spend — or blame the channel — run these five checks.</p>
 
@@ -1004,9 +1004,9 @@ export const insightArticles = [
       { q: `Should you hire an agency instead of a first marketing employee?`,
         a: `<p>They solve different problems. An agency brings breadth and specialist skill from day one but needs someone in-house to own strategy. Many startups do both: a generalist hire who owns the roadmap, supported by an agency or freelancers for execution.</p>` },
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Give your first marketing hire a clean foundation`, body: `A free foundation audit checks your tracking, attribution, and targeting before you bring someone on — so their first month is spent testing channels, not debugging broken data. No pitch attached.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Give your first marketing hire a clean foundation`, body: `A Foundation Audit checks your tracking, attribution, and targeting before you bring someone on — so their first month is spent testing channels, not debugging broken data. No pitch attached.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>Most founders make the same mistake with their first marketing hire: they hire for the channel they're most worried about. Losing on SEO, so they hire an SEO person. Paid ads feel expensive, so they hire a media buyer. Six months later, half the marketing function has no owner and the specialist they hired is stuck waiting on tracking, content, and strategy that nobody else is doing. Your <strong>startup's first marketing hire</strong> needs to be built for a stage where almost nothing exists yet — not for a single channel.</p>
 
     <h2>The short answer: hire a generalist, not a specialist</h2>
@@ -1157,9 +1157,9 @@ export const insightArticles = [
     faqHeading: null,
     faq: [
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C — rebuilding tracking and scaling spend against numbers teams can actually trust. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Not sure your tracking is telling the truth?`, body: `A free foundation audit checks exactly this — your events, your conversions, and whether the number you're scaling on is real. No pitch attached.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has 10+ years of hands-on growth experience across 10+ industries — rebuilding tracking and scaling spend against numbers teams can actually trust. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Not sure your tracking is telling the truth?`, body: `A Foundation Audit checks exactly this — your events, your conversions, and whether the number you're scaling on is real. No pitch attached.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>GA4 confused almost everyone when it replaced Universal Analytics. The model changed from sessions to events, the labels moved, and a lot of accounts were migrated by clicking "accept defaults." The result: dashboards that look complete but count the wrong things. And because your ad platforms often import conversions <em>from</em> GA4, a quiet error here poisons every campaign decision you make.</p>
     <p>Before you scale spend, walk this checklist.</p>
 
@@ -1332,9 +1332,9 @@ export const insightArticles = [
       { q: `When should I increase my Google Ads budget?`,
         a: `<p>Once you have a verified cost-per-acquisition from several weeks of clean data, and it's sustainable for your business. Scaling before that multiplies whatever is or isn't working.</p>` },
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Get a Google Ads budget based on your numbers, not a guess`, body: `A free foundation audit checks your tracking and gives you a realistic starting budget for your category — so your first rupee of ad spend actually tells you something.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Get a Google Ads budget based on your numbers, not a guess`, body: `A Foundation Audit checks your tracking and gives you a realistic starting budget for your category — so your first rupee of ad spend actually tells you something.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>"How much should I spend on Google Ads?" is usually the very first question a founder asks before running paid ads in India — and it's genuinely hard to answer with a single number, because the right budget depends on your average order value, your industry's cost-per-click, and how much data you need before you can trust the results. This guide walks through how to set a real <strong>Google Ads budget for a startup in India</strong>, rather than borrowing someone else's rule of thumb.</p>
 
     <h2>The short answer: a starting range</h2>
@@ -1519,9 +1519,9 @@ export const insightArticles = [
       { q: `Do I need different tracking for each platform?`,
         a: `<p>Both rely on the same GA4 and server-side event setup, but each needs its own conversion tracking configured correctly, and neither should be trusted without independent verification in GA4.</p>` },
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Not sure which platform fits your business?`, body: `A free foundation audit looks at your category, buyer behaviour, and current tracking to recommend a starting channel — and confirms your numbers will be trustworthy once you spend.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Not sure which platform fits your business?`, body: `A Foundation Audit looks at your category, buyer behaviour, and current tracking to recommend a starting channel — and confirms your numbers will be trustworthy once you spend.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>"Should we start with Google or Meta?" comes up in nearly every first conversation we have with a founder. It's a fair question, and the honest answer is: it depends on whether people are already searching for what you sell. This guide breaks down <strong>Google Ads vs Meta Ads for startups</strong> — how each platform actually works, what it costs in India, and how to pick a starting channel instead of splitting a small budget two ways.</p>
 
     <h2>The short answer: intent vs discovery</h2>
@@ -1701,7 +1701,7 @@ export const insightArticles = [
                                     "name": "How much does Tilth charge?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Tilth scopes engagements after a free foundation audit, so pricing reflects what actually needs fixing rather than a one-size package. The audit itself is free, with no obligation — you only invest once you know where your money is leaking."
+                                          "text": "Tilth scopes engagements after a Foundation Audit, so pricing reflects what actually needs fixing rather than a one-size package. The audit itself is free, with no obligation — you only invest once you know where your money is leaking."
                                     }
                               }
                         ]
@@ -1720,11 +1720,11 @@ export const insightArticles = [
       { q: `Is a cheaper agency a good idea?`,
         a: `<p>Not always. A very cheap agency often skips the foundation work, so you pay less per month but waste more ad spend on data you can't trust. The cheapest agency is frequently the most expensive once wasted budget is counted.</p>` },
       { q: `How much does Tilth charge?`,
-        a: `<p>We scope engagements after a <a href="/contact/">free foundation audit</a>, so pricing reflects what actually needs fixing — not a one-size package. The audit is free, with no obligation.</p>` },
+        a: `<p>The first conversation is free, so pricing reflects what actually needs fixing — not a one-size package. If the problem needs deeper diagnosis, we’ll scope a paid <a href="/contact/">Foundation Audit</a> around it. A typical audit takes 1–2 weeks, depending on scope.</p>` },
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Find out what you actually need to spend`, body: `A free foundation audit shows you what's working, what's leaking, and what's worth paying to fix first — so you scope an agency around reality, not a guess. No pitch attached.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Find out what you actually need to spend`, body: `A Foundation Audit shows you what's working, what's leaking, and what's worth paying to fix first — so you scope an agency around reality, not a guess. No pitch attached.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>Ask five agencies what they charge and you'll get five wildly different numbers — ₹15,000 here, ₹2,00,000 there — for what sounds like the same thing. The confusion is real, and it's expensive: a lot of brands either overpay for a thin retainer or underpay for a package that quietly does very little. This guide lays out what a <strong>digital marketing agency costs in India</strong> in 2026, and more importantly, what you're actually paying for.</p>
 
     <h2>The short answer: typical 2026 price ranges</h2>
@@ -1912,7 +1912,7 @@ export const insightArticles = [
                                     "name": "Does Tilth work with D2C brands?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Yes. Tilth is a foundation-first marketing agency in Bengaluru that works with D2C brands and startups in India and globally. Every engagement starts with a free foundation audit of tracking, attribution, targeting, and partnerships before any spend is scaled."
+                                          "text": "Yes. Tilth is a foundation-first marketing agency in Bengaluru that works with D2C brands and startups in India and globally. Every engagement starts with a Foundation Audit of tracking, attribution, targeting, and partnerships before any spend is scaled."
                                     }
                               }
                         ]
@@ -1931,11 +1931,11 @@ export const insightArticles = [
       { q: `What's the most important thing to check before hiring?`,
         a: `<p>That your conversion tracking and attribution are accurate. Every D2C scaling decision rides on whether your reported ROAS and CAC are real — broken measurement means even a great agency optimises toward the wrong numbers.</p>` },
       { q: `Does Tilth work with D2C brands?`,
-        a: `<p>Yes — <a href="/marketing-agency-bengaluru/">Tilth</a> is a foundation-first agency in Bengaluru working with D2C brands and startups in India and globally. Every engagement starts with a free foundation audit.</p>` },
+        a: `<p>Yes — <a href="/marketing-agency-bengaluru/">Tilth</a> is a foundation-first agency in Bengaluru working with D2C brands and startups in India and globally. Every engagement starts with a free conversation.</p>` },
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C — building and auditing the marketing engines behind consumer brands. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Choosing a D2C agency? Start with the truth.`, body: `A free foundation audit gives you an honest read on your tracking, attribution, and channel performance — so you can hire (us or anyone) for the real gap, not a guessed one. No pitch attached.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries — building and auditing the marketing engines behind consumer brands. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Choosing a D2C agency? Start with the truth.`, body: `A Foundation Audit gives you an honest read on your tracking, attribution, and channel performance — so you can hire (us or anyone) for the real gap, not a guessed one. No pitch attached.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>For a direct-to-consumer brand, marketing isn't a support function — it <em>is</em> the business. You live and die by customer acquisition cost, repeat purchase rate, and contribution margin. So choosing the wrong <strong>marketing agency for your D2C brand</strong> doesn't just waste a retainer; it quietly burns the ad budget that is your growth. After a decade across D2C and other categories, here's the buyer's guide I'd give a founder choosing one in India.</p>
 
     <h2>1. Real D2C experience — with brands like yours</h2>
@@ -2117,9 +2117,9 @@ export const insightArticles = [
       { q: `Why does my attribution data look wrong?`,
         a: `<p>Usually it's incomplete or broken conversion tracking feeding it bad data, not the attribution model itself. Verify GA4 events fire correctly across channels first.</p>` },
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Get an honest read on what's actually driving sales`, body: `A free foundation audit checks whether your tracking captures every channel correctly, so your attribution data reflects reality — not just whichever channel happens to close the sale.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Get an honest read on what's actually driving sales`, body: `A Foundation Audit checks whether your tracking captures every channel correctly, so your attribution data reflects reality — not just whichever channel happens to close the sale.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>Ask ten founders what "marketing attribution" means and most will give a vague answer involving dashboards and jargon. The actual idea is simple: a customer rarely buys from the very first ad they see. They might see an Instagram post, search your brand name a week later, click a Google ad, and finally buy after an email reminder. <strong>Marketing attribution</strong> is just the method for deciding which of those touchpoints gets credit for the sale — and that choice changes which channels look like they're working.</p>
 
     <h2>What "attribution" actually means, in plain English</h2>
@@ -2213,7 +2213,7 @@ export const insightArticles = [
                         "keywords": [
                               "marketing foundation audit",
                               "marketing audit",
-                              "free marketing audit",
+                              "marketing audit cost",
                               "marketing audit checklist",
                               "what does a marketing audit check"
                         ],
@@ -2266,7 +2266,7 @@ export const insightArticles = [
                                     "name": "Is the Tilth marketing audit really free?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Yes. Tilth offers a free foundation audit with no pitch attached. We review your current setup and tell you honestly what's broken and what's worth fixing first. There's no obligation to work with us afterwards."
+                                          "text": "Yes. Tilth offers a Foundation Audit with no pitch attached. We review your current setup and tell you honestly what's broken and what's worth fixing first. There's no obligation to work with us afterwards."
                                     }
                               },
                               {
@@ -2298,14 +2298,14 @@ export const insightArticles = [
         a: `<p>An SEO audit looks at one channel. A typical marketing audit often reviews tactics and creative across channels. A marketing foundation audit goes a layer deeper — it checks the plumbing (conversion tracking, attribution, targeting logic, and how partners are paid) so everything measured on top of it can be trusted.</p>` },
       { q: `How long does a marketing audit take?`,
         a: `<p>A focused foundation audit usually takes a few working days once you've shared access to your analytics, ad accounts, and tracking setup. You get a short, honest read on what's broken and what to fix first — not a report nobody acts on.</p>` },
-      { q: `Is the Tilth marketing audit really free?`,
-        a: `<p>Yes. Tilth offers a free foundation audit with no pitch attached and no obligation to work with us afterwards. <a href="/contact/">Request yours here</a>.</p>` },
+      { q: `How does the Tilth Foundation Audit work?`,
+        a: `<p>The first conversation is free, with no pitch attached and no obligation. If the problem needs deeper diagnosis, we’ll scope a paid Foundation Audit around it. A typical audit takes 1–2 weeks, depending on scope. <a href="/contact/">Start here</a>.</p>` },
       { q: `Do I need to change agencies to get an audit?`,
         a: `<p>No. A foundation audit is independent of who runs your channels — many brands use it as a second opinion on an existing agency or in-house team.</p>` },
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C — auditing and rebuilding the foundations under marketing spend. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Get a free marketing foundation audit`, body: `We'll review your tracking, attribution, targeting, and partnerships, and tell you honestly what's broken and what's worth fixing first. No pitch attached.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries — auditing and rebuilding the foundations under marketing spend. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Start with a conversation`, body: `We'll review your tracking, attribution, targeting, and partnerships, and tell you honestly what's broken and what's worth fixing first. No pitch attached.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>Ask ten brands what's in their marketing audit and you'll get ten answers — a creative review here, an SEO crawl there, a slide on competitor positioning. Useful, but all of it sits on top of one assumption: that the data underneath is true. A <strong>marketing foundation audit</strong> tests that assumption first. Before anyone debates a headline or a bid, it asks a blunter question — <em>can you actually trust the numbers you're about to spend against?</em></p>
     <p>This is the audit we run at Tilth, and it's deliberately unglamorous. It checks the plumbing. Below is what a real marketing foundation audit reviews, in the order that matters.</p>
 
@@ -2479,9 +2479,9 @@ export const insightArticles = [
       { q: `What attribution model should I use?`,
         a: `<p>Last-click alone tends to undercount influencer contribution. Combine assisted conversion data in GA4 with direct code and link attribution for a fuller picture.</p>` },
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Set up influencer tracking that actually holds up`, body: `A free foundation audit checks whether your GA4 and attribution setup can accurately measure influencer, affiliate, and paid campaigns — before your next brief goes out.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Set up influencer tracking that actually holds up`, body: `A Foundation Audit checks whether your GA4 and attribution setup can accurately measure influencer, affiliate, and paid campaigns — before your next brief goes out.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>Influencer marketing has a measurement problem that other channels mostly solved years ago. A brand can run five campaigns, get glowing engagement reports from each influencer, and still have no idea which ones actually drove revenue. That's not because influencer ROI is unmeasurable — it's because most campaigns are briefed without the tracking in place to measure it. This guide covers how to <strong>measure influencer marketing ROI</strong> properly, starting before the campaign, not after.</p>
 
     <h2>Why influencer ROI is hard to measure (and why that's not an excuse to skip it)</h2>
@@ -2619,9 +2619,9 @@ export const insightArticles = [
     faqHeading: null,
     faq: [
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has spent 10+ years running paid ads across edtech, fintech, SaaS, and D2C — and fixing the tracking that quietly breaks them. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Want a second pair of eyes on your Meta setup?`, body: `The free foundation audit checks your pixel, CAPI, events, and attribution — so you know whether it's the tracking or the ads before you spend another rupee. No pitch attached.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has 10+ years of hands-on growth experience running paid ads across 10+ industries — and fixing the tracking that quietly breaks them. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Want a second pair of eyes on your Meta setup?`, body: `The Foundation Audit checks your pixel, CAPI, events, and attribution — so you know whether it's the tracking or the ads before you spend another rupee. No pitch attached.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>Meta's algorithm is only as good as the data you feed it. If purchases aren't being reported back accurately, the system can't find buyers — so it spends your budget on the wrong people, conversions dry up, and it looks like the ads "stopped working." Most of the time, it's a tracking problem wearing a creative problem's costume. Run this audit first.</p>
 
     <h2>1. Is the Pixel firing the purchase event — with value?</h2>
@@ -2793,9 +2793,9 @@ export const insightArticles = [
       { q: `How do I check if their results are real?`,
         a: `<p>Ask for results from similar businesses, tied to revenue rather than impressions, and ask how they were tracked. If they can't explain the measurement, treat the result as marketing, not proof.</p>` },
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C — on both sides of the agency pitch. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Want a benchmark before you choose?`, body: `A free foundation audit gives you an independent, honest read on your current setup — so you can judge any agency's answers against what's actually true. No pitch attached.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries — on both sides of the agency pitch. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Want a benchmark before you choose?`, body: `A Foundation Audit gives you an independent, honest read on your current setup — so you can judge any agency's answers against what's actually true. No pitch attached.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>Choosing a marketing agency is mostly an exercise in seeing past a good deck. Almost every agency presents well; far fewer do the unglamorous foundation work that decides whether your spend is measurable. These are the questions I'd ask before hiring a marketing agency — grouped by what they reveal — with the green-flag answer and the red flag for each.</p>
 
     <h2>Questions about strategy &amp; process</h2>
@@ -3004,9 +3004,9 @@ export const insightArticles = [
       { q: `Should I stop investing in SEO if it's not generating leads yet?`,
         a: `<p>Usually not immediately. Diagnose whether it's intent mismatch, page experience, tracking, or time first — stopping before diagnosing often means quitting right before it would have worked.</p>` },
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Find out exactly where your SEO is leaking leads`, body: `A free foundation audit checks keyword intent, landing page match, tracking accuracy, and technical health — so you know precisely what to fix first, not just that "something's wrong."`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Find out exactly where your SEO is leaking leads`, body: `A Foundation Audit checks keyword intent, landing page match, tracking accuracy, and technical health — so you know precisely what to fix first, not just that "something's wrong."`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>"Our organic traffic is up 40% and leads haven't moved" is one of the most common things founders tell us. It feels like proof that SEO doesn't work for their business. In almost every case we've looked at, it isn't that — it's one or two specific, diagnosable problems sitting between the traffic and the lead form. This guide covers why <strong>SEO traffic isn't converting into leads</strong>, and how to work out which cause applies to you.</p>
 
     <h2>Traffic is not the same as leads</h2>
@@ -3199,9 +3199,9 @@ export const insightArticles = [
       { q: `How do I know if my Shopify tracking is actually working?`,
         a: `<p>Place a real test order, then confirm it appears once in GA4 DebugView with the correct value, and once in Meta Events Manager with both Browser and Server sources and a high match rate.</p>` },
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Get your Shopify tracking checked properly`, body: `A free foundation audit verifies GA4, Meta Pixel, and Conversions API end to end on your live store — so you know exactly what's measured correctly before you scale spend.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Get your Shopify tracking checked properly`, body: `A Foundation Audit verifies GA4, Meta Pixel, and Conversions API end to end on your live store — so you know exactly what's measured correctly before you scale spend.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>Almost every Shopify store we audit has GA4 and the Meta Pixel "installed." Almost none of them have it installed correctly. The apps report a green tick, events show up somewhere in a dashboard, and everyone assumes the numbers are right — until you compare GA4 revenue to Shopify's own reports and find a 20–30% gap. This guide walks through <strong>Shopify conversion tracking</strong> properly: GA4, Meta Pixel, and Conversions API, in the order that actually prevents the common failures.</p>
 
     <h2>Why Shopify's default tracking isn't enough</h2>
@@ -3402,9 +3402,9 @@ export const insightArticles = [
       { q: `How do I set my first marketing budget?`,
         a: `<p>Target customers/month × estimated CAC, plus fees and tools, capped at what you can afford to lose while learning — and fix your tracking before you spend it.</p>` },
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C helping startups spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Not sure your numbers can be trusted yet?`, body: `A free foundation audit checks whether your tracking and attribution are sound — so the budget you set is measured against reality, not a guess. No pitch attached.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries helping startups spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Not sure your numbers can be trusted yet?`, body: `A Foundation Audit checks whether your tracking and attribution are sound — so the budget you set is measured against reality, not a guess. No pitch attached.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>Every early-stage founder wants a clean answer: "spend X% of revenue and you're done." The benchmarks exist, and they're a useful gut-check — but if you set your <strong>marketing budget</strong> off a percentage alone, you'll either starve a channel that was about to work or pour money into one you can't even measure. This is how to set a startup marketing budget that's tied to reality, not a rule of thumb.</p>
 
     <h2>The quick answer: sensible ranges</h2>
@@ -3607,9 +3607,9 @@ export const insightArticles = [
       { q: `Why is tracking so important for performance marketing?`,
         a: `<p>Because its entire premise is paying based on results, broken tracking breaks the mechanism the whole approach depends on — a campaign optimising on inaccurate data is chasing numbers that don't reflect reality.</p>` },
     ],
-    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has spent 10+ years across fitness, edtech, fintech, SaaS, and D2C helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
-    cta: { heading: `Make sure your performance marketing is measuring the truth`, body: `A free foundation audit checks whether your tracking is accurate enough to trust the "performance" in performance marketing — before you scale spend on numbers that might be wrong.`,
-      href: "/contact/", label: `Request a free audit` },
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Make sure your performance marketing is measuring the truth`, body: `A Foundation Audit checks whether your tracking is accurate enough to trust the "performance" in performance marketing — before you scale spend on numbers that might be wrong.`,
+      href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>"We want to focus on performance marketing" and "we want to do digital marketing" get said as if they mean the same thing, and they don't quite. The mix-up matters because it shapes what a founder expects an agency or hire to deliver. Here's a clear, plain-English answer to <strong>what performance marketing actually is</strong> and how it's different from digital marketing generally.</p>
 
     <h2>The short definition</h2>

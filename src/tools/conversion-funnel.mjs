@@ -167,8 +167,8 @@ export const main = `
     <div data-tcta-grid>
       <h2 id="cta-h" data-tcta-h>A rising conversion rate you can't trust is worse than none</h2>
       <div>
-        <p>If your analytics miscounts orders or double-fires conversions, this whole funnel is built on sand. A free foundation audit confirms your conversion tracking is accurate — so the rate you're optimising is the real one.</p>
-        <a data-btn data-cta-btn href="/contact/"><span>Request a free audit</span> <span aria-hidden="true">&rarr;</span></a>
+        <p>If your analytics miscounts orders or double-fires conversions, this whole funnel is built on sand. A Foundation Audit confirms your conversion tracking is accurate — so the rate you're optimising is the real one.</p>
+        <a data-btn data-cta-btn href="/contact/"><span>Discuss your growth project</span> <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </section>

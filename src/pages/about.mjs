@@ -14,12 +14,13 @@
 // asserted that the source does not record — no LinkedIn, team size, office
 // locations, awards or client counts.
 //
-// The "five industries" founder copy is DEFERRED BY OWNER to the later
-// copy/content pass (report issue 1). It stays verbatim here.
+// The founder copy now follows the approved content pack (§9): "10+ years,
+// 10+ industries" replaces the earlier "ten years, five industries" wording,
+// and the representative sectors come from the owner-supplied list.
 //
 // Prototype-only code is not ported: the .dc runtime, the review approval
 // switches and the display-fit safeguard.
-import { site, team, caseStudies } from "../data.mjs";
+import { site, team, proofFor } from "../data.mjs";
 import { breadcrumbs, esc } from "../render.mjs";
 
 const path = "/about/";
@@ -47,7 +48,8 @@ const pillars = [
 // The same proof component as /work/, at standard scale. Approval-gated: with no
 // publishable record #outcomes is omitted entirely, not left as a heading over an
 // empty grid (report: proof-empty omits #outcomes).
-const records = caseStudies.filter(c => c.publishApproved);
+// §2 placement matrix: /about/ carries Edtech and Affiliate, not Demi.ai.
+const records = proofFor("/about/");
 const proof = records.map(c => `
     <article data-proof class="v3-reveal">
       <div data-plabel>${esc(c.anonLabel)}</div>
@@ -69,7 +71,7 @@ const main = `
   <nav data-crumb aria-label="Breadcrumb"><a href="/">HOME</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">ABOUT</span></nav>
   <div data-eyebrow>About</div>
   <h1 data-h1>Built by someone who's <em>done the work</em>.</h1>
-  <p data-lede>Tilth is a global growth marketing agency — founder-led and India-rooted, fluent in how demanding markets like the US buy and convert, and built on the belief that growth is a consequence of strong foundations, not more spend.</p>
+  <p data-lede>Tilth is a performance-led growth marketing agency. Founder-led, with 10+ years of hands-on growth experience — India-rooted, with performance experience across India and the US — and built on one belief: growth is a consequence of strong foundations, not more spend.</p>
 </section>
 
 <section id="problem" data-sec data-depth-label="SHALLOW" aria-labelledby="problem-h">
@@ -78,7 +80,7 @@ const main = `
       <div data-eyebrow>Why Tilth exists</div>
       <h2 id="problem-h" data-h2>The same mistake, repeated across every industry.</h2>
     </div>
-    <p data-lead-p class="v3-reveal">Across fitness, edtech, fintech, SaaS and D2C, one pattern kept repeating: teams scaling spend on foundations that couldn't support it — broken tracking, unclear positioning, sites that didn't convert. Tilth exists to fix that first, so growth compounds instead of leaking.</p>
+    <p data-lead-p class="v3-reveal">Across more than ten industries, in India and the US, one pattern kept repeating: teams scaling spend on foundations that couldn't support it — broken tracking, unclear positioning, sites that didn't convert. Tilth exists to fix that first, so growth compounds instead of leaking.</p>
   </div>
 </section>
 
@@ -100,8 +102,8 @@ ${founder ? `
       <figcaption>${esc(founder.name)} &mdash; ${esc(founder.title)}</figcaption>
     </figure>
     <div data-fcopy>
-      <blockquote data-quote>Ten years, five industries, <span data-accent>one mistake</span> repeated every time.</blockquote>
-      <p data-body>${esc(founder.name)} has spent ${esc(bioClause)} — running paid media, building affiliate programs and rebuilding the measurement underneath growth. Tilth is the result: a foundation-first partner for brands that want growth to last.</p>
+      <blockquote data-quote>Ten-plus years. Ten-plus industries. Patterns repeat; <span data-accent>foundations matter</span>.</blockquote>
+      <p data-body>${esc(founder.name)} has ${esc(bioClause)} — running paid media, building affiliate programs and rebuilding the measurement underneath growth, for brands in India and the US. Tilth is the result: a foundation-first partner for brands that want growth to last.</p>
       <a data-textlink href="/work/"><span>See the work &rarr;</span></a>
     </div>
   </div>
@@ -114,6 +116,7 @@ ${records.length ? `
   </div>
   <div data-proof-grid>${proof}
   </div>
+  <p style="margin:26px 0 0;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.12em;line-height:1.6;color:var(--stone)">Selected experience from our founder and core team.</p>
 </section>` : ""}
 
 <section id="cta" data-moss data-depth-label="FOUNDATION" aria-labelledby="cta-h">
@@ -121,10 +124,10 @@ ${records.length ? `
   <div data-cta-grid>
     <h2 id="cta-h" data-cta-h>Let's talk about your growth.</h2>
     <div>
-      <p data-cta-p>Tell us what you're trying to grow. We'll review the foundations before recommending the work.</p>
+      <p data-cta-p>Start with a conversation — the first one is free. We'll look at where growth is getting stuck and whether there's a clear next step.</p>
       <div data-cta-actions>
-        <a data-btn href="/contact/">Discuss a Project <span aria-hidden="true">&rarr;</span></a>
-        <a data-textlink href="/contact/"><span>Request a Foundation Audit &rarr;</span></a>
+        <a data-btn href="/contact/">Discuss your growth project <span aria-hidden="true">&rarr;</span></a>
+        <a data-textlink href="/contact/"><span>See the work &rarr;</span></a>
       </div>
     </div>
   </div>

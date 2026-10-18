@@ -452,7 +452,9 @@ html[data-theme="light"] .v3-theme-dot { transform: rotate(180deg); }
 @media (min-width: 1024px) { .v3-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .v3-stat { background: var(--bg); padding: 20px 18px 18px; }
 .v3-stat:first-child { padding-left: 0; }
-.v3-stat__v { font-family: Syne, sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -.03em; line-height: 1; }
+/* 24px below 768 so the longest approved value ("US$10M+") fits the
+   two-column cell at 390 without overrunning; 768+ is unchanged. */
+.v3-stat__v { font-family: Syne, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -.03em; line-height: 1; }
 @media (min-width: 768px) { .v3-stat__v { font-size: 38px; } }
 @media (min-width: 1024px) { .v3-stat__v { font-size: 40px; } }
 @media (min-width: 1440px) { .v3-stat__v { font-size: 46px; } }

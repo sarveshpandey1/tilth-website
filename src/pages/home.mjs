@@ -2,7 +2,7 @@
 // Copy and structure come from the design; brands, services and contact details
 // come from the existing content model. SEO, schema and the FormSubmit contact
 // integration are carried over unchanged.
-import { site, brandExperience, homeV3 } from "../data.mjs";
+import { site, brandExperience, brandExperienceLabel, homeV3 } from "../data.mjs";
 import { orgSchema, websiteSchema, esc } from "../render.mjs";
 
 const path = "/";
@@ -10,8 +10,8 @@ const path = "/";
 const FORM_ACTION = "https://formsubmit.co/anuja@wearetilth.com";
 
 // The rail loops by translating -50%, so the set is emitted twice. The clone is a
-// purely visual duplicate and is hidden from assistive tech, so six names are
-// announced rather than twelve (same contract as the previous build).
+// purely visual duplicate and is hidden from assistive tech, so ten names are
+// announced rather than twenty (same contract as the previous build).
 const brandItem = (b, hidden) => `<li class="v3-brand" data-v3-brand${hidden ? ' aria-hidden="true"' : ""}>${esc(b.name)}</li>`;
 const brandSet = hidden => brandExperience.map(b => brandItem(b, hidden)).join("");
 
@@ -41,7 +41,7 @@ const evCard = c => `<article class="v3-ev" data-v3-case="${c.cat}">
       <div class="v3-ev__top"><span class="v3-ev__tag">${esc(c.tag)}</span><span class="v3-ev__dur">${esc(c.dur)}</span></div>
       <div class="v3-ev__metrics">
         <div><div class="v3-ev__m" data-num>${esc(c.m1)}</div><div class="v3-ev__ml">${esc(c.l1)}</div></div>
-        <div><div class="v3-ev__m is-moss" data-num>${esc(c.m2)}</div><div class="v3-ev__ml">${esc(c.l2)}</div></div>
+        ${c.m2 ? `<div><div class="v3-ev__m is-moss" data-num>${esc(c.m2)}</div><div class="v3-ev__ml">${esc(c.l2)}</div></div>` : ""}
       </div>
       <h3>${esc(c.title)}</h3>
       <p>${esc(c.body)}</p>
@@ -81,12 +81,13 @@ const main = `
   <div class="v3-stats">
     ${homeV3.stats.map(stat).join("\n    ")}
   </div>
+  <p class="v3-evnote">${esc(homeV3.statsCaption)}</p>
 </section>
 
 <section class="v3-brandsec" id="brand-experience" data-depth-label="EXPERIENCE">
   <div class="v3-brandsec__head">
     <h2 class="v3-mono" style="color:var(--mosstext);margin:0">SELECTED BRAND EXPERIENCE</h2>
-    <div class="v3-brandsec__note">Experience from the founder and core team.</div>
+    <div class="v3-brandsec__note">${esc(brandExperienceLabel)}</div>
   </div>
   <div class="v3-brandrail" data-v3-brandrail>
     <ul class="v3-brandtrack" data-v3-brandtrack>
@@ -108,7 +109,7 @@ const main = `
       <div class="v3-band" data-v3-band="2"><span class="v3-band__name">Funnel &amp; positioning</span><span class="v3-band__d">MID</span></div>
       <div class="v3-band v3-band--deep" data-v3-band="3">
         <div class="v3-band__row"><span class="v3-band__name">Measurement</span><span class="v3-band__d">DEEP — CONSTRAINT</span></div>
-        <p>Nine times out of ten the constraint sits here — and every layer above it inherits the error.</p>
+        <p>Most often, the constraint sits here — and every layer above it inherits the error.</p>
       </div>
     </div>
   </div>
@@ -143,7 +144,7 @@ const main = `
     <div class="v3-dx v3-dx--cta">
       <div class="v3-dx__k">WHERE WE'D START</div>
       <p data-v3-dx-fix>${esc(first.fix)}</p>
-      <a class="v3-dx__cta" href="/contact/"><span>Get this audited →</span></a>
+      <a class="v3-dx__cta" href="/contact/"><span>Discuss this symptom →</span></a>
     </div>
   </div>
 </section>
@@ -207,7 +208,7 @@ const main = `
       </div>
     </div>
   </div>
-  <p class="v3-evnote">ANONYMISED UNDER CLIENT CONFIDENTIALITY / FIGURES AS REPORTED BY THE CLIENT</p>
+  <p class="v3-evnote">SELECTED EXPERIENCE FROM OUR FOUNDER AND CORE TEAM · ANONYMISED UNLESS NAMED WITH PERMISSION</p>
   <script type="application/json" data-v3-casedata>${JSON.stringify(
     Object.fromEntries(cases.map(c => [c.cat, { tag: c.tag, dur: c.dur, title: c.title, body: c.body, m1: c.m1, l1: c.l1, m2: c.m2, l2: c.l2 }]))
   )}</script>
@@ -218,11 +219,11 @@ const main = `
     <div>
       <div class="v3-mono v3-eyebrow">05 — THE TOOLS LAYER</div>
       <h2 class="v3-h2" style="max-width:14ch">The same diagnostics we run, free to use</h2>
-      <p class="v3-lede" style="max-width:42ch;margin-top:24px">Seven calculators built out of real engagements — unit economics, funnel maths, ad-spend profitability, benchmarks. No signup, no gated PDF.</p>
+      <p class="v3-lede" style="max-width:42ch;margin-top:24px">Free marketing tools and benchmarks, built out of real engagements — unit economics, funnel maths, ad-spend profitability. No signup, no gated PDF.</p>
       <a class="v3-toolslink" href="/tools/">OPEN THE TOOLS HUB →</a>
     </div>
     <div class="v3-calc" data-v3-calc>
-      <div class="v3-calc__top"><span style="color:var(--mosstext)">LIVE / UNIT ECONOMICS</span><span style="color:var(--stone)">01 / 07</span></div>
+      <div class="v3-calc__top"><span style="color:var(--mosstext)">LIVE / UNIT ECONOMICS</span><span style="color:var(--stone)">01</span></div>
       <div class="v3-calc__fields">
         <label>
           <span class="v3-calc__row">Monthly ad spend<output data-v3-out="spend" data-num>₹5,00,000</output></span>
@@ -251,8 +252,8 @@ const main = `
     <div class="v3-portrait v3-reveal"><img src="/anuja.jpg" alt="Anuja, founder of Tilth" width="400" height="500" loading="lazy" decoding="async"></div>
     <div>
       <div class="v3-mono v3-eyebrow v3-reveal">06 — FOUNDER-LED</div>
-      <h2 class="v3-h2 v3-reveal" style="max-width:15ch">10 years of experience across 5 industries. <span data-acc>One mistake</span> repeated every time.</h2>
-      <p class="v3-lede v3-reveal">Tilth is led by Anuja, who has spent a decade running paid media, building affiliate programs and rebuilding the measurement underneath growth — a foundation-first partner for brands that want growth to last. Senior strategy stays on every engagement; you're not handed to a junior team after the pitch.</p>
+      <h2 class="v3-h2 v3-reveal" style="max-width:15ch">10+ years. 10+ industries. Patterns repeat. <span data-acc>Foundations matter</span>.</h2>
+      <p class="v3-lede v3-reveal">Tilth is founder-led. Anuja brings 10+ years of hands-on growth experience — running paid media, building affiliate programs and rebuilding the measurement underneath growth, for brands in India and the US. Senior strategy stays on every engagement; you're not handed to a junior team after the pitch.</p>
       <a class="v3-textlink v3-reveal" href="/about/">MEET THE TEAM →</a>
     </div>
   </div>
