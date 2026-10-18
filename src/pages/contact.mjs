@@ -28,13 +28,11 @@ import { breadcrumbs, esc, orgSchema } from "../render.mjs";
 const path = "/contact/";
 const bc = breadcrumbs([{ name: "Home", path: "/" }, { name: "Contact", path }]);
 
-// FormSubmit endpoint. The previous value was the alias token issued for
-// anuja@tilth.in — the pre-migration mailbox — so submissions from
-// wearetilth.com hit FormSubmit's activation gate and were never delivered.
-// Pointed at the current mailbox instead. FormSubmit only issues an alias token
-// after an address is confirmed, so the address is used directly until this one
-// is activated; swap in the issued token afterwards to keep it out of the markup.
-const FORM_ACTION = "https://formsubmit.co/anuja@wearetilth.com";
+// FormSubmit endpoint. This is the activated alias token FormSubmit issued for
+// anuja@wearetilth.com, used in place of the address itself so the recipient
+// mailbox is not exposed in public markup. Delivery to that mailbox has been
+// verified end to end from production.
+const FORM_ACTION = "https://formsubmit.co/1312a0b0464cf419c03910b58a623861";
 
 const needs = [
   "Scaling customer acquisition", "Improving paid-media performance", "Increasing organic visibility",

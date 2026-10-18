@@ -7,7 +7,7 @@ import { orgSchema, websiteSchema, esc } from "../render.mjs";
 
 const path = "/";
 // Same endpoint as /contact/ — see the note in src/pages/contact.mjs
-const FORM_ACTION = "https://formsubmit.co/anuja@wearetilth.com";
+const FORM_ACTION = "https://formsubmit.co/1312a0b0464cf419c03910b58a623861";
 
 // The rail loops by translating -50%, so the set is emitted twice. The clone is a
 // purely visual duplicate and is hidden from assistive tech, so ten names are
