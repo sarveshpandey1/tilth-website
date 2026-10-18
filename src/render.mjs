@@ -210,7 +210,7 @@ export function v3Footer({ rule = false } = {}) {
     <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
     <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a><a href="/cookie-policy/" data-tilth-consent-open>Cookie settings</a></div>
     <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="${s.linkedin}" target="_blank" rel="noopener">LinkedIn</a><a href="${s.instagram}" target="_blank" rel="noopener">Instagram</a><a href="${s.x}" target="_blank" rel="noopener">X / Twitter</a></div>
-    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across India and the US</span></div>
   </div>
   <div class="v3-wordmarkwrap">
     <div class="v3-wordmark" data-v3-wordmark>

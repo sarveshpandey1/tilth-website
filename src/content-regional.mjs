@@ -184,8 +184,8 @@ export const regions = {
         ]
       },
       {
-        type: "prose", id: "collaboration", eyebrow: "India-rooted · Working across markets",
-        h2: "India-rooted. Built to work across markets.",
+        type: "prose", id: "collaboration", eyebrow: "India-rooted · Working across India and the US",
+        h2: "India-rooted. Built to work across India and the US.",
         standfirst: "Structured collaboration for distributed teams.",
         light: true,
         paragraphs: [

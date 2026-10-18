@@ -85,7 +85,7 @@ const FAQS = [
   { q: "What's the difference between the Survey and the Tilth phases?",
     a: "The Survey is diagnosis — mapping what's spent, tracked, and converting. The Tilth is the build — fixing the tracking, defining revenue-based conversion events, and locking positioning before launch." },
   { q: "Is this approach only for large brands?",
-    a: `No. It works for early-stage startups and D2C brands too — in fact, getting the foundation right early is cheaper than rebuilding it after scaling on broken data. We work with brands in <a href="/marketing-agency-bengaluru/">Bengaluru</a> and globally.` }
+    a: `No. It works for early-stage startups and D2C brands too — in fact, getting the foundation right early is cheaper than rebuilding it after scaling on broken data. We work with brands in <a href="/marketing-agency-bengaluru/">Bengaluru</a>, across India and the US.` }
 ];
 
 const stripTags = s => s.replace(/<[^>]+>/g, "");

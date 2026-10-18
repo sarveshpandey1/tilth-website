@@ -142,7 +142,7 @@ export default {
   shellClass: "v3-industries",
   headExtra: `<link rel="stylesheet" href="/assets/industries.css">`,
   title: "Industries We Serve — SaaS, D2C, Fintech, Edtech, Startups | Tilth",
-  description: "Growth marketing for SaaS, D2C & ecommerce, fintech, edtech, and startups & scaleups — with the metrics and constraints that decide growth in each sector, across markets.",
+  description: "Growth marketing for SaaS, D2C & ecommerce, fintech, edtech, and startups & scaleups — with the metrics and constraints that decide growth in each sector, across India and the US.",
   ogTitle: "Industries — growth marketing for the sectors we know",
   ogDescription: "SaaS, D2C & ecommerce, fintech, edtech, and startups & scaleups.",
   schema: [bc.schema, itemList],

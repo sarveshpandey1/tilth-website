@@ -6,7 +6,7 @@ export const site = {
   wordmark: "TILTH",
   base: "https://wearetilth.com",
   ga: "G-1MJEZ4VK26",
-  positioning: "India-rooted · Working across markets",
+  positioning: "India-rooted · Working across India and the US",
   tagline: "Grow deep. Market smart.",
   email: "anuja@wearetilth.com", // wearetilth.com mailbox confirmed active (workbook T-014)
   phone: "+91 70079 99306",
@@ -133,7 +133,7 @@ export const homeFaqs = [
   { q: "How is Tilth different from a performance marketing agency?",
     a: `A performance marketing agency usually starts with channels and budget. Tilth is foundation-first: most growth problems are not channel problems — they come from weak tracking, unclear positioning, fragmented funnels or low conversion. We diagnose the constraint, fix the system, then scale the channels that prove their value. <a href="/approach/">See the approach</a>.` },
   { q: "Do you work with companies outside India?",
-    a: `Yes. Tilth is based in Bengaluru and works with brands across markets, including the United States. Collaboration is structured around agreed reviews, shared documentation and the client's operating rhythm rather than a single location, and recommendations are grounded in your customer, category and data rather than assumptions about a market. <a href="/contact/">Talk to us about your market</a>.` },
+    a: `Yes. Tilth is based in Bengaluru and works with brands across India and the United States. Collaboration is structured around agreed reviews, shared documentation and the client's operating rhythm rather than a single location, and recommendations are grounded in your customer, category and data rather than assumptions about a market. <a href="/contact/">Talk to us about your market</a>.` },
   { q: "What does foundation-first mean?",
     a: `It means fixing the growth system before increasing spend. Most growth problems are not channel problems — they come from weak tracking, unclear positioning, fragmented funnels or low conversion. We diagnose the constraint, build the measurement and funnel underneath it, and only then scale the channels that prove their value. <a href="/approach/">See the approach</a>.` },
   { q: "What engagement models does Tilth offer?",
