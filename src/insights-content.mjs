@@ -1912,7 +1912,7 @@ export const insightArticles = [
                                     "name": "Does Tilth work with D2C brands?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Yes. Tilth is a foundation-first marketing agency in Bengaluru that works with D2C brands and startups in India and globally. Every engagement starts with a Foundation Audit of tracking, attribution, targeting, and partnerships before any spend is scaled."
+                                          "text": "Yes. Tilth is a foundation-first marketing agency in Bengaluru that works with D2C brands and startups in India and the US. Every engagement starts with a Foundation Audit of tracking, attribution, targeting, and partnerships before any spend is scaled."
                                     }
                               }
                         ]
@@ -1931,7 +1931,7 @@ export const insightArticles = [
       { q: `What's the most important thing to check before hiring?`,
         a: `<p>That your conversion tracking and attribution are accurate. Every D2C scaling decision rides on whether your reported ROAS and CAC are real — broken measurement means even a great agency optimises toward the wrong numbers.</p>` },
       { q: `Does Tilth work with D2C brands?`,
-        a: `<p>Yes — <a href="/marketing-agency-bengaluru/">Tilth</a> is a foundation-first agency in Bengaluru working with D2C brands and startups in India and globally. Every engagement starts with a free conversation.</p>` },
+        a: `<p>Yes — <a href="/marketing-agency-bengaluru/">Tilth</a> is a foundation-first agency in Bengaluru working with D2C brands and startups in India and the US. Every engagement starts with a free conversation.</p>` },
     ],
     bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries — building and auditing the marketing engines behind consumer brands. <a href="/about/">Read her story →</a>` },
     cta: { heading: `Choosing a D2C agency? Start with the truth.`, body: `A Foundation Audit gives you an honest read on your tracking, attribution, and channel performance — so you can hire (us or anyone) for the real gap, not a guessed one. No pitch attached.`,

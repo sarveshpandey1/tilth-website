@@ -114,7 +114,7 @@ const FAQ = [
   },
   {
     q: "Do you only work with brands in Bengaluru?",
-    a: "No. We're based in Bengaluru and work with brands across India and globally. Being local simply means we know the Bengaluru startup and D2C ecosystem well."
+    a: "No. We're based in Bengaluru and work with brands across India and the US. Being local simply means we know the Bengaluru startup and D2C ecosystem well."
   },
   {
     q: "What makes Tilth different from other digital marketing agencies in Bengaluru?",
@@ -219,7 +219,7 @@ const main = `
     </div>
     <div>
       <h2 id="areas-h" data-h2>Areas we serve</h2>
-      <p data-bl-p>Tilth is based in <strong>Bengaluru, Karnataka</strong> and works with brands across India and globally. We know the local startup and D2C ecosystem well, and the work is fully remote-friendly — so whether you're in Koramangala, Indiranagar, or another city entirely, the foundation-first approach is the same.</p>
+      <p data-bl-p>Tilth is based in <strong>Bengaluru, Karnataka</strong> and works with brands across India and the US. We know the local startup and D2C ecosystem well, and the work is fully remote-friendly — so whether you're in Koramangala, Indiranagar, or another city entirely, the foundation-first approach is the same.</p>
     </div>
   </div>
 </section>
