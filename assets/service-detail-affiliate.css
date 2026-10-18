@@ -221,3 +221,14 @@
   overflow: hidden;
   transition: max-height .55s cubic-bezier(.16, 1, .3, 1), opacity .4s;
 }
+
+/* ---------------------------------------------------------------------------
+   MOBILE DISPLAY H1 — no visible mid-word hyphenation below 620.
+   Sized against the VIEWPORT content box (innerWidth - 2 * --pad = 354px at
+   390, 444px at 480), not the rendered column: the hero column is
+   content-driven, so an unbreakable word widens the grid past the viewport.
+   The family --h1 ladder lives in this file and loads after service-detail.css,
+   so the override has to sit here. 620+ is untouched.
+   --------------------------------------------------------------------------- */
+@media (max-width: 479px) { .v3-service-detail.v3-affiliate { --h1: 25px; --h2: 21px; } }
+@media (min-width: 480px) and (max-width: 619px) { .v3-service-detail.v3-affiliate { --h1: 33px; } }

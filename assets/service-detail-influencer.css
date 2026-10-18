@@ -478,3 +478,8 @@ body.v3-influencer { margin: 0; }
 :where(html.v3-js) .v3-influencer [data-axisrow],
 :where(html.v3-js) .v3-influencer [data-measrow] { opacity: 0; }
 :where(html.v3-js) .v3-influencer [data-dfcap] { opacity: 0; transform: translateY(8px); }
+
+/* The base --h2 steps down below 480 alongside the reduced display H1 on the
+   families that carry soft hyphens. This family does not, so its H2 is
+   restated at the original value and is unaffected by that step. */
+@media (max-width: 479px) { .v3-service-detail.v3-influencer { --h2: 24px; } }
