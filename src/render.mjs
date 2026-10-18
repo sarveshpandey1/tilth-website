@@ -4,18 +4,28 @@ import { site, nav, clients, caseStudies, services } from "./data.mjs";
 export const esc = (s = "") => String(s)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
-const FONTS = 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap';
-
-// Google tag. The gtag.js bundle is ~166KB and cost ~380ms of main-thread blocking on
-// mobile when loaded eagerly, so it's fetched after load (or on first interaction,
-// whichever comes first). The dataLayer stub is defined synchronously, so the 'js' and
-// 'config' commands — and any gtag('event') calls from page code — queue immediately and
-// are replayed by the library once it arrives. No hits are lost.
-const gtag = `<!-- Google tag (gtag.js) — deferred loader, commands queue in dataLayer -->
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${site.ga}');
-(function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=${site.ga}';document.head.appendChild(s);}
+// Google tag, consent-gated. Nothing Google-owned is fetched and no GA4 config is
+// queued until the visitor chooses analytics: Consent Mode defaults are set to denied
+// synchronously, the saved preference is read from localStorage, and only a stored
+// "granted" calls __tilthEnableGa(). That function keeps the previous deferred-loading
+// philosophy — the gtag.js bundle is ~166KB and cost ~380ms of main-thread blocking on
+// mobile when loaded eagerly, so it is still fetched after load or on first interaction,
+// whichever comes first. consent.js (deferred) calls the same function when the visitor
+// accepts, so there is exactly one loader and one config path.
+//
+// window.__tilthAnalyticsConsent is the single canonical state for the whole site:
+// "granted" | "denied" | "unset". analytics.js and tools/lib/analytics.js both read it.
+const gtag = `<!-- Google tag (gtag.js) — consent-gated, deferred loader -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+window.__tilthGaId='${site.ga}';
+window.__tilthEnableGa=function(){if(window.__tilthGaStarted)return;window.__tilthGaStarted=true;
+gtag('consent','update',{analytics_storage:'granted'});gtag('js',new Date());gtag('config',window.__tilthGaId);
+var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+window.__tilthGaId;document.head.appendChild(s);}
 if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
-['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});})();</script>`;
+['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});};
+(function(){var c='unset';try{c=localStorage.getItem('tilth-analytics-consent')||'unset';}catch(e){}
+window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();</script>`;
 
 const noFlashTheme = `<script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>`;
 
@@ -198,7 +208,7 @@ export function v3Footer({ rule = false } = {}) {
        lost an inbound link on every page that migrated to v3. -->
   <div class="v3-footgrid">
     <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
-    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a><a href="/cookie-policy/" data-tilth-consent-open>Cookie settings</a></div>
     <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="${s.linkedin}" target="_blank" rel="noopener">LinkedIn</a><a href="${s.instagram}" target="_blank" rel="noopener">Instagram</a><a href="${s.x}" target="_blank" rel="noopener">X / Twitter</a></div>
     <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
   </div>
@@ -227,7 +237,7 @@ export function footer() {
       </div>
       <div>
         <h3 class="fcol">Legal</h3>
-        <ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/cookie-policy/">Cookie Policy</a></li></ul>
+        <ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/cookie-policy/">Cookie Policy</a></li><li><a href="/cookie-policy/" data-tilth-consent-open>Cookie settings</a></li></ul>
       </div>
       <div>
         <h3 class="fcol">Social</h3>
@@ -266,10 +276,12 @@ export function renderPage(p) {
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>`;
   const styles = v3
     ? `<link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/assets/brand-v3.css">`
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/consent.css">`
     : `<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/assets/generated.css">`;
+<link rel="stylesheet" href="/assets/generated.css">
+<link rel="stylesheet" href="/assets/consent.css">`;
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -312,6 +324,7 @@ ${p.main}
 ${v3 ? v3Footer({ rule: p.footRule }) : footer()}
 ${v3 ? '<script src="/brand-v3.js" defer></script>' : '<script src="/nav.js" defer></script>'}
 ${(p.bodyScripts || []).map(s => `<script src="${s}" defer></script>\n`).join("")}<script src="/analytics.js" defer></script>
+<script src="/consent.js" defer></script>
 </body>
 </html>
 `;

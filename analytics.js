@@ -14,11 +14,23 @@
  *    of a submit button.
  *
  * Shared parameters on every event: page_market, page_type, section_id, destination_path.
+ *
+ * Consent: every event passes through send(), which emits nothing unless
+ * window.__tilthAnalyticsConsent === "granted". Events raised before a choice is
+ * made are discarded rather than queued, so nothing is replayed retroactively.
  */
 (function () {
   "use strict";
 
+  // Consent gate. window.__tilthAnalyticsConsent is the single canonical state,
+  // set synchronously in the head and flipped at runtime by consent.js. Events
+  // raised before a choice is made are DISCARDED, never queued for replay.
+  function allowed() {
+    return window.__tilthAnalyticsConsent === "granted";
+  }
+
   function send(name, params) {
+    if (!allowed()) return;
     var payload = Object.assign({}, base(), params || {});
     Object.keys(payload).forEach(function (k) {
       if (payload[k] === undefined || payload[k] === null || payload[k] === "") delete payload[k];
@@ -170,6 +182,10 @@
     var form = document.querySelector("form.contact-form, form[data-lead-form]");
     if (form) {
       form.addEventListener("submit", function () {
+        // Only written when analytics is already granted: with analytics denied or
+        // unset there is nothing to confirm later, so no storage is created. The
+        // submission itself is untouched either way.
+        if (!allowed()) return;
         try { sessionStorage.setItem("tilth_lead_pending", form.getAttribute("name") || "contact_form"); } catch (err) {}
       });
     }

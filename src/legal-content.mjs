@@ -59,36 +59,49 @@ export const legalDocs = [
     eyebrow: `Legal`,
     h1: `Privacy Policy`,
     datePrefix: `Last updated:`,
-    datetime: "2026-06-18",
-    dateText: `18 June 2026`,
+    datetime: "2026-10-18",
+    dateText: `18 October 2026`,
     backHref: "/",
     backText: `← Back to home`,
     title: `Privacy Policy — Tilth`,
-    description: `How Tilth handles your data on wearetilth.com — what the contact form and Google Analytics collect, and the choices you have.`,
+    description: `How Tilth handles contact-form data, browser storage and optional analytics on wearetilth.com.`,
     robots: "index, follow",
     body: `      <p>This policy explains what happens to your information when you visit <strong>wearetilth.com</strong>. We have deliberately kept this site simple, and the same goes for how we handle data.</p>
 
     <h2>The short version</h2>
-    <div data-lnote role="note">We keep data collection to a minimum. We use Google Analytics to understand how the site is used, and we offer a contact form so you can start a conversation. We don't sell your data, we don't run advertising pixels, and we don't send marketing emails you didn't ask for.</div>
+    <div data-lnote role="note">We keep data collection to a minimum. We use essential browser storage for site preferences and form handoff, and — only if you choose analytics — Google Analytics to understand how the site is used. We don't sell your data, we don't run advertising pixels, and we don't send marketing emails you didn't ask for.</div>
 
     <h2>Information we collect</h2>
-    <p><strong>Contact form.</strong> If you submit the form on our contact page, we collect the details you provide — your name, email address, phone number, brand or website, the channels you select, and your message. We use this only to reply to you and discuss working together. The form is delivered to us by FormSubmit, a third-party form-to-email service; its handling of the submission is governed by the <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit<span data-sr> (opens in a new tab)</span></a> service.</p>
+    <p><strong>Contact form.</strong> If you submit the form on our contact page, we collect the details you provide: your name, email address, company, website, country, time zone, the area you need help with, your primary business goal, your current challenge, your monthly marketing or acquisition budget range, and your consent to be contacted. Your name, email address, the area you need help with and your contact consent are required; the remaining fields are optional. We use this only to reply to you and discuss working together. The form is delivered to us by FormSubmit, a third-party form-to-email service; its handling of the submission is governed by the <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit<span data-sr> (opens in a new tab)</span></a> service.</p>
     <p><strong>Email.</strong> If you email us at anuja@wearetilth.com, we receive whatever information you choose to include in that email. We use it only to reply and discuss working together.</p>
 
     <h2>Analytics</h2>
-    <p>We use Google Analytics 4 to understand how visitors use the site — which pages are viewed, the device and browser used, approximate location (city or country, derived from IP), and how visitors arrived. This is collected via cookies and analysed in aggregate to help us improve the site; we do not use it to identify you personally. Google's handling of this data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy<span data-sr> (opens in a new tab)</span></a>. You can opt out using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on<span data-sr> (opens in a new tab)</span></a>.</p>
+    <p>We use Google Analytics 4 <strong>only if you accept analytics</strong>. When you first visit, analytics is off: the Google Analytics library is not loaded and no analytics cookies are set. If you choose <strong>Only necessary</strong>, it stays that way. If you accept analytics, we load Google Analytics 4 to understand how visitors use the site — which pages are viewed, the device and browser used, approximate location (city or country, derived from IP), how visitors arrived, and interaction events on the site. This is analysed in aggregate to help us improve the site; we do not use it to identify you personally.</p>
+    <p>Our own events record interactions rather than content: calls-to-action clicked, service, industry and content links followed, FAQ questions opened, and confirmation that a contact form was submitted successfully. <strong>The values you type into the contact form are never sent to Google Analytics.</strong> Google's handling of analytics data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy<span data-sr> (opens in a new tab)</span></a>. You can also opt out using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on<span data-sr> (opens in a new tab)</span></a>.</p>
 
-    <h2>Google Fonts</h2>
-    <p>This site uses Google Fonts to display its typefaces. When the fonts load, your browser connects to Google's servers, and in doing so your IP address is visible to Google. This is standard for most websites using Google Fonts, but we want to be transparent that it happens. Google's handling of this data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy<span data-sr> (opens in a new tab)</span></a>.</p>
+    <h2>Tools</h2>
+    <p>If you accept analytics, our free tools may send interaction events such as a tool being viewed or started, a business model being selected, a derived result band, scenario or currency changes, and CTA clicks. We do not send raw revenue, CAC, margin or other values you type into the tools. Where a result is measured, analytics uses coarse or derived bands rather than the raw input.</p>
+
+    <h2>Browser storage</h2>
+    <p>The site stores a small number of values in your own browser. These are browser storage mechanisms, not advertising cookies, and they are not shared with anyone:</p>
+    <ul>
+      <li><code>tilth-theme</code> (local storage) — remembers your light or dark theme preference.</li>
+      <li><code>tilth-cur</code> (local storage) — remembers your currency preference in the Tools.</li>
+      <li><code>tilth-analytics-consent</code> (local storage) — remembers your analytics choice.</li>
+      <li><code>tilth_lead_pending</code> (session storage) — when analytics is granted, temporarily marks a successful form handoff so the lead confirmation can be recorded on the thank-you page. It is removed as soon as it is read, and it is not created at all when analytics is denied.</li>
+    </ul>
+
+    <h2>Fonts</h2>
+    <p>Tilth's website fonts are self-hosted from wearetilth.com. Your browser does not connect to Google Fonts to load the site's typefaces.</p>
 
     <h2>Hosting</h2>
     <p>This site is hosted on GitHub Pages. Like most web hosts, GitHub may collect standard technical information (such as IP addresses) in server logs for security and operational purposes. This is governed by <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's Privacy Statement<span data-sr> (opens in a new tab)</span></a>.</p>
 
     <h2>External links</h2>
-    <p>Our site links to external profiles (LinkedIn, Instagram, X, Facebook). Once you follow those links, you are subject to the privacy policies of those platforms, not ours.</p>
+    <p>Tilth maintains profiles on external platforms including LinkedIn, Instagram, X and Facebook. If you visit an external platform, its own privacy policy and data practices apply.</p>
 
     <h2>Your rights</h2>
-    <p>You can ask us to delete any personal information you've sent us — a form submission or email correspondence — at any time. Just email <a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a> and we will. You can also opt out of analytics using the browser add-on linked above.</p>
+    <p>You can ask us to delete any personal information you've sent us — a form submission or email correspondence — at any time. Just email <a href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a> and we will. You can change your analytics choice at any time using <strong>Cookie settings</strong> in the site footer, and you can also opt out using the browser add-on linked above.</p>
 
     <h2>Changes to this policy</h2>
     <p>As Tilth grows, we may add or change the tools we use. If and when we do, we will update this policy to reflect exactly what is collected and why, and change the "last updated" date above.</p>
@@ -137,29 +150,36 @@ export const legalDocs = [
     eyebrow: `Legal`,
     h1: `Cookie Policy`,
     datePrefix: `Last updated:`,
-    datetime: "2026-06-18",
-    dateText: `18 June 2026`,
+    datetime: "2026-10-18",
+    dateText: `18 October 2026`,
     backHref: "/",
     backText: `← Back to home`,
     title: `Cookie Policy — Tilth`,
-    description: `Tilth's cookie policy — we use Google Analytics cookies to measure site usage; no advertising or cross-site tracking cookies.`,
+    description: `Tilth's cookie policy — essential browser storage, optional Google Analytics cookies, and how to manage your analytics choice.`,
     robots: "index, follow",
-    body: `      <p>This page explains how cookies are used on <strong>wearetilth.com</strong>.</p>
+    body: `      <p>This page explains how cookies and similar browser storage are used on <strong>wearetilth.com</strong>.</p>
 
-    <div data-lnote role="note">wearetilth.com uses Google Analytics, which sets a small number of cookies to measure how the site is used. We do not use advertising or social-media tracking cookies.</div>
+    <div data-lnote role="note">wearetilth.com uses a small amount of essential browser storage for site functionality and preferences. Google Analytics cookies are set only after you accept analytics. We do not use advertising or social-media tracking cookies.</div>
 
     <h2>What are cookies?</h2>
-    <p>Cookies are small text files a website can store in your browser, often used to remember preferences or measure how a site is used. Many sites use them heavily. We use only a few, for analytics.</p>
+    <p>Cookies are small text files a website can store in your browser, often used to remember preferences or measure how a site is used. Many sites use them heavily. We use only a few: some essential browser storage for preferences and site functionality, plus analytics cookies if you accept analytics.</p>
 
     <h2>Cookies we use</h2>
-    <p><strong>Google Analytics (GA4).</strong> We use Google Analytics to understand how visitors use the site. It sets first-party cookies (typically named <code>_ga</code> and <code>_ga_*</code>) that help distinguish unique visitors and measure usage in aggregate. These cookies don't identify you personally and we don't use them for advertising. Google's use of this data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy<span data-sr> (opens in a new tab)</span></a>.</p>
+    <p><strong>Google Analytics (GA4) — only after you accept analytics.</strong> If you accept analytics, Google Analytics sets first-party cookies (typically named <code>_ga</code> and <code>_ga_*</code>) that help distinguish unique visitors and measure usage in aggregate. These cookies don't identify you personally and we don't use them for advertising. If you choose <strong>Only necessary</strong>, Google Analytics is not loaded and those analytics cookies are not set. Google's use of this data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy<span data-sr> (opens in a new tab)</span></a>.</p>
+    <p><strong>Browser storage we use.</strong> These are stored by your own browser rather than sent to anyone:</p>
+    <ul>
+      <li><code>tilth-theme</code> (local storage) — your light or dark theme preference.</li>
+      <li><code>tilth-cur</code> (local storage) — your currency preference in the Tools.</li>
+      <li><code>tilth-analytics-consent</code> (local storage) — your analytics choice.</li>
+      <li><code>tilth_lead_pending</code> (session storage) — when analytics is granted, briefly marks a successful form handoff so the lead confirmation can be recorded on the thank-you page. Not created when analytics is denied.</li>
+    </ul>
     <p>We do not use the Meta Pixel, advertising cookies, or cross-site tracking on this site.</p>
 
     <h2>Third-party connections</h2>
-    <p>The site loads fonts from Google Fonts. This involves a connection to Google's servers but does not, by itself, set advertising cookies on your device. If you click through to our social profiles (LinkedIn, Instagram, X, Facebook), those platforms will apply their own cookies once you are on their sites.</p>
+    <p>The site's fonts are self-hosted from wearetilth.com, so no connection is made to Google Fonts. The contact form is delivered by FormSubmit, a third-party form-to-email service, when you submit it. Tilth also maintains profiles on external platforms including LinkedIn, Instagram, X and Facebook; if you visit one of those platforms, it will apply its own cookies once you are on its site.</p>
 
     <h2>Managing cookies</h2>
-    <p>Every major browser lets you view, block, and delete cookies in its settings. You can also opt out of Google Analytics specifically using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on<span data-sr> (opens in a new tab)</span></a>.</p>
+    <p>You can change your analytics choice at any time using <strong>Cookie settings</strong> in the site footer. Every major browser also lets you view, block and delete cookies in its settings, and you can opt out of Google Analytics specifically using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on<span data-sr> (opens in a new tab)</span></a>.</p>
 
     <h2>If this changes</h2>
     <p>If we later add other tools that use cookies, we will update this page first and provide consent options where required by law.</p>

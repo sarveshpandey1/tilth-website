@@ -4,13 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-<!-- Google tag (gtag.js) — deferred loader, commands queue in dataLayer -->
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1MJEZ4VK26');
-(function(){var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-1MJEZ4VK26';document.head.appendChild(s);}
+<!-- Google tag (gtag.js) — consent-gated, deferred loader -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+window.__tilthGaId='G-1MJEZ4VK26';
+window.__tilthEnableGa=function(){if(window.__tilthGaStarted)return;window.__tilthGaStarted=true;
+gtag('consent','update',{analytics_storage:'granted'});gtag('js',new Date());gtag('config',window.__tilthGaId);
+var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+window.__tilthGaId;document.head.appendChild(s);}
 if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
-['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});})();</script>
+['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});};
+(function(){var c='unset';try{c=localStorage.getItem('tilth-analytics-consent')||'unset';}catch(e){}
+window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();</script>
 <title>Cookie Policy — Tilth</title>
-<meta name="description" content="Tilth's cookie policy — we use Google Analytics cookies to measure site usage; no advertising or cross-site tracking cookies.">
+<meta name="description" content="Tilth's cookie policy — essential browser storage, optional Google Analytics cookies, and how to manage your analytics choice.">
 <link rel="canonical" href="https://wearetilth.com/cookie-policy/">
 
 <meta name="robots" content="index, follow">
@@ -23,18 +29,19 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 <link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Cookie Policy — Tilth">
-<meta property="og:description" content="Tilth's cookie policy — we use Google Analytics cookies to measure site usage; no advertising or cross-site tracking cookies.">
+<meta property="og:description" content="Tilth's cookie policy — essential browser storage, optional Google Analytics cookies, and how to manage your analytics choice.">
 <meta property="og:url" content="https://wearetilth.com/cookie-policy/">
 <meta property="og:image" content="https://wearetilth.com/og-image.png">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cookie Policy — Tilth">
-<meta name="twitter:description" content="Tilth's cookie policy — we use Google Analytics cookies to measure site usage; no advertising or cross-site tracking cookies.">
+<meta name="twitter:description" content="Tilth's cookie policy — essential browser storage, optional Google Analytics cookies, and how to manage your analytics choice.">
 <meta name="twitter:image" content="https://wearetilth.com/og-image.png">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/consent.css">
 <link rel="stylesheet" href="/assets/legal.css">
 
 </head>
@@ -103,25 +110,32 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
   <header data-lhd>
     <span data-leb>Legal</span>
     <h1 id="doc-h1" data-lh1>Cookie Policy</h1>
-    <p data-updated data-meta>Last updated: <time datetime="2026-06-18">18 June 2026</time></p>
+    <p data-updated data-meta>Last updated: <time datetime="2026-10-18">18 October 2026</time></p>
   </header>
   <div data-lbody>
-      <p>This page explains how cookies are used on <strong>wearetilth.com</strong>.</p>
+      <p>This page explains how cookies and similar browser storage are used on <strong>wearetilth.com</strong>.</p>
 
-    <div data-lnote role="note">wearetilth.com uses Google Analytics, which sets a small number of cookies to measure how the site is used. We do not use advertising or social-media tracking cookies.</div>
+    <div data-lnote role="note">wearetilth.com uses a small amount of essential browser storage for site functionality and preferences. Google Analytics cookies are set only after you accept analytics. We do not use advertising or social-media tracking cookies.</div>
 
     <h2>What are cookies?</h2>
-    <p>Cookies are small text files a website can store in your browser, often used to remember preferences or measure how a site is used. Many sites use them heavily. We use only a few, for analytics.</p>
+    <p>Cookies are small text files a website can store in your browser, often used to remember preferences or measure how a site is used. Many sites use them heavily. We use only a few: some essential browser storage for preferences and site functionality, plus analytics cookies if you accept analytics.</p>
 
     <h2>Cookies we use</h2>
-    <p><strong>Google Analytics (GA4).</strong> We use Google Analytics to understand how visitors use the site. It sets first-party cookies (typically named <code>_ga</code> and <code>_ga_*</code>) that help distinguish unique visitors and measure usage in aggregate. These cookies don't identify you personally and we don't use them for advertising. Google's use of this data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy<span data-sr> (opens in a new tab)</span></a>.</p>
+    <p><strong>Google Analytics (GA4) — only after you accept analytics.</strong> If you accept analytics, Google Analytics sets first-party cookies (typically named <code>_ga</code> and <code>_ga_*</code>) that help distinguish unique visitors and measure usage in aggregate. These cookies don't identify you personally and we don't use them for advertising. If you choose <strong>Only necessary</strong>, Google Analytics is not loaded and those analytics cookies are not set. Google's use of this data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy<span data-sr> (opens in a new tab)</span></a>.</p>
+    <p><strong>Browser storage we use.</strong> These are stored by your own browser rather than sent to anyone:</p>
+    <ul>
+      <li><code>tilth-theme</code> (local storage) — your light or dark theme preference.</li>
+      <li><code>tilth-cur</code> (local storage) — your currency preference in the Tools.</li>
+      <li><code>tilth-analytics-consent</code> (local storage) — your analytics choice.</li>
+      <li><code>tilth_lead_pending</code> (session storage) — when analytics is granted, briefly marks a successful form handoff so the lead confirmation can be recorded on the thank-you page. Not created when analytics is denied.</li>
+    </ul>
     <p>We do not use the Meta Pixel, advertising cookies, or cross-site tracking on this site.</p>
 
     <h2>Third-party connections</h2>
-    <p>The site loads fonts from Google Fonts. This involves a connection to Google's servers but does not, by itself, set advertising cookies on your device. If you click through to our social profiles (LinkedIn, Instagram, X, Facebook), those platforms will apply their own cookies once you are on their sites.</p>
+    <p>The site's fonts are self-hosted from wearetilth.com, so no connection is made to Google Fonts. The contact form is delivered by FormSubmit, a third-party form-to-email service, when you submit it. Tilth also maintains profiles on external platforms including LinkedIn, Instagram, X and Facebook; if you visit one of those platforms, it will apply its own cookies once you are on its site.</p>
 
     <h2>Managing cookies</h2>
-    <p>Every major browser lets you view, block, and delete cookies in its settings. You can also opt out of Google Analytics specifically using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on<span data-sr> (opens in a new tab)</span></a>.</p>
+    <p>You can change your analytics choice at any time using <strong>Cookie settings</strong> in the site footer. Every major browser also lets you view, block and delete cookies in its settings, and you can opt out of Google Analytics specifically using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on<span data-sr> (opens in a new tab)</span></a>.</p>
 
     <h2>If this changes</h2>
     <p>If we later add other tools that use cookies, we will update this page first and provide consent options where required by law.</p>
@@ -159,7 +173,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
        lost an inbound link on every page that migrated to v3. -->
   <div class="v3-footgrid">
     <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
-    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a><a href="/cookie-policy/" data-tilth-consent-open>Cookie settings</a></div>
     <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
     <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across markets</span></div>
   </div>
@@ -173,5 +187,6 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 </footer>
 <script src="/brand-v3.js" defer></script>
 <script src="/analytics.js" defer></script>
+<script src="/consent.js" defer></script>
 </body>
 </html>
