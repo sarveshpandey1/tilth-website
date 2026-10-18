@@ -46,7 +46,7 @@ const faqSchema = {
 const serviceSchema = {
   "@type": "Service", name: "Website Design, Development & CRO", serviceType: "Website design and development",
   provider: { "@id": `${site.base}/#org` },
-  areaServed: [{ "@type": "Country", name: "United States" }, { "@type": "Country", name: "India" }, "Worldwide"],
+  areaServed: [{ "@type": "Country", name: "United States" }, { "@type": "Country", name: "India" }],
   description: "Conversion-focused website design and development — strategy, UX, UI, development, SEO and analytics foundations, performance, accessibility and CRO in one coordinated process.",
   url: site.base + path
 };

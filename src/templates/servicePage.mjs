@@ -23,7 +23,7 @@ export function servicePage(slug) {
   const faqSchema = { "@type": "FAQPage", mainEntity: c.faqs.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) };
   const serviceSchema = {
     "@type": "Service", name: svc.name, serviceType: svc.keyword, provider: { "@id": `${site.base}/#org` },
-    areaServed: [{ "@type": "Country", name: "United States" }, { "@type": "Country", name: "India" }, "Worldwide"],
+    areaServed: [{ "@type": "Country", name: "United States" }, { "@type": "Country", name: "India" }],
     description: svc.summary, url: site.base + path
   };
 

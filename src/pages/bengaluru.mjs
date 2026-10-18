@@ -291,7 +291,7 @@ const main = `
 //     address     PostalAddress with locality/region/country and NO street
 //                 address — exactly the "based in Bengaluru, Karnataka" the page
 //                 states. No street, no hours, no map.
-//     areaServed  City Bengaluru + Country India + "Worldwide" — "based in
+//     areaServed  City Bengaluru + Country India + Country United States — "based in
 //                 Bengaluru and works with brands across India and globally".
 //     founder     Person Anuja, jobTitle Founder — the visible EXPERIENCE block.
 //     makesOffer  the Foundation Audit, with NO price representation — it is
@@ -354,7 +354,7 @@ const localBusiness = {
   areaServed: [
     { "@type": "City", name: "Bengaluru" },
     { "@type": "Country", name: "India" },
-    "Worldwide"
+    { "@type": "Country", name: "United States" }
   ],
   knowsAbout: [
     "Performance marketing",

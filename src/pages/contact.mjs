@@ -68,7 +68,7 @@ const approvedClients = brandExperience;
 // of the site already publishes, and the ContactPoint wording is unchanged.
 const contactSchema = {
   ...orgSchema(),
-  contactPoint: { "@type": "ContactPoint", email: site.email, telephone: `+${site.phoneHref.replace(/^\+?/, "")}`, contactType: "sales", areaServed: ["US", "IN", "Worldwide"], availableLanguage: ["English"] }
+  contactPoint: { "@type": "ContactPoint", email: site.email, telephone: `+${site.phoneHref.replace(/^\+?/, "")}`, contactType: "sales", areaServed: ["US", "IN"], availableLanguage: ["English"] }
 };
 
 const main = `
@@ -146,9 +146,9 @@ export default {
   shellClass: "v3-core v3-enquiry",
   headExtra: `<link rel="stylesheet" href="/assets/core-company.css">`,
   title: "Contact Tilth — Start a Growth Conversation",
-  description: "Tell us what you're trying to grow. Tilth reviews your marketing foundations before recommending another channel, campaign or website change. Remote-first, working with brands worldwide.",
+  description: "Start a growth conversation with Tilth. We review your marketing foundations before recommending the next channel, campaign or website change across India and the US.",
   ogTitle: "Tell us what you're trying to grow",
-  ogDescription: "Start a growth conversation with Tilth — a global, foundation-first growth marketing agency.",
+  ogDescription: "Start a growth conversation with Tilth — performance-led, foundation-first growth marketing across India and the US.",
   schema: [bc.schema, contactSchema],
   main
 };

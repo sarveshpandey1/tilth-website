@@ -139,10 +139,10 @@ export default {
   shell: "v3",
   shellClass: "v3-core v3-about",
   headExtra: `<link rel="stylesheet" href="/assets/core-company.css">`,
-  title: "About Tilth — Founder-Led Global Growth Marketing Agency",
-  description: "Tilth is a founder-led, global growth marketing agency — India-rooted, working with brands worldwide. Foundation-first strategy, execution and measurement.",
+  title: "About Tilth — Founder-Led Performance Marketing Agency",
+  description: "Meet Tilth, a founder-led performance marketing agency with 10+ years of hands-on growth experience across India and the US.",
   ogTitle: "About Tilth — built by someone who's done the work",
-  ogDescription: "Founder-led, remote-first, foundation-first growth marketing for ambitious brands worldwide.",
+  ogDescription: "Founder-led, foundation-first performance marketing for brands across India and the US.",
   ogType: "profile",
   schema: [bc.schema, personSchema].filter(Boolean),
   main
