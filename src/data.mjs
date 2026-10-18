@@ -30,32 +30,13 @@ export const nav = {
     { label: "Approach", href: "/approach/", live: true },
     { label: "Insights", href: "/insights/", live: true },
     { label: "About", href: "/about/", live: true }
-  ],
-  // fallback nav used until Work/Industries exist, so generated pages never link to 404s
-  fallback: [
-    { label: "Services", href: "/services/" },
-    { label: "Approach", href: "/approach/" },
-    { label: "Insights", href: "/insights/" },
-    { label: "Tools", href: "/tools/" },
-    { label: "About", href: "/about/" },
-    { label: "Contact", href: "/contact/" }
-  ],
-  cta: { label: "Discuss Your Growth", href: "/contact/" }
+  ]
 };
 
 // ---------------------------------------------------------------------------
 // Homepage content model (workbook: Copy Deck). Kept as data so desktop/mobile
 // render from one source and copy stays editable without touching markup.
 // ---------------------------------------------------------------------------
-
-// hero_service_chips — each chip links to its own canonical service page (T-003)
-export const heroServiceChips = [
-  { label: "Growth Strategy", href: "/services/growth-strategy-measurement/" },
-  { label: "Paid Media", href: "/services/performance-marketing/" },
-  { label: "SEO & Content", href: "/services/seo-ai-search/" },
-  { label: "Affiliate Growth", href: "/services/affiliate-partnerships/" },
-  { label: "Websites & CRO", href: "/services/website-design-development/" }
-];
 
 // brand_logos — text wordmarks only. Owner directive: do not recreate or imitate
 // official logo designs. `logo` stays null until approved image files exist; the
@@ -78,68 +59,6 @@ export const brandExperience = [
   { name: "Page 3", logo: null },
   { name: "PayDirect", logo: null }
 ];
-
-// industry_links — only sectors with a substantive live page (T-006).
-// Startups omitted: it is a company stage, not an industry.
-// Fitness & Wellness pending a complete approved page; add here when it exists.
-export const homeIndustries = [
-  { label: "SaaS", href: "/industries/saas/" },
-  { label: "D2C & Ecommerce", href: "/industries/d2c-ecommerce/" },
-  { label: "FinTech", href: "/industries/fintech/" },
-  { label: "EdTech", href: "/industries/edtech/" }
-];
-
-// services 01–05 — hrefs point at the routes that actually exist (T-007)
-export const homeServices = [
-  { n: "01", name: "Growth Strategy & Measurement", href: "/services/growth-strategy-measurement/",
-    desc: "Growth audits, funnel strategy, GA4, conversion tracking, attribution and decision-ready dashboards." },
-  { n: "02", name: "Performance Marketing", href: "/services/performance-marketing/",
-    desc: "Google, Meta and LinkedIn campaigns, media planning, experimentation, creative testing and budget optimisation tied to revenue." },
-  { n: "03", name: "SEO & Content Marketing", href: "/services/seo-ai-search/",
-    desc: "Technical SEO, on-page SEO, commercial keyword strategy, content systems and visibility across Google and AI search." },
-  { n: "04", name: "Affiliate & Partnership Marketing", href: "/services/affiliate-partnerships/",
-    desc: "Partner strategy, discovery, commercial models, tracking, fraud controls and performance optimisation." },
-  { n: "05", name: "Websites & Conversion Optimisation", href: "/services/website-design-development/",
-    desc: "Strategy, UX, design, development, analytics, SEO foundations, accessibility and CRO in one coordinated process." }
-];
-
-// approach 01–03 (T-008)
-export const homeApproach = [
-  { n: "01", name: "Diagnose the constraint",
-    desc: "We audit acquisition, tracking, funnel, creative and conversion to identify what is limiting growth before recommending more spend." },
-  { n: "02", name: "Build the growth system",
-    desc: "We fix measurement, define funnel stages, sharpen positioning and establish a repeatable testing process." },
-  { n: "03", name: "Scale what works",
-    desc: "We increase investment only after performance is measurable, repeatable and connected to agreed business outcomes." }
-];
-
-// why_cards (T-010)
-export const whyTilth = [
-  { name: "Founder-led strategy", desc: "Senior strategy on every engagement — you are not handed to a junior team after the pitch." },
-  { name: "Senior execution", desc: "The people who diagnose the problem stay on the work that fixes it." },
-  { name: "One accountable partner", desc: "Strategy, execution and measurement coordinated through Tilth, not scattered across vendors." },
-  { name: "India–US collaboration", desc: "India-rooted delivery with working overlap for US teams and buying behaviour." }
-];
-
-// faq_01..05 (T-012). Workbook supplied questions only ("Answer required").
-// Answers below are DRAFTED FROM COPY ALREADY PUBLISHED ON THIS SITE — the services
-// list, the approach/foundation-first method, the engagement models above, and the
-// existing India-rooted/US-aware positioning. No new commercial claim is introduced:
-// no US office/entity/team, no pricing, no client names, no delivery guarantees.
-// `a` is trusted authored HTML (same convention as ctaBlock headings). REVIEW BEFORE PUBLISH.
-export const homeFaqs = [
-  { q: "What does a growth marketing agency do?",
-    a: `A growth marketing agency works across the whole funnel rather than a single channel — strategy and measurement, paid media, SEO and content, affiliate and partnerships, and website conversion. At Tilth those sit with <a href="/services/">one accountable partner</a> so strategy, execution and measurement stay connected instead of being split across vendors.` },
-  { q: "How is Tilth different from a performance marketing agency?",
-    a: `A performance marketing agency usually starts with channels and budget. Tilth is foundation-first: most growth problems are not channel problems — they come from weak tracking, unclear positioning, fragmented funnels or low conversion. We diagnose the constraint, fix the system, then scale the channels that prove their value. <a href="/approach/">See the approach</a>.` },
-  { q: "Do you work with companies outside India?",
-    a: `Yes. Tilth is based in Bengaluru and works with brands across India and the United States. Collaboration is structured around agreed reviews, shared documentation and the client's operating rhythm rather than a single location, and recommendations are grounded in your customer, category and data rather than assumptions about a market. <a href="/contact/">Talk to us about your market</a>.` },
-  { q: "What does foundation-first mean?",
-    a: `It means fixing the growth system before increasing spend. Most growth problems are not channel problems — they come from weak tracking, unclear positioning, fragmented funnels or low conversion. We diagnose the constraint, build the measurement and funnel underneath it, and only then scale the channels that prove their value. <a href="/approach/">See the approach</a>.` },
-  { q: "What engagement models does Tilth offer?",
-    a: `Three. A <strong>Foundation Audit</strong> — a diagnostic across the growth system. A <strong>Growth Project</strong> — fixed scope such as a website build, tracking rebuild, paid-media setup, SEO strategy or affiliate program. And an <strong>Ongoing Growth Partnership</strong> — continuing strategy, execution, optimisation, reporting and testing. <a href="/contact/">Discuss which fits</a>.` }
-];
-
 
 // Services (Brief §23). prominence: "featured" gets visual weight; "standard" is secondary.
 export const services = [
@@ -271,15 +190,6 @@ export function proofFor(path) {
   const by = Object.fromEntries(caseStudies.filter(c => c.publishApproved).map(c => [c.slug, c]));
   return slugs.map(s => by[s]).filter(Boolean);
 }
-
-// Public technology stacks — default hidden until approved (Brief §10).
-export const technologyStacks = [
-  { name: "WordPress", approvedForPublicDisplay: false, serviceTypes: ["website"], description: "", displayOrder: 1 },
-  { name: "Shopify", approvedForPublicDisplay: false, serviceTypes: ["website"], description: "", displayOrder: 2 },
-  { name: "Webflow", approvedForPublicDisplay: false, serviceTypes: ["website"], description: "", displayOrder: 3 },
-  { name: "Next.js", approvedForPublicDisplay: false, serviceTypes: ["website"], description: "", displayOrder: 4 },
-  { name: "React", approvedForPublicDisplay: false, serviceTypes: ["website"], description: "", displayOrder: 5 }
-];
 
 // Team — only approved people render (Brief §34). Anuja approved; others require confirmation.
 export const team = [

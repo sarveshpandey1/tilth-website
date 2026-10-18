@@ -1,5 +1,5 @@
 // Shared shell + components for generated pages. Outputs plain static HTML for GitHub Pages.
-import { site, nav, clients, caseStudies, services } from "./data.mjs";
+import { site, nav, caseStudies, services } from "./data.mjs";
 
 export const esc = (s = "") => String(s)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -93,13 +93,6 @@ export function masthead(navItems = nav.primary, currentPath = "") {
 </header>`;
 }
 
-// Text-only client trust markers (Brief §7/§29)
-export function clientMarkers() {
-  const approved = clients.filter(c => c.textDisplayApproved).sort((a, b) => a.displayOrder - b.displayOrder);
-  if (!approved.length) return "";
-  return `<div class="trust__markers">${approved.map(c => `<span class="trust__marker">${esc(c.name)}</span>`).join('<span class="trust__dot" aria-hidden="true">·</span>')}</div>`;
-}
-
 // Anonymous proof snapshots (Brief §8/§32)
 export function caseStudySnapshots() {
   const pub = caseStudies.filter(c => c.publishApproved);
@@ -126,9 +119,12 @@ export function ctaBlock({ eyebrow = "Start here", heading, body, primary, secon
 
 // ---------------------------------------------------------------------------
 // Brand v3 shell (approved designs: "Tilth Brand v3.dc.html" / "Tilth Services.dc.html").
-// Used only by pages that declare shell:"v3" — currently / and /services/. Every
-// other generated page keeps the masthead()/footer() shell above, unchanged.
-// Header, menu, clocks, wordmark and footer are shared by both v3 pages rather
+// Used by pages that declare shell:"v3", which is now every generated page —
+// all 20 page modules and all 6 templates set it, so the masthead()/footer()
+// legacy shell above is currently unreachable from generated output. It is
+// deliberately retained for now; retiring it is a separate architectural
+// decision and is out of scope for this cleanup.
+// Header, menu, clocks, wordmark and footer are shared by all v3 pages rather
 // than duplicated per page.
 // ---------------------------------------------------------------------------
 
