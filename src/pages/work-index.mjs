@@ -20,7 +20,7 @@
 // Prototype-only code is not ported: the .dc runtime, the review controls and
 // the display-fit safeguard (the ladder in core-company.css is authored to fit
 // and measured at all 12 widths, as in the Industries family).
-import { caseStudies, clients } from "../data.mjs";
+import { caseStudies, brandExperience, brandExperienceLabel, homeV3 } from "../data.mjs";
 import { breadcrumbs, esc } from "../render.mjs";
 
 const path = "/work/";
@@ -45,35 +45,50 @@ const plates = records.map((c, i) => `
           <li>${approx(m)}</li>`).join("")}
         </ul>
         <p data-psum>${esc(c.summary)}</p>
+        ${(c.servicesInvolved || []).length ? `<p data-pservices style="margin:16px 0 0;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.12em;line-height:1.6;color:var(--stone)"><em>Services involved: ${c.servicesInvolved.map(esc).join(" · ")}</em></p>` : ""}
       </article>`).join("");
 
 // Text-only markers, one name per ruled line — never logos, and never an
 // inline "A · B" run, whose separator strands at the start of a line.
-const approvedClients = clients
-  .filter(c => c.textDisplayApproved)
-  .sort((a, b) => a.displayOrder - b.displayOrder);
-const markers = approvedClients.map(c => `<li>${esc(c.name)}</li>`).join("");
+// Source is the canonical founder brand-experience list (content pack §3), so
+// these are explicitly brands our founder has worked with, not Tilth clients.
+const markers = brandExperience.map(b => `<li>${esc(b.name)}</li>`).join("");
+
+// The shared proof strip, the same component the homepage carries (§8). Work is
+// the deepest proof page, so it leads with the credibility strip before the
+// brands and the outcome records.
+const statCell = st => `<div class="v3-stat">
+        <div class="v3-stat__v${st.tone ? ` is-${st.tone}` : ""}" data-num>${esc(st.v)}${st.unit ? `<span class="unit">${esc(st.unit)}</span>` : ""}</div>
+        <div class="v3-stat__l">${esc(st.label)}</div>
+      </div>`;
 
 const main = `
 <section id="hero" data-hero data-depth-label="SURFACE">
   <nav data-crumb aria-label="Breadcrumb"><a href="/">HOME</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">WORK</span></nav>
   <div data-eyebrow>Work</div>
   <h1 data-h1>Proof, not <em>promises</em>.</h1>
-  <p data-lede>We prioritise engagements over logos, and outcomes over vanity metrics. Some results are shared anonymously to respect client confidentiality — named case studies are added as clients approve them.</p>
+  <p data-lede>Outcomes first, and the experience behind them. Results are anonymised to respect client confidentiality, unless a brand has agreed to be named.</p>
   <div data-actions>
-    <a data-btn href="/contact/">Discuss a Project <span aria-hidden="true">&rarr;</span></a>
+    <a data-btn href="/contact/">Discuss your growth project <span aria-hidden="true">&rarr;</span></a>
     <a data-textlink href="/services/"><span>Explore services &rarr;</span></a>
   </div>
 </section>
 
-${approvedClients.length ? `
+<section id="proof-strip" data-sec data-depth-label="SHALLOW" aria-label="Founder and core-team experience">
+  <div class="v3-stats v3-reveal">
+      ${homeV3.stats.map(statCell).join("\n      ")}
+  </div>
+  <p class="v3-evnote">${esc(homeV3.statsCaption)}</p>
+</section>
+
+${markers.length ? `
 <section id="clients" data-sec data-inv data-depth-label="SHALLOW" aria-labelledby="clients-h">
   <div data-xp class="v3-reveal">
     <div>
-      <div data-eyebrow>Selected experience</div>
-      <h2 id="clients-h" data-h2>Teams we've helped grow.</h2>
+      <div data-eyebrow>Brands</div>
+      <h2 id="clients-h" data-h2>Selected brands our founder has worked with.</h2>
     </div>
-    <ul data-markers aria-label="Selected experience">${markers}</ul>
+    <ul data-markers aria-label="Selected brands our founder has worked with">${markers}</ul>
   </div>
 </section>` : ""}
 ${records.length ? `
@@ -83,7 +98,7 @@ ${records.length ? `
       <div data-eyebrow>Result snapshots</div>
       <h2 id="cs-h" data-h2>Outcomes from real engagements.</h2>
     </div>
-    <p data-body>Presented anonymously, with figures exactly as they were achieved — no client names, logos or reinterpreted numbers.</p>
+    <p data-body>Selected experience from our founder and core team. Figures as achieved; anonymised unless named with permission.</p>
   </div>
   <div data-plates>${plates}
   </div>
@@ -94,10 +109,10 @@ ${records.length ? `
   <div data-cta-grid>
     <h2 id="cta-h" data-cta-h>Want results like these?</h2>
     <div>
-      <p data-cta-p>Tell us what you're trying to grow. We'll review the foundations before recommending the work — and show you where the biggest opportunities are.</p>
+      <p data-cta-p>Start with a conversation. We'll look at where growth is getting stuck and whether there's a clear next step.</p>
       <div data-cta-actions>
-        <a data-btn href="/contact/">Discuss Your Growth Project <span aria-hidden="true">&rarr;</span></a>
-        <a data-textlink href="/contact/"><span>Request a Foundation Audit &rarr;</span></a>
+        <a data-btn href="/contact/">Discuss your growth project <span aria-hidden="true">&rarr;</span></a>
+        <a data-textlink href="/contact/"><span>Explore services &rarr;</span></a>
       </div>
     </div>
   </div>

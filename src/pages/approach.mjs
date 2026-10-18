@@ -37,10 +37,10 @@ const PHASES = [
   {
     id: "the-survey", name: "The Survey", found: true,
     body: [
-      "Discovery and strategy. Before touching a single channel, we map the ground: what's being spent, what's being tracked, what's actually converting, and where the money is quietly leaking. This is the free foundation audit — and often the first time a brand sees the real picture.",
+      "Discovery and strategy. Before touching a single channel, we map the ground: what's being spent, what's being tracked, what's actually converting, and where the money is quietly leaking. This is the Foundation Audit — scoped after a free first conversation, and often the first time a brand sees the real picture.",
       "Most engagements reveal more in this phase than the client expected. That's not a sales tactic; it's just what happens when someone finally looks properly."
     ],
-    step: "Discovery and strategy — map what's being spent, tracked, and converting, and where money is leaking. This is the free foundation audit."
+    step: "Discovery and strategy — map what's being spent, tracked, and converting, and where money is leaking. This is the Foundation Audit, scoped after a free first conversation."
   },
   {
     id: "the-tilth", name: "The Tilth", found: true,
@@ -77,11 +77,11 @@ const FAQS = [
   { q: "What is the Tilth Cycle?",
     a: "It's our six-phase marketing method, never worked out of order: the Survey, the Tilth, the Sowing, the Tending, the Harvest, and the Renewal. The first two phases are foundation work — they decide whether the spend that follows can be measured." },
   { q: "Why start with an audit instead of launching campaigns?",
-    a: `Because most budgets are wasted in the phases everyone skips. If tracking, attribution, and positioning aren't right first, every campaign after them is scaled on guesswork. The <a href="/insights/marketing-foundation-audit/">foundation audit</a> is phase one.` },
+    a: `Because most budgets are wasted in the phases everyone skips. If tracking, attribution, and positioning aren't right first, every campaign after them is scaled on guesswork. The <a href="/insights/marketing-foundation-audit/">Foundation Audit</a> is phase one.` },
   { q: "How long does the foundation phase take?",
-    a: "The Survey (the free audit) usually takes a few working days. The Tilth phase — setting up tracking, events, audiences, and positioning — depends on the state of your current setup and scope." },
+    a: "The first conversation is a single call. A Foundation Audit typically takes 1–2 weeks, depending on scope. The Tilth phase — setting up tracking, events, audiences and positioning — depends on the state of your current setup." },
   { q: "Do I have to commit to the full cycle?",
-    a: "No. The Survey is a free foundation audit with no commitment to the rest — just an honest look at where you are and what to fix first." },
+    a: "No. The first conversation is free and commits you to nothing. A Foundation Audit is scoped on its own, with no commitment to the phases after it." },
   { q: "What's the difference between the Survey and the Tilth phases?",
     a: "The Survey is diagnosis — mapping what's spent, tracked, and converting. The Tilth is the build — fixing the tracking, defining revenue-based conversion events, and locking positioning before launch." },
   { q: "Is this approach only for large brands?",
@@ -143,7 +143,7 @@ const main = `
         <h3 style="margin:0"><button type="button" data-faq-btn id="faq-b${i}" aria-controls="faq-p${i}" aria-expanded="${i === 0 ? "true" : "false"}"><span>${esc(f.q)}</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
         <div data-faq-ans id="faq-p${i}" role="region" aria-labelledby="faq-b${i}"><p>${f.a}</p></div>
       </div>`).join("")}
-      <p data-faqfoot>Want this applied to your setup? <a href="/contact/">Request a free audit &rarr;</a></p>
+      <p data-faqfoot>Want this applied to your setup? <a href="/contact/">Start with a conversation &rarr;</a></p>
     </div>
   </div>
 </section>
@@ -152,9 +152,9 @@ const main = `
   <div data-cta-grid>
     <h2 id="cta-h" data-cta-h>It starts with the Survey.</h2>
     <div>
-      <p data-cta-p>The free foundation audit is phase one. No commitment to the rest — just an honest look at where you are.</p>
+      <p data-cta-p>Start with a conversation. We'll look at where growth is getting stuck and whether there's a clear next step. If the problem needs deeper diagnosis, we'll scope a Foundation Audit around it.</p>
       <div data-cta-actions>
-        <a data-btn href="/contact/">Request a free audit <span aria-hidden="true">&rarr;</span></a>
+        <a data-btn href="/contact/">Discuss your growth project <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </div>

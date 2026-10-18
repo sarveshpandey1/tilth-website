@@ -55,8 +55,8 @@ const main = `
         <h1 data-h1 data-fit style="margin:0;font-family:Syne,sans-serif;font-weight:800;font-size:var(--h1);line-height:.94;letter-spacing:-.045em;text-transform:uppercase;animation:gRise 1s cubic-bezier(.16,1,.3,1) both">SEO and AI search that produces <span style="color:var(--mosstext)">pipeline</span>, not just rankings.</h1>
         <p data-hero-p style="margin:32px 0 0;font-size:var(--body);line-height:1.6;max-width:52ch;color:var(--stone);animation:gRise 1s .12s cubic-bezier(.16,1,.3,1) both">Organic visibility only matters if it brings qualified demand. We build the technical, content and intent foundations that turn search — including AI answer engines — into pipeline.</p>
         <div data-hero-cta style="display:flex;margin-top:36px;animation:gRise 1s .2s cubic-bezier(.16,1,.3,1) both">
-          <a data-herocta href="/contact/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;background:var(--moss);color:#101310;font-family:Syne,sans-serif;font-weight:700;font-size:14.5px;letter-spacing:.01em;text-transform:uppercase;line-height:1;white-space:nowrap;border-radius:2px;transition:background .35s,color .35s,transform .35s">Discuss This Challenge <span>→</span></a>
-          <a data-textcta href="/work/" style="display:inline-flex;align-items:center;height:54px;font-size:15px;line-height:1;white-space:nowrap;color:var(--stone);transition:color .3s"><span style="border-bottom:1px solid var(--line2);padding-bottom:3px;transition:border-color .3s">See our work →</span></a>
+          <a data-herocta href="/contact/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;background:var(--moss);color:#101310;font-family:Syne,sans-serif;font-weight:700;font-size:14.5px;letter-spacing:.01em;text-transform:uppercase;line-height:1;white-space:nowrap;border-radius:2px;transition:background .35s,color .35s,transform .35s">Discuss your growth project <span>→</span></a>
+          <a data-textcta href="/work/" style="display:inline-flex;align-items:center;height:54px;font-size:15px;line-height:1;white-space:nowrap;color:var(--stone);transition:color .3s"><span style="border-bottom:1px solid var(--line2);padding-bottom:3px;transition:border-color .3s">See the work →</span></a>
         </div>
       </div>
 
@@ -204,23 +204,22 @@ const main = `
 
     <div data-proof-grid style="display:grid;border-top:1px solid var(--line)">
       <article class="v3-reveal" data-proof style="display:flex;flex-direction:column;padding:30px 0 34px;border-bottom:1px solid var(--line)">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.4;color:var(--mosstext)">EDTECH GROWTH ENGAGEMENT</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.4;color:var(--mosstext)">EDTECH GROWTH ENGAGEMENT · EDTECH · INDIA</div>
         <ul style="list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:14px">
-          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">Monthly media spend scaled ₹5L → ₹30L</li>
-          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">Monthly revenue reached ₹1.5 crore</li>
-          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">5× return on ad spend</li>
+          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">6× media scale</li>
+          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">Verified 5× return on ad spend</li>
         </ul>
         <p data-proof-s style="margin:auto 0 0;padding-top:24px;font-size:15.5px;line-height:1.6;color:var(--stone);max-width:46ch">Rebuilt tracking and conversion events, then scaled paid media against verified return.</p>
       </article>
       <article class="v3-reveal" data-proof style="display:flex;flex-direction:column;padding:30px 0 34px;border-bottom:1px solid var(--line)">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.4;color:var(--mosstext)">CRYPTO AFFILIATE GROWTH ENGAGEMENT</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;line-height:1.4;color:var(--mosstext)">CRYPTO AFFILIATE GROWTH ENGAGEMENT · CRYPTO · GLOBAL</div>
         <ul style="list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:14px">
-          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">Affiliate contribution grew from <span data-approx>~</span>0%</li>
-          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">Reached <span data-approx>~</span>5–6% of total trading volume within one year</li>
+          <li data-num style="font-family:Syne,sans-serif;font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.3">2–3× affiliate channel growth</li>
         </ul>
-        <p data-proof-s style="margin:auto 0 0;padding-top:24px;font-size:15.5px;line-height:1.6;color:var(--stone);max-width:46ch">Built the affiliate program from scratch — partner validation, commercial model and tracking.</p>
+        <p data-proof-s style="margin:auto 0 0;padding-top:24px;font-size:15.5px;line-height:1.6;color:var(--stone);max-width:46ch">Partner validation, commercial model and tracking, built ground up.</p>
       </article>
     </div>
+    <p style="margin:26px 0 0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;line-height:1.6;color:var(--foot)">Selected experience from our founder and core team — broader growth results, not SEO-specific.</p>
   </section>
 
   <section id="faq" data-depth-label="QUESTIONS" style="background:var(--ibg);color:var(--ifg);padding:var(--sy) var(--pad)">
@@ -268,10 +267,10 @@ const main = `
     <div data-cta-grid style="display:grid">
       <h2 data-cta-h data-fit style="margin:0;font-family:Syne,sans-serif;font-weight:800;line-height:.94;letter-spacing:-.04em;text-transform:uppercase">Ready to work on <span style="color:rgba(16,19,16,.5)">seo, content &amp; ai search</span>?</h2>
       <div>
-        <p style="margin:0;font-size:var(--body);line-height:1.6;color:rgba(16,19,16,.78);max-width:44ch">Tell us where you are and what you're trying to grow. We'll review the foundations before recommending the work.</p>
+        <p style="margin:0;font-size:var(--body);line-height:1.6;color:rgba(16,19,16,.78);max-width:44ch">Start with a conversation — the first one is free. We'll look at where growth is getting stuck and whether there's a clear next step.</p>
         <div data-cta-actions style="display:flex;margin-top:32px">
-          <a data-ctacta href="/contact/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;background:#101310;color:#F3F5F1;font-family:Syne,sans-serif;font-weight:700;font-size:14.5px;letter-spacing:.01em;text-transform:uppercase;line-height:1;white-space:nowrap;border-radius:2px;transition:background .35s,transform .35s">Discuss Your Growth Project <span>→</span></a>
-          <a data-ctatext href="/contact/" style="display:inline-flex;align-items:center;height:54px;font-size:15px;line-height:1;color:rgba(16,19,16,.72);white-space:nowrap;transition:color .3s"><span style="border-bottom:1px solid rgba(16,19,16,.3);padding-bottom:3px">Request a Foundation Audit →</span></a>
+          <a data-ctacta href="/contact/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;background:#101310;color:#F3F5F1;font-family:Syne,sans-serif;font-weight:700;font-size:14.5px;letter-spacing:.01em;text-transform:uppercase;line-height:1;white-space:nowrap;border-radius:2px;transition:background .35s,transform .35s">Discuss your growth project <span>→</span></a>
+          <a data-ctatext href="/contact/" style="display:inline-flex;align-items:center;height:54px;font-size:15px;line-height:1;color:rgba(16,19,16,.72);white-space:nowrap;transition:color .3s"><span style="border-bottom:1px solid rgba(16,19,16,.3);padding-bottom:3px">See the work →</span></a>
         </div>
       </div>
     </div>
@@ -284,7 +283,7 @@ export default {
   // v3-seo carries this page's own type ladders and the Discovery Surface,
   // layered over the shared service-detail system without touching it.
   shellClass: "v3-service-detail v3-seo",
-  navCta: "Discuss a Project",
+  navCta: "Discuss your growth",
   footRule: true,
   headExtra: `<link rel="stylesheet" href="/assets/service-detail.css">
 <link rel="stylesheet" href="/assets/service-detail-seo.css">`,

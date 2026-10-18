@@ -204,3 +204,49 @@ input[type=range]:focus-visible{outline:2px solid var(--moss);outline-offset:6px
 @media (prefers-reduced-motion: reduce){
   *{animation:none!important;transition:none!important}
 }
+
+/* ---------------------------------------------------------------------------
+   MOBILE DISPLAY H1 — no visible mid-word hyphenation below 620.
+   The H1 carries an inline font-size:var(--h1), so the token is the lever, not
+   the rule. Sizes are the measured requirement for each family's longest
+   unbreakable run (soft hyphen inside the word, a real hyphen still a legal
+   break), at the column width each hero actually gives the heading:
+     390: Performance/measurement 13.19em in 422px -> 31px (needs 32.0)
+          development. 12.97em in 339px           -> 25px (needs 26.1)
+          performance  13.21em in 339px           -> 25px (needs 25.7)
+          partnership  11.67em in 323px           -> 27px (needs 27.7)
+     480: Performance/measurement in 515px        -> 38px (needs 39.0)
+          development.                            -> 33px (needs 33.1)
+          performance                             -> 32px (needs 32.5)
+          partnership                             -> 35px (needs 35.4)
+   620+ is untouched. The .v3-cro / .v3-creative families set hyphens:manual in
+   their own files, which load after this one, so those two are re-stated here
+   at higher specificity rather than relying on order.
+   --------------------------------------------------------------------------- */
+@media (max-width: 479px) {
+  .v3-service-detail { --h1: 24px; --h2: 20px; }
+  .v3-service-detail [data-h1],
+  .v3-service-detail.v3-cro [data-h1],
+  .v3-service-detail.v3-creative [data-h1] { hyphens: none; -webkit-hyphens: none; }
+}
+@media (min-width: 480px) and (max-width: 619px) {
+  .v3-service-detail { --h1: 31px; }
+  .v3-service-detail [data-h1],
+  .v3-service-detail.v3-cro [data-h1],
+  .v3-service-detail.v3-creative [data-h1] { hyphens: none; -webkit-hyphens: none; }
+}
+
+/* The authored soft-hyphen break is switched off for service-detail H1s at
+   every width: measured, each family's longest unbreakable run fits its content
+   box from 620 up with no size change (at 620: measurement 528, partnership
+   525, development. 558, performance 568 against 584; at 768: Performance 699
+   against 704). Below 620 the family ladders above step down to suit. The one
+   exception is the base ladder's "Performance" (13.19em), which needs 594px at
+   the approved 45px, so it steps to 44px for 620-699 only and returns to the
+   approved ladder from 700 up. fitHeads() remains the backstop. */
+.v3-service-detail [data-h1],
+.v3-service-detail.v3-cro [data-h1],
+.v3-service-detail.v3-creative [data-h1] { hyphens: none; -webkit-hyphens: none; }
+@media (min-width: 620px) and (max-width: 699px) {
+  .v3-service-detail { --h1: 42px; }
+}

@@ -452,7 +452,9 @@ html[data-theme="light"] .v3-theme-dot { transform: rotate(180deg); }
 @media (min-width: 1024px) { .v3-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .v3-stat { background: var(--bg); padding: 20px 18px 18px; }
 .v3-stat:first-child { padding-left: 0; }
-.v3-stat__v { font-family: Syne, sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -.03em; line-height: 1; }
+/* 24px below 768 so the longest approved value ("US$10M+") fits the
+   two-column cell at 390 without overrunning; 768+ is unchanged. */
+.v3-stat__v { font-family: Syne, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -.03em; line-height: 1; }
 @media (min-width: 768px) { .v3-stat__v { font-size: 38px; } }
 @media (min-width: 1024px) { .v3-stat__v { font-size: 40px; } }
 @media (min-width: 1440px) { .v3-stat__v { font-size: 46px; } }
@@ -991,3 +993,27 @@ html[data-theme="light"] .v3-theme-dot { transform: rotate(180deg); }
 .v3-js .v3-reveal:nth-child(3n+2) { transition-delay: 90ms; }
 .v3-js .v3-reveal:nth-child(3n+3) { transition-delay: 180ms; }
 @media (prefers-reduced-motion: reduce) { .v3-js .v3-reveal { opacity: 1; transform: none; } }
+
+/* ---------------------------------------------------------------------------
+   MOBILE DISPLAY H1 — no visible mid-word hyphenation below 620.
+   The authored soft hyphens in the hub H1 ("mar&shy;keting",
+   "foun&shy;dations") were firing as visible MAR-/KETING and FOUN-/DATIONS
+   breaks. They are switched off here and the display size steps down to the
+   measured requirement, so the longest unbreakable run stays intact:
+     390 -> column 323px, "foundations" 12.0em  -> 26px (needs 26.9)
+     480 -> column 413px, "foundations" 12.0em  -> 34px (needs 34.4)
+   620+ is deliberately untouched: every word already fits there, which is why
+   the family files switch hyphens off from 620 up. The scoped H2 steps with
+   the H1 so the heading hierarchy is preserved rather than inverted.
+   --------------------------------------------------------------------------- */
+@media (max-width: 479px) {
+  .v3-sh1 { font-size: 25px; hyphens: none; -webkit-hyphens: none; }
+  .v3-services .v3-h2 { font-size: 21px; }
+}
+@media (min-width: 480px) and (max-width: 619px) {
+  .v3-sh1 { font-size: 32px; hyphens: none; -webkit-hyphens: none; }
+  .v3-services .v3-h2 { font-size: 27px; }
+}
+@media (min-width: 620px) and (max-width: 767px) {
+  .v3-sh1 { hyphens: none; -webkit-hyphens: none; }
+}

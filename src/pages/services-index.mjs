@@ -7,11 +7,31 @@ import { breadcrumbs, esc } from "../render.mjs";
 const path = "/services/";
 const bc = breadcrumbs([{ name: "Home", path: "/" }, { name: "Services", path }]);
 
-const core = services.filter(s => s.prominence === "featured");
-const also = services.filter(s => s.prominence !== "featured");
+const bySlug = slug => services.find(s => s.slug === slug);
+
+// Hub order and grouping come from the content pack (§5), not from the array
+// order in data.mjs: Performance Marketing is the front door, Paid Media sits
+// immediately beneath it as the channel execution, and the two supporting
+// capabilities move into their own group. The `services` array is deliberately
+// left in its original order because render.mjs builds the header menu from it
+// and navigation is unchanged by this pass.
+const CORE_ORDER = ["performance-marketing", "paid-media", "growth-strategy-measurement",
+  "affiliate-partnerships", "seo-ai-search", "website-design-development"];
+const ALSO_ORDER = ["brand-creative", "influencer-pr-events"];
+const core = CORE_ORDER.map(bySlug).filter(Boolean);
+const also = ALSO_ORDER.map(bySlug).filter(Boolean);
 const ordered = core.concat(also);
 const num = slug => String(ordered.findIndex(s => s.slug === slug) + 1).padStart(2, "0");
-const bySlug = slug => services.find(s => s.slug === slug);
+
+// Hub-row descriptions for the two services whose framing changed (§5). Held
+// here rather than in `services[].summary`, because that field is also the
+// meta description and the Service schema description on each detail page, and
+// this pass changes copy only.
+const HUB_DESC = {
+  "performance-marketing": "The flagship: acquisition strategy, channel allocation, experimentation and measurement \u2014 the system that decides where spend goes and whether it pays back.",
+  "paid-media": "Channel execution inside that system: Google, Meta and LinkedIn structure, audiences, creative testing and optimisation."
+};
+const hubDesc = s => HUB_DESC[s.slug] || s.summary;
 
 // depth label = the service's layer label + the depth of its deepest layer,
 // exactly as the design derives it
@@ -52,7 +72,7 @@ const serviceRow = (s) => {
         <h3 class="v3-srow__title v3-srow__title--wrap">${esc(s.name)}</h3>
         <span class="v3-srow__depth">${esc(depthLabel(s.slug))}</span>
       </div>
-      <p class="v3-srow__desc">${esc(s.summary)}</p>
+      <p class="v3-srow__desc">${esc(hubDesc(s))}</p>
       ${compactDepth(s.slug)}
       <div class="v3-srow__conn">
         <span class="v3-srow__connk">CONNECTS WITH</span>
@@ -105,7 +125,7 @@ const engageCard = (e, i) => {
 
 const itemList = {
   "@type": "ItemList",
-  itemListElement: services.map((s, i) => ({ "@type": "ListItem", position: i + 1, name: s.name, url: `${site.base}/services/${s.slug}/` }))
+  itemListElement: ordered.map((s, i) => ({ "@type": "ListItem", position: i + 1, name: s.name, url: `${site.base}/services/${s.slug}/` }))
 };
 
 const main = `
@@ -118,10 +138,10 @@ const main = `
       <!-- Soft hyphens exactly as the final approved design carries them
            (marketing + foundations only) — CLAUDE.md §3. Wording is locked. -->
       <h1 class="v3-sh1">Growth mar&shy;keting services, built on <span class="is-moss">foun&shy;dations</span>.</h1>
-      <p class="v3-shero__p">We don't start by recommending another channel. We identify what's limiting the growth system, then bring the right service and engagement to fix it — for brands worldwide.</p>
+      <p class="v3-shero__p">Most engagements start with performance marketing. We find what's limiting return, then bring in the measurement, conversion, organic and partnership work it needs — for brands in India and the US.</p>
       <div class="v3-shero__cta">
-        <a class="v3-btn" href="/contact/">Discuss a Project <span aria-hidden="true">→</span></a>
-        <a class="v3-btn v3-btn--ghost" href="/work/">See our work →</a>
+        <a class="v3-btn" href="/contact/">Discuss your growth project <span aria-hidden="true">→</span></a>
+        <a class="v3-btn v3-btn--ghost" href="/work/">See the work →</a>
       </div>
     </div>
     <div class="v3-herodiag" data-v3-herodiag aria-hidden="true">
@@ -136,7 +156,7 @@ const main = `
 </section>
 
 <section id="services" data-depth-label="SERVICES" style="padding:var(--sy) var(--pad) 0">
-  <div class="v3-mono v3-eyebrow">CORE GROWTH SERVICES</div>
+  <div class="v3-mono v3-eyebrow">PERFORMANCE AND THE SYSTEM BEHIND IT</div>
   <div class="v3-svchead v3-svchead--rule">
     <h2 class="v3-h2">Where most engagements begin.</h2>
     <p class="v3-maphint">EACH SERVICE SITS AT A DEPTH IN THE GROWTH SYSTEM AND CONNECTS TO THE ONES AROUND IT</p>
@@ -147,8 +167,8 @@ const main = `
       ${core.map(serviceRow).join("\n      ")}
 
       <div class="v3-alsohead">
-        <div class="v3-mono v3-eyebrow" style="margin-bottom:16px">ALSO</div>
-        <h2 class="v3-h2">Distribution, brand and creative.</h2>
+        <div class="v3-mono v3-eyebrow" style="margin-bottom:16px">SUPPORTING CAPABILITIES</div>
+        <h2 class="v3-h2">Brand, creative and distribution.</h2>
       </div>
       ${also.map(serviceRow).join("\n      ")}
     </div>
@@ -202,8 +222,8 @@ const main = `
       </a>`).join("\n      ")}
     </div>
     <div class="v3-rx__cta">
-      <a class="v3-rx__btn" href="/contact/">Discuss a Project <span aria-hidden="true">→</span></a>
-      <a class="v3-rx__alt" href="/contact/"><span>Request a Foundation Audit →</span></a>
+      <a class="v3-rx__btn" href="/contact/">Discuss your growth project <span aria-hidden="true">→</span></a>
+      <a class="v3-rx__alt" href="/work/"><span>See the work →</span></a>
     </div>
   </div>
 </section>
@@ -212,7 +232,7 @@ const main = `
   <div class="v3-mono v3-eyebrow">WAYS TO WORK WITH TILTH</div>
   <div class="v3-svchead">
     <h2 class="v3-h2">Three ways to engage.</h2>
-    <p style="margin:0;font-size:15.5px;line-height:1.6;color:var(--stone);max-width:40ch">Most relationships start with a diagnosis and grow from there. Pricing is scoped after we understand what actually needs fixing.</p>
+    <p style="margin:0;font-size:15.5px;line-height:1.6;color:var(--stone);max-width:40ch">Every engagement starts with a free conversation. If the problem needs deeper diagnosis, we scope a Foundation Audit around it — typically 1–2 weeks, depending on scope.</p>
   </div>
   <div class="v3-engage">
     ${engagements.map(engageCard).join("\n    ")}
@@ -227,10 +247,10 @@ export default {
   path,
   shell: "v3",
   shellClass: "v3-services",
-  navCta: "Discuss a Project",
+  navCta: "Discuss your growth",
   footRule: true,
   title: "Growth Marketing Services | Performance, SEO, Web, Affiliate | Tilth",
-  description: "Tilth's growth marketing services — strategy & measurement, performance marketing, paid media, SEO & AI search, affiliate, website design & development, and brand & creative. Foundation-first, for brands worldwide.",
+  description: "Performance-led growth marketing services — performance marketing, paid media, strategy & measurement, affiliate, SEO & AI search, website & CRO, and brand & creative. Foundation-first, for brands in India and the US.",
   ogTitle: "Growth marketing services, built on foundations",
   ogDescription: "Strategy, performance, paid media, SEO & AI search, affiliate, website and creative — one foundation-first system.",
   schema: [bc.schema, itemList],

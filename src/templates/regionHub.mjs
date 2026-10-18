@@ -73,7 +73,7 @@
 // authored under their binding units and the safeguard never fired in any of
 // the 156 frozen renders, so the 102 [data-fit] hooks are dropped as they were
 // in Core Company, Insights and Bengaluru.
-import { site, caseStudies } from "../data.mjs";
+import { site, proofFor, proofAttribution } from "../data.mjs";
 import { insightBySlug } from "../insights.mjs";
 import { regions, hubHreflang, resolveHref } from "../content-regional.mjs";
 import { regionalPages } from "../content-regional-pages.mjs";
@@ -210,7 +210,9 @@ const faqItem = ([q, a], i) => `
 // approximation set in Chivo rather than as Syne's decorative mid-height mark
 // (Phase 0, Register G-5 — the same helper /work/ and Bengaluru use).
 const approx = m => esc(m).replace(/~/g, "<span data-approx>~</span>");
-const proofRecords = caseStudies.filter(c => c.publishApproved);
+// §2 placement matrix: /india/ carries Edtech + Affiliate, /us/ leads with
+// Demi.ai. Regional CHILD routes still carry no proof block at all.
+const proofRecordsFor = path => proofFor(path);
 
 // THE ONE IN-PROSE LINK IN THE FAMILY (owner decision 2, report §0 / §16).
 // The India hub's `prose:bengaluru` paragraph already contained the word
@@ -296,14 +298,14 @@ const runRow = s => `
         <p data-rg-p>${esc(s.paragraphs[0])}</p>
       </section>`;
 
-const proofSection = () => `
+const proofSection = (records) => `
     <section id="proof" data-rg-sec data-rg-proof aria-labelledby="proof-h">
       <div data-ledger>
         <div data-lhead>
           <h2 id="proof-h" data-h2>${h2Text("Experience from the founder and core team.")}</h2>
         </div>
         <div>
-          <div data-proof-grid>${proofRecords.map(c => `
+          <div data-proof-grid>${records.map(c => `
             <article data-proof>
               <h3 data-plabel>${esc(c.anonLabel)}</h3>
               <div data-pmeta>${esc(c.industry.toUpperCase())} &middot; ${esc(c.market.toUpperCase())}</div>
@@ -337,7 +339,7 @@ function renderBlock(b) {
   }
   if (b.kind === "proof") {
     return `
-  <div ${attrs}>${proofSection()}
+  <div ${attrs}>${proofSection(b.proof)}
   </div>`;
   }
   return `
@@ -406,7 +408,8 @@ const localeFor = path => (path.startsWith("/india/") ? "en_IN" : "en_US");
 
 const page = (p, { bcItems, sections, hero: h, finalCta, proof = false, hreflang = null }) => {
   const bc = breadcrumbs(bcItems);
-  const blocks = buildBlocks(sections, { proofBefore: proof && proofRecords.length ? proofRecords : null });
+  const routeProof = proof ? proofRecordsFor(p.path) : [];
+  const blocks = buildBlocks(sections, { proofBefore: routeProof.length ? routeProof : null });
   return {
     path: p.path,
     shell: "v3",

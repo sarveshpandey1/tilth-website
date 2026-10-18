@@ -194,8 +194,8 @@ export const main = `
     <div data-tcta-grid>
       <h2 id="cta-h" data-tcta-h>Guessing your repeat rate? That's the real problem</h2>
       <div>
-        <p>LTV is only as trustworthy as the retention data behind it. A free foundation audit checks whether your analytics can actually measure repeat purchases and cohort retention — before you bet a higher CAC on a number you can't see.</p>
-        <a data-btn data-cta-btn href="/contact/"><span>Request a free audit</span> <span aria-hidden="true">&rarr;</span></a>
+        <p>LTV is only as trustworthy as the retention data behind it. A Foundation Audit checks whether your analytics can actually measure repeat purchases and cohort retention — before you bet a higher CAC on a number you can't see.</p>
+        <a data-btn data-cta-btn href="/contact/"><span>Discuss your growth project</span> <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </section>

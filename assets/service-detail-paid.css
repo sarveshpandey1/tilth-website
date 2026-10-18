@@ -271,3 +271,8 @@ body.v3-paid { margin: 0; }
 .v3-paid [data-cl] [data-mret][data-on] { border-color: var(--mosstext); opacity: 1; }
 .v3-paid [data-cl] [data-mnext] { color: var(--stone); opacity: .5; transition: opacity .6s, color .6s; }
 .v3-paid [data-cl] [data-mnext][data-on] { color: var(--mosstext); opacity: 1; }
+
+/* The base --h2 steps down below 480 alongside the reduced display H1 on the
+   families that carry soft hyphens. This family does not, so its H2 is
+   restated at the original value and is unaffected by that step. */
+@media (max-width: 479px) { .v3-service-detail.v3-paid { --h2: 24px; } }

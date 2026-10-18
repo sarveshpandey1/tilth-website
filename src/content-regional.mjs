@@ -23,7 +23,7 @@ export const regions = {
     hero: {
       eyebrow: "Growth marketing in India",
       h1: "A growth marketing agency for ambitious brands in India.",
-      lede: "Tilth connects strategy, acquisition, conversion and measurement to help Indian brands build stronger growth systems and scale what works.",
+      lede: "Performance-led growth for Indian brands: acquisition, measurement and conversion connected, so you scale what verifiably pays back.",
       primary: { label: "Discuss Your Growth Strategy", href: "/contact/" },
       secondary: { label: "Explore Our Services", href: "/services/" }
     },
@@ -31,7 +31,7 @@ export const regions = {
       {
         type: "prose", id: "market", eyebrow: "The India growth challenge",
         h2: "Growth in India needs more than channel execution.",
-        standfirst: "The opportunity is large, but the growth system has to be connected.",
+        standfirst: "Indian brands rarely lack channels. They lack a clear view of which ones pay back.",
         paragraphs: [
           "Indian brands often grow across several channels at once: paid media, organic search, affiliates, partnerships, sales teams, marketplaces and websites. When these channels are managed separately, teams may see more activity without gaining a clear view of what is actually driving qualified demand, revenue or retention.",
           "Tilth helps connect the parts that sit beneath performance. We look at positioning, measurement, funnel stages, creative, channel economics and conversion before recommending where more budget or effort should go. The goal is not to add another campaign. It is to create a clearer system for deciding what to fix, what to test and what to scale."
@@ -89,7 +89,7 @@ export const regions = {
         h2: "India-rooted. Senior-led. Close to the work.",
         paragraphs: [
           "Tilth is built for teams that want strategic thinking and execution to stay connected. The people shaping the recommendation remain close to the work, the reporting and the decisions that follow.",
-          "That means fewer handoffs, clearer ownership and a stronger link between what the business needs and what the marketing team is asked to deliver."
+          "Fewer handoffs, clearer ownership, and marketing work tied to what the business needs."
         ],
         benefit: true,
         cards: [
@@ -169,7 +169,7 @@ export const regions = {
     hero: {
       eyebrow: "Growth marketing for US brands",
       h1: "A growth marketing partner for US brands ready to scale with clarity.",
-      lede: "Tilth connects strategy, execution and measurement so growth decisions are based on evidence rather than disconnected channel activity.",
+      lede: "Performance-led growth for US brands: strategy, paid acquisition and measurement connected, so budget follows evidence — not platform reports.",
       primary: { label: "Discuss Your Growth Strategy", href: "/contact/" },
       secondary: { label: "Explore Our Services", href: "/services/" }
     },
@@ -189,7 +189,7 @@ export const regions = {
         standfirst: "Structured collaboration for distributed teams.",
         light: true,
         paragraphs: [
-          "Tilth operates from India and can structure collaboration for teams in the United States. Reviews, documentation and decision-making can be planned around agreed time-zone overlap and the client's operating rhythm.",
+          "Tilth operates from India. Our founder and core team have run US performance marketing — including paid acquisition for Demi.ai, a US AI product. Reviews, documentation and decision-making can be planned around agreed time-zone overlap and the client's operating rhythm.",
           "Clear written context reduces dependence on constant real-time meetings. Recommendations are grounded in the client's customer, category, data and commercial model rather than assumptions about a market from a distance."
         ]
       },
