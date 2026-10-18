@@ -1,5 +1,5 @@
 // Shared shell + components for generated pages. Outputs plain static HTML for GitHub Pages.
-import { site, nav, clients, caseStudies, services } from "./data.mjs";
+import { site, nav, caseStudies, services } from "./data.mjs";
 
 export const esc = (s = "") => String(s)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
