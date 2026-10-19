@@ -1,5 +1,5 @@
 // Shared shell + components for generated pages. Outputs plain static HTML for GitHub Pages.
-import { site, nav, caseStudies, services } from "./data.mjs";
+import { site, caseStudies, services } from "./data.mjs";
 
 export const esc = (s = "") => String(s)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -81,18 +81,6 @@ export function navCurrent(href, currentPath = "") {
   return "";
 }
 
-export function masthead(navItems = nav.primary, currentPath = "") {
-  return `<header class="masthead">
-  <div class="wrap">
-    <a href="/" class="word">${site.wordmark}</a>
-    <nav aria-label="Primary">
-      ${navItems.map(n => `<a href="${n.href}"${navCurrent(n.href, currentPath)}>${esc(n.label)}</a>`).join("\n      ")}
-    </nav>
-    <div class="meta">${esc(site.positioning)}</div>
-  </div>
-</header>`;
-}
-
 // Anonymous proof snapshots (Brief §8/§32)
 export function caseStudySnapshots() {
   const pub = caseStudies.filter(c => c.publishApproved);
@@ -119,12 +107,10 @@ export function ctaBlock({ eyebrow = "Start here", heading, body, primary, secon
 
 // ---------------------------------------------------------------------------
 // Brand v3 shell (approved designs: "Tilth Brand v3.dc.html" / "Tilth Services.dc.html").
-// Used by pages that declare shell:"v3", which is now every generated page —
-// all 20 page modules and all 6 templates set it, so the masthead()/footer()
-// legacy shell above is currently unreachable from generated output. It is
-// deliberately retained for now; retiring it is a separate architectural
-// decision and is out of scope for this cleanup.
-// Header, menu, clocks, wordmark and footer are shared by all v3 pages rather
+// This is now the only shell. The pre-v3 masthead()/footer() pair was retired
+// once every generated route had migrated; pages still carry a declarative
+// shell:"v3" property, but renderPage no longer branches on it.
+// Header, menu, clocks, wordmark and footer are shared by all pages rather
 // than duplicated per page.
 // ---------------------------------------------------------------------------
 
@@ -218,33 +204,6 @@ export function v3Footer({ rule = false } = {}) {
 </footer>`;
 }
 
-export function footer() {
-  const s = site.social;
-  return `<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="word">${esc(site.tagline)}</div>
-        <p class="addr">Tilth is an India-rooted growth marketing agency working with ambitious brands across India and the US.<br><br>Bengaluru, India · Remote collaboration across India and the US<br><a href="tel:${site.phoneHref}">${esc(site.phone)}</a><br><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></p>
-      </div>
-      <div>
-        <h3 class="fcol">Explore</h3>
-        <ul><li><a href="/services/">Services</a></li><li><a href="/approach/">Approach</a></li><li><a href="/insights/">Insights</a></li><li><a href="/tools/">Tools</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Legal</h3>
-        <ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/cookie-policy/">Cookie Policy</a></li><li><a href="/cookie-policy/" data-tilth-consent-open>Cookie settings</a></li></ul>
-      </div>
-      <div>
-        <h3 class="fcol">Social</h3>
-        <ul><li><a href="${s.linkedin}" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="${s.instagram}" target="_blank" rel="noopener">Instagram</a></li><li><a href="${s.x}" target="_blank" rel="noopener">X / Twitter</a></li><li><a href="${s.facebook}" target="_blank" rel="noopener">Facebook</a></li></ul>
-      </div>
-    </div>
-    <div class="footer-bottom"><span>© 2026 Tilth. All rights reserved.</span></div>
-  </div>
-</footer>`;
-}
-
 // og:locale is the one market-specific head signal a page may override
 // (Phase 8, register B-2 / B-4). It defaults to en_US — the global English
 // signal every non-regional route keeps — and is set to en_IN only where the
@@ -258,25 +217,12 @@ export function renderPage(p) {
   const ogTitle = p.ogTitle || p.title;
   const ogDesc = p.ogDescription || p.description;
   const schemas = jsonld(p.schema || []);
-  const v3 = p.shell === "v3";
-  // Brand v3 replaces the type ramp entirely, so its pages preload Syne/Chivo
-  // instead of Fraunces/Work Sans — preloading fonts a page never uses would
-  // cost the same LCP budget the existing preloads were added to protect.
-  const preloads = v3
-    ? `<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>`
-    : `<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/work-sans-400-normal.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-normal.woff2" crossorigin>
-<!-- The hero H1's <em> is Fraunces italic and is part of the LCP element. Without this
-     preload it was discovered only after CSS parsed and took ~9s on throttled mobile. -->
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-400-italic.woff2" crossorigin>`;
-  const styles = v3
-    ? `<link rel="stylesheet" href="/assets/fonts/fonts.css">
+  // Only the two faces the v3 type ramp actually uses are preloaded — preloading
+  // a font no page renders would spend the same LCP budget these protect.
+  const preloads = `<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>`;
+  const styles = `<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/brand-v3.css">
-<link rel="stylesheet" href="/assets/consent.css">`
-    : `<link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/assets/generated.css">
 <link rel="stylesheet" href="/assets/consent.css">`;
   return `<!DOCTYPE html>
 <html lang="en">
@@ -292,7 +238,7 @@ ${(p.hreflang || []).map(h => `<link rel="alternate" hreflang="${h.lang}" href="
 <meta name="robots" content="${p.robots || "index, follow"}">
 <meta property="og:site_name" content="Tilth">
 <meta name="twitter:site" content="@Anuja_tilth">
-<meta name="theme-color" content="${v3 ? "#101310" : "#15110B"}">
+<meta name="theme-color" content="#101310">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -312,13 +258,13 @@ ${styles}
 ${p.headExtra || ""}
 ${schemas}
 </head>
-<body${v3 ? ` class="v3 ${esc(p.shellClass || "")}"` : ""}>
-${v3 ? v3Header(p.path, p.navCta) : masthead(p.navItems, p.path)}
+<body class="v3 ${esc(p.shellClass || "")}">
+${v3Header(p.path, p.navCta)}
 <main id="main">
 ${p.main}
 </main>
-${v3 ? v3Footer({ rule: p.footRule }) : footer()}
-${v3 ? '<script src="/brand-v3.js" defer></script>' : '<script src="/nav.js" defer></script>'}
+${v3Footer({ rule: p.footRule })}
+<script src="/brand-v3.js" defer></script>
 ${(p.bodyScripts || []).map(s => `<script src="${s}" defer></script>\n`).join("")}<script src="/analytics.js" defer></script>
 <script src="/consent.js" defer></script>
 </body>
