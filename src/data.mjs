@@ -143,7 +143,6 @@ export const caseStudies = [
 
 // Proof attribution (content pack §2). Exactly one line per proof block.
 export const proofAttribution = "Selected experience from our founder and core team.";
-export const proofAttributionGrid = "Selected experience from our founder and core team · anonymised unless named with permission.";
 
 // §2 placement matrix. A record appears on a route only if listed here, so
 // Demi.ai never turns up automatically on an unrelated service, industry or
