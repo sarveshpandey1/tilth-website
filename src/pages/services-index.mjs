@@ -250,7 +250,7 @@ export default {
   navCta: "Discuss your growth",
   footRule: true,
   title: "Growth Marketing Services | Performance, SEO, Web, Affiliate | Tilth",
-  description: "Performance-led growth marketing services — performance marketing, paid media, strategy & measurement, affiliate, SEO & AI search, website & CRO, and brand & creative. Foundation-first, for brands in India and the US.",
+  description: "Growth marketing services across performance marketing, paid media, SEO, affiliate, websites and CRO — for brands across India and the US.",
   ogTitle: "Growth marketing services, built on foundations",
   ogDescription: "Strategy, performance, paid media, SEO & AI search, affiliate, website and creative — one foundation-first system.",
   schema: [bc.schema, itemList],
