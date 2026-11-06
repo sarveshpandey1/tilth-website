@@ -78,7 +78,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
       "description": "Most GA4 conversion setups quietly report the wrong numbers, so every ad decision downstream is wrong. A practical checklist to get conversion tracking right before you scale spend.",
       "image": "https://wearetilth.com/anuja.jpg",
       "datePublished": "2026-06-17",
-      "dateModified": "2026-06-17",
+      "dateModified": "2026-11-06",
       "inLanguage": "en-IN",
       "url": "https://wearetilth.com/insights/ga4-conversion-tracking/",
       "mainEntityOfPage": "https://wearetilth.com/insights/ga4-conversion-tracking/",
@@ -185,31 +185,46 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
       </div>
     </header>
     <div data-prose>
-<p>GA4 confused almost everyone when it replaced Universal Analytics. The model changed from sessions to events, the labels moved, and a lot of accounts were migrated by clicking "accept defaults." The result: dashboards that look complete but count the wrong things. And because your ad platforms often import conversions <em>from</em> GA4, a quiet error here poisons every campaign decision you make.</p>
-    <p>Before you scale spend, walk this checklist.</p>
+<p>Most GA4 properties are collecting data. Far fewer are collecting data anyone should make a budget decision on. The gap is rarely the install — it is what got marked as important, what fires twice, and what was never verified before paid media started optimising against it. Work through these in order.</p>
 
     <h2>1. Mark the right events as key events</h2>
-    <p>In GA4, a "conversion" is now a <strong>key event</strong> — an event you've explicitly flagged as important. Many accounts mark too many: page views, scrolls, "engaged sessions." When everything is a conversion, nothing is. Pick the one or two events that represent real business value (a purchase, a qualified lead) and mark only those.</p>
+    <p>In GA4 the events that matter to the business are called <strong>key events</strong> — an event that measures an action particularly important to your success. You mark them on the Key events page in Admin. Everything else stays an ordinary event, which is fine: ordinary events are still collected and still reportable.</p>
+    <p>Two practical cautions. First, be sparing. If twelve things are key events, nothing is, and every report becomes a negotiation about which number to believe. Second, renaming an event that is already marked as a key event removes its key-event status — changing only its parameters does not. That single behaviour explains a lot of conversions that silently vanished after a tagging tidy-up.</p>
 
-    <h2>2. Send the purchase event with value and currency</h2>
-    <p>A purchase event with no <code>value</code> and no <code>currency</code> tells you <em>that</em> someone bought, not <em>how much</em> they spent. Without value, you can't compute ROAS, and the ad platforms can't optimise toward revenue. Confirm your <strong>purchase event fires with the correct order value and currency (INR)</strong> on the real thank-you/confirmation step — not on a button click.</p>
+    <h2>2. Send the revenue event with value and currency</h2>
+    <p>A purchase that reports no value cannot support any decision about return. Send the ecommerce purchase event with <code>value</code>, <code>currency</code> and a stable <code>transaction_id</code>. The transaction ID is what lets you deduplicate later and reconcile against your backend, and it is the field most often left out.</p>
+    <p>For lead generation the equivalent discipline is deciding what a lead is worth before you start optimising toward it. A form fill with no value assigned is just a count, and counts cannot be compared across channels with different qualification rates.</p>
 
-    <h2>3. Stop counting soft actions as conversions</h2>
-    <p>"Add to cart," "begin checkout," form views, and newsletter signups are useful events — but they are not conversions, and they should not be the event your ads optimise toward. Reward a soft action and the algorithm will happily buy you cheap soft actions all day while revenue stays flat.</p>
+    <h2>3. Find the duplicate events before they find you</h2>
+    <p>Duplicates usually come from one of three places: the same tag deployed twice, once directly and once through a tag manager; a thank-you page that can be reloaded or revisited; or an event fired both on a button click and on the confirmation that follows. The symptom is a conversion count that exceeds your order count, which nobody notices while it flatters performance.</p>
+    <p>Check against the backend, not against another analytics tool. If GA4 says 180 purchases and your order system says 143, the question is which 37 are not real.</p>
 
-    <blockquote>The platform isn't lying to you. It's giving you exactly what you told it to value.</blockquote>
+    <h2>4. Prefer the confirmation event to the thank-you page</h2>
+    <p>Counting a thank-you page view as the conversion is convenient and fragile: the page can be bookmarked, refreshed, shared, or reached without ordering. An event fired at the point the order is actually created is harder to trigger accidentally. Where you have no choice but to rely on the page, at least carry the transaction ID so repeats can be identified and discarded.</p>
 
-    <h2>4. Connect GA4 to Google Ads — and import the right conversion</h2>
-    <p>Link GA4 and Google Ads, but be deliberate about what you import. A common mistake is importing several GA4 key events into Ads <em>and</em> running Google's own conversion tag, so the same purchase is counted twice. Decide on one source of truth for the purchase conversion and optimise toward that single, de-duplicated event.</p>
+    <h2>5. Know what enhanced measurement is doing for you</h2>
+    <p>Enhanced measurement collects a set of interactions with no code changes, and the detail matters when you start reporting on them. Page views are collected automatically and that collection cannot be switched off. The scroll event fires the first time 90% vertical depth becomes visible — it is not a general engagement measure. Outbound clicks do not fire for domains you have configured for cross-domain measurement, which is correct behaviour but surprises people. Site search looks for query parameters, defaulting to q, s, search, query and keyword, so a site using something else records nothing until it is added. Form interaction events are collected, but their parameters are only usable in reports once you create custom dimensions for them.</p>
+    <p>Google also states plainly that it is your responsibility to ensure no personally identifiable information is collected. Worth re-reading if your URLs carry email addresses or order details in query strings.</p>
 
-    <h2>5. Plan for the cookieless gaps</h2>
-    <p>Browser restrictions and consent banners mean client-side tags miss a meaningful share of conversions. For anything that matters, plan for <strong>server-side tracking</strong> (server-side GTM or the Measurement Protocol) so a purchase confirmed by your backend is still recorded even when the browser tag is blocked. You don't need this on day one, but you need a plan for it before you scale.</p>
+    <blockquote>If GA4 and your order system disagree, GA4 is not a second opinion. It is a hypothesis that failed a test.</blockquote>
 
-    <h2>6. Sanity-check GA4 against your backend</h2>
-    <p>The fastest way to catch a broken setup: take one day's orders from your actual backend (Shopify, your database, your payment gateway) and compare the count and total revenue to GA4 for the same day. If they're wildly different, your tracking is wrong — and you've just saved yourself from scaling on a fictional number.</p>
+    <h2>6. Fix cross-domain and referral noise before you trust sources</h2>
+    <p>If your journey crosses domains — a separate checkout, a booking engine, a payment page — configure cross-domain measurement, and note the hard requirement: every page must use the same G- measurement ID from the same web data stream. Without it a single visitor becomes two users and two sessions, and the channel that introduced them loses the sale. Analytics carries identity across with a <code>_gl</code> parameter, so verify it survives the hop; redirects that strip it, JavaScript-triggered navigation, and scripts calling <code>Event.stopPropagation()</code> are the usual culprits.</p>
+    <p>Separately, list unwanted referrals for domains that should not be credited as a traffic source — third-party payment processors being the standard case, where customers return from the gateway and the gateway appears to have sold your product. GA4 appends an <code>ignore_referrer</code> flag to matching events, and allows up to 50 such entries per data stream. One caveat worth knowing before you expect it to rewrite history: a session already referred by that domain can still be credited to it under last-non-direct-click attribution.</p>
 
-    <h2>What good looks like</h2>
-    <p>A trustworthy GA4 setup has a small number of meaningful key events, a purchase event with accurate value, one de-duplicated conversion feeding your ads, a plan for the cookieless gap, and numbers that roughly reconcile with your backend. Get those right and your ad spend decisions stop being guesses.</p>
+    <h2>7. Verify in DebugView before you believe the reports</h2>
+    <p>DebugView shows the events and user properties Analytics is collecting in real time, which is the only honest way to confirm a tag does what you think. Enable debug mode with Tag Assistant for your own session, or set <code>debug_mode: true</code> in your configuration to see it for all users, then open DebugView under Data display in Admin. Note that setting the parameter to false does not switch debug mode off — you remove it.</p>
+    <p>One consent-related gotcha: where consent mode is in use and a visitor has not consented to Analytics cookies, their events will not appear in debug mode. An empty DebugView is not automatically a broken tag.</p>
+
+    <h2>8. Understand what consent does to your totals</h2>
+    <p>If you ask for analytics consent — and in many markets you must — a share of visitors will decline, and those sessions are not fully measured. That is the correct outcome, not a bug to engineer around. The implication is that GA4 totals are a floor, your backend is the truth for revenue, and your reported conversion rate will sit below reality by an amount that varies with your consent rate. Decide that before you compare this quarter with a period measured under different rules.</p>
+
+    <h2>9. Import to Google Ads deliberately</h2>
+    <p>You can create a Google Ads conversion from a GA4 key event. Import one — the revenue event — and be aware that Google Ads conversions do not appear in standard GA4 reports, so the two interfaces are not meant to tie out line for line. Importing several overlapping events is how bidding ends up optimising toward the same customer counted three ways.</p>
+
+    <h2>What must be true before you scale paid media</h2>
+    <p>One revenue event, marked as a key event, carrying value, currency and a transaction ID. Count reconciled against the backend within a tolerance you have written down. Cross-domain configured and verified if the journey crosses domains. Payment processors excluded from referrals. The event confirmed firing once in DebugView. One conversion imported to Google Ads. If any of those is missing, extra budget buys noise at scale.</p>
+    <p>Getting a property to that state is the first half of <a href="/services/growth-strategy-measurement/">growth strategy and measurement</a>, and it is deliberately the work we do before touching <a href="/services/performance-marketing/">performance marketing</a> budgets. If you are chasing this because a channel stopped converting, <a href="/insights/meta-ads-not-converting/">the Meta-side version of the same audit</a> is the companion piece, and <a href="/insights/audit-your-ad-spend/">auditing whether that spend is profitable</a> is the step after both.</p>
     </div>
     <div data-bio>
       <img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">

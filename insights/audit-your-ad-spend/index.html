@@ -78,7 +78,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
       "description": "Busy dashboards aren't profit. Five checks to tell whether your ad budget is building the business or quietly leaking out the bottom.",
       "image": "https://wearetilth.com/anuja.jpg",
       "datePublished": "2026-06-17",
-      "dateModified": "2026-06-17",
+      "dateModified": "2026-11-06",
       "inLanguage": "en-IN",
       "url": "https://wearetilth.com/insights/audit-your-ad-spend/",
       "mainEntityOfPage": "https://wearetilth.com/insights/audit-your-ad-spend/",
@@ -185,30 +185,39 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
       </div>
     </header>
     <div data-prose>
-<p>Most marketing teams can tell you their cost per click, their click-through rate, and how many conversions the dashboard reported last week. Far fewer can answer the only question that actually matters to the business: <em>for every rupee we put into ads, how many came back?</em></p>
-    <p>That gap is where budgets quietly die. The campaign looks active, the charts trend up and to the right, and yet the bank balance doesn't move. Before you scale spend — or blame the channel — run these five checks.</p>
+<p>Platform dashboards report revenue. Businesses survive on contribution profit. Those two numbers can point in opposite directions for months, and the gap between them is where most ad budgets quietly stop working. This is the audit that closes it — five questions, in order, before anyone argues about creative.</p>
 
     <h2>1. Is your conversion event actually revenue?</h2>
-    <p>Open your ad platform and look at what it's optimising toward. If the conversion event is a page view, an "add to cart," a form fill, or a lead — the algorithm is buying you <em>those things</em>, not revenue. Platforms are ruthlessly good at finding people who do the action you reward. Reward the wrong action and you'll get a beautiful dashboard and an empty till.</p>
-    <p><strong>The fix:</strong> make sure a purchase (or a qualified, revenue-bearing event) is firing correctly and is the event you optimise toward. Everything downstream depends on this one thing being right.</p>
+    <p>Start here, because everything downstream inherits this error. Confirm the event your platforms optimise against is a completed order carrying its real value, not a button click, not a thank-you page that can be refreshed, not a lead you have not qualified. Then reconcile the count against your order system for a closed month. If the platform says 180 and your backend says 143, you do not have a performance problem yet — you have a measurement problem, and <a href="/insights/ga4-conversion-tracking/">getting GA4 conversion tracking right</a> is the prerequisite.</p>
 
-    <h2>2. Can you see contribution margin by channel?</h2>
-    <p>Revenue is not profit. An order with a heavy discount, expensive shipping, and a returned item can cost you money even at a "good" ROAS. If you can't see <strong>contribution margin</strong> — revenue minus the variable costs of fulfilling it — by channel, you're flying on a number that flatters you.</p>
+    <h2>2. Do you know what one order actually leaves you?</h2>
+    <p>Revenue is not margin and margin is not contribution. Take your average order value and subtract, honestly: cost of goods, payment gateway fees, shipping you absorb, packing and fulfilment, marketplace or platform commission where you sell through one, and the average discount actually redeemed rather than the one you intended. Then adjust for returns and cancellations, because a refunded order costs you the fulfilment and keeps none of the revenue.</p>
+    <p>What remains is contribution per order — the only number that can pay for acquisition. Most teams discover it is materially smaller than the gross margin they had been using, which immediately changes what a sale is worth paying for.</p>
 
-    <h2>3. Are you separating new customers from returning ones?</h2>
-    <p>Paid channels love to take credit for customers who would have bought anyway. If your blended ROAS looks healthy but new-customer acquisition is flat, your ads may be subsidising repeat buyers who'd have returned through email or direct. Look at <strong>new-customer ROAS</strong> separately — it's the number that tells you whether the channel is actually growing the business.</p>
+    <h2>3. What is your breakeven ROAS and your maximum CAC?</h2>
+    <p>Once you have contribution per order, the thresholds follow arithmetically. Breakeven ROAS is the return at which advertising exactly consumes the contribution it generates; maximum CAC is the most you can pay for a customer before the order loses money. Work both out explicitly and write them down, because they convert every future campaign argument from taste into comparison.</p>
+    <p>Worked through: if an order sells for 2,000 and contribution after all the costs above is 600, then advertising can spend up to 600 per order before the order breaks even — and the ROAS that corresponds to depends on your own numbers, not on anyone's benchmark. Our <a href="/tools/ad-spend-profitability-calculator/">ad spend profitability calculator</a> does this calculation with the full cost stack, including gateway and marketplace fees, discounting and return rate, so you get a breakeven ROAS and a maximum CAC you can actually hold campaigns to.</p>
 
-    <blockquote>If you only measure what's easy, you'll scale what's comfortable — not what's profitable.</blockquote>
+    <blockquote>Platform ROAS answers whether the platform did its job. Contribution answers whether you should keep paying it.</blockquote>
 
-    <h2>4. Do you have one source of truth for attribution?</h2>
-    <p>When the ad platform, your analytics tool, and your backend each report a different number, every meeting becomes an argument about whose number is right — and decisions stall. You don't need perfect attribution. You need <strong>one agreed source of truth</strong> that everyone trusts enough to act on, even if it's imperfect.</p>
+    <h2>4. Are you separating new customers from returning ones?</h2>
+    <p>Blended performance hides the thing you most need to see. If returning customers are counted in channel results, retargeting and branded search will always look excellent — they are being credited with revenue from people who already knew you. Split new-customer acquisition from repeat revenue and judge acquisition channels on the first only.</p>
+    <p>Repeat purchase is where lifetime value arguments enter, and where they most often go wrong. It is reasonable to pay more than first-order contribution for a customer who reliably buys again — but only if you can show the repeat rate from your own cohort data, and only if your cash position can fund the gap until it arrives. An LTV assumption borrowed from a case study is not a reason to overspend.</p>
 
-    <h2>5. Do you know your payback window?</h2>
-    <p>For anything with repeat purchases or subscriptions, a single transaction rarely pays back the acquisition cost. What matters is how long it takes a cohort of new customers to return what you spent acquiring them. If you don't know your <strong>payback window</strong>, you can't tell the difference between a campaign that's "losing money" and one that's investing in customers who'll be profitable in ninety days.</p>
+    <h2>5. Do you have one source of truth, and do you know its limits?</h2>
+    <p>Every platform claims credit under its own attribution settings, which is why summing platform-reported revenue routinely exceeds what the business actually took. Pick one source for decisions — usually your order system, segmented by channel as well as you can — and treat platform numbers as directional signals about delivery rather than as accounting.</p>
+    <p>Then hold the whole picture with a blended view: total marketing spend against total new-customer contribution, often tracked as MER. Blended cannot tell you which channel to cut, and channel-level cannot tell you whether the overall machine is profitable. You need both, and you need to know which question you are asking.</p>
+    <p>Be careful with incrementality. Channel reports measure attributed conversions, not caused ones, and some share of what retargeting and brand search report would have happened anyway. The honest way to find out is a holdout or a deliberate spend change observed over a full purchase cycle — not a dashboard comparison, and not a model you cannot audit.</p>
 
-    <h2>What "good" looks like</h2>
-    <p>A healthy paid setup isn't the one with the prettiest dashboard. It's the one where you can trace a rupee of spend to a rupee of margin, see new-customer economics clearly, and make a scaling decision without it being a gamble. When the foundation is right, scaling is just maths.</p>
-    <p>If two or more of these checks made you uncomfortable, that's normal — and it's fixable. It almost always lives in the foundation: the tracking, the events, the definitions. Fix that first, and the channel you were about to give up on often turns out to work fine.</p>
+    <h2>6. Do you know your payback window?</h2>
+    <p>Profitable and affordable are different tests. A customer who repays acquisition cost over nine months may be a good investment and still break a business that needs the cash in two. Decide the payback period your cash flow can carry, measure against it, and treat it as a constraint on growth rate rather than a detail.</p>
+
+    <h2>Decision thresholds worth writing down</h2>
+    <p>Set these once, in advance, so decisions stop being arguments: the breakeven ROAS and maximum CAC per product or category, the acceptable payback window, the new-customer share you require before counting a channel as acquisition, and the tolerance within which platform numbers may differ from your backend before you investigate. Review monthly against closed-month data rather than reacting to a bad week.</p>
+
+    <h2>What good looks like</h2>
+    <p>One revenue event you have reconciled against orders. Contribution per order calculated with the full cost stack, including returns and discounting. Breakeven ROAS and maximum CAC written down per category. New-customer performance reported separately from repeat. A blended view alongside channel detail, with one agreed source of truth and a known tolerance. A payback window your cash flow can actually fund.</p>
+    <p>Get there and most spending decisions answer themselves. Building that layer is <a href="/services/growth-strategy-measurement/">growth strategy and measurement</a>, and running budgets against it afterwards is <a href="/services/performance-marketing/">performance marketing</a> — in that order, because scaling spend on numbers you cannot defend is how the gap at the top of this article opens in the first place.</p>
     </div>
     <div data-bio>
       <img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">
