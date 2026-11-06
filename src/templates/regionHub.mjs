@@ -406,6 +406,38 @@ const faqSchemaOf = sections => {
 // copy is one English, and no child hreflang is fabricated.
 const localeFor = path => (path.startsWith("/india/") ? "en_IN" : "en_US");
 
+// Regional child hreflang. Only the four pairs whose India AND US routes both
+// exist and were confirmed as genuine market equivalents by the indexing audit
+// are annotated. This is an explicit allow-list, never slug inference: a new
+// regional route gains hreflang only by being added here after review, so no
+// pair is ever fabricated from a coincidental slug match.
+//
+// The x-default target is the global route serving both markets, which is NOT
+// always the regional slug: SEO & Content Marketing maps to the global SEO
+// route /services/seo-ai-search/, there being no /services/seo-content-marketing/.
+//
+// Deliberately absent, because no counterpart route exists and none is invented:
+//   /india/industries/fintech/  ·  /india/services/affiliate-marketing/
+//   /us/services/website-cro/
+const CHILD_HREFLANG_PAIRS = [
+  { india: "/india/industries/d2c-ecommerce/", us: "/us/industries/d2c-ecommerce/", global: "/industries/d2c-ecommerce/" },
+  { india: "/india/industries/saas/", us: "/us/industries/saas/", global: "/industries/saas/" },
+  { india: "/india/services/performance-marketing/", us: "/us/services/performance-marketing/", global: "/services/performance-marketing/" },
+  { india: "/india/services/seo-content-marketing/", us: "/us/services/seo-content-marketing/", global: "/services/seo-ai-search/" }
+];
+
+// Both members of a pair emit the SAME three-member cluster, because it is
+// derived from the pair rather than from the page asking for it.
+const childHreflang = path => {
+  const pair = CHILD_HREFLANG_PAIRS.find(p => p.india === path || p.us === path);
+  if (!pair) return null;
+  return [
+    { lang: "en-IN", href: site.base + pair.india },
+    { lang: "en-US", href: site.base + pair.us },
+    { lang: "x-default", href: site.base + pair.global }
+  ];
+};
+
 const page = (p, { bcItems, sections, hero: h, finalCta, proof = false, hreflang = null }) => {
   const bc = breadcrumbs(bcItems);
   const routeProof = proof ? proofRecordsFor(p.path) : [];
@@ -440,11 +472,10 @@ export function regionHub(key) {
     finalCta: r.finalCta,
     proof: true,
     // The declared cluster is the two hubs plus the global homepage as
-    // x-default, exactly as published. Child hreflang is deliberately NOT
-    // added: the route inventories differ, five children have no counterpart,
-    // and whether the four same-slug pairs are genuine translation equivalents
-    // is a production SEO equivalence audit, not a design or build decision
-    // (report §10, §26). Nothing reciprocal is fabricated here.
+    // x-default, exactly as published. Child hreflang is handled separately by
+    // CHILD_HREFLANG_PAIRS above: the route inventories differ, three children
+    // have no counterpart at all, and only the four same-slug pairs confirmed
+    // by the indexing audit are annotated. Nothing reciprocal is fabricated.
     hreflang: hubHreflang(site.base)
   });
 }
@@ -459,7 +490,8 @@ export function regionChildPage(pg) {
     sections: pg.sections,
     hero: pg.hero,
     finalCta: pg.finalCta,
-    proof: false
+    proof: false,
+    hreflang: childHreflang(pg.path)
   });
 }
 
