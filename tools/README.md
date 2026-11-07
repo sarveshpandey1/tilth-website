@@ -29,7 +29,7 @@ tools/
     analytics.js    analytics.test.js   # privacy-safe product events
     package.json                     # { "type": "module" } — ESM marker for Node
   package.json                       # scripts: test (+ card generator)
-  generate-insight-cards.js          # unrelated: insights card thumbnails (see end)
+  generate-insight-cards.py          # unrelated: insights cover system (see end)
   ad-spend-profitability-calculator/ # (canonical route; old /ad-spend-calculator/ redirects here)
 ```
 
@@ -181,8 +181,14 @@ fairly, so they're deliberately not auto-scored against a single default.
 
 ## Insight card thumbnails (separate tool)
 
-`generate-insight-cards.js` (in this folder) renders the "Living Soil" thumbnail
-for each insights article — unrelated to the calculators above. See its header
-comment. Run: `cd tools && npm install` (installs `sharp`), then
-`node generate-insight-cards.js [--slug <slug> --cat <bucket> --keyword "…"]`.
+`generate-insight-cards.py` (in this folder) renders the Insights cover
+system: one visual grammar across all articles, on the Brand v3 palette, with
+type converted to real outlines from the brand woff2 files via fontTools so it
+cannot silently fall back to a system serif the way the previous generator did.
+Output is 1200x630 WebP at `assets/insight-cards/<slug>.webp`, which serves both
+the 2:1 hub plate and social previews.
+
+Run `npm run generate`, or `python generate-insight-cards.py [--slug <slug>] [--svg-only]`.
+To add an article, add one row to CARDS (slug, display title lines, depth layer);
+the category is read from src/insights-content.mjs so it cannot drift.
 Output: `../assets/insight-cards/<slug>.webp`. `node_modules/` is gitignored.

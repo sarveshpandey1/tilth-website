@@ -274,7 +274,7 @@ export const insightHub = {
       excerpt: `Founders usually ask "SEO or paid ads person?" — the wrong first question. Who your first marketing hire should actually be, what to pay in India in 2026, and how to set them up to succeed.`,
       meta: `8 min read · 12 Jul 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/first-marketing-hire-startup.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/first-marketing-hire-startup.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "startup-marketing-budget-india", href: "/insights/startup-marketing-budget-india/", cat: "strategy",
@@ -283,7 +283,7 @@ export const insightHub = {
       excerpt: `"What percentage should we spend?" is the wrong first question. How to set a startup marketing budget tied to your CAC, not a rule of thumb — and why tracking has to come before the spend.`,
       meta: `8 min read · 28 Jun 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/startup-marketing-budget-india.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/startup-marketing-budget-india.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "marketing-agency-for-d2c-brands", href: "/insights/marketing-agency-for-d2c-brands/", cat: "hiring",
@@ -292,7 +292,7 @@ export const insightHub = {
       excerpt: `D2C fails differently — and most agencies pitch the same generic deck. What actually matters when choosing a D2C marketing agency: D2C experience, retention, honest tracking, and the red flags to walk from.`,
       meta: `8 min read · 27 Jun 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/marketing-agency-for-d2c-brands.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/marketing-agency-for-d2c-brands.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "questions-before-hiring-marketing-agency", href: "/insights/questions-before-hiring-marketing-agency/", cat: "hiring",
@@ -301,7 +301,7 @@ export const insightHub = {
       excerpt: `The pitch always sounds good. These twelve questions — on strategy, reporting, team, and terms — and their red-flag answers tell you what's really underneath it before you sign.`,
       meta: `9 min read · 23 Jun 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/questions-before-hiring-marketing-agency.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/questions-before-hiring-marketing-agency.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "agency-vs-freelancer-vs-inhouse", href: "/insights/agency-vs-freelancer-vs-inhouse/", cat: "hiring",
@@ -310,7 +310,7 @@ export const insightHub = {
       excerpt: `Hire an agency, bring on a freelancer, or build in-house? An honest comparison of costs and trade-offs for early-stage startups — plus the one thing that matters more than who you hire.`,
       meta: `8 min read · 23 Jun 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/agency-vs-freelancer-vs-inhouse.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/agency-vs-freelancer-vs-inhouse.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "marketing-agency-cost-india", href: "/insights/marketing-agency-cost-india/", cat: "hiring",
@@ -319,7 +319,7 @@ export const insightHub = {
       excerpt: `An honest 2026 breakdown — typical retainers, pricing by service, what's included versus ad spend, and how to budget without overpaying for a thin package.`,
       meta: `8 min read · 23 Jun 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/marketing-agency-cost-india.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/marketing-agency-cost-india.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "marketing-foundation-audit", href: "/insights/marketing-foundation-audit/", cat: "tracking",
@@ -328,7 +328,7 @@ export const insightHub = {
       excerpt: `Most budgets are scaled on numbers nobody has checked. Here's exactly what a marketing foundation audit reviews — tracking, attribution, targeting, partnerships — and why it comes before you spend more.`,
       meta: `7 min read · 22 Jun 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/marketing-foundation-audit.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/marketing-foundation-audit.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "audit-your-ad-spend", href: "/insights/audit-your-ad-spend/", cat: "paid-ads",
@@ -337,7 +337,7 @@ export const insightHub = {
       excerpt: `Busy dashboards are not the same as profit. Here are five checks you can run today to find out whether your ad budget is building the business — or quietly leaking out the bottom.`,
       meta: `5 min read · 17 Jun 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/audit-your-ad-spend.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/audit-your-ad-spend.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "ga4-conversion-tracking", href: "/insights/ga4-conversion-tracking/", cat: "tracking",
@@ -346,7 +346,7 @@ export const insightHub = {
       excerpt: `If GA4 is reporting the wrong conversions, every ad decision downstream is built on a lie. A practical checklist to get it right before you spend more.`,
       meta: `6 min read · 17 Jun 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/ga4-conversion-tracking.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/ga4-conversion-tracking.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "meta-ads-not-converting", href: "/insights/meta-ads-not-converting/", cat: "paid-ads",
@@ -355,7 +355,7 @@ export const insightHub = {
       excerpt: `Before you blame the creative or the audience, rule out tracking. Seven checks — pixel, Conversions API, events, attribution — that catch the real culprit.`,
       meta: `6 min read · 17 Jun 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/meta-ads-not-converting.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/meta-ads-not-converting.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "affiliate-program-not-converting", href: "/insights/affiliate-program-not-converting/", cat: "seo-growth",
@@ -364,7 +364,7 @@ export const insightHub = {
       excerpt: `Plenty of partners, plenty of clicks, almost no revenue. Five reasons your affiliate channel looks busy but contributes nothing — and how to rebuild it.`,
       meta: `6 min read · 17 Jun 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/affiliate-program-not-converting.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/affiliate-program-not-converting.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "shopify-conversion-tracking-ga4-meta-pixel", href: "/insights/shopify-conversion-tracking-ga4-meta-pixel/", cat: "tracking",
@@ -373,7 +373,7 @@ export const insightHub = {
       excerpt: `Most Shopify stores have "tracking installed" and still can't trust the numbers. A step-by-step guide to setting up GA4 and Meta Pixel — with Conversions API — correctly, including the checkout tracking trap most setups miss.`,
       meta: `8 min read · 12 Jun 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/shopify-conversion-tracking-ga4-meta-pixel.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/shopify-conversion-tracking-ga4-meta-pixel.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "google-ads-budget-india-startups", href: "/insights/google-ads-budget-india-startups/", cat: "paid-ads",
@@ -382,7 +382,7 @@ export const insightHub = {
       excerpt: `"What's the minimum budget?" is the wrong first question. How to calculate a starting Google Ads budget from your own numbers, minimum viable budgets by campaign type, and what actually eats spend before it converts.`,
       meta: `7 min read · 7 Jun 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/google-ads-budget-india-startups.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/google-ads-budget-india-startups.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "google-ads-vs-meta-ads-startup", href: "/insights/google-ads-vs-meta-ads-startup/", cat: "paid-ads",
@@ -391,7 +391,7 @@ export const insightHub = {
       excerpt: `You can't run both channels well on a limited budget. The real difference between Google Ads and Meta Ads — intent versus discovery — and a straightforward way to decide which one earns your first rupee.`,
       meta: `7 min read · 2 Jun 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/google-ads-vs-meta-ads-startup.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/google-ads-vs-meta-ads-startup.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "seo-not-bringing-leads", href: "/insights/seo-not-bringing-leads/", cat: "seo-growth",
@@ -400,7 +400,7 @@ export const insightHub = {
       excerpt: `Traffic is climbing and leads aren't. This is almost never "SEO doesn't work" — it's usually one of five specific, fixable problems. Here's how to find which one you have.`,
       meta: `7 min read · 28 May 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/seo-not-bringing-leads.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/seo-not-bringing-leads.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "measure-influencer-marketing-roi", href: "/insights/measure-influencer-marketing-roi/", cat: "seo-growth",
@@ -409,7 +409,7 @@ export const insightHub = {
       excerpt: `"It got a lot of engagement" is not an ROI number. The metrics that actually predict revenue, the tracking setup that has to happen before you brief anyone, and a simple formula to calculate real return.`,
       meta: `7 min read · 23 May 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/measure-influencer-marketing-roi.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/measure-influencer-marketing-roi.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "marketing-attribution-explained-simply", href: "/insights/marketing-attribution-explained-simply/", cat: "tracking",
@@ -418,7 +418,7 @@ export const insightHub = {
       excerpt: `"Attribution" sounds built to confuse founders into hiring someone. It's a simple idea: which touchpoint gets credit for a sale? What that means in plain English, and which model actually makes sense for a small business.`,
       meta: `7 min read · 18 May 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/marketing-attribution-explained-simply.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/marketing-attribution-explained-simply.webp" alt="" loading="lazy" width="1200" height="630">`
     },
     {
       slug: "what-is-performance-marketing", href: "/insights/what-is-performance-marketing/", cat: "seo-growth",
@@ -427,7 +427,7 @@ export const insightHub = {
       excerpt: `The two terms get used interchangeably, and that mix-up leads to real budgeting mistakes. A plain definition of performance marketing, and why the whole approach depends on tracking you can actually trust.`,
       meta: `6 min read · 13 May 2026`,
       read: `Read the article →`,
-      img: `<img class="blog-card__media" src="/assets/insight-cards/what-is-performance-marketing.webp" alt="" loading="lazy" width="1000" height="500">`
+      img: `<img class="blog-card__media" src="/assets/insight-cards/what-is-performance-marketing.webp" alt="" loading="lazy" width="1200" height="630">`
     },
   ]
 };
@@ -450,11 +450,11 @@ export const insightArticles = [
       "ogTitle": "Why your affiliate program isn't driving revenue (and how to fix it)",
       "ogDescription": "Five reasons your affiliate channel looks busy but contributes almost nothing — and how to rebuild it around results.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/affiliate-program-not-converting.webp",
       "ogLocale": null,
       "twTitle": "Why your affiliate program isn't driving revenue (and how to fix it)",
       "twDescription": "Five reasons your affiliate channel looks busy but contributes almost nothing.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/affiliate-program-not-converting.webp"
 },
     schema: [
       {
@@ -487,7 +487,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "Why your affiliate program isn't driving revenue (and how to fix it)",
                         "description": "Most affiliate programs look busy and contribute almost nothing. Five reasons your affiliate channel isn't driving revenue, and how to rebuild it around results.",
-                        "image": "https://wearetilth.com/anuja.jpg",
+                        "image": "https://wearetilth.com/assets/insight-cards/affiliate-program-not-converting.webp",
                         "datePublished": "2026-06-17",
                         "dateModified": "2026-11-06",
                         "inLanguage": "en-IN",
@@ -582,11 +582,11 @@ export const insightArticles = [
       "ogTitle": "Marketing agency vs freelancer vs in-house: which is right for your startup?",
       "ogDescription": "An honest comparison for early-stage startups — costs, trade-offs, when each makes sense, and what to fix before you hire anyone.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/agency-vs-freelancer-vs-inhouse.webp",
       "ogLocale": null,
       "twTitle": "Marketing agency vs freelancer vs in-house: which is right for your startup?",
       "twDescription": "Costs, trade-offs, and when each makes sense — for early-stage startups.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/agency-vs-freelancer-vs-inhouse.webp"
 },
     schema: [
       {
@@ -619,7 +619,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "Marketing agency vs freelancer vs in-house: which is right for your startup?",
                         "description": "An honest comparison of hiring a marketing agency, a freelancer, or building an in-house team for an early-stage startup in India — costs, trade-offs, and when each makes sense.",
-                        "image": "https://wearetilth.com/og-image.png",
+                        "image": "https://wearetilth.com/assets/insight-cards/agency-vs-freelancer-vs-inhouse.webp",
                         "datePublished": "2026-06-23",
                         "dateModified": "2026-06-23",
                         "inLanguage": "en-IN",
@@ -772,11 +772,11 @@ export const insightArticles = [
       "ogTitle": "Is your ad spend actually profitable? A 5-minute self-audit",
       "ogDescription": "Five checks to tell whether your ad budget is building the business or quietly leaking out the bottom.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/audit-your-ad-spend.webp",
       "ogLocale": null,
       "twTitle": "Is your ad spend actually profitable? A 5-minute self-audit",
       "twDescription": "Five checks to tell whether your ad budget is building the business or quietly leaking.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/audit-your-ad-spend.webp"
 },
     schema: [
       {
@@ -809,7 +809,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "How to tell if your ad spend is actually profitable (a 5-minute self-audit)",
                         "description": "Busy dashboards aren't profit. Five checks to tell whether your ad budget is building the business or quietly leaking out the bottom.",
-                        "image": "https://wearetilth.com/anuja.jpg",
+                        "image": "https://wearetilth.com/assets/insight-cards/audit-your-ad-spend.webp",
                         "datePublished": "2026-06-17",
                         "dateModified": "2026-11-06",
                         "inLanguage": "en-IN",
@@ -900,11 +900,11 @@ export const insightArticles = [
       "ogTitle": "Your startup's first marketing hire: who to hire first",
       "ogDescription": "It shouldn't be a specialist. Who to hire first, what to pay in India in 2026, and how to set them up to succeed.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/first-marketing-hire-startup.webp",
       "ogLocale": null,
       "twTitle": "Your startup's first marketing hire: who to hire first",
       "twDescription": "Who to hire first, what to pay in India in 2026, and how to set them up to succeed.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/first-marketing-hire-startup.webp"
 },
     schema: [
       {
@@ -937,7 +937,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "Your startup's first marketing hire: who to hire first",
                         "description": "Your startup's first marketing hire shouldn't be a specialist. Who to hire first, what to pay in India in 2026, and how to set them up to succeed.",
-                        "image": "https://wearetilth.com/og-image.png",
+                        "image": "https://wearetilth.com/assets/insight-cards/first-marketing-hire-startup.webp",
                         "datePublished": "2026-07-12",
                         "dateModified": "2026-07-12",
                         "inLanguage": "en-IN",
@@ -1108,11 +1108,11 @@ export const insightArticles = [
       "ogTitle": "GA4 conversion tracking: the setup checklist before you scale ads",
       "ogDescription": "Get conversion tracking right before you scale spend — a practical GA4 checklist for founders and marketers.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/ga4-conversion-tracking.webp",
       "ogLocale": null,
       "twTitle": "GA4 conversion tracking: the setup checklist before you scale ads",
       "twDescription": "Get conversion tracking right before you scale spend — a practical GA4 checklist.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/ga4-conversion-tracking.webp"
 },
     schema: [
       {
@@ -1145,7 +1145,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "GA4 conversion tracking: the setup checklist before you scale ads",
                         "description": "Most GA4 conversion setups quietly report the wrong numbers, so every ad decision downstream is wrong. A practical checklist to get conversion tracking right before you scale spend.",
-                        "image": "https://wearetilth.com/anuja.jpg",
+                        "image": "https://wearetilth.com/assets/insight-cards/ga4-conversion-tracking.webp",
                         "datePublished": "2026-06-17",
                         "dateModified": "2026-11-06",
                         "inLanguage": "en-IN",
@@ -1246,11 +1246,11 @@ export const insightArticles = [
       "ogTitle": "How much should you spend on Google Ads in India to start?",
       "ogDescription": "How to calculate your starting Google Ads budget from your own numbers, minimum budgets by campaign type, and what eats spend before it converts.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/google-ads-budget-india-startups.webp",
       "ogLocale": null,
       "twTitle": "How much should you spend on Google Ads in India to start?",
       "twDescription": "How to calculate a starting Google Ads budget from your own numbers — not a rule of thumb.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/google-ads-budget-india-startups.webp"
 },
     schema: [
       {
@@ -1283,7 +1283,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "How much should you spend on Google Ads in India to start?",
                         "description": "A practical 2026 guide to setting your starting Google Ads budget in India — how to calculate it from your own numbers, minimum budgets by campaign type, and what eats spend first.",
-                        "image": "https://wearetilth.com/og-image.png",
+                        "image": "https://wearetilth.com/assets/insight-cards/google-ads-budget-india-startups.webp",
                         "datePublished": "2026-06-07",
                         "dateModified": "2026-06-07",
                         "inLanguage": "en-IN",
@@ -1433,11 +1433,11 @@ export const insightArticles = [
       "ogTitle": "Google Ads vs Meta Ads: which should a startup start with?",
       "ogDescription": "How intent-based and discovery-based advertising differ, India cost comparisons, and how to decide which platform to start with.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/google-ads-vs-meta-ads-startup.webp",
       "ogLocale": null,
       "twTitle": "Google Ads vs Meta Ads: which should a startup start with?",
       "twDescription": "Intent vs discovery, India cost comparisons, and how to decide which platform to start with.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/google-ads-vs-meta-ads-startup.webp"
 },
     schema: [
       {
@@ -1470,7 +1470,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "Google Ads vs Meta Ads: which should a startup start with?",
                         "description": "Google Ads vs Meta Ads for startups: how intent-based and discovery-based advertising differ, India cost comparisons, and how to decide which to start with first.",
-                        "image": "https://wearetilth.com/og-image.png",
+                        "image": "https://wearetilth.com/assets/insight-cards/google-ads-vs-meta-ads-startup.webp",
                         "datePublished": "2026-06-02",
                         "dateModified": "2026-06-02",
                         "inLanguage": "en-IN",
@@ -1628,11 +1628,11 @@ export const insightArticles = [
       "ogTitle": "How much does a digital marketing agency cost in India? (2026 guide)",
       "ogDescription": "Typical monthly retainers, pricing by service, what's included vs ad spend, and how to budget — an honest, founder-written guide.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/marketing-agency-cost-india.webp",
       "ogLocale": null,
       "twTitle": "How much does a digital marketing agency cost in India? (2026 guide)",
       "twDescription": "Typical retainers, pricing by service, ad spend vs fees, and how to budget — honestly.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/marketing-agency-cost-india.webp"
 },
     schema: [
       {
@@ -1665,7 +1665,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "How much does a digital marketing agency cost in India? (2026 guide)",
                         "description": "Digital marketing agency cost in India in 2026: typical monthly retainers, pricing by service, what's included versus ad spend, and how to budget.",
-                        "image": "https://wearetilth.com/og-image.png",
+                        "image": "https://wearetilth.com/assets/insight-cards/marketing-agency-cost-india.webp",
                         "datePublished": "2026-06-23",
                         "dateModified": "2026-06-23",
                         "inLanguage": "en-IN",
@@ -1847,11 +1847,11 @@ export const insightArticles = [
       "ogTitle": "How to choose a marketing agency for your D2C brand in India",
       "ogDescription": "What to look for, the questions that matter, and the red flags to avoid — a founder's honest buyer's guide for D2C brands.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/marketing-agency-for-d2c-brands.webp",
       "ogLocale": null,
       "twTitle": "How to choose a marketing agency for your D2C brand in India",
       "twDescription": "What to look for, the questions that matter, and the red flags to avoid.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/marketing-agency-for-d2c-brands.webp"
 },
     schema: [
       {
@@ -1884,7 +1884,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "How to choose a marketing agency for your D2C brand in India",
                         "description": "What to look for when choosing a marketing agency for a D2C brand in India — D2C experience, full-funnel and retention focus, honest tracking, transparent reporting, and the red flags to avoid.",
-                        "image": "https://wearetilth.com/og-image.png",
+                        "image": "https://wearetilth.com/assets/insight-cards/marketing-agency-for-d2c-brands.webp",
                         "datePublished": "2026-06-27",
                         "dateModified": "2026-06-27",
                         "inLanguage": "en-IN",
@@ -2031,11 +2031,11 @@ export const insightArticles = [
       "ogTitle": "Marketing attribution for small businesses, explained simply",
       "ogDescription": "The common attribution models explained without jargon, a worked example, and which model a small business should actually use.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/marketing-attribution-explained-simply.webp",
       "ogLocale": null,
       "twTitle": "Marketing attribution for small businesses, explained simply",
       "twDescription": "What attribution actually means, without the jargon — plus a worked example.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/marketing-attribution-explained-simply.webp"
 },
     schema: [
       {
@@ -2068,7 +2068,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "Marketing attribution for small businesses, explained simply",
                         "description": "What marketing attribution actually means, the common models explained without jargon, a worked example, and which model a small business should actually use.",
-                        "image": "https://wearetilth.com/og-image.png",
+                        "image": "https://wearetilth.com/assets/insight-cards/marketing-attribution-explained-simply.webp",
                         "datePublished": "2026-05-18",
                         "dateModified": "2026-05-18",
                         "inLanguage": "en-IN",
@@ -2209,11 +2209,11 @@ export const insightArticles = [
       "ogTitle": "What a marketing foundation audit actually checks",
       "ogDescription": "The tracking, attribution, targeting, and partnerships a real marketing audit reviews — and why it comes before you spend more.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/marketing-foundation-audit.webp",
       "ogLocale": null,
       "twTitle": "What a marketing foundation audit actually checks",
       "twDescription": "What a real marketing audit reviews — tracking, attribution, targeting, partnerships — and why it's first.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/marketing-foundation-audit.webp"
 },
     schema: [
       {
@@ -2246,7 +2246,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "What a marketing foundation audit actually checks (and why it comes first)",
                         "description": "A marketing foundation audit reviews the tracking, attribution, targeting, channels, and partnerships under your spend before you scale. Here is exactly what a marketing audit checks.",
-                        "image": "https://wearetilth.com/og-image.png",
+                        "image": "https://wearetilth.com/assets/insight-cards/marketing-foundation-audit.webp",
                         "datePublished": "2026-06-22",
                         "dateModified": "2026-06-22",
                         "inLanguage": "en-IN",
@@ -2393,11 +2393,11 @@ export const insightArticles = [
       "ogTitle": "How to measure influencer marketing ROI properly",
       "ogDescription": "Which metrics predict revenue, how to set up trackable links before you brief anyone, and a simple ROI formula for influencer campaigns.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/measure-influencer-marketing-roi.webp",
       "ogLocale": null,
       "twTitle": "How to measure influencer marketing ROI properly",
       "twDescription": "A practical guide to measuring influencer ROI, not just reach and likes.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/measure-influencer-marketing-roi.webp"
 },
     schema: [
       {
@@ -2430,7 +2430,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "How to measure influencer marketing ROI properly",
                         "description": "A practical guide to measuring influencer marketing ROI: which metrics predict revenue, how to set up trackable links before you brief anyone, and a simple ROI formula.",
-                        "image": "https://wearetilth.com/og-image.png",
+                        "image": "https://wearetilth.com/assets/insight-cards/measure-influencer-marketing-roi.webp",
                         "datePublished": "2026-05-23",
                         "dateModified": "2026-05-23",
                         "inLanguage": "en-IN",
@@ -2588,11 +2588,11 @@ export const insightArticles = [
       "ogTitle": "Meta Ads not converting? A 7-point tracking audit",
       "ogDescription": "Before you blame the creative, rule out tracking. A 7-point audit of your Meta Ads pixel, Conversions API, events, and attribution.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/meta-ads-not-converting.webp",
       "ogLocale": null,
       "twTitle": "Meta Ads not converting? A 7-point tracking audit",
       "twDescription": "Before you blame the creative, rule out tracking. A 7-point Meta Ads audit.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/meta-ads-not-converting.webp"
 },
     schema: [
       {
@@ -2625,7 +2625,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "Meta Ads not converting? A 7-point tracking audit",
                         "description": "Before you blame the creative or the audience, rule out tracking. A 7-point audit of your Meta Ads setup: pixel, Conversions API, events, and attribution.",
-                        "image": "https://wearetilth.com/anuja.jpg",
+                        "image": "https://wearetilth.com/assets/insight-cards/meta-ads-not-converting.webp",
                         "datePublished": "2026-06-17",
                         "dateModified": "2026-11-06",
                         "inLanguage": "en-IN",
@@ -2719,11 +2719,11 @@ export const insightArticles = [
       "ogTitle": "12 questions to ask before hiring a marketing agency (+ red-flag answers)",
       "ogDescription": "The questions to ask before hiring a marketing agency — and the red-flag answers that tell you to walk away.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/questions-before-hiring-marketing-agency.webp",
       "ogLocale": null,
       "twTitle": "12 questions to ask before hiring a marketing agency",
       "twDescription": "The questions to ask — and the red-flag answers that tell you to walk away.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/questions-before-hiring-marketing-agency.webp"
 },
     schema: [
       {
@@ -2756,7 +2756,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "12 questions to ask before hiring a marketing agency (and the red-flag answers)",
                         "description": "The 12 questions to ask before hiring a marketing agency — strategy, reporting, team, and terms — plus the red-flag answers that tell you to walk away.",
-                        "image": "https://wearetilth.com/og-image.png",
+                        "image": "https://wearetilth.com/assets/insight-cards/questions-before-hiring-marketing-agency.webp",
                         "datePublished": "2026-06-23",
                         "dateModified": "2026-06-23",
                         "inLanguage": "en-IN",
@@ -2930,11 +2930,11 @@ export const insightArticles = [
       "ogTitle": "Why your SEO isn't bringing leads (and how to fix it)",
       "ogDescription": "The real reasons SEO traffic doesn't convert — intent mismatch, weak CTAs, broken tracking — and how to diagnose and fix each one.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/seo-not-bringing-leads.webp",
       "ogLocale": null,
       "twTitle": "Why your SEO isn't bringing leads (and how to fix it)",
       "twDescription": "Ranking and getting traffic but no leads? Here's the real diagnosis, and how to fix it.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/seo-not-bringing-leads.webp"
 },
     schema: [
       {
@@ -2967,7 +2967,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "Why your SEO isn't bringing leads (and how to fix it)",
                         "description": "Ranking and getting traffic but no leads? The real reasons SEO traffic doesn't convert, and how to diagnose and fix each one.",
-                        "image": "https://wearetilth.com/og-image.png",
+                        "image": "https://wearetilth.com/assets/insight-cards/seo-not-bringing-leads.webp",
                         "datePublished": "2026-05-28",
                         "dateModified": "2026-05-28",
                         "inLanguage": "en-IN",
@@ -3125,11 +3125,11 @@ export const insightArticles = [
       "ogTitle": "How to set up conversion tracking on Shopify (GA4 + Meta Pixel)",
       "ogDescription": "A step-by-step guide to GA4 and Meta Pixel conversion tracking on Shopify, including Conversions API — so every ad rupee is measured correctly.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/shopify-conversion-tracking-ga4-meta-pixel.webp",
       "ogLocale": null,
       "twTitle": "How to set up conversion tracking on Shopify (GA4 + Meta Pixel)",
       "twDescription": "Step-by-step GA4 and Meta Pixel setup for Shopify, including Conversions API, so every ad rupee is measured correctly.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/shopify-conversion-tracking-ga4-meta-pixel.webp"
 },
     schema: [
       {
@@ -3162,7 +3162,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "How to set up conversion tracking on Shopify (GA4 + Meta Pixel)",
                         "description": "A step-by-step guide to setting up GA4 and Meta Pixel conversion tracking on Shopify, including Conversions API, so every ad rupee is measured correctly.",
-                        "image": "https://wearetilth.com/og-image.png",
+                        "image": "https://wearetilth.com/assets/insight-cards/shopify-conversion-tracking-ga4-meta-pixel.webp",
                         "datePublished": "2026-06-12",
                         "dateModified": "2026-06-12",
                         "inLanguage": "en-IN",
@@ -3328,11 +3328,11 @@ export const insightArticles = [
       "ogTitle": "Marketing budget for an early-stage startup in India: how to set it",
       "ogDescription": "Sensible percentages, why CAC matters more than a flat %, how to split it, and how to budget without wasting money.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/startup-marketing-budget-india.webp",
       "ogLocale": null,
       "twTitle": "Marketing budget for an early-stage startup in India",
       "twDescription": "How much to spend, why CAC beats a flat %, and how to split it.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/startup-marketing-budget-india.webp"
 },
     schema: [
       {
@@ -3365,7 +3365,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "Marketing budget for an early-stage startup in India: how to set it",
                         "description": "How to set a marketing budget for an early-stage startup in India: sensible percentages, why CAC matters more than a flat percentage, how to split the budget, and how to avoid wasting it.",
-                        "image": "https://wearetilth.com/og-image.png",
+                        "image": "https://wearetilth.com/assets/insight-cards/startup-marketing-budget-india.webp",
                         "datePublished": "2026-06-28",
                         "dateModified": "2026-06-28",
                         "inLanguage": "en-IN",
@@ -3533,11 +3533,11 @@ export const insightArticles = [
       "ogTitle": "What is performance marketing (and how it differs from digital marketing)?",
       "ogDescription": "What performance marketing actually means, what counts and what doesn't, and why it lives or dies on tracking.",
       "ogType": "article",
-      "ogImage": "https://wearetilth.com/og-image.png",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/what-is-performance-marketing.webp",
       "ogLocale": null,
       "twTitle": "What is performance marketing (and how it differs from digital marketing)?",
       "twDescription": "A plain-English definition, and why performance marketing lives or dies on tracking.",
-      "twImage": "https://wearetilth.com/og-image.png"
+      "twImage": "https://wearetilth.com/assets/insight-cards/what-is-performance-marketing.webp"
 },
     schema: [
       {
@@ -3570,7 +3570,7 @@ export const insightArticles = [
                         "@type": "BlogPosting",
                         "headline": "What is performance marketing (and how it differs from digital marketing)?",
                         "description": "What performance marketing actually means, how it differs from digital marketing generally, what counts and what doesn't, and why it lives or dies on tracking.",
-                        "image": "https://wearetilth.com/og-image.png",
+                        "image": "https://wearetilth.com/assets/insight-cards/what-is-performance-marketing.webp",
                         "datePublished": "2026-05-13",
                         "dateModified": "2026-05-13",
                         "inLanguage": "en-IN",

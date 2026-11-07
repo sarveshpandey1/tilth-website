@@ -140,6 +140,11 @@ function page(a) {
     ogTitle: a.meta.ogTitle,
     ogDescription: a.meta.ogDescription,
     ogType: a.meta.ogType || undefined,
+    // Article-specific cover art. Falls through to the generic site image in
+    // render.mjs when an article has none, so nothing breaks if one is added
+    // without artwork.
+    ogImage: a.meta.ogImage || undefined,
+    twitterImage: a.meta.twImage || a.meta.ogImage || undefined,
     robots: a.meta.robots || undefined,
     schema,
     main: articleMain(a)
