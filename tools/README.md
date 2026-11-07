@@ -188,7 +188,24 @@ cannot silently fall back to a system serif the way the previous generator did.
 Output is 1200x630 WebP at `assets/insight-cards/<slug>.webp`, which serves both
 the 2:1 hub plate and social previews.
 
-Run `npm run generate`, or `python generate-insight-cards.py [--slug <slug>] [--svg-only]`.
+**Setup (once):**
+
+```
+cd tools
+npm install                                              # Node deps (sharp)
+python3 -m pip install -r requirements-insight-cards.txt # Python deps (fontTools + Brotli)
+```
+
+**Run:** `npm run generate`, which calls `run-insight-card-generator.cjs`. That
+launcher locates a working Python 3 (it probes `python3`, `python` and `py`, and
+rejects the Windows Store `python3` alias, which resolves but is not an
+interpreter), then hands over to the Python generator and propagates its exit
+code. Override the interpreter with `PYTHON=/path/to/python npm run generate`.
+
+Arguments pass straight through: `npm run generate -- --slug <slug>` or `-- --svg-only`.
+
+The generator FAILS (non-zero, generating nothing) if the CARDS registry and the
+Insights source disagree in either direction, so covers cannot silently drift.
 To add an article, add one row to CARDS (slug, display title lines, depth layer);
 the category is read from src/insights-content.mjs so it cannot drift.
 Output: `../assets/insight-cards/<slug>.webp`. `node_modules/` is gitignored.

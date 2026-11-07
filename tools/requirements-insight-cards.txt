@@ -1,0 +1,17 @@
+# Python dependencies for tools/generate-insight-cards.py (Insights cover art).
+#
+# Install with:
+#     python3 -m pip install -r tools/requirements-insight-cards.txt
+#
+# Only needed to REGENERATE the cover assets. The site build (node build.mjs)
+# does not use these - the generated .webp files are committed.
+#
+# fontTools reads the brand woff2 files and converts the display type to vector
+# outlines, which is what stops the covers silently falling back to a system
+# serif. Reading woff2 requires Brotli; fontTools does not pull it in on its
+# own, so it is declared explicitly rather than relied on as a transitive.
+#
+# Bounds are set at the versions this generator was built and verified against,
+# capped below the next major.
+fonttools>=4.63,<5
+Brotli>=1.2,<2

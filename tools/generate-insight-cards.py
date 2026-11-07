@@ -280,9 +280,31 @@ def main():
     mono = Face("ibm-plex-mono-500-normal.woff2")
     cats = read_categories()
 
-    missing = sorted(set(CARDS) ^ set(cats))
-    if missing:
-        print("WARNING: CARDS and insights-content.mjs disagree on: %s" % missing)
+    # The cover registry must not drift from the Insights source. An article
+    # with no CARDS row would ship with a stale or missing cover, and a CARDS
+    # row for a deleted article would quietly keep producing an orphan asset.
+    # Both are hard failures, so a broken registry can never be mistaken for a
+    # successful run.
+    no_card = sorted(set(cats) - set(CARDS))
+    no_article = sorted(set(CARDS) - set(cats))
+    if no_card or no_article:
+        print("ERROR: the cover registry and src/insights-content.mjs disagree.", file=sys.stderr)
+        for slug in no_card:
+            print("  article has no CARDS entry : %s" % slug, file=sys.stderr)
+        for slug in no_article:
+            print("  CARDS entry has no article : %s" % slug, file=sys.stderr)
+        print("\nNothing was generated. Reconcile CARDS with the Insights source "
+              "and run again.", file=sys.stderr)
+        sys.exit(1)
+
+    if args.slug:
+        if args.slug not in cats:
+            print("ERROR: unknown slug %r - not an article in src/insights-content.mjs."
+                  % args.slug, file=sys.stderr)
+            sys.exit(1)
+        if args.slug not in CARDS:
+            print("ERROR: slug %r has no CARDS entry." % args.slug, file=sys.stderr)
+            sys.exit(1)
 
     tmp = tempfile.mkdtemp(prefix="tilth-covers-")
     todo = [args.slug] if args.slug else sorted(CARDS)
@@ -291,8 +313,10 @@ def main():
         lines, depth = CARDS[slug]
         cat = cats.get(slug)
         if cat is None:
-            print("SKIP %s (not in insights-content.mjs)" % slug)
-            continue
+            # Unreachable given the guards above; kept so a future refactor
+            # cannot quietly reintroduce a skip.
+            print("ERROR: could not resolve a category for %r." % slug, file=sys.stderr)
+            sys.exit(1)
         svg = build_svg(slug, cat, lines, depth, syne, mono)
         p = os.path.join(tmp, slug + ".svg")
         open(p, "w", encoding="utf-8").write(svg)
