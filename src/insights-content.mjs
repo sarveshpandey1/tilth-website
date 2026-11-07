@@ -489,7 +489,7 @@ export const insightArticles = [
                         "description": "Most affiliate programs look busy and contribute almost nothing. Five reasons your affiliate channel isn't driving revenue, and how to rebuild it around results.",
                         "image": "https://wearetilth.com/anuja.jpg",
                         "datePublished": "2026-06-17",
-                        "dateModified": "2026-06-17",
+                        "dateModified": "2026-11-06",
                         "inLanguage": "en-IN",
                         "url": "https://wearetilth.com/insights/affiliate-program-not-converting/",
                         "mainEntityOfPage": "https://wearetilth.com/insights/affiliate-program-not-converting/",
@@ -527,27 +527,43 @@ export const insightArticles = [
     bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has 10+ years of hands-on growth experience building affiliate programs across 10+ industries — rebuilding dead channels into real revenue. <a href="/about/">Read her story →</a>` },
     cta: { heading: `Affiliate channel busy but not paying off?`, body: `A Foundation Audit will show you which partners are incremental, which are coupon-stacking, and where your payouts are eating margin. No pitch attached.`,
       href: "/contact/", label: `Discuss your growth project` },
-    bodyHtml: `<p>Affiliate marketing is one of the few channels where you only pay for results — which makes it strange how often it produces none. The usual story: a brand signs up dozens of partners, the dashboard fills with clicks and sign-ups, and a year later nobody can point to revenue the channel actually caused. Here's why that happens, and how to turn it around.</p>
+    bodyHtml: `<p>Plenty of partners, plenty of clicks, plenty of dashboard activity — and almost no revenue. If that is your affiliate channel, the problem usually is not the partners. It is how the program was built: who was recruited, what the payout rewards, and whether anyone checks what the channel actually contributes.</p>
 
     <h2>1. You recruited for reach, not fit</h2>
-    <p>Most programs onboard anyone with an audience. But a partner whose audience doesn't match your buyer sends traffic that never converts — it just inflates the click count. <strong>Vet partners on audience fit and unit economics first</strong>, not on follower numbers. Ten partners whose audience is your customer will beat a hundred who merely have a big list.</p>
+    <p>The fastest way to fill a program is to accept everyone. It is also the fastest way to make it meaningless. Reach tells you how many people a partner can put in front of your offer; fit tells you whether those people were ever going to buy. A partner with 50,000 followers in an unrelated category will send traffic that bounces. A partner with 3,000 readers who already trust them on your category will send fewer visits and more customers.</p>
+    <p>Segment your partner list before you judge it. Content and review partners who explain the product, comparison sites that capture active research, loyalty and cashback partners who sit at the end of a journey, and coupon partners who intercept checkout are four different businesses. They deserve different payouts, different expectations and different limits — not one blanket commission.</p>
 
-    <h2>2. Payouts reward the wrong action</h2>
-    <p>If you pay on sign-ups, leads, or installs, you'll get sign-ups, leads, and installs — many of them junk. Partners optimise for whatever you pay them for. <strong>Tie payouts to revenue-bearing actions</strong> (a first purchase, a funded account, a paid subscription), and the same partners suddenly send very different traffic.</p>
+    <h2>2. Signups are not activation</h2>
+    <p>Most programs report partner count. Almost none report how many partners have ever driven a sale. Those are different numbers and only one of them matters. Split your roster into partners who have never sent a conversion, partners who sent one and stopped, and partners producing repeatably. The third group is your actual program; the first group is a mailing list.</p>
+    <p>Activation is a job, not an outcome. A partner who joined and never received creative, a product feed, a working link or a single piece of guidance has not failed — they were never onboarded. Before concluding that affiliate does not work for you, check how many of your partners got as far as a usable link.</p>
 
-    <blockquote>An affiliate program pays for exactly what you reward. Reward activity and you'll buy activity.</blockquote>
+    <h2>3. The payout rewards the wrong action</h2>
+    <p>If you pay on click, you have bought traffic. If you pay on signup, you have bought form fills. Whatever you attach money to is what you will receive, in volume, regardless of whether it ever becomes revenue. Pay on the event that represents a customer — a completed order, a retained subscription, a qualified opportunity — and accept that the reported numbers will get smaller and more honest.</p>
+    <p>Design the payout event deliberately. Decide when it fires, what cancels it, and how long you wait before it is payable. A hold period long enough to cover your refund and cancellation window converts a lot of theoretical commission into commission you would actually have wanted to pay.</p>
 
-    <h2>3. No one back-calculates payout against margin</h2>
-    <p>A 20% commission on a discounted, free-shipping order can wipe out your margin entirely — so the channel "works" on the dashboard while losing money in reality. Run the numbers: <strong>payout plus discount plus fulfilment against contribution margin</strong>. If a partner only converts when stacked with a coupon, they may be costing you, not earning you.</p>
+    <h2>4. No one back-calculates payout against margin</h2>
+    <p>A 20% commission is only generous or ruinous relative to your contribution margin after cost of goods, payment fees, shipping, returns and discounting. Work out what one order actually leaves you before you decide what a partner should earn from it — and do it per segment, because the partner who introduced a new customer and the partner who appeared beside your checkout are not delivering the same thing.</p>
+    <p>This is the same arithmetic that decides whether paid media is profitable, and it fails the same way. If you have not done it for your ad channels either, start with <a href="/insights/audit-your-ad-spend/">auditing whether your ad spend is actually profitable</a> and reuse the margin numbers here.</p>
 
-    <h2>4. Last-click attribution is paying coupon and loyalty sites</h2>
-    <p>Coupon, cashback, and loyalty sites often swoop in at the last click — capturing credit (and commission) for a sale the customer was already going to make. You end up paying a finder's fee on demand you generated elsewhere. Look at where partners sit in the journey and <strong>cap or exclude bottom-of-funnel coupon partners</strong> unless they're genuinely incremental.</p>
+    <blockquote>A program that pays for the last click before checkout is not acquiring customers. It is renting a discount to people who had already decided.</blockquote>
 
-    <h2>5. There's no vetting in, and no pruning out</h2>
-    <p>Healthy programs are gardens, not warehouses. You vet partners before they join, and you offboard the ones who send volume but no value. Without that discipline, the program slowly fills with partners who cost attention and budget while contributing nothing.</p>
+    <h2>5. Last-click attribution is paying for interception</h2>
+    <p>Under pure last-click, whoever touches the journey closest to the order gets paid. That systematically rewards coupon, cashback and loyalty partners for customers your other channels already won, and systematically starves the content partners who created the demand. The channel then looks efficient in the affiliate dashboard while adding very little the business would have missed.</p>
+    <p>You do not need a perfect model to fix this. You need to know which model you are paying under, see where partners sit in real journeys, and be willing to pay differently for introduction than for interception. If attribution is the part you are least sure of, <a href="/insights/marketing-attribution-explained-simply/">how attribution models actually differ</a> is the shorter read.</p>
+
+    <h2>6. Invalid and duplicate conversions go unchallenged</h2>
+    <p>Affiliate is the channel where tracking problems quietly become invoices. Watch for the same order credited twice through different links, conversions recorded against partners whose click arrived after the order, traffic patterns that convert far outside your normal behaviour, and self-referred purchases. None of these require bad intent to appear — a misconfigured tag or a duplicated postback is enough.</p>
+    <p>Put a validation step between recorded conversion and payable commission: deduplicate on your own order ID, reconcile partner-reported conversions against your backend, and treat anything you cannot match as unpaid until it is explained. If your conversion data is not trustworthy on your own site yet, that is the prior problem — our <a href="/services/growth-strategy-measurement/">growth strategy and measurement work</a> exists because almost every channel decision downstream depends on it.</p>
+
+    <h2>7. There is no vetting in, and no pruning out</h2>
+    <p>Programs decay when joining is easy and leaving never happens. Set entry rules — category relevance, how the partner describes you, what traffic sources they use, whether they bid on your brand terms — and then review against them on a schedule. Monthly is enough. Look at contribution, not activity: revenue after the hold period, new versus returning customers, refund rate, and whether the partner would have been paid under a model you believe in.</p>
+
+    <h2>When affiliate should not be scaled yet</h2>
+    <p>Affiliate amplifies whatever system it is attached to, including a broken one. Do not scale it while any of the following is true: you cannot attribute a sale to a partner reliably, you do not know your contribution margin per order, your payout fires on something other than revenue, you have no hold period against refunds, or nobody owns weekly partner review. Fix those first and a modest program will outperform a large one.</p>
 
     <h2>How to rebuild it</h2>
-    <p>Start narrow: a handful of partners whose audience is genuinely your customer, payouts tied to real revenue, and a clear back-calculation of margin per partner. Drop the partners who only convert on coupons. Done right, affiliates become one of the most efficient channels you have — we've scaled a brand's effectively dead affiliate channel <strong>2–3×</strong> using exactly this approach.</p>`
+    <p>Start with the roster: segment partners, identify the ones who have ever produced revenue, and onboard or retire the rest. Then fix the payout — correct event, margin-aware rate per segment, hold period that matches your refund window. Then fix measurement so you can see introduction separately from interception and deduplicate against your own orders. Only then recruit, and recruit for fit.</p>
+    <p>That sequence is the whole job, and it is the one we run in <a href="/services/affiliate-partnerships/">affiliate and partnership marketing</a>: rebuild the economics and the tracking first, then grow the partner base against numbers you can defend. If you would rather pressure-test your own program before involving anyone, the sections above are the order to do it in.</p>`
   },
   {
     slug: "agency-vs-freelancer-vs-inhouse",
@@ -795,7 +811,7 @@ export const insightArticles = [
                         "description": "Busy dashboards aren't profit. Five checks to tell whether your ad budget is building the business or quietly leaking out the bottom.",
                         "image": "https://wearetilth.com/anuja.jpg",
                         "datePublished": "2026-06-17",
-                        "dateModified": "2026-06-17",
+                        "dateModified": "2026-11-06",
                         "inLanguage": "en-IN",
                         "url": "https://wearetilth.com/insights/audit-your-ad-spend/",
                         "mainEntityOfPage": "https://wearetilth.com/insights/audit-your-ad-spend/",
@@ -833,30 +849,39 @@ export const insightArticles = [
     bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has 10+ years of hands-on growth experience across 10+ industries — running paid ads and building affiliate programs, and fixing the same foundational mistakes every time. <a href="/about/">Read her story →</a>` },
     cta: { heading: `Not sure where your spend is leaking?`, body: `That's exactly what the Foundation Audit is for. We'll review your current setup and tell you, honestly, what's broken — before you spend more.`,
       href: "/contact/", label: `Discuss your growth project` },
-    bodyHtml: `<p>Most marketing teams can tell you their cost per click, their click-through rate, and how many conversions the dashboard reported last week. Far fewer can answer the only question that actually matters to the business: <em>for every rupee we put into ads, how many came back?</em></p>
-    <p>That gap is where budgets quietly die. The campaign looks active, the charts trend up and to the right, and yet the bank balance doesn't move. Before you scale spend — or blame the channel — run these five checks.</p>
+    bodyHtml: `<p>Platform dashboards report revenue. Businesses survive on contribution profit. Those two numbers can point in opposite directions for months, and the gap between them is where most ad budgets quietly stop working. This is the audit that closes it — five questions, in order, before anyone argues about creative.</p>
 
     <h2>1. Is your conversion event actually revenue?</h2>
-    <p>Open your ad platform and look at what it's optimising toward. If the conversion event is a page view, an "add to cart," a form fill, or a lead — the algorithm is buying you <em>those things</em>, not revenue. Platforms are ruthlessly good at finding people who do the action you reward. Reward the wrong action and you'll get a beautiful dashboard and an empty till.</p>
-    <p><strong>The fix:</strong> make sure a purchase (or a qualified, revenue-bearing event) is firing correctly and is the event you optimise toward. Everything downstream depends on this one thing being right.</p>
+    <p>Start here, because everything downstream inherits this error. Confirm the event your platforms optimise against is a completed order carrying its real value, not a button click, not a thank-you page that can be refreshed, not a lead you have not qualified. Then reconcile the count against your order system for a closed month. If the platform says 180 and your backend says 143, you do not have a performance problem yet — you have a measurement problem, and <a href="/insights/ga4-conversion-tracking/">getting GA4 conversion tracking right</a> is the prerequisite.</p>
 
-    <h2>2. Can you see contribution margin by channel?</h2>
-    <p>Revenue is not profit. An order with a heavy discount, expensive shipping, and a returned item can cost you money even at a "good" ROAS. If you can't see <strong>contribution margin</strong> — revenue minus the variable costs of fulfilling it — by channel, you're flying on a number that flatters you.</p>
+    <h2>2. Do you know what one order actually leaves you?</h2>
+    <p>Revenue is not margin and margin is not contribution. Take your average order value and subtract, honestly: cost of goods, payment gateway fees, shipping you absorb, packing and fulfilment, marketplace or platform commission where you sell through one, and the average discount actually redeemed rather than the one you intended. Then adjust for returns and cancellations, because a refunded order costs you the fulfilment and keeps none of the revenue.</p>
+    <p>What remains is contribution per order — the only number that can pay for acquisition. Most teams discover it is materially smaller than the gross margin they had been using, which immediately changes what a sale is worth paying for.</p>
 
-    <h2>3. Are you separating new customers from returning ones?</h2>
-    <p>Paid channels love to take credit for customers who would have bought anyway. If your blended ROAS looks healthy but new-customer acquisition is flat, your ads may be subsidising repeat buyers who'd have returned through email or direct. Look at <strong>new-customer ROAS</strong> separately — it's the number that tells you whether the channel is actually growing the business.</p>
+    <h2>3. What is your breakeven ROAS and your maximum CAC?</h2>
+    <p>Once you have contribution per order, the thresholds follow arithmetically. Breakeven ROAS is the return at which advertising exactly consumes the contribution it generates; maximum CAC is the most you can pay for a customer before the order loses money. Work both out explicitly and write them down, because they convert every future campaign argument from taste into comparison.</p>
+    <p>Worked through: if an order sells for 2,000 and contribution after all the costs above is 600, then advertising can spend up to 600 per order before the order breaks even — and the ROAS that corresponds to depends on your own numbers, not on anyone's benchmark. Our <a href="/tools/ad-spend-profitability-calculator/">ad spend profitability calculator</a> does this calculation with the full cost stack, including gateway and marketplace fees, discounting and return rate, so you get a breakeven ROAS and a maximum CAC you can actually hold campaigns to.</p>
 
-    <blockquote>If you only measure what's easy, you'll scale what's comfortable — not what's profitable.</blockquote>
+    <blockquote>Platform ROAS answers whether the platform did its job. Contribution answers whether you should keep paying it.</blockquote>
 
-    <h2>4. Do you have one source of truth for attribution?</h2>
-    <p>When the ad platform, your analytics tool, and your backend each report a different number, every meeting becomes an argument about whose number is right — and decisions stall. You don't need perfect attribution. You need <strong>one agreed source of truth</strong> that everyone trusts enough to act on, even if it's imperfect.</p>
+    <h2>4. Are you separating new customers from returning ones?</h2>
+    <p>Blended performance hides the thing you most need to see. If returning customers are counted in channel results, retargeting and branded search will always look excellent — they are being credited with revenue from people who already knew you. Split new-customer acquisition from repeat revenue and judge acquisition channels on the first only.</p>
+    <p>Repeat purchase is where lifetime value arguments enter, and where they most often go wrong. It is reasonable to pay more than first-order contribution for a customer who reliably buys again — but only if you can show the repeat rate from your own cohort data, and only if your cash position can fund the gap until it arrives. An LTV assumption borrowed from a case study is not a reason to overspend.</p>
 
-    <h2>5. Do you know your payback window?</h2>
-    <p>For anything with repeat purchases or subscriptions, a single transaction rarely pays back the acquisition cost. What matters is how long it takes a cohort of new customers to return what you spent acquiring them. If you don't know your <strong>payback window</strong>, you can't tell the difference between a campaign that's "losing money" and one that's investing in customers who'll be profitable in ninety days.</p>
+    <h2>5. Do you have one source of truth, and do you know its limits?</h2>
+    <p>Every platform claims credit under its own attribution settings, which is why summing platform-reported revenue routinely exceeds what the business actually took. Pick one source for decisions — usually your order system, segmented by channel as well as you can — and treat platform numbers as directional signals about delivery rather than as accounting.</p>
+    <p>Then hold the whole picture with a blended view: total marketing spend against total new-customer contribution, often tracked as MER. Blended cannot tell you which channel to cut, and channel-level cannot tell you whether the overall machine is profitable. You need both, and you need to know which question you are asking.</p>
+    <p>Be careful with incrementality. Channel reports measure attributed conversions, not caused ones, and some share of what retargeting and brand search report would have happened anyway. The honest way to find out is a holdout or a deliberate spend change observed over a full purchase cycle — not a dashboard comparison, and not a model you cannot audit.</p>
 
-    <h2>What "good" looks like</h2>
-    <p>A healthy paid setup isn't the one with the prettiest dashboard. It's the one where you can trace a rupee of spend to a rupee of margin, see new-customer economics clearly, and make a scaling decision without it being a gamble. When the foundation is right, scaling is just maths.</p>
-    <p>If two or more of these checks made you uncomfortable, that's normal — and it's fixable. It almost always lives in the foundation: the tracking, the events, the definitions. Fix that first, and the channel you were about to give up on often turns out to work fine.</p>`
+    <h2>6. Do you know your payback window?</h2>
+    <p>Profitable and affordable are different tests. A customer who repays acquisition cost over nine months may be a good investment and still break a business that needs the cash in two. Decide the payback period your cash flow can carry, measure against it, and treat it as a constraint on growth rate rather than a detail.</p>
+
+    <h2>Decision thresholds worth writing down</h2>
+    <p>Set these once, in advance, so decisions stop being arguments: the breakeven ROAS and maximum CAC per product or category, the acceptable payback window, the new-customer share you require before counting a channel as acquisition, and the tolerance within which platform numbers may differ from your backend before you investigate. Review monthly against closed-month data rather than reacting to a bad week.</p>
+
+    <h2>What good looks like</h2>
+    <p>One revenue event you have reconciled against orders. Contribution per order calculated with the full cost stack, including returns and discounting. Breakeven ROAS and maximum CAC written down per category. New-customer performance reported separately from repeat. A blended view alongside channel detail, with one agreed source of truth and a known tolerance. A payback window your cash flow can actually fund.</p>
+    <p>Get there and most spending decisions answer themselves. Building that layer is <a href="/services/growth-strategy-measurement/">growth strategy and measurement</a>, and running budgets against it afterwards is <a href="/services/performance-marketing/">performance marketing</a> — in that order, because scaling spend on numbers you cannot defend is how the gap at the top of this article opens in the first place.</p>`
   },
   {
     slug: "first-marketing-hire-startup",
@@ -1122,7 +1147,7 @@ export const insightArticles = [
                         "description": "Most GA4 conversion setups quietly report the wrong numbers, so every ad decision downstream is wrong. A practical checklist to get conversion tracking right before you scale spend.",
                         "image": "https://wearetilth.com/anuja.jpg",
                         "datePublished": "2026-06-17",
-                        "dateModified": "2026-06-17",
+                        "dateModified": "2026-11-06",
                         "inLanguage": "en-IN",
                         "url": "https://wearetilth.com/insights/ga4-conversion-tracking/",
                         "mainEntityOfPage": "https://wearetilth.com/insights/ga4-conversion-tracking/",
@@ -1160,31 +1185,49 @@ export const insightArticles = [
     bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has 10+ years of hands-on growth experience across 10+ industries — rebuilding tracking and scaling spend against numbers teams can actually trust. <a href="/about/">Read her story →</a>` },
     cta: { heading: `Not sure your tracking is telling the truth?`, body: `A Foundation Audit checks exactly this — your events, your conversions, and whether the number you're scaling on is real. No pitch attached.`,
       href: "/contact/", label: `Discuss your growth project` },
-    bodyHtml: `<p>GA4 confused almost everyone when it replaced Universal Analytics. The model changed from sessions to events, the labels moved, and a lot of accounts were migrated by clicking "accept defaults." The result: dashboards that look complete but count the wrong things. And because your ad platforms often import conversions <em>from</em> GA4, a quiet error here poisons every campaign decision you make.</p>
-    <p>Before you scale spend, walk this checklist.</p>
+    bodyHtml: `<p>Most GA4 properties are collecting data. Far fewer are collecting data anyone should make a budget decision on. The gap is rarely the install — it is what got marked as important, what fires twice, and what was never verified before paid media started optimising against it. Work through these in order.</p>
 
     <h2>1. Mark the right events as key events</h2>
-    <p>In GA4, a "conversion" is now a <strong>key event</strong> — an event you've explicitly flagged as important. Many accounts mark too many: page views, scrolls, "engaged sessions." When everything is a conversion, nothing is. Pick the one or two events that represent real business value (a purchase, a qualified lead) and mark only those.</p>
+    <p>In GA4 the events that matter to the business are called <strong>key events</strong> — an event that measures an action particularly important to your success. You mark them on the Key events page in Admin. Everything else stays an ordinary event, which is fine: ordinary events are still collected and still reportable.</p>
+    <p>Two practical cautions. First, be sparing. If twelve things are key events, nothing is, and every report becomes a negotiation about which number to believe. Second, renaming an event that is already marked as a key event removes its key-event status — changing only its parameters does not. That single behaviour explains a lot of conversions that silently vanished after a tagging tidy-up.</p>
 
-    <h2>2. Send the purchase event with value and currency</h2>
-    <p>A purchase event with no <code>value</code> and no <code>currency</code> tells you <em>that</em> someone bought, not <em>how much</em> they spent. Without value, you can't compute ROAS, and the ad platforms can't optimise toward revenue. Confirm your <strong>purchase event fires with the correct order value and currency (INR)</strong> on the real thank-you/confirmation step — not on a button click.</p>
+    <h2>2. Send the revenue event with value and currency</h2>
+    <p>A purchase that reports no value cannot support any decision about return. Send the ecommerce purchase event with <code>value</code>, <code>currency</code> and a stable <code>transaction_id</code>. The transaction ID is what lets you deduplicate later and reconcile against your backend, and it is the field most often left out.</p>
+    <p>For lead generation the equivalent discipline is deciding what a lead is worth before you start optimising toward it. A form fill with no value assigned is just a count, and counts cannot be compared across channels with different qualification rates.</p>
 
-    <h2>3. Stop counting soft actions as conversions</h2>
-    <p>"Add to cart," "begin checkout," form views, and newsletter signups are useful events — but they are not conversions, and they should not be the event your ads optimise toward. Reward a soft action and the algorithm will happily buy you cheap soft actions all day while revenue stays flat.</p>
+    <h2>3. Find the duplicate events before they find you</h2>
+    <p>Duplicates usually come from one of three places: the same tag deployed twice, once directly and once through a tag manager; a thank-you page that can be reloaded or revisited; or an event fired both on a button click and on the confirmation that follows. The symptom is a conversion count that exceeds your order count, which nobody notices while it flatters performance.</p>
+    <p>Check against the backend, not against another analytics tool. If GA4 says 180 purchases and your order system says 143, the question is which 37 are not real.</p>
 
-    <blockquote>The platform isn't lying to you. It's giving you exactly what you told it to value.</blockquote>
+    <h2>4. Prefer the confirmation event to the thank-you page</h2>
+    <p>Counting a thank-you page view as the conversion is convenient and fragile: the page can be bookmarked, refreshed, shared, or reached without ordering. An event fired at the point the order is actually created is harder to trigger accidentally. Where you have no choice but to rely on the page, at least carry the transaction ID so repeats can be identified and discarded.</p>
 
-    <h2>4. Connect GA4 to Google Ads — and import the right conversion</h2>
-    <p>Link GA4 and Google Ads, but be deliberate about what you import. A common mistake is importing several GA4 key events into Ads <em>and</em> running Google's own conversion tag, so the same purchase is counted twice. Decide on one source of truth for the purchase conversion and optimise toward that single, de-duplicated event.</p>
+    <h2>5. Know what enhanced measurement is doing for you</h2>
+    <p>Enhanced measurement collects a set of interactions with no code changes, and the detail matters when you start reporting on them. Page views are collected automatically and that collection cannot be switched off. The scroll event fires the first time 90% vertical depth becomes visible — it is not a general engagement measure. Outbound clicks do not fire for domains you have configured for cross-domain measurement, which is correct behaviour but surprises people. Site search looks for query parameters, defaulting to q, s, search, query and keyword, so a site using something else records nothing until it is added. Form interaction events are collected, but their parameters are only usable in reports once you create custom dimensions for them.</p>
+    <p>Google also states plainly that it is your responsibility to ensure no personally identifiable information is collected. Worth re-reading if your URLs carry email addresses or order details in query strings.</p>
 
-    <h2>5. Plan for the cookieless gaps</h2>
-    <p>Browser restrictions and consent banners mean client-side tags miss a meaningful share of conversions. For anything that matters, plan for <strong>server-side tracking</strong> (server-side GTM or the Measurement Protocol) so a purchase confirmed by your backend is still recorded even when the browser tag is blocked. You don't need this on day one, but you need a plan for it before you scale.</p>
+    <blockquote>If GA4 and your order system disagree, GA4 is not a second opinion. It is a hypothesis that failed a test.</blockquote>
 
-    <h2>6. Sanity-check GA4 against your backend</h2>
-    <p>The fastest way to catch a broken setup: take one day's orders from your actual backend (Shopify, your database, your payment gateway) and compare the count and total revenue to GA4 for the same day. If they're wildly different, your tracking is wrong — and you've just saved yourself from scaling on a fictional number.</p>
+    <h2>6. Fix cross-domain and referral noise before you trust sources</h2>
+    <p>If your journey crosses domains — a separate checkout, a booking engine, a payment page — configure cross-domain measurement, and note the hard requirement: every page must use the same G- measurement ID from the same web data stream. Without it a single visitor becomes two users and two sessions, and the channel that introduced them loses the sale. Analytics carries identity across with a <code>_gl</code> parameter, so verify it survives the hop; redirects that strip it, JavaScript-triggered navigation, and scripts calling <code>Event.stopPropagation()</code> are the usual culprits.</p>
+    <p>Separately, list unwanted referrals for domains that should not be credited as a traffic source — third-party payment processors being the standard case, where customers return from the gateway and the gateway appears to have sold your product. GA4 appends an <code>ignore_referrer</code> flag to matching events, and allows up to 50 such entries per data stream. One caveat worth knowing before you expect it to rewrite history: a session already referred by that domain can still be credited to it under last-non-direct-click attribution.</p>
 
-    <h2>What good looks like</h2>
-    <p>A trustworthy GA4 setup has a small number of meaningful key events, a purchase event with accurate value, one de-duplicated conversion feeding your ads, a plan for the cookieless gap, and numbers that roughly reconcile with your backend. Get those right and your ad spend decisions stop being guesses.</p>`
+    <h2>7. Verify in DebugView before you believe the reports</h2>
+    <p>DebugView shows the events and user properties Analytics is collecting in real time, which is the only honest way to confirm a tag does what you think. Enable debug mode with Tag Assistant for your own session, or set <code>debug_mode: true</code> in your configuration to see it for all users, then open DebugView under Data display in Admin. Note that setting the parameter to false does not switch debug mode off — you remove it.</p>
+    <p>One consent-related gotcha: where consent mode is in use and a visitor has not consented to Analytics cookies, their events will not appear in debug mode. An empty DebugView is not automatically a broken tag.</p>
+
+    <h2>8. Understand what consent does to your totals</h2>
+    <p>If you ask for analytics consent — and in many markets you must — a share of visitors will decline, and what you can observe about them changes. What happens next depends on how consent mode is implemented and whether the property qualifies for modelling, so this is worth establishing rather than assuming.</p>
+    <p>Under a basic implementation, tags are blocked until someone interacts with the banner and no data is sent for a visitor who declines — not even their consent state. Under an advanced implementation, tags load and send cookieless pings while consent is denied, and full measurement data only once consent is granted. Google documents that the advanced route is what enables modelling, and that blocking tags means you will not get modelled data filling the gaps.</p>
+    <p>Where a property is eligible, GA4 can include modelled users and modelled key events in supported reports — core reports and explorations with event-scoped dimensions — and the data-quality icon tells you when estimated data is included. Eligibility has real conditions: consent mode implemented across the whole site, meaningful volumes of both denied and granted traffic over a rolling period, and the Blended reporting identity selected before modelled data is shown at all. Meeting the published thresholds still does not guarantee it. Modelling is also not applied everywhere — audiences, retention, user-level explorations, predictive metrics and BigQuery export are outside it.</p>
+    <p>So treat consent state and modelling eligibility as part of reconciliation rather than assuming the shortfall equals your opt-out rate. Google publishes no figure for the size of that gap, and the honest position is that it depends on your implementation. Your order system remains the truth for revenue either way, and a period measured under different consent or modelling conditions is not directly comparable with this one.</p>
+
+    <h2>9. Import to Google Ads deliberately</h2>
+    <p>You can create a Google Ads conversion from a GA4 key event. Import one — the revenue event — and be aware that Google Ads conversions do not appear in standard GA4 reports, so the two interfaces are not meant to tie out line for line. Importing several overlapping events is how bidding ends up optimising toward the same customer counted three ways.</p>
+
+    <h2>What must be true before you scale paid media</h2>
+    <p>One revenue event, marked as a key event, carrying value, currency and a transaction ID. Count reconciled against the backend within a tolerance you have written down. Cross-domain configured and verified if the journey crosses domains. Payment processors excluded from referrals. The event confirmed firing once in DebugView. One conversion imported to Google Ads. If any of those is missing, extra budget buys noise at scale.</p>
+    <p>Getting a property to that state is the first half of <a href="/services/growth-strategy-measurement/">growth strategy and measurement</a>, and it is deliberately the work we do before touching <a href="/services/performance-marketing/">performance marketing</a> budgets. If you are chasing this because a channel stopped converting, <a href="/insights/meta-ads-not-converting/">the Meta-side version of the same audit</a> is the companion piece, and <a href="/insights/audit-your-ad-spend/">auditing whether that spend is profitable</a> is the step after both.</p>`
   },
   {
     slug: "google-ads-budget-india-startups",
@@ -2584,7 +2627,7 @@ export const insightArticles = [
                         "description": "Before you blame the creative or the audience, rule out tracking. A 7-point audit of your Meta Ads setup: pixel, Conversions API, events, and attribution.",
                         "image": "https://wearetilth.com/anuja.jpg",
                         "datePublished": "2026-06-17",
-                        "dateModified": "2026-06-17",
+                        "dateModified": "2026-11-06",
                         "inLanguage": "en-IN",
                         "url": "https://wearetilth.com/insights/meta-ads-not-converting/",
                         "mainEntityOfPage": "https://wearetilth.com/insights/meta-ads-not-converting/",
@@ -2622,30 +2665,42 @@ export const insightArticles = [
     bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of Tilth, a foundation-first marketing agency in Bengaluru. She has 10+ years of hands-on growth experience running paid ads across 10+ industries — and fixing the tracking that quietly breaks them. <a href="/about/">Read her story →</a>` },
     cta: { heading: `Want a second pair of eyes on your Meta setup?`, body: `The Foundation Audit checks your pixel, CAPI, events, and attribution — so you know whether it's the tracking or the ads before you spend another rupee. No pitch attached.`,
       href: "/contact/", label: `Discuss your growth project` },
-    bodyHtml: `<p>Meta's algorithm is only as good as the data you feed it. If purchases aren't being reported back accurately, the system can't find buyers — so it spends your budget on the wrong people, conversions dry up, and it looks like the ads "stopped working." Most of the time, it's a tracking problem wearing a creative problem's costume. Run this audit first.</p>
+    bodyHtml: `<p>Meta optimises against the conversions you report back to it. If those reports are incomplete, duplicated or pointed at the wrong action, the system cannot find buyers — so it spends the budget on the wrong people, results decay, and it looks like the ads stopped working. Most of the time that is a measurement problem wearing a creative problem's costume. Run the checks in this order.</p>
 
-    <h2>1. Is the Pixel firing the purchase event — with value?</h2>
-    <p>Use the Meta Pixel Helper or Events Manager to confirm a <strong>Purchase event fires on your confirmation page</strong>, with the correct <code>value</code> and <code>currency</code>. A purchase event with no value can't optimise toward revenue, and a pixel that fires on a button instead of the real confirmation will count abandoned checkouts as sales.</p>
+    <h2>1. Is the purchase event firing — with a value?</h2>
+    <p>Use Events Manager or the Pixel Helper to confirm a Purchase event fires on the real confirmation step, carrying <code>value</code> and <code>currency</code>. Meta documents both as required for Purchase, with currency as a three-letter ISO 4217 code, and requires <code>value</code> for any event used with value optimisation.</p>
+    <p>Two failures are common. A Purchase event sent without value and currency still records that a purchase happened — it simply cannot tell Meta, or your own reporting, what the order was worth. That weakens revenue reporting and takes value optimisation off the table, because every order looks identical in worth. Separately, an event wired to a button click rather than a completed order counts abandoned checkouts as sales, which inflates performance and teaches the system to find people who click buttons.</p>
 
-    <h2>2. Is the Conversions API (server-side) set up?</h2>
-    <p>Browser tracking alone now misses a large share of events to ad blockers, iOS, and consent rejections. <strong>The Conversions API (CAPI)</strong> sends events server-to-server, so Meta still sees the purchase your browser pixel missed. Without it, your reported conversions are systematically undercounted — and the algorithm is half-blind.</p>
+    <h2>2. Is the Conversions API running alongside the pixel?</h2>
+    <p>Browser-side collection is fragile for ordinary technical reasons. Meta's documentation points to events the pixel may lose to network connectivity issues or page loading errors, plus events that happen offline or later and that a browser tag was never going to capture at all. The Conversions API sends those server-to-server, and Meta recommends running it <em>alongside</em> the pixel rather than instead of it — a redundant setup — so the goal is both sources, deduplicated, not a choice between them.</p>
+    <p>One thing it is not: a way around someone's privacy choice. Server-side collection is still your collection, and it remains subject to whatever consent and data-use obligations apply to you — Meta documents data processing options such as Limited Data Use for exactly that reason, and expects the advertiser to get this right rather than treating the server path as unrestricted. Use the Conversions API to stop losing events you are entitled to measure, not to re-collect events from people who declined.</p>
 
-    <h2>3. Are pixel and CAPI events deduplicated?</h2>
-    <p>Run the pixel and CAPI together without a shared <code>event_id</code> and Meta double-counts every purchase — inflating ROAS until you trust a number that isn't real. Confirm <strong>event deduplication</strong> is working so each conversion is counted exactly once.</p>
+    <h2>3. Are the two sources actually deduplicated?</h2>
+    <p>This is where reported performance most often becomes fiction. Meta's recommended method matches on event identity: the pixel's <code>eventID</code> must equal the Conversions API's <code>event_id</code>, and the pixel's event name must equal the server <code>event_name</code>. Deduplication applies to events received within 48 hours of the first event carrying that ID, and where a server and browser event arrive within about five minutes of each other Meta favours the browser event.</p>
+    <p>There is a second method using <code>event_name</code> with <code>fbp</code> and/or <code>external_id</code>, but it is weaker by design: it generally only works browser-first, and a server event is not discarded if no matching browser event arrived in the previous 48 hours. If you are sending the same order through both paths, send a shared event ID. Events Manager reports a deduplication rate and warns when it is too low — check it rather than assuming.</p>
 
-    <blockquote>An algorithm optimising on bad data doesn't fail loudly. It just quietly spends your money on the wrong people.</blockquote>
+    <h2>4. Is your event match quality good enough to act on?</h2>
+    <p>Server events carry customer information parameters that let Meta match an event to an account, and Events Manager scores that as Event Match Quality on a 1 to 10 scale. Meta typically recommends aiming for 6.0 or higher. Sending the client IP address and user agent with every server event is specifically called out as helping matching; include the country even when every customer is in one country, and include a country code on phone numbers or they will not match.</p>
+    <p>Mind the hashing rules, because getting them backwards silently destroys matching: contact fields such as email, phone and name must be hashed, while IP address, user agent, <code>fbc</code> and <code>fbp</code> must not be. One more trap worth knowing — an <code>event_time</code> more than seven days old causes Meta to reject the entire request, so a backfill with stale timestamps can fail in full rather than in part.</p>
 
-    <h2>4. Have you verified your domain and prioritised events?</h2>
-    <p>Since Apple's privacy changes, Meta limits you to a set of prioritised events per <strong>verified domain</strong> (Aggregated Event Measurement). If your domain isn't verified or Purchase isn't ranked as a top event, conversion tracking and optimisation degrade for a big chunk of your audience.</p>
+    <blockquote>An algorithm optimising on bad data does not fail loudly. It quietly spends your money on the wrong people.</blockquote>
 
-    <h2>5. Are you optimising for the right event?</h2>
-    <p>If your campaign is set to optimise for "Add to Cart" or "Leads" because those fire more often and look better, Meta will buy you carts and leads — not customers. <strong>Optimise toward Purchase</strong> (or your true revenue event), even though the volume looks smaller. Smaller and real beats large and hollow.</p>
+    <h2>5. Is your domain verified and your event configuration deliberate?</h2>
+    <p>Aggregated Event Measurement is Meta's protocol for measuring web and app events from people on iOS 14 and later, with identifiers removed and data aggregated before it is used. Events sent through the Conversions API may also be processed within its limits, so this is not a browser-only concern. Practically: verify your domain, then open your web event configuration and look at which events are present and how they are prioritised rather than trusting whatever was set up when the pixel was installed. Meta publishes the current slot and priority rules in Events Manager for your own domain — read them there, because the limits have changed before and the number you remember may be out of date.</p>
 
-    <h2>6. Do your attribution windows match reality?</h2>
-    <p>Meta's default is a 7-day-click / 1-day-view window. If you compare that to a last-click model in GA4 or your backend, the numbers will never agree — and you'll "fix" campaigns that were fine. Decide on one source of truth, know which window you're reading, and compare like with like.</p>
+    <h2>6. Are you optimising for the right event?</h2>
+    <p>If a campaign optimises for Add to Cart or Lead because those fire more often and make the dashboard look healthier, Meta will buy carts and leads — not customers. Optimise toward the event that represents revenue, and accept the smaller, truer number. The exception is genuine volume starvation: if the revenue event fires too rarely for the system to learn from, fix the funnel or widen the offer rather than quietly optimising for a cheaper action and calling it growth.</p>
 
-    <h2>7. Only now, look at creative and audience</h2>
-    <p>Once tracking is verified — pixel and CAPI firing, deduplicated, optimising on Purchase, sane attribution — <em>then</em> a drop in conversions is a real signal worth chasing with new creative or audiences. Do it in that order and you'll stop rebuilding campaigns that were never broken.</p>`
+    <h2>7. Are you comparing like with like on attribution?</h2>
+    <p>Meta reports on the attribution setting applied to the campaign, which includes a view-through component that a last-click model in GA4 or your backend does not count at all. The numbers should not be expected to match exactly, and chasing the gap usually means rebuilding campaigns that were fine. Check the attribution setting on the campaign you are actually judging rather than assuming a default, pick one source as your decision-making truth, and compare periods on the same basis. If the whole picture is unclear, <a href="/insights/marketing-attribution-explained-simply/">attribution models explained simply</a> covers why the discrepancy is expected rather than broken.</p>
+
+    <h2>8. Is the landing page answering the ad?</h2>
+    <p>Measurement integrity tells you whether the data is real. It does not tell you whether the destination deserves the click. Check that the offer, price framing and proof on the page match the promise in the creative, that the page loads quickly on a mid-range phone, and that the next step is visible without scrolling or searching. A mismatch here looks exactly like a creative problem in the dashboard, because conversion rate falls while click-through holds.</p>
+    <p>Then look for leakage further down: a checkout that asks for an account, a form that fails validation silently, a shipping cost revealed late. These cost more conversions than most creative tests recover.</p>
+
+    <h2>9. Only now, test creative and audience</h2>
+    <p>Once the purchase event is correct and valued, the Conversions API is live and deduplicated, match quality is acceptable, you are optimising on revenue and reading attribution consistently, a drop in conversions is a real signal worth chasing. Test in that order and change one thing at a time — creative against creative, audience against audience — so the result is attributable to the change rather than to the week.</p>
+    <p>That order is the point. We run it as a diagnostic before touching campaigns in <a href="/services/paid-media/">paid media</a>, and when the measurement layer itself is the thing that needs rebuilding, as <a href="/services/growth-strategy-measurement/">growth strategy and measurement</a>. If you want to check the other half of the stack while you are here, <a href="/insights/ga4-conversion-tracking/">setting up GA4 conversion tracking properly</a> is the companion piece.</p>`
   },
   {
     slug: "questions-before-hiring-marketing-agency",

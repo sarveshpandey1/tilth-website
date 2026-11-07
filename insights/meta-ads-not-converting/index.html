@@ -78,7 +78,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
       "description": "Before you blame the creative or the audience, rule out tracking. A 7-point audit of your Meta Ads setup: pixel, Conversions API, events, and attribution.",
       "image": "https://wearetilth.com/anuja.jpg",
       "datePublished": "2026-06-17",
-      "dateModified": "2026-06-17",
+      "dateModified": "2026-11-06",
       "inLanguage": "en-IN",
       "url": "https://wearetilth.com/insights/meta-ads-not-converting/",
       "mainEntityOfPage": "https://wearetilth.com/insights/meta-ads-not-converting/",
@@ -185,30 +185,42 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
       </div>
     </header>
     <div data-prose>
-<p>Meta's algorithm is only as good as the data you feed it. If purchases aren't being reported back accurately, the system can't find buyers — so it spends your budget on the wrong people, conversions dry up, and it looks like the ads "stopped working." Most of the time, it's a tracking problem wearing a creative problem's costume. Run this audit first.</p>
+<p>Meta optimises against the conversions you report back to it. If those reports are incomplete, duplicated or pointed at the wrong action, the system cannot find buyers — so it spends the budget on the wrong people, results decay, and it looks like the ads stopped working. Most of the time that is a measurement problem wearing a creative problem's costume. Run the checks in this order.</p>
 
-    <h2>1. Is the Pixel firing the purchase event — with value?</h2>
-    <p>Use the Meta Pixel Helper or Events Manager to confirm a <strong>Purchase event fires on your confirmation page</strong>, with the correct <code>value</code> and <code>currency</code>. A purchase event with no value can't optimise toward revenue, and a pixel that fires on a button instead of the real confirmation will count abandoned checkouts as sales.</p>
+    <h2>1. Is the purchase event firing — with a value?</h2>
+    <p>Use Events Manager or the Pixel Helper to confirm a Purchase event fires on the real confirmation step, carrying <code>value</code> and <code>currency</code>. Meta documents both as required for Purchase, with currency as a three-letter ISO 4217 code, and requires <code>value</code> for any event used with value optimisation.</p>
+    <p>Two failures are common. A Purchase event sent without value and currency still records that a purchase happened — it simply cannot tell Meta, or your own reporting, what the order was worth. That weakens revenue reporting and takes value optimisation off the table, because every order looks identical in worth. Separately, an event wired to a button click rather than a completed order counts abandoned checkouts as sales, which inflates performance and teaches the system to find people who click buttons.</p>
 
-    <h2>2. Is the Conversions API (server-side) set up?</h2>
-    <p>Browser tracking alone now misses a large share of events to ad blockers, iOS, and consent rejections. <strong>The Conversions API (CAPI)</strong> sends events server-to-server, so Meta still sees the purchase your browser pixel missed. Without it, your reported conversions are systematically undercounted — and the algorithm is half-blind.</p>
+    <h2>2. Is the Conversions API running alongside the pixel?</h2>
+    <p>Browser-side collection is fragile for ordinary technical reasons. Meta's documentation points to events the pixel may lose to network connectivity issues or page loading errors, plus events that happen offline or later and that a browser tag was never going to capture at all. The Conversions API sends those server-to-server, and Meta recommends running it <em>alongside</em> the pixel rather than instead of it — a redundant setup — so the goal is both sources, deduplicated, not a choice between them.</p>
+    <p>One thing it is not: a way around someone's privacy choice. Server-side collection is still your collection, and it remains subject to whatever consent and data-use obligations apply to you — Meta documents data processing options such as Limited Data Use for exactly that reason, and expects the advertiser to get this right rather than treating the server path as unrestricted. Use the Conversions API to stop losing events you are entitled to measure, not to re-collect events from people who declined.</p>
 
-    <h2>3. Are pixel and CAPI events deduplicated?</h2>
-    <p>Run the pixel and CAPI together without a shared <code>event_id</code> and Meta double-counts every purchase — inflating ROAS until you trust a number that isn't real. Confirm <strong>event deduplication</strong> is working so each conversion is counted exactly once.</p>
+    <h2>3. Are the two sources actually deduplicated?</h2>
+    <p>This is where reported performance most often becomes fiction. Meta's recommended method matches on event identity: the pixel's <code>eventID</code> must equal the Conversions API's <code>event_id</code>, and the pixel's event name must equal the server <code>event_name</code>. Deduplication applies to events received within 48 hours of the first event carrying that ID, and where a server and browser event arrive within about five minutes of each other Meta favours the browser event.</p>
+    <p>There is a second method using <code>event_name</code> with <code>fbp</code> and/or <code>external_id</code>, but it is weaker by design: it generally only works browser-first, and a server event is not discarded if no matching browser event arrived in the previous 48 hours. If you are sending the same order through both paths, send a shared event ID. Events Manager reports a deduplication rate and warns when it is too low — check it rather than assuming.</p>
 
-    <blockquote>An algorithm optimising on bad data doesn't fail loudly. It just quietly spends your money on the wrong people.</blockquote>
+    <h2>4. Is your event match quality good enough to act on?</h2>
+    <p>Server events carry customer information parameters that let Meta match an event to an account, and Events Manager scores that as Event Match Quality on a 1 to 10 scale. Meta typically recommends aiming for 6.0 or higher. Sending the client IP address and user agent with every server event is specifically called out as helping matching; include the country even when every customer is in one country, and include a country code on phone numbers or they will not match.</p>
+    <p>Mind the hashing rules, because getting them backwards silently destroys matching: contact fields such as email, phone and name must be hashed, while IP address, user agent, <code>fbc</code> and <code>fbp</code> must not be. One more trap worth knowing — an <code>event_time</code> more than seven days old causes Meta to reject the entire request, so a backfill with stale timestamps can fail in full rather than in part.</p>
 
-    <h2>4. Have you verified your domain and prioritised events?</h2>
-    <p>Since Apple's privacy changes, Meta limits you to a set of prioritised events per <strong>verified domain</strong> (Aggregated Event Measurement). If your domain isn't verified or Purchase isn't ranked as a top event, conversion tracking and optimisation degrade for a big chunk of your audience.</p>
+    <blockquote>An algorithm optimising on bad data does not fail loudly. It quietly spends your money on the wrong people.</blockquote>
 
-    <h2>5. Are you optimising for the right event?</h2>
-    <p>If your campaign is set to optimise for "Add to Cart" or "Leads" because those fire more often and look better, Meta will buy you carts and leads — not customers. <strong>Optimise toward Purchase</strong> (or your true revenue event), even though the volume looks smaller. Smaller and real beats large and hollow.</p>
+    <h2>5. Is your domain verified and your event configuration deliberate?</h2>
+    <p>Aggregated Event Measurement is Meta's protocol for measuring web and app events from people on iOS 14 and later, with identifiers removed and data aggregated before it is used. Events sent through the Conversions API may also be processed within its limits, so this is not a browser-only concern. Practically: verify your domain, then open your web event configuration and look at which events are present and how they are prioritised rather than trusting whatever was set up when the pixel was installed. Meta publishes the current slot and priority rules in Events Manager for your own domain — read them there, because the limits have changed before and the number you remember may be out of date.</p>
 
-    <h2>6. Do your attribution windows match reality?</h2>
-    <p>Meta's default is a 7-day-click / 1-day-view window. If you compare that to a last-click model in GA4 or your backend, the numbers will never agree — and you'll "fix" campaigns that were fine. Decide on one source of truth, know which window you're reading, and compare like with like.</p>
+    <h2>6. Are you optimising for the right event?</h2>
+    <p>If a campaign optimises for Add to Cart or Lead because those fire more often and make the dashboard look healthier, Meta will buy carts and leads — not customers. Optimise toward the event that represents revenue, and accept the smaller, truer number. The exception is genuine volume starvation: if the revenue event fires too rarely for the system to learn from, fix the funnel or widen the offer rather than quietly optimising for a cheaper action and calling it growth.</p>
 
-    <h2>7. Only now, look at creative and audience</h2>
-    <p>Once tracking is verified — pixel and CAPI firing, deduplicated, optimising on Purchase, sane attribution — <em>then</em> a drop in conversions is a real signal worth chasing with new creative or audiences. Do it in that order and you'll stop rebuilding campaigns that were never broken.</p>
+    <h2>7. Are you comparing like with like on attribution?</h2>
+    <p>Meta reports on the attribution setting applied to the campaign, which includes a view-through component that a last-click model in GA4 or your backend does not count at all. The numbers should not be expected to match exactly, and chasing the gap usually means rebuilding campaigns that were fine. Check the attribution setting on the campaign you are actually judging rather than assuming a default, pick one source as your decision-making truth, and compare periods on the same basis. If the whole picture is unclear, <a href="/insights/marketing-attribution-explained-simply/">attribution models explained simply</a> covers why the discrepancy is expected rather than broken.</p>
+
+    <h2>8. Is the landing page answering the ad?</h2>
+    <p>Measurement integrity tells you whether the data is real. It does not tell you whether the destination deserves the click. Check that the offer, price framing and proof on the page match the promise in the creative, that the page loads quickly on a mid-range phone, and that the next step is visible without scrolling or searching. A mismatch here looks exactly like a creative problem in the dashboard, because conversion rate falls while click-through holds.</p>
+    <p>Then look for leakage further down: a checkout that asks for an account, a form that fails validation silently, a shipping cost revealed late. These cost more conversions than most creative tests recover.</p>
+
+    <h2>9. Only now, test creative and audience</h2>
+    <p>Once the purchase event is correct and valued, the Conversions API is live and deduplicated, match quality is acceptable, you are optimising on revenue and reading attribution consistently, a drop in conversions is a real signal worth chasing. Test in that order and change one thing at a time — creative against creative, audience against audience — so the result is attributable to the change rather than to the week.</p>
+    <p>That order is the point. We run it as a diagnostic before touching campaigns in <a href="/services/paid-media/">paid media</a>, and when the measurement layer itself is the thing that needs rebuilding, as <a href="/services/growth-strategy-measurement/">growth strategy and measurement</a>. If you want to check the other half of the stack while you are here, <a href="/insights/ga4-conversion-tracking/">setting up GA4 conversion tracking properly</a> is the companion piece.</p>
     </div>
     <div data-bio>
       <img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">
