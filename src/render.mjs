@@ -217,6 +217,13 @@ export function renderPage(p) {
   const ogTitle = p.ogTitle || p.title;
   const ogDesc = p.ogDescription || p.description;
   const schemas = jsonld(p.schema || []);
+  // Social preview image. A page may supply its own artwork; everything that
+  // does not keeps the generic site image, so non-Insight pages are unaffected.
+  // Relative paths are resolved against the site base, because og:image and
+  // twitter:image must be absolute URLs.
+  const absolute = u => (/^https?:\/\//i.test(u) ? u : site.base + u);
+  const ogImage = absolute(p.ogImage || "/og-image.png");
+  const twitterImage = absolute(p.twitterImage || p.ogImage || "/og-image.png");
   // Only the two faces the v3 type ramp actually uses are preloaded — preloading
   // a font no page renders would spend the same LCP budget these protect.
   const preloads = `<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
@@ -247,12 +254,12 @@ ${(p.hreflang || []).map(h => `<link rel="alternate" hreflang="${h.lang}" href="
 <meta property="og:title" content="${esc(ogTitle)}">
 <meta property="og:description" content="${esc(ogDesc)}">
 <meta property="og:url" content="${canonical}">
-<meta property="og:image" content="${site.base}/og-image.png">
+<meta property="og:image" content="${esc(ogImage)}">
 <meta property="og:locale" content="${p.ogLocale || "en_US"}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(ogTitle)}">
 <meta name="twitter:description" content="${esc(ogDesc)}">
-<meta name="twitter:image" content="${site.base}/og-image.png">
+<meta name="twitter:image" content="${esc(twitterImage)}">
 ${preloads}
 ${styles}
 ${p.headExtra || ""}
