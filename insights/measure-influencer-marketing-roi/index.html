@@ -78,7 +78,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
       "description": "A practical guide to measuring influencer marketing ROI: which metrics predict revenue, how to set up trackable links before you brief anyone, and a simple ROI formula.",
       "image": "https://wearetilth.com/assets/insight-cards/measure-influencer-marketing-roi.webp",
       "datePublished": "2026-05-23",
-      "dateModified": "2026-05-23",
+      "dateModified": "2026-11-08",
       "inLanguage": "en-IN",
       "url": "https://wearetilth.com/insights/measure-influencer-marketing-roi/",
       "mainEntityOfPage": "https://wearetilth.com/insights/measure-influencer-marketing-roi/",
@@ -90,7 +90,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
         "influencer campaign attribution",
         "influencer marketing India"
       ],
-      "wordCount": 1500,
+      "wordCount": 1100,
       "author": {
         "@type": "Person",
         "name": "Anuja",
@@ -123,7 +123,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
           "name": "What's a good ROI for influencer marketing in India?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A healthy performance-focused campaign typically returns 2-5x cost once tracking is accurate. Awareness campaigns should be judged separately by reach/CPM, not the same ROI formula."
+            "text": "There's no credible published benchmark, and the multiples that circulate aren't traceable to any survey worth citing — so we've removed ours. Judge a campaign against your own break-even: the contribution profit it returned versus what it cost. Awareness campaigns should be judged separately again, on reach and cost per thousand, not the same formula."
           }
         },
         {
@@ -147,7 +147,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
           "name": "What attribution model should I use?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Last-click alone tends to undercount influencer contribution. Combine assisted conversion data in GA4 with direct code and link attribution for a fuller picture."
+            "text": "Last-click alone tends to undercount influencer contribution, since the content often introduces someone who converts later through search or direct. Combine GA4's path and attribution reporting with code and link data, and add a post-purchase \"how did you hear about us?\" question — for this channel it often beats the analytics."
           }
         }
       ]
@@ -223,7 +223,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
       <nav data-crumb aria-label="Breadcrumb"><a href="/">Home</a> <span data-sep aria-hidden="true">/</span> <a href="/insights/">Insights</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">Influencer</span></nav>
       <div data-postmeta data-meta><span data-pm-sec>Influencer</span><span data-dot aria-hidden="true">·</span><span>7 min read</span><span data-dot aria-hidden="true">·</span><span>23 May 2026</span></div>
       <h1 data-ah1>How to measure influencer marketing ROI properly</h1>
-      <p data-standfirst>"It got a lot of engagement" is not an ROI number. Here's how to measure influencer marketing properly in 2026 — the metrics that actually predict revenue, the tracking setup that has to happen before you brief anyone, and a simple formula to calculate real return.</p>
+      <p data-standfirst>"It got a lot of engagement" is not an ROI number. Here's how to measure influencer marketing properly — the metrics that actually predict revenue, the tracking setup that has to happen before you brief anyone, and why attributed revenue still isn't the same as incremental revenue.</p>
       <div data-byline>
         <img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">
         <div data-who><span>Anuja Founder, Tilth · 10+ years in performance marketing</span></div>
@@ -246,26 +246,17 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
       <li><strong>Confirm GA4 conversion tracking is accurate</strong> before the campaign starts — attributing revenue correctly to an influencer link is worthless if the underlying <a href="/insights/ga4-conversion-tracking/">purchase tracking</a> itself isn't firing right.</li>
     </ul>
 
-    <h2>How to calculate influencer marketing ROI</h2>
-    <p>The formula itself is simple:</p>
-    <blockquote>ROI = (Revenue attributed to the influencer − total campaign cost) ÷ total campaign cost × 100</blockquote>
-    <p>Total campaign cost should include the influencer fee, any product sent, and management time if it's material. The revenue side is where the tracking setup above earns its keep — without unique links and codes, "revenue attributed to the influencer" is a guess, not a number.</p>
+    <h2>Count the whole cost, then use two numbers</h2>
+    <p>Campaign cost is rarely just the fee. Include the creator payment, product sent and not returned, any production or seeding cost, whitelisting or paid amplification behind the creator's handle, and management time if it's material. Amplification in particular gets logged as media spend elsewhere and quietly disappears from the influencer line.</p>
+    <p>Then run two calculations, because the first one flatters you:</p>
+    <blockquote>Revenue ROAS = attributed revenue ÷ campaign cost<br>Contribution return = attributed contribution profit ÷ campaign cost</blockquote>
+    <p>Contribution profit means revenue after cost of goods, shipping, payment fees, the discount the code itself gave away, and refunds or cancellations once the return window has closed. A 3x revenue ROAS on a discounted first order with a 20% return rate can be a loss. Where you can, separate <strong>new-customer revenue</strong> from repeat: a code redeemed by an existing customer who was buying anyway isn't acquisition, it's a discount you volunteered.</p>
 
-    <h2>Attribution models for influencer campaigns</h2>
-    <p>Last-click attribution alone tends to <strong>undercount</strong> influencer marketing, because influencer content frequently introduces a customer who researches and converts later through search or a direct visit — a different channel gets the credit in a pure last-click model. Two adjustments help: check GA4's assisted conversion reports to see where influencer-driven traffic contributed even without the final click, and treat discount code redemptions as their own attribution signal independent of link clicks, since they capture conversions the link-based model misses entirely.</p>
+    <h2>Attribution for influencer campaigns</h2>
+    <p>Last-click alone tends to <strong>undercount</strong> influencer work, because the content often introduces someone who converts days later through search or a direct visit. Use several signals together: GA4's path and attribution reporting, discount code redemptions as an independent signal, the platform's own referral data as a cross-check, and — most underrated for this channel — a <strong>post-purchase "how did you hear about us?" question</strong>. Self-reported answers are messy, but for a channel where much of the journey happens where no tag can follow, they frequently tell you more than the analytics do.</p>
 
-    <h2>Benchmarks: what's a good ROI for influencer marketing in India</h2>
-    <div data-tbl><table class="price-table">
-      <thead>
-        <tr><th>Campaign type</th><th>Typical ROI benchmark</th></tr>
-      </thead>
-      <tbody>
-        <tr><td data-th="Campaign type">Performance-focused (mid/micro influencers, codes + links)</td><td data-th="Typical ROI benchmark">2x – 5x campaign cost</td></tr>
-        <tr><td data-th="Campaign type">Mixed awareness + performance</td><td data-th="Typical ROI benchmark">1.5x – 3x, plus reusable content value</td></tr>
-        <tr><td data-th="Campaign type">Pure awareness (large reach, low direct tracking)</td><td data-th="Typical ROI benchmark">Judge separately by reach/CPM, not ROI</td></tr>
-      </tbody>
-    </table><p class="price-note">Indicative ranges — actual ROI varies significantly by category, influencer tier, and offer.</p></div>
-    <p>Awareness-heavy campaigns with limited direct tracking shouldn't be judged on the same ROI formula as performance-focused ones — that's comparing two different jobs. It's similar to the reason <a href="/insights/affiliate-program-not-converting/">affiliate programmes</a> need channel-appropriate metrics rather than one blanket standard.</p>
+    <h2>Attributed is not the same as incremental</h2>
+    <p>The limitation worth stating plainly: revenue attributed to a creator is not proof the creator caused it. A code redeemed by someone who'd already decided, a follower who would have found you anyway, a post that coincided with a sale — all of it lands in the attributed column. Attribution distributes credit among touchpoints it can see; it <a href="/insights/marketing-attribution-explained-simply/">can't establish what wouldn't have happened otherwise</a>. Treat the number as a directional read, be most sceptical of your best-performing creator, and accept that awareness-heavy campaigns can't be judged on the same formula at all — the same reason <a href="/insights/affiliate-program-not-converting/">affiliate programmes</a> need channel-appropriate metrics. Getting this architecture right is <a href="/services/growth-strategy-measurement/">measurement work</a>, and it's what makes <a href="/services/influencer-pr-events/">creator campaigns</a> reportable rather than anecdotal.</p>
 
     <h2>Common mistakes that skew ROI numbers</h2>
     <ul>
@@ -284,7 +275,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
         </div>
         <div data-faq-item>
           <h3><button type="button" data-faq-btn id="faq-b1" aria-controls="faq-p1" aria-expanded="false"><span>What's a good ROI for influencer marketing in India?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
-          <div data-faq-ans id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p>A healthy performance-focused campaign typically returns 2-5x cost once tracking is accurate. Awareness campaigns should be judged separately by reach/CPM, not the same ROI formula.</p></div></div>
+          <div data-faq-ans id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p>There's no credible published benchmark, and the multiples that circulate aren't traceable to any survey worth citing — so we've removed ours. Judge a campaign against your own break-even: the contribution profit it returned versus what it cost. Awareness campaigns should be judged separately again, on reach and cost per thousand, not the same formula.</p></div></div>
         </div>
         <div data-faq-item>
           <h3><button type="button" data-faq-btn id="faq-b2" aria-controls="faq-p2" aria-expanded="false"><span>Should I use reach and engagement to judge ROI?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
@@ -296,7 +287,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
         </div>
         <div data-faq-item>
           <h3><button type="button" data-faq-btn id="faq-b4" aria-controls="faq-p4" aria-expanded="false"><span>What attribution model should I use?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
-          <div data-faq-ans id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p>Last-click alone tends to undercount influencer contribution. Combine assisted conversion data in GA4 with direct code and link attribution for a fuller picture.</p></div></div>
+          <div data-faq-ans id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p>Last-click alone tends to undercount influencer contribution, since the content often introduces someone who converts later through search or direct. Combine GA4's path and attribution reporting with code and link data, and add a post-purchase "how did you hear about us?" question — for this channel it often beats the analytics.</p></div></div>
         </div>
       </section>
     <div data-bio>
