@@ -2066,16 +2066,16 @@ export const insightArticles = [
     readTime: "7 min read",
     date: "18 May 2026",
     h1: `Marketing attribution for small businesses, explained simply`,
-    standfirst: `"Attribution" sounds like a word built to confuse founders into hiring someone. It's actually a simple idea: which marketing touchpoint gets the credit when a customer interacted with several before buying? Here's what that means in plain English, why your platforms will never agree, and the one thing attribution can't tell you however good it gets.`,
+    standfirst: `"Attribution" sounds like a word built to confuse founders into hiring someone. It's actually a simple idea: which marketing touchpoint gets the credit when a customer interacted with several before buying? Here's what that means in plain English, why your platforms rarely match exactly, and the one thing attribution can't tell you however good it gets.`,
     bylineImg: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">`,
     bylineWho: `Anuja Founder, Tilth · 10+ years in performance marketing`,
     meta: {
       "title": "Marketing Attribution for Small Businesses, Explained Simply | Tilth",
-      "description": "What marketing attribution actually means, the models GA4 and Meta currently offer, why platform numbers never match, and why attribution can't prove incrementality.",
+      "description": "What marketing attribution actually means, the models GA4 and Meta currently offer, why platform numbers often differ, and why attribution can't prove incrementality.",
       "canonical": "https://wearetilth.com/insights/marketing-attribution-explained-simply/",
       "robots": "index, follow",
       "ogTitle": "Marketing attribution for small businesses, explained simply",
-      "ogDescription": "The models GA4 and Meta currently offer, why platform numbers never match, and why attribution can't prove incrementality.",
+      "ogDescription": "The models GA4 and Meta currently offer, why platform numbers often differ, and why attribution can't prove incrementality.",
       "ogType": "article",
       "ogImage": "https://wearetilth.com/assets/insight-cards/marketing-attribution-explained-simply.webp",
       "ogLocale": null,
@@ -2113,7 +2113,7 @@ export const insightArticles = [
                   {
                         "@type": "BlogPosting",
                         "headline": "Marketing attribution for small businesses, explained simply",
-                        "description": "What marketing attribution actually means, the models GA4 and Meta currently offer, why platform numbers never match, and why attribution cannot prove incrementality.",
+                        "description": "What marketing attribution actually means, the models GA4 and Meta currently offer, why platform numbers often differ, and why attribution cannot prove incrementality.",
                         "image": "https://wearetilth.com/assets/insight-cards/marketing-attribution-explained-simply.webp",
                         "datePublished": "2026-05-18",
                         "dateModified": "2026-11-08",
@@ -2128,7 +2128,7 @@ export const insightArticles = [
                               "last-click vs data-driven attribution",
                               "GA4 attribution"
                         ],
-                        "wordCount": 1250,
+                        "wordCount": 1540,
                         "author": {
                               "@type": "Person",
                               "name": "Anuja",
@@ -2158,10 +2158,10 @@ export const insightArticles = [
                               },
                               {
                                     "@type": "Question",
-                                    "name": "Which attribution models does GA4 offer?",
+                                    "name": "What attribution model does GA4 use by default?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Three: data-driven attribution, paid and organic last click, and Google paid channels last click. The model is chosen at report level. Google removed the first click, linear, time decay and position-based models from GA4 reporting in November 2023, so older guides describing those options in GA4 are out of date. Lookback windows default to 30 days for acquisition key events and 90 days for all other key events, and can be changed."
+                                          "text": "Data-driven attribution. Google's documentation says that for event-scoped dimensions Analytics uses the model you select, but defaults to data-driven; the other options are paid and organic last click and Google paid channels last click. Note that user-scoped and session-scoped dimensions always use paid and organic last click and are unaffected by that setting. Google removed the first click, linear, time decay and position-based models from GA4 reporting in November 2023, so older guides listing those are out of date. Lookback windows default to 30 days for acquisition key events and 90 days for all other key events, and can be changed."
                                     }
                               },
                               {
@@ -2197,8 +2197,8 @@ export const insightArticles = [
     faq: [
       { q: `What is marketing attribution in simple terms?`,
         a: `<p>The method used to decide which marketing touchpoint gets credit for a sale when a customer interacted with several before buying. The model you use changes which channels look like they're working.</p>` },
-      { q: `Which attribution models does GA4 offer?`,
-        a: `<p>Three: data-driven attribution, paid and organic last click, and Google paid channels last click — chosen at report level. Google removed the first-click, linear, time-decay and position-based models from GA4 reporting in November 2023, so older guides listing those are out of date.</p>` },
+      { q: `What attribution model does GA4 use by default?`,
+        a: `<p>Data-driven attribution. Google's documentation says that for event-scoped dimensions Analytics uses the model you select, but defaults to data-driven; the other options are paid and organic last click and Google paid channels last click. Note that user-scoped and session-scoped dimensions always use paid and organic last click and are unaffected by that setting. Google removed the first-click, linear, time-decay and position-based models from GA4 reporting in November 2023, so older guides listing those are out of date.</p>` },
       { q: `Is last-click attribution bad for small businesses?`,
         a: `<p>Not inherently, but it undercounts channels that introduce customers earlier, like content or influencer marketing, and overcredits channels that close the sale, like branded search or retargeting.</p>` },
       { q: `Do I need multi-touch attribution as a small business?`,
@@ -2223,7 +2223,9 @@ export const insightArticles = [
     <p>Rather than a fixed rule, it uses patterns in your own conversion data to estimate how much each touchpoint contributed. The most realistic of the common models, provided the data feeding it is accurate.</p>
     <h3>First-click, linear, time-decay, position-based</h3>
     <p>Worth knowing mainly so you don't go hunting for them: Google removed all four from GA4 reporting in November 2023. Plenty of guides still describe them as GA4 options. They aren't.</p>
-    <p>So GA4 offers three models — <strong>data-driven</strong>, <strong>paid and organic last click</strong>, and <strong>Google paid channels last click</strong> — chosen at report level, with lookback defaulting to 30 days for acquisition key events and 90 days for everything else. Meta works differently again: <strong>standard</strong>, <strong>incremental</strong> and <strong>custom</strong> models at ad set level, where standard counts clicks within 1 or 7 days, views within 1 day of an impression, and engagements within 1 day.</p>
+    <p>So GA4 offers three: <strong>data-driven attribution</strong>, <strong>paid and organic last click</strong>, and <strong>Google paid channels last click</strong>. <strong>Data-driven is the default</strong> — Google's documentation says that for event-scoped dimensions, Analytics uses the model you select but defaults to data-driven, and you can change that property setting. Lookback defaults to 30 days for acquisition key events and 90 days for everything else.</p>
+    <p>One wrinkle catches people out: that model only governs <strong>event-scoped</strong> traffic dimensions. User-scoped and session-scoped dimensions — "Session source", "First user medium" — always use paid and organic last click, and Google states they're unaffected by changes to the attribution model. So switching the property setting moves some of your numbers and leaves others exactly where they were. Not a bug, but a common source of "our own reports disagree with each other".</p>
+    <p>Meta works differently again: <strong>standard</strong>, <strong>incremental</strong> and <strong>custom</strong> models at ad set level, where standard counts clicks within 1 or 7 days, views within 1 day of an impression, and engagements within 1 day.</p>
 
     <blockquote>Attribution doesn't tell you the truth. It tells you a story, consistently, according to a rule. The question is whether that rule is honest about how your customers actually buy.</blockquote>
 
@@ -2240,10 +2242,12 @@ export const insightArticles = [
 
     <h2>Attribution can't prove incrementality</h2>
     <p>A channel receiving credit has not been shown to have caused anything. Branded search is the classic case: someone who already decided to buy searches your name, clicks the ad, converts, and the ad takes credit for a sale that was arriving anyway. Retargeting has the same problem in a different coat.</p>
-    <p>The platforms know this, which is why incrementality is now a separate product rather than a model setting — Meta's incremental attribution, in its own words, "uses machine learning models that predict whether a conversion is caused by an ad." The small-business version needs no machine learning: turn a channel off for a defined period and watch total orders, not that channel's reported conversions. Blunt, and it answers a question attribution structurally cannot.</p>
+    <p>The platforms know this, which is why incrementality is now a separate product rather than a model setting — Meta's incremental attribution, in its own words, "uses machine learning models that predict whether a conversion is caused by an ad."</p>
+    <p>Answering it properly means comparing against something. In rough order of how much you can trust the result: a platform's own incrementality or lift experiment, where one is available to you; a randomised holdout, where some comparable audience is deliberately kept unexposed; or a geographic holdout, where you pause a channel in some regions and keep it running in others, so the two move through the same season and the same news.</p>
+    <p>Most small businesses can't run any of those, so the fallback is a planned on/off test: turn a channel off for a defined period and watch total orders rather than that channel's reported conversions. Treat it as directional, not proof — a before-and-after comparison can't separate your change from seasonality, a promotion, a competitor's campaign, shifting demand, something else you altered at the same time, or just a different mix of weekdays. Use comparable periods, change one thing at a time, run it long enough to cover a normal cycle, and write down what else was going on. A pause that coincides with a sales dip hasn't shown causation; it's given you a reason to look harder.</p>
 
-    <h2>Why your platforms will never agree</h2>
-    <p>Google Ads, Meta and GA4 will report different numbers for the same week, and your accounts will differ from all three. That's expected. They use different models and windows; each counts conversions it was involved in, so the same sale gets claimed twice; Meta counts view-through and engage-through conversions GA4 wouldn't attribute the same way; and some data is modelled rather than observed — Google states plainly that it "uses modeling to estimate online key events that can't be observed directly," including for unconsented users under consent mode, and notes GA4 attribution data can keep updating for up to twelve days.</p>
+    <h2>Why platform numbers often differ</h2>
+    <p>Google Ads, Meta and GA4 will usually report different numbers for the same week, and your accounts can diverge materially from all three. Exact parity shouldn't be expected, and a gap is not by itself evidence of a fault. They use different models and windows; each counts conversions it was involved in, so the same sale gets claimed twice; Meta counts view-through and engage-through conversions GA4 wouldn't attribute the same way; and some data is modelled rather than observed — Google states plainly that it "uses modeling to estimate online key events that can't be observed directly," including for unconsented users under consent mode, and notes GA4 attribution data can keep updating for up to twelve days.</p>
     <p>Consent is the gap underneath all of it: where visitors decline tracking the sale still happens but the touchpoints aren't recorded, and the system either models the gap or drops it — Google notes that without enough traffic to model confidently, key events go unreported or land in "Direct". Pick a source of truth, expect the others to disagree, and be able to explain the gap rather than close it.</p>
 
     <h2>The prerequisite nobody mentions: tracking has to work first</h2>
