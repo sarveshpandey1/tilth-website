@@ -16,7 +16,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 (function(){var c='unset';try{c=localStorage.getItem('tilth-analytics-consent')||'unset';}catch(e){}
 window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();</script>
 <title>How to Set Up Conversion Tracking on Shopify (GA4 + Meta Pixel) | Tilth</title>
-<meta name="description" content="A step-by-step guide to setting up GA4 and Meta Pixel conversion tracking on Shopify in 2026, including Conversions API — so every ad rupee is measured correctly.">
+<meta name="description" content="A step-by-step guide to GA4, Meta pixel and Conversions API tracking on Shopify using the methods Shopify currently supports — plus how to verify every event before you scale ad spend.">
 <link rel="canonical" href="https://wearetilth.com/insights/shopify-conversion-tracking-ga4-meta-pixel/">
 
 <meta name="robots" content="index, follow">
@@ -29,13 +29,13 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
 <link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to set up conversion tracking on Shopify (GA4 + Meta Pixel)">
-<meta property="og:description" content="A step-by-step guide to GA4 and Meta Pixel conversion tracking on Shopify, including Conversions API — so every ad rupee is measured correctly.">
+<meta property="og:description" content="GA4, Meta pixel and Conversions API on Shopify using the methods Shopify currently supports — and how to verify every event before scaling spend.">
 <meta property="og:url" content="https://wearetilth.com/insights/shopify-conversion-tracking-ga4-meta-pixel/">
 <meta property="og:image" content="https://wearetilth.com/assets/insight-cards/shopify-conversion-tracking-ga4-meta-pixel.webp">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="How to set up conversion tracking on Shopify (GA4 + Meta Pixel)">
-<meta name="twitter:description" content="A step-by-step guide to GA4 and Meta Pixel conversion tracking on Shopify, including Conversions API — so every ad rupee is measured correctly.">
+<meta name="twitter:description" content="GA4, Meta pixel and Conversions API on Shopify using the methods Shopify currently supports — and how to verify every event before scaling spend.">
 <meta name="twitter:image" content="https://wearetilth.com/assets/insight-cards/shopify-conversion-tracking-ga4-meta-pixel.webp">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
@@ -75,10 +75,10 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
     {
       "@type": "BlogPosting",
       "headline": "How to set up conversion tracking on Shopify (GA4 + Meta Pixel)",
-      "description": "A step-by-step guide to setting up GA4 and Meta Pixel conversion tracking on Shopify, including Conversions API, so every ad rupee is measured correctly.",
+      "description": "A step-by-step guide to GA4, Meta pixel and Conversions API tracking on Shopify using the methods Shopify currently supports, plus how to verify every event before scaling ad spend.",
       "image": "https://wearetilth.com/assets/insight-cards/shopify-conversion-tracking-ga4-meta-pixel.webp",
       "datePublished": "2026-06-12",
-      "dateModified": "2026-06-12",
+      "dateModified": "2026-11-08",
       "inLanguage": "en-IN",
       "url": "https://wearetilth.com/insights/shopify-conversion-tracking-ga4-meta-pixel/",
       "mainEntityOfPage": "https://wearetilth.com/insights/shopify-conversion-tracking-ga4-meta-pixel/",
@@ -90,7 +90,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
         "Shopify Conversions API",
         "Shopify e-commerce tracking"
       ],
-      "wordCount": 1500,
+      "wordCount": 1700,
       "author": {
         "@type": "Person",
         "name": "Anuja",
@@ -115,15 +115,15 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
           "name": "Does Shopify have GA4 tracking built in?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Shopify's native Google & YouTube channel can push e-commerce events to GA4 without custom code, but it needs to be connected to the right GA4 property with enhanced e-commerce events turned on, or it under-reports purchases."
+            "text": "Not by default, but it's a setting rather than a build. Install the Google & YouTube sales channel and connect your GA4 property through it. Shopify says that once GA4 tags are set up, certain ecommerce events are tracked automatically — there's no separate \"enhanced ecommerce\" switch to hunt for. One catch: Shopify notes Google Analytics can't track events until private mode (password protection) is deactivated."
           }
         },
         {
           "@type": "Question",
-          "name": "Do I need Meta Conversions API if I already have the Pixel?",
+          "name": "Do I need Meta Conversions API if I already have the pixel?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Browser-side Pixel tracking alone misses events due to ad blockers and privacy settings. Conversions API sends the same events server-side, and Meta deduplicates the two, recovering conversions the Pixel alone would lose."
+            "text": "On Shopify it isn't a separate install. In the Facebook & Instagram channel you pick a customer data-sharing level, and Shopify's documentation says Enhanced uses the Conversions API as well as the Meta pixel, while Maximum adds Meta's latest advertising technology. Standard is pixel only. Meta recommends running the API alongside the pixel, not instead of it."
           }
         },
         {
@@ -131,7 +131,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
           "name": "Why is my GA4 purchase value different from my actual revenue?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Common causes are the purchase event firing on every reload of the order-status page, inconsistent tax/shipping inclusion, and currency mismatches. Each is checkable in GA4's DebugView."
+            "text": "Some difference is normal — GA4 and Shopify count differently, and GA4 depends on a tag firing in a browser. Large or growing gaps usually have a specific cause: a purchase event firing more than once, inconsistent tax/shipping, a currency mismatch, or duplicate tracking left in theme code. Each is checkable in DebugView."
           }
         },
         {
@@ -139,7 +139,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
           "name": "Do I need a developer to set this up?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The native GA4 and Meta Pixel integrations don't require code for a standard store, and Conversions API can usually be enabled through Shopify's built-in Meta integration. Developer help becomes worthwhile for custom or complex checkout flows."
+            "text": "Not for a standard store. Both sales channels are admin settings, and the Conversions API comes with the data-sharing level you choose. A developer becomes worthwhile when you need events the standard integrations don't send — a custom pixel in the Customer events section, or GTM loaded through one."
           }
         },
         {
@@ -147,7 +147,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
           "name": "How do I know if my Shopify tracking is actually working?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Place a real test order, then confirm it appears once in GA4 DebugView with the correct value, and once in Meta Events Manager with both Browser and Server sources and a high match rate."
+            "text": "Place one real test order. In GA4 DebugView, confirm exactly one purchase event with the right value, currency and transaction ID. In Meta Events Manager, confirm one Purchase event showing both Browser and Server sources rather than two events. Then reload the confirmation page and check it doesn't fire again."
           }
         }
       ]
@@ -223,88 +223,98 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
       <nav data-crumb aria-label="Breadcrumb"><a href="/">Home</a> <span data-sep aria-hidden="true">/</span> <a href="/insights/">Insights</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">Tracking</span></nav>
       <div data-postmeta data-meta><span data-pm-sec>Tracking</span><span data-dot aria-hidden="true">·</span><span>8 min read</span><span data-dot aria-hidden="true">·</span><span>12 Jun 2026</span></div>
       <h1 data-ah1>How to set up conversion tracking on Shopify (GA4 + Meta Pixel)</h1>
-      <p data-standfirst>Most Shopify stores have "tracking installed" and still can't trust the numbers. Here's a practical, step-by-step walkthrough of setting up GA4 and Meta Pixel — with Conversions API — on Shopify, so your ad spend decisions are built on data that's actually correct.</p>
+      <p data-standfirst>Most Shopify stores have "tracking installed" and still can't trust the numbers. Here's how GA4, the Meta pixel and the Conversions API are actually supposed to be set up on Shopify today — including the theme-code method that stopped working, and how to verify each step.</p>
       <div data-byline>
         <img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">
         <div data-who><span>Anuja Founder, Tilth · 10+ years in performance marketing</span></div>
       </div>
     </header>
     <div data-prose>
-<p>Almost every Shopify store we audit has GA4 and the Meta Pixel "installed." Almost none of them have it installed correctly. The apps report a green tick, events show up somewhere in a dashboard, and everyone assumes the numbers are right — until you compare GA4 revenue to Shopify's own reports and find a 20–30% gap. This guide walks through <strong>Shopify conversion tracking</strong> properly: GA4, Meta Pixel, and Conversions API, in the order that actually prevents the common failures.</p>
+<p>Almost every Shopify store we audit has GA4 and the Meta pixel "installed." Fewer have them installed the way Shopify currently supports. Apps report a green tick, events appear somewhere in a dashboard, and everyone assumes the numbers are right — until platform revenue and Shopify's own reports stop agreeing and nobody can say which one is wrong. This guide covers <strong>Shopify conversion tracking</strong> as it works today: GA4, the Meta pixel, the Conversions API, and the older method that no longer reaches checkout at all.</p>
 
-    <h2>Why Shopify's default tracking isn't enough</h2>
-    <p>Shopify ships with basic order tracking out of the box, but two things break the moment you start running paid ads. First, browser-side tracking alone — a GA4 tag or Meta Pixel firing in the customer's browser — misses events from ad blockers, Safari's Intelligent Tracking Prevention, and iOS privacy settings. Estimates for the miss rate vary, but it's rarely small. Second, Shopify's checkout runs on a separate, more locked-down domain than the rest of your store, which is exactly where a lot of DIY tracking setups quietly fail to fire at all.</p>
-    <p>Both problems are fixable, but only if you set things up in the right order and verify each step — which is what the rest of this guide covers.</p>
+    <h2>Four ways tracking gets onto a Shopify store</h2>
+    <p>Most confusion here comes from mixing these up, so separate them before touching anything:</p>
+    <ul>
+      <li><strong>Native sales channels</strong> — the Google &amp; YouTube and Facebook &amp; Instagram channels in your admin. Configuration, not code, and the right default for a standard store.</li>
+      <li><strong>App pixels and custom pixels</strong> — Shopify's pixel system, managed in the <strong>Customer events</strong> section. App pixels arrive with an app; custom pixels are added manually by a developer.</li>
+      <li><strong>Google Tag Manager</strong> — loaded through a custom pixel, subscribing to Shopify's customer events and pushing them into the data layer. Still runs inside the pixel sandbox.</li>
+      <li><strong>Server-side</strong> — Meta's Conversions API, which on Shopify comes with the data-sharing level you choose rather than a separate build.</li>
+    </ul>
+    <p>Shopify runs app and custom pixels in a sandbox: an isolated environment that can't render UI and can't scrape the DOM for things like email addresses or scroll depth. Worth knowing before someone promises you an event the sandbox can't produce.</p>
+
+    <h2>The theme-code method that stopped working</h2>
+    <p>If someone set your tracking up by pasting snippets into <code>theme.liquid</code> or into checkout customisations, there's a good chance it no longer reaches the part of the funnel that matters. Shopify has deprecated <code>checkout.liquid</code>; additional scripts and script tags on the Thank you and Order status pages were sunset for Shopify Plus stores on <strong>28 August 2025</strong>, and script tags on those pages are being sunset for non-Plus stores on <strong>26 August 2026</strong>. The supported replacement is apps, checkout UI extensions and web pixels.</p>
+    <p>The current architecture is better than what it replaced. Shopify's documentation states that pixels automatically load on the storefront, checkout, Thank you page and Order status page — exactly the coverage hand-pasted theme code could never reliably achieve. The fix for a legacy setup isn't more script; it's moving to the channels and the pixel manager.</p>
+
+    <blockquote>A pixel that fires on your homepage but not at checkout isn't broken. It's telling you nothing about whether ads convert, confidently.</blockquote>
 
     <h2>What you need before you start</h2>
     <ul>
-      <li>Admin access to your Shopify store (Online Store &gt; Preferences, and Settings &gt; Apps and sales channels)</li>
-      <li>A GA4 property and Measurement ID (GA4, not the old Universal Analytics)</li>
-      <li>A Meta Business Manager account with a Pixel created</li>
-      <li>Ten minutes and one real test order you're willing to place (and refund)</li>
+      <li>Admin access to your store (Sales channels, and the Customer events section)</li>
+      <li>A GA4 property and its tag ID</li>
+      <li>A Meta Business account with a pixel created</li>
+      <li>One real test order you're willing to place and refund</li>
     </ul>
 
     <h2>Setting up GA4 on Shopify</h2>
-    <h3>1. Connect via Shopify's native Google channel</h3>
-    <p>In Shopify admin, add the "Google & YouTube" sales channel and connect your GA4 property through it, rather than pasting a raw gtag.js snippet into theme code. The native integration is built to correctly fire enhanced e-commerce events (view_item, add_to_cart, begin_checkout, purchase) across the storefront and checkout, including the parts of checkout a manually pasted script often can't reach.</p>
-    <h3>2. Turn on enhanced e-commerce events</h3>
-    <p>Inside the Google & YouTube channel settings, confirm e-commerce events are enabled — this is what pushes product, cart, and purchase data into GA4 with revenue attached, not just generic pageviews.</p>
-    <h3>3. Verify in GA4 DebugView, not just Realtime</h3>
-    <p>Place a test order and watch GA4 DebugView (Admin &gt; DebugView, with a debug extension or the Shopify preview mode active). Confirm you see exactly one <code>purchase</code> event with the correct order value, currency, and transaction ID. This is the step almost everyone skips — and it's where <a href="/insights/ga4-conversion-tracking/">most GA4 tracking problems</a> actually show up.</p>
+    <h3>1. Connect through the Google &amp; YouTube channel</h3>
+    <p>Install the <strong>Google &amp; YouTube</strong> sales channel and connect your GA4 property through it rather than pasting a gtag snippet into theme code. You don't need a Google Merchant Center account to complete GA4 setup — Shopify says so explicitly, which saves a step people often think is mandatory.</p>
+    <h3>2. Don't go looking for an "enhanced ecommerce" switch</h3>
+    <p>This is where older guides send people in circles. Shopify's current documentation doesn't use that phrase and doesn't describe a toggle: once your GA4 tags are set up, certain ecommerce events are tracked automatically — product views, add-to-cart, purchase. What <em>will</em> silently block everything is private mode: Shopify notes that Google Analytics can't track events until password protection on your online store is deactivated.</p>
+    <h3>3. Verify in DebugView, not Realtime</h3>
+    <p>Place a test order and watch GA4's DebugView. Confirm exactly one <code>purchase</code> event, with the correct value, currency and transaction ID. This is the step almost everyone skips, and it's where <a href="/insights/ga4-conversion-tracking/">most GA4 tracking problems</a> actually surface.</p>
 
-    <h2>Setting up Meta Pixel + Conversions API on Shopify</h2>
-    <h3>1. Install via Shopify's Meta &amp; Instagram channel</h3>
-    <p>Add the Meta &amp; Instagram sales channel from the Shopify app store and connect your Pixel ID there. This installs the Pixel across the storefront and, critically, gives you the option to enable server-side tracking in the same flow.</p>
-    <h3>2. Turn on Conversions API</h3>
-    <p>In the same Meta channel settings, enable Conversions API (CAPI). This sends the same purchase, add-to-cart, and checkout events directly from Shopify's servers to Meta, bypassing the browser entirely. It's the single highest-impact step in this whole guide: CAPI recovers a meaningful share of the conversions that browser-only Pixel tracking loses to ad blockers and privacy settings.</p>
-    <h3>3. Check the deduplication match rate</h3>
-    <p>Once both are live, open Meta Events Manager and look at your Purchase event. You should see contributions from both "Browser" and "Server," with a high event match quality score and minimal duplicate counting. A low match rate usually means customer information (email, phone) isn't being passed consistently — worth revisiting in the channel settings.</p>
+    <h2>Setting up the Meta pixel and Conversions API</h2>
+    <h3>1. Install through the Facebook &amp; Instagram channel</h3>
+    <p>Add the <strong>Facebook &amp; Instagram</strong> sales channel (the app is listed as Facebook and Instagram by Meta) and connect your pixel there. If a pixel was previously added to theme code, Shopify is explicit that you must remove it first: leaving both means more than one pixel on the store, "which can result in duplicate or incorrect data in your reports."</p>
+    <h3>2. Choose a data-sharing level — this is where CAPI lives</h3>
+    <p>There's no separate "enable Conversions API" button. In the channel's data-sharing settings you choose <strong>Standard</strong>, <strong>Enhanced</strong> or <strong>Maximum</strong>. Shopify states that Standard collects browsing behaviour via the pixel; <strong>Enhanced</strong> uses the Conversions API as well as the pixel; <strong>Maximum</strong> uses the API, the pixel, and Meta's latest advertising technology. Enhanced and Maximum also send additional customer information such as name, location and email address — which is why the level you pick is a privacy decision, not just a performance setting.</p>
+    <h3>3. Understand what the server-side send does and doesn't do</h3>
+    <p>Meta describes the Conversions API as a connection from your server to the systems that optimise targeting and measure outcomes, and recommends implementing it <em>alongside</em> the pixel. That's the accurate framing. It is not a way around consent and it doesn't change what you're allowed to collect — Shopify's own pixel documentation is blunt that merchants remain responsible for consent requirements. In markets configured to require consent, typically the EEA and UK, Shopify states that web pixels run only when visitors have given the required permissions, and that new pixels require Marketing and Analytics permissions by default.</p>
 
-    <h2>The checkout tracking trap</h2>
-    <p>If you're on Shopify Plus, you have access to checkout.liquid or checkout extensibility, which lets you add custom scripts inside checkout itself. On standard Shopify plans, you cannot edit checkout pages directly — which is exactly why the native Google and Meta sales channel integrations matter so much. They're built to inject tracking into Shopify-hosted checkout in a way that a manually pasted script in your theme simply cannot reach. If an agency or freelancer set up your tracking by editing theme.liquid alone, there's a good chance checkout-stage events are missing entirely.</p>
+    <h2>Deduplication: the part that's genuinely specific</h2>
+    <p>Running the pixel and the Conversions API together means the same purchase can be reported twice, so Meta's deduplication rules matter. Meta documents two methods. The recommended one matches on event ID and name: the pixel's <code>eventID</code> must match the API's <code>event_id</code>, and the pixel's <code>event</code> must match <code>event_name</code>. The alternative uses <code>event_name</code> with <code>fbp</code> and/or <code>external_id</code> consistently across browser and server — and Meta notes that generally only works when the browser event arrives first. There's a window too: Meta discards subsequent duplicates received within <strong>48 hours</strong> of the first event with a given ID, and where events don't differ meaningfully it prefers whichever arrived first. For a Shopify store the practical test is simple — one Purchase event showing both Browser and Server as sources is healthy; two separate Purchase events are not.</p>
 
-    <blockquote>A Pixel that fires on your homepage but not at checkout isn't broken — it's telling you exactly nothing about whether ads convert.</blockquote>
-
-    <h2>How to verify everything is actually working</h2>
+    <h2>How to verify everything</h2>
     <ol>
-      <li>Place one real test order end to end, using a discount code for ₹1 if you don't want to refund a full order.</li>
-      <li>Confirm a single <code>purchase</code> event fires in GA4 DebugView with the correct value and transaction ID (not zero, not duplicated).</li>
-      <li>Confirm a single Purchase event fires in Meta Events Manager with both Browser and Server sources present.</li>
-      <li>Compare GA4 revenue to Shopify's own analytics for the same order — they should match to the rupee.</li>
-      <li>Refresh the order confirmation page manually and check the purchase event does <em>not</em> fire again (a very common source of inflated numbers).</li>
+      <li>Place one real test order end to end — a near-zero discount code is fine if you'd rather not refund a full order.</li>
+      <li>Confirm a single <code>purchase</code> event in GA4 DebugView with the correct value, currency and transaction ID — not zero, not twice.</li>
+      <li>Confirm a single Purchase event in Meta Events Manager with both Browser and Server sources present.</li>
+      <li>Compare GA4 revenue against Shopify's own reports for that order. They should be close; don't expect them to match exactly, because the two count differently and GA4 depends on a browser executing a tag.</li>
+      <li>Reload the order confirmation page and confirm the purchase event does <em>not</em> fire again.</li>
     </ol>
 
-    <h2>Common mistakes that break Shopify tracking</h2>
+    <h2>The failures we see most often</h2>
     <ul>
-      <li><strong>Two Pixels firing at once</strong> — a leftover manual Pixel snippet in theme code plus the native app integration, causing doubled events.</li>
-      <li><strong>Purchase firing on refresh</strong> — the order-status page re-fires the event every time it reloads, inflating both platforms' conversion counts.</li>
-      <li><strong>Currency mismatch</strong> — GA4 property currency set differently from the store's checkout currency, silently skewing reported revenue.</li>
-      <li><strong>CAPI enabled with no customer data passed</strong> — Conversions API with a poor match rate barely outperforms the Pixel alone, because Meta can't match the server event to a real person.</li>
-      <li><strong>Trusting the dashboard tick, not the DebugView</strong> — an app showing "connected" only confirms the tag loaded, not that events fire correctly at every step.</li>
+      <li><strong>Two pixels firing</strong> — a leftover theme snippet plus the native channel, doubling events. Shopify warns about this directly.</li>
+      <li><strong>Purchase firing on reload</strong> — the confirmation page re-fires on every load, inflating both platforms.</li>
+      <li><strong>Currency mismatch</strong> — GA4 property currency set differently from the store's checkout currency, skewing reported revenue quietly.</li>
+      <li><strong>Legacy checkout scripts</strong> — tracking that was added through methods Shopify has since sunset, now missing the checkout stage entirely.</li>
+      <li><strong>Trusting the dashboard tick</strong> — "connected" confirms a tag loaded, not that the right event fired once with the right value.</li>
     </ul>
-    <p>Once tracking is verified end to end, it's worth doing the same sanity check on your live campaigns — a quick <a href="/insights/audit-your-ad-spend/">ad spend self-audit</a> will tell you if the numbers you're now trusting actually line up with profit.</p>
+    <p>None of this is exotic, but it's the layer most <a href="/industries/d2c-ecommerce/">D2C and ecommerce brands</a> scale spend on top of without ever verifying. Once tracking is confirmed end to end, run the same sanity check on the campaigns themselves with a quick <a href="/insights/audit-your-ad-spend/">ad spend self-audit</a> — and if the store's measurement needs rebuilding rather than patching, that's <a href="/services/growth-strategy-measurement/">tracking and measurement architecture</a> work, not an app install.</p>
     </div>
       <section data-afaq aria-labelledby="faq-h">
         <h2 id="faq-h">Shopify conversion tracking — FAQs</h2>
         <div data-faq-item>
           <h3><button type="button" data-faq-btn id="faq-b0" aria-controls="faq-p0" aria-expanded="true"><span>Does Shopify have GA4 tracking built in?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
-          <div data-faq-ans id="faq-p0" role="region" aria-labelledby="faq-b0"><div><p>Shopify's native Google &amp; YouTube channel can push e-commerce events to GA4 without custom code, but it needs to be connected to the right GA4 property with enhanced e-commerce events turned on, or it under-reports purchases.</p></div></div>
+          <div data-faq-ans id="faq-p0" role="region" aria-labelledby="faq-b0"><div><p>Not by default, but it's a setting rather than a build. Install the Google &amp; YouTube sales channel and connect your GA4 property through it. Shopify says that once GA4 tags are set up, certain ecommerce events are tracked automatically — there's no separate "enhanced ecommerce" switch to hunt for. One catch: Shopify notes Google Analytics can't track events until private mode (password protection) is deactivated.</p></div></div>
         </div>
         <div data-faq-item>
-          <h3><button type="button" data-faq-btn id="faq-b1" aria-controls="faq-p1" aria-expanded="false"><span>Do I need Meta Conversions API if I already have the Pixel?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
-          <div data-faq-ans id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p>Yes. Browser-side Pixel tracking alone misses events due to ad blockers and privacy settings. Conversions API sends the same events server-side, and Meta deduplicates the two, recovering conversions the Pixel alone would lose.</p></div></div>
+          <h3><button type="button" data-faq-btn id="faq-b1" aria-controls="faq-p1" aria-expanded="false"><span>Do I need Meta Conversions API if I already have the pixel?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p>On Shopify it isn't a separate install. In the Facebook &amp; Instagram channel you pick a customer data-sharing level, and Shopify's documentation says <strong>Enhanced</strong> uses the Conversions API as well as the Meta pixel, while <strong>Maximum</strong> adds Meta's latest advertising technology. Standard is pixel only. Meta recommends running the API alongside the pixel, not instead of it.</p></div></div>
         </div>
         <div data-faq-item>
           <h3><button type="button" data-faq-btn id="faq-b2" aria-controls="faq-p2" aria-expanded="false"><span>Why is my GA4 purchase value different from my actual revenue?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
-          <div data-faq-ans id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p>Common causes are the purchase event firing on every reload of the order-status page, inconsistent tax/shipping inclusion, and currency mismatches. Each is checkable in GA4's DebugView.</p></div></div>
+          <div data-faq-ans id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p>Some difference is normal — GA4 and Shopify count differently, and GA4 depends on a tag firing in a browser. Large or growing gaps usually have a specific cause: a purchase event firing more than once, inconsistent tax/shipping, a currency mismatch, or duplicate tracking left in theme code. Each is checkable in DebugView.</p></div></div>
         </div>
         <div data-faq-item>
           <h3><button type="button" data-faq-btn id="faq-b3" aria-controls="faq-p3" aria-expanded="false"><span>Do I need a developer to set this up?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
-          <div data-faq-ans id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p>The native GA4 and Meta Pixel integrations don't require code for a standard store, and Conversions API can usually be enabled through Shopify's built-in Meta integration. Developer help becomes worthwhile for custom or complex checkout flows.</p></div></div>
+          <div data-faq-ans id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p>Not for a standard store. Both sales channels are admin settings, and the Conversions API comes with the data-sharing level you choose. A developer becomes worthwhile when you need events the standard integrations don't send — a custom pixel in the Customer events section, or GTM loaded through one.</p></div></div>
         </div>
         <div data-faq-item>
           <h3><button type="button" data-faq-btn id="faq-b4" aria-controls="faq-p4" aria-expanded="false"><span>How do I know if my Shopify tracking is actually working?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
-          <div data-faq-ans id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p>Place a real test order, then confirm it appears once in GA4 DebugView with the correct value, and once in Meta Events Manager with both Browser and Server sources and a high match rate.</p></div></div>
+          <div data-faq-ans id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p>Place one real test order. In GA4 DebugView, confirm exactly one purchase event with the right value, currency and transaction ID. In Meta Events Manager, confirm one Purchase event showing both Browser and Server sources rather than two events. Then reload the confirmation page and check it doesn't fire again.</p></div></div>
         </div>
       </section>
     <div data-bio>
@@ -314,7 +324,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
     <aside data-acta aria-labelledby="acta-h">
       <div data-eyebrow>Next step</div>
       <h2 id="acta-h">Get your Shopify tracking checked properly</h2>
-      <p>A Foundation Audit verifies GA4, Meta Pixel, and Conversions API end to end on your live store — so you know exactly what's measured correctly before you scale spend.</p>
+      <p>A Foundation Audit verifies GA4, the Meta pixel and the Conversions API end to end on your live store — so you know exactly what's measured correctly before you scale spend.</p>
       <a data-btn href="/contact/"><span>Discuss your growth project</span> <span aria-hidden="true">&rarr;</span></a>
     </aside>
   </div>
