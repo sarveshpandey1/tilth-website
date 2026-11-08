@@ -16,7 +16,7 @@ if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('
 (function(){var c='unset';try{c=localStorage.getItem('tilth-analytics-consent')||'unset';}catch(e){}
 window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();</script>
 <title>Marketing Attribution for Small Businesses, Explained Simply | Tilth</title>
-<meta name="description" content="What marketing attribution actually means, the common models explained without jargon, a worked example, and which model a small business should actually use.">
+<meta name="description" content="What marketing attribution actually means, the models GA4 and Meta currently offer, why platform numbers never match, and why attribution can't prove incrementality.">
 <link rel="canonical" href="https://wearetilth.com/insights/marketing-attribution-explained-simply/">
 
 <meta name="robots" content="index, follow">
@@ -29,13 +29,13 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
 <link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Marketing attribution for small businesses, explained simply">
-<meta property="og:description" content="The common attribution models explained without jargon, a worked example, and which model a small business should actually use.">
+<meta property="og:description" content="The models GA4 and Meta currently offer, why platform numbers never match, and why attribution can't prove incrementality.">
 <meta property="og:url" content="https://wearetilth.com/insights/marketing-attribution-explained-simply/">
 <meta property="og:image" content="https://wearetilth.com/assets/insight-cards/marketing-attribution-explained-simply.webp">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Marketing attribution for small businesses, explained simply">
-<meta name="twitter:description" content="The common attribution models explained without jargon, a worked example, and which model a small business should actually use.">
+<meta name="twitter:description" content="The models GA4 and Meta currently offer, why platform numbers never match, and why attribution can't prove incrementality.">
 <meta name="twitter:image" content="https://wearetilth.com/assets/insight-cards/marketing-attribution-explained-simply.webp">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
@@ -75,10 +75,10 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
     {
       "@type": "BlogPosting",
       "headline": "Marketing attribution for small businesses, explained simply",
-      "description": "What marketing attribution actually means, the common models explained without jargon, a worked example, and which model a small business should actually use.",
+      "description": "What marketing attribution actually means, the models GA4 and Meta currently offer, why platform numbers never match, and why attribution cannot prove incrementality.",
       "image": "https://wearetilth.com/assets/insight-cards/marketing-attribution-explained-simply.webp",
       "datePublished": "2026-05-18",
-      "dateModified": "2026-05-18",
+      "dateModified": "2026-11-08",
       "inLanguage": "en-IN",
       "url": "https://wearetilth.com/insights/marketing-attribution-explained-simply/",
       "mainEntityOfPage": "https://wearetilth.com/insights/marketing-attribution-explained-simply/",
@@ -90,7 +90,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
         "last-click vs data-driven attribution",
         "GA4 attribution"
       ],
-      "wordCount": 1450,
+      "wordCount": 1250,
       "author": {
         "@type": "Person",
         "name": "Anuja",
@@ -120,10 +120,10 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
         },
         {
           "@type": "Question",
-          "name": "What attribution model does GA4 use by default?",
+          "name": "Which attribution models does GA4 offer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Data-driven attribution, which distributes credit across multiple touchpoints based on patterns in your actual conversion data rather than crediting only the first or last interaction."
+            "text": "Three: data-driven attribution, paid and organic last click, and Google paid channels last click — chosen at report level. Google removed the first-click, linear, time-decay and position-based models from GA4 reporting in November 2023, so older guides listing those are out of date."
           }
         },
         {
@@ -139,7 +139,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
           "name": "Do I need multi-touch attribution as a small business?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Not a complex custom model — GA4's built-in data-driven attribution already accounts for multiple touchpoints. Getting basic tracking accurate first matters more than the model choice."
+            "text": "Not a complex custom model — GA4's data-driven attribution already accounts for multiple touchpoints. Getting basic tracking accurate matters more than the model choice. And it's worth knowing what no model can do: distributing credit among touchpoints isn't the same as proving the sale wouldn't have happened anyway."
           }
         },
         {
@@ -223,7 +223,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
       <nav data-crumb aria-label="Breadcrumb"><a href="/">Home</a> <span data-sep aria-hidden="true">/</span> <a href="/insights/">Insights</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">Attribution</span></nav>
       <div data-postmeta data-meta><span data-pm-sec>Attribution</span><span data-dot aria-hidden="true">·</span><span>7 min read</span><span data-dot aria-hidden="true">·</span><span>18 May 2026</span></div>
       <h1 data-ah1>Marketing attribution for small businesses, explained simply</h1>
-      <p data-standfirst>"Attribution" sounds like a word built to confuse founders into hiring someone. It's actually a simple idea: which marketing touchpoint gets the credit when a customer interacted with several before buying? Here's what that means in plain English, and which model actually makes sense for a small business.</p>
+      <p data-standfirst>"Attribution" sounds like a word built to confuse founders into hiring someone. It's actually a simple idea: which marketing touchpoint gets the credit when a customer interacted with several before buying? Here's what that means in plain English, why your platforms will never agree, and the one thing attribution can't tell you however good it gets.</p>
       <div data-byline>
         <img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">
         <div data-who><span>Anuja Founder, Tilth · 10+ years in performance marketing</span></div>
@@ -235,29 +235,40 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
     <h2>What "attribution" actually means, in plain English</h2>
     <p>Attribution answers one question: when a sale happens after several marketing touches, how much credit does each one get? It's not a measurement of reality so much as a rule you apply to messy reality, because there's no perfect way to know exactly how much each touchpoint mattered to the customer's decision. Different rules — different attribution models — will hand credit to different channels for the exact same sequence of events.</p>
 
-    <h2>Why attribution matters for a small business specifically</h2>
-    <p>Budget decisions get made based on which channels "look like" they're working. If your attribution model quietly overcredits one channel and undercredits another, you can end up cutting a channel that was actually contributing, and doubling down on one that was just getting lucky with the last click. For a small business with a tight budget, that misallocation costs more relatively than it does for a company that can afford to run every channel regardless.</p>
+    <p>It matters because budget decisions get made on which channels "look like" they're working. If the model quietly overcredits one and undercredits another, you cut a channel that was contributing and double down on one that got lucky with the last click.</p>
 
-    <h2>The common attribution models, explained without jargon</h2>
-    <h3>Last-click attribution</h3>
-    <p>100% of the credit goes to whatever the customer clicked right before buying. Simple to understand, but it systematically favours channels that close a sale — like branded search or retargeting — over channels that introduced the customer earlier, like a blog post or an influencer mention.</p>
-    <h3>First-click attribution</h3>
-    <p>100% of the credit goes to the very first touchpoint that brought the customer into your world. Useful for understanding what generates awareness, but it ignores everything that happened between discovery and the actual purchase.</p>
-    <h3>Linear / multi-touch attribution</h3>
-    <p>Credit is split evenly across every touchpoint in the journey. Fairer in principle than picking one winner, but it treats a passing glance at an ad the same as a deliberate return visit, which isn't quite right either.</p>
-    <h3>Data-driven attribution</h3>
-    <p>This is what GA4 uses by default. Instead of a fixed rule, it looks at patterns across your actual conversion data to estimate how much each touchpoint really contributed, based on what tends to precede a sale versus what doesn't. It's the most realistic of the common models, provided the underlying data feeding it is accurate.</p>
+    <h2>The models, and which ones still exist</h2>
+    <h3>Last-click</h3>
+    <p>All the credit goes to whatever the customer clicked right before buying. Simple, but it systematically favours channels that close a sale — branded search, retargeting — over the blog post or influencer mention that started things.</p>
+    <h3>Data-driven</h3>
+    <p>Rather than a fixed rule, it uses patterns in your own conversion data to estimate how much each touchpoint contributed. The most realistic of the common models, provided the data feeding it is accurate.</p>
+    <h3>First-click, linear, time-decay, position-based</h3>
+    <p>Worth knowing mainly so you don't go hunting for them: Google removed all four from GA4 reporting in November 2023. Plenty of guides still describe them as GA4 options. They aren't.</p>
+    <p>So GA4 offers three models — <strong>data-driven</strong>, <strong>paid and organic last click</strong>, and <strong>Google paid channels last click</strong> — chosen at report level, with lookback defaulting to 30 days for acquisition key events and 90 days for everything else. Meta works differently again: <strong>standard</strong>, <strong>incremental</strong> and <strong>custom</strong> models at ad set level, where standard counts clicks within 1 or 7 days, views within 1 day of an impression, and engagements within 1 day.</p>
 
     <blockquote>Attribution doesn't tell you the truth. It tells you a story, consistently, according to a rule. The question is whether that rule is honest about how your customers actually buy.</blockquote>
 
     <h2>A simple example: one customer, three touchpoints</h2>
-    <p>A customer sees an Instagram ad on Monday, searches your brand name and visits your site on Wednesday without buying, then clicks a Google remarketing ad on Friday and purchases. Under last-click, Google remarketing gets 100% of the credit. Under first-click, Instagram gets 100%. Under data-driven attribution, credit is split across all three based on how similar journeys tend to convert — probably giving Instagram meaningful credit for starting things, even though it never got the final click.</p>
+    <p>A customer sees an Instagram ad on Monday, searches your brand name and visits on Wednesday without buying, then clicks a Google remarketing ad on Friday and purchases. Under last-click, Google remarketing takes all the credit. Under data-driven, it's split across all three based on how similar journeys tend to convert — probably giving Instagram real credit for starting things, even though it never got the final click.</p>
 
-    <h2>Which model should a small business actually use?</h2>
-    <p>For most small businesses, GA4's default data-driven attribution is a sensible starting point — it's built in, requires no extra setup, and avoids the most obvious distortions of pure last-click or first-click. The bigger lever isn't picking a fancier model; it's making sure every channel's events are <a href="/insights/ga4-conversion-tracking/">tracked correctly</a> in the first place. A sophisticated attribution model applied to incomplete data is still wrong — just wrong in a more convincing way.</p>
+    <h2>Three things people call "attribution" that aren't the same</h2>
+    <p>Most confused measurement conversations are these three used interchangeably.</p>
+    <ul>
+      <li><strong>The attribution model</strong> — a rule for splitting credit among touchpoints a system can see. An accounting convention, not a discovery.</li>
+      <li><strong>The source of truth</strong> — the one system you agree to decide from. Usually the one closest to money, your orders or CRM, with platforms as directional inputs rather than rivals.</li>
+      <li><strong>Incrementality</strong> — whether the sale would have happened anyway. No attribution model answers this, because all of them start from conversions that already happened.</li>
+    </ul>
+
+    <h2>Attribution can't prove incrementality</h2>
+    <p>A channel receiving credit has not been shown to have caused anything. Branded search is the classic case: someone who already decided to buy searches your name, clicks the ad, converts, and the ad takes credit for a sale that was arriving anyway. Retargeting has the same problem in a different coat.</p>
+    <p>The platforms know this, which is why incrementality is now a separate product rather than a model setting — Meta's incremental attribution, in its own words, "uses machine learning models that predict whether a conversion is caused by an ad." The small-business version needs no machine learning: turn a channel off for a defined period and watch total orders, not that channel's reported conversions. Blunt, and it answers a question attribution structurally cannot.</p>
+
+    <h2>Why your platforms will never agree</h2>
+    <p>Google Ads, Meta and GA4 will report different numbers for the same week, and your accounts will differ from all three. That's expected. They use different models and windows; each counts conversions it was involved in, so the same sale gets claimed twice; Meta counts view-through and engage-through conversions GA4 wouldn't attribute the same way; and some data is modelled rather than observed — Google states plainly that it "uses modeling to estimate online key events that can't be observed directly," including for unconsented users under consent mode, and notes GA4 attribution data can keep updating for up to twelve days.</p>
+    <p>Consent is the gap underneath all of it: where visitors decline tracking the sale still happens but the touchpoints aren't recorded, and the system either models the gap or drops it — Google notes that without enough traffic to model confidently, key events go unreported or land in "Direct". Pick a source of truth, expect the others to disagree, and be able to explain the gap rather than close it.</p>
 
     <h2>The prerequisite nobody mentions: tracking has to work first</h2>
-    <p>Attribution can only distribute credit among the touchpoints it actually sees. If your Meta Pixel is missing events, or your GA4 purchase tracking undercounts, no attribution model — however sophisticated — can correct for data that was never captured. This is why every attribution conversation eventually leads back to the same starting point as a basic <a href="/insights/audit-your-ad-spend/">ad spend audit</a>: confirm what's actually being measured before debating how credit should be split.</p>
+    <p>Attribution can only distribute credit among touchpoints it sees. If your Meta pixel is missing events or GA4 undercounts purchases, no model corrects for data that was never captured — it just produces a more convincing wrong answer. Confirm what's measured before debating how credit is split: that's <a href="/insights/ga4-conversion-tracking/">GA4 conversion tracking</a> and a basic <a href="/insights/audit-your-ad-spend/">ad spend audit</a>, and it's why <a href="/services/growth-strategy-measurement/">measurement</a> is architecture rather than a dashboard.</p>
     </div>
       <section data-afaq aria-labelledby="faq-h">
         <h2 id="faq-h">Marketing attribution — FAQs</h2>
@@ -266,8 +277,8 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
           <div data-faq-ans id="faq-p0" role="region" aria-labelledby="faq-b0"><div><p>The method used to decide which marketing touchpoint gets credit for a sale when a customer interacted with several before buying. The model you use changes which channels look like they're working.</p></div></div>
         </div>
         <div data-faq-item>
-          <h3><button type="button" data-faq-btn id="faq-b1" aria-controls="faq-p1" aria-expanded="false"><span>What attribution model does GA4 use by default?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
-          <div data-faq-ans id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p>Data-driven attribution, which distributes credit across multiple touchpoints based on patterns in your actual conversion data rather than crediting only the first or last interaction.</p></div></div>
+          <h3><button type="button" data-faq-btn id="faq-b1" aria-controls="faq-p1" aria-expanded="false"><span>Which attribution models does GA4 offer?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p>Three: data-driven attribution, paid and organic last click, and Google paid channels last click — chosen at report level. Google removed the first-click, linear, time-decay and position-based models from GA4 reporting in November 2023, so older guides listing those are out of date.</p></div></div>
         </div>
         <div data-faq-item>
           <h3><button type="button" data-faq-btn id="faq-b2" aria-controls="faq-p2" aria-expanded="false"><span>Is last-click attribution bad for small businesses?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
@@ -275,7 +286,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
         </div>
         <div data-faq-item>
           <h3><button type="button" data-faq-btn id="faq-b3" aria-controls="faq-p3" aria-expanded="false"><span>Do I need multi-touch attribution as a small business?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
-          <div data-faq-ans id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p>Not a complex custom model — GA4's built-in data-driven attribution already accounts for multiple touchpoints. Getting basic tracking accurate first matters more than the model choice.</p></div></div>
+          <div data-faq-ans id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p>Not a complex custom model — GA4's data-driven attribution already accounts for multiple touchpoints. Getting basic tracking accurate matters more than the model choice. And it's worth knowing what no model can do: distributing credit among touchpoints isn't the same as proving the sale wouldn't have happened anyway.</p></div></div>
         </div>
         <div data-faq-item>
           <h3><button type="button" data-faq-btn id="faq-b4" aria-controls="faq-p4" aria-expanded="false"><span>Why does my attribution data look wrong?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
