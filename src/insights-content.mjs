@@ -3638,7 +3638,7 @@ export const insightArticles = [
                               "performance marketing explained",
                               "digital marketing vs performance marketing"
                         ],
-                        "wordCount": 1150,
+                        "wordCount": 1280,
                         "author": {
                               "@type": "Person",
                               "name": "Anuja",
@@ -3671,7 +3671,7 @@ export const insightArticles = [
                                     "name": "Is performance marketing the same as digital marketing?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "No. Digital marketing is the broader umbrella covering everything done through digital channels — SEO, social media, email, content, and performance marketing itself. Performance marketing is a subset defined specifically by being trackable and paid based on measurable outcomes."
+                                          "text": "No. Digital marketing is the broader umbrella covering everything done through digital channels: SEO, social media, email, content, and performance marketing itself. Performance marketing is the part of it managed against measurable business outcomes, where spend and optimisation decisions answer to tracked performance. That is a question of how the work is run rather than how the media is priced, so CPC and CPM buys both qualify when they are managed that way."
                                     }
                               },
                               {
@@ -3695,7 +3695,7 @@ export const insightArticles = [
                                     "name": "Why is tracking so important for performance marketing specifically?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Because performance marketing's entire premise is paying based on results, broken tracking doesn't just distort your reporting — it breaks the mechanism the whole approach depends on. A performance campaign running on inaccurate conversion data is optimising toward numbers that don't reflect reality."
+                                          "text": "Because the whole approach rests on decisions answering to measured outcomes. If the measurement is wrong, broken tracking does not just distort your reporting, it breaks the mechanism the approach depends on. A performance campaign running on inaccurate conversion data is optimising toward numbers that do not reflect reality."
                                     }
                               }
                         ]
@@ -3708,13 +3708,13 @@ export const insightArticles = [
       { q: `What is performance marketing in simple terms?`,
         a: `<p>Marketing managed against measurable business outcomes, where spend and optimisation decisions are tied to tracked performance. Note that it's about how the work is <em>managed</em>, not how the media is priced — most paid search and paid social is bought per click or per thousand impressions, and it's still performance marketing.</p>` },
       { q: `Is performance marketing the same as digital marketing?`,
-        a: `<p>No. Digital marketing is the broader umbrella covering SEO, social, email, content, and performance marketing itself. Performance marketing is a subset defined by being trackable and paid based on measurable outcomes.</p>` },
+        a: `<p>No. Digital marketing is the broader umbrella covering SEO, social, email, content, and performance marketing itself. Performance marketing is the part of it managed against measurable business outcomes, where spend and optimisation decisions answer to tracked performance. That's a question of how the work is run, not how the media is priced — CPC and CPM buys both qualify when they're managed that way.</p>` },
       { q: `What counts as performance marketing?`,
         a: `<p>Paid search, paid social, affiliates and some creator or partner programmes — plus the work that makes them pay back: landing-page and conversion-rate optimisation, and the measurement and analytics underneath. The last two are often left off the list, which is why so many programmes optimise a number nobody has verified.</p>` },
       { q: `Does SEO count as performance marketing?`,
         a: `<p>It sits awkwardly. You don't buy organic placement, so it's usually treated separately — but SEO managed against leads and revenue, with the same measurement discipline, has more in common with performance marketing than with brand work. The useful question isn't which label applies; it's whether anyone is accountable for the outcome.</p>` },
       { q: `Why is tracking so important for performance marketing?`,
-        a: `<p>Because its entire premise is paying based on results, broken tracking breaks the mechanism the whole approach depends on — a campaign optimising on inaccurate data is chasing numbers that don't reflect reality.</p>` },
+        a: `<p>Because the whole approach rests on decisions answering to measured outcomes. If the measurement is wrong, the mechanism is broken at the root — a campaign optimising on inaccurate data is chasing numbers that don't reflect reality, confidently.</p>` },
     ],
     bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
     cta: { heading: `Make sure your performance marketing is measuring the truth`, body: `A Foundation Audit checks whether your tracking is accurate enough to trust the "performance" in performance marketing — before you scale spend on numbers that might be wrong.`,
@@ -3726,6 +3726,8 @@ export const insightArticles = [
     <p>You'll often see a narrower version — "marketing where you only pay when a result happens". Tidy, and wrong: almost all paid search and paid social is bought per click or per thousand impressions, so you pay whether or not anyone converts. Affiliate deals do pay per outcome, but that's one model inside the discipline, not its definition. <strong>The payment model doesn't make something performance marketing; the management model does.</strong> A CPM campaign with a revenue target, verified tracking and a decision rule qualifies; a cost-per-lead deal nobody reviews doesn't.</p>
 
     <h2>Digital marketing vs performance marketing</h2>
+    <p>Worth saying once: the term is used inconsistently across the industry. The older definition ties payment directly to an action — you pay when a sale or lead happens. The broader modern usage, which is the one we use throughout this guide, includes paid media bought on CPC or CPM when it's managed and optimised against measurable business outcomes. Neither is wrong; they're just different scopes, and most arguments about what "counts" are really two people using different definitions.</p>
+
     <p><strong>Digital marketing</strong> is the umbrella for everything done through digital channels: SEO, social, email, content, PR, and performance marketing itself. <strong>Performance marketing</strong> is the slice managed against outcomes with measurement attached. Every performance marketing activity is digital marketing; plenty of digital marketing isn't performance marketing.</p>
 
     <h2>What it covers</h2>
@@ -3753,7 +3755,7 @@ export const insightArticles = [
     <p><strong>Measurement quality sets the ceiling.</strong> Everything here rests on tracked outcomes, so if the tracking is wrong the whole thing is confidently wrong. <a href="/services/growth-strategy-measurement/">Measurement</a> isn't a support function here; it's load-bearing.</p>
 
     <h2>Brand and performance aren't opponents</h2>
-    <p>Brand marketing, organic social and PR don't fit this definition — you're investing in awareness that compounds rather than converting one-to-one. A <em>different kind</em> of investment with a different horizon, not a lesser one, and the two feed each other: brand demand makes performance channels cheaper, which then shows up as improving performance metrics. Expecting attributable ROI from every rupee of brand work mostly guarantees it looks like it's failing.</p>
+    <p>Brand marketing, organic social and PR don't fit this definition — you're investing in awareness that compounds rather than converting one-to-one. A <em>different kind</em> of investment with a different horizon, not a lesser one, and the two feed each other: stronger brand demand can make performance channels convert more efficiently, which then shows up in the performance metrics. Expecting attributable ROI from every rupee of brand work mostly guarantees it looks like it's failing.</p>
 
     <blockquote>Performance marketing answers "did this specific spend produce this specific result?" Brand marketing answers a slower, harder question: "does more of the world trust us than it did last year?" Both matter. Only one fits neatly into a spreadsheet.</blockquote>
 
