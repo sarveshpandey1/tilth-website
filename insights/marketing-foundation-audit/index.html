@@ -78,7 +78,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
       "description": "A marketing foundation audit reviews the tracking, attribution, targeting, channels, and partnerships under your spend before you scale. Here is exactly what a marketing audit checks.",
       "image": "https://wearetilth.com/assets/insight-cards/marketing-foundation-audit.webp",
       "datePublished": "2026-06-22",
-      "dateModified": "2026-06-22",
+      "dateModified": "2026-11-08",
       "inLanguage": "en-IN",
       "url": "https://wearetilth.com/insights/marketing-foundation-audit/",
       "mainEntityOfPage": "https://wearetilth.com/insights/marketing-foundation-audit/",
@@ -90,7 +90,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
         "marketing audit checklist",
         "what does a marketing audit check"
       ],
-      "wordCount": 1500,
+      "wordCount": 1040,
       "author": {
         "@type": "Person",
         "name": "Anuja",
@@ -131,7 +131,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
           "name": "How long does a marketing audit take?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A focused foundation audit usually takes a few working days once you've shared access to your analytics, ad accounts, and tracking setup. You get a short, honest read on what's broken and what to fix first — not a report nobody acts on."
+            "text": "Typically one to two weeks depending on scope, once you've shared read access to your analytics, ad accounts and tracking setup. You get a short, honest read on what's broken and what to fix first — not a report nobody acts on."
           }
         },
         {
@@ -233,29 +233,29 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
 <p>Ask ten brands what's in their marketing audit and you'll get ten answers — a creative review here, an SEO crawl there, a slide on competitor positioning. Useful, but all of it sits on top of one assumption: that the data underneath is true. A <strong>marketing foundation audit</strong> tests that assumption first. Before anyone debates a headline or a bid, it asks a blunter question — <em>can you actually trust the numbers you're about to spend against?</em></p>
     <p>This is the audit we run at Tilth, and it's deliberately unglamorous. It checks the plumbing. Below is what a real marketing foundation audit reviews, in the order that matters.</p>
 
-    <h2>1. Tracking — is your data even true?</h2>
-    <p>Everything downstream depends on this. The audit confirms that your conversion tracking actually fires, on the right pages, for the right actions. That means checking your <a href="/insights/ga4-conversion-tracking/">GA4 conversion tracking</a>, your Meta pixel and Conversions API, deduplication between them, and whether "purchase" events carry real value and currency. If tracking is wrong, every report after it is fiction — and scaling spend just buys you more of the wrong data.</p>
+    <h2>1. Measurement — is the data even true?</h2>
+    <p>Everything downstream depends on this. The audit confirms conversions actually fire, on the right pages, for the right actions: <a href="/insights/ga4-conversion-tracking/">GA4 events</a>, the Meta pixel and Conversions API, server-side where it applies, and deduplication between browser and server. Then the unglamorous checks — is a "conversion" defined as the thing you actually sell, do purchase events carry real value and currency, and does platform-reported revenue reconcile against your backend? If tracking is wrong, every report after it is fiction.</p>
 
-    <h2>2. Attribution — can you tell which channel earns the money?</h2>
-    <p>Most brands can't say, with confidence, which channels are actually profitable. A foundation audit reviews how credit is assigned across the customer journey — last-click, first-touch, assisted conversions — and where your reporting is over- or under-crediting a channel. The goal isn't a perfect model; it's making sure you're not cutting a channel that introduces customers or scaling one that only ever closes what others started.</p>
+    <h2>2. Economics — can you afford the customers you're buying?</h2>
+    <p>Measurement tells you what happened; economics tells you whether it was worth it. The audit works out real CAC, contribution margin after returns and discounts, what LTV assumptions are actually evidenced rather than hoped for, repeat-purchase behaviour, and the break-even ROAS or MER that follows. Plenty of accounts are tracked perfectly and still unprofitable, because nobody calculated what a customer could cost. Our <a href="/tools/ltv-cac-calculator/">LTV:CAC calculator</a> covers the arithmetic if you want to sanity-check it yourself first.</p>
 
-    <h2>3. Targeting — are you reaching buyers, or just people?</h2>
-    <p>Cheap reach is easy. Reaching the people who actually buy is the hard part. The audit examines who your campaigns are really being shown to, how audiences are built, and whether your targeting is anchored to revenue intent or just to volume and low cost-per-click. Broad, cheap traffic that never converts is one of the most common — and most expensive — foundation cracks.</p>
+    <h2>3. Acquisition — is each channel earning its budget?</h2>
+    <p>Channel by channel — paid ads, <a href="/insights/affiliate-program-not-converting/">affiliates</a>, SEO, influencer — the audit looks at campaign structure, what each campaign is optimising toward (an optimisation event pointed at the wrong action is a common and expensive fault), audience and query quality, creative testing cadence, and whether the landing page answers what the ad promised. The point isn't to add channels. It's to find the ones quietly draining budget while looking busy.</p>
 
     <blockquote>You can't optimise what you can't see. Most "underperforming" marketing isn't a creative problem — it's a measurement problem wearing a creative costume.</blockquote>
 
-    <h2>4. Channels — is each one earning its budget?</h2>
-    <p>A foundation audit goes channel by channel — paid ads, <a href="/insights/affiliate-program-not-converting/">affiliates</a>, SEO, influencer, PR, branding — and asks the same question of each: <em>is this where the money goes, and does it come back?</em> The point isn't to add channels. It's to find the ones quietly draining budget while looking busy, and the ones working that deserve more.</p>
+    <h2>4. Attribution — and what it can't tell you</h2>
+    <p>The audit establishes which system is your source of truth, how platform numbers compare against the backend, and where modelled or consent-limited data is filling gaps. It also sets the limits honestly: attribution distributes credit among touchpoints it can see, which is <a href="/insights/marketing-attribution-explained-simply/">not the same as proving incrementality</a>. Knowing which of your reported wins are probably incremental and which were arriving anyway changes where the next rupee goes.</p>
 
     <h2>5. Partnerships — paid for results, or paid for reach?</h2>
-    <p>Affiliate and influencer partnerships are where attribution gaps turn into real money lost. The audit checks how partners are vetted and paid: are payouts tied to verified revenue, or to clicks and follower counts? Are affiliates getting credit for sales they didn't cause? A channel that looks active but is paying for reach instead of results is a foundation problem, not a performance one.</p>
+    <p>Affiliate and influencer partnerships are where attribution gaps turn into real money lost. The audit checks partner quality, how incentives are designed, whether payouts reward activation or just signups, and whether anything in the traffic looks invalid. Are partners being credited for sales they didn't cause? That's a foundation problem, not a performance one.</p>
 
-    <h2>6. Positioning — is the offer clear before the spend?</h2>
-    <p>Finally, the audit looks at whether the message and positioning are locked before media money flows. Even perfect tracking can't save spend behind an offer the market doesn't understand. This is the cheapest thing to fix and the most expensive thing to ignore.</p>
+    <h2>6. Operating system — who decides, and on what?</h2>
+    <p>The most-skipped area, and the one that decides whether anything sticks. Who owns each number, how often is it reviewed, what's on the test backlog, what decision rules exist for scaling or killing something, and is any of it written down? A brand with mediocre tracking and a real operating rhythm usually beats one with perfect tracking and no owner.</p>
 
-    <h2>What you get at the end of a marketing foundation audit</h2>
-    <p>A good audit doesn't end in a 60-page deck. It ends in a short, honest answer to three questions: what's broken, what it's costing you, and what to fix first. That priority order is the whole point — fix the foundation, and every rupee you spend afterward can finally be measured. Skip it, and you're scaling on guesswork.</p>
-    <p>That's the order we work in, every time. If you'd like to see it applied to your own setup, the next step is simple.</p>
+    <h2>What the output should look like</h2>
+    <p>A good audit doesn't end in a 60-page deck. It ends in a list you can act on: <strong>each issue verified rather than suspected</strong>, with a severity, an honest note on the financial or decision impact, a named owner for the fix, and a sequence — because several of these depend on each other and doing them in the wrong order wastes the work. It should also say plainly <strong>what not to scale yet</strong>, which is usually the most valuable line in the document.</p>
+    <p>What it shouldn't contain is a promised outcome. An audit tells you what's true and what to fix first; it can't guarantee what happens next. Fixing the foundation is what makes the spend after it measurable — and keeping that layer honest as you scale is the substance of <a href="/services/growth-strategy-measurement/">growth strategy and measurement</a> work.</p>
     </div>
       <section data-afaq aria-labelledby="faq-h">
         <h2 id="faq-h">Marketing foundation audit — FAQs</h2>
@@ -269,7 +269,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
         </div>
         <div data-faq-item>
           <h3><button type="button" data-faq-btn id="faq-b2" aria-controls="faq-p2" aria-expanded="false"><span>How long does a marketing audit take?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
-          <div data-faq-ans id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p>A focused foundation audit usually takes a few working days once you've shared access to your analytics, ad accounts, and tracking setup. You get a short, honest read on what's broken and what to fix first — not a report nobody acts on.</p></div></div>
+          <div data-faq-ans id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p>Typically one to two weeks depending on scope, once you've shared read access to your analytics, ad accounts and tracking setup. You get a short, honest read on what's broken and what to fix first — not a report nobody acts on.</p></div></div>
         </div>
         <div data-faq-item>
           <h3><button type="button" data-faq-btn id="faq-b3" aria-controls="faq-p3" aria-expanded="false"><span>How does the Tilth Foundation Audit work?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>

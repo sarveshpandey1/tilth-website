@@ -1932,7 +1932,7 @@ export const insightArticles = [
                         "description": "What to look for when choosing a marketing agency for a D2C brand in India — D2C experience, full-funnel and retention focus, honest tracking, transparent reporting, and the red flags to avoid.",
                         "image": "https://wearetilth.com/assets/insight-cards/marketing-agency-for-d2c-brands.webp",
                         "datePublished": "2026-06-27",
-                        "dateModified": "2026-06-27",
+                        "dateModified": "2026-11-08",
                         "inLanguage": "en-IN",
                         "url": "https://wearetilth.com/insights/marketing-agency-for-d2c-brands/",
                         "mainEntityOfPage": "https://wearetilth.com/insights/marketing-agency-for-d2c-brands/",
@@ -1944,7 +1944,7 @@ export const insightArticles = [
                               "ecommerce marketing agency India",
                               "D2C brand marketing"
                         ],
-                        "wordCount": 1500,
+                        "wordCount": 1120,
                         "author": {
                               "@type": "Person",
                               "name": "Anuja",
@@ -1977,7 +1977,7 @@ export const insightArticles = [
                                     "name": "How much should a D2C marketing agency cost in India?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Most D2C marketing retainers in India fall between roughly ₹25,000 and ₹2,50,000 per month for agency fees, separate from the ad spend paid to platforms. The right number depends on how many channels you run and how competitive your category is. Scope it after an audit so you pay for what actually needs fixing."
+                                          "text": "Published figures cluster between roughly ₹25,000 and ₹2,50,000 a month in fees, separate from ad spend, but treat that as the range you are likely to be quoted rather than an established market rate, since no independent survey of Indian agency pricing exists. What actually moves it is the number of channels, creative volume and how much tracking work is in scope."
                                     }
                               },
                               {
@@ -2014,7 +2014,7 @@ export const insightArticles = [
       { q: `How do I choose a marketing agency for my D2C brand?`,
         a: `<p>Look for genuine D2C experience with similar brands, a full-funnel approach that values retention (not just acquisition), honest tracking and attribution, reporting tied to revenue and margin, and clear answers on who runs your account. Audit your own measurement first so you can judge their claims against reality.</p>` },
       { q: `How much should a D2C marketing agency cost in India?`,
-        a: `<p>Most retainers fall between roughly ₹25,000 and ₹2,50,000 per month in agency fees, separate from ad spend. It depends on channels and category — <a href="/insights/marketing-agency-cost-india/">more on pricing here</a>.</p>` },
+        a: `<p>Published figures cluster between roughly ₹25,000 and ₹2,50,000 a month in fees, separate from ad spend — but treat that as the range you're likely to be <em>quoted</em> rather than an established market rate, since no independent survey exists. <a href="/insights/marketing-agency-cost-india/">More on pricing here</a>.</p>` },
       { q: `Should a D2C brand hire a specialist or a full-service agency?`,
         a: `<p>Early on, a specialist or small full-funnel agency is usually enough. As you scale across paid, SEO, email, and influencer, an integrated agency or a hybrid setup becomes more efficient. Breadth of need decides it, not agency size.</p>` },
       { q: `What's the most important thing to check before hiring?`,
@@ -2025,40 +2025,43 @@ export const insightArticles = [
     bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries — building and auditing the marketing engines behind consumer brands. <a href="/about/">Read her story →</a>` },
     cta: { heading: `Choosing a D2C agency? Start with the truth.`, body: `A Foundation Audit gives you an honest read on your tracking, attribution, and channel performance — so you can hire (us or anyone) for the real gap, not a guessed one. No pitch attached.`,
       href: "/contact/", label: `Discuss your growth project` },
-    bodyHtml: `<p>For a direct-to-consumer brand, marketing isn't a support function — it <em>is</em> the business. You live and die by customer acquisition cost, repeat purchase rate, and contribution margin. So choosing the wrong <strong>marketing agency for your D2C brand</strong> doesn't just waste a retainer; it quietly burns the ad budget that is your growth. After a decade across D2C and other categories, here's the buyer's guide I'd give a founder choosing one in India.</p>
+    bodyHtml: `<p>For a direct-to-consumer brand, marketing isn't a support function — it <em>is</em> the business. You live and die by acquisition cost, repeat purchase rate and contribution margin, so the wrong <strong>marketing agency for your D2C brand</strong> doesn't just waste a retainer; it burns the ad budget that is your growth. Here's the buyer's guide I'd give a founder choosing one in India.</p>
 
     <h2>1. Real D2C experience — with brands like yours</h2>
-    <p>D2C has its own physics: thin margins, returns, repeat-purchase economics, marketplace vs. own-site dynamics, and CAC that has to stay below lifetime value. An agency that's only run lead-gen for B2B or services will apply the wrong playbook. Ask for case studies from <strong>D2C brands in a similar category and stage</strong> — and ask what didn't work, not just the highlight reel.</p>
+    <p>D2C has its own physics: thin margins, returns, repeat-purchase economics, marketplace versus own-site dynamics. An agency that's only run B2B lead-gen will apply the wrong playbook. Ask for work with <strong>D2C brands at a similar category and stage</strong> — and ask what didn't work, not just the highlight reel.</p>
 
-    <h2>2. Full-funnel, not just acquisition</h2>
-    <p>Plenty of agencies are good at spending money to get a first order. Far fewer build the second, third, and tenth. For D2C, retention is where the margin lives — repeat buyers cost far less than new ones. A good agency talks about email/SMS flows, post-purchase journeys, and repeat-rate as fluently as it talks about ad creative. If the entire pitch is "we'll lower your CAC," that's half a strategy.</p>
+    <h2>2. They talk in contribution margin, not ROAS</h2>
+    <p>ROAS is revenue divided by ad spend and says nothing about whether you made money: a 3x on 25% contribution margin loses cash, a 2x on 60% doesn't. Agencies worth hiring ask for landed cost, shipping, payment fees, returns and discount load in the first conversation, and talk in <strong>break-even ROAS or blended MER</strong>. If nobody asks what a sale is actually worth to you, they're optimising a number that can rise while your bank balance falls.</p>
 
-    <h2>3. Honest tracking and attribution — the part that decides everything</h2>
-    <p>This is the one most founders skip and most agencies gloss over. For a D2C brand, every scaling decision rides on whether your reported ROAS and CAC are real. Post-iOS and with ad blockers, browser-only tracking quietly loses a big share of conversions, and platform-reported numbers rarely reconcile with your Shopify backend. Before you hand anyone a budget, make sure your <a href="/insights/ga4-conversion-tracking/">conversion tracking</a> is accurate — a good agency insists on fixing this first.</p>
+    <h2>3. New and repeat customers are separated — always</h2>
+    <p>The most useful discipline in D2C reporting, and the one most often missing. Blended ROAS flatters you when repeat customers were buying anyway: paid takes credit for revenue it didn't cause and you scale into a wall. Ask to see <strong>new-customer CAC and new-customer contribution</strong> separately from total. An agency that can't split them can't tell you whether acquisition works — and retention is where D2C margin lives, so the second and tenth order need an owner too.</p>
+
+    <h2>4. Tracking they'll fix, and reconcile against your backend</h2>
+    <p>Every scaling decision rides on whether reported ROAS and CAC are real. Browser-only tracking misses conversions — how many varies, and anyone quoting a precise loss figure is guessing — and platform totals routinely disagree with Shopify. Some disagreement is normal, since the platforms count differently and claim overlapping credit. What matters is whether somebody <strong>reconciles platform orders against backend orders regularly</strong> and can explain the gap. Fix <a href="/insights/ga4-conversion-tracking/">conversion tracking</a> before handing over a budget; rebuilding it properly is <a href="/services/growth-strategy-measurement/">measurement work</a>, not media work.</p>
 
     <blockquote>For a D2C brand, the agency's media skill matters less than whether the numbers it's optimising toward are true.</blockquote>
 
-    <h2>4. Reporting tied to revenue, not vanity metrics</h2>
-    <p>You should get regular, plain reports that connect spend to <strong>revenue and contribution margin</strong> — not impressions, reach, or ROAS in isolation. Ask what they'll report and how often. If the sample dashboard is a wall of engagement metrics, you'll spend your retainer feeling busy and learning nothing about profit.</p>
+    <h2>5. Creative volume, with a hypothesis behind it</h2>
+    <p>On Meta especially, creative is the main lever and fatigue is the normal state. Ask two things: how many new concepts a month, and what happens to the losers. Volume without a hypothesis is churn — you want to hear what was being tested, what it showed, and what came next. Then ask how long brief-to-live takes: a two-week turnaround quietly caps how fast you can learn, whatever the media plan says.</p>
 
-    <h2>5. A retention and CRO mindset, not just a traffic mindset</h2>
-    <p>The best D2C agencies obsess over what happens <em>after</em> the click: conversion-rate optimisation on the product and checkout pages, flagging at-risk customers before they churn, and triggered campaigns based on purchase gaps. Sending more traffic to a leaky store is the most common — and most expensive — way to "scale." Fix the store, then pour in the traffic.</p>
+    <h2>6. They can change the page, not just the ad</h2>
+    <p>Sending more traffic to a store that doesn't convert is the most expensive way to "scale". Ask who may change the product and checkout pages, and whether CRO is in scope or an excluded extra. Same for merchandising and promotions — bundles, thresholds and discount depth move contribution margin faster than most bid changes, and an agency with no view of them is working one-handed.</p>
 
-    <h2>6. The right channel mix — chosen for your customer</h2>
-    <p>D2C in India spans Meta and Google, but also marketplaces, quick-commerce, influencer, and increasingly regional-language targeting. The agency's channel recommendation should come from <em>your</em> customer and unit economics, not from what they sell most of. One honest "we wouldn't run that channel for you yet" is worth more than a six-channel proposal.</p>
+    <h2>7. Channel mix chosen for your economics</h2>
+    <p>D2C in India spans Meta and Google, but also marketplaces, quick commerce and influencer — and those carry different economics. Marketplace revenue arrives with commission, fulfilment terms and no customer data; owned-store revenue costs more to acquire and gives you the relationship. A serious agency says which mix suits your margin instead of blending both into one ROAS. It should also coordinate Meta and Google rather than running them as rival scoreboards — branded search will happily claim demand that paid social created. Doing that deliberately is the substance of <a href="/services/performance-marketing/">performance marketing</a> for <a href="/industries/d2c-ecommerce/">D2C and ecommerce brands</a>.</p>
 
-    <h2>Red flags to walk away from</h2>
+    <h2>Red flags worth walking away from</h2>
     <ul>
-      <li><strong>Guaranteed ROAS or revenue</strong> — nobody can promise that honestly.</li>
-      <li><strong>No interest in your tracking</strong> — they'll scale on broken data.</li>
-      <li><strong>Only acquisition, no retention</strong> — half a D2C strategy.</li>
-      <li><strong>Vanity-metric reporting</strong> — busy dashboards, no link to profit.</li>
-      <li><strong>One generic deck</strong> that could belong to any client.</li>
+      <li><strong>Reporting stops at platform ROAS</strong> — no contribution margin, no blended view, no backend reconciliation.</li>
+      <li><strong>They can't separate new from repeat customers</strong> — so they can't tell you if acquisition works.</li>
+      <li><strong>Accounts and tracking in the agency's name</strong>, or raw data available only through their dashboard.</li>
+      <li><strong>Creative with no hypothesis</strong>, or a turnaround too slow for the rate the channel burns assets.</li>
+      <li><strong>Guaranteed ROAS</strong>, or one generic deck that could belong to any client.</li>
     </ul>
-    <p>For a deeper list, see our guide to the <a href="/insights/questions-before-hiring-marketing-agency/">questions to ask before hiring a marketing agency</a> — and our breakdown of <a href="/insights/marketing-agency-cost-india/">what a marketing agency costs in India</a> so you can judge the price too.</p>
+    <p>For a deeper list, see the <a href="/insights/questions-before-hiring-marketing-agency/">questions to ask before hiring a marketing agency</a> and <a href="/insights/marketing-agency-cost-india/">what a marketing agency costs in India</a>.</p>
 
     <h2>The shortcut: know your own numbers first</h2>
-    <p>Here's the move that makes choosing an agency easy: <strong>get an independent, honest read on your own setup before you start interviewing.</strong> Once you know whether your tracking is sound, which channels are actually profitable, and where the leaks are, you can judge every agency's pitch against reality instead of taking it on faith. That's exactly what a <a href="/insights/marketing-foundation-audit/">foundation audit</a> gives you.</p>`
+    <p><strong>Get an independent read on your own setup before you start interviewing.</strong> Once you know whether tracking is sound, what a new customer really costs and which channels clear your margin, you can judge every pitch against reality rather than on faith. That's what a <a href="/insights/marketing-foundation-audit/">foundation audit</a> gives you.</p>`
   },
   {
     slug: "marketing-attribution-explained-simply",
@@ -2309,7 +2312,7 @@ export const insightArticles = [
                         "description": "A marketing foundation audit reviews the tracking, attribution, targeting, channels, and partnerships under your spend before you scale. Here is exactly what a marketing audit checks.",
                         "image": "https://wearetilth.com/assets/insight-cards/marketing-foundation-audit.webp",
                         "datePublished": "2026-06-22",
-                        "dateModified": "2026-06-22",
+                        "dateModified": "2026-11-08",
                         "inLanguage": "en-IN",
                         "url": "https://wearetilth.com/insights/marketing-foundation-audit/",
                         "mainEntityOfPage": "https://wearetilth.com/insights/marketing-foundation-audit/",
@@ -2321,7 +2324,7 @@ export const insightArticles = [
                               "marketing audit checklist",
                               "what does a marketing audit check"
                         ],
-                        "wordCount": 1500,
+                        "wordCount": 1040,
                         "author": {
                               "@type": "Person",
                               "name": "Anuja",
@@ -2362,31 +2365,23 @@ export const insightArticles = [
                                     "name": "How long does a marketing audit take?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "A focused marketing foundation audit usually takes a few working days once you've shared access to your analytics, ad accounts, and tracking setup. The output is a short, honest read on what's broken and what to fix first — not a 60-page report nobody acts on."
+                                          "text": "A focused foundation audit typically takes one to two weeks depending on scope, once you have shared read access to your analytics, ad accounts and tracking setup. The output is a short, honest read on what is broken and what to fix first, not a 60-page report nobody acts on."
                                     }
                               },
                               {
                                     "@type": "Question",
-                                    "name": "Is the Tilth marketing audit really free?",
+                                    "name": "How does the Tilth Foundation Audit work?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Yes. Tilth offers a Foundation Audit with no pitch attached. We review your current setup and tell you honestly what's broken and what's worth fixing first. There's no obligation to work with us afterwards."
+                                          "text": "The first conversation is free, with no pitch attached and no obligation. If the problem needs deeper diagnosis, we scope a paid Foundation Audit around it. A typical audit takes one to two weeks, depending on scope."
                                     }
                               },
                               {
                                     "@type": "Question",
-                                    "name": "Do I need to change agencies to get a marketing audit?",
+                                    "name": "Do I need to change agencies to get an audit?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "No. A foundation audit is independent of who runs your channels. Many brands use it as a second opinion on an existing agency or in-house team — the goal is to know whether your spend is built on solid ground, not to replace anyone."
-                                    }
-                              },
-                              {
-                                    "@type": "Question",
-                                    "name": "What do I need to provide for the audit?",
-                                    "acceptedAnswer": {
-                                          "@type": "Answer",
-                                          "text": "Read access to your analytics (GA4), your ad accounts (Meta, Google), and a description of your current channels and goals is usually enough to start. The more honest the picture, the more useful the audit."
+                                          "text": "No. A foundation audit is independent of who runs your channels. Many brands use it as a second opinion on an existing agency or in-house team. The goal is to know whether your spend is built on solid ground, not to replace anyone."
                                     }
                               }
                         ]
@@ -2401,7 +2396,7 @@ export const insightArticles = [
       { q: `How is it different from an SEO audit or a regular marketing audit?`,
         a: `<p>An SEO audit looks at one channel. A typical marketing audit often reviews tactics and creative across channels. A marketing foundation audit goes a layer deeper — it checks the plumbing (conversion tracking, attribution, targeting logic, and how partners are paid) so everything measured on top of it can be trusted.</p>` },
       { q: `How long does a marketing audit take?`,
-        a: `<p>A focused foundation audit usually takes a few working days once you've shared access to your analytics, ad accounts, and tracking setup. You get a short, honest read on what's broken and what to fix first — not a report nobody acts on.</p>` },
+        a: `<p>Typically one to two weeks depending on scope, once you've shared read access to your analytics, ad accounts and tracking setup. You get a short, honest read on what's broken and what to fix first — not a report nobody acts on.</p>` },
       { q: `How does the Tilth Foundation Audit work?`,
         a: `<p>The first conversation is free, with no pitch attached and no obligation. If the problem needs deeper diagnosis, we’ll scope a paid Foundation Audit around it. A typical audit takes 1–2 weeks, depending on scope. <a href="/contact/">Start here</a>.</p>` },
       { q: `Do I need to change agencies to get an audit?`,
@@ -2413,29 +2408,29 @@ export const insightArticles = [
     bodyHtml: `<p>Ask ten brands what's in their marketing audit and you'll get ten answers — a creative review here, an SEO crawl there, a slide on competitor positioning. Useful, but all of it sits on top of one assumption: that the data underneath is true. A <strong>marketing foundation audit</strong> tests that assumption first. Before anyone debates a headline or a bid, it asks a blunter question — <em>can you actually trust the numbers you're about to spend against?</em></p>
     <p>This is the audit we run at Tilth, and it's deliberately unglamorous. It checks the plumbing. Below is what a real marketing foundation audit reviews, in the order that matters.</p>
 
-    <h2>1. Tracking — is your data even true?</h2>
-    <p>Everything downstream depends on this. The audit confirms that your conversion tracking actually fires, on the right pages, for the right actions. That means checking your <a href="/insights/ga4-conversion-tracking/">GA4 conversion tracking</a>, your Meta pixel and Conversions API, deduplication between them, and whether "purchase" events carry real value and currency. If tracking is wrong, every report after it is fiction — and scaling spend just buys you more of the wrong data.</p>
+    <h2>1. Measurement — is the data even true?</h2>
+    <p>Everything downstream depends on this. The audit confirms conversions actually fire, on the right pages, for the right actions: <a href="/insights/ga4-conversion-tracking/">GA4 events</a>, the Meta pixel and Conversions API, server-side where it applies, and deduplication between browser and server. Then the unglamorous checks — is a "conversion" defined as the thing you actually sell, do purchase events carry real value and currency, and does platform-reported revenue reconcile against your backend? If tracking is wrong, every report after it is fiction.</p>
 
-    <h2>2. Attribution — can you tell which channel earns the money?</h2>
-    <p>Most brands can't say, with confidence, which channels are actually profitable. A foundation audit reviews how credit is assigned across the customer journey — last-click, first-touch, assisted conversions — and where your reporting is over- or under-crediting a channel. The goal isn't a perfect model; it's making sure you're not cutting a channel that introduces customers or scaling one that only ever closes what others started.</p>
+    <h2>2. Economics — can you afford the customers you're buying?</h2>
+    <p>Measurement tells you what happened; economics tells you whether it was worth it. The audit works out real CAC, contribution margin after returns and discounts, what LTV assumptions are actually evidenced rather than hoped for, repeat-purchase behaviour, and the break-even ROAS or MER that follows. Plenty of accounts are tracked perfectly and still unprofitable, because nobody calculated what a customer could cost. Our <a href="/tools/ltv-cac-calculator/">LTV:CAC calculator</a> covers the arithmetic if you want to sanity-check it yourself first.</p>
 
-    <h2>3. Targeting — are you reaching buyers, or just people?</h2>
-    <p>Cheap reach is easy. Reaching the people who actually buy is the hard part. The audit examines who your campaigns are really being shown to, how audiences are built, and whether your targeting is anchored to revenue intent or just to volume and low cost-per-click. Broad, cheap traffic that never converts is one of the most common — and most expensive — foundation cracks.</p>
+    <h2>3. Acquisition — is each channel earning its budget?</h2>
+    <p>Channel by channel — paid ads, <a href="/insights/affiliate-program-not-converting/">affiliates</a>, SEO, influencer — the audit looks at campaign structure, what each campaign is optimising toward (an optimisation event pointed at the wrong action is a common and expensive fault), audience and query quality, creative testing cadence, and whether the landing page answers what the ad promised. The point isn't to add channels. It's to find the ones quietly draining budget while looking busy.</p>
 
     <blockquote>You can't optimise what you can't see. Most "underperforming" marketing isn't a creative problem — it's a measurement problem wearing a creative costume.</blockquote>
 
-    <h2>4. Channels — is each one earning its budget?</h2>
-    <p>A foundation audit goes channel by channel — paid ads, <a href="/insights/affiliate-program-not-converting/">affiliates</a>, SEO, influencer, PR, branding — and asks the same question of each: <em>is this where the money goes, and does it come back?</em> The point isn't to add channels. It's to find the ones quietly draining budget while looking busy, and the ones working that deserve more.</p>
+    <h2>4. Attribution — and what it can't tell you</h2>
+    <p>The audit establishes which system is your source of truth, how platform numbers compare against the backend, and where modelled or consent-limited data is filling gaps. It also sets the limits honestly: attribution distributes credit among touchpoints it can see, which is <a href="/insights/marketing-attribution-explained-simply/">not the same as proving incrementality</a>. Knowing which of your reported wins are probably incremental and which were arriving anyway changes where the next rupee goes.</p>
 
     <h2>5. Partnerships — paid for results, or paid for reach?</h2>
-    <p>Affiliate and influencer partnerships are where attribution gaps turn into real money lost. The audit checks how partners are vetted and paid: are payouts tied to verified revenue, or to clicks and follower counts? Are affiliates getting credit for sales they didn't cause? A channel that looks active but is paying for reach instead of results is a foundation problem, not a performance one.</p>
+    <p>Affiliate and influencer partnerships are where attribution gaps turn into real money lost. The audit checks partner quality, how incentives are designed, whether payouts reward activation or just signups, and whether anything in the traffic looks invalid. Are partners being credited for sales they didn't cause? That's a foundation problem, not a performance one.</p>
 
-    <h2>6. Positioning — is the offer clear before the spend?</h2>
-    <p>Finally, the audit looks at whether the message and positioning are locked before media money flows. Even perfect tracking can't save spend behind an offer the market doesn't understand. This is the cheapest thing to fix and the most expensive thing to ignore.</p>
+    <h2>6. Operating system — who decides, and on what?</h2>
+    <p>The most-skipped area, and the one that decides whether anything sticks. Who owns each number, how often is it reviewed, what's on the test backlog, what decision rules exist for scaling or killing something, and is any of it written down? A brand with mediocre tracking and a real operating rhythm usually beats one with perfect tracking and no owner.</p>
 
-    <h2>What you get at the end of a marketing foundation audit</h2>
-    <p>A good audit doesn't end in a 60-page deck. It ends in a short, honest answer to three questions: what's broken, what it's costing you, and what to fix first. That priority order is the whole point — fix the foundation, and every rupee you spend afterward can finally be measured. Skip it, and you're scaling on guesswork.</p>
-    <p>That's the order we work in, every time. If you'd like to see it applied to your own setup, the next step is simple.</p>`
+    <h2>What the output should look like</h2>
+    <p>A good audit doesn't end in a 60-page deck. It ends in a list you can act on: <strong>each issue verified rather than suspected</strong>, with a severity, an honest note on the financial or decision impact, a named owner for the fix, and a sequence — because several of these depend on each other and doing them in the wrong order wastes the work. It should also say plainly <strong>what not to scale yet</strong>, which is usually the most valuable line in the document.</p>
+    <p>What it shouldn't contain is a promised outcome. An audit tells you what's true and what to fix first; it can't guarantee what happens next. Fixing the foundation is what makes the spend after it measurable — and keeping that layer honest as you scale is the substance of <a href="/services/growth-strategy-measurement/">growth strategy and measurement</a> work.</p>`
   },
   {
     slug: "measure-influencer-marketing-roi",
@@ -2443,7 +2438,7 @@ export const insightArticles = [
     readTime: "7 min read",
     date: "23 May 2026",
     h1: `How to measure influencer marketing ROI properly`,
-    standfirst: `"It got a lot of engagement" is not an ROI number. Here's how to measure influencer marketing properly in 2026 — the metrics that actually predict revenue, the tracking setup that has to happen before you brief anyone, and a simple formula to calculate real return.`,
+    standfirst: `"It got a lot of engagement" is not an ROI number. Here's how to measure influencer marketing properly — the metrics that actually predict revenue, the tracking setup that has to happen before you brief anyone, and why attributed revenue still isn't the same as incremental revenue.`,
     bylineImg: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">`,
     bylineWho: `Anuja Founder, Tilth · 10+ years in performance marketing`,
     meta: {
@@ -2493,7 +2488,7 @@ export const insightArticles = [
                         "description": "A practical guide to measuring influencer marketing ROI: which metrics predict revenue, how to set up trackable links before you brief anyone, and a simple ROI formula.",
                         "image": "https://wearetilth.com/assets/insight-cards/measure-influencer-marketing-roi.webp",
                         "datePublished": "2026-05-23",
-                        "dateModified": "2026-05-23",
+                        "dateModified": "2026-11-08",
                         "inLanguage": "en-IN",
                         "url": "https://wearetilth.com/insights/measure-influencer-marketing-roi/",
                         "mainEntityOfPage": "https://wearetilth.com/insights/measure-influencer-marketing-roi/",
@@ -2505,7 +2500,7 @@ export const insightArticles = [
                               "influencer campaign attribution",
                               "influencer marketing India"
                         ],
-                        "wordCount": 1500,
+                        "wordCount": 1100,
                         "author": {
                               "@type": "Person",
                               "name": "Anuja",
@@ -2538,7 +2533,7 @@ export const insightArticles = [
                                     "name": "What's a good ROI for influencer marketing in India?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Benchmarks vary widely by category, but a healthy influencer campaign typically returns 2-5x its cost in attributed revenue once tracking is accurate. Awareness-focused campaigns with smaller creators sometimes accept lower direct ROI in exchange for reach and content assets, which should be judged separately from a pure ROI number."
+                                          "text": "There is no credible published benchmark for this, and the multiples that circulate are not traceable to any survey worth citing. Judge a campaign against your own break-even instead: the contribution profit it returned against what it cost, including creator fees, product, production and any paid amplification. Awareness-focused campaigns should be judged separately again, on reach and cost per thousand rather than the same formula."
                                     }
                               },
                               {
@@ -2562,7 +2557,7 @@ export const insightArticles = [
                                     "name": "What attribution model should I use for influencer marketing?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Last-click attribution alone tends to undercount influencer marketing's actual contribution, since influencer content often introduces a customer who later converts through a different channel. Looking at assisted conversions in GA4, alongside direct code and link attribution, gives a fuller picture than last-click alone."
+                                          "text": "Last-click attribution alone tends to undercount influencer marketing, since the content often introduces a customer who converts later through search or a direct visit. Combine GA4 path and attribution reporting with discount code and link data, and add a post-purchase survey asking how the customer heard about you. For this channel a self-reported answer is often more informative than the analytics, because much of the journey happens where no tag can follow it."
                                     }
                               }
                         ]
@@ -2575,13 +2570,13 @@ export const insightArticles = [
       { q: `How do you calculate influencer marketing ROI?`,
         a: `<p>(Revenue attributed to the influencer − total campaign cost) ÷ total campaign cost × 100. The hard part is accurate attribution, which requires unique tracking links or codes set up before the campaign.</p>` },
       { q: `What's a good ROI for influencer marketing in India?`,
-        a: `<p>A healthy performance-focused campaign typically returns 2-5x cost once tracking is accurate. Awareness campaigns should be judged separately by reach/CPM, not the same ROI formula.</p>` },
+        a: `<p>There's no credible published benchmark, and the multiples that circulate aren't traceable to any survey worth citing — so we've removed ours. Judge a campaign against your own break-even: the contribution profit it returned versus what it cost. Awareness campaigns should be judged separately again, on reach and cost per thousand, not the same formula.</p>` },
       { q: `Should I use reach and engagement to judge ROI?`,
         a: `<p>They're useful diagnostics, not proof of return — a post can get thousands of likes and generate zero attributable revenue. Track them alongside conversion metrics, not instead.</p>` },
       { q: `How do I track sales without a link click?`,
         a: `<p>Unique discount codes per influencer capture sales regardless of path — the code is entered at checkout even if the customer didn't click through directly.</p>` },
       { q: `What attribution model should I use?`,
-        a: `<p>Last-click alone tends to undercount influencer contribution. Combine assisted conversion data in GA4 with direct code and link attribution for a fuller picture.</p>` },
+        a: `<p>Last-click alone tends to undercount influencer contribution, since the content often introduces someone who converts later through search or direct. Combine GA4's path and attribution reporting with code and link data, and add a post-purchase "how did you hear about us?" question — for this channel it often beats the analytics.</p>` },
     ],
     bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
     cta: { heading: `Set up influencer tracking that actually holds up`, body: `A Foundation Audit checks whether your GA4 and attribution setup can accurately measure influencer, affiliate, and paid campaigns — before your next brief goes out.`,
@@ -2602,26 +2597,17 @@ export const insightArticles = [
       <li><strong>Confirm GA4 conversion tracking is accurate</strong> before the campaign starts — attributing revenue correctly to an influencer link is worthless if the underlying <a href="/insights/ga4-conversion-tracking/">purchase tracking</a> itself isn't firing right.</li>
     </ul>
 
-    <h2>How to calculate influencer marketing ROI</h2>
-    <p>The formula itself is simple:</p>
-    <blockquote>ROI = (Revenue attributed to the influencer − total campaign cost) ÷ total campaign cost × 100</blockquote>
-    <p>Total campaign cost should include the influencer fee, any product sent, and management time if it's material. The revenue side is where the tracking setup above earns its keep — without unique links and codes, "revenue attributed to the influencer" is a guess, not a number.</p>
+    <h2>Count the whole cost, then use two numbers</h2>
+    <p>Campaign cost is rarely just the fee. Include the creator payment, product sent and not returned, any production or seeding cost, whitelisting or paid amplification behind the creator's handle, and management time if it's material. Amplification in particular gets logged as media spend elsewhere and quietly disappears from the influencer line.</p>
+    <p>Then run two calculations, because the first one flatters you:</p>
+    <blockquote>Revenue ROAS = attributed revenue ÷ campaign cost<br>Contribution return = attributed contribution profit ÷ campaign cost</blockquote>
+    <p>Contribution profit means revenue after cost of goods, shipping, payment fees, the discount the code itself gave away, and refunds or cancellations once the return window has closed. A 3x revenue ROAS on a discounted first order with a 20% return rate can be a loss. Where you can, separate <strong>new-customer revenue</strong> from repeat: a code redeemed by an existing customer who was buying anyway isn't acquisition, it's a discount you volunteered.</p>
 
-    <h2>Attribution models for influencer campaigns</h2>
-    <p>Last-click attribution alone tends to <strong>undercount</strong> influencer marketing, because influencer content frequently introduces a customer who researches and converts later through search or a direct visit — a different channel gets the credit in a pure last-click model. Two adjustments help: check GA4's assisted conversion reports to see where influencer-driven traffic contributed even without the final click, and treat discount code redemptions as their own attribution signal independent of link clicks, since they capture conversions the link-based model misses entirely.</p>
+    <h2>Attribution for influencer campaigns</h2>
+    <p>Last-click alone tends to <strong>undercount</strong> influencer work, because the content often introduces someone who converts days later through search or a direct visit. Use several signals together: GA4's path and attribution reporting, discount code redemptions as an independent signal, the platform's own referral data as a cross-check, and — most underrated for this channel — a <strong>post-purchase "how did you hear about us?" question</strong>. Self-reported answers are messy, but for a channel where much of the journey happens where no tag can follow, they frequently tell you more than the analytics do.</p>
 
-    <h2>Benchmarks: what's a good ROI for influencer marketing in India</h2>
-    <div data-tbl><table class="price-table">
-      <thead>
-        <tr><th>Campaign type</th><th>Typical ROI benchmark</th></tr>
-      </thead>
-      <tbody>
-        <tr><td data-th="Campaign type">Performance-focused (mid/micro influencers, codes + links)</td><td data-th="Typical ROI benchmark">2x – 5x campaign cost</td></tr>
-        <tr><td data-th="Campaign type">Mixed awareness + performance</td><td data-th="Typical ROI benchmark">1.5x – 3x, plus reusable content value</td></tr>
-        <tr><td data-th="Campaign type">Pure awareness (large reach, low direct tracking)</td><td data-th="Typical ROI benchmark">Judge separately by reach/CPM, not ROI</td></tr>
-      </tbody>
-    </table><p class="price-note">Indicative ranges — actual ROI varies significantly by category, influencer tier, and offer.</p></div>
-    <p>Awareness-heavy campaigns with limited direct tracking shouldn't be judged on the same ROI formula as performance-focused ones — that's comparing two different jobs. It's similar to the reason <a href="/insights/affiliate-program-not-converting/">affiliate programmes</a> need channel-appropriate metrics rather than one blanket standard.</p>
+    <h2>Attributed is not the same as incremental</h2>
+    <p>The limitation worth stating plainly: revenue attributed to a creator is not proof the creator caused it. A code redeemed by someone who'd already decided, a follower who would have found you anyway, a post that coincided with a sale — all of it lands in the attributed column. Attribution distributes credit among touchpoints it can see; it <a href="/insights/marketing-attribution-explained-simply/">can't establish what wouldn't have happened otherwise</a>. Treat the number as a directional read, be most sceptical of your best-performing creator, and accept that awareness-heavy campaigns can't be judged on the same formula at all — the same reason <a href="/insights/affiliate-program-not-converting/">affiliate programmes</a> need channel-appropriate metrics. Getting this architecture right is <a href="/services/growth-strategy-measurement/">measurement work</a>, and it's what makes <a href="/services/influencer-pr-events/">creator campaigns</a> reportable rather than anecdotal.</p>
 
     <h2>Common mistakes that skew ROI numbers</h2>
     <ul>
@@ -2819,7 +2805,7 @@ export const insightArticles = [
                         "description": "The 12 questions to ask before hiring a marketing agency — strategy, reporting, team, and terms — plus the red-flag answers that tell you to walk away.",
                         "image": "https://wearetilth.com/assets/insight-cards/questions-before-hiring-marketing-agency.webp",
                         "datePublished": "2026-06-23",
-                        "dateModified": "2026-06-23",
+                        "dateModified": "2026-11-08",
                         "inLanguage": "en-IN",
                         "url": "https://wearetilth.com/insights/questions-before-hiring-marketing-agency/",
                         "mainEntityOfPage": "https://wearetilth.com/insights/questions-before-hiring-marketing-agency/",
@@ -2831,7 +2817,7 @@ export const insightArticles = [
                               "hiring a digital marketing agency",
                               "vet a marketing agency"
                         ],
-                        "wordCount": 1700,
+                        "wordCount": 1080,
                         "author": {
                               "@type": "Person",
                               "name": "Anuja",
@@ -2856,7 +2842,7 @@ export const insightArticles = [
                                     "name": "What questions should I ask before hiring a marketing agency?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Ask about their process before spending, how they fix tracking and attribution first, what metrics they report and how often, who actually works on your account, whether the pitch team manages the work, contract length and cancellation terms, whether ad spend is separate from their fee, and for results from similar businesses. The answers reveal whether they build on foundations or just spend."
+                                          "text": "The ones that are hard to answer from a script: who owns the ad accounts and analytics during and after the contract, which system is the source of truth when it disagrees with platform reporting, what is excluded from the fee, what the first 30, 60 and 90 days produce, how they decide what to test and when to stop a test, who actually does the work day to day, and how any result they show you was measured."
                                     }
                               },
                               {
@@ -2880,7 +2866,7 @@ export const insightArticles = [
                                     "name": "How long should a marketing agency contract be?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "There's no single right length, but you want clear terms and a reasonable exit — commonly a 30-day notice period — with no hidden off-boarding fees. Be cautious of long lock-ins with punitive cancellation clauses, especially before the agency has proven anything."
+                                          "text": "There is no standard, and notice periods vary between agencies. What matters more than the number is that the exit is clear, that there are no hidden off-boarding fees, and that the accounts, data and creative files come with you when you leave. Be cautious of long lock-ins with punitive cancellation clauses agreed before anything has been proven."
                                     }
                               },
                               {
@@ -2899,13 +2885,13 @@ export const insightArticles = [
     faqHeading: `Hiring a marketing agency — FAQs`,
     faq: [
       { q: `What questions should I ask before hiring a marketing agency?`,
-        a: `<p>Ask about their process before spending, how they fix tracking and attribution first, what metrics they report and how often, who actually works on your account, contract and cancellation terms, whether ad spend is separate from their fee, and for results from similar businesses.</p>` },
+        a: `<p>The ones that are hard to answer from a script: who owns the ad accounts and analytics during and after the contract, which system is the source of truth when it disagrees with the platform, what is excluded from the fee, what the first 30/60/90 days produce, how they decide what to test and when to stop, who actually does the work, and how any result they show you was measured.</p>` },
       { q: `What are the biggest red flags?`,
         a: `<p>Jumping straight to tactics with no discovery, reporting only vanity metrics, refusing to fix tracking before scaling, a salesperson who disappears after signing, guaranteed results, and bundling ad spend into the fee so you can't see what's media versus management.</p>` },
       { q: `Should an agency fix tracking before running ads?`,
         a: `<p>Yes. If tracking and attribution are wrong, every decision is based on bad data and scaling spend wastes money faster. A good agency fixes the <a href="/insights/marketing-foundation-audit/">measurement foundation</a> first.</p>` },
       { q: `How long should the contract be?`,
-        a: `<p>Look for clear terms and a reasonable exit, commonly 30 days' notice, with no hidden off-boarding fees. Be cautious of long lock-ins with punitive cancellation clauses before anything's been proven.</p>` },
+        a: `<p>There's no standard, and notice periods vary. What matters more than the number is that the exit is clear, there are no hidden off-boarding fees, and the accounts, data and creative files come with you. Be cautious of long lock-ins with punitive cancellation clauses before anything's been proven.</p>` },
       { q: `How do I check if their results are real?`,
         a: `<p>Ask for results from similar businesses, tied to revenue rather than impressions, and ask how they were tracked. If they can't explain the measurement, treat the result as marketing, not proof.</p>` },
     ],
@@ -2914,35 +2900,35 @@ export const insightArticles = [
       href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>Choosing a marketing agency is mostly an exercise in seeing past a good deck. Almost every agency presents well; far fewer do the unglamorous foundation work that decides whether your spend is measurable. These are the questions I'd ask before hiring a marketing agency — grouped by what they reveal — with the green-flag answer and the red flag for each.</p>
 
-    <h2>Questions about strategy &amp; process</h2>
+    <h2>Questions about process</h2>
 
-    <h3><span class="qn">01.</span>What's your process before you start spending?</h3>
-    <p class="flag good"><strong>Green flag:</strong> a clear discovery, audit, and planning phase — they look at your tracking, audience, and positioning before touching a budget.</p>
-    <p class="flag bad"><strong>Red flag:</strong> they jump straight to "we'll run ads / post content" with no diagnosis. Tactics without discovery is guesswork with an invoice.</p>
+    <h3><span class="qn">01.</span>What exactly will exist at day 30, 60 and 90?</h3>
+    <p class="flag good"><strong>Green flag:</strong> named deliverables with dates — measurement verified, a tested hypothesis list, a first read on which channel clears your economics.</p>
+    <p class="flag bad"><strong>Red flag:</strong> "we'll launch campaigns in week one", or a timeline made of activity rather than outputs you could check.</p>
 
-    <h3><span class="qn">02.</span>How do you fix tracking and attribution before scaling?</h3>
-    <p class="flag good"><strong>Green flag:</strong> they treat <a href="/insights/ga4-conversion-tracking/">tracking and attribution</a> as step one, and can explain how they'll verify your conversions are real.</p>
-    <p class="flag bad"><strong>Red flag:</strong> a blank look, or "tracking's already fine" without checking. Scaling spend on broken measurement just wastes money faster.</p>
+    <h3><span class="qn">02.</span>How will you verify my tracking before you scale anything?</h3>
+    <p class="flag good"><strong>Green flag:</strong> they treat <a href="/insights/ga4-conversion-tracking/">tracking and attribution</a> as step one and describe <em>how</em> — a test transaction, event-by-event checks, reconciliation against your backend.</p>
+    <p class="flag bad"><strong>Red flag:</strong> a blank look, or "tracking's already fine" without looking. Scaling on broken measurement just wastes money faster.</p>
 
-    <h3><span class="qn">03.</span>How do you decide which channels to use?</h3>
-    <p class="flag good"><strong>Green flag:</strong> channel choice flows from your customer and economics — not from what the agency happens to sell most of.</p>
-    <p class="flag bad"><strong>Red flag:</strong> every client somehow needs the exact same channel mix.</p>
+    <h3><span class="qn">03.</span>How do you decide what to test, and what would make you stop a test?</h3>
+    <p class="flag good"><strong>Green flag:</strong> a hypothesis, a decision rule agreed in advance, and a willingness to call something dead. Ask what they killed last quarter.</p>
+    <p class="flag bad"><strong>Red flag:</strong> "we're always testing" with no example of a test that failed and what it changed.</p>
 
-    <h2>Questions about results &amp; reporting</h2>
+    <h2>Questions about measurement &amp; ownership</h2>
 
-    <h3><span class="qn">04.</span>What metrics will you report, and how often?</h3>
-    <p class="flag good"><strong>Green flag:</strong> outcomes tied to revenue or qualified pipeline, reported on a regular cadence, with the "so what" explained.</p>
-    <p class="flag bad"><strong>Red flag:</strong> reports full of impressions, reach, and follower counts — vanity metrics that move without the business moving.</p>
+    <h3><span class="qn">04.</span>Whose name is on the ad accounts, analytics, pixels and creative files?</h3>
+    <p class="flag good"><strong>Green flag:</strong> yours, with the agency given access. Confirmed in writing, including what happens on exit.</p>
+    <p class="flag bad"><strong>Red flag:</strong> accounts in the agency's name, or raw platform data available only through their dashboard. That's leverage, not convenience.</p>
 
-    <h3><span class="qn">05.</span>How do you connect spend to revenue, not vanity metrics?</h3>
-    <p class="flag good"><strong>Green flag:</strong> they can describe the measurement chain from ad to sale, and where its gaps are.</p>
-    <p class="flag bad"><strong>Red flag:</strong> "engagement" and "brand awareness" as the headline results, with no line to money.</p>
+    <h3><span class="qn">05.</span>Which system is the source of truth — and what do you do when it disagrees with the platform?</h3>
+    <p class="flag good"><strong>Green flag:</strong> one named system, usually the one closest to money, and a calm explanation that platforms over-claim and some gap is normal.</p>
+    <p class="flag bad"><strong>Red flag:</strong> whichever number looks best that month, or surprise that the two don't match.</p>
 
-    <h3><span class="qn">06.</span>What does a realistic outcome look like in 3–6 months?</h3>
-    <p class="flag good"><strong>Green flag:</strong> honest ranges, caveats, and a note that SEO and content take longer to pay back.</p>
-    <p class="flag bad"><strong>Red flag:</strong> guarantees. "Guaranteed #1 rankings" or "guaranteed 5x ROAS" is a guarantee they can't keep.</p>
+    <h3><span class="qn">06.</span>What metrics will you report, and how often?</h3>
+    <p class="flag good"><strong>Green flag:</strong> outcomes tied to revenue or qualified pipeline, on a regular cadence, with the "so what" explained.</p>
+    <p class="flag bad"><strong>Red flag:</strong> impressions, reach and follower counts — metrics that move without the business moving.</p>
 
-    <h2>Questions about the team &amp; ownership</h2>
+    <h2>Questions about the team</h2>
 
     <h3><span class="qn">07.</span>Who actually works on my account day to day?</h3>
     <p class="flag good"><strong>Green flag:</strong> you're introduced to the real account manager and can gauge their seniority.</p>
@@ -2958,21 +2944,21 @@ export const insightArticles = [
 
     <h2>Questions about terms &amp; fit</h2>
 
-    <h3><span class="qn">10.</span>What's the contract length and cancellation policy?</h3>
-    <p class="flag good"><strong>Green flag:</strong> reasonable terms with a clear exit — often 30 days' notice — and no hidden off-boarding fees.</p>
-    <p class="flag bad"><strong>Red flag:</strong> long lock-ins and vague or punitive cancellation clauses, especially before they've proven anything.</p>
+    <h3><span class="qn">10.</span>What's the contract length, and what comes with me if I leave?</h3>
+    <p class="flag good"><strong>Green flag:</strong> a clear exit, no hidden off-boarding fees, and accounts, data, documentation and creative files that transfer.</p>
+    <p class="flag bad"><strong>Red flag:</strong> long lock-ins, punitive cancellation clauses, or a shrug about what you keep. Notice periods vary; what you walk away with matters more than the number of days.</p>
 
-    <h3><span class="qn">11.</span>Is ad spend separate from your fee?</h3>
-    <p class="flag good"><strong>Green flag:</strong> a clear split between management fee and media budget. (More on this in our guide to <a href="/insights/marketing-agency-cost-india/">what a marketing agency costs in India</a>.)</p>
-    <p class="flag bad"><strong>Red flag:</strong> spend bundled into the fee so you can't see what's media versus management.</p>
+    <h3><span class="qn">11.</span>What's excluded from the fee?</h3>
+    <p class="flag good"><strong>Green flag:</strong> a straight list — media spend, creative production, landing pages, tools, tracking work — and who pays for each. (More in <a href="/insights/marketing-agency-cost-india/">what a marketing agency costs in India</a>.)</p>
+    <p class="flag bad"><strong>Red flag:</strong> spend bundled into the fee so you can't see media versus management. If the fee is a percentage of spend, ask directly how they handle advising you to spend less — the honest ones have already thought about it.</p>
 
-    <h3><span class="qn">12.</span>Can you show results from businesses like mine?</h3>
-    <p class="flag good"><strong>Green flag:</strong> relevant examples with results tied to revenue, and a straight explanation of how they were measured.</p>
-    <p class="flag bad"><strong>Red flag:</strong> big numbers with no context, no similar businesses, and no answer on how anything was tracked.</p>
+    <h3><span class="qn">12.</span>Can you show results from businesses like mine, and how were they measured?</h3>
+    <p class="flag good"><strong>Green flag:</strong> relevant examples tied to revenue, and a straight explanation of the measurement behind them.</p>
+    <p class="flag bad"><strong>Red flag:</strong> big numbers with no context, no similar businesses, and no answer on how anything was tracked. An unexplained result is a claim, not evidence.</p>
 
-    <blockquote>The best answers to these questions all point the same way: foundation first, honesty about measurement, and the same senior people after the ink dries.</blockquote>
+    <blockquote>The best answers all point the same way: foundation first, honesty about measurement, and the same senior people after the ink dries.</blockquote>
 
-    <p>You don't need all twelve in every conversation. But the pattern across the answers tells you almost everything — whether you're hiring people who build on solid ground, or people who'll spend your budget and report on the splash.</p>`
+    <p>You don't need all twelve, and a polished agency will answer several well. The ones that separate firms are 04, 05 and 11 — ownership, source of truth, and what the fee excludes — because they're hard to answer from a script and checkable later. If you're still weighing the model rather than the firm, we've compared <a href="/insights/agency-vs-freelancer-vs-inhouse/">agency, freelancer and in-house</a>; and if nobody yet knows what's broken, that diagnosis is <a href="/services/growth-strategy-measurement/">measurement work</a> before it's a hiring decision.</p>`
   },
   {
     slug: "seo-not-bringing-leads",
@@ -3030,7 +3016,7 @@ export const insightArticles = [
                         "description": "Ranking and getting traffic but no leads? The real reasons SEO traffic doesn't convert, and how to diagnose and fix each one.",
                         "image": "https://wearetilth.com/assets/insight-cards/seo-not-bringing-leads.webp",
                         "datePublished": "2026-05-28",
-                        "dateModified": "2026-05-28",
+                        "dateModified": "2026-11-08",
                         "inLanguage": "en-IN",
                         "url": "https://wearetilth.com/insights/seo-not-bringing-leads/",
                         "mainEntityOfPage": "https://wearetilth.com/insights/seo-not-bringing-leads/",
@@ -3042,7 +3028,7 @@ export const insightArticles = [
                               "SEO leads",
                               "organic traffic not converting"
                         ],
-                        "wordCount": 1500,
+                        "wordCount": 1250,
                         "author": {
                               "@type": "Person",
                               "name": "Anuja",
@@ -3075,7 +3061,7 @@ export const insightArticles = [
                                     "name": "How long does SEO take to generate leads?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "For a new or young domain, expect meaningful organic leads to take six to twelve months, even with strong content and correct technical setup. If traffic has existed for that long with no leads, the issue is more likely intent mismatch or conversion friction than simply needing more time."
+                                          "text": "Google does not publish a timeframe for leads. On its own timing it says changes can take anywhere from a few hours to several months to be reflected in Search, suggests waiting a few weeks before assessing whether a change had a beneficial effect, and notes that not all changes produce a noticeable impact. If traffic has existed for months with no leads, the cause is more likely intent mismatch or conversion friction than simply needing more time."
                                     }
                               },
                               {
@@ -3112,7 +3098,7 @@ export const insightArticles = [
       { q: `Why is my website getting SEO traffic but no leads?`,
         a: `<p>Common causes are ranking for informational keywords that don't match buying intent, landing pages that don't answer the searcher's question, weak or missing CTAs, and conversion tracking that isn't measuring leads correctly.</p>` },
       { q: `How long does SEO take to generate leads?`,
-        a: `<p>Typically six to twelve months for a new or young domain, even with strong content. If traffic has existed that long with no leads, the issue is more likely intent mismatch or conversion friction than needing more time.</p>` },
+        a: `<p>Google doesn't publish a figure for leads. On its own timing, it says changes can take anywhere from a few hours to several months to be reflected, suggests waiting a few weeks before judging whether a change helped, and notes that not every change produces a noticeable effect. If traffic has existed for months with no leads, the cause is more likely intent mismatch or conversion friction than needing more time.</p>` },
       { q: `Does more SEO traffic always mean more leads?`,
         a: `<p>No. Traffic from low buying-intent keywords can grow while leads stay flat, because those visitors were never close to a purchase decision. Intent matters more than raw volume.</p>` },
       { q: `How do I check if my SEO conversion tracking is accurate?`,
@@ -3123,51 +3109,62 @@ export const insightArticles = [
     bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
     cta: { heading: `Find out exactly where your SEO is leaking leads`, body: `A Foundation Audit checks keyword intent, landing page match, tracking accuracy, and technical health — so you know precisely what to fix first, not just that "something's wrong."`,
       href: "/contact/", label: `Discuss your growth project` },
-    bodyHtml: `<p>"Our organic traffic is up 40% and leads haven't moved" is one of the most common things founders tell us. It feels like proof that SEO doesn't work for their business. In almost every case we've looked at, it isn't that — it's one or two specific, diagnosable problems sitting between the traffic and the lead form. This guide covers why <strong>SEO traffic isn't converting into leads</strong>, and how to work out which cause applies to you.</p>
-
-    <h2>Traffic is not the same as leads</h2>
-    <p>Search Console and GA4 both make it easy to watch a traffic number go up and assume the business is growing. But a visitor landing on your page from a search result hasn't bought anything — they've just arrived. Whether that visit turns into a lead depends on a completely separate set of factors: what they were actually looking for, whether your page answers it, and whether there's an obvious next step once it does.</p>
+    bodyHtml: `<p>"Our organic traffic is up and leads haven't moved" is one of the most common things founders tell us. It feels like proof that SEO doesn't work. In almost every case we've looked at, it isn't — it's one or two specific, diagnosable problems between the traffic and the lead form. Search Console makes it easy to watch a number rise and assume the business is growing, but a visitor who arrived hasn't bought anything. This guide covers why <strong>SEO traffic isn't converting into leads</strong>, and how to work out which cause is yours.</p>
 
     <h2>The most common reasons SEO traffic isn't converting</h2>
 
     <h3>1. You're ranking for the wrong keywords</h3>
-    <p>Ranking for "what is [your category]" brings visitors who are still researching, not ready to buy. Ranking for "[your category] pricing" or "best [your category] for [use case]" brings visitors much closer to a decision. If your top-performing pages by traffic are informational rather than commercial or transactional, growing traffic won't grow leads proportionally — you're winning the wrong keywords.</p>
+    <p>"What is [category]" brings researchers; "[category] pricing" or "best [category] for [use case]" brings people near a decision. If your top pages by traffic are informational rather than commercial, growing traffic won't grow leads proportionally.</p>
 
-    <h3>2. Your landing pages don't match search intent</h3>
-    <p>A visitor who searched "pricing" and lands on a generic homepage will bounce, even if the homepage technically mentions pricing somewhere. Pages need to directly and quickly answer the specific question the keyword implies. Mismatched intent is one of the fastest ways to lose a visitor who was actually ready to convert.</p>
+    <h3>2. Your landing pages don't match the query</h3>
+    <p>Someone who searched "pricing" and lands on a generic homepage bounces, even if pricing is mentioned somewhere on it. Pages need to answer the specific question the keyword implies, quickly.</p>
 
     <h3>3. No clear next step</h3>
-    <p>Plenty of well-ranking pages simply don't ask for anything. No visible form, no clear call to action, no obvious way to take the next step. If a genuinely interested visitor has to hunt for how to contact you, most won't bother.</p>
+    <p>Plenty of well-ranking pages don't ask for anything. If an interested visitor has to hunt for how to contact you, most won't.</p>
 
     <h3>4. Broken or missing conversion tracking</h3>
-    <p>Sometimes SEO is generating leads — they're just not being counted. If form submissions, calls, or WhatsApp clicks from organic traffic aren't tagged as conversions in GA4, the "no leads" problem may actually be a <a href="/insights/ga4-conversion-tracking/">measurement problem</a>, not a marketing one. This is worth ruling out before changing anything else.</p>
+    <p>Sometimes SEO is generating leads — they're just not being counted. If form submissions, calls or WhatsApp clicks from organic traffic aren't tagged as conversions in GA4, the "no leads" problem may be a <a href="/insights/ga4-conversion-tracking/">measurement problem</a>, not a marketing one. Rule this out before changing anything else.</p>
 
-    <h3>5. Technical issues quietly capping traffic</h3>
-    <p>Slow page load, poor mobile experience, or pages that aren't properly indexed can suppress both rankings and conversions simultaneously — visitors who do arrive have a worse experience and convert less, on top of fewer visitors arriving in the first place.</p>
+    <h3>5. Branded traffic is masking everything else</h3>
+    <p>If a decent share of your organic clicks are people searching your company name, they were already coming. Branded search is demand you created elsewhere, arriving through organic. Split branded from non-branded in Search Console before concluding anything: total organic can rise handsomely while the non-branded traffic that's supposed to find <em>new</em> customers sits flat.</p>
+
+    <h3>6. The traffic is real but it isn't yours to sell to</h3>
+    <p>Rankings that pull visitors from countries you don't serve inflate sessions and convert nothing. And sometimes the right person asks the right question, finds the page, and simply isn't persuaded — a positioning problem no amount of content fixes.</p>
+
+    <h3>7. Your content and your commercial pages never meet</h3>
+    <p>A blog that ranks and a service page that sells, with nothing linking them, is two websites sharing a domain. Internal links from articles to the commercial page that answers the next question are the cheapest conversion fix available, and the most commonly skipped.</p>
+
+    <h3>8. Technical drag</h3>
+    <p>Slow pages and poor mobile experience suppress rankings and conversions at once. Google's Core Web Vitals are <strong>Largest Contentful Paint</strong> (within 2.5s), <strong>Interaction to Next Paint</strong> (under 200ms) and <strong>Cumulative Layout Shift</strong> (under 0.1). Google doesn't call them a ranking factor — it says it highly recommends good scores for success in Search. Treat them as conversion hygiene with a possible ranking benefit.</p>
 
     <blockquote>Traffic answers "are people finding us?" Leads answer "are we useful once they do?" They're different questions, and a rising traffic chart can hide a flat answer to the second one.</blockquote>
 
     <h2>How to diagnose it: a simple process</h2>
     <ol>
-      <li><strong>Segment organic traffic by page and keyword intent</strong> in GA4 or Search Console — separate informational pages from commercial ones.</li>
-      <li><strong>Check conversion rate by landing page</strong>, not just overall — a few high-traffic, low-converting pages often skew the whole picture.</li>
-      <li><strong>Verify tracking is firing correctly</strong> for organic-sourced leads specifically, with a real test submission.</li>
-      <li><strong>Read your top commercial-intent pages as a stranger would</strong> — does it answer the query in the first screen, and is the next step obvious?</li>
-      <li><strong>Check Core Web Vitals and mobile experience</strong> in Search Console for pages with high impressions but low clicks or conversions.</li>
+      <li><strong>Split branded from non-branded</strong> in Search Console first — it reframes everything else.</li>
+      <li><strong>Segment organic by page and keyword intent</strong>, separating informational pages from commercial ones.</li>
+      <li><strong>Check conversion rate by landing page</strong>, not overall — a few high-traffic, low-converting pages skew the picture.</li>
+      <li><strong>Verify tracking fires</strong> for organic leads specifically, with a real test submission.</li>
+      <li><strong>Read your top commercial pages as a stranger</strong> — is the query answered in the first screen, and is the next step obvious?</li>
     </ol>
 
     <h2>How to fix it once you know the cause</h2>
     <ul>
-      <li><strong>Wrong keywords:</strong> shift content investment toward commercial and transactional intent, not just search volume.</li>
-      <li><strong>Intent mismatch:</strong> build or rewrite dedicated landing pages for your highest-intent keywords instead of routing everything to the homepage.</li>
-      <li><strong>Weak CTAs:</strong> add a specific, visible next step above the fold and repeated through the page — not just in the footer.</li>
-      <li><strong>Tracking gaps:</strong> fix GA4 conversion events for organic-sourced leads before changing anything else, so you can actually measure the impact of the other fixes.</li>
-      <li><strong>Technical drag:</strong> prioritise Core Web Vitals fixes on your highest-traffic commercial pages first.</li>
+      <li><strong>Wrong keywords:</strong> shift content investment toward commercial and transactional intent, not raw search volume.</li>
+      <li><strong>Intent mismatch:</strong> build dedicated landing pages for your highest-intent keywords instead of routing everything to the homepage.</li>
+      <li><strong>Weak CTAs:</strong> a specific, visible next step above the fold and repeated down the page — not just in the footer.</li>
+      <li><strong>Branded masking:</strong> report non-branded organic separately and set targets against that, not the total.</li>
+      <li><strong>Disconnected content:</strong> add internal links from ranking articles to the commercial page that answers the next question.</li>
+      <li><strong>Tracking gaps:</strong> fix GA4 conversion events for organic leads first, so you can measure whether the other fixes worked.</li>
+      <li><strong>Technical drag:</strong> prioritise Core Web Vitals on your highest-traffic commercial pages.</li>
     </ul>
-    <p>A broader <a href="/insights/marketing-foundation-audit/">marketing foundation audit</a> covers all five of these at once, which is usually faster than fixing them one at a time through trial and error.</p>
+    <p>A broader <a href="/insights/marketing-foundation-audit/">marketing foundation audit</a> covers these at once, which is usually faster than fixing them one at a time by trial and error. If the underlying problem is that content and commercial intent were never joined up, that's what <a href="/services/seo-ai-search/">SEO and AI search</a> work is for — and if you can't yet trust the lead numbers at all, start with <a href="/services/growth-strategy-measurement/">measurement</a>.</p>
 
-    <h2>When SEO leads take time regardless</h2>
-    <p>Even with all five fixed, a young domain or a newly built content strategy typically needs six to twelve months to generate meaningful organic leads — search engines need time to trust new content, and rankings for competitive commercial terms rarely happen overnight. The diagnosis above matters most when traffic has existed for a while with genuinely nothing to show for it, not in the first few months of a new SEO effort.</p>`
+    <h2>What about AI results?</h2>
+    <p>Founders increasingly ask whether AI Overviews and AI Mode have taken the clicks. There's a lot of confident noise, so be precise: Google says its generative AI features are "rooted in our core Search ranking and quality systems", that optimising for them "is optimising for the search experience, and thus still SEO", and that they show clickable links. Google doesn't publish a claim that they reduce clicks. Search Console has a generative AI performance report — measure your own rather than arguing from headlines.</p>
+
+    <h2>On timing</h2>
+    <p>Google doesn't publish how long SEO takes to produce leads, and anyone quoting a precise figure is guessing. What it does say is narrower and more useful: some changes take effect within hours, others several months; wait a few weeks before judging whether one helped; and not every change produces a noticeable effect. It also states plainly that nobody can guarantee a number-one ranking. Give real changes weeks rather than days — but months of traffic that converts nothing isn't a patience problem.</p>`
   },
   {
     slug: "shopify-conversion-tracking-ga4-meta-pixel",
@@ -3629,7 +3626,7 @@ export const insightArticles = [
                         "description": "What performance marketing actually means, how it differs from digital marketing generally, what counts and what doesn't, and why it lives or dies on tracking.",
                         "image": "https://wearetilth.com/assets/insight-cards/what-is-performance-marketing.webp",
                         "datePublished": "2026-05-13",
-                        "dateModified": "2026-05-13",
+                        "dateModified": "2026-11-08",
                         "inLanguage": "en-IN",
                         "url": "https://wearetilth.com/insights/what-is-performance-marketing/",
                         "mainEntityOfPage": "https://wearetilth.com/insights/what-is-performance-marketing/",
@@ -3641,7 +3638,7 @@ export const insightArticles = [
                               "performance marketing explained",
                               "digital marketing vs performance marketing"
                         ],
-                        "wordCount": 1400,
+                        "wordCount": 1150,
                         "author": {
                               "@type": "Person",
                               "name": "Anuja",
@@ -3666,7 +3663,7 @@ export const insightArticles = [
                                     "name": "What is performance marketing in simple terms?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Performance marketing is any marketing activity where you pay for, and measure success by, a specific measurable action — a click, a lead, a sale — rather than paying for exposure alone. Google Ads, Meta Ads, and affiliate marketing are common examples."
+                                          "text": "Performance marketing is marketing managed against measurable business outcomes, where spend and optimisation decisions are tied to tracked performance. It describes how the work is managed rather than how the media is priced: most paid search and paid social is bought per click or per thousand impressions and is still performance marketing. The defining feature is that decisions answer to measured results."
                                     }
                               },
                               {
@@ -3682,7 +3679,7 @@ export const insightArticles = [
                                     "name": "What channels count as performance marketing?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Google Ads, Meta Ads, other paid social advertising, affiliate marketing, and some influencer arrangements paid on commission all count, because each ties spend to a specific, trackable action. Organic SEO and brand awareness campaigns generally don't, since they aren't priced or measured the same way."
+                                          "text": "Paid search, paid social, affiliates and some creator or partner programmes, plus the work that makes those channels pay back: landing-page and conversion-rate optimisation, and the measurement and analytics underneath them. Those last two are routinely left off the list, which is why so many programmes end up optimising toward a number nobody has verified."
                                     }
                               },
                               {
@@ -3690,7 +3687,7 @@ export const insightArticles = [
                                     "name": "Does SEO count as performance marketing?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Not in the strict sense, because you don't pay per click or per lead for organic search results. SEO can and should still be measured against leads and revenue, but it doesn't fit the classic performance marketing definition of paying directly for a measurable outcome."
+                                          "text": "It sits awkwardly. You do not buy organic placement, so SEO is usually treated separately. But SEO managed against leads and revenue, with the same measurement discipline, has more in common with performance marketing than with brand work. The useful question is not which label applies but whether anyone is accountable for the outcome."
                                     }
                               },
                               {
@@ -3709,13 +3706,13 @@ export const insightArticles = [
     faqHeading: `What is performance marketing — FAQs`,
     faq: [
       { q: `What is performance marketing in simple terms?`,
-        a: `<p>Any marketing activity where you pay for, and measure success by, a specific measurable action — a click, lead, or sale — rather than paying for exposure alone. Google Ads, Meta Ads, and affiliate marketing are common examples.</p>` },
+        a: `<p>Marketing managed against measurable business outcomes, where spend and optimisation decisions are tied to tracked performance. Note that it's about how the work is <em>managed</em>, not how the media is priced — most paid search and paid social is bought per click or per thousand impressions, and it's still performance marketing.</p>` },
       { q: `Is performance marketing the same as digital marketing?`,
         a: `<p>No. Digital marketing is the broader umbrella covering SEO, social, email, content, and performance marketing itself. Performance marketing is a subset defined by being trackable and paid based on measurable outcomes.</p>` },
-      { q: `What channels count as performance marketing?`,
-        a: `<p>Google Ads, Meta Ads, other paid social advertising, affiliate marketing, and commission-based influencer arrangements — each ties spend to a specific trackable action.</p>` },
+      { q: `What counts as performance marketing?`,
+        a: `<p>Paid search, paid social, affiliates and some creator or partner programmes — plus the work that makes them pay back: landing-page and conversion-rate optimisation, and the measurement and analytics underneath. The last two are often left off the list, which is why so many programmes optimise a number nobody has verified.</p>` },
       { q: `Does SEO count as performance marketing?`,
-        a: `<p>Not in the strict sense — you don't pay per click or lead for organic results. SEO should still be measured against leads and revenue, but it doesn't fit the classic definition.</p>` },
+        a: `<p>It sits awkwardly. You don't buy organic placement, so it's usually treated separately — but SEO managed against leads and revenue, with the same measurement discipline, has more in common with performance marketing than with brand work. The useful question isn't which label applies; it's whether anyone is accountable for the outcome.</p>` },
       { q: `Why is tracking so important for performance marketing?`,
         a: `<p>Because its entire premise is paying based on results, broken tracking breaks the mechanism the whole approach depends on — a campaign optimising on inaccurate data is chasing numbers that don't reflect reality.</p>` },
     ],
@@ -3724,27 +3721,44 @@ export const insightArticles = [
       href: "/contact/", label: `Discuss your growth project` },
     bodyHtml: `<p>"We want to focus on performance marketing" and "we want to do digital marketing" get said as if they mean the same thing, and they don't quite. The mix-up matters because it shapes what a founder expects an agency or hire to deliver. Here's a clear, plain-English answer to <strong>what performance marketing actually is</strong> and how it's different from digital marketing generally.</p>
 
-    <h2>The short definition</h2>
-    <p>Performance marketing is any marketing activity where you <strong>pay for, and measure success by, a specific, trackable action</strong> — a click, a lead, a sale — rather than paying for exposure or reach alone. If you can draw a straight line from a rupee spent to a measurable result, it's performance marketing.</p>
+    <h2>The definition worth using</h2>
+    <p>Performance marketing is <strong>marketing managed against measurable business outcomes, where spend and optimisation decisions are tied to tracked performance.</strong></p>
+    <p>You'll often see a narrower version — "marketing where you only pay when a result happens". Tidy, and wrong: almost all paid search and paid social is bought per click or per thousand impressions, so you pay whether or not anyone converts. Affiliate deals do pay per outcome, but that's one model inside the discipline, not its definition. <strong>The payment model doesn't make something performance marketing; the management model does.</strong> A CPM campaign with a revenue target, verified tracking and a decision rule qualifies; a cost-per-lead deal nobody reviews doesn't.</p>
 
-    <h2>Digital marketing vs performance marketing: the actual difference</h2>
-    <p><strong>Digital marketing</strong> is the umbrella term for everything done through digital channels: SEO, social media management, email marketing, content, PR, and performance marketing itself. <strong>Performance marketing</strong> is one slice of that umbrella, defined narrowly by two things: it's paid based on a measurable outcome, and that outcome is trackable end to end. Every performance marketing activity is digital marketing. Most digital marketing activities are not performance marketing.</p>
+    <h2>Digital marketing vs performance marketing</h2>
+    <p><strong>Digital marketing</strong> is the umbrella for everything done through digital channels: SEO, social, email, content, PR, and performance marketing itself. <strong>Performance marketing</strong> is the slice managed against outcomes with measurement attached. Every performance marketing activity is digital marketing; plenty of digital marketing isn't performance marketing.</p>
 
-    <h2>What counts as performance marketing</h2>
+    <h2>What it covers</h2>
     <ul>
-      <li><strong>Google Ads and Meta Ads</strong> — you pay per click or per result, and can trace spend to outcomes.</li>
-      <li><strong>Affiliate marketing</strong> — partners are paid a commission per sale or lead they generate, directly tied to performance.</li>
-      <li><strong>Some influencer arrangements</strong> — where payment is commission-based rather than a flat fee for a post.</li>
-      <li><strong>Retargeting campaigns</strong> — spend is directly tied to re-engaging users who took a specific prior action.</li>
+      <li><strong>Paid search</strong> — capturing demand that already exists, with spend answering to a cost per acquisition.</li>
+      <li><strong>Paid social</strong> — creating demand, where creative is the main lever and the same accountability applies.</li>
+      <li><strong>Affiliates and partner programmes</strong> — commission tied to a verified outcome, which makes verification part of the job.</li>
+      <li><strong>Some creator programmes</strong> — where there's a measurement plan rather than a flat fee and a screenshot.</li>
+      <li><strong>Landing pages and CRO</strong> — often left out, which is odd given conversion rate is half the equation.</li>
+      <li><strong>Measurement and analytics</strong> — the part that makes the other five mean anything.</li>
     </ul>
 
-    <h2>What doesn't count (and why it still matters)</h2>
-    <p>Brand marketing, most organic social content, PR, and traditional SEO don't fit the strict definition, because you're not paying per measurable outcome — you're investing in awareness, reputation, or discoverability that compounds over time rather than converting on a 1:1 basis. That doesn't make these activities less valuable; it makes them a <em>different kind</em> of investment, with a different measurement horizon. Treating brand-building work like a performance channel — expecting immediate, attributable ROI from every rupee — sets it up to look like it's failing when it's actually just a slower-return asset.</p>
+    <h2>What performance marketing is not</h2>
+    <ul>
+      <li><strong>Not just paid ads.</strong> Media buying is the visible part; measurement and conversion work decide whether it pays.</li>
+      <li><strong>Not defined by CPC or CPA pricing.</strong> That's a billing arrangement, not a discipline.</li>
+      <li><strong>Not "anything measurable".</strong> A dashboard of tracked metrics nobody acts on is reporting.</li>
+      <li><strong>Not a guarantee of return.</strong> Measurable means you'll find out, not that the answer will be good.</li>
+      <li><strong>Not the platform dashboards.</strong> Those are vendor reports from interested parties.</li>
+    </ul>
+
+    <h2>Three caveats that separate good from busy</h2>
+    <p><strong>Measurable isn't incremental.</strong> A channel can be credited with revenue that was arriving anyway — branded search is the standard example. Attribution shares out credit; it doesn't establish cause.</p>
+    <p><strong>Platform ROAS isn't profitability.</strong> It's revenue over spend before cost of goods, returns and discounts, so it can look healthy on a business losing money. Judge against contribution margin and a break-even you calculated.</p>
+    <p><strong>Measurement quality sets the ceiling.</strong> Everything here rests on tracked outcomes, so if the tracking is wrong the whole thing is confidently wrong. <a href="/services/growth-strategy-measurement/">Measurement</a> isn't a support function here; it's load-bearing.</p>
+
+    <h2>Brand and performance aren't opponents</h2>
+    <p>Brand marketing, organic social and PR don't fit this definition — you're investing in awareness that compounds rather than converting one-to-one. A <em>different kind</em> of investment with a different horizon, not a lesser one, and the two feed each other: brand demand makes performance channels cheaper, which then shows up as improving performance metrics. Expecting attributable ROI from every rupee of brand work mostly guarantees it looks like it's failing.</p>
 
     <blockquote>Performance marketing answers "did this specific spend produce this specific result?" Brand marketing answers a slower, harder question: "does more of the world trust us than it did last year?" Both matter. Only one fits neatly into a spreadsheet.</blockquote>
 
-    <h2>Why performance marketing lives or dies on tracking</h2>
-    <p>Performance marketing's entire premise is paying based on results — which means its entire premise collapses if the results being measured aren't accurate. A Google Ads campaign optimising toward broken conversion tracking isn't underperforming marketing; it's a well-functioning algorithm chasing the wrong number, because <a href="/insights/ga4-conversion-tracking/">the tracking underneath it</a> was never verified. This is the reason "performance marketing" and "foundation work" aren't competing priorities — the second makes the first actually mean what it claims to mean.</p>
+    <h2>Why it lives or dies on tracking</h2>
+    <p>A campaign optimising toward broken conversion tracking isn't underperforming marketing — it's a well-functioning algorithm chasing the wrong number, because <a href="/insights/ga4-conversion-tracking/">the tracking underneath it</a> was never verified. That's why "performance marketing" and "foundation work" aren't competing priorities: the second makes the first mean what it claims. Running the channels well once that's true is what <a href="/services/performance-marketing/">performance marketing</a> and <a href="/services/paid-media/">paid media</a> actually involve.</p>
 
     <h2>When a startup should lean into performance marketing</h2>
     <p>Performance marketing tends to make the most sense once you have a validated offer and can afford to spend on discovering what converts — trackable, results-based spend is a genuinely efficient way to learn quickly. It's a natural fit for the early spend decisions covered in a <a href="/insights/startup-marketing-budget-india/">startup marketing budget</a>, precisely because every rupee is meant to be traceable to an outcome.</p>
