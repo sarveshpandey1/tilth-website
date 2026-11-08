@@ -1338,7 +1338,7 @@ export const insightArticles = [
                                     "name": "How many conversions do I need before judging a Google Ads test?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Google's Smart Bidding documentation recommends measuring performance over periods with at least 30 conversions, and at least 50 for Target ROAS. That is a reasonable floor for a human decision too. Below roughly 30 conversions you are usually reading noise, however confident the percentage change looks."
+                                          "text": "Google recommends evaluating Smart Bidding over periods containing at least 30 conversions, or 50 for Target ROAS. That is a platform benchmark for judging a bidding strategy, not a statistical rule, and it is separate from eligibility, which differs by campaign type. Your own threshold depends on what you are testing and what a conversion is worth: a high-value B2B campaign can learn from fewer conversions when lead quality and pipeline data are available, while a high-volume ecommerce test may want considerably more."
                                     }
                               },
                               {
@@ -1369,7 +1369,7 @@ export const insightArticles = [
       { q: `How do I work out my starting budget?`,
         a: `<p>Start with the most you can afford to pay for a customer — from gross margin, not revenue. Estimate cost-per-click from Keyword Planner's top-of-page bid ranges, assume a conversion rate you can defend, multiply the conversions you need by your expected cost per conversion, and spread that over the weeks you can afford to run.</p>` },
       { q: `How many conversions before I judge the test?`,
-        a: `<p>Google's own Smart Bidding guidance recommends measuring over periods with at least 30 conversions, and at least 50 for Target ROAS. That's a fair floor for a human decision too. Below about 30, you're usually reading noise.</p>` },
+        a: `<p>Google recommends evaluating Smart Bidding over periods containing at least 30 conversions, or 50 for Target ROAS. That's a platform benchmark for judging a bidding strategy, not a statistical rule — and it's separate from eligibility, which differs by campaign type. Your own threshold depends on what you're testing and what a conversion is worth: a high-value B2B campaign can learn from fewer conversions when lead quality and pipeline data are available, while a high-volume ecommerce test may want considerably more.</p>` },
       { q: `Should I start with Search, Shopping or Performance Max?`,
         a: `<p>A tightly scoped Search campaign is usually easiest to diagnose, because you can see which queries spent the money. Shopping suits a clean product feed. Performance Max is powerful but harder to attribute. AI Max isn't a campaign type — Google describes it as an optimisation layer inside a Search campaign.</p>` },
       { q: `How do I know if my budget is too small?`,
@@ -1392,13 +1392,15 @@ export const insightArticles = [
     <h3>Expected conversion rate</h3>
     <p>This is where budget plans quietly fail, because the rate gets assumed rather than estimated. If you have organic or referral traffic to the same page, use that rate and discount it — paid traffic from a broad query is rarely as qualified as someone who came looking. If you have no data, say so in the plan and treat the first weeks as the exercise that produces the number.</p>
 
-    <h2>How many conversions before the result means anything</h2>
-    <p>Here's a threshold you don't have to invent, because Google publishes it: its Smart Bidding guidance recommends measuring performance over periods containing <strong>at least 30 conversions</strong>, and at least 50 for Target ROAS. (Google also notes that from June 2026 the strategies formerly called "Maximize conversions with a Target CPA" and "Maximize conversion value with a Target ROAS" are simply <strong>Target CPA</strong> and <strong>Target ROAS</strong>.) Thirty is a fair floor for a human decision too. Below it the percentage swings look dramatic, mean very little, and tempt you into acting — which is the real risk of an underfunded test, rather than the money.</p>
+    <h2>How much evidence before the result means anything</h2>
+    <p>Google publishes a figure here, and it's worth quoting precisely. To evaluate Smart Bidding results accurately, Google Ads recommends measuring performance over longer periods containing <strong>at least 30 conversions</strong> — a month or more — and at least 50 for Target ROAS. (Google also notes that from June 2026 the strategies formerly called "Maximize conversions with a Target CPA" and "Maximize conversion value with a Target ROAS" are simply <strong>Target CPA</strong> and <strong>Target ROAS</strong>.)</p>
+    <p>That is a platform benchmark for judging a bidding strategy — not a statistical rule, and not automatically your decision threshold. Google doesn't present it as a significance test, and it notes that data recommendations vary by campaign type. It's also a different question from eligibility: Target CPA can be switched on with no conversion history at all, while Target ROAS carries its own per-campaign-type requirements, which for Search and Shopping are at least 15 conversions in the past 30 days. Being allowed to use a strategy and having enough data to judge it are not the same test.</p>
+    <p>Your own threshold depends on what you're testing and what one conversion is worth. If you sell a large contract, a handful of enquiries with qualification and pipeline data attached can be more informative than thirty form fills, because the evidence lives downstream of the ad account. A high-volume ecommerce campaign may pass thirty in a week and still want considerably more before changing anything — especially when the real question is creative or landing page rather than bidding. Decide in advance what would change your mind and what you'd need to see to believe it, then check whether the budget can buy that.</p>
 
     <blockquote>A budget too small to generate a decision doesn't fail slowly. It just never tells you anything, and you pay for the silence.</blockquote>
 
     <h2>Illustrative arithmetic — not a benchmark</h2>
-    <p>The numbers below are invented to show the shape of the calculation. Don't borrow them; they're arithmetic, not a market rate.</p>
+    <p>The numbers below are invented to show the shape of the calculation. Don't borrow them; they're arithmetic, not a market rate. The 30-conversion figure is borrowed from Google's Smart Bidding evaluation benchmark purely as an illustrative volume — substitute whatever evidence your own decision actually needs.</p>
     <div data-tbl><table class="price-table">
       <thead>
         <tr><th>Input</th><th>Illustrative figure</th></tr>
@@ -1408,11 +1410,11 @@ export const insightArticles = [
         <tr><td data-th="Input">Assumed cost-per-click</td><td data-th="Illustrative figure">₹30</td></tr>
         <tr><td data-th="Input">Assumed landing-page conversion rate</td><td data-th="Illustrative figure">2%</td></tr>
         <tr><td data-th="Input">Implied cost per conversion (₹30 ÷ 2%)</td><td data-th="Illustrative figure">₹1,500</td></tr>
-        <tr><td data-th="Input">Conversions needed for a decision</td><td data-th="Illustrative figure">30</td></tr>
-        <tr><td data-th="Input">Spend to reach that decision (30 × ₹1,500)</td><td data-th="Illustrative figure">₹45,000</td></tr>
+        <tr><td data-th="Input">Illustrative evaluation volume</td><td data-th="Illustrative figure">30 conversions</td></tr>
+        <tr><td data-th="Input">Implied spend at that volume (30 × ₹1,500)</td><td data-th="Illustrative figure">₹45,000</td></tr>
       </tbody>
     </table><p class="price-note">Illustrative arithmetic only. Substitute your own margin, bid range and conversion rate — the output changes completely, which is the point.</p></div>
-    <p>Two things fall out of that immediately. The implied cost per conversion (₹1,500) is above the ceiling the margin allows (₹1,000), so the campaign isn't viable as specified — and you know that before spending, which is the whole value of the exercise. And the "budget" is really a decision cost: spreading ₹45,000 over one month or two changes the speed of learning, not its price.</p>
+    <p>Two things fall out of that immediately. The implied cost per conversion (₹1,500) is above the ceiling the margin allows (₹1,000), so the campaign isn't viable as specified — and you know that before spending, which is the whole value of the exercise. And ₹45,000 isn't the price of certainty; it's simply the spend these illustrative assumptions imply to reach thirty conversions. Spreading it over one month or two changes how fast that evidence arrives, not how much of it you get.</p>
 
     <h2>What else moves your number</h2>
     <ul>
@@ -1746,7 +1748,7 @@ export const insightArticles = [
                                     "name": "How much should a small business or startup budget for marketing in India?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Work from what the business can sustain for several months rather than a published range, and split it explicitly into agency fee and media budget. Then check that the media budget is large enough to produce a decision in your category. Google's own guidance recommends evaluating performance over periods containing at least 30 conversions, which is a more useful test of whether a budget is viable than any benchmark retainer."
+                                          "text": "Work from what the business can sustain for several months rather than a published range, split it explicitly into agency fee and media budget, and make sure both can run long enough to evaluate the objective you actually agreed. Where that objective is bidding performance, Google's 30-conversion guidance (50 for Target ROAS) is one useful signal. For low-volume or long-cycle businesses, whether those conversions became qualified pipeline and revenue usually matters more than reaching any particular count."
                                     }
                               },
                               {
@@ -1773,7 +1775,7 @@ export const insightArticles = [
       { q: `Is a cheaper agency a good idea?`,
         a: `<p>Sometimes, if the scope genuinely matches what you need. The risk isn't the price but what gets quietly left out at that price — usually the unglamorous foundation work. You pay less monthly and lose more ad spend to decisions made on numbers you can't trust.</p>` },
       { q: `How much should a small business or startup budget?`,
-        a: `<p>Work from what you can sustain for several months, split explicitly into fee and media budget — then check the media budget is big enough to produce a decision. Google's own guidance recommends evaluating performance over periods with at least 30 conversions, which is a better viability test than any benchmark retainer.</p>` },
+        a: `<p>Work from what you can sustain for several months, split explicitly into fee and media budget, and make sure both can run long enough to evaluate the objective you actually agreed. Where that objective is bidding performance, Google's 30-conversion guidance (50 for Target ROAS) is one useful signal. For low-volume or long-cycle businesses, whether those conversions became qualified pipeline and revenue usually matters more than reaching any particular count.</p>` },
       { q: `How much does Tilth charge?`,
         a: `<p>The first conversation is free, so pricing reflects what actually needs fixing — not a one-size package. If the problem needs deeper diagnosis, we’ll scope a paid <a href="/contact/">Foundation Audit</a> around it. A typical audit takes 1–2 weeks, depending on scope.</p>` },
     ],
@@ -1850,7 +1852,7 @@ export const insightArticles = [
     <p>A very cheap retainer isn't automatically bad; it's automatically narrow. Something was left out to reach that price, and in our experience it's rarely the visible work — the posts, the campaign launches — and almost always the invisible work: tracking, attribution, targeting discipline. You save on the fee and lose a multiple of it on media spent against numbers nobody verified. When founders tell me their marketing "isn't working", the retainer size is rarely the cause; it's that <a href="/insights/ga4-conversion-tracking/">the numbers underneath were never right</a>. Which is why <a href="/services/performance-marketing/">performance marketing</a> that can't show you its own measurement isn't performance marketing.</p>
 
     <h2>How to budget if you're just starting</h2>
-    <p>Rather than anchoring on a published range, work from two things you control. What can the business sustain for several months without flinching — because a relationship cancelled in month two costs the full fee and produces no conclusion. And is the media budget large enough to produce a decision in your category? Google's own guidance recommends evaluating performance over periods containing at least 30 conversions; if your planned spend can't reach that, the retainer size is the wrong thing to be negotiating. Then, before committing to anyone, get an independent read on whether your tracking and targeting are sound — which is exactly what a <a href="/insights/marketing-foundation-audit/">foundation audit</a> is for.</p>`
+    <p>Rather than anchoring on a published range, work from two things you control. What can the business sustain for several months without flinching — because a relationship cancelled in month two costs the full fee and produces no conclusion. And can the fee and the media budget both run long enough to evaluate whatever you actually agreed to measure? Where that's bidding performance, Google's 30-conversion guidance is one reference point; if you sell few, large deals, whether those conversions became qualified pipeline will tell you more than the count. Either way, if the plan can't fund a fair evaluation of its own objective, the retainer size is the wrong thing to be negotiating. Then, before committing to anyone, get an independent read on whether your tracking and targeting are sound — which is exactly what a <a href="/insights/marketing-foundation-audit/">foundation audit</a> is for.</p>`
   },
   {
     slug: "marketing-agency-for-d2c-brands",

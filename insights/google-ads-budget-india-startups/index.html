@@ -131,7 +131,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
           "name": "How many conversions before I judge the test?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Google's own Smart Bidding guidance recommends measuring over periods with at least 30 conversions, and at least 50 for Target ROAS. That's a fair floor for a human decision too. Below about 30, you're usually reading noise."
+            "text": "Google recommends evaluating Smart Bidding over periods containing at least 30 conversions, or 50 for Target ROAS. That's a platform benchmark for judging a bidding strategy, not a statistical rule — and it's separate from eligibility, which differs by campaign type. Your own threshold depends on what you're testing and what a conversion is worth: a high-value B2B campaign can learn from fewer conversions when lead quality and pipeline data are available, while a high-volume ecommerce test may want considerably more."
           }
         },
         {
@@ -244,13 +244,15 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
     <h3>Expected conversion rate</h3>
     <p>This is where budget plans quietly fail, because the rate gets assumed rather than estimated. If you have organic or referral traffic to the same page, use that rate and discount it — paid traffic from a broad query is rarely as qualified as someone who came looking. If you have no data, say so in the plan and treat the first weeks as the exercise that produces the number.</p>
 
-    <h2>How many conversions before the result means anything</h2>
-    <p>Here's a threshold you don't have to invent, because Google publishes it: its Smart Bidding guidance recommends measuring performance over periods containing <strong>at least 30 conversions</strong>, and at least 50 for Target ROAS. (Google also notes that from June 2026 the strategies formerly called "Maximize conversions with a Target CPA" and "Maximize conversion value with a Target ROAS" are simply <strong>Target CPA</strong> and <strong>Target ROAS</strong>.) Thirty is a fair floor for a human decision too. Below it the percentage swings look dramatic, mean very little, and tempt you into acting — which is the real risk of an underfunded test, rather than the money.</p>
+    <h2>How much evidence before the result means anything</h2>
+    <p>Google publishes a figure here, and it's worth quoting precisely. To evaluate Smart Bidding results accurately, Google Ads recommends measuring performance over longer periods containing <strong>at least 30 conversions</strong> — a month or more — and at least 50 for Target ROAS. (Google also notes that from June 2026 the strategies formerly called "Maximize conversions with a Target CPA" and "Maximize conversion value with a Target ROAS" are simply <strong>Target CPA</strong> and <strong>Target ROAS</strong>.)</p>
+    <p>That is a platform benchmark for judging a bidding strategy — not a statistical rule, and not automatically your decision threshold. Google doesn't present it as a significance test, and it notes that data recommendations vary by campaign type. It's also a different question from eligibility: Target CPA can be switched on with no conversion history at all, while Target ROAS carries its own per-campaign-type requirements, which for Search and Shopping are at least 15 conversions in the past 30 days. Being allowed to use a strategy and having enough data to judge it are not the same test.</p>
+    <p>Your own threshold depends on what you're testing and what one conversion is worth. If you sell a large contract, a handful of enquiries with qualification and pipeline data attached can be more informative than thirty form fills, because the evidence lives downstream of the ad account. A high-volume ecommerce campaign may pass thirty in a week and still want considerably more before changing anything — especially when the real question is creative or landing page rather than bidding. Decide in advance what would change your mind and what you'd need to see to believe it, then check whether the budget can buy that.</p>
 
     <blockquote>A budget too small to generate a decision doesn't fail slowly. It just never tells you anything, and you pay for the silence.</blockquote>
 
     <h2>Illustrative arithmetic — not a benchmark</h2>
-    <p>The numbers below are invented to show the shape of the calculation. Don't borrow them; they're arithmetic, not a market rate.</p>
+    <p>The numbers below are invented to show the shape of the calculation. Don't borrow them; they're arithmetic, not a market rate. The 30-conversion figure is borrowed from Google's Smart Bidding evaluation benchmark purely as an illustrative volume — substitute whatever evidence your own decision actually needs.</p>
     <div data-tbl><table class="price-table">
       <thead>
         <tr><th>Input</th><th>Illustrative figure</th></tr>
@@ -260,11 +262,11 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
         <tr><td data-th="Input">Assumed cost-per-click</td><td data-th="Illustrative figure">₹30</td></tr>
         <tr><td data-th="Input">Assumed landing-page conversion rate</td><td data-th="Illustrative figure">2%</td></tr>
         <tr><td data-th="Input">Implied cost per conversion (₹30 ÷ 2%)</td><td data-th="Illustrative figure">₹1,500</td></tr>
-        <tr><td data-th="Input">Conversions needed for a decision</td><td data-th="Illustrative figure">30</td></tr>
-        <tr><td data-th="Input">Spend to reach that decision (30 × ₹1,500)</td><td data-th="Illustrative figure">₹45,000</td></tr>
+        <tr><td data-th="Input">Illustrative evaluation volume</td><td data-th="Illustrative figure">30 conversions</td></tr>
+        <tr><td data-th="Input">Implied spend at that volume (30 × ₹1,500)</td><td data-th="Illustrative figure">₹45,000</td></tr>
       </tbody>
     </table><p class="price-note">Illustrative arithmetic only. Substitute your own margin, bid range and conversion rate — the output changes completely, which is the point.</p></div>
-    <p>Two things fall out of that immediately. The implied cost per conversion (₹1,500) is above the ceiling the margin allows (₹1,000), so the campaign isn't viable as specified — and you know that before spending, which is the whole value of the exercise. And the "budget" is really a decision cost: spreading ₹45,000 over one month or two changes the speed of learning, not its price.</p>
+    <p>Two things fall out of that immediately. The implied cost per conversion (₹1,500) is above the ceiling the margin allows (₹1,000), so the campaign isn't viable as specified — and you know that before spending, which is the whole value of the exercise. And ₹45,000 isn't the price of certainty; it's simply the spend these illustrative assumptions imply to reach thirty conversions. Spreading it over one month or two changes how fast that evidence arrives, not how much of it you get.</p>
 
     <h2>What else moves your number</h2>
     <ul>
@@ -295,7 +297,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
         </div>
         <div data-faq-item>
           <h3><button type="button" data-faq-btn id="faq-b2" aria-controls="faq-p2" aria-expanded="false"><span>How many conversions before I judge the test?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
-          <div data-faq-ans id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p>Google's own Smart Bidding guidance recommends measuring over periods with at least 30 conversions, and at least 50 for Target ROAS. That's a fair floor for a human decision too. Below about 30, you're usually reading noise.</p></div></div>
+          <div data-faq-ans id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p>Google recommends evaluating Smart Bidding over periods containing at least 30 conversions, or 50 for Target ROAS. That's a platform benchmark for judging a bidding strategy, not a statistical rule — and it's separate from eligibility, which differs by campaign type. Your own threshold depends on what you're testing and what a conversion is worth: a high-value B2B campaign can learn from fewer conversions when lead quality and pipeline data are available, while a high-volume ecommerce test may want considerably more.</p></div></div>
         </div>
         <div data-faq-item>
           <h3><button type="button" data-faq-btn id="faq-b3" aria-controls="faq-p3" aria-expanded="false"><span>Should I start with Search, Shopping or Performance Max?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
