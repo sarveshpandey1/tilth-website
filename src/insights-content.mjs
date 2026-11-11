@@ -259,14 +259,23 @@ export const insightHub = {
     }
 ],
   cats: [
-    { id: "all", label: `All`, count: "19" },
+    { id: "all", label: `All`, count: "20" },
     { id: "paid-ads", label: `Paid Ads`, count: "5" },
     { id: "tracking", label: `Tracking &amp; Attribution`, count: "4" },
     { id: "seo-growth", label: `SEO &amp; Growth`, count: "4" },
     { id: "hiring", label: `Hiring &amp; Agencies`, count: "4" },
-    { id: "strategy", label: `Strategy`, count: "2" },
+    { id: "strategy", label: `Strategy`, count: "3" },
   ],
   cards: [
+    {
+      slug: "b2b-saas-marketing-india", href: "/insights/b2b-saas-marketing-india/", cat: "strategy",
+      catLabel: `Strategy`,
+      title: `Marketing for Indian SaaS: why the B2C playbook breaks`,
+      excerpt: `The tactics that work in D2C fail in SaaS for structural reasons — the user isn't the buyer, a demo isn't revenue, and the signal arrives months after the click. What to measure instead.`,
+      meta: `9 min read · 11 Nov 2026`,
+      read: `Read the article →`,
+      img: `<img class="blog-card__media" src="/assets/insight-cards/b2b-saas-marketing-india.webp" alt="" loading="lazy" width="1200" height="630">`
+    },
     {
       slug: "break-even-roas", href: "/insights/break-even-roas/", cat: "paid-ads",
       catLabel: `Paid Ads`,
@@ -442,6 +451,288 @@ export const insightHub = {
 };
 
 export const insightArticles = [
+  {
+    slug: "b2b-saas-marketing-india",
+    section: "Strategy",
+    readTime: "9 min read",
+    date: "11 Nov 2026",
+    h1: `Marketing for Indian SaaS: why the B2C playbook breaks`,
+    standfirst: `Plenty of good D2C marketers struggle the first time they run acquisition for a SaaS product, and conclude the channels don't work. Usually the channels are fine. What's changed is that the user isn't the buyer, a demo isn't revenue, and the signal that tells you whether any of it worked arrives months after the click.`,
+    bylineImg: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">`,
+    bylineWho: `Anuja Founder, Tilth · 10+ years in performance marketing`,
+    meta: {
+      "title": "Marketing for Indian SaaS: Why the B2C Playbook Breaks | Tilth",
+      "description": "Why D2C acquisition tactics fail when applied to B2B SaaS — leads versus pipeline, paid-media versus fully loaded CAC, payback over CAC, attribution that ends in the CRM, and a 90-day plan.",
+      "canonical": "https://wearetilth.com/insights/b2b-saas-marketing-india/",
+      "robots": "index, follow",
+      "ogTitle": "Marketing for Indian SaaS: why the B2C playbook breaks",
+      "ogDescription": "Leads versus pipeline, paid-media versus fully loaded CAC, payback over CAC, and attribution that has to end in the CRM.",
+      "ogType": "article",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/b2b-saas-marketing-india.webp",
+      "ogLocale": null,
+      "twTitle": "Marketing for Indian SaaS: why the B2C playbook breaks",
+      "twDescription": "Why D2C acquisition tactics fail in SaaS, and what to measure instead.",
+      "twImage": "https://wearetilth.com/assets/insight-cards/b2b-saas-marketing-india.webp"
+},
+    schema: [
+      {
+            "@context": "https://schema.org",
+            "@graph": [
+                  {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                              {
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "Home",
+                                    "item": "https://wearetilth.com/"
+                              },
+                              {
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Insights",
+                                    "item": "https://wearetilth.com/insights/"
+                              },
+                              {
+                                    "@type": "ListItem",
+                                    "position": 3,
+                                    "name": "Marketing for Indian SaaS: why the B2C playbook breaks",
+                                    "item": "https://wearetilth.com/insights/b2b-saas-marketing-india/"
+                              }
+                        ]
+                  },
+                  {
+                        "@type": "BlogPosting",
+                        "headline": "Marketing for Indian SaaS: why the B2C playbook breaks",
+                        "description": "Why D2C acquisition tactics fail when applied to B2B SaaS - leads versus pipeline, paid-media versus fully loaded CAC, payback over CAC, attribution that ends in the CRM, and a 90-day plan.",
+                        "image": "https://wearetilth.com/assets/insight-cards/b2b-saas-marketing-india.webp",
+                        "datePublished": "2026-11-11",
+                        "dateModified": "2026-11-11",
+                        "inLanguage": "en-IN",
+                        "url": "https://wearetilth.com/insights/b2b-saas-marketing-india/",
+                        "mainEntityOfPage": "https://wearetilth.com/insights/b2b-saas-marketing-india/",
+                        "articleSection": "Strategy",
+                        "keywords": [
+                              "B2B SaaS marketing India",
+                              "SaaS marketing India",
+                              "SaaS customer acquisition",
+                              "B2B SaaS CAC",
+                              "SaaS growth strategy India",
+                              "SaaS lead generation India"
+                        ],
+                        "wordCount": 2680,
+                        "author": {
+                              "@type": "Person",
+                              "name": "Anuja",
+                              "jobTitle": "Founder",
+                              "url": "https://wearetilth.com/about/"
+                        },
+                        "publisher": {
+                              "@type": "Organization",
+                              "name": "Tilth",
+                              "url": "https://wearetilth.com/",
+                              "logo": {
+                                    "@type": "ImageObject",
+                                    "url": "https://wearetilth.com/favicon.svg"
+                              }
+                        }
+                  },
+                  {
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                              {
+                                    "@type": "Question",
+                                    "name": "Why is SaaS marketing different from B2C?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "Structurally, not stylistically. In B2C the person who clicks is usually the person who pays, and they often pay the same day, which gives you fast, high-volume feedback. In B2B SaaS the user is frequently not the buyer, several people influence the decision, a demo or trial is not revenue, and the money may arrive weeks or months later. That changes what you can optimise toward, how long a test has to run, and which system holds the truth."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "What should a SaaS company optimise paid ads for?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "The event closest to business value that still happens often enough for the system to learn from. That is a trade-off, not a rule: a qualified opportunity is a better signal than a form fill but may occur a handful of times a month, which is too sparse for automated bidding. Start nearer the top where volume allows, qualify hard, and move the optimisation event deeper as volume grows. Anyone who tells you to always optimise for SQLs has not checked your volume."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "Which channel is best for B2B SaaS in India?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "There is no single answer, and the honest version is conditional. Search works when buyers already describe your category in a search box. Paid social can work for broad SMB products, founder-led offers and remarketing, where creative has to create the demand. Role and company targeting suits narrow, higher-value audiences but usually produces fewer events, which makes learning slower. What decides it is your contract value, how well defined your ideal customer is, your sales motion, whether demand already exists, and whether you can produce creative at the rate the channel consumes it."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "What is a good CAC for SaaS?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "There is no rupee figure that answers this, and published averages for Indian SaaS are mostly vendor estimates rather than audited data. A CAC is good or bad only relative to what a customer contributes after cost of service, how long they stay, and how long the payback takes against the cash you have. A 60,000 rupee CAC can be excellent at one contract value and ruinous at another. Judge it against contribution and payback, not against someone else's number."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "Should SaaS use free trials or book-a-demo?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "It depends on how the product is bought rather than on preference. A product someone can evaluate alone, in minutes, suits self-serve signup or a trial. A product that needs configuration, security review or several stakeholders suits a demo or a conversation with sales, because a trial nobody can run alone just produces abandoned accounts. Many companies need both paths on the same site for different segments, and the mistake is forcing one CTA on everyone."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "How should SaaS calculate marketing ROI?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "Against pipeline and closed revenue in your CRM, not against platform-reported conversions. Hold two CAC figures: paid-media CAC, which tells you whether a channel is working, and fully loaded CAC including team, agency, sales salaries and commission, tools and onboarding, which tells you whether the business works. They answer different questions and conflating them is how a channel looks profitable while the company is not."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "How long should a SaaS paid-media test run?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "At least as long as your sales cycle, plus time to accumulate enough events to read. For a short self-serve motion that may be weeks. For enterprise deals closing in two or three quarters, ninety days will usually tell you about pipeline quality rather than closed-won CAC, and anyone promising proven profitability in that window for a long-cycle product is guessing. Decide in advance which question the test is answering."
+                                    }
+                              }
+                        ]
+                  }
+            ]
+      }
+],
+    faqHeading: `SaaS marketing in India — FAQs`,
+    faq: [
+      { q: `Why is SaaS marketing different from B2C?`,
+        a: `<p>Structurally, not stylistically. In B2C the person who clicks usually pays, often the same day — fast, high-volume feedback. In B2B SaaS the user frequently isn't the buyer, several people influence the decision, a demo or trial isn't revenue, and the money may arrive months later. That changes what you can optimise toward, how long a test must run, and which system holds the truth.</p>` },
+      { q: `What should a SaaS company optimise paid ads for?`,
+        a: `<p>The event closest to business value that still happens often enough to learn from. That's a trade-off, not a rule: a qualified opportunity beats a form fill as a signal, but may occur a handful of times a month — too sparse for automated bidding. Start nearer the top where volume demands it, qualify hard, and move deeper as volume grows.</p>` },
+      { q: `Which channel is best for B2B SaaS in India?`,
+        a: `<p>Conditional, not universal. Search works when buyers already describe your category in a search box. Paid social suits broad SMB products, founder-led offers and remarketing, where creative creates the demand. Role and company targeting suits narrow, higher-value audiences but produces fewer events, so learning is slower. Contract value, how sharply you've defined your buyer, sales motion and demand maturity decide it.</p>` },
+      { q: `What is a good CAC for SaaS?`,
+        a: `<p>No rupee figure answers this, and published Indian SaaS averages are mostly vendor estimates rather than audited data. A CAC is good or bad only relative to what a customer contributes after cost of service, how long they stay, and how long payback takes against the cash you hold. ₹60,000 can be excellent at one contract value and ruinous at another.</p>` },
+      { q: `Should SaaS use free trials or book-a-demo?`,
+        a: `<p>It depends on how the product is bought. Something a person can evaluate alone in minutes suits self-serve or a trial. Something needing configuration, a security review or several stakeholders suits a demo — a trial nobody can run alone just produces abandoned accounts. Many sites need both paths for different segments; the mistake is forcing one CTA on everyone.</p>` },
+      { q: `How should SaaS calculate marketing ROI?`,
+        a: `<p>Against pipeline and closed revenue in the CRM, not platform-reported conversions. Hold two CAC figures: <strong>paid-media CAC</strong>, which tells you whether a channel works, and <strong>fully loaded CAC</strong> — team, agency, sales salaries and commission, tools, onboarding — which tells you whether the business works. Conflating them is how a channel looks profitable while the company isn't.</p>` },
+      { q: `How long should a SaaS paid-media test run?`,
+        a: `<p>At least as long as your sales cycle, plus time to accumulate readable volume. For a short self-serve motion, weeks. For enterprise deals closing in two or three quarters, ninety days will tell you about pipeline quality rather than closed-won CAC — anyone promising proven profitability in that window for a long-cycle product is guessing.</p>` },
+    ],
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Spending on SaaS acquisition without a pipeline view?`, body: `A Foundation Audit checks whether your tracking reaches the CRM, whether your qualification is real, and what your acquisition actually costs once sales effort is counted. No pitch attached.`,
+      href: "/contact/", label: `Discuss your growth project` },
+    bodyHtml: `<p>A good D2C marketer takes over SaaS acquisition, runs the playbook that worked before, and three months later reports that the channels don't work for B2B. Usually the channels are fine. What broke is what the playbook quietly assumed — that the person clicking is the person paying, that a conversion is a sale, and that you'll know within days. Strip those out and most tactics still stand; it's the <em>measurement and optimisation system</em> around them that has to be rebuilt.</p>
+
+    <h2>What the B2C playbook assumes</h2>
+    <div data-tbl><table data-stack class="price-table">
+      <thead>
+        <tr><th>B2C/D2C assumption</th><th>What's usually true in B2B SaaS</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-th="B2C/D2C assumption">One user = one buyer</td><td data-th="What's usually true in B2B SaaS">The user, the champion and the person who signs are often three people</td></tr>
+        <tr><td data-th="B2C/D2C assumption">The purchase completes online</td><td data-th="What's usually true in B2B SaaS">A demo or trial starts a process that finishes in a conversation</td></tr>
+        <tr><td data-th="B2C/D2C assumption">Conversion signal arrives in hours</td><td data-th="What's usually true in B2B SaaS">Revenue may land weeks or months after the click</td></tr>
+        <tr><td data-th="B2C/D2C assumption">Thousands of events to learn from</td><td data-th="What's usually true in B2B SaaS">Often a few dozen meaningful events a month</td></tr>
+        <tr><td data-th="B2C/D2C assumption">Creative can generate demand directly</td><td data-th="What's usually true in B2B SaaS">Creative generates attention; sales converts it</td></tr>
+        <tr><td data-th="B2C/D2C assumption">Platform reporting is directionally useful</td><td data-th="What's usually true in B2B SaaS">Platform reporting stops at the form; the CRM holds the outcome</td></tr>
+        <tr><td data-th="B2C/D2C assumption">First-purchase economics are judgeable quickly</td><td data-th="What's usually true in B2B SaaS">Economics depend on retention you haven't observed yet</td></tr>
+      </tbody>
+    </table><p class="price-note">Not every row applies to every SaaS business — which is the next point.</p></div>
+
+    <h2>"SaaS" isn't one business model</h2>
+    <p>A ₹999-a-month self-serve tool and a ₹30 lakh annual contract are different businesses sharing a delivery mechanism. What matters isn't the software; it's the <strong>sales motion</strong>, which determines how much a customer can cost, how long you wait to find out, and whether a human is involved at all.</p>
+    <ul>
+      <li><strong>Self-serve / PLG</strong> — closest to D2C. Higher volume, faster signal, product does the selling. The B2C playbook transfers best here, though retention still decides the economics.</li>
+      <li><strong>SMB</strong> — short cycles, usually one decision-maker. Fast feedback, but CAC gets tight against small contracts.</li>
+      <li><strong>Mid-market</strong> — several stakeholders, a real evaluation, weeks to months. Pipeline reporting becomes mandatory.</li>
+      <li><strong>Enterprise / sales-led</strong> — long cycles, procurement, security review. Marketing generates and influences pipeline; it doesn't close, and measuring it as though it does produces nonsense.</li>
+    </ul>
+    <p>Everything below applies more strongly as you move down that list.</p>
+
+    <h2>Failure 1: optimising for leads instead of pipeline</h2>
+    <p>The big one, and seductive because lead cost is the metric that improves most easily. Loosen targeting, soften the offer, drop form fields, and cost per lead falls. The dashboard improves while the business doesn't.</p>
+    <p>A cheap lead is worthless if it's the wrong company size, the wrong country, a student or job-seeker, someone with no authority, no live use case or no ability to pay. In SaaS these aren't edge cases — they can be most of the volume, and nothing in the ad platform knows the difference.</p>
+    <p>So the useful unit isn't the lead; it's whatever stage first means <em>a real buying conversation</em>. Teams label those stages differently — lead, MQL, SQL, opportunity, closed-won is one common set — but the labels matter less than having them defined and applied consistently, and judging media at a stage where the obviously unqualified have already gone.</p>
+
+    <h2>Failure 2: the CAC you quote isn't the CAC you pay</h2>
+    <p>In D2C, media is most of acquisition cost. In SaaS it often isn't: by the time a customer signs, acquisition may have consumed media, the team or agency, SDR time, sales salaries and commission, tooling, onboarding, and sales-engineering effort. Rather than arguing about which belongs in the definition, hold two numbers deliberately:</p>
+    <ul>
+      <li><strong>Paid-media CAC</strong> — spend ÷ customers acquired from it. Answers: <em>is this channel working?</em> Useful weekly, comparable across campaigns.</li>
+      <li><strong>Fully loaded CAC</strong> — everything above ÷ customers. Answers: <em>does this business work?</em> Useful quarterly, and the one that should inform pricing and headcount.</li>
+    </ul>
+    <p>Both are legitimate; neither is "the" CAC. The failure is quoting the first and believing you've answered the second — a channel can look efficient while every deal consumes three weeks of a salesperson nobody counted.</p>
+
+    <h2>Failure 3: judging CAC without payback</h2>
+    <p>CAC in isolation ranks companies wrongly. Consider two:</p>
+    <div data-tbl><table data-stack class="price-table">
+      <thead>
+        <tr><th></th><th>Company A</th><th>Company B</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-th="">CAC</td><td data-th="Company A">₹60,000</td><td data-th="Company B">₹35,000</td></tr>
+        <tr><td data-th="">Contribution per month</td><td data-th="Company A">₹10,000</td><td data-th="Company B">₹3,000</td></tr>
+        <tr><td data-th="">Payback period</td><td data-th="Company A">6 months</td><td data-th="Company B">~12 months</td></tr>
+      </tbody>
+    </table><p class="price-note">Illustrative arithmetic, not benchmarks. Substitute your own contribution figures.</p></div>
+    <p>B has the lower CAC and the worse acquisition engine: it waits twice as long to recover its money, so it funds roughly half as much growth from the same cash. Choose between channels or segments on CAC alone and you'll systematically prefer the cheaper, slower one.</p>
+    <p>You'll see twelve months quoted as a payback target. Treat it as a convention borrowed from well-capitalised Western SaaS, not a rule, and not one calibrated to an Indian company's cost of capital or runway. What matters is whether <em>your</em> payback fits the cash you actually hold. Our <a href="/tools/ltv-cac-calculator/">LTV:CAC calculator</a> has a SaaS mode taking MRR, churn and expansion and returning payback — faster than a spreadsheet.</p>
+
+    <h2>Failure 4: treating LTV as a fact</h2>
+    <p>ARPU divided by churn is arithmetic, not evidence, and it turns to fiction quickly: when the cohort is tiny, when you have months rather than years of retention history, when churn is still moving, when expansion is assumed rather than observed, when gross margin is ignored so revenue gets treated as profit, and when annual plans flatter short-term churn because nobody has had the chance to leave yet. Early customers also behave unlike later ones — your first users were probably hand-held by a founder, which isn't a repeatable acquisition experience.</p>
+    <p>What's defensible: <strong>cohort retention you've observed</strong>, expansion you've recorded, and economics adjusted for gross margin so you're reasoning about contribution. If the honest answer is "we don't have enough history yet", that's a real answer — be conservative about acquisition cost rather than inventing a number to justify it. Same logic that makes <a href="/insights/break-even-roas/">break-even ROAS</a> meaningless without an honest margin.</p>
+
+    <h2>Failure 5: attribution that stops at the form</h2>
+    <p>A realistic journey: a LinkedIn ad, a blog post two weeks later, a direct visit, a branded Google search, a demo booking, an SDR follow-up, a sales call, and a closed deal 45 days after that first impression.</p>
+    <p>Which channel gets credit? Whichever your attribution rule says — and that's the point. <a href="/insights/marketing-attribution-explained-simply/">Attribution is a rule for splitting credit</a>, not a discovery of cause, and in SaaS the gap is wide because the journey is long and mostly invisible to any single platform. Three things make it tractable:</p>
+    <ul>
+      <li><strong>The CRM is part of the source of truth.</strong> Platform conversions are form fills; the CRM knows which became revenue. An ROI claim that never touches the CRM is a claim about forms.</li>
+      <li><strong>Campaign data has to survive the handoff.</strong> UTMs and click IDs captured at the form and written to the CRM record are what connect a closed deal back to a campaign. Retrofitting this is painful and usually partial.</li>
+      <li><strong>Feed outcomes back.</strong> Both major platforms accept offline conversion imports, so bidding can learn from qualified opportunities rather than raw form fills — <a href="/services/growth-strategy-measurement/">measurement architecture</a> rather than campaign work.</li>
+    </ul>
+
+    <h2>Choosing channels without a ranking</h2>
+    <p>Channel league tables are the laziest genre in SaaS marketing content, so here's the conditional version.</p>
+    <p><strong>Search</strong> earns its place when buyers already describe your category in a search box. If people search "GST billing software", search captures demand that exists. If your category has no name yet, search has nothing to capture and you'll spend the budget discovering that.</p>
+    <p><strong>Paid social</strong> works when the offer is broad enough to interrupt someone usefully — SMB products, founder-led positioning, education-led creative, remarketing. It demands creative at a cadence, which is a production question before it's a media one.</p>
+    <p><strong>Role and company targeting</strong> suits narrow, higher-value audiences where reaching the right 2,000 people beats reaching 200,000. The trade-off is volume: fewer events mean slower, noisier learning.</p>
+    <p>What decides it: contract value, how sharply you've defined the buyer, sales motion, whether demand exists, geography, creative capacity, and whether sales can work the pipeline. Deciding that deliberately is what <a href="/services/performance-marketing/">performance marketing</a> planning is; picking from a listicle isn't.</p>
+
+    <h2>What to optimise for</h2>
+    <p>Signups, activated users, qualified trials, demos booked, demos attended, opportunities, revenue — not interchangeable, and the optimisation event is one of the highest-stakes settings in a SaaS ad account.</p>
+    <p>The principle: <strong>move it as close to business value as volume allows.</strong> The trade-off is that the closer you get, the rarer the event, and automated bidding needs frequency to learn. An opportunity is a far better signal than a form fill and may happen eight times a month — too sparse. So start where there's volume, qualify ruthlessly behind it, and move deeper as the numbers grow. There's no universal "always optimise for SQL" rule; anyone offering one hasn't looked at your event counts.</p>
+
+    <h2>The site has to do its share</h2>
+    <p>SaaS paid media often fails for reasons unrelated to the campaign. Before blaming the channel, check the page answers: who it's for, the problem it solves, proof, how the product does it, why it's different, the integration and security questions your buyer will ask, and what happens next.</p>
+    <p>That last one is the CTA, and it should match the buying stage rather than company preference. Self-serve signup suits a product someone can evaluate alone in minutes; a trial suits one where value lands inside the trial window; book-a-demo suits anything needing configuration or several stakeholders; contact sales suits negotiated enterprise pricing. Many sites need more than one path for different segments — forcing a single CTA on every visitor is a common and expensive habit.</p>
+
+    <h2>The feedback loop most SaaS teams don't have</h2>
+    <p>Marketing can't fix lead quality when the only feedback is "the leads are bad." That sentence contains no information. What's needed is a structured disqualification reason on every rejected lead — wrong role, wrong company size, no budget, competitor research, student or job-seeker, duplicate, no-show, qualified but wrong timing, lost on price, lost on a product gap.</p>
+    <p>Those reasons are instructions. Wrong role or company size is a targeting and landing-page problem. Students and job-seekers are a keyword-negative and creative problem. Lost on price is qualification or positioning. Wrong timing isn't a failure at all — it's a nurture list. And where volume allows, feeding qualified-versus-disqualified back as offline conversions turns that judgement into a bidding signal. This loop is usually the difference between an account that improves over six months and one that just gets cheaper leads.</p>
+
+    <h2>India-specific realities</h2>
+    <p>Two things change the economics more than anything else, and both are about <em>who you sell to</em> rather than where you sit.</p>
+    <p>First, <strong>selling into India and selling into the US or Europe are different businesses</strong> run from the same office. Contract values, bid competition, cycle norms and what a customer can bear in acquisition cost all differ, often by an order of magnitude. An INR-priced SMB product and a USD-priced enterprise product shouldn't share a CAC target, a channel strategy or a payback expectation — blending them into one performance number hides both.</p>
+    <p>Second, <strong>domestic search demand can be far thinner than export-market demand</strong> for the same category, which changes whether search is a primary channel or only a capture layer. Check your own query volume rather than assuming either way.</p>
+    <p>Beyond that: English-language content produced from India serves global acquisition perfectly well, and founder-led sales is normal early on — effective, but worth recognising as unrepeatable when you model acquisition cost at scale. Those patterns are what our <a href="/industries/saas/">SaaS growth marketing</a> work is built around.</p>
+
+    <h2>A measurement hierarchy</h2>
+    <div data-tbl><table data-stack class="price-table">
+      <thead>
+        <tr><th>Level</th><th>Metrics</th><th>Dangerous when used alone</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-th="Level">Outcome</td><td data-th="Metrics">Closed-won revenue, pipeline generated, CAC and payback</td><td data-th="Dangerous when used alone">Too slow to steer weekly decisions</td></tr>
+        <tr><td data-th="Level">Qualification</td><td data-th="Metrics">Qualified opportunities, qualified demos, activated trials</td><td data-th="Dangerous when used alone">Only as honest as your qualification definition</td></tr>
+        <tr><td data-th="Level">Diagnostic</td><td data-th="Metrics">CTR, CPC, cost per lead, signup rate</td><td data-th="Dangerous when used alone">Improve easily while the business gets worse</td></tr>
+      </tbody>
+    </table><p class="price-note">The bottom row is for debugging, not for deciding. The top row decides.</p></div>
+
+    <h2>A 90-day plan</h2>
+    <p><strong>Days 1–30 — define and instrument.</strong> Write down the ideal customer precisely enough to disqualify against. Work out contribution per customer, observed retention and both CAC figures. Fix tracking so campaign data reaches the CRM and survives to the deal record. Agree what each funnel stage means. Fix the landing page. Record a baseline.</p>
+    <p><strong>Days 31–60 — test narrowly.</strong> One or two channels, not five. A few written hypotheses rather than constant fiddling. Get sales disqualification reasons flowing from day one and act on them.</p>
+    <p><strong>Days 61–90 — connect spend to pipeline.</strong> Report by pipeline rather than lead volume, cut the segments producing unqualified traffic, improve the page against what sales is hearing, and decide what deserves scale.</p>
+    <p>One honest caveat: ninety days establishes <em>pipeline quality</em> for most SaaS businesses, but for enterprise motions with two- or three-quarter cycles it won't prove closed-won CAC — and treating it as though it did will have you killing channels before their deals land. Decide at the start which question the ninety days answers.</p>`
+  },
   {
     slug: "break-even-roas",
     section: "Paid Ads",
