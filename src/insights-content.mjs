@@ -389,7 +389,7 @@ export const insightHub = {
       catLabel: `Paid Ads`,
       title: `How much should you spend on Google Ads in India to start?`,
       excerpt: `"What's the minimum budget?" is the wrong first question. How to calculate a starting Google Ads budget from your own numbers, minimum viable budgets by campaign type, and what actually eats spend before it converts.`,
-      meta: `7 min read · 7 Jun 2026`,
+      meta: `8 min read · 7 Jun 2026`,
       read: `Read the article →`,
       img: `<img class="blog-card__media" src="/assets/insight-cards/google-ads-budget-india-startups.webp" alt="" loading="lazy" width="1200" height="630">`
     },
@@ -398,7 +398,7 @@ export const insightHub = {
       catLabel: `Paid Ads`,
       title: `Google Ads vs Meta Ads: which should a startup start with?`,
       excerpt: `You can't run both channels well on a limited budget. The real difference between Google Ads and Meta Ads — intent versus discovery — and a straightforward way to decide which one earns your first rupee.`,
-      meta: `7 min read · 2 Jun 2026`,
+      meta: `8 min read · 2 Jun 2026`,
       read: `Read the article →`,
       img: `<img class="blog-card__media" src="/assets/insight-cards/google-ads-vs-meta-ads-startup.webp" alt="" loading="lazy" width="1200" height="630">`
     },
@@ -584,7 +584,7 @@ export const insightArticles = [
                                     "name": "Why doesn't Meta or Google ROAS match my actual revenue?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Because they are measuring different things. Platform ROAS is the platform's own attribution output, counting conversions it believes it influenced within its own window and model, usually on gross booked revenue before cancellations, returns and discounts. Your finance reporting counts settled net revenue. Expect the two to differ, reconcile platform-reported orders against your backend regularly, and make decisions from the system closest to the money."
+                                          "text": "Because they are measuring different things. Platform ROAS uses the conversion value your tracking or integration sends, interpreted through that platform's attribution model. Whether that value is gross, post-discount or net of something else depends on how the implementation was built, so check rather than assume. The bigger gap comes afterwards: cancellations and returns do not automatically revise a conversion that was already recorded unless your integration supports adjustments or you send them. Your finance reporting counts settled net revenue. Expect the two to differ, reconcile platform-reported orders against your backend regularly, and make decisions from the system closest to the money."
                                     }
                               }
                         ]
@@ -607,7 +607,7 @@ export const insightArticles = [
       { q: `Can I run ads below break-even ROAS?`,
         a: `<p>Sometimes — but only against evidence. A loss-making first order can be rational when you have a <em>measured</em> repeat rate, subscription retention or contracted recurring revenue showing the customer turns profitable inside a payback period you can fund from cash you actually hold. "We'll make it back on LTV" is not evidence. If the repeat behaviour is hoped for rather than measured, you're not investing in acquisition — you're losing money on a schedule.</p>` },
       { q: `Why doesn't Meta or Google ROAS match my actual revenue?`,
-        a: `<p>They measure different things. Platform ROAS is that platform's own attribution output, counting conversions it believes it influenced inside its own window and model, usually on gross booked revenue before cancellations, returns and discounts. Finance counts settled net revenue. Expect a gap, reconcile against your backend regularly, and decide from the system closest to the money.</p>` },
+        a: `<p>They measure different things. Platform ROAS uses the conversion value your tracking or integration sends, interpreted through that platform's attribution model — whether that value is gross, post-discount or net depends on your implementation, so check rather than assume. The bigger gap is afterwards: cancellations and returns don't automatically revise a conversion already recorded unless your integration supports adjustments or you send them. Finance counts settled net revenue. Expect a gap, reconcile against your backend regularly, and decide from the system closest to the money.</p>` },
     ],
     bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
     cta: { heading: `Not sure your margin or your ROAS is real?`, body: `A Foundation Audit checks what your contribution margin actually is and whether the ROAS you're reporting survives contact with your backend — before you scale against either. No pitch attached.`,
@@ -688,7 +688,8 @@ export const insightArticles = [
 
     <h2>Why your platform ROAS won't match finance</h2>
     <p>Two separate gaps, and it helps to name them apart.</p>
-    <p>The first is <strong>revenue definition</strong>. Platforms generally report gross booked revenue at the moment of conversion — before cancellations, before returns, and sometimes before the discount code was applied. If a tenth of orders cancel and more are returned, the revenue that reaches your accounts is materially lower than the revenue in the dashboard, and your real contribution falls with it. There's no universal return rate to assume here; use your own, from your own data.</p>
+    <p>The first is <strong>what the conversion value actually contains</strong>. A platform reports the value your tracking or integration sent it. Whether that figure is gross, post-discount or net of something else depends entirely on how the implementation was built — so don't assume it's always gross booked revenue, and don't assume it isn't. Check what yours sends before reasoning from it.</p>
+    <p>The bigger issue is what happens afterwards. A cancellation or return days later doesn't automatically revise the conversion that was already recorded; the correction has to be supplied. Google, for instance, documents two adjustment types for exactly this — <strong>restate</strong>, which "allows you to change the conversion value, but not the count of conversions", and <strong>retract</strong>, which removes a conversion and sets its value to zero, for cases it names as "canceled reservations or returned purchases". Both are uploaded by the advertiser, and online conversions can only be adjusted if you passed a transaction ID in the first place. Other platforms handle this differently again. So unless somebody built that correction loop, the dashboard keeps counting revenue your accounts never saw — and your real contribution is lower than it looks. There's no universal return rate to assume here; use your own.</p>
     <p>The second is <strong>attribution</strong>. Platform ROAS is that platform's own attributed output, counted inside its own window and model. It is a vendor report from an interested party, not accounting truth, and it will disagree with GA4, your backend and your CRM — each of which counts differently again. That disagreement is <a href="/insights/marketing-attribution-explained-simply/">normal and explainable</a> rather than a fault. Reconcile platform-reported orders against your backend regularly, decide from the system closest to the money, and treat building that reconciliation as <a href="/services/growth-strategy-measurement/">measurement work</a> rather than reporting.</p>
 
     <h2>A practical checklist</h2>
