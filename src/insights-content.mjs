@@ -520,7 +520,7 @@ export const insightArticles = [
                               "SaaS growth strategy India",
                               "SaaS lead generation India"
                         ],
-                        "wordCount": 2680,
+                        "wordCount": 2800,
                         "author": {
                               "@type": "Person",
                               "name": "Anuja",
@@ -593,7 +593,7 @@ export const insightArticles = [
                                     "name": "How long should a SaaS paid-media test run?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "At least as long as your sales cycle, plus time to accumulate enough events to read. For a short self-serve motion that may be weeks. For enterprise deals closing in two or three quarters, ninety days will usually tell you about pipeline quality rather than closed-won CAC, and anyone promising proven profitability in that window for a long-cycle product is guessing. Decide in advance which question the test is answering."
+                                          "text": "It depends on the question being asked. For lead quality, demo quality, pipeline creation, activation, channel fit or landing-page performance, you can often learn before a full sales cycle completes, because those signals arrive early. For closed-won CAC, revenue or payback, you need enough time for deals to mature through the relevant sales cycle and enough outcomes to be meaningful. A short self-serve motion may resolve in weeks; a long enterprise motion may need quarters. Decide the success metric before deciding the test duration, and note that ninety days can establish pipeline quality for enterprise SaaS without proving closed-won CAC."
                                     }
                               }
                         ]
@@ -616,7 +616,7 @@ export const insightArticles = [
       { q: `How should SaaS calculate marketing ROI?`,
         a: `<p>Against pipeline and closed revenue in the CRM, not platform-reported conversions. Hold two CAC figures: <strong>paid-media CAC</strong>, which tells you whether a channel works, and <strong>fully loaded CAC</strong> — team, agency, sales salaries and commission, tools, onboarding — which tells you whether the business works. Conflating them is how a channel looks profitable while the company isn't.</p>` },
       { q: `How long should a SaaS paid-media test run?`,
-        a: `<p>At least as long as your sales cycle, plus time to accumulate readable volume. For a short self-serve motion, weeks. For enterprise deals closing in two or three quarters, ninety days will tell you about pipeline quality rather than closed-won CAC — anyone promising proven profitability in that window for a long-cycle product is guessing.</p>` },
+        a: `<p>It depends on the question. For lead and demo quality, channel fit, activation or landing-page performance, you can often learn <em>before</em> a full sales cycle completes — those signals arrive early. For closed-won CAC, revenue or payback, you need enough time for deals to mature through the cycle <em>and</em> enough outcomes to read. A short self-serve motion may resolve in weeks; a long enterprise motion may need quarters. Decide the success metric before you decide the duration — and note that ninety days can establish pipeline quality for enterprise SaaS without proving closed-won CAC.</p>` },
     ],
     bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
     cta: { heading: `Spending on SaaS acquisition without a pipeline view?`, body: `A Foundation Audit checks whether your tracking reaches the CRM, whether your qualification is real, and what your acquisition actually costs once sales effort is counted. No pitch attached.`,
@@ -675,7 +675,7 @@ export const insightArticles = [
       </tbody>
     </table><p class="price-note">Illustrative arithmetic, not benchmarks. Substitute your own contribution figures.</p></div>
     <p>B has the lower CAC and the worse acquisition engine: it waits twice as long to recover its money, so it funds roughly half as much growth from the same cash. Choose between channels or segments on CAC alone and you'll systematically prefer the cheaper, slower one.</p>
-    <p>You'll see twelve months quoted as a payback target. Treat it as a convention borrowed from well-capitalised Western SaaS, not a rule, and not one calibrated to an Indian company's cost of capital or runway. What matters is whether <em>your</em> payback fits the cash you actually hold. Our <a href="/tools/ltv-cac-calculator/">LTV:CAC calculator</a> has a SaaS mode taking MRR, churn and expansion and returning payback — faster than a spreadsheet.</p>
+    <p>You'll find published payback benchmarks, and they vary widely by company size, contract value, sales motion and whoever compiled them — so don't turn one into your target. What matters operationally is whether <em>your</em> payback fits the cash you actually hold, the retention you've actually observed, and the growth rate you're trying to fund. Our <a href="/tools/ltv-cac-calculator/">LTV:CAC calculator</a> has a SaaS mode taking MRR, churn and expansion and returning payback — faster than a spreadsheet.</p>
 
     <h2>Failure 4: treating LTV as a fact</h2>
     <p>ARPU divided by churn is arithmetic, not evidence, and it turns to fiction quickly: when the cohort is tiny, when you have months rather than years of retention history, when churn is still moving, when expansion is assumed rather than observed, when gross margin is ignored so revenue gets treated as profit, and when annual plans flatter short-term churn because nobody has had the chance to leave yet. Early customers also behave unlike later ones — your first users were probably hand-held by a founder, which isn't a repeatable acquisition experience.</p>
@@ -687,7 +687,7 @@ export const insightArticles = [
     <ul>
       <li><strong>The CRM is part of the source of truth.</strong> Platform conversions are form fills; the CRM knows which became revenue. An ROI claim that never touches the CRM is a claim about forms.</li>
       <li><strong>Campaign data has to survive the handoff.</strong> UTMs and click IDs captured at the form and written to the CRM record are what connect a closed deal back to a campaign. Retrofitting this is painful and usually partial.</li>
-      <li><strong>Feed outcomes back.</strong> Both major platforms accept offline conversion imports, so bidding can learn from qualified opportunities rather than raw form fills — <a href="/services/growth-strategy-measurement/">measurement architecture</a> rather than campaign work.</li>
+      <li><strong>Feed outcomes back where the platform supports it.</strong> Implementations differ, so check yours rather than assuming. In Google Ads the path is well documented: it has replaced the older "imported leads" goal with <strong>qualified leads</strong> and <strong>converted leads</strong>, which bring outcomes back from a CRM or other data source so campaigns can, in Google's words, "optimize towards deeper lead-to-sale funnel events" instead of maximising lead volume. Google now recommends <strong>enhanced conversions for leads</strong> — which it describes as "an upgraded version of offline conversion import" using hashed first-party data — as the starting point for new setups. Either way it's <a href="/services/growth-strategy-measurement/">measurement architecture</a> rather than campaign work.</li>
     </ul>
 
     <h2>Choosing channels without a ranking</h2>
