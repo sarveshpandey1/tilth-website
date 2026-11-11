@@ -388,7 +388,7 @@ export const insightHub = {
       slug: "google-ads-budget-india-startups", href: "/insights/google-ads-budget-india-startups/", cat: "paid-ads",
       catLabel: `Paid Ads`,
       title: `How much should you spend on Google Ads in India to start?`,
-      excerpt: `"What's the minimum budget?" is the wrong first question. How to calculate a starting Google Ads budget from your own numbers, minimum viable budgets by campaign type, and what actually eats spend before it converts.`,
+      excerpt: `"What's the minimum budget?" is the wrong first question. How to calculate a starting Google Ads budget from your target CAC, expected cost-per-click, conversion rate and the evidence you need before judging the test.`,
       meta: `8 min read · 7 Jun 2026`,
       read: `Read the article →`,
       img: `<img class="blog-card__media" src="/assets/insight-cards/google-ads-budget-india-startups.webp" alt="" loading="lazy" width="1200" height="630">`
