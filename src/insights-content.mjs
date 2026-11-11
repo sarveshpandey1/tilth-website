@@ -259,14 +259,23 @@ export const insightHub = {
     }
 ],
   cats: [
-    { id: "all", label: `All`, count: "18" },
-    { id: "paid-ads", label: `Paid Ads`, count: "4" },
+    { id: "all", label: `All`, count: "19" },
+    { id: "paid-ads", label: `Paid Ads`, count: "5" },
     { id: "tracking", label: `Tracking &amp; Attribution`, count: "4" },
     { id: "seo-growth", label: `SEO &amp; Growth`, count: "4" },
     { id: "hiring", label: `Hiring &amp; Agencies`, count: "4" },
     { id: "strategy", label: `Strategy`, count: "2" },
   ],
   cards: [
+    {
+      slug: "break-even-roas", href: "/insights/break-even-roas/", cat: "paid-ads",
+      catLabel: `Paid Ads`,
+      title: `Break-even ROAS: the ROAS your ads actually need`,
+      excerpt: `ROAS above break-even isn't the same as a profitable business. How to calculate the figure from contribution margin, why gross margin misleads, and where the number stops being useful.`,
+      meta: `8 min read · 11 Nov 2026`,
+      read: `Read the article →`,
+      img: `<img class="blog-card__media" src="/assets/insight-cards/break-even-roas.webp" alt="" loading="lazy" width="1200" height="630">`
+    },
     {
       slug: "first-marketing-hire-startup", href: "/insights/first-marketing-hire-startup/", cat: "strategy",
       catLabel: `Strategy`,
@@ -433,6 +442,267 @@ export const insightHub = {
 };
 
 export const insightArticles = [
+  {
+    slug: "break-even-roas",
+    section: "Paid Ads",
+    readTime: "8 min read",
+    date: "11 Nov 2026",
+    h1: `Break-even ROAS: how to calculate the ROAS your ads actually need`,
+    standfirst: `Every founder running paid media eventually asks whether a 3x is good. It isn't a question ROAS can answer on its own. Here's how to work out the ROAS at which your ads stop losing money, why gross margin gives you the wrong number, and the several things break-even ROAS still doesn't tell you.`,
+    bylineImg: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">`,
+    bylineWho: `Anuja Founder, Tilth · 10+ years in performance marketing`,
+    meta: {
+      "title": "Break-Even ROAS: How to Calculate the ROAS Your Ads Need | Tilth",
+      "description": "What break-even ROAS is, the formula (1 ÷ contribution margin), a worked example, why gross margin gives the wrong answer, and why beating break-even still doesn't mean the business is profitable.",
+      "canonical": "https://wearetilth.com/insights/break-even-roas/",
+      "robots": "index, follow",
+      "ogTitle": "Break-even ROAS: how to calculate the ROAS your ads actually need",
+      "ogDescription": "The formula, a worked example, why gross margin misleads — and why beating break-even still doesn't mean the business makes money.",
+      "ogType": "article",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/break-even-roas.webp",
+      "ogLocale": null,
+      "twTitle": "Break-even ROAS: the ROAS your ads actually need",
+      "twDescription": "The formula, a worked example, and why beating break-even isn't the same as profit.",
+      "twImage": "https://wearetilth.com/assets/insight-cards/break-even-roas.webp"
+},
+    schema: [
+      {
+            "@context": "https://schema.org",
+            "@graph": [
+                  {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                              {
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "Home",
+                                    "item": "https://wearetilth.com/"
+                              },
+                              {
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Insights",
+                                    "item": "https://wearetilth.com/insights/"
+                              },
+                              {
+                                    "@type": "ListItem",
+                                    "position": 3,
+                                    "name": "Break-even ROAS: how to calculate the ROAS your ads actually need",
+                                    "item": "https://wearetilth.com/insights/break-even-roas/"
+                              }
+                        ]
+                  },
+                  {
+                        "@type": "BlogPosting",
+                        "headline": "Break-even ROAS: how to calculate the ROAS your ads actually need",
+                        "description": "What break-even ROAS is, the formula, a worked example, why gross margin gives the wrong answer, and why beating break-even still does not mean the business is profitable.",
+                        "image": "https://wearetilth.com/assets/insight-cards/break-even-roas.webp",
+                        "datePublished": "2026-11-11",
+                        "dateModified": "2026-11-11",
+                        "inLanguage": "en-IN",
+                        "url": "https://wearetilth.com/insights/break-even-roas/",
+                        "mainEntityOfPage": "https://wearetilth.com/insights/break-even-roas/",
+                        "articleSection": "Paid Ads",
+                        "keywords": [
+                              "break-even ROAS",
+                              "break even ROAS formula",
+                              "how to calculate break-even ROAS",
+                              "target ROAS vs break-even ROAS",
+                              "contribution margin ROAS",
+                              "profitable ROAS"
+                        ],
+                        "wordCount": 2130,
+                        "author": {
+                              "@type": "Person",
+                              "name": "Anuja",
+                              "jobTitle": "Founder",
+                              "url": "https://wearetilth.com/about/"
+                        },
+                        "publisher": {
+                              "@type": "Organization",
+                              "name": "Tilth",
+                              "url": "https://wearetilth.com/",
+                              "logo": {
+                                    "@type": "ImageObject",
+                                    "url": "https://wearetilth.com/favicon.svg"
+                              }
+                        }
+                  },
+                  {
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                              {
+                                    "@type": "Question",
+                                    "name": "What is break-even ROAS?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "Break-even ROAS is the return on ad spend at which the contribution your sales generate exactly equals what you paid to generate them. Above it, acquisition spend is covered. Below it, every order funded by ads loses money before any fixed cost is counted. It is set entirely by your margin, not by your industry or your platform."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "How do I calculate break-even ROAS?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "Divide 1 by your contribution margin expressed as a decimal. A 50% contribution margin gives a break-even ROAS of 1 divided by 0.50, or 2.0x. A 25% margin gives 4.0x. The arithmetic is trivial; the work is in calculating the margin honestly, because it has to be the margin left after every variable cost except marketing."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "Is a 2x ROAS good?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "There is no answer to that without your margin. At a 50% contribution margin, 2x is exactly break-even: it covers the ad spend and contributes nothing. At a 70% margin it is comfortably profitable at the media level. At a 25% margin it is losing roughly half of every rupee spent. A ROAS figure quoted without the margin beside it carries no information."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "Should I use gross margin or contribution margin?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "Contribution margin, if the two differ materially. Gross margin usually subtracts only cost of goods, which leaves out shipping and fulfilment, payment gateway fees, marketplace commissions, discounts, refunds and any variable servicing or sales cost. Using gross margin produces a break-even ROAS that is too low, which means a campaign can clear it and still lose money on every order."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "What is the difference between break-even ROAS and target ROAS?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "Break-even ROAS is a floor derived from arithmetic. Target ROAS is a decision, and it should normally sit above the floor, because break-even covers acquisition and nothing else. The gap between them has to absorb whatever your business needs it to: measurement error, agency fees and creative production if those sit outside media spend, overhead, and whatever profit the business is supposed to make. There is no universal buffer to add."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "Can I run ads below break-even ROAS?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "Sometimes, but only against evidence. A first order below break-even can be rational when you have a measured repeat-purchase rate, subscription retention or contracted recurring revenue showing the customer becomes profitable within a payback period you can fund from cash you actually have. What does not qualify is the assumption that lifetime value will rescue the economics. If the repeat behaviour is hoped for rather than measured, you are not investing in acquisition, you are losing money on a schedule."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "Why doesn't Meta or Google ROAS match my actual revenue?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "Because they are measuring different things. Platform ROAS is the platform's own attribution output, counting conversions it believes it influenced within its own window and model, usually on gross booked revenue before cancellations, returns and discounts. Your finance reporting counts settled net revenue. Expect the two to differ, reconcile platform-reported orders against your backend regularly, and make decisions from the system closest to the money."
+                                    }
+                              }
+                        ]
+                  }
+            ]
+      }
+],
+    faqHeading: `Break-even ROAS — FAQs`,
+    faq: [
+      { q: `What is break-even ROAS?`,
+        a: `<p>The return on ad spend at which the contribution your sales generate exactly equals what you paid to generate them. Above it, acquisition spend is covered; below it, every ad-funded order loses money before a single fixed cost is counted. It's set by your margin — not by your industry, and not by the platform.</p>` },
+      { q: `How do I calculate break-even ROAS?`,
+        a: `<p>Divide 1 by your contribution margin as a decimal. A 50% margin gives 1 ÷ 0.50 = <strong>2.0x</strong>; a 25% margin gives <strong>4.0x</strong>. The arithmetic is trivial. The work is calculating the margin honestly, because it has to be what's left after every variable cost <em>except</em> marketing.</p>` },
+      { q: `Is a 2x ROAS good?`,
+        a: `<p>Unanswerable without your margin. At 50% contribution margin, 2x is exactly break-even — it covers the ad spend and contributes nothing. At 70% it's comfortably profitable at the media level. At 25% it's losing roughly half of every rupee. A ROAS quoted without the margin beside it carries no information.</p>` },
+      { q: `Should I use gross margin or contribution margin?`,
+        a: `<p>Contribution margin, where the two differ materially. Gross margin usually subtracts only cost of goods — leaving out shipping and fulfilment, gateway fees, marketplace commissions, discounts, refunds and variable servicing costs. That produces a break-even ROAS that's too low, so a campaign can clear it and still lose money on every order.</p>` },
+      { q: `What's the difference between break-even ROAS and target ROAS?`,
+        a: `<p>Break-even is a floor you derive; target is a decision you make, and it should normally sit above the floor — because break-even covers acquisition and nothing else. The gap has to absorb whatever your business needs it to: measurement error, fees outside media spend, overhead, and the profit the business is supposed to make. There's no universal buffer to add.</p>` },
+      { q: `Can I run ads below break-even ROAS?`,
+        a: `<p>Sometimes — but only against evidence. A loss-making first order can be rational when you have a <em>measured</em> repeat rate, subscription retention or contracted recurring revenue showing the customer turns profitable inside a payback period you can fund from cash you actually hold. "We'll make it back on LTV" is not evidence. If the repeat behaviour is hoped for rather than measured, you're not investing in acquisition — you're losing money on a schedule.</p>` },
+      { q: `Why doesn't Meta or Google ROAS match my actual revenue?`,
+        a: `<p>They measure different things. Platform ROAS is that platform's own attribution output, counting conversions it believes it influenced inside its own window and model, usually on gross booked revenue before cancellations, returns and discounts. Finance counts settled net revenue. Expect a gap, reconcile against your backend regularly, and decide from the system closest to the money.</p>` },
+    ],
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Not sure your margin or your ROAS is real?`, body: `A Foundation Audit checks what your contribution margin actually is and whether the ROAS you're reporting survives contact with your backend — before you scale against either. No pitch attached.`,
+      href: "/contact/", label: `Discuss your growth project` },
+    bodyHtml: `<p>"Is a 3x ROAS good?" is one of the most common questions founders ask, and it has no answer. Not because it's a bad question, but because ROAS on its own is a ratio with half the information missing. The same 3x is excellent for a software business and quietly fatal for a brand selling discounted electronics. <strong>Break-even ROAS</strong> is the number that supplies the missing half: the point at which your ads stop losing money. This is how to calculate it, and — just as important — what it still won't tell you.</p>
+
+    <h2>The short answer</h2>
+    <p>Break-even ROAS is <strong>1 ÷ your contribution margin</strong>. At a 50% contribution margin it's 2.0x. At 25%, it's 4.0x. At 70%, about 1.43x. That's the whole formula, and the arithmetic is the easy part — almost every mistake people make here is in the margin, not the division.</p>
+
+    <h2>Five things people call "ROAS"</h2>
+    <p>Most confused conversations about ad profitability are these being used interchangeably.</p>
+    <div data-tbl><table data-stack class="price-table">
+      <thead>
+        <tr><th>Term</th><th>What it is</th><th>What it doesn't tell you</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-th="Term">Revenue ROAS</td><td data-th="What it is">Revenue ÷ ad spend. The raw ratio.</td><td data-th="What it doesn't tell you">Whether any of that revenue was profit</td></tr>
+        <tr><td data-th="Term">Break-even ROAS</td><td data-th="What it is">The ratio at which contribution exactly covers ad spend</td><td data-th="What it doesn't tell you">Anything about fixed costs or company profit</td></tr>
+        <tr><td data-th="Term">Target ROAS</td><td data-th="What it is">The ratio you decide to run at, normally above break-even</td><td data-th="What it doesn't tell you">Whether the target was set from evidence or hope</td></tr>
+        <tr><td data-th="Term">Platform ROAS</td><td data-th="What it is">The ad platform's attributed revenue ÷ its spend</td><td data-th="What it doesn't tell you">What actually settled in your bank account</td></tr>
+        <tr><td data-th="Term">Business profitability</td><td data-th="What it is">What's left after every cost, fixed and variable</td><td data-th="What it doesn't tell you">Which channel caused it</td></tr>
+      </tbody>
+    </table><p class="price-note">Break-even ROAS is a media-level test. The last row is a company-level outcome. They are not the same question.</p></div>
+
+    <h2>What break-even ROAS actually means</h2>
+    <p>At break-even, one rupee of ad spend produces exactly enough contribution to pay for itself. Not profit — <em>payback</em>. You are running to stand still, and you would have the same bank balance if you hadn't advertised at all, minus the time.</p>
+    <p>That framing matters because it sets the floor correctly in your head. Break-even is not a target. It's the line below which you are certainly losing money, which is a different and much less ambitious claim.</p>
+
+    <h2>The formula, and the margin that drives it</h2>
+    <blockquote>Contribution margin = contribution profit ÷ revenue<br>Break-even ROAS = 1 ÷ contribution margin</blockquote>
+    <p><strong>Contribution profit is what's left from a sale after every variable cost except marketing.</strong> That last clause is the one people get wrong. Variable costs usually include cost of goods, shipping and fulfilment, payment gateway charges, marketplace or platform commissions, the discount you actually gave rather than the one on the price list, expected refunds and cancellations, and any sales commission or variable servicing cost. If a cost rises when you sell one more unit, it belongs here.</p>
+    <p>A note on language: "contribution margin" is used here as an operating framework for deciding ad spend, not as a formal accounting statement. Your accountant may define some of these lines differently, and this isn't tax or accounting advice. What matters for the decision is that you've subtracted everything that genuinely varies with volume.</p>
+
+    <h2>A worked example</h2>
+    <p>A D2C brand selling a ₹2,000 product:</p>
+    <div data-tbl><table class="price-table">
+      <thead>
+        <tr><th>Line</th><th>Amount</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-th="Line">Selling price</td><td data-th="Amount">₹2,000</td></tr>
+        <tr><td data-th="Line">Product cost (COGS)</td><td data-th="Amount">−₹700</td></tr>
+        <tr><td data-th="Line">Shipping and fulfilment</td><td data-th="Amount">−₹150</td></tr>
+        <tr><td data-th="Line">Payment gateway</td><td data-th="Amount">−₹50</td></tr>
+        <tr><td data-th="Line">Expected refunds and discount leakage</td><td data-th="Amount">−₹100</td></tr>
+        <tr><td data-th="Line"><strong>Contribution before marketing</strong></td><td data-th="Amount"><strong>₹1,000</strong></td></tr>
+        <tr><td data-th="Line">Contribution margin</td><td data-th="Amount">50%</td></tr>
+        <tr><td data-th="Line"><strong>Break-even ROAS (1 ÷ 0.50)</strong></td><td data-th="Amount"><strong>2.0x</strong></td></tr>
+      </tbody>
+    </table><p class="price-note">Illustrative arithmetic. Substitute your own lines — the output moves a long way on small changes.</p></div>
+    <p>Read it through once at 2.0x: ₹1 of ad spend produces ₹2 of revenue. At a 50% contribution margin, that ₹2 leaves ₹1 before marketing. That ₹1 exactly covers the ₹1 you spent. Nothing remains. The campaign is not failing and it is not succeeding — it is precisely neutral, and every fixed cost in the business is still unpaid.</p>
+
+    <h2>Why gross margin gives you the wrong number</h2>
+    <p>Say the same brand used gross margin instead and subtracted only COGS: ₹2,000 − ₹700 = ₹1,300, a 65% margin, implying a break-even ROAS of about 1.54x. A campaign running at 1.8x would look comfortably profitable. In reality it's below the true 2.0x floor and losing money on every order. The error is quiet, consistent, and scales exactly as fast as you do. Where shipping, gateway fees, commissions, discounts and returns are material — which is most of D2C — gross margin isn't a conservative approximation. It's the wrong input.</p>
+
+    <h2>Break-even is a floor, not a target</h2>
+    <p>Your target ROAS should normally sit above break-even, because break-even covers acquisition and nothing else. The gap between the two has to pay for whatever your business needs it to pay for, and that list is specific to you:</p>
+    <ul>
+      <li><strong>Measurement uncertainty</strong> — if your reported ROAS carries error, the floor needs a margin of safety above it.</li>
+      <li><strong>Costs outside media</strong> — agency fees, creative production and tools, where those aren't already inside the ad spend figure.</li>
+      <li><strong>Fixed costs</strong> — payroll, rent, software, and everything else that doesn't move with volume.</li>
+      <li><strong>Actual profit</strong> — the business presumably exists to make some.</li>
+      <li><strong>Cash position</strong> — a company with short runway needs a wider gap than one that can wait.</li>
+    </ul>
+    <p>Which is why there's no universal buffer. "Always add 20%" is a made-up number that happens to be right for somebody. Work out what the gap has to absorb in your business, in rupees per month, and derive the target from that. Setting it deliberately rather than by habit is a large part of what <a href="/services/performance-marketing/">performance marketing</a> planning involves.</p>
+
+    <h2>Beating break-even doesn't mean the business makes money</h2>
+    <p>Worth stating flatly, because it's the most common misreading of this whole concept. Clearing break-even ROAS means your <em>acquisition spend</em> is covered at the contribution level you defined. It says nothing about payroll, rent, software subscriptions, agency fees excluded from media, creative production, debt service or tax. A business can run every campaign above break-even and still lose money for the year.</p>
+    <p>So hold two numbers, not one: <strong>media break-even</strong>, which this formula gives you, and <strong>company-level profitability</strong>, which it does not. Confusing them is how a brand ends up scaling confidently into insolvency.</p>
+
+    <h2>Blended ROAS hides weak new-customer economics</h2>
+    <p>This one costs D2C brands real money. A campaign can report 4x because existing customers — people who were going to buy anyway — are redeeming offers and converting through paid. The blended number looks healthy while the acquisition engine underneath it is losing money on every genuinely new customer.</p>
+    <p>If the point of the spend is acquisition, judge it on acquisition: <strong>new-customer revenue, new-customer CAC and first-order contribution</strong>, with repeat contribution tracked separately rather than folded in. Most ad platforms and ecommerce backends can split new from returning; if yours can't, that's the first thing to fix. The habit matters most for <a href="/industries/d2c-ecommerce/">D2C and ecommerce brands</a>, where repeat purchase is common enough to flatter almost any report.</p>
+
+    <h2>When acquiring below break-even is defensible</h2>
+    <p>Sometimes a first order should lose money. Subscription businesses, genuine consumables, contracted recurring revenue and validated cross-sell all produce customers worth more than their first purchase, and refusing to pay for them is its own mistake.</p>
+    <p>The test is evidence. It's legitimate when you have a <em>measured</em> repeat rate or retention curve from your own cohorts, a payback period you can state in months, and enough cash to survive that period — ideally with the whole thing stress-tested against a worse retention number than your best cohort produced. It is not legitimate when "we'll make it back on LTV" is doing the work. An LTV assumption with no cohort data behind it isn't a plan; it's the same loss, scheduled. Our <a href="/tools/ltv-cac-calculator/">LTV:CAC calculator</a> is a quick way to pressure-test whether the repeat assumption survives contact with arithmetic.</p>
+
+    <h2>Why your platform ROAS won't match finance</h2>
+    <p>Two separate gaps, and it helps to name them apart.</p>
+    <p>The first is <strong>revenue definition</strong>. Platforms generally report gross booked revenue at the moment of conversion — before cancellations, before returns, and sometimes before the discount code was applied. If a tenth of orders cancel and more are returned, the revenue that reaches your accounts is materially lower than the revenue in the dashboard, and your real contribution falls with it. There's no universal return rate to assume here; use your own, from your own data.</p>
+    <p>The second is <strong>attribution</strong>. Platform ROAS is that platform's own attributed output, counted inside its own window and model. It is a vendor report from an interested party, not accounting truth, and it will disagree with GA4, your backend and your CRM — each of which counts differently again. That disagreement is <a href="/insights/marketing-attribution-explained-simply/">normal and explainable</a> rather than a fault. Reconcile platform-reported orders against your backend regularly, decide from the system closest to the money, and treat building that reconciliation as <a href="/services/growth-strategy-measurement/">measurement work</a> rather than reporting.</p>
+
+    <h2>A practical checklist</h2>
+    <ol>
+      <li>List every variable cost per order, including the discount you actually give and your real refund rate.</li>
+      <li>Calculate contribution margin from those, not from gross margin.</li>
+      <li>Divide 1 by it. That's your floor.</li>
+      <li>Decide what the gap above the floor must absorb, in rupees per month, and set a target from that.</li>
+      <li>Split new-customer from repeat performance before judging any campaign.</li>
+      <li>Reconcile platform revenue against backend net revenue, and know the size of the gap.</li>
+      <li>If you're deliberately running below break-even, write down the payback period and the cohort evidence for it.</li>
+    </ol>
+    <p>If you'd rather not do the arithmetic by hand, our <a href="/tools/ad-spend-profitability-calculator/">ad spend profitability calculator</a> takes the same inputs — price, COGS, shipping, fees, discounts, return rate — and returns your break-even ROAS and the most you can pay to acquire a customer. And if the numbers coming out of it don't look like the numbers in your dashboard, start with the <a href="/insights/audit-your-ad-spend/">five-minute ad spend self-audit</a>.</p>`
+  },
   {
     slug: "affiliate-program-not-converting",
     section: "Affiliates",
