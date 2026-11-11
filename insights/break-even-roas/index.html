@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
+<!-- Google tag (gtag.js) — consent-gated, deferred loader -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+window.__tilthGaId='G-1MJEZ4VK26';
+window.__tilthEnableGa=function(){if(window.__tilthGaStarted)return;window.__tilthGaStarted=true;
+gtag('consent','update',{analytics_storage:'granted'});gtag('js',new Date());gtag('config',window.__tilthGaId);
+var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+window.__tilthGaId;document.head.appendChild(s);}
+if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
+['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});};
+(function(){var c='unset';try{c=localStorage.getItem('tilth-analytics-consent')||'unset';}catch(e){}
+window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();</script>
+<title>Break-Even ROAS: How to Calculate the ROAS Your Ads Need | Tilth</title>
+<meta name="description" content="What break-even ROAS is, the formula (1 ÷ contribution margin), a worked example, why gross margin gives the wrong answer, and why beating break-even still doesn't mean the business is profitable.">
+<link rel="canonical" href="https://wearetilth.com/insights/break-even-roas/">
+
+<meta name="robots" content="index, follow">
+<meta property="og:site_name" content="Tilth">
+<meta name="twitter:site" content="@Anuja_tilth">
+<meta name="theme-color" content="#101310">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Break-even ROAS: how to calculate the ROAS your ads actually need">
+<meta property="og:description" content="The formula, a worked example, why gross margin misleads — and why beating break-even still doesn't mean the business makes money.">
+<meta property="og:url" content="https://wearetilth.com/insights/break-even-roas/">
+<meta property="og:image" content="https://wearetilth.com/assets/insight-cards/break-even-roas.webp">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Break-even ROAS: how to calculate the ROAS your ads actually need">
+<meta name="twitter:description" content="The formula, a worked example, why gross margin misleads — and why beating break-even still doesn't mean the business makes money.">
+<meta name="twitter:image" content="https://wearetilth.com/assets/insight-cards/break-even-roas.webp">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/consent.css">
+<link rel="stylesheet" href="/assets/core-company.css">
+<link rel="stylesheet" href="/assets/insights.css">
+<script type="module" src="/insights-article.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://wearetilth.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://wearetilth.com/insights/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Break-even ROAS: how to calculate the ROAS your ads actually need",
+          "item": "https://wearetilth.com/insights/break-even-roas/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Break-even ROAS: how to calculate the ROAS your ads actually need",
+      "description": "What break-even ROAS is, the formula, a worked example, why gross margin gives the wrong answer, and why beating break-even still does not mean the business is profitable.",
+      "image": "https://wearetilth.com/assets/insight-cards/break-even-roas.webp",
+      "datePublished": "2026-11-11",
+      "dateModified": "2026-11-11",
+      "inLanguage": "en-IN",
+      "url": "https://wearetilth.com/insights/break-even-roas/",
+      "mainEntityOfPage": "https://wearetilth.com/insights/break-even-roas/",
+      "articleSection": "Paid Ads",
+      "keywords": [
+        "break-even ROAS",
+        "break even ROAS formula",
+        "how to calculate break-even ROAS",
+        "target ROAS vs break-even ROAS",
+        "contribution margin ROAS",
+        "profitable ROAS"
+      ],
+      "wordCount": 2130,
+      "author": {
+        "@type": "Person",
+        "name": "Anuja",
+        "jobTitle": "Founder",
+        "url": "https://wearetilth.com/about/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tilth",
+        "url": "https://wearetilth.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://wearetilth.com/favicon.svg"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is break-even ROAS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The return on ad spend at which the contribution your sales generate exactly equals what you paid to generate them. Above it, acquisition spend is covered; below it, every ad-funded order loses money before a single fixed cost is counted. It's set by your margin — not by your industry, and not by the platform."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate break-even ROAS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Divide 1 by your contribution margin as a decimal. A 50% margin gives 1 ÷ 0.50 = 2.0x; a 25% margin gives 4.0x. The arithmetic is trivial. The work is calculating the margin honestly, because it has to be what's left after every variable cost except marketing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a 2x ROAS good?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Unanswerable without your margin. At 50% contribution margin, 2x is exactly break-even — it covers the ad spend and contributes nothing. At 70% it's comfortably profitable at the media level. At 25% it's losing roughly half of every rupee. A ROAS quoted without the margin beside it carries no information."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I use gross margin or contribution margin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Contribution margin, where the two differ materially. Gross margin usually subtracts only cost of goods — leaving out shipping and fulfilment, gateway fees, marketplace commissions, discounts, refunds and variable servicing costs. That produces a break-even ROAS that's too low, so a campaign can clear it and still lose money on every order."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between break-even ROAS and target ROAS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Break-even is a floor you derive; target is a decision you make, and it should normally sit above the floor — because break-even covers acquisition and nothing else. The gap has to absorb whatever your business needs it to: measurement error, fees outside media spend, overhead, and the profit the business is supposed to make. There's no universal buffer to add."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I run ads below break-even ROAS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sometimes — but only against evidence. A loss-making first order can be rational when you have a measured repeat rate, subscription retention or contracted recurring revenue showing the customer turns profitable inside a payback period you can fund from cash you actually hold. \"We'll make it back on LTV\" is not evidence. If the repeat behaviour is hoped for rather than measured, you're not investing in acquisition — you're losing money on a schedule."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why doesn't Meta or Google ROAS match my actual revenue?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They measure different things. Platform ROAS uses the conversion value your tracking or integration sends, interpreted through that platform's attribution model — whether that value is gross, post-discount or net depends on your implementation, so check rather than assume. The bigger gap is afterwards: cancellations and returns don't automatically revise a conversion already recorded unless your integration supports adjustments or you send them. Finance counts settled net revenue. Expect a gap, reconcile against your backend regularly, and decide from the system closest to the money."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="v3 v3-core v3-ins v3-article">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/" aria-current="true">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
+    </nav>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
+  </div>
+</header>
+
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
+      <a href="/services/">Services</a>
+      <a href="/industries/">Industries</a>
+      <a href="/work/">Work</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/">Insights</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+917007999306">+91 70079 99306</a>
+    </div>
+  </div>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
+<main id="main">
+
+<article data-article id="article" data-depth-label="SHALLOW">
+  <div data-acol>
+    <header data-ahead>
+      <nav data-crumb aria-label="Breadcrumb"><a href="/">Home</a> <span data-sep aria-hidden="true">/</span> <a href="/insights/">Insights</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">Paid Ads</span></nav>
+      <div data-postmeta data-meta><span data-pm-sec>Paid Ads</span><span data-dot aria-hidden="true">·</span><span>8 min read</span><span data-dot aria-hidden="true">·</span><span>11 Nov 2026</span></div>
+      <h1 data-ah1>Break-even ROAS: how to calculate the ROAS your ads actually need</h1>
+      <p data-standfirst>Every founder running paid media eventually asks whether a 3x is good. It isn't a question ROAS can answer on its own. Here's how to work out the ROAS at which your ads stop losing money, why gross margin gives you the wrong number, and the several things break-even ROAS still doesn't tell you.</p>
+      <div data-byline>
+        <img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">
+        <div data-who><span>Anuja Founder, Tilth · 10+ years in performance marketing</span></div>
+      </div>
+    </header>
+    <div data-prose>
+<p>"Is a 3x ROAS good?" is one of the most common questions founders ask, and it has no answer. Not because it's a bad question, but because ROAS on its own is a ratio with half the information missing. The same 3x is excellent for a software business and quietly fatal for a brand selling discounted electronics. <strong>Break-even ROAS</strong> is the number that supplies the missing half: the point at which your ads stop losing money. This is how to calculate it, and — just as important — what it still won't tell you.</p>
+
+    <h2>The short answer</h2>
+    <p>Break-even ROAS is <strong>1 ÷ your contribution margin</strong>. At a 50% contribution margin it's 2.0x. At 25%, it's 4.0x. At 70%, about 1.43x. That's the whole formula, and the arithmetic is the easy part — almost every mistake people make here is in the margin, not the division.</p>
+
+    <h2>Five things people call "ROAS"</h2>
+    <p>Most confused conversations about ad profitability are these being used interchangeably.</p>
+    <div data-tbl><table data-stack class="price-table">
+      <thead>
+        <tr><th>Term</th><th>What it is</th><th>What it doesn't tell you</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-th="Term">Revenue ROAS</td><td data-th="What it is">Revenue ÷ ad spend. The raw ratio.</td><td data-th="What it doesn't tell you">Whether any of that revenue was profit</td></tr>
+        <tr><td data-th="Term">Break-even ROAS</td><td data-th="What it is">The ratio at which contribution exactly covers ad spend</td><td data-th="What it doesn't tell you">Anything about fixed costs or company profit</td></tr>
+        <tr><td data-th="Term">Target ROAS</td><td data-th="What it is">The ratio you decide to run at, normally above break-even</td><td data-th="What it doesn't tell you">Whether the target was set from evidence or hope</td></tr>
+        <tr><td data-th="Term">Platform ROAS</td><td data-th="What it is">The ad platform's attributed revenue ÷ its spend</td><td data-th="What it doesn't tell you">What actually settled in your bank account</td></tr>
+        <tr><td data-th="Term">Business profitability</td><td data-th="What it is">What's left after every cost, fixed and variable</td><td data-th="What it doesn't tell you">Which channel caused it</td></tr>
+      </tbody>
+    </table><p class="price-note">Break-even ROAS is a media-level test. The last row is a company-level outcome. They are not the same question.</p></div>
+
+    <h2>What break-even ROAS actually means</h2>
+    <p>At break-even, one rupee of ad spend produces exactly enough contribution to pay for itself. Not profit — <em>payback</em>. You are running to stand still, and you would have the same bank balance if you hadn't advertised at all, minus the time.</p>
+    <p>That framing matters because it sets the floor correctly in your head. Break-even is not a target. It's the line below which you are certainly losing money, which is a different and much less ambitious claim.</p>
+
+    <h2>The formula, and the margin that drives it</h2>
+    <blockquote>Contribution margin = contribution profit ÷ revenue<br>Break-even ROAS = 1 ÷ contribution margin</blockquote>
+    <p><strong>Contribution profit is what's left from a sale after every variable cost except marketing.</strong> That last clause is the one people get wrong. Variable costs usually include cost of goods, shipping and fulfilment, payment gateway charges, marketplace or platform commissions, the discount you actually gave rather than the one on the price list, expected refunds and cancellations, and any sales commission or variable servicing cost. If a cost rises when you sell one more unit, it belongs here.</p>
+    <p>A note on language: "contribution margin" is used here as an operating framework for deciding ad spend, not as a formal accounting statement. Your accountant may define some of these lines differently, and this isn't tax or accounting advice. What matters for the decision is that you've subtracted everything that genuinely varies with volume.</p>
+
+    <h2>A worked example</h2>
+    <p>A D2C brand selling a ₹2,000 product:</p>
+    <div data-tbl><table class="price-table">
+      <thead>
+        <tr><th>Line</th><th>Amount</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-th="Line">Selling price</td><td data-th="Amount">₹2,000</td></tr>
+        <tr><td data-th="Line">Product cost (COGS)</td><td data-th="Amount">−₹700</td></tr>
+        <tr><td data-th="Line">Shipping and fulfilment</td><td data-th="Amount">−₹150</td></tr>
+        <tr><td data-th="Line">Payment gateway</td><td data-th="Amount">−₹50</td></tr>
+        <tr><td data-th="Line">Expected refunds and discount leakage</td><td data-th="Amount">−₹100</td></tr>
+        <tr><td data-th="Line"><strong>Contribution before marketing</strong></td><td data-th="Amount"><strong>₹1,000</strong></td></tr>
+        <tr><td data-th="Line">Contribution margin</td><td data-th="Amount">50%</td></tr>
+        <tr><td data-th="Line"><strong>Break-even ROAS (1 ÷ 0.50)</strong></td><td data-th="Amount"><strong>2.0x</strong></td></tr>
+      </tbody>
+    </table><p class="price-note">Illustrative arithmetic. Substitute your own lines — the output moves a long way on small changes.</p></div>
+    <p>Read it through once at 2.0x: ₹1 of ad spend produces ₹2 of revenue. At a 50% contribution margin, that ₹2 leaves ₹1 before marketing. That ₹1 exactly covers the ₹1 you spent. Nothing remains. The campaign is not failing and it is not succeeding — it is precisely neutral, and every fixed cost in the business is still unpaid.</p>
+
+    <h2>Why gross margin gives you the wrong number</h2>
+    <p>Say the same brand used gross margin instead and subtracted only COGS: ₹2,000 − ₹700 = ₹1,300, a 65% margin, implying a break-even ROAS of about 1.54x. A campaign running at 1.8x would look comfortably profitable. In reality it's below the true 2.0x floor and losing money on every order. The error is quiet, consistent, and scales exactly as fast as you do. Where shipping, gateway fees, commissions, discounts and returns are material — which is most of D2C — gross margin isn't a conservative approximation. It's the wrong input.</p>
+
+    <h2>Break-even is a floor, not a target</h2>
+    <p>Your target ROAS should normally sit above break-even, because break-even covers acquisition and nothing else. The gap between the two has to pay for whatever your business needs it to pay for, and that list is specific to you:</p>
+    <ul>
+      <li><strong>Measurement uncertainty</strong> — if your reported ROAS carries error, the floor needs a margin of safety above it.</li>
+      <li><strong>Costs outside media</strong> — agency fees, creative production and tools, where those aren't already inside the ad spend figure.</li>
+      <li><strong>Fixed costs</strong> — payroll, rent, software, and everything else that doesn't move with volume.</li>
+      <li><strong>Actual profit</strong> — the business presumably exists to make some.</li>
+      <li><strong>Cash position</strong> — a company with short runway needs a wider gap than one that can wait.</li>
+    </ul>
+    <p>Which is why there's no universal buffer. "Always add 20%" is a made-up number that happens to be right for somebody. Work out what the gap has to absorb in your business, in rupees per month, and derive the target from that. Setting it deliberately rather than by habit is a large part of what <a href="/services/performance-marketing/">performance marketing</a> planning involves.</p>
+
+    <h2>Beating break-even doesn't mean the business makes money</h2>
+    <p>Worth stating flatly, because it's the most common misreading of this whole concept. Clearing break-even ROAS means your <em>acquisition spend</em> is covered at the contribution level you defined. It says nothing about payroll, rent, software subscriptions, agency fees excluded from media, creative production, debt service or tax. A business can run every campaign above break-even and still lose money for the year.</p>
+    <p>So hold two numbers, not one: <strong>media break-even</strong>, which this formula gives you, and <strong>company-level profitability</strong>, which it does not. Confusing them is how a brand ends up scaling confidently into insolvency.</p>
+
+    <h2>Blended ROAS hides weak new-customer economics</h2>
+    <p>This one costs D2C brands real money. A campaign can report 4x because existing customers — people who were going to buy anyway — are redeeming offers and converting through paid. The blended number looks healthy while the acquisition engine underneath it is losing money on every genuinely new customer.</p>
+    <p>If the point of the spend is acquisition, judge it on acquisition: <strong>new-customer revenue, new-customer CAC and first-order contribution</strong>, with repeat contribution tracked separately rather than folded in. Most ad platforms and ecommerce backends can split new from returning; if yours can't, that's the first thing to fix. The habit matters most for <a href="/industries/d2c-ecommerce/">D2C and ecommerce brands</a>, where repeat purchase is common enough to flatter almost any report.</p>
+
+    <h2>When acquiring below break-even is defensible</h2>
+    <p>Sometimes a first order should lose money. Subscription businesses, genuine consumables, contracted recurring revenue and validated cross-sell all produce customers worth more than their first purchase, and refusing to pay for them is its own mistake.</p>
+    <p>The test is evidence. It's legitimate when you have a <em>measured</em> repeat rate or retention curve from your own cohorts, a payback period you can state in months, and enough cash to survive that period — ideally with the whole thing stress-tested against a worse retention number than your best cohort produced. It is not legitimate when "we'll make it back on LTV" is doing the work. An LTV assumption with no cohort data behind it isn't a plan; it's the same loss, scheduled. Our <a href="/tools/ltv-cac-calculator/">LTV:CAC calculator</a> is a quick way to pressure-test whether the repeat assumption survives contact with arithmetic.</p>
+
+    <h2>Why your platform ROAS won't match finance</h2>
+    <p>Two separate gaps, and it helps to name them apart.</p>
+    <p>The first is <strong>what the conversion value actually contains</strong>. A platform reports the value your tracking or integration sent it. Whether that figure is gross, post-discount or net of something else depends entirely on how the implementation was built — so don't assume it's always gross booked revenue, and don't assume it isn't. Check what yours sends before reasoning from it.</p>
+    <p>The bigger issue is what happens afterwards. A cancellation or return days later doesn't automatically revise the conversion that was already recorded; the correction has to be supplied. Google, for instance, documents two adjustment types for exactly this — <strong>restate</strong>, which "allows you to change the conversion value, but not the count of conversions", and <strong>retract</strong>, which removes a conversion and sets its value to zero, for cases it names as "canceled reservations or returned purchases". Both are uploaded by the advertiser, and online conversions can only be adjusted if you passed a transaction ID in the first place. Other platforms handle this differently again. So unless somebody built that correction loop, the dashboard keeps counting revenue your accounts never saw — and your real contribution is lower than it looks. There's no universal return rate to assume here; use your own.</p>
+    <p>The second is <strong>attribution</strong>. Platform ROAS is that platform's own attributed output, counted inside its own window and model. It is a vendor report from an interested party, not accounting truth, and it will disagree with GA4, your backend and your CRM — each of which counts differently again. That disagreement is <a href="/insights/marketing-attribution-explained-simply/">normal and explainable</a> rather than a fault. Reconcile platform-reported orders against your backend regularly, decide from the system closest to the money, and treat building that reconciliation as <a href="/services/growth-strategy-measurement/">measurement work</a> rather than reporting.</p>
+
+    <h2>A practical checklist</h2>
+    <ol>
+      <li>List every variable cost per order, including the discount you actually give and your real refund rate.</li>
+      <li>Calculate contribution margin from those, not from gross margin.</li>
+      <li>Divide 1 by it. That's your floor.</li>
+      <li>Decide what the gap above the floor must absorb, in rupees per month, and set a target from that.</li>
+      <li>Split new-customer from repeat performance before judging any campaign.</li>
+      <li>Reconcile platform revenue against backend net revenue, and know the size of the gap.</li>
+      <li>If you're deliberately running below break-even, write down the payback period and the cohort evidence for it.</li>
+    </ol>
+    <p>If you'd rather not do the arithmetic by hand, our <a href="/tools/ad-spend-profitability-calculator/">ad spend profitability calculator</a> takes the same inputs — price, COGS, shipping, fees, discounts, return rate — and returns your break-even ROAS and the most you can pay to acquire a customer. And if the numbers coming out of it don't look like the numbers in your dashboard, start with the <a href="/insights/audit-your-ad-spend/">five-minute ad spend self-audit</a>.</p>
+    </div>
+      <section data-afaq aria-labelledby="faq-h">
+        <h2 id="faq-h">Break-even ROAS — FAQs</h2>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b0" aria-controls="faq-p0" aria-expanded="true"><span>What is break-even ROAS?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p0" role="region" aria-labelledby="faq-b0"><div><p>The return on ad spend at which the contribution your sales generate exactly equals what you paid to generate them. Above it, acquisition spend is covered; below it, every ad-funded order loses money before a single fixed cost is counted. It's set by your margin — not by your industry, and not by the platform.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b1" aria-controls="faq-p1" aria-expanded="false"><span>How do I calculate break-even ROAS?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p>Divide 1 by your contribution margin as a decimal. A 50% margin gives 1 ÷ 0.50 = <strong>2.0x</strong>; a 25% margin gives <strong>4.0x</strong>. The arithmetic is trivial. The work is calculating the margin honestly, because it has to be what's left after every variable cost <em>except</em> marketing.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b2" aria-controls="faq-p2" aria-expanded="false"><span>Is a 2x ROAS good?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p>Unanswerable without your margin. At 50% contribution margin, 2x is exactly break-even — it covers the ad spend and contributes nothing. At 70% it's comfortably profitable at the media level. At 25% it's losing roughly half of every rupee. A ROAS quoted without the margin beside it carries no information.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b3" aria-controls="faq-p3" aria-expanded="false"><span>Should I use gross margin or contribution margin?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p>Contribution margin, where the two differ materially. Gross margin usually subtracts only cost of goods — leaving out shipping and fulfilment, gateway fees, marketplace commissions, discounts, refunds and variable servicing costs. That produces a break-even ROAS that's too low, so a campaign can clear it and still lose money on every order.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b4" aria-controls="faq-p4" aria-expanded="false"><span>What's the difference between break-even ROAS and target ROAS?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p>Break-even is a floor you derive; target is a decision you make, and it should normally sit above the floor — because break-even covers acquisition and nothing else. The gap has to absorb whatever your business needs it to: measurement error, fees outside media spend, overhead, and the profit the business is supposed to make. There's no universal buffer to add.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b5" aria-controls="faq-p5" aria-expanded="false"><span>Can I run ads below break-even ROAS?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p5" role="region" aria-labelledby="faq-b5"><div><p>Sometimes — but only against evidence. A loss-making first order can be rational when you have a <em>measured</em> repeat rate, subscription retention or contracted recurring revenue showing the customer turns profitable inside a payback period you can fund from cash you actually hold. "We'll make it back on LTV" is not evidence. If the repeat behaviour is hoped for rather than measured, you're not investing in acquisition — you're losing money on a schedule.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b6" aria-controls="faq-p6" aria-expanded="false"><span>Why doesn't Meta or Google ROAS match my actual revenue?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p6" role="region" aria-labelledby="faq-b6"><div><p>They measure different things. Platform ROAS uses the conversion value your tracking or integration sends, interpreted through that platform's attribution model — whether that value is gross, post-discount or net depends on your implementation, so check rather than assume. The bigger gap is afterwards: cancellations and returns don't automatically revise a conversion already recorded unless your integration supports adjustments or you send them. Finance counts settled net revenue. Expect a gap, reconcile against your backend regularly, and decide from the system closest to the money.</p></div></div>
+        </div>
+      </section>
+    <div data-bio>
+      <img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">
+      <p><strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a></p>
+    </div>
+    <aside data-acta aria-labelledby="acta-h">
+      <div data-eyebrow>Next step</div>
+      <h2 id="acta-h">Not sure your margin or your ROAS is real?</h2>
+      <p>A Foundation Audit checks what your contribution margin actually is and whether the ROAS you're reporting survives contact with your backend — before you scale against either. No pitch attached.</p>
+      <a data-btn href="/contact/"><span>Discuss your growth project</span> <span aria-hidden="true">&rarr;</span></a>
+    </aside>
+  </div>
+</article>
+
+</main>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+  </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a><a href="/cookie-policy/" data-tilth-consent-open>Cookie settings</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across India and the US</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
+</footer>
+<script src="/brand-v3.js" defer></script>
+<script src="/analytics.js" defer></script>
+<script src="/consent.js" defer></script>
+</body>
+</html>
