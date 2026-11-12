@@ -91,6 +91,7 @@ CARDS = {
     "audit-your-ad-spend":                        (["Is your ad spend", "profitable?"], "FOUNDATION"),
     "break-even-roas":                            (["Break-even", "ROAS"], "FOUNDATION"),
     "b2b-saas-marketing-india":                   (["Marketing for", "Indian SaaS"], "MID"),
+    "fintech-marketing-compliance-india":         (["Compliance and", "fintech growth"], "DEEP"),
     "first-marketing-hire-startup":               (["Your first", "marketing hire"], "SHALLOW"),
     "ga4-conversion-tracking":                    (["GA4 conversion", "tracking"], "FOUNDATION"),
     "google-ads-budget-india-startups":           (["Google Ads", "budget"], "SHALLOW"),
