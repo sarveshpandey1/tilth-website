@@ -259,14 +259,23 @@ export const insightHub = {
     }
 ],
   cats: [
-    { id: "all", label: `All`, count: "20" },
+    { id: "all", label: `All`, count: "21" },
     { id: "paid-ads", label: `Paid Ads`, count: "5" },
     { id: "tracking", label: `Tracking &amp; Attribution`, count: "4" },
     { id: "seo-growth", label: `SEO &amp; Growth`, count: "4" },
     { id: "hiring", label: `Hiring &amp; Agencies`, count: "4" },
-    { id: "strategy", label: `Strategy`, count: "3" },
+    { id: "strategy", label: `Strategy`, count: "4" },
   ],
   cards: [
+    {
+      slug: "fintech-marketing-compliance-india", href: "/insights/fintech-marketing-compliance-india/", cat: "strategy",
+      catLabel: `Strategy`,
+      title: `Marketing for fintech in India: how compliance changes the playbook`,
+      excerpt: `Compliance isn't a legal review bolted onto the end of a campaign — it changes what you can promise, who can say it and how fast you ship. How to build the operating system around that.`,
+      meta: `9 min read · 12 Nov 2026`,
+      read: `Read the article →`,
+      img: `<img class="blog-card__media" src="/assets/insight-cards/fintech-marketing-compliance-india.webp" alt="" loading="lazy" width="1200" height="630">`
+    },
     {
       slug: "b2b-saas-marketing-india", href: "/insights/b2b-saas-marketing-india/", cat: "strategy",
       catLabel: `Strategy`,
@@ -451,6 +460,284 @@ export const insightHub = {
 };
 
 export const insightArticles = [
+  {
+    slug: "fintech-marketing-compliance-india",
+    section: "Strategy",
+    readTime: "9 min read",
+    date: "12 Nov 2026",
+    h1: `Marketing for fintech in India: how compliance changes the growth playbook`,
+    standfirst: `Most fintech growth teams treat compliance as a review step at the end of the process. That's the single most expensive structural mistake available to them. Compliance decides what you can promise, what evidence you need, who may say it and how fast creative ships — which makes it part of the operating system, not a gate at the end of it.`,
+    bylineImg: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">`,
+    bylineWho: `Anuja Founder, Tilth · 10+ years in performance marketing`,
+    meta: {
+      "title": "Marketing for Fintech in India: How Compliance Changes the Playbook | Tilth",
+      "description": "How regulation reshapes fintech growth marketing in India — claims libraries, approval workflow, disclosures, consent, influencers, funnel quality and fraud. An operations guide, not legal advice.",
+      "canonical": "https://wearetilth.com/insights/fintech-marketing-compliance-india/",
+      "robots": "index, follow",
+      "ogTitle": "Marketing for fintech in India: how compliance changes the growth playbook",
+      "ogDescription": "Why compliance belongs at the start of the marketing system rather than the end — claims, approvals, disclosures, consent, influencers and funnel quality.",
+      "ogType": "article",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/fintech-marketing-compliance-india.webp",
+      "ogLocale": null,
+      "twTitle": "Marketing for fintech in India: how compliance changes the playbook",
+      "twDescription": "Compliance isn't a final review step — it's part of the marketing operating system.",
+      "twImage": "https://wearetilth.com/assets/insight-cards/fintech-marketing-compliance-india.webp"
+},
+    schema: [
+      {
+            "@context": "https://schema.org",
+            "@graph": [
+                  {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                              {
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "Home",
+                                    "item": "https://wearetilth.com/"
+                              },
+                              {
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Insights",
+                                    "item": "https://wearetilth.com/insights/"
+                              },
+                              {
+                                    "@type": "ListItem",
+                                    "position": 3,
+                                    "name": "Marketing for fintech in India: how compliance changes the growth playbook",
+                                    "item": "https://wearetilth.com/insights/fintech-marketing-compliance-india/"
+                              }
+                        ]
+                  },
+                  {
+                        "@type": "BlogPosting",
+                        "headline": "Marketing for fintech in India: how compliance changes the growth playbook",
+                        "description": "How regulation reshapes fintech growth marketing in India - claims libraries, approval workflow, disclosures, consent, influencers, funnel quality and fraud. An operations guide, not legal advice.",
+                        "image": "https://wearetilth.com/assets/insight-cards/fintech-marketing-compliance-india.webp",
+                        "datePublished": "2026-11-12",
+                        "dateModified": "2026-11-12",
+                        "inLanguage": "en-IN",
+                        "url": "https://wearetilth.com/insights/fintech-marketing-compliance-india/",
+                        "mainEntityOfPage": "https://wearetilth.com/insights/fintech-marketing-compliance-india/",
+                        "articleSection": "Strategy",
+                        "keywords": [
+                              "fintech marketing India",
+                              "fintech growth marketing",
+                              "financial services marketing India",
+                              "fintech performance marketing",
+                              "compliance marketing fintech"
+                        ],
+                        "wordCount": 3190,
+                        "author": {
+                              "@type": "Person",
+                              "name": "Anuja",
+                              "jobTitle": "Founder",
+                              "url": "https://wearetilth.com/about/"
+                        },
+                        "publisher": {
+                              "@type": "Organization",
+                              "name": "Tilth",
+                              "url": "https://wearetilth.com/",
+                              "logo": {
+                                    "@type": "ImageObject",
+                                    "url": "https://wearetilth.com/favicon.svg"
+                              }
+                        }
+                  },
+                  {
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                              {
+                                    "@type": "Question",
+                                    "name": "Why is fintech marketing different from other industries?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "Because the constraint sits before the creative rather than after it. In most industries you decide what to say and then check it. In fintech, what you may promise, what evidence supports it, what must be disclosed alongside it and who is permitted to say it are all determined before a brief is written. Teams that design campaigns first and consult compliance last end up rewriting rather than shipping, which makes them slower, not faster."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "Does every fintech have to follow RBI rules?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "No. Fintech is not a regulatory category. What applies depends on the actual regulated activity, the entity type, the licence held and the distribution model. A payments business, a lending business, a broking platform, an insurance distributor and a B2B infrastructure provider can face entirely different rulebooks and different regulators, and some technology providers are not directly regulated at all while still carrying contractual obligations to the regulated partner whose product they market. Establish which rules apply to your specific activity with your compliance or legal team before building a campaign on an assumption."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "What claims can a fintech ad make?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "There is no universal list of permitted or banned words, and any article offering one should be treated with suspicion. The workable approach is a claims library: every approved claim recorded with the evidence behind it, the product version it applies to, the disclosure that must accompany it, the channels where it may run, the named person who approved it and a review date. That turns a judgement call made under deadline pressure into a reusable asset."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "Can fintech companies use influencers in India?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "Many do, but the compliance question is sharper than in other categories and the answer depends on what the creator is actually doing. Generic brand promotion, product explanation and specific financial advice or recommendation are not the same activity, and they may attract different requirements depending on the product and the regulator involved. Decide before signing which of those the content is, who approves the script, what disclosure appears, and whether the creator can be permitted to say something the brand itself could not. Confirm the specific requirements with your compliance team rather than relying on what competitors appear to be doing."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "What should fintech performance marketing optimise for?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "The deepest event in the funnel that is still valid, attributable and frequent enough to learn from. Fintech funnels usually have several stages after the lead, and optimising to the cheapest early event reliably produces volume that never becomes a customer - unverified signups, incentive hunters and in some cases outright fraud. Move the optimisation event down the funnel as volume allows, and judge channels on customers who completed onboarding and transacted rather than on cost per lead."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "How should fintech marketing teams work with compliance?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "By moving the conversation earlier and making it reusable. Agree an approved claim architecture and disclosure modules up front, build creative templates around them, name the approvers, agree a turnaround time, and keep version control and an audit trail. Compliance review does not disappear, but it stops being a surprise at the end of every cycle, which is what actually slows teams down."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "Is this article legal advice?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "No. It is a marketing operations guide written for growth teams. It describes how regulatory constraints change marketing workflow, and where it refers to specific regulatory material it names the instrument, its scope and its effective date so you can check it yourself. It is not a statement of what any particular rule requires of your business. Applicability depends on your entity, licence, product and distribution model, and only your compliance or legal advisers can confirm it."
+                                    }
+                              }
+                        ]
+                  }
+            ]
+      }
+],
+    faqHeading: `Fintech marketing and compliance — FAQs`,
+    faq: [
+      { q: `Why is fintech marketing different from other industries?`,
+        a: `<p>Because the constraint sits <em>before</em> the creative rather than after it. In most industries you decide what to say and then check it. In fintech, what you may promise, what evidence supports it, what must be disclosed alongside it and who may say it are all settled before a brief is written. Teams that design campaigns first and consult compliance last end up rewriting rather than shipping — slower, not faster.</p>` },
+      { q: `Does every fintech have to follow RBI rules?`,
+        a: `<p>No. Fintech isn't a regulatory category. What applies depends on the actual regulated activity, entity type, licence and distribution model. A payments business, a lender, a broking platform, an insurance distributor and a B2B infrastructure provider can face different rulebooks and different regulators — and some technology providers aren't directly regulated at all, while still carrying contractual obligations to the regulated partner whose product they market. Establish which rules apply to <em>your</em> activity with your compliance or legal team.</p>` },
+      { q: `What claims can a fintech ad make?`,
+        a: `<p>There's no universal list of permitted or banned words, and any article offering one deserves suspicion. The workable approach is a <strong>claims library</strong>: every approved claim recorded with its evidence, the product version it applies to, the disclosure that must travel with it, the channels it may run on, the named approver and a review date. That turns a deadline-pressure judgement call into a reusable asset.</p>` },
+      { q: `Can fintech companies use influencers in India?`,
+        a: `<p>Many do, but the compliance question is sharper here and the answer depends on what the creator is actually doing. Generic brand promotion, product explanation, and specific financial advice or recommendation are different activities and may attract different requirements depending on the product and regulator. Decide before signing which one the content is, who approves the script, what disclosure appears, and whether the creator may say something the brand itself could not — and confirm with compliance rather than copying what competitors appear to do.</p>` },
+      { q: `What should fintech performance marketing optimise for?`,
+        a: `<p>The deepest funnel event that's still valid, attributable and frequent enough to learn from. Fintech funnels have several stages after the lead, and optimising to the cheapest early event reliably produces volume that never becomes a customer — unverified signups, incentive hunters, sometimes outright fraud. Move the event down the funnel as volume allows, and judge channels on customers who completed onboarding and transacted.</p>` },
+      { q: `How should fintech marketing teams work with compliance?`,
+        a: `<p>Move the conversation earlier and make it reusable. Agree an approved claim architecture and disclosure modules up front, build creative templates around them, name the approvers, agree a turnaround time, and keep version control and an audit trail. Review doesn't disappear — it stops being a surprise at the end of every cycle, which is the thing that actually slows teams down.</p>` },
+      { q: `Is this article legal advice?`,
+        a: `<p>No. It's a marketing operations guide for growth teams. Where it refers to specific regulatory material it names the instrument, its scope and its effective date so you can check it yourself — it isn't a statement of what any rule requires of your business. Applicability depends on your entity, licence, product and distribution model, and only your compliance or legal advisers can confirm it.</p>` },
+    ],
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story →</a>` },
+    cta: { heading: `Growth constrained by approval cycles?`, body: `A Foundation Audit looks at how your claims, approvals, funnel definitions and measurement fit together — so compliance stops being the reason campaigns stall. No pitch attached.`,
+      href: "/contact/", label: `Discuss your growth project` },
+    bodyHtml: `<p>In most industries, marketing decides what to say and compliance checks it afterwards. In fintech that sequence is backwards, and it's the most expensive structural mistake a growth team can make. What you may promise, what evidence sits behind it, what has to be disclosed alongside it and who is permitted to say it are decided <em>before</em> the brief — which makes compliance part of the marketing operating system rather than a gate at the end of it.</p>
+
+    <p><strong>A necessary note first:</strong> this is a marketing operations guide, not legal advice. Where it refers to specific regulatory material it names the instrument, who it covers and when it takes effect, so you can check it yourself. It is not a statement of what any rule requires of your business — only your compliance or legal advisers can tell you that.</p>
+
+    <h2>"Fintech" is not a regulatory category</h2>
+    <p>This is the single most important thing to get right, and the most commonly skipped. There is no rulebook for fintech. The applicable rules follow the <strong>activity, the entity, the licence and the distribution model</strong> — not the label. Two companies that both call themselves fintech can face entirely different regulators, or in one case barely any direct regulation at all while carrying heavy contractual obligations to a regulated partner.</p>
+    <div data-tbl><table data-stack class="price-table">
+      <thead>
+        <tr><th>Business type</th><th>Questions marketing has to resolve before building a campaign</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-th="Business type">Payments</td><td data-th="Questions marketing has to resolve before building a campaign">Who is the regulated entity in the flow? What can be claimed about speed, settlement and security?</td></tr>
+        <tr><td data-th="Business type">Lending</td><td data-th="Questions marketing has to resolve before building a campaign">Who is the lender of record? What rate, fee and term disclosure must appear with any offer claim?</td></tr>
+        <tr><td data-th="Business type">Broking / investing</td><td data-th="Questions marketing has to resolve before building a campaign">What may be said about returns or performance? What registration details must appear?</td></tr>
+        <tr><td data-th="Business type">Wealth, advice, research</td><td data-th="Questions marketing has to resolve before building a campaign">Where is the line between education and a personalised recommendation?</td></tr>
+        <tr><td data-th="Business type">Insurance distribution</td><td data-th="Questions marketing has to resolve before building a campaign">Who is the insurer, who is the distributor, and what must each be called?</td></tr>
+        <tr><td data-th="Business type">Crypto / VDA</td><td data-th="Questions marketing has to resolve before building a campaign">What risk disclosure travels with every promotional asset?</td></tr>
+        <tr><td data-th="Business type">B2B infrastructure</td><td data-th="Questions marketing has to resolve before building a campaign">What can be claimed on behalf of regulated clients, and what does your contract with them permit?</td></tr>
+      </tbody>
+    </table><p class="price-note">Prompts for a conversation with your compliance team, not a statement of applicable law. The answers differ by entity and licence.</p></div>
+    <p>Digital lending is the clearest illustration of why the exact activity matters rather than the label. The <strong>RBI (Digital Lending) Directions, 2025</strong>, issued 8 May 2025, already apply to the digital lending activities of specified regulated entities, carrying their own requirements around borrower disclosures, the arrangements between a regulated entity and its lending service providers, customer protection and data practices. That is a different rule set, binding a different group, from the Responsible Business Conduct amendments discussed below — and if digital lending is your activity, it is the one to start with.</p>
+
+    <p>Worth saying plainly: establishing which rules apply to you is itself real work. In researching this article I found that even locating the current operative instrument for one entity category took several steps, and that documents regularly exist in amended layers with different effective dates. If it takes an afternoon to establish your own position, that afternoon is cheap.</p>
+
+    <h2>A concrete example of where the bar is heading</h2>
+    <p>One worked illustration, scoped precisely, because the direction of travel matters even where a specific rule doesn't bind you.</p>
+    <p>The RBI issued <strong>Second Amendment Directions dated 15 June 2026</strong> to its <em>Responsible Business Conduct</em> Directions. The version we read applies to <strong>commercial banks</strong> — explicitly excluding small finance banks, payments banks, regional rural banks and local area banks — and its provisions <strong>come into effect from 1 January 2027</strong>, so they are not in force as this is written. Parallel amendments were issued the same day for other regulated-entity categories, which we did not read; if you are an NBFC or another class of regulated entity, read your own.</p>
+    <p>With that scoping in place, what it asks for is instructive. Advertising and promotional material must be "clear and factual", and must disclose the interest rate and other fees and charges associated with the product being promoted, with terms and conditions prominently disclosed at points of sale and digital channels. Promotional communications may be sent only where the customer has given explicit consent, and unsubscribing must be "easy and simple". The default choice when asking for consent must be "No". User interfaces must not deploy dark patterns — and the directions include an illustrative list naming False Urgency, Confirm Shaming, Forced Action, Subscription Trap, Bait and Switch, Drip Pricing, Disguised Advertisement, Nagging and Trick Wording, with an example covering advertising a lower interest rate than the one actually charged on application.</p>
+    <p>Read that as a marketer rather than a lawyer and the implication is clear: regulators are describing the gap between what an ad promises and what the product delivers, and naming the specific interface tricks that create it.</p>
+    <p>And the commercial-bank instrument is only one version. RBI issued parallel Responsible Business Conduct amendments the same day across other regulated-entity categories — small finance banks, payments banks, local area banks, regional rural banks, urban and rural co-operative banks, all-India financial institutions and NBFCs among them. We read the commercial-bank text in detail and have not audited the rest, so don't assume every provision is word-for-word identical or that every commencement date matches: read the version that applies to your entity.</p>
+
+    <h2>Claims before creative</h2>
+    <p>Most fintech creative gets rejected over a claim, not a visual. Returns, savings, rates, fees, speed, approval odds, eligibility, security — each is a factual assertion someone must be able to defend.</p>
+    <p>So stop treating claims as something a copywriter generates and start treating them as inventory. A <strong>claims library</strong> records, for each approved claim: the claim itself, the evidence behind it, the product and version it applies to, the disclosure that must travel with it, the channels where it may run, the named person who approved it, and the date it must be reviewed again.</p>
+    <p>That's marketing operations, not law. But it converts the most common bottleneck — a judgement call made under deadline pressure by whoever is available — into a reusable asset. It also makes the honest answer to "can we say this?" fast, which is the whole point.</p>
+
+    <h2>Build compliance into the workflow, not the end of it</h2>
+    <p>The workflow most teams run:</p>
+    <blockquote>Creative → campaign ready → compliance review → rejected → rewrite → re-review → late launch</blockquote>
+    <p>The workflow that ships:</p>
+    <blockquote>Approved claim architecture → templates → creative within them → compliance check → launch</blockquote>
+    <p>The second isn't lighter-touch. It's the same scrutiny applied earlier, where it costs a conversation rather than a production cycle. What makes it work in practice is unglamorous: pre-approved claim blocks and disclosure modules, creative templates built around them, named approvers rather than "legal", an agreed turnaround time, version control so nobody runs a superseded disclaimer, and an audit trail showing what was approved when.</p>
+    <p>None of this removes compliance review, and any process promising that is selling something. It removes <em>surprise</em> from compliance review, which is the thing that actually costs weeks.</p>
+
+    <h2>Disclosures and landing pages</h2>
+    <p>Disclosure fails most often not because it's missing but because it's divorced from the claim. The headline promises something the conditions later undo; the ad says one rate and the application reveals another; the terms sit in a footer nobody reads on a screen nobody scrolls.</p>
+    <p>Practical consequences: ad claim and landing page must agree, across every variant in a test. Disclosure has to be legible where it actually appears, which usually means a phone. Offer terms need version control, because an ad outliving its offer is common and avoidable. And don't import credit-product disclosure habits into a product that isn't one — the requirement follows the product.</p>
+
+    <h2>Consent is three different things</h2>
+    <p>Growth teams routinely collapse these, and they aren't interchangeable:</p>
+    <ul>
+      <li><strong>Regulatory consent</strong> to send promotional communications to a customer, with a workable way to opt out.</li>
+      <li><strong>Platform/advertising consent</strong>, which governs what you may do with data in ad systems and audience building.</li>
+      <li><strong>Analytics consent</strong>, which governs measurement.</li>
+    </ul>
+    <p>Having one does not give you the others. A customer who consented to transactional messages has not necessarily consented to a promotional campaign; someone who accepted analytics cookies has not joined a remarketing audience. Map which you hold, for whom, and for what purpose — before building CRM, SMS, WhatsApp, push or retargeting activity on an assumption.</p>
+
+    <h2>Patterns worth avoiding regardless</h2>
+    <p>Some tactics are high-risk in any financial context, whether or not a specific rule names them for your entity: pre-selected options, manufactured urgency, fees that only surface late, comparisons that flatter by omission, obscured terms, opt-outs that are hard to find, and presenting a third party's product as your own. Where a regulator has named these — as the RBI directions above do for commercial banks from 2027 — they are compliance matters. Where it hasn't, they remain poor customer experience that produces complaints, chargebacks and churn. The commercial argument and the compliance argument point the same way.</p>
+
+    <h2>Influencers and creators</h2>
+    <p>This is where fintech marketing gets most complicated, and where the most confident advice online is the least reliable. What's genuinely useful is a scoping sequence to run <em>before</em> signing anyone:</p>
+    <ol>
+      <li>Is this generic brand promotion, product explanation, or specific financial advice and recommendation? These are different activities.</li>
+      <li>Which product and regulated activity is involved?</li>
+      <li>Does the creator need a particular registration or qualification for what they'll be doing — and does it need disclosing?</li>
+      <li>What disclosure must appear on the content itself?</li>
+      <li>Who approves the script, before recording rather than after?</li>
+      <li>May the content be amplified or run as paid media, and does that change anything?</li>
+      <li>Is the creator making a claim the brand itself would not be allowed to make?</li>
+    </ol>
+    <p>Question seven is the one that catches teams out. A creator's enthusiasm doesn't come with its own permissions, and brand risk doesn't transfer just because someone else said it.</p>
+    <p>Note also that ASCI — whose influencer advertising guidelines are the usual reference point, including addenda addressing influencers who give financial advice — describes itself as "an independent, voluntary self-regulatory organisation" and states it "is not a government body, nor does it formulate rules for the public or relevant industries". Its guidance is advertising self-regulation and sits alongside, not instead of, whatever financial regulation applies to your activity. Read the current ASCI guidelines directly rather than a summary, and confirm the regulatory layer separately. If creator work is a real channel for you, it's worth running it as a managed <a href="/services/influencer-pr-events/">influencer and partnerships programme</a> rather than ad hoc.</p>
+
+    <h2>Funnel quality beats cost per lead</h2>
+    <p>Fintech funnels have more stages after the lead than most: a lead, onboarding or verification started, verification completed, approved, funded or activated, transacting, and eventually a genuinely valuable customer. Not every fintech has all of these — a B2B infrastructure product has a different shape entirely — but the structural point holds.</p>
+    <p>Optimising to the cheapest early event reliably produces volume that never becomes a customer: unverified signups, incentive hunters working the referral bonus, duplicate identities, sometimes outright fraud. Cost per lead looks excellent right up to the moment someone reconciles it against funded customers.</p>
+    <p>The principle is the same one that governs any considered purchase: <strong>optimise to the deepest event that is still valid, attributable and frequent enough to learn from.</strong> Deeper events are better signals and rarer ones, so there's no universal threshold — it's a trade-off against your own volume. Getting this architecture right is <a href="/services/growth-strategy-measurement/">measurement work</a> before it's campaign work.</p>
+
+    <h2>Fraud and partner quality</h2>
+    <p>Incentives attract abuse, and financial products carry the strongest incentives. Fake leads, duplicate identities, incentive hunters, bot traffic, invalid events and attribution hijacking are all live concerns, and affiliate or partner channels concentrate several of them at once.</p>
+    <p>Two things follow. Fraud prevention belongs next to growth measurement rather than in a quarterly review of its own, because the same reconciliation — paid-for events against genuine downstream customers — catches both waste and abuse. And partner incentive design is a marketing decision: pay on an early event and you'll get that event in volume, from whoever manufactures it cheapest. Running <a href="/services/affiliate-partnerships/">affiliate and partner programmes</a> on verified downstream outcomes is harder to set up and much harder to game.</p>
+
+    <h2>Channels, conditionally</h2>
+    <p>No ranking — the right answer depends on product, demand maturity and approval capacity.</p>
+    <p><strong>Search</strong> works where high-intent demand exists, and demands consistency: ad claim and landing-page claim must match across every variant. <strong>Paid social</strong> suits education and demand creation, but creative iteration is the engine and compliance turnaround usually limits it — a team that can approve five concepts a week beats one that can approve one, regardless of media skill. <strong>Affiliates and partners</strong> can scale, with the caveats above, and a claim a partner makes is still your brand risk. <strong>Creators</strong> buy trust and explanation at the highest compliance complexity. <strong>Content and SEO</strong> suit high-consideration financial journeys, with one line to watch: education versus personalised recommendation, which is where several regulatory regimes draw their boundaries.</p>
+
+    <h2>A measurement hierarchy</h2>
+    <div data-tbl><table data-stack class="price-table">
+      <thead>
+        <tr><th>Layer</th><th>Metrics</th><th>What it's for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-th="Layer">Business</td><td data-th="Metrics">Funded or activated customers, transacting users, revenue, contribution</td><td data-th="What it's for">Deciding where budget goes</td></tr>
+        <tr><td data-th="Layer">Quality</td><td data-th="Metrics">Verification completion, approval rate, activation, qualified customer rate</td><td data-th="What it's for">Explaining <em>why</em> the business layer moved</td></tr>
+        <tr><td data-th="Layer">Acquisition</td><td data-th="Metrics">CPL, CPA, CAC, CTR</td><td data-th="What it's for">Diagnostics only — they improve while quality degrades</td></tr>
+      </tbody>
+    </table><p class="price-note">Generic stage names. Use whatever your own funnel actually calls them.</p></div>
+    <p>The bottom row is where most fintech reporting lives and where most fintech budget is misallocated. If the only number in the weekly review is cost per lead, the review is measuring the wrong thing. <a href="/insights/marketing-attribution-explained-simply/">Attribution</a> sits across all three layers and is worth understanding separately.</p>
+
+    <h2>Compliance as an operating advantage</h2>
+    <p>Not a platitude — an operational argument. Two fintechs under identical regulation won't move at the same speed, and the difference isn't appetite for risk. It's whether claims are pre-approved or argued each time, whether templates exist, whether approvers are named with an agreed turnaround, and whether anyone can show what was approved when. That team ships more campaigns, resets less creative and spends less time disputing what a landing page said. The advantage isn't less regulation — it's less friction inside the same constraints, which in a category where everyone faces those constraints is a real moat.</p>
+
+    <h2>A 90-day operating framework</h2>
+    <p><strong>Days 1–30 — map and define.</strong> Establish which regulator, product and activity actually applies to you, in writing, with compliance. Build the first version of the claims library. Define the funnel stages and what each means. Fix measurement so downstream quality is visible. Write the partner and creator policy. Agree the approval workflow, approvers and turnaround.</p>
+    <p><strong>Days 31–60 — test inside the rails.</strong> One or two channels. Creative built from approved templates. Landing-page tests that stay within approved claims. Downstream quality feedback flowing back weekly. Partner QA running from day one, not after the first invoice.</p>
+    <p><strong>Days 61–90 — judge on quality.</strong> Compare spend against verified, activated customers rather than leads. Cut sources producing volume that doesn't convert downstream. Document what was approved and what worked. Expand only the patterns that cleared both bars.</p>
+    <p>Ninety days of this will tell you which sources produce real customers and give you a working approval machine. It will not establish long-term profitability — retention and repeat behaviour in financial products take considerably longer to read, and anyone promising otherwise is guessing. If you'd like an outside read on how these pieces currently fit together, that's what a <a href="/insights/marketing-foundation-audit/">foundation audit</a> is for, and it's the work behind our <a href="/industries/fintech/">fintech growth marketing</a> practice.</p>`
+  },
   {
     slug: "b2b-saas-marketing-india",
     section: "Strategy",
