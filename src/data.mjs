@@ -8,8 +8,8 @@ export const site = {
   ga: "G-1MJEZ4VK26",
   tagline: "Grow deep. Market smart.",
   email: "anuja@wearetilth.com", // wearetilth.com mailbox confirmed active (workbook T-014)
-  phone: "+91 70079 99306",
-  phoneHref: "+917007999306",
+  phone: "+91 81973 03330",
+  phoneHref: "+918197303330",
   responseTime: "within one working day",
   address: { locality: "Bengaluru", region: "Karnataka", country: "IN" }, // legal/registered — do not change on domain move (Brief §61)
   social: {
