@@ -259,14 +259,23 @@ export const insightHub = {
     }
 ],
   cats: [
-    { id: "all", label: `All`, count: "21" },
+    { id: "all", label: `All`, count: "22" },
     { id: "paid-ads", label: `Paid Ads`, count: "5" },
-    { id: "tracking", label: `Tracking &amp; Attribution`, count: "4" },
+    { id: "tracking", label: `Tracking &amp; Attribution`, count: "5" },
     { id: "seo-growth", label: `SEO &amp; Growth`, count: "4" },
     { id: "hiring", label: `Hiring &amp; Agencies`, count: "4" },
     { id: "strategy", label: `Strategy`, count: "4" },
   ],
   cards: [
+    {
+      slug: "geo-holdout-test-marketing", href: "/insights/geo-holdout-test-marketing/", cat: "tracking",
+      catLabel: `Tracking &amp; Attribution`,
+      title: `How to run a geo holdout test without a data team`,
+      excerpt: `Attribution tells you which touchpoint got credit. It can't tell you what would have happened anyway. How to design a geo holdout you can actually trust &mdash; and how to recognise when the answer isn't trustworthy.`,
+      meta: `11 min read &middot; 17 Nov 2026`,
+      read: `Read the article &rarr;`,
+      img: `<img class="blog-card__media" src="/assets/insight-cards/geo-holdout-test-marketing.webp" alt="" loading="lazy" width="1200" height="630">`
+    },
     {
       slug: "fintech-marketing-compliance-india", href: "/insights/fintech-marketing-compliance-india/", cat: "strategy",
       catLabel: `Strategy`,
@@ -460,6 +469,338 @@ export const insightHub = {
 };
 
 export const insightArticles = [
+  {
+    slug: "geo-holdout-test-marketing",
+    section: "Tracking & Attribution",
+    readTime: "11 min read",
+    date: "17 Nov 2026",
+    h1: `How to run a geo holdout test without a data team`,
+    standfirst: `Attribution tells you which touchpoint got the credit. It cannot tell you what would have happened if you had not spent the money. A geo holdout is the most practical way for a small team to estimate that &mdash; and Google documents a path through the Google Ads interface that needs no code at all. The hard part isn't the arithmetic; it's designing a test whose answer you can trust.`,
+    bylineImg: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">`,
+    bylineWho: `Anuja Founder, Tilth &middot; 10+ years in performance marketing`,
+    meta: {
+      "title": "Geo Holdout Testing: Measure Incremental Marketing Lift | Tilth",
+      "description": "A practical guide to running a geo holdout test without a data team - choosing regions, validating the pre-period, avoiding the budget and learning-period traps, reading the result, and knowing when it isn't trustworthy.",
+      "canonical": "https://wearetilth.com/insights/geo-holdout-test-marketing/",
+      "robots": "index, follow",
+      "ogTitle": "How to run a geo holdout test without a data team",
+      "ogDescription": "Choosing regions, validating the pre-period, avoiding the execution traps, reading the result - and knowing when the answer isn't trustworthy.",
+      "ogType": "article",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/geo-holdout-test-marketing.webp",
+      "ogLocale": null,
+      "twTitle": "How to run a geo holdout test without a data team",
+      "twDescription": "A practical way to estimate incremental lift in a spreadsheet - and when not to trust it.",
+      "twImage": "https://wearetilth.com/assets/insight-cards/geo-holdout-test-marketing.webp"
+},
+    schema: [
+      {
+            "@context": "https://schema.org",
+            "@graph": [
+                  {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                              {
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "Home",
+                                    "item": "https://wearetilth.com/"
+                              },
+                              {
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Insights",
+                                    "item": "https://wearetilth.com/insights/"
+                              },
+                              {
+                                    "@type": "ListItem",
+                                    "position": 3,
+                                    "name": "How to run a geo holdout test without a data team",
+                                    "item": "https://wearetilth.com/insights/geo-holdout-test-marketing/"
+                              }
+                        ]
+                  },
+                  {
+                        "@type": "BlogPosting",
+                        "headline": "How to run a geo holdout test without a data team",
+                        "description": "A practical guide to running a geo holdout test without a data team - choosing regions, validating the pre-period, avoiding the budget and learning-period traps, reading the result, and knowing when it is not trustworthy.",
+                        "image": "https://wearetilth.com/assets/insight-cards/geo-holdout-test-marketing.webp",
+                        "datePublished": "2026-11-17",
+                        "dateModified": "2026-11-17",
+                        "inLanguage": "en-IN",
+                        "url": "https://wearetilth.com/insights/geo-holdout-test-marketing/",
+                        "mainEntityOfPage": "https://wearetilth.com/insights/geo-holdout-test-marketing/",
+                        "articleSection": "Tracking & Attribution",
+                        "keywords": [
+                              "geo holdout test",
+                              "geo lift test",
+                              "marketing incrementality test",
+                              "incrementality testing paid media",
+                              "geo experiment marketing",
+                              "measure incremental ad lift"
+                        ],
+                        "wordCount": 3980,
+                        "author": {
+                              "@type": "Person",
+                              "name": "Anuja",
+                              "jobTitle": "Founder",
+                              "url": "https://wearetilth.com/about/"
+                        },
+                        "publisher": {
+                              "@type": "Organization",
+                              "name": "Tilth",
+                              "url": "https://wearetilth.com/",
+                              "logo": {
+                                    "@type": "ImageObject",
+                                    "url": "https://wearetilth.com/favicon.svg"
+                              }
+                        }
+                  },
+                  {
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                              {
+                                    "@type": "Question",
+                                    "name": "What is a geo holdout test?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "A controlled comparison where you keep advertising in one set of regions and withhold or materially change it in a matched set, then compare how a business outcome moves in each. Because the held-out regions carry on experiencing everything else about your business, the difference between the two groups is a far better estimate of what the advertising actually added than any platform report can give you."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "How is a geo holdout different from attribution?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "They answer different questions. Attribution asks which touchpoint should get credit for a sale that already happened, and splits that credit according to a rule you chose. A geo holdout asks what would have happened if you had not spent the money at all. Attribution can tell you a channel was involved; only a comparison against an unexposed group can support a claim that the channel caused anything."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "How long should a geo holdout test run?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "There is no single correct number, and the honest guidance is a range rather than a figure. Google's own Meridian GeoX documentation describes an active test period of roughly 3 to 10 weeks, sitting inside a total programme of about 7 to 14 weeks once design, campaign warm-up, cool-down and analysis are included. Where your test falls in that range depends on your conversion volume, sales cycle, weekly seasonality and how large an effect you are looking for. Decide the duration before you start and write it down, so you are not tempted to stop early on a good week."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "How do I choose control regions?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "By pre-period behaviour, not intuition or convenience. Pull several months of history and look for regions whose outcomes move together over time, not merely regions with similar averages. Two markets can average the same revenue while one grows steadily and the other is flat, and that difference alone will masquerade as lift. Google's implementation guidance asks for pre-test data covering at least three times the duration of the test period, and using several regions on each side rather than one versus one reduces the chance that a single local event decides your result."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "What metric should a geo holdout measure?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "A business outcome from your own systems: net revenue, net orders, new customers, qualified pipeline or contribution, depending on your model. Not impressions, clicks or platform-attributed conversions. Google's own Google Ads API guidance for geo experiments is explicit on this point, describing the use of attributed data as strongly discouraged because attribution logic biases the causal measurement, and directing advertisers to raw, unfiltered and unattributed conversion or revenue data from an internal CRM, point of sale or sales database instead."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "What if the test shows no lift?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "Do not immediately switch the channel off. A flat result has several possible explanations and only one of them is that the spend did nothing. The effect may be real but too small for your test to detect, the test may have been underpowered, spillover may have contaminated the control group, budget may have shifted between groups and inflated the baseline, something unrelated may have changed in one group, or the measurement may have failed. Check the design before you act on the conclusion, because an underpowered test and a channel that genuinely does nothing look identical in a spreadsheet."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "Can a small business run a geo holdout?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "Sometimes, and the honest answer depends on volume rather than ambition. You need spend that can be controlled by geography, enough regions to form reasonable groups, outcomes you can measure geographically, and enough conversions that normal week-to-week noise does not swamp the effect you are looking for. A business where nearly all revenue comes from one city, or where weekly revenue naturally swings far more than the lift you expect, cannot read the result and is better served by other evidence."
+                                    }
+                              }
+                        ]
+                  }
+            ]
+      }
+],
+    faqHeading: `Geo holdout testing &mdash; FAQs`,
+    faq: [
+      { q: `What is a geo holdout test?`,
+        a: `<p>A controlled comparison: you keep advertising in one set of regions and withhold or materially change it in a matched set, then compare how a business outcome moves in each. Because the held-out regions carry on experiencing everything else about your business, the difference between the groups is a far better estimate of what the advertising added than any platform report can give you.</p>` },
+      { q: `How is a geo holdout different from attribution?`,
+        a: `<p>Different questions. <a href="/insights/marketing-attribution-explained-simply/">Attribution</a> asks which touchpoint should get credit for a sale that already happened, splitting it by a rule you chose. A geo holdout asks what would have happened if you hadn't spent the money. Attribution can tell you a channel was involved; only a comparison against an unexposed group can support a claim that it caused anything.</p>` },
+      { q: `How long should a geo holdout test run?`,
+        a: `<p>There's no single correct number, and the honest answer is a range. Google's Meridian GeoX documentation describes an active test period of roughly <strong>3 to 10 weeks</strong>, inside a total programme of about <strong>7 to 14 weeks</strong> once design, campaign warm-up, cool-down and analysis are counted. Where you fall in that range depends on your conversion volume, sales cycle, seasonality and the size of effect you're chasing. Decide it before you start and write it down, so you're not tempted to stop early on a good week.</p>` },
+      { q: `How do I choose control regions?`,
+        a: `<p>By pre-period behaviour, not intuition. Pull several months of history and look for regions whose outcomes <em>move together over time</em> &mdash; not just regions with similar averages. Two markets can average the same revenue while one grows steadily and the other is flat, and that difference alone will masquerade as lift. Google's implementation guidance asks for pre-test data covering at least <strong>three times</strong> the test duration. Use several regions per side where you can, so one local event can't decide the result.</p>` },
+      { q: `What metric should a geo holdout measure?`,
+        a: `<p>A business outcome from your own systems &mdash; net revenue, net orders, new customers, qualified pipeline or contribution. Not impressions, clicks or platform-attributed conversions. Google's own API guidance for geo experiments calls using attributed data <strong>"strongly discouraged"</strong>, because attribution logic biases the causal measurement, and directs advertisers to raw, unfiltered, unattributed data from an internal CRM, point of sale or sales database instead.</p>` },
+      { q: `What if the test shows no lift?`,
+        a: `<p>Don't immediately switch the channel off. A flat result has several explanations and only one is "the spend did nothing": the effect may be real but too small to detect, the test underpowered, the control contaminated by spillover, budget may have shifted and inflated the baseline, something unrelated changed in one group, or measurement failed. Check the design before acting &mdash; an underpowered test and a channel that genuinely does nothing look identical in a spreadsheet.</p>` },
+      { q: `Can a small business run a geo holdout?`,
+        a: `<p>Sometimes &mdash; it depends on volume, not ambition. You need spend controllable by geography, enough regions to form groups, outcomes measurable geographically, and enough conversions that normal week-to-week noise doesn't swamp the effect you're looking for. A business where nearly all revenue comes from one city, or where weekly revenue swings far more than the lift you expect, can't read the result.</p>` },
+    ],
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story &rarr;</a>` },
+    cta: { heading: `Want to know what your spend is actually adding?`, body: `A Foundation Audit checks whether your measurement can support an incrementality test at all &mdash; and designs one around the decision you're actually trying to make. No pitch attached.`,
+      href: "/contact/", label: `Discuss your growth project` },
+    bodyHtml: `<p>Every reporting conversation eventually arrives at the same uncomfortable question. The platform says it drove 400 sales. Your accounts say revenue is flat. Who's right?</p>
+    <p>Usually both, in a sense &mdash; and <a href="/insights/marketing-attribution-explained-simply/">attribution can't settle it</a>, because attribution only ever divides up sales that already happened. The question underneath is different: <strong>what would have happened if we hadn't spent this money?</strong> A geo holdout is the most practical way a small team can estimate that.</p>
+    <p>And it is more accessible than most people assume. Google documents geographic experimentation directly in the Google Ads Help Center, and of its three implementation paths the manual one through the Google Ads interface is described as best for straightforward single-campaign setups, requiring <strong>"no coding skills"</strong>. You don't need R, a causal-inference library or a data scientist. What you need is a spreadsheet and the discipline to design the test before you run it.</p>
+
+    <h2>What a geo holdout actually is</h2>
+    <p>You run the tested media one way in one set of regions &mdash; the <strong>treatment</strong> group &mdash; and differently in a matched set, the <strong>control</strong> group. Everything else about your business continues in both. Then you compare how your chosen outcome moves in each group over the same period.</p>
+    <p>The logic is simple: the control regions tell you roughly what the treatment regions would have done without the change. That counterfactual is the thing attribution can never supply, because a platform only sees the conversions it was present for.</p>
+    <p>Note what this is and isn't. A well-designed geo holdout gives you <em>stronger evidence</em> and a <em>decision-useful estimate</em>. It is not proof, because real regions are never identical and real businesses never hold everything else still. The craft is in reducing the ways it can mislead you.</p>
+
+    <h2>Three shapes a geo test can take</h2>
+    <p>Worth knowing the standard vocabulary, because it maps onto three genuinely different questions. Google's geo experimentation guidance names them:</p>
+    <ul>
+      <li><strong>Holdback</strong> &mdash; launch something new in treatment regions while withholding it from control. Answers: <em>is this new channel or strategy worth adding?</em></li>
+      <li><strong>Go-dark</strong> &mdash; switch off existing spend in treatment regions. Answers: <em>is the money we already spend doing anything?</em> This is the uncomfortable one, and usually the most valuable.</li>
+      <li><strong>Heavy-up</strong> &mdash; increase budget in treatment regions. Answers: <em>if we scale this, does the extra money stay profitable?</em></li>
+    </ul>
+    <p>Pick the one that matches your actual decision. A go-dark test on branded search and a heavy-up test on Performance Max are not interchangeable evidence, and teams routinely run one while needing the answer from the other.</p>
+
+    <h2>When it works, and when it can't</h2>
+    <div data-tbl><table data-stack class="price-table">
+      <thead>
+        <tr><th>Reasonable fit when</th><th>Poor fit when</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-th="Reasonable fit when">Spend can genuinely be controlled by geography</td><td data-th="Poor fit when">Delivery can't be reliably restricted by region</td></tr>
+        <tr><td data-th="Reasonable fit when">Enough regions exist to form groups</td><td data-th="Poor fit when">Two wildly different markets are all you have</td></tr>
+        <tr><td data-th="Reasonable fit when">Outcomes are measurable geographically</td><td data-th="Poor fit when">Nearly all revenue comes from one city</td></tr>
+        <tr><td data-th="Reasonable fit when">Regional demand is broadly comparable</td><td data-th="Poor fit when">Pricing, stock or store coverage differ by region</td></tr>
+        <tr><td data-th="Reasonable fit when">You can tolerate changing spend somewhere</td><td data-th="Poor fit when">People routinely convert in a different region than they saw the ad</td></tr>
+        <tr><td data-th="Reasonable fit when">The expected effect is large enough to see</td><td data-th="Poor fit when">National TV, PR or creator content spills everywhere</td></tr>
+      </tbody>
+    </table><p class="price-note">A test that fails several of the right-hand conditions won't produce a wrong answer so much as an unreadable one.</p></div>
+
+    <h2>Start with the decision, not the design</h2>
+    <p>Before anything else, write down the decision the result will change. "Should we keep spending &#8377;X a month on this channel?" is a decision. "We want to understand incrementality" is not, and a test built on it will produce a number nobody acts on.</p>
+    <p>Then write down roughly how big an effect would change your mind. This sounds pedantic and it's the single most useful thing you'll do, because it tells you immediately whether the test is worth running at all &mdash; see the detection section below.</p>
+
+    <h2>Choosing regions: match on behaviour, not intuition</h2>
+    <p>The instinct is to pick two big cities and call one control. Resist it. Large regions can behave completely differently &mdash; different demand curves, different competitive intensity, different growth trajectories &mdash; and a single mismatched pair can manufacture a result out of nothing.</p>
+    <p>Instead, pull several months of history per region and match on how the outcome <strong>behaves over time</strong>: revenue or conversions, traffic, customer base size, historical growth rate, seasonality pattern, and the channel mix reaching that region.</p>
+    <p>Prefer multiple regions on each side. Six pairs is far more robust than one pair, because a single local event &mdash; a festival, a competitor's push, a delivery outage &mdash; gets diluted rather than deciding the whole experiment.</p>
+    <p>One practical note on geographic units: in Google Ads, geo targeting for these tests works at city or postcode level outside the US and at DMA level inside it. Switching a campaign from country targeting to city or postcode targeting will itself reduce reach, because granular location can't be determined for every user. Expect that, and don't read it as an effect of your test.</p>
+
+    <h2>The pre-period check, which most teams skip</h2>
+    <p>This is the step that separates a test you can trust from one you can't. Before launching, plot your candidate treatment and control groups side by side over several months of history and ask:</p>
+    <ul>
+      <li>Do they <strong>move together</strong> &mdash; rising and falling in the same weeks?</li>
+      <li>Are their levels reasonably comparable, or at least stably proportional?</li>
+      <li>Do both react similarly to weekends, paydays and promotions?</li>
+      <li>Is one structurally growing faster than the other?</li>
+    </ul>
+    <p>On how much history: Google's implementation guidance asks that pre-test data cover <strong>at least three times the duration of the test period</strong>. A six-week test therefore wants around eighteen weeks of clean prior data. That requirement alone disqualifies a lot of hastily planned tests, and it's better to discover that now than afterwards.</p>
+    <p><strong>Matching on average alone is not enough.</strong> Two groups can have identical average weekly revenue while one is on a steady upward trend and the other is flat. Run that as an experiment and you'll "detect" a lift that is simply the trend you failed to notice. If the two lines don't track each other before the test, they won't tell you anything during it &mdash; go back and re-pick.</p>
+
+    <h2>Choosing the outcome &mdash; and the trap that invalidates everything</h2>
+    <p>The outcome must be a <strong>business metric from your own systems</strong>. For D2C that's usually net orders, net revenue, new customers or contribution. For lead generation or SaaS it's more likely qualified opportunities or pipeline, which also means waiting long enough for them to mature.</p>
+    <p>Impressions, clicks and platform-reported conversions are delivery diagnostics. They are not the experiment's outcome.</p>
+    <p>That last one deserves emphasis, because it's the most common fatal design error. <strong>If you use a platform's own attributed conversions as the success metric for a test of whether that platform is incremental, the test is circular.</strong> The control group has reduced or no exposure, so the platform has little to attribute there &mdash; it will report a healthy number in treatment and far less in control, and you'll have proved only that the platform reports conversions where it ran ads.</p>
+    <p>This isn't a contrarian opinion; it's Google's own instruction. Its API guidance for geo experiments calls the use of attributed data <strong>"strongly discouraged"</strong>, on the explicit grounds that attribution logic biases the causal measurement, and directs advertisers to pull cost data from the platform while taking conversion or revenue figures as raw, unfiltered and unattributed data from an internal CRM, point of sale or sales database. For cross-platform tests the same guidance asks that measurement come from an independent, unattributed first-party source.</p>
+    <p>So: spend from the platform, outcomes from your own books.</p>
+
+    <h2>How long to run it</h2>
+    <p>There is no universal duration, and anyone offering you a single number hasn't looked at your business. The published guidance is a range. Google's Meridian GeoX documentation describes an <strong>active test period of roughly 3 to 10 weeks</strong>, inside a total programme of about <strong>7 to 14 weeks</strong> &mdash; up to two weeks of design and planning, the live test itself with the first weeks possibly absorbed by campaign warm-up, then two or more weeks of cool-down and analysis.</p>
+    <p>Two things follow from that. First, where you sit in the range is determined by your conversion volume, sales cycle, weekly seasonality, the size of effect you're looking for and how noisy your data is. Second, the real commitment is considerably longer than the test window people usually quote &mdash; which is worth knowing before you promise someone an answer by month end.</p>
+    <p>The cool-down matters more than it sounds. If revenue arrives well after the first click, an effect created during the test lands after it, and cutting the measurement window at the test's end systematically understates the result. During cool-down, both groups return to business as usual.</p>
+    <p>Decide the duration before you start and write it down. Tests that end when the result looks good aren't tests.</p>
+
+    <h2>Can you even detect it?</h2>
+    <p>Here's the arithmetic that stops most small geo tests before they start, and it needs no statistics.</p>
+    <p>If your weekly revenue naturally swings &plusmn;20% week to week, and the campaign you're testing plausibly moves revenue by 3%, the effect is far smaller than the noise. You will not see it. The test will return no detectable difference and you'll conclude the channel does nothing &mdash; which may be completely wrong.</p>
+    <p>Four things improve readability: <strong>more regions, more observations per region, a larger true effect, and a longer run</strong>. If none of those is available to you, the honest conclusion is that this test can't answer your question, and running it anyway just produces a confident-looking number with nothing behind it.</p>
+
+    <h2>Execution traps that quietly ruin the result</h2>
+    <p>This is where most self-run geo tests actually fail &mdash; not in the design, but in the mechanics. The platform documentation is unusually candid about these.</p>
+    <ul>
+      <li><strong>Budget reallocation inflating your baseline.</strong> The big one. If a budget-constrained campaign has its test regions removed, the system doesn't simply spend less &mdash; it redistributes the unspent money into the remaining control regions, lifting the control group's performance and shrinking the gap you're trying to measure. Google's guidance is to reduce the daily budget to match the control regions' historical run rate, and to use individual campaign budgets rather than shared or portfolio ones.</li>
+      <li><strong>Shared budgets across groups.</strong> For the same reason, never let treatment and control draw on a shared budget or a single portfolio bid strategy. Keep any sharing strictly inside one group.</li>
+      <li><strong>Adaptation periods counted as results.</strong> Duplicating a campaign creates one, because the copy has no history. Heavy-up tests carry a typical 4&ndash;5 day, campaign-dependent learning period that should sit inside the test window, and Google's GeoX guidance treats a budget shift above 20% as requiring another learning period &mdash; so build that adaptation time into the design rather than measuring through it. One distinction worth keeping straight: that guidance is about measurement stability, not about Google's formal <em>Learning</em> bid-strategy status. Smart Bidding's own documentation says updates to budgets, targets and targeting settings take effect in the next auction and never trigger that status, while the system carries on adapting in the background. So don't wait for a label in the interface to tell you the early data is unrepresentative &mdash; exclude the warm-up window because the design says to, not because the UI flagged it.</li>
+      <li><strong>Bid modifiers that do nothing.</strong> Location bid adjustments are ignored by Smart Bidding and cross-network formats, so a heavy-up built on bid modifiers alone will silently fail to change anything on those campaigns. Duplicate the campaign instead.</li>
+      <li><strong>Parallel measurement.</strong> Google's best-practice guidance advises against running user-level lift studies &mdash; Brand Lift, Search Lift, Conversion Lift &mdash; on campaigns inside a geo study. Two experiments on one set of campaigns give you two unreliable answers.</li>
+      <li><strong>Excluded regions losing their budget.</strong> Regions you leave out of the test don't automatically keep receiving normal spend when you duplicate campaigns. Usually a small fraction, but check it, and run a business-as-usual campaign for them if it matters commercially.</li>
+      <li><strong>Regional launches mid-test.</strong> If a major launch or promotion hits one region during the test, the documented advice is to exclude that region from the analysis. Which you can only do if you noticed.</li>
+    </ul>
+    <p>More generally: limit changes during the test. The ideal is none.</p>
+
+    <h2>Spillover, the quiet killer</h2>
+    <p>Geo tests assume your control regions genuinely experience the intended treatment. Often they don't: people commute across regional boundaries, delivery addresses differ from where someone lives and browses, national creator content and PR reach everyone, search demand is shared, physical store catchments overlap, and connected-TV or broadcast markets rarely respect administrative borders.</p>
+    <p>There is one concrete control worth knowing. Google Ads distinguishes between targeting people <em>present in</em> a location and people merely <em>interested in</em> it; its geo experiment setup instructions specify selecting <strong>Presence</strong> at every step, explicitly "to prevent location leakage". If you take one implementation detail from this article, take that one &mdash; the default behaviour will otherwise serve your ads to people outside your test regions.</p>
+    <p>Leakage pulls your two groups closer together, which <em>shrinks</em> the measured difference &mdash; so spillover biases you toward concluding "no lift" rather than toward a false positive. Choose geographic units that match how your customers actually behave, not the ones that happen to be convenient in the campaign settings.</p>
+    <p>The platforms acknowledge the hazard directly. Meta's guidance on its own Brand Lift tests warns against running other campaigns for the same brand during a test, because people in the holdout group may see your ad from another campaign, which would "contaminate the results". The same hazard applies to a holdout you build yourself, and you have fewer tools to detect it.</p>
+
+    <h2>Reading the result</h2>
+    <p>Don't subtract control revenue from treatment revenue. The groups were never identical, so the gap between them was there before you started. What you compare is the <strong>change from each group's own baseline</strong>.</p>
+    <div data-tbl><table data-stack class="price-table">
+      <thead>
+        <tr><th></th><th>Pre-period</th><th>Test period</th><th>Change</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-th="">Treatment (ads running)</td><td data-th="Pre-period">&#8377;10,00,000 / week</td><td data-th="Test period">&#8377;12,00,000 / week</td><td data-th="Change"><strong>+20%</strong></td></tr>
+        <tr><td data-th="">Control (ads withheld)</td><td data-th="Pre-period">&#8377;8,00,000 / week</td><td data-th="Test period">&#8377;8,80,000 / week</td><td data-th="Change"><strong>+10%</strong></td></tr>
+      </tbody>
+    </table><p class="price-note">Illustrative arithmetic, not a benchmark. The difference in growth &mdash; about 10 percentage points &mdash; is the estimated incremental effect.</p></div>
+    <p>Both groups grew, which is the point: something seasonal lifted the whole business, and subtracting raw revenue would have credited that to the ads. Control grew 10% without the spend, treatment grew 20% with it, so roughly <strong>10 percentage points of growth</strong> is attributable to the campaign &mdash; about &#8377;1,00,000 a week against a &#8377;10,00,000 baseline.</p>
+    <p>That comparison-of-changes is the whole method. Statisticians call it difference-in-differences and can attach confidence intervals to it; you can run it in a spreadsheet, as long as you remember the result is an estimate whose credibility rests entirely on how comparable your groups were and how cleanly you executed.</p>
+
+    <h2>From incremental revenue to incremental return</h2>
+    <p>Once you have an incremental revenue figure, the useful ratio is:</p>
+    <blockquote>Incremental ROAS = incremental revenue &divide; the spend being tested</blockquote>
+    <p>In the example above, &#8377;1,00,000 a week of incremental revenue against, say, &#8377;40,000 a week of tested spend gives an incremental ROAS of 2.5x &mdash; a very different number from whatever the platform was reporting, and the one that should drive the decision. Google uses the same term, iROAS, in its own lift reporting.</p>
+    <p>Two cautions. <strong>Never mix platform ROAS and incremental ROAS</strong> in the same conversation; they measure different things and the comparison is meaningless. And revenue is not profit: if you carry material variable costs, run the same calculation on contribution instead, which is the <a href="/insights/break-even-roas/">break-even logic</a> applied to an incremental figure rather than a reported one.</p>
+
+    <h2>When the holdout performs just as well</h2>
+    <p>Sooner or later a test comes back flat, or the control group does slightly better. Before concluding the channel is worthless, work through the alternatives:</p>
+    <ul>
+      <li><strong>The spend wasn't incremental</strong> &mdash; it was capturing demand that was arriving anyway. This is the real finding when it's true, and it's common in branded search and heavy retargeting.</li>
+      <li><strong>The effect is real but smaller than you can detect</strong> &mdash; revisit the noise arithmetic above.</li>
+      <li><strong>The test was underpowered</strong> &mdash; too few regions, too short, too few conversions.</li>
+      <li><strong>Budget shifted into the control group</strong> and inflated its baseline.</li>
+      <li><strong>Spillover contaminated the control</strong>, or Presence targeting was never set.</li>
+      <li><strong>A learning period</strong> sat inside the measured window.</li>
+      <li><strong>Something else changed</strong> in one group &mdash; check your log.</li>
+      <li><strong>Measurement failed</strong> &mdash; regional data wasn't capturing what you assumed.</li>
+    </ul>
+    <p>Only the first justifies cutting the channel. "No detected lift" and "no effect" are not the same statement, and treating them as the same is how teams switch off channels that were working.</p>
+
+    <h2>What the platforms offer, where available</h2>
+    <p>Two distinct things exist, and the difference matters.</p>
+    <p>The first is <strong>geo experimentation you run yourself</strong> by modifying campaigns &mdash; documented by Google for holdback, go-dark and heavy-up studies, available through the Google Ads interface, Google Ads Editor or the API, with no eligibility gate beyond being able to target the relevant geographies. This is the method described in this article. It can extend across publishers, but only where each platform can target compatible geographic units cleanly. Google's own Meridian guidance recommends verifying that your chosen geo units are actually targetable on each ads platform, and notes that some platforms can't target at very granular levels such as postal codes. Check that before you design the split &mdash; a city-level test isn't a cross-platform test if one publisher can only buy a broader region.</p>
+    <p>The second is <strong>managed lift measurement</strong>, which is gated. Google's Conversion Lift based on geography, which handles the split and the statistics for you, is a beta; its documentation states plainly that it isn't available for all accounts and that you should contact your Google account representative, and only holdback and go-dark studies are supported in it. Meta also supports lift-study capabilities, including Brand Lift, which randomly divides a sample into test and holdout groups and measures survey-based brand outcomes rather than geography-based sales. Availability and setup vary by ad account, so check what yours actually supports rather than assuming.</p>
+    <p>So treat managed lift products as complements where you have access to them, not as prerequisites. The self-run geo holdout remains the method you can start this quarter without anyone's permission.</p>
+
+    <h2>The checklist</h2>
+    <ol>
+      <li>Write down the single decision the result will change, and pick holdback, go-dark or heavy-up to match it.</li>
+      <li>Choose a business outcome from your own systems &mdash; never platform-attributed conversions.</li>
+      <li>Identify regions where spend can actually be controlled and outcomes measured.</li>
+      <li>Check you have pre-period history of at least three times your planned test length.</li>
+      <li>Match groups on how they move over time, not on averages, with several regions per side.</li>
+      <li>Set Presence targeting, individual campaign budgets, and control-matched budget levels.</li>
+      <li>Freeze everything else you can; log everything you can't.</li>
+      <li>Set the duration in advance, and plan for warm-up and cool-down outside the measured window.</li>
+      <li>Compare change-from-baseline, not raw levels, and document confounders alongside the number.</li>
+    </ol>
+
+    <h2>Mistakes that invalidate the result</h2>
+    <ul>
+      <li><strong>Picking regions by intuition</strong> instead of pre-period behaviour.</li>
+      <li><strong>Using platform attribution as the outcome</strong> &mdash; circular by construction.</li>
+      <li><strong>Leaving budgets shared</strong> between treatment and control.</li>
+      <li><strong>Launching a promotion mid-test</strong>, or changing the offer in one group.</li>
+      <li><strong>Measuring through a learning period</strong>.</li>
+      <li><strong>Stopping early</strong> after one good week.</li>
+      <li><strong>Reading "no detected lift" as "no effect"</strong>.</li>
+      <li><strong>Ignoring spillover</strong>, or leaving location targeting on its default.</li>
+      <li><strong>Comparing absolute revenue</strong> rather than relative change.</li>
+      <li><strong>Changing several channels at once</strong>, so no single result is interpretable.</li>
+    </ul>
+
+    <h2>When to bring in heavier machinery</h2>
+    <p>A spreadsheet-level holdout is genuinely useful for directional learning at modest scale. Escalate beyond it when the budget at stake is large, the expected lift is small relative to noise, your regions are stubbornly heterogeneous, several channels overlap in ways a simple two-group split can't separate, or a decision worth crores depends on the answer. At that point you want confidence intervals, synthetic control methods and someone who does this properly &mdash; and the open-source tooling that exists for it is the next level, not a prerequisite for starting.</p>
+    <p>Until then: the simple version, designed carefully and executed cleanly, will tell you more about what your spend is adding than any dashboard will. If you'd like a read on whether your measurement can support a test like this at all, that's <a href="/services/growth-strategy-measurement/">measurement work</a> &mdash; and the same discipline sits behind how we run <a href="/services/performance-marketing/">performance marketing</a>. If you're not there yet, the <a href="/insights/audit-your-ad-spend/">five-minute ad spend self-audit</a> is a reasonable place to start.</p>`
+  },
   {
     slug: "fintech-marketing-compliance-india",
     section: "Strategy",
