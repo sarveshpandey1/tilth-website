@@ -658,7 +658,7 @@ export const insightArticles = [
 
     <p><strong>Directional screening</strong> means putting several concepts into live delivery and watching which earn spend and business outcomes. It is fast and commercially useful, but delivery is not necessarily equal. The platform may favour one ad early, so a lower-spend ad did not receive the same opportunity.</p>
 
-    <p><strong>A controlled A/B test</strong> deliberately creates comparable cells and holds the tested variable apart. Meta's current experimentation APIs, for example, support creative-test configurations with multiple cells. Use a controlled test when the decision is important enough that unequal delivery would make the answer unreliable. citeturn327162search1turn327162search8</p>
+    <p><strong>A controlled A/B test</strong> deliberately creates comparable cells and holds the tested variable apart. Meta's current experimentation APIs, for example, support creative-test configurations with multiple cells. Use a controlled test when the decision is important enough that unequal delivery would make the answer unreliable.</p>
 
     <p>You do not need every creative decision to be a formal experiment. Use screening to discover promising territory; use controlled testing when you need a cleaner answer to a specific question.</p>
 
@@ -722,7 +722,7 @@ export const insightArticles = [
     <h2>What to do with early creative metrics</h2>
     <p>Early signals are useful when they diagnose a specific layer. Low attention can point to an opening or format problem. Strong clicks with weak conversion can point to message-to-landing mismatch, offer friction or low-quality curiosity. Strong conversion with weak CTR can still be commercially excellent.</p>
 
-    <p>Do not let a single metric become a creative religion. Meta exposes creative-level delivery and engagement diagnostics, but those numbers still need to be read against the objective and downstream outcome. citeturn327162search4turn327162search6</p>
+    <p>Do not let a single metric become a creative religion. Meta exposes creative-level delivery and engagement diagnostics, but those numbers still need to be read against the objective and downstream outcome.</p>
 
     <p>If performance is broadly weak and you are not sure the measurement itself is sound, solve that first. The <a href="/insights/meta-ads-not-converting/">Meta Ads tracking audit</a> exists for exactly that reason.</p>
 
