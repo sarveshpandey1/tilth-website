@@ -534,7 +534,7 @@ export const insightArticles = [
             "mainEntityOfPage": "https://wearetilth.com/insights/paid-social-creative-testing-framework/",
             "articleSection": "Paid Ads",
             "keywords": ["paid social creative testing","creative testing framework","Meta ads creative testing","ad creative testing","paid social testing"],
-            "wordCount": 2650,
+            "wordCount": 2126,
             "author": {"@type":"Person","name":"Anuja","jobTitle":"Founder","url":"https://wearetilth.com/about/"},
             "publisher": {"@type":"Organization","name":"Tilth","url":"https://wearetilth.com/","logo":{"@type":"ImageObject","url":"https://wearetilth.com/favicon.svg"}}
           },
