@@ -259,14 +259,23 @@ export const insightHub = {
     }
 ],
   cats: [
-    { id: "all", label: `All`, count: "23" },
-    { id: "paid-ads", label: `Paid Ads`, count: "6" },
+    { id: "all", label: `All`, count: "24" },
+    { id: "paid-ads", label: `Paid Ads`, count: "7" },
     { id: "tracking", label: `Tracking &amp; Attribution`, count: "5" },
     { id: "seo-growth", label: `SEO &amp; Growth`, count: "4" },
     { id: "hiring", label: `Hiring &amp; Agencies`, count: "4" },
     { id: "strategy", label: `Strategy`, count: "4" },
   ],
   cards: [
+    {
+      slug: "paid-social-creative-testing-framework", href: "/insights/paid-social-creative-testing-framework/", cat: "paid-ads",
+      catLabel: `Paid Ads`,
+      title: `Creative testing for paid social: a system, not random variants`,
+      excerpt: `Uploading more ads is not a testing strategy. A practical system for turning customer hypotheses into creative concepts, reading the right signals, and deciding what deserves the next iteration.`,
+      meta: `9 min read &middot; 21 Nov 2026`,
+      read: `Read the article &rarr;`,
+      img: `<img class="blog-card__media" src="/assets/insight-cards/paid-social-creative-testing-framework.webp" alt="" loading="lazy" width="1200" height="630">`
+    },
     {
       slug: "first-90-days-new-ad-account", href: "/insights/first-90-days-new-ad-account/", cat: "paid-ads",
       catLabel: `Paid Ads`,
@@ -478,6 +487,278 @@ export const insightHub = {
 };
 
 export const insightArticles = [
+  {
+    slug: "paid-social-creative-testing-framework",
+    section: "Paid Ads",
+    readTime: "9 min read",
+    date: "21 Nov 2026",
+    h1: `Creative testing for paid social: a system, not random variants`,
+    standfirst: `Uploading more ads is not a testing strategy. The useful unit is a hypothesis: a customer belief turned into a concept, measured against a business outcome, and recorded so the next test starts smarter than the last.`,
+    bylineImg: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">`,
+    bylineWho: `Anuja Founder, Tilth &middot; 10+ years in performance marketing`,
+    meta: {
+      "title": "Paid Social Creative Testing: A System, Not Random Variants | Tilth",
+      "description": "A practical paid-social creative testing framework: hypotheses, concepts, controlled comparisons, business outcomes, iteration trees and a learning record.",
+      "canonical": "https://wearetilth.com/insights/paid-social-creative-testing-framework/",
+      "robots": "index, follow",
+      "ogTitle": "Creative testing for paid social: a system, not random variants",
+      "ogDescription": "A repeatable system for testing concepts, reading the right signals and turning every result into the next better question.",
+      "ogType": "article",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/paid-social-creative-testing-framework.webp",
+      "ogLocale": null,
+      "twTitle": "Creative testing for paid social: a system, not random variants",
+      "twDescription": "Test hypotheses, not random assets. A practical system for concepts, decisions and iteration.",
+      "twImage": "https://wearetilth.com/assets/insight-cards/paid-social-creative-testing-framework.webp"
+    },
+    schema: [
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {"@type":"ListItem","position":1,"name":"Home","item":"https://wearetilth.com/"},
+              {"@type":"ListItem","position":2,"name":"Insights","item":"https://wearetilth.com/insights/"},
+              {"@type":"ListItem","position":3,"name":"Creative testing for paid social: a system, not random variants","item":"https://wearetilth.com/insights/paid-social-creative-testing-framework/"}
+            ]
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "Creative testing for paid social: a system, not random variants",
+            "description": "A practical paid-social creative testing framework: hypotheses, concepts, controlled comparisons, business outcomes, iteration trees and a learning record.",
+            "image": "https://wearetilth.com/assets/insight-cards/paid-social-creative-testing-framework.webp",
+            "datePublished": "2026-11-21",
+            "dateModified": "2026-11-21",
+            "inLanguage": "en-IN",
+            "url": "https://wearetilth.com/insights/paid-social-creative-testing-framework/",
+            "mainEntityOfPage": "https://wearetilth.com/insights/paid-social-creative-testing-framework/",
+            "articleSection": "Paid Ads",
+            "keywords": ["paid social creative testing","creative testing framework","Meta ads creative testing","ad creative testing","paid social testing"],
+            "wordCount": 2650,
+            "author": {"@type":"Person","name":"Anuja","jobTitle":"Founder","url":"https://wearetilth.com/about/"},
+            "publisher": {"@type":"Organization","name":"Tilth","url":"https://wearetilth.com/","logo":{"@type":"ImageObject","url":"https://wearetilth.com/favicon.svg"}}
+          },
+          {
+            "@type":"FAQPage",
+            "mainEntity": [
+          {
+                    "@type": "Question",
+                    "name": "What is a creative testing framework for paid social?",
+                    "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "A repeatable process for turning a customer or marketing hypothesis into a creative concept, exposing it to paid delivery, reading the result at the right level and deciding what to scale, iterate, investigate or stop. The point is accumulated learning, not simply producing more ad files."
+                    }
+          },
+          {
+                    "@type": "Question",
+                    "name": "Should I test concepts or small creative variations first?",
+                    "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "Test the biggest uncertainty first. If you do not know which customer motivation or promise works, start with genuinely different concepts. Small changes such as crops, opening lines or CTA wording are more useful after a concept has already shown promise."
+                    }
+          },
+          {
+                    "@type": "Question",
+                    "name": "How many creatives should I test at once?",
+                    "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "There is no universal number. It depends on budget, conversion volume, audience size and how much production you can support without fragmenting delivery. The useful constraint is that each version should answer a clear question and have a realistic chance of receiving enough exposure to be read."
+                    }
+          },
+          {
+                    "@type": "Question",
+                    "name": "Is the ad with the highest CTR the winner?",
+                    "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "Not necessarily. CTR is a diagnostic attention and intent signal. The winning creative is the one that produces the right downstream business outcome at acceptable economics. A lower-CTR ad that brings qualified customers can be more valuable than a click-heavy ad that brings curiosity."
+                    }
+          },
+          {
+                    "@type": "Question",
+                    "name": "When should I use an A/B test instead of normal campaign delivery?",
+                    "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "Use normal delivery for directional screening when you are exploring promising creative territory. Use a controlled A/B test when you need a cleaner comparison and unequal delivery would make the decision unreliable. The more consequential the decision, the more valuable controlled assignment becomes."
+                    }
+          },
+          {
+                    "@type": "Question",
+                    "name": "What should I do after a creative wins?",
+                    "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "Turn the winning concept into an iteration tree rather than cloning it blindly. Keep the core idea stable and test the next meaningful layer: proof, opening, format, objection, spokesperson or demonstration. The goal is to learn why the concept worked and how far it can travel."
+                    }
+          },
+          {
+                    "@type": "Question",
+                    "name": "How do I keep creative testing from becoming random?",
+                    "acceptedAnswer": {
+                              "@type": "Answer",
+                              "text": "Keep a learning log. Record the hypothesis, what changed, the business outcome, important diagnostic metrics, whether the read was strong or directional, the decision, and the next question. That turns individual tests into cumulative customer knowledge."
+                    }
+          }
+]
+          }
+        ]
+      }
+    ],
+    faqHeading: `Paid-social creative testing — FAQs`,
+    faq: [
+      { q: `What is a creative testing framework for paid social?`, a: `<p>A repeatable process for turning a customer or marketing hypothesis into a creative concept, exposing it to paid delivery, reading the result at the right level and deciding what to scale, iterate, investigate or stop. The point is accumulated learning, not simply producing more ad files.</p>` },
+      { q: `Should I test concepts or small creative variations first?`, a: `<p>Test the biggest uncertainty first. If you do not know which customer motivation or promise works, start with genuinely different concepts. Small changes such as crops, opening lines or CTA wording are more useful after a concept has already shown promise.</p>` },
+      { q: `How many creatives should I test at once?`, a: `<p>There is no universal number. It depends on budget, conversion volume, audience size and how much production you can support without fragmenting delivery. The useful constraint is that each version should answer a clear question and have a realistic chance of receiving enough exposure to be read.</p>` },
+      { q: `Is the ad with the highest CTR the winner?`, a: `<p>Not necessarily. CTR is a diagnostic attention and intent signal. The winning creative is the one that produces the right downstream business outcome at acceptable economics. A lower-CTR ad that brings qualified customers can be more valuable than a click-heavy ad that brings curiosity.</p>` },
+      { q: `When should I use an A/B test instead of normal campaign delivery?`, a: `<p>Use normal delivery for directional screening when you are exploring promising creative territory. Use a controlled A/B test when you need a cleaner comparison and unequal delivery would make the decision unreliable. The more consequential the decision, the more valuable controlled assignment becomes.</p>` },
+      { q: `What should I do after a creative wins?`, a: `<p>Turn the winning concept into an iteration tree rather than cloning it blindly. Keep the core idea stable and test the next meaningful layer: proof, opening, format, objection, spokesperson or demonstration. The goal is to learn why the concept worked and how far it can travel.</p>` },
+      { q: `How do I keep creative testing from becoming random?`, a: `<p>Keep a learning log. Record the hypothesis, what changed, the business outcome, important diagnostic metrics, whether the read was strong or directional, the decision, and the next question. That turns individual tests into cumulative customer knowledge.</p>` }
+    ],
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story &rarr;</a>` },
+    cta: { heading: `Need a creative system, not another batch of ads?`, body: `We connect paid-media strategy, performance creative and measurement so each round of production answers a commercial question instead of adding noise.`,
+      href: "/contact/", label: `Discuss your growth project` },
+    bodyHtml: `<p>Most paid-social teams say they are testing creative when what they are really doing is uploading more ads. Ten new hooks arrive on Monday, three formats are added on Wednesday, the platform gives most of the spend to two of them, and by Friday someone declares a winner. The account got busier. The team did not necessarily learn anything.</p>
+
+    <p>A creative-testing system starts somewhere else: with a question you are willing to change your mind about. <strong>What customer problem matters most? Which promise earns attention? What proof makes the promise believable? Which format expresses that idea clearly?</strong> The ad is the execution. The hypothesis is the thing being tested.</p>
+
+    <p>This is the natural next step after the <a href="/insights/first-90-days-new-ad-account/">first 90 days of a new ad account</a>: once tracking is trustworthy and you know what business outcome matters, creative becomes a repeatable evidence-building loop rather than a stream of random variants.</p>
+
+    <h2>The unit of learning is the concept, not the file</h2>
+    <p>A concept is a coherent reason someone should care. It combines an audience tension, a promise and a reason to believe. “Save two hours every week because the repetitive work is automated” is a concept. Changing the first frame from green to black is a variation.</p>
+
+    <p>That distinction matters because small cosmetic changes can create many files without creating much new information. If five ads all make the same promise with the same proof, five losses do not tell you five different things. They tell you one concept probably failed five times.</p>
+
+    <div data-tbl><table data-stack class="price-table">
+      <thead><tr><th>Level</th><th>Example</th><th>What you learn</th></tr></thead>
+      <tbody>
+        <tr><td data-th="Level">Concept</td><td data-th="Example">Convenience vs savings vs status</td><td data-th="What you learn">Which customer motivation deserves more investment</td></tr>
+        <tr><td data-th="Level">Proof</td><td data-th="Example">Demo vs testimonial vs quantified evidence</td><td data-th="What you learn">What makes the promise believable</td></tr>
+        <tr><td data-th="Level">Execution</td><td data-th="Example">UGC-style video vs static vs product walkthrough</td><td data-th="What you learn">How best to express a concept</td></tr>
+        <tr><td data-th="Level">Detail</td><td data-th="Example">Opening line, crop, CTA wording</td><td data-th="What you learn">How to refine an already-promising execution</td></tr>
+      </tbody>
+    </table></div>
+
+    <p>Test the largest uncertainty first. If you do not yet know whether buyers care about convenience or economics, debating button copy is premature.</p>
+
+    <h2>Start with a written hypothesis</h2>
+    <p>Before production, write one sentence:</p>
+    <blockquote>We believe [audience] will respond better to [idea] because [evidence or customer insight]. We will judge it on [business outcome].</blockquote>
+
+    <p>For example: “We believe first-time founders care more about reducing reporting uncertainty than saving agency fees because sales calls repeatedly stall on attribution questions. We will judge the concept on qualified demo rate, not CTR.”</p>
+
+    <p>That sentence does three useful things. It forces the team to name the learning objective, stops production from drifting into unrelated versions, and makes the post-test decision possible. If you cannot say what result would change your belief, it is not yet a useful test.</p>
+
+    <h2>One test can answer one main question</h2>
+    <p>Creative teams often change the hook, format, offer, landing page and audience together. That can still produce a successful campaign, but it cannot tell you which change caused the improvement.</p>
+
+    <p>If the goal is learning, hold the important surrounding conditions reasonably stable. Same offer. Same landing experience. Same optimisation event. Same broad market. Change the creative variable you actually want to understand.</p>
+
+    <p>There is one exception: sometimes the hypothesis is about the whole proposition. A new offer may require new copy and a different landing page together. That is valid, but call it a <em>system test</em>. Do not pretend the result isolated the headline.</p>
+
+    <h2>Screening is not the same as an experiment</h2>
+    <p>This is one of the most useful distinctions in paid social.</p>
+
+    <p><strong>Directional screening</strong> means putting several concepts into live delivery and watching which earn spend and business outcomes. It is fast and commercially useful, but delivery is not necessarily equal. The platform may favour one ad early, so a lower-spend ad did not receive the same opportunity.</p>
+
+    <p><strong>A controlled A/B test</strong> deliberately creates comparable cells and holds the tested variable apart. Meta's current experimentation APIs, for example, support creative-test configurations with multiple cells. Use a controlled test when the decision is important enough that unequal delivery would make the answer unreliable. citeturn327162search1turn327162search8</p>
+
+    <p>You do not need every creative decision to be a formal experiment. Use screening to discover promising territory; use controlled testing when you need a cleaner answer to a specific question.</p>
+
+    <h2>Judge creative on the deepest reliable outcome</h2>
+    <p>CTR is useful. Thumb-stop rate can be useful. Video completion can be useful. None of them is the commercial objective unless your business sells clicks or completed videos.</p>
+
+    <p>A strong hook with poor conversion quality is not a winning ad. A lower-CTR concept that brings the right buyers may be much more valuable. Read metrics as a hierarchy:</p>
+
+    <ul>
+      <li><strong>Attention:</strong> did people notice or engage with the creative?</li>
+      <li><strong>Intent:</strong> did the right people click, visit or begin the next step?</li>
+      <li><strong>Conversion quality:</strong> did they buy, activate, qualify or progress?</li>
+      <li><strong>Economics:</strong> did the outcome arrive at a cost the business can sustain?</li>
+    </ul>
+
+    <p>If the business outcome is sparse, use the shallower metrics diagnostically while you wait. Do not silently promote them into the final success metric. That is the same discipline behind <a href="/insights/break-even-roas/">break-even ROAS</a>: the useful number is the one connected to business economics.</p>
+
+    <h2>Write the decision rule before launch</h2>
+    <p>Creative tests become unreliable when the stopping rule changes after the result appears. A team likes one ad, so it gets “one more day”; another looks ugly, so it is killed after a few expensive impressions.</p>
+
+    <p>Before launch, define what can happen next. Not a universal spend threshold—your CPA, volume and sales cycle determine that—but a decision framework:</p>
+
+    <ul>
+      <li><strong>Scale or graduate:</strong> business quality is strong enough to earn more exposure.</li>
+      <li><strong>Iterate:</strong> the concept is promising but one part needs work.</li>
+      <li><strong>Investigate:</strong> attention is strong but downstream quality is weak, or tracking is questionable.</li>
+      <li><strong>Retire:</strong> the concept received a fair enough read and produced no useful signal.</li>
+    </ul>
+
+    <p>“Fair enough” is deliberately not a fixed number. A purchase campaign with hundreds of weekly conversions can read a concept differently from a B2B account with ten qualified opportunities a month.</p>
+
+    <h2>Do not confuse delivery with preference</h2>
+    <p>Paid-social systems are optimisers. They are not neutral research panels. If one ad gets most of the spend, that tells you the system currently expects more value from it under the campaign's objective and constraints. It does not automatically prove every other concept lost a fair head-to-head comparison.</p>
+
+    <p>This is why teams should record exposure alongside outcome. If a concept barely spent, label it <em>unread</em> rather than <em>failed</em>. If the decision really matters, move the comparison into a controlled experiment instead of forcing certainty out of uneven delivery.</p>
+
+    <h2>Separate concept testing from iteration</h2>
+    <p>Once a concept works, stop treating it as one finished ad. Turn it into an iteration tree.</p>
+
+    <p>Keep the winning idea stable, then test one layer at a time: a stronger proof point, a different opening, a shorter demonstration, a founder delivery, a customer delivery, static versus video, or a new objection. The goal is not to clone the winner forever. It is to understand <em>why</em> it worked and how far the idea can travel.</p>
+
+    <p>This creates a useful portfolio: some production capacity explores new concepts; some develops proven ones. If everything is exploration, you keep rediscovering the same ideas. If everything is iteration, the account eventually runs out of new territory.</p>
+
+    <h2>Build a learning record, not a winner folder</h2>
+    <p>A “winning ads” folder is useful for production. It is weak institutional memory. The durable asset is a log of what the team now believes.</p>
+
+    <div data-tbl><table data-stack class="price-table">
+      <thead><tr><th>Record</th><th>What to capture</th></tr></thead>
+      <tbody>
+        <tr><td data-th="Record">Hypothesis</td><td data-th="What to capture">The customer belief or proposition being tested</td></tr>
+        <tr><td data-th="Record">Treatment</td><td data-th="What to capture">What actually changed between concepts or executions</td></tr>
+        <tr><td data-th="Record">Outcome</td><td data-th="What to capture">Business result plus key diagnostic metrics</td></tr>
+        <tr><td data-th="Record">Confidence</td><td data-th="What to capture">Strong signal, directional signal, or unread because delivery was insufficient</td></tr>
+        <tr><td data-th="Record">Decision</td><td data-th="What to capture">Scale, iterate, investigate or retire</td></tr>
+        <tr><td data-th="Record">Next question</td><td data-th="What to capture">What the result makes worth testing next</td></tr>
+      </tbody>
+    </table></div>
+
+    <p>A spreadsheet is enough. After a few months, the real advantage is not that you have more ads. It is that briefs begin from accumulated customer evidence instead of a blank page.</p>
+
+    <h2>What to do with early creative metrics</h2>
+    <p>Early signals are useful when they diagnose a specific layer. Low attention can point to an opening or format problem. Strong clicks with weak conversion can point to message-to-landing mismatch, offer friction or low-quality curiosity. Strong conversion with weak CTR can still be commercially excellent.</p>
+
+    <p>Do not let a single metric become a creative religion. Meta exposes creative-level delivery and engagement diagnostics, but those numbers still need to be read against the objective and downstream outcome. citeturn327162search4turn327162search6</p>
+
+    <p>If performance is broadly weak and you are not sure the measurement itself is sound, solve that first. The <a href="/insights/meta-ads-not-converting/">Meta Ads tracking audit</a> exists for exactly that reason.</p>
+
+    <h2>A practical weekly operating rhythm</h2>
+    <p>The cadence should fit your spend and production capacity, not an internet rule. The operating rhythm can still be simple:</p>
+
+    <ol>
+      <li><strong>Review:</strong> what did the last tests actually teach?</li>
+      <li><strong>Choose:</strong> pick the highest-value unresolved customer or creative question.</li>
+      <li><strong>Brief:</strong> write the hypothesis, primary outcome and what stays constant.</li>
+      <li><strong>Produce:</strong> build genuinely distinct concepts or controlled executions.</li>
+      <li><strong>Launch:</strong> record IDs, date, settings and intended comparison.</li>
+      <li><strong>Read:</strong> separate business outcome from diagnostics and note uneven delivery.</li>
+      <li><strong>Decide:</strong> scale, iterate, investigate or retire.</li>
+      <li><strong>Record:</strong> write the learning and the next question before starting another batch.</li>
+    </ol>
+
+    <p>The important word is <em>loop</em>. Creative testing is not a project that ends when an ad wins. It is the mechanism by which the paid-social system keeps learning what customers respond to.</p>
+
+    <h2>Common ways teams create noise instead of learning</h2>
+    <ul>
+      <li>Testing ten unrelated assets with no written hypotheses.</li>
+      <li>Calling the highest-CTR ad the winner without checking customer quality.</li>
+      <li>Changing creative, offer and landing page together, then claiming to know which mattered.</li>
+      <li>Calling a low-spend concept a loser when it never received a fair read.</li>
+      <li>Using one fixed CPA or conversion threshold for every account.</li>
+      <li>Producing only cosmetic variations when the underlying proposition is unproven.</li>
+      <li>Keeping winners but failing to record why they may have worked.</li>
+      <li>Iterating one concept forever until the account has no new ideas entering the system.</li>
+    </ul>
+
+    <h2>The system in one sentence</h2>
+    <p><strong>Turn a customer belief into a concept, expose it to enough real delivery to learn something, judge it on business quality, record the decision, and let that result determine the next question.</strong></p>
+
+    <p>That is slower than uploading random variants for one afternoon and faster than relearning the same lessons every month. It is also how creative becomes an operating capability rather than a production queue. If you need the campaign and creative system built together, that sits across Tilth's <a href="/services/paid-media/">paid media</a> and <a href="/services/brand-creative/">brand and performance creative</a> work.</p>`
+  },
   {
     slug: "first-90-days-new-ad-account",
     section: "Paid Ads",
