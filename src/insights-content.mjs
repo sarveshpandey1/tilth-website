@@ -259,14 +259,23 @@ export const insightHub = {
     }
 ],
   cats: [
-    { id: "all", label: `All`, count: "22" },
-    { id: "paid-ads", label: `Paid Ads`, count: "5" },
+    { id: "all", label: `All`, count: "23" },
+    { id: "paid-ads", label: `Paid Ads`, count: "6" },
     { id: "tracking", label: `Tracking &amp; Attribution`, count: "5" },
     { id: "seo-growth", label: `SEO &amp; Growth`, count: "4" },
     { id: "hiring", label: `Hiring &amp; Agencies`, count: "4" },
     { id: "strategy", label: `Strategy`, count: "4" },
   ],
   cards: [
+    {
+      slug: "first-90-days-new-ad-account", href: "/insights/first-90-days-new-ad-account/", cat: "paid-ads",
+      catLabel: `Paid Ads`,
+      title: `What to do in the first 90 days of a new ad account`,
+      excerpt: `A new account has no history, no baseline CAC and no creative evidence &mdash; which means it is an evidence-building system before it is an optimisation system. A practical operating framework for the first 90 days.`,
+      meta: `9 min read &middot; 21 Nov 2026`,
+      read: `Read the article &rarr;`,
+      img: `<img class="blog-card__media" src="/assets/insight-cards/first-90-days-new-ad-account.webp" alt="" loading="lazy" width="1200" height="630">`
+    },
     {
       slug: "geo-holdout-test-marketing", href: "/insights/geo-holdout-test-marketing/", cat: "tracking",
       catLabel: `Tracking &amp; Attribution`,
@@ -469,6 +478,270 @@ export const insightHub = {
 };
 
 export const insightArticles = [
+  {
+    slug: "first-90-days-new-ad-account",
+    section: "Paid Ads",
+    readTime: "9 min read",
+    date: "21 Nov 2026",
+    h1: `What to do in the first 90 days of a new ad account`,
+    standfirst: `A new ad account has no baseline CAC, no creative that has worked before and no conversion history for the platform to learn from &mdash; but the dashboards look exactly like a mature account's. That is the trap. The first 90 days are about building evidence in a deliberate order, and the measure of success is how much you know at the end, not whether you hit target in week two.`,
+    bylineImg: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">`,
+    bylineWho: `Anuja Founder, Tilth &middot; 10+ years in performance marketing`,
+    meta: {
+      "title": "First 90 Days of a New Ad Account: What to Do Before Scaling | Tilth",
+      "description": "A practical operating framework for a new ad account - what to settle before launch, what the first month is really measuring, when to eliminate, and what 90 days can and cannot prove.",
+      "canonical": "https://wearetilth.com/insights/first-90-days-new-ad-account/",
+      "robots": "index, follow",
+      "ogTitle": "What to do in the first 90 days of a new ad account",
+      "ogDescription": "A new account is an evidence-building system before it is an optimisation system. A practical framework for the first 90 days.",
+      "ogType": "article",
+      "ogImage": "https://wearetilth.com/assets/insight-cards/first-90-days-new-ad-account.webp",
+      "ogLocale": null,
+      "twTitle": "What to do in the first 90 days of a new ad account",
+      "twDescription": "Evidence first, optimisation second - a practical 90-day framework for a brand new ad account.",
+      "twImage": "https://wearetilth.com/assets/insight-cards/first-90-days-new-ad-account.webp"
+},
+    schema: [
+      {
+            "@context": "https://schema.org",
+            "@graph": [
+                  {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                              {
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "Home",
+                                    "item": "https://wearetilth.com/"
+                              },
+                              {
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Insights",
+                                    "item": "https://wearetilth.com/insights/"
+                              },
+                              {
+                                    "@type": "ListItem",
+                                    "position": 3,
+                                    "name": "What to do in the first 90 days of a new ad account",
+                                    "item": "https://wearetilth.com/insights/first-90-days-new-ad-account/"
+                              }
+                        ]
+                  },
+                  {
+                        "@type": "BlogPosting",
+                        "headline": "What to do in the first 90 days of a new ad account",
+                        "description": "A practical operating framework for a new ad account - what to settle before launch, what the first month is really measuring, when to eliminate, and what 90 days can and cannot prove.",
+                        "image": "https://wearetilth.com/assets/insight-cards/first-90-days-new-ad-account.webp",
+                        "datePublished": "2026-11-21",
+                        "dateModified": "2026-11-21",
+                        "inLanguage": "en-IN",
+                        "url": "https://wearetilth.com/insights/first-90-days-new-ad-account/",
+                        "mainEntityOfPage": "https://wearetilth.com/insights/first-90-days-new-ad-account/",
+                        "articleSection": "Paid Ads",
+                        "keywords": [
+                              "new ad account strategy",
+                              "first 90 days paid media",
+                              "launching a new ad account",
+                              "paid media testing plan",
+                              "performance marketing first 90 days",
+                              "new Google Ads account setup"
+                        ],
+                        "wordCount": 2870,
+                        "author": {
+                              "@type": "Person",
+                              "name": "Anuja",
+                              "jobTitle": "Founder",
+                              "url": "https://wearetilth.com/about/"
+                        },
+                        "publisher": {
+                              "@type": "Organization",
+                              "name": "Tilth",
+                              "url": "https://wearetilth.com/",
+                              "logo": {
+                                    "@type": "ImageObject",
+                                    "url": "https://wearetilth.com/favicon.svg"
+                              }
+                        }
+                  },
+                  {
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                              {
+                                    "@type": "Question",
+                                    "name": "How long should I wait before judging a new ad account?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "Long enough for your own conversion cycle to complete, which is a different length for every business rather than a fixed number of days. The relevant clock is the time between a click and the business outcome you care about, plus the time the platform needs to stabilise delivery. Google's Smart Bidding documentation frames stabilisation in conversion cycles rather than calendar days, and notes that campaigns without previous conversion data take longer. Judge the account against what it was supposed to learn in that period, not against your final target cost per acquisition."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "What should I optimise first?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "Measurement, before anything in the ad platform. If the conversion event is wrong, duplicated or missing value, every optimisation decision afterwards is made on fiction and the account will confidently optimise toward the wrong thing. Once the outcome is recorded correctly, the next thing to fix is usually the largest, most obvious source of unqualified traffic, because that improves signal quality for everything downstream. Bids, budgets and audiences come later."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "How many channels should a new account launch with?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "The smallest number that still tests your real hypotheses. Spreading a limited budget across many platforms produces fragmented data in all of them and a conclusive answer in none. That usually means one channel, but not always: a demand-capture and a demand-creation channel can be worth running together if the budget genuinely supports both, because they answer different questions. The deciding factor is whether each channel can accumulate enough evidence to be read on its own, not how many channels feel ambitious."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "When should I start using automated bidding?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "When the event you want to optimise toward is happening often enough and consistently enough for the system to learn from it, which depends on the platform and on your conversion volume rather than on a single universal number. The platforms describe this differently: Meta documents ad sets leaving the learning phase after roughly 50 results in the week following a significant edit, while Google describes performance converging over one to two conversion cycles and notes that restrictive budgets or narrow targeting slow it down. Treat those as platform-specific descriptions of their own systems, not as a shared threshold for your business."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "When should I switch off a campaign?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "When continuing to run it cannot teach you anything worth the money. That includes clearly broken tracking, traffic whose intent is obviously wrong, fraud, spend that has already exceeded any plausible learning value, an offer that is structurally invalid, or a compliance problem. What it does not include is a campaign that is merely early and unremarkable. The phrase learning needs time is true, and it is also the most common reason teams keep paying for traffic they already know is wrong."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "Should I expect profitability in 90 days?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "Not necessarily, and the honest answer depends on your business model. A direct-to-consumer brand, a self-serve product or a high-volume lead generation business may well produce meaningful cost-per-acquisition evidence inside 90 days. An enterprise software company, a complex financial product or anything with a long sales cycle usually cannot, because the outcomes that define profitability have not happened yet. In those cases a successful 90 days establishes pipeline quality, qualified lead economics and early demand signal rather than proven profit."
+                                    }
+                              },
+                              {
+                                    "@type": "Question",
+                                    "name": "How much data do I need before scaling?",
+                                    "acceptedAnswer": {
+                                          "@type": "Answer",
+                                          "text": "Enough that the pattern you want to scale has held up more than once, under conditions you can describe. There is no universal conversion count that makes scaling safe, because the number depends on your conversion rate, your order value, how variable your results are and how long your sales cycle runs. More useful than a threshold is a set of conditions: conversion quality is holding when you check it against your own records, the economics are plausible against your break-even, the tracking is trusted, and the business can actually service the extra volume."
+                                    }
+                              }
+                        ]
+                  }
+            ]
+      }
+],
+    faqHeading: `New ad accounts &mdash; FAQs`,
+    faq: [
+      { q: `How long should I wait before judging a new ad account?`,
+        a: `<p>Long enough for your own conversion cycle to complete &mdash; which is a different length for every business, not a fixed number of days. The clock that matters is the time from click to the business outcome you care about, plus the time the platform needs to stabilise delivery. Google frames that stabilisation in <em>conversion cycles</em>, not calendar days, and notes that accounts without previous conversion data take longer. Judge the account on what it was meant to learn, not on your final target CAC.</p>` },
+      { q: `What should I optimise first?`,
+        a: `<p>Measurement, before anything inside the ad platform. If the conversion event is wrong, duplicated or missing its value, every later decision is made on fiction &mdash; and the account will optimise confidently toward the wrong thing. After that, the biggest obvious source of unqualified traffic, because removing it improves signal quality for everything downstream. Bids, budgets and audiences come later.</p>` },
+      { q: `How many channels should a new account launch with?`,
+        a: `<p>The smallest number that still tests your real hypotheses. Spreading a limited budget across many platforms produces fragmented data everywhere and a conclusive answer nowhere. Often that means one channel &mdash; but not always. Running a demand-capture and a demand-creation channel together can be justified when the budget genuinely supports both, because they answer different questions. The test is whether each channel can accumulate enough evidence to be read on its own. Our <a href="/insights/google-ads-vs-meta-ads-startup/">Google Ads vs Meta Ads comparison</a> works through that choice.</p>` },
+      { q: `When should I start using automated bidding?`,
+        a: `<p>When the event you are optimising toward happens often enough, and consistently enough, for the system to learn from it &mdash; which depends on the platform and your volume, not on one universal number. The platforms describe it differently: Meta documents ad sets leaving the learning phase after about 50 results in the week after a significant edit, while Google describes performance converging over one to two conversion cycles and notes that tight targets or narrow targeting slow it down. Those are each platform describing its own system, not a shared threshold for your business.</p>` },
+      { q: `When should I switch off a campaign?`,
+        a: `<p>When continuing to run it can't teach you anything worth the money: clearly broken tracking, obviously wrong traffic intent, fraud, spend that has already passed any plausible learning value, a structurally invalid offer, or a compliance problem. What doesn't qualify is a campaign that is merely early and unremarkable. "Learning needs time" is true &mdash; and it's also the most common excuse for continuing to pay for traffic you already know is wrong.</p>` },
+      { q: `Should I expect profitability in 90 days?`,
+        a: `<p>Not necessarily &mdash; it depends on your model. A D2C brand, a self-serve product or high-volume lead generation may produce meaningful CAC evidence inside 90 days. Enterprise software, complex financial products or anything with a long sales cycle usually cannot, because the outcomes that define profitability haven't happened yet. There, a successful 90 days establishes pipeline quality, qualified lead economics and early demand signal &mdash; not proven profit.</p>` },
+      { q: `How much data do I need before scaling?`,
+        a: `<p>Enough that the pattern has held up more than once, under conditions you can describe. There's no universal conversion count that makes scaling safe &mdash; it depends on your conversion rate, order value, variability and sales-cycle length. More useful than a threshold is a set of conditions: conversion quality holds when checked against your own records, the economics are plausible against your <a href="/insights/break-even-roas/">break-even ROAS</a>, tracking is trusted, and the business can service the extra volume.</p>` },
+    ],
+    bio: { img: `<img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">`, html: `<strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story &rarr;</a>` },
+    cta: { heading: `Launching a new account this quarter?`, body: `A Foundation Audit settles the measurement, the economics and the first set of hypotheses before the budget starts moving &mdash; so the first 90 days produce evidence instead of noise. No pitch attached.`,
+      href: "/contact/", label: `Discuss your growth project` },
+    bodyHtml: `<p>Almost everything written about running ads assumes you already have something to optimise: a baseline cost per acquisition, creative that has worked before, a conversion history the platform can learn from. A new account has none of it. The dashboards look identical to a mature account's, which is exactly the trap &mdash; the numbers are there, they just don't mean anything yet.</p>
+    <p>So the job in the first 90 days is not optimisation. <strong>A new account is an evidence-building system before it is an optimisation system.</strong> The work is to reduce uncertainty in a deliberate order, and the measure of success is how much you know at day 90, not whether you hit your target CAC in week two.</p>
+
+    <h2>Absence of evidence is a different problem from evidence of failure</h2>
+    <p>This distinction does more work than anything else in the article. A mature account performing badly has evidence of failure: you can see which keywords waste money, which creative fatigued, where the funnel leaks. The playbook is diagnostic, and that is what our <a href="/insights/audit-your-ad-spend/">ad spend self-audit</a> and <a href="/insights/meta-ads-not-converting/">Meta tracking audit</a> are for.</p>
+    <p>A new account has absence of evidence. Nothing has failed, because nothing has been established. Applying a diagnostic playbook to it produces confident conclusions from noise &mdash; killing a campaign for a cost per lead calculated on four leads, or scaling a creative that had one good week.</p>
+    <p>Google says as much about its own systems: Smart Bidding leans on existing conversion data, and <em>"conversion data from previous campaigns can also help drive faster results"</em>. A new account is, by definition, the slow case.</p>
+
+    <h2>Day 0: three things to settle before anything launches</h2>
+    <p>These are cheap to fix now and expensive to fix in month two, because everything measured in between has to be re-read.</p>
+    <p><strong>The business outcome.</strong> Decide what actually counts &mdash; a purchase, a funded customer, an activated user, a qualified lead, a booked demo, an opportunity. One event does not fit every business, and the one that is easiest to track is rarely the one that matters. Write down the outcome that your finance or sales records would recognise.</p>
+    <p><strong>The economics.</strong> You need contribution margin, an acceptable CAC, any payback constraint, average order or contract value, and where relevant your <a href="/insights/break-even-roas/">break-even ROAS</a>. Not to hit in week one, but so you can tell the difference between an early number that is disappointing and one that is disqualifying. If budget sizing is also open, that is a separate question with its own <a href="/insights/google-ads-budget-india-startups/">arithmetic</a>.</p>
+    <p><strong>Tracking you have actually verified.</strong> The primary conversion event fires, once, with the right value; deduplication works where two sources report the same event; UTMs are consistent; the CRM handoff carries the source through; and the totals reconcile against your backend. Verified, not configured &mdash; a tag that exists is not a tag that is correct.</p>
+
+    <h2>How many channels to start with</h2>
+    <p>Launching simultaneously on Google, Meta, LinkedIn, YouTube, affiliates and creators with a small budget produces fragmented data in six places and a conclusive answer in none. Start with the smallest set of channels that still tests your real hypotheses.</p>
+    <p>That is often one, but "always start with one" is too blunt. Two can be defensible when they answer genuinely different questions &mdash; demand capture alongside demand creation, search alongside remarketing, or brand separated from non-brand so the two don't average into one meaningless number. The test is whether each can accumulate enough evidence to be read on its own. If it can't, you are buying ambiguity. Our <a href="/insights/google-ads-vs-meta-ads-startup/">comparison of starting on Google or Meta</a> works through the choice itself.</p>
+
+    <h2>Days 1&ndash;30: looking for signal, not performance</h2>
+    <p>The first month answers five questions, in roughly this order of usefulness:</p>
+    <ol>
+      <li><strong>Delivery</strong> &mdash; can the campaign actually spend, at a sane cost, against a real audience?</li>
+      <li><strong>Tracking</strong> &mdash; are business outcomes recorded correctly once traffic is real rather than test traffic?</li>
+      <li><strong>Traffic quality</strong> &mdash; are the right people arriving at all?</li>
+      <li><strong>Conversion path</strong> &mdash; where does the funnel break between click and outcome?</li>
+      <li><strong>Creative and message</strong> &mdash; which propositions generate qualified attention, rather than cheap attention?</li>
+    </ol>
+    <p>Impressions, click-through rate, cost per click, landing-page engagement and signup rate are all useful here. But be explicit with everyone reading the reports: <strong>these are diagnostic metrics, not success metrics.</strong> A high CTR tells you a message earned a click. It does not tell you the business made money, and treating it as though it did is how accounts get scaled into losses.</p>
+
+    <h2>Why early CAC misleads &mdash; and why "the learning phase" isn't one thing</h2>
+    <p>Early cost per acquisition is distorted by small samples, delayed conversions, sales-cycle lag, launch-day curiosity, creative novelty and attribution delay. It is also distorted by the platforms' own adaptation, which is where most of the folklore lives.</p>
+    <p>It is worth knowing that the two large platforms describe this differently, because advice that treats "the learning phase" as one universal mechanism is wrong on at least one of them.</p>
+    <p><strong>Meta</strong> documents an explicit learning phase at ad-set level: ad sets exit it once they can deliver stably, which "usually occurs after about 50 results in the week after the ad set's last significant edit". Meta also states that during this period ad sets "are less stable and usually have a higher CPA" &mdash; its own documentation telling you not to read early cost as steady-state cost. Edits, including frequent budget changes, can reset it.</p>
+    <p><strong>Google</strong> works differently. Its Smart Bidding documentation states that updates to budgets, targets and targeting settings "never trigger" the visible Learning status, that the status clears within seven days, and that actual convergence takes roughly one to two <em>conversion cycles</em> &mdash; driven by conversion volume, cycle length, and settings, since "very restrictive settings, such as tight targets, low daily budgets, or narrow targeting, can slow down campaign ramp-up".</p>
+    <p>Two consequences. First, there is no shared threshold you can carry between platforms, and Meta's 50 is a Meta ad-set figure rather than a rule about your business. Second, the clock that matters is your conversion cycle, not the calendar &mdash; which is why "wait 14 days" advice is meaningless for anyone with a 60-day sales cycle.</p>
+    <p>So track CAC from day one. Just interpret it in context. A clearly catastrophic result still justifies acting early; an unremarkable one usually doesn't.</p>
+
+    <h2>Test hypotheses, not assets</h2>
+    <p>"Test 20 creatives" is not a test, it is churn &mdash; and Meta explicitly warns that high ad volumes mean the system learns less about each one. A test needs a question attached.</p>
+    <p>If you believe buyers care most about convenience, run a convenience-led message against an economics-led one. If you suspect the problem is missing proof, test a testimonial against a product demo against case evidence. Each has a stated expectation, so the result changes your mind about something.</p>
+    <p>How many variants is right depends on your budget, audience size, production capacity and platform &mdash; not on a number from a blog. The useful constraint is this: if you cannot say in advance what each variant is testing, you have too many.</p>
+    <p>On search-led accounts the richest early evidence is usually the search terms report, because it shows what the market thinks you sell, which is often not what you think you sell. Brand versus non-brand separation, negatives, and geographic and device quality follow from reading it honestly. On social-led accounts, learning tends to come from hooks, propositions, proof type, format and offer &mdash; and creative often determines which audience emerges, rather than targeting determining who sees the creative.</p>
+
+    <h2>Days 31&ndash;60: eliminate, don't scale</h2>
+    <p>By month two you should have enough evidence to start removing things, which is the fastest way to improve signal quality. Remove clearly irrelevant search themes. Stop messages producing conversions that your sales team rates as poor. Consolidate fragmented campaigns, since splitting the same budget across more ad sets teaches the system less about each. Fix the landing-page problems month one exposed. Feed CRM quality back into the decisions, so the account optimises toward customers rather than form fills.</p>
+    <p>This is not the scale month. The purpose of month two is a cleaner signal, and a cleaner signal is what makes month three's decisions defensible.</p>
+
+    <h2>Choosing the event you optimise toward</h2>
+    <p>This is the trade-off that quietly decides how well the account works.</p>
+    <p>The event closest to revenue is the best business signal and usually the rarest. The shallower event happens often enough for automated bidding to learn from, and is noisier &mdash; it includes people who will never buy. Lead, qualified lead, opportunity, closed sale. Or signup, activated user, paying user.</p>
+    <p>Optimise too deep and the system starves for data. Optimise too shallow and it efficiently buys you the wrong people. The practical approach is to optimise to the deepest event that still occurs with reasonable frequency, while judging the account on the deeper one &mdash; and to revisit the choice as volume grows. If you pass qualification data back from your CRM, the shallow event gets considerably less noisy.</p>
+
+    <h2>Days 61&ndash;90: validate, then decide</h2>
+    <p>The last month asks whether anything here is repeatable: which channel produced the right customers, which creative proposition worked more than once, which search themes are commercially useful, where the funnel still leaks, whether CAC is approaching something viable, whether volume supports automation, and which tests deserve more budget.</p>
+    <p>If the answers support it, scale &mdash; but scale means <em>increasing investment in validated patterns</em>, not "the dashboard turned green, double the budget". There is no credible universal rule like "increase 20% every three days"; those numbers are invented. What is true is that large changes can alter how the system delivers, and on Meta frequent budget changes can reset ad-set learning. So move in steps the account can absorb, and let economics, volume, stability and your ability to actually service the customers set the pace.</p>
+    <p>Worth saying plainly: "this channel does not deserve more money" is a legitimate and valuable outcome. A 90-day programme that produces that answer cheaply has done its job.</p>
+
+    <h2>Two disciplines that keep the account readable</h2>
+    <p><strong>Stop things early when the evidence is already in.</strong> Shut a campaign down when tracking is clearly broken, traffic intent is obviously wrong, fraud dominates, spend has exceeded any plausible learning value, the offer is structurally invalid, or there is a compliance problem. "Learning needs time" is true, and it is also the most common justification for continuing to buy traffic you already know is wrong.</p>
+    <p><strong>Change one material thing at a time, and write it down.</strong> New accounts become unreadable when bids, budgets, audiences, creative, landing page and offer all move in the same week &mdash; nothing that happens afterwards can be attributed to anything. Keep a log: date, change, reason, expected effect, result. A spreadsheet is enough, and it is the single cheapest thing on this list.</p>
+
+    <h2>The 90-day map</h2>
+    <div data-tbl><table data-stack class="price-table">
+      <thead>
+        <tr><th>Period</th><th>Primary job</th><th>Questions to answer</th><th>What not to overreact to</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-th="Period"><strong>Day 0</strong></td><td data-th="Primary job">Foundation</td><td data-th="Questions to answer">What outcome counts? What can we afford? Does tracking actually record it?</td><td data-th="What not to overreact to">Pressure to launch before measurement is verified</td></tr>
+        <tr><td data-th="Period"><strong>Days 1&ndash;30</strong></td><td data-th="Primary job">Signal</td><td data-th="Questions to answer">Can we deliver? Is the right traffic arriving? Where does the funnel break?</td><td data-th="What not to overreact to">Early CAC, CTR, a single good or bad day</td></tr>
+        <tr><td data-th="Period"><strong>Days 31&ndash;60</strong></td><td data-th="Primary job">Elimination</td><td data-th="Questions to answer">What is clearly not working? What can be removed or consolidated?</td><td data-th="What not to overreact to">One promising week; the urge to scale early</td></tr>
+        <tr><td data-th="Period"><strong>Days 61&ndash;90</strong></td><td data-th="Primary job">Validation</td><td data-th="Questions to answer">What is repeatable? Are the economics plausible? Scale, hold or stop?</td><td data-th="What not to overreact to">Platform-reported ROAS treated as finance truth</td></tr>
+      </tbody>
+    </table><p class="price-note">The periods are a sequence of jobs, not a schedule. A long sales cycle stretches all of them.</p></div>
+
+    <h2>What 90 days can and cannot prove</h2>
+    <p>For direct-to-consumer brands, self-serve products and high-volume lead generation, 90 days can produce meaningful CAC evidence and a defensible view on viability.</p>
+    <p>For enterprise software, complex financial products and anything with a long or committee-driven sales cycle, it usually cannot &mdash; because the outcomes that define profitability have not happened yet. There, a successful 90 days establishes pipeline quality, qualified lead economics and early demand signal. Promising profitability on that timeline is a forecasting error, not an ambition.</p>
+    <p>One more boundary. Platform-reported conversions are for optimisation and diagnosis; reconcile them against your own records before treating them as finance truth, and understand what <a href="/insights/marketing-attribution-explained-simply/">attribution</a> can and cannot tell you. Proper incrementality testing &mdash; a <a href="/insights/geo-holdout-test-marketing/">geo holdout</a>, for instance &mdash; generally needs substantial pre-period history, in Google's implementation guidance at least three times the length of the test itself. That makes it a later-stage method, not a week-one answer.</p>
+
+    <h2>Mistakes that cost a quarter</h2>
+    <ul>
+      <li><strong>Too many channels or campaigns</strong>, fragmenting both budget and learning.</li>
+      <li><strong>Optimising toward a vanity event</strong> that is easy to track and unrelated to revenue.</li>
+      <li><strong>Changing everything weekly</strong>, so nothing is attributable.</li>
+      <li><strong>Treating platform ROAS as finance truth</strong> without reconciling it.</li>
+      <li><strong>Scaling a creative</strong> before conversion quality is known.</li>
+      <li><strong>Killing campaigns</strong> before sales-cycle outcomes have had time to arrive.</li>
+      <li><strong>Waiting too long</strong> on traffic that is obviously wrong.</li>
+      <li><strong>Ignoring the landing page</strong> and blaming the ads.</li>
+      <li><strong>Keeping no change log</strong>, and losing the quarter's learning with the person who leaves.</li>
+    </ul>
+    <p>None of this is exotic. It is simply the discipline of treating the first quarter as research you are paying for &mdash; which is what it is, whether or not you plan it that way.</p>
+    <p>If you want that quarter structured deliberately rather than improvised, that is what our <a href="/services/paid-media/">paid media</a> and <a href="/services/growth-strategy-measurement/">measurement</a> work is for.</p>`
+  },
   {
     slug: "geo-holdout-test-marketing",
     section: "Tracking & Attribution",
