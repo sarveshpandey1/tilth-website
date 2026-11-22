@@ -15,3 +15,11 @@ node_modules/
 # GitHub Pages serves production and ignores this file entirely.
 .vercelignore
 .vercel
+
+# Local internal documentation and working materials. Not part of production.
+/internal-docs/
+/content-drafts/
+
+# Local source and reference materials. Do not track.
+/CONTENT_REFINEMENT/
+CONTENT_REFINEMENT-*.zip
