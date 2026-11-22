@@ -296,6 +296,52 @@ export const hubHreflang = base => [
   { lang: "x-default", href: `${base}/` }
 ];
 
+// Child hreflang pairs. Moved here from templates/regionHub.mjs so that the
+// regional pages and their global x-default targets read the SAME list: an
+// annotation is reciprocal by construction rather than by two lists agreeing.
+//
+// Still an explicit allow-list, never slug inference. A regional route gains
+// hreflang only by being added here after review, so no pair is fabricated
+// from a coincidental slug match.
+//
+// The x-default target is the global route serving both markets, which is NOT
+// always the regional slug: SEO & Content Marketing maps to the global SEO
+// route /services/seo-ai-search/, there being no /services/seo-content-marketing/.
+//
+// Deliberately absent, because no counterpart route exists and none is invented:
+//   /india/industries/fintech/  ·  /india/services/affiliate-marketing/
+//   /us/services/website-cro/
+export const CHILD_HREFLANG_PAIRS = [
+  { india: "/india/industries/d2c-ecommerce/", us: "/us/industries/d2c-ecommerce/", global: "/industries/d2c-ecommerce/" },
+  { india: "/india/industries/saas/", us: "/us/industries/saas/", global: "/industries/saas/" },
+  { india: "/india/services/performance-marketing/", us: "/us/services/performance-marketing/", global: "/services/performance-marketing/" },
+  { india: "/india/services/seo-content-marketing/", us: "/us/services/seo-content-marketing/", global: "/services/seo-ai-search/" }
+];
+
+const clusterOf = (base, pair) => [
+  { lang: "en-IN", href: base + pair.india },
+  { lang: "en-US", href: base + pair.us },
+  { lang: "x-default", href: base + pair.global }
+];
+
+// Both members of a pair emit the same three-member cluster, because it is
+// derived from the pair rather than from the page asking for it.
+export const childHreflang = (base, path) => {
+  const pair = CHILD_HREFLANG_PAIRS.find(p => p.india === path || p.us === path);
+  return pair ? clusterOf(base, pair) : null;
+};
+
+// The return link. Google ignores hreflang annotations that are not
+// bidirectional ("If two pages don't both point to each other, the tags will
+// be ignored"), so each x-default target has to declare the cluster it anchors.
+// The homepage anchors the hub cluster; the four global routes above anchor
+// their own pair. Any other path gets null and stays unannotated.
+export const globalHreflang = (base, path) => {
+  if (path === "/") return hubHreflang(base);
+  const pair = CHILD_HREFLANG_PAIRS.find(p => p.global === path);
+  return pair ? clusterOf(base, pair) : null;
+};
+
 // Regional child routes that exist today. Batch 2 and 3 add entries here; every card
 // carrying a `regional` target automatically upgrades from its global fallback to the
 // regional page the moment its route is listed, so no hub markup has to be edited and

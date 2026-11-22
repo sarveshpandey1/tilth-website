@@ -2,7 +2,8 @@
 // Copy and structure come from the design; brands, services and contact details
 // come from the existing content model. SEO, schema and the FormSubmit contact
 // integration are carried over unchanged.
-import { site, brandExperience, brandExperienceLabel, homeV3 } from "../data.mjs";
+import { site, brandExperience, brandExperienceLabel, homeV3 } from "../data.mjs"
+import { globalHreflang } from "../content-regional.mjs";
 import { orgSchema, websiteSchema, esc } from "../render.mjs";
 
 const path = "/";
@@ -305,6 +306,9 @@ export default {
   description: "Tilth is a founder-led growth marketing agency. We strengthen the foundations beneath growth — measurement, funnel, positioning and creative — then scale performance against verified return.",
   ogTitle: "Depth before growth",
   ogDescription: "A growth marketing agency built on stronger foundations. Diagnose before you prescribe; scale only what the system can carry.",
+  // Return link for the /india/ + /us/ hub cluster that names this page as
+  // x-default. Without it Google ignores the annotation on both hubs.
+  hreflang: globalHreflang(site.base, path),
   schema: [websiteSchema(), orgSchema()],
   main
 };

@@ -12,7 +12,8 @@
 //
 // SEO, schema, breadcrumb and analytics are carried over from the previously
 // generated page unchanged.
-import { site, services } from "../data.mjs";
+import { site, services } from "../data.mjs"
+import { globalHreflang } from "../content-regional.mjs";
 import { serviceContent } from "../content.mjs";
 import { breadcrumbs } from "../render.mjs";
 
@@ -313,6 +314,8 @@ export default {
   footRule: true,
   headExtra: `<link rel="stylesheet" href="/assets/service-detail.css">`,
   bodyScripts: ["/service-detail.js"],
+  // x-default for the /india/ + /us/ performance-marketing cluster.
+  hreflang: globalHreflang(site.base, path),
   title: "Performance Marketing Agency | US & India | Tilth",
   description: svc.summary,
   ogTitle: svc.name,

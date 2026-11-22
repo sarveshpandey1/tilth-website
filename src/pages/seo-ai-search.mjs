@@ -15,7 +15,8 @@
 //
 // SEO, schema, breadcrumb and analytics are carried over from the previously
 // generated page unchanged.
-import { site, services } from "../data.mjs";
+import { site, services } from "../data.mjs"
+import { globalHreflang } from "../content-regional.mjs";
 import { serviceContent } from "../content.mjs";
 import { breadcrumbs } from "../render.mjs";
 
@@ -288,6 +289,9 @@ export default {
   headExtra: `<link rel="stylesheet" href="/assets/service-detail.css">
 <link rel="stylesheet" href="/assets/service-detail-seo.css">`,
   bodyScripts: ["/service-detail.js"],
+  // x-default for the India/US seo-content-marketing cluster. The global
+  // route is this one; /services/seo-content-marketing/ does not exist.
+  hreflang: globalHreflang(site.base, path),
   title: "SEO & AI Search Agency (AEO / GEO) | Tilth",
   description: svc.summary,
   ogTitle: svc.name,
