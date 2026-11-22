@@ -14,7 +14,7 @@ export const site = {
   address: { locality: "Bengaluru", region: "Karnataka", country: "IN" }, // legal/registered — do not change on domain move (Brief §61)
   social: {
     linkedin: "https://www.linkedin.com/company/tilth-in/",
-    instagram: "https://www.instagram.com/tilth.in/",
+    instagram: "https://www.instagram.com/wearetilth/",
     x: "https://x.com/Anuja_tilth",
     facebook: "https://www.facebook.com/profile.php?id=61590502284155"
   }
