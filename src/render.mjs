@@ -50,7 +50,7 @@ export function orgSchema() {
     "@type": ["ProfessionalService", "MarketingAgency"], "@id": `${site.base}/#org`,
     name: site.brand, url: `${site.base}/`, email: site.email, telephone: `+${site.phoneHref.replace(/^\+?/, "")}`,
     description: "Performance-led growth marketing agency, India-rooted and working with brands across India and the US. Foundation-first strategy, execution and measurement.",
-    slogan: site.tagline, logo: `${site.base}/favicon.svg`, image: `${site.base}/anuja.jpg`,
+    slogan: site.tagline, logo: `${site.base}/assets/brand/logo-carbon.png`, image: `${site.base}/anuja.jpg`,
     address: { "@type": "PostalAddress", addressLocality: site.address.locality, addressRegion: site.address.region, addressCountry: site.address.country },
     areaServed: [{ "@type": "Country", name: "United States" }, { "@type": "Country", name: "India" }],
     sameAs: Object.values(site.social)

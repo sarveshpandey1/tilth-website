@@ -343,7 +343,7 @@ const localBusiness = {
   email: site.email,
   telephone: site.phoneHref,
   image: site.base + "/og-image.png",
-  logo: site.base + "/favicon.svg",
+  logo: site.base + "/assets/brand/logo-carbon.png",
   founder: { "@type": "Person", name: "Anuja", jobTitle: "Founder" },
   address: {
     "@type": "PostalAddress",
