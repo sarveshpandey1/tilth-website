@@ -104,18 +104,6 @@ export const engagements = [
     receives: ["Strategy & roadmap", "Execution", "Experimentation", "Reporting", "Cross-functional support"] }
 ];
 
-// Clients — TEXT-ONLY markers until approvals land (Brief §7). Render assets/links/case studies only when true.
-// Client approval gate. NOTE: since content pack §3 the visible brand lists on
-// Home, Work and Contact render `brandExperience` under the founder-experience
-// label, so this array is no longer a display source. It is kept as the record
-// of per-client display approval (logos, website links, case studies,
-// testimonials all still gated here) for when a named client case study is
-// approved. Spelling tracks the owner-confirmed "Omorra".
-export const clients = [
-  { name: "PayDirect", industry: "Fintech", market: "Global", textDisplayApproved: true, logoApproved: false, logoAsset: null, websiteLinkApproved: false, websiteUrl: null, caseStudyApproved: false, caseStudySlug: null, testimonialApproved: false, displayOrder: 1 },
-  { name: "Omorra", industry: "Consumer", market: "Global", textDisplayApproved: true, logoApproved: false, logoAsset: null, websiteLinkApproved: false, websiteUrl: null, caseStudyApproved: false, caseStudySlug: null, testimonialApproved: false, displayOrder: 2 }
-];
-
 // Canonical proof records (content pack §2). ONE factual source per record; a
 // route renders only the records the placement matrix assigns it (see
 // proofFor()), never the whole set. Do NOT attach client logos/screenshots or
@@ -124,17 +112,17 @@ export const clients = [
 // trading-volume percentages. Demi.ai is named with approval and carries NO
 // outcome, because none is approved and none is invented.
 export const caseStudies = [
-  { slug: "edtech-paid-media", clientNameApproved: false, anonLabel: "Edtech growth engagement",
+  { slug: "edtech-paid-media", anonLabel: "Edtech growth engagement",
     industry: "Edtech", market: "India", metrics: ["6× media scale", "Verified 5× return on ad spend"],
     summary: "Rebuilt tracking and conversion events, then scaled paid media against verified return.",
     servicesInvolved: ["Performance Marketing", "Paid Media", "Growth Strategy & Measurement"],
     publishApproved: true },
-  { slug: "crypto-affiliate", clientNameApproved: false, anonLabel: "Crypto affiliate growth engagement",
+  { slug: "crypto-affiliate", anonLabel: "Crypto affiliate growth engagement",
     industry: "Crypto", market: "Global", metrics: ["2–3× affiliate channel growth"],
     summary: "Partner validation, commercial model and tracking, built ground up.",
     servicesInvolved: ["Affiliate & Partnership Marketing", "Growth Strategy & Measurement"],
     publishApproved: true },
-  { slug: "demi-ai", clientNameApproved: true, anonLabel: "Demi.ai",
+  { slug: "demi-ai", anonLabel: "Demi.ai",
     industry: "SaaS / AI", market: "US", metrics: ["Paid acquisition across Google Ads and Meta", "App-download and website user acquisition"],
     summary: "Performance marketing for a US AI product, acquiring both app users and direct website users.",
     servicesInvolved: ["Performance Marketing", "Paid Media"],
@@ -177,10 +165,9 @@ export function proofFor(path) {
   return slugs.map(s => by[s]).filter(Boolean);
 }
 
-// Team — only approved people render (Brief §34). Anuja approved; others require confirmation.
+// Team — approved people render.
 export const team = [
-  { name: "Anuja", title: "Founder, Tilth", photo: "/anuja.jpg", bio: "10+ years of hands-on growth experience across 10+ industries — including fintech, SaaS, D2C, edtech, consumer and fitness.", approved: true, linkedin: null },
-  { name: "Sarvesh Pandey", title: null, photo: null, bio: null, approved: false, linkedin: null }
+  { name: "Anuja", title: "Founder, Tilth", photo: "/anuja.jpg", bio: "10+ years of hands-on growth experience across 10+ industries — including fintech, SaaS, D2C, edtech, consumer and fitness.", approved: true, linkedin: null }
 ];
 
 // ---------------------------------------------------------------------------
