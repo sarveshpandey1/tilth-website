@@ -93,7 +93,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
         "first-party data",
         "paid media measurement"
       ],
-      "wordCount": 2660,
+      "wordCount": 2700,
       "author": {
         "@type": "Person",
         "name": "Anuja",
@@ -166,7 +166,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
           "name": "When should a small business use server-side tracking?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Usually later than it's offered to them, and sometimes never. The honest test is whether a specific, named measurement problem costs more than the setup will cost to run. Google documents a Cloud Run configuration at roughly US$45 per server per month and recommends a minimum of two servers for resilience &mdash; before anyone's time. A business with thin conversion volume, an unresolved event taxonomy or nobody to monitor the container will get more from fixing those first."
+            "text": "Usually later than it's offered to them, and sometimes never. The honest test is whether a specific, named measurement problem costs more than the setup will cost to run. Google recommends a minimum of three instances per container for redundancy, and says an upgraded Cloud Run environment can be expected to cost roughly US$30&ndash;$50 per server per month, with heavy network traffic pushing that higher &mdash; all before anyone's time. A business with thin conversion volume, an unresolved event taxonomy or nobody to monitor the container will get more from fixing those first."
           }
         },
         {
@@ -346,7 +346,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
         <tr><td data-th="Reasonable case for it">The expected gain clearly exceeds the running cost</td><td data-th="Probably unnecessary when">The event taxonomy is already broken or the CRM is messy</td></tr>
       </tbody>
     </table><p class="price-note">The right-hand column is not a reason never to do it. It is a list of things that are cheaper to fix first.</p></div>
-    <p>On running cost, there is a published number worth knowing. Google's Cloud Run setup guide puts a single tagging server at roughly <strong>US$45 per month</strong> for a 1 vCPU, 0.5GB instance on always-allocated pricing, and recommends <strong>a minimum of two instances</strong> to reduce the risk of data loss during an outage. That is the floor, before implementation time, QA, and the ongoing duty Google also documents: keeping the tagging server image updated for security fixes, at minimum across major versions. Server-side tagging can run on other infrastructure, but the pattern holds &mdash; it is a system somebody now owns.</p>
+    <p>On running cost, Google publishes figures worth knowing. A default single-server deployment is free in most cases. But Google recommends <strong>a minimum of three instances per container for redundancy</strong>, and states that once you upgrade your Cloud Run environment you can expect to spend <strong>roughly US$30&ndash;$50 per server per month</strong>, with large amounts of network traffic increasing that. Treat it as a planning range rather than a quote &mdash; traffic, deployment choices and other infrastructure all move it. Then add implementation time, QA, and the ongoing duty Google also documents: keeping the tagging server image updated for security fixes, at minimum across major versions. Server-side tagging can run on infrastructure other than Google Cloud, but the pattern holds &mdash; it is a system somebody now owns.</p>
 
     <h2>A decision framework</h2>
     <p>Six questions. If you cannot answer the first one concretely, stop there.</p>
@@ -437,7 +437,7 @@ window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();
         </div>
         <div data-faq-item>
           <h3><button type="button" data-faq-btn id="faq-b6" aria-controls="faq-p6" aria-expanded="false"><span>When should a small business use server-side tracking?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
-          <div data-faq-ans id="faq-p6" role="region" aria-labelledby="faq-b6"><div><p>Usually later than it's offered to them, and sometimes never. The honest test is whether a specific, named measurement problem costs more than the setup will cost to run. Google documents a Cloud Run configuration at roughly US$45 per server per month and recommends a minimum of two servers for resilience &mdash; before anyone's time. A business with thin conversion volume, an unresolved event taxonomy or nobody to monitor the container will get more from fixing those first.</p></div></div>
+          <div data-faq-ans id="faq-p6" role="region" aria-labelledby="faq-b6"><div><p>Usually later than it's offered to them, and sometimes never. The honest test is whether a specific, named measurement problem costs more than the setup will cost to run. Google recommends a minimum of three instances per container for redundancy, and says an upgraded Cloud Run environment can be expected to cost roughly US$30&ndash;$50 per server per month, with heavy network traffic pushing that higher &mdash; all before anyone's time. A business with thin conversion volume, an unresolved event taxonomy or nobody to monitor the container will get more from fixing those first.</p></div></div>
         </div>
         <div data-faq-item>
           <h3><button type="button" data-faq-btn id="faq-b7" aria-controls="faq-p7" aria-expanded="false"><span>How do you know whether server-side tracking is working?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>

@@ -567,7 +567,7 @@ export const insightArticles = [
                               "first-party data",
                               "paid media measurement"
                         ],
-                        "wordCount": 2660,
+                        "wordCount": 2700,
                         "author": {
                               "@type": "Person",
                               "name": "Anuja",
@@ -640,7 +640,7 @@ export const insightArticles = [
                                     "name": "When should a small business use server-side tracking?",
                                     "acceptedAnswer": {
                                           "@type": "Answer",
-                                          "text": "Usually later than it is offered to them, and sometimes never. The honest test is whether a specific, named measurement problem is costing more than the setup will cost to run. Google documents a Cloud Run configuration at roughly 45 US dollars per server per month and recommends a minimum of two servers for resilience, before anyone's time is counted. A business with thin conversion volume, an unresolved event taxonomy or nobody to monitor the container will usually get more from fixing those first."
+                                          "text": "Usually later than it is offered to them, and sometimes never. The honest test is whether a specific, named measurement problem is costing more than the setup will cost to run. Google recommends a minimum of three instances per container for redundancy, and states that once you upgrade your Cloud Run environment you can expect to spend roughly 30 to 50 US dollars per server per month, with large amounts of network traffic increasing that cost. A business with thin conversion volume, an unresolved event taxonomy or nobody to monitor the container will usually get more from fixing those first."
                                     }
                               },
                               {
@@ -671,7 +671,7 @@ export const insightArticles = [
       { q: `Does server-side tracking bypass cookie consent?`,
         a: `<p>No. Moving processing to your own server changes <em>where</em> data is handled, not whether you're permitted to handle it. Consent requirements, platform policies and applicable law apply to the data regardless of transport &mdash; Google's enhanced conversions setup, for instance, requires confirming its data processing terms apply to your use. Anyone selling server-side tracking as a way around consent is describing a compliance problem, not a measurement solution.</p>` },
       { q: `When should a small business use server-side tracking?`,
-        a: `<p>Usually later than it's offered to them, and sometimes never. The honest test is whether a specific, named measurement problem costs more than the setup will cost to run. Google documents a Cloud Run configuration at roughly US$45 per server per month and recommends a minimum of two servers for resilience &mdash; before anyone's time. A business with thin conversion volume, an unresolved event taxonomy or nobody to monitor the container will get more from fixing those first.</p>` },
+        a: `<p>Usually later than it's offered to them, and sometimes never. The honest test is whether a specific, named measurement problem costs more than the setup will cost to run. Google recommends a minimum of three instances per container for redundancy, and says an upgraded Cloud Run environment can be expected to cost roughly US$30&ndash;$50 per server per month, with heavy network traffic pushing that higher &mdash; all before anyone's time. A business with thin conversion volume, an unresolved event taxonomy or nobody to monitor the container will get more from fixing those first.</p>` },
       { q: `How do you know whether server-side tracking is working?`,
         a: `<p>Not by confirming that server events are firing. Judge it against the problem it was bought to solve: whether backend orders or leads reconcile more closely with reported conversions, whether unexplained gaps between sources narrowed, whether duplicates are controlled, whether deeper funnel events now reach the platforms, and whether match or event quality indicators improved where platforms report them. Decide what you'll measure <em>before</em> implementation, and record the baseline.</p>` },
     ],
@@ -767,7 +767,7 @@ export const insightArticles = [
         <tr><td data-th="Reasonable case for it">The expected gain clearly exceeds the running cost</td><td data-th="Probably unnecessary when">The event taxonomy is already broken or the CRM is messy</td></tr>
       </tbody>
     </table><p class="price-note">The right-hand column is not a reason never to do it. It is a list of things that are cheaper to fix first.</p></div>
-    <p>On running cost, there is a published number worth knowing. Google's Cloud Run setup guide puts a single tagging server at roughly <strong>US$45 per month</strong> for a 1 vCPU, 0.5GB instance on always-allocated pricing, and recommends <strong>a minimum of two instances</strong> to reduce the risk of data loss during an outage. That is the floor, before implementation time, QA, and the ongoing duty Google also documents: keeping the tagging server image updated for security fixes, at minimum across major versions. Server-side tagging can run on other infrastructure, but the pattern holds &mdash; it is a system somebody now owns.</p>
+    <p>On running cost, Google publishes figures worth knowing. A default single-server deployment is free in most cases. But Google recommends <strong>a minimum of three instances per container for redundancy</strong>, and states that once you upgrade your Cloud Run environment you can expect to spend <strong>roughly US$30&ndash;$50 per server per month</strong>, with large amounts of network traffic increasing that. Treat it as a planning range rather than a quote &mdash; traffic, deployment choices and other infrastructure all move it. Then add implementation time, QA, and the ongoing duty Google also documents: keeping the tagging server image updated for security fixes, at minimum across major versions. Server-side tagging can run on infrastructure other than Google Cloud, but the pattern holds &mdash; it is a system somebody now owns.</p>
 
     <h2>A decision framework</h2>
     <p>Six questions. If you cannot answer the first one concretely, stop there.</p>
