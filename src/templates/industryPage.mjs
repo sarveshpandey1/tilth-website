@@ -24,7 +24,8 @@
 // [data-qa]{border-top} / :last-child{border-bottom} — so dropping it would
 // remove the rules. It is renamed to data-faq-item instead: no listed token
 // reaches production and the borders are unchanged.
-import { site, services, industries, proofFor, serviceGraph } from "../data.mjs";
+import { site, services, industries, proofFor, serviceGraph } from "../data.mjs"
+import { globalHreflang } from "../content-regional.mjs";
 import { industryContent } from "../content.mjs";
 import { breadcrumbs, esc } from "../render.mjs";
 
@@ -203,6 +204,9 @@ export function industryPage(slug) {
     shell: "v3",
     shellClass: "v3-industry",
     headExtra: `<link rel="stylesheet" href="/assets/industries.css">`,
+    // Returns a cluster only for the industries that have India AND US
+    // equivalents (saas, d2c-ecommerce); null for every other industry.
+    hreflang: globalHreflang(site.base, path),
     title: seoTitle[slug] || `${ind.name} Growth Marketing | Tilth`,
     description: c.heroLede,
     ogTitle: `${ind.name} growth marketing`,

@@ -9,7 +9,9 @@ index.original.html
 node_modules/
 .vercel
 
-# Vercel preview scaffolding (not for production/GitHub Pages)
-vercel.json
+# vercel.json IS tracked: it carries the X-Robots-Tag rule that keeps the
+# Vercel deployment hostnames out of the index. Gitignoring it meant the rule
+# was never deployed, which is why *.vercel.app was publicly indexable.
+# GitHub Pages serves production and ignores this file entirely.
 .vercelignore
 .vercel

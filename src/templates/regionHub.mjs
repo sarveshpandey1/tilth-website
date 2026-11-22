@@ -75,7 +75,7 @@
 // in Core Company, Insights and Bengaluru.
 import { site, proofFor, proofAttribution } from "../data.mjs";
 import { insightBySlug } from "../insights.mjs";
-import { regions, hubHreflang, resolveHref } from "../content-regional.mjs";
+import { regions, hubHreflang, childHreflang, resolveHref } from "../content-regional.mjs";
 import { regionalPages } from "../content-regional-pages.mjs";
 import { breadcrumbs, orgSchema, websiteSchema, esc } from "../render.mjs";
 
@@ -406,37 +406,9 @@ const faqSchemaOf = sections => {
 // copy is one English, and no child hreflang is fabricated.
 const localeFor = path => (path.startsWith("/india/") ? "en_IN" : "en_US");
 
-// Regional child hreflang. Only the four pairs whose India AND US routes both
-// exist and were confirmed as genuine market equivalents by the indexing audit
-// are annotated. This is an explicit allow-list, never slug inference: a new
-// regional route gains hreflang only by being added here after review, so no
-// pair is ever fabricated from a coincidental slug match.
-//
-// The x-default target is the global route serving both markets, which is NOT
-// always the regional slug: SEO & Content Marketing maps to the global SEO
-// route /services/seo-ai-search/, there being no /services/seo-content-marketing/.
-//
-// Deliberately absent, because no counterpart route exists and none is invented:
-//   /india/industries/fintech/  ·  /india/services/affiliate-marketing/
-//   /us/services/website-cro/
-const CHILD_HREFLANG_PAIRS = [
-  { india: "/india/industries/d2c-ecommerce/", us: "/us/industries/d2c-ecommerce/", global: "/industries/d2c-ecommerce/" },
-  { india: "/india/industries/saas/", us: "/us/industries/saas/", global: "/industries/saas/" },
-  { india: "/india/services/performance-marketing/", us: "/us/services/performance-marketing/", global: "/services/performance-marketing/" },
-  { india: "/india/services/seo-content-marketing/", us: "/us/services/seo-content-marketing/", global: "/services/seo-ai-search/" }
-];
-
-// Both members of a pair emit the SAME three-member cluster, because it is
-// derived from the pair rather than from the page asking for it.
-const childHreflang = path => {
-  const pair = CHILD_HREFLANG_PAIRS.find(p => p.india === path || p.us === path);
-  if (!pair) return null;
-  return [
-    { lang: "en-IN", href: site.base + pair.india },
-    { lang: "en-US", href: site.base + pair.us },
-    { lang: "x-default", href: site.base + pair.global }
-  ];
-};
+// Regional child hreflang now lives in content-regional.mjs, shared with the
+// global x-default targets so both sides of every annotation come from one
+// list. See CHILD_HREFLANG_PAIRS there for the allow-list and its exclusions.
 
 const page = (p, { bcItems, sections, hero: h, finalCta, proof = false, hreflang = null }) => {
   const bc = breadcrumbs(bcItems);
@@ -491,7 +463,7 @@ export function regionChildPage(pg) {
     hero: pg.hero,
     finalCta: pg.finalCta,
     proof: false,
-    hreflang: childHreflang(pg.path)
+    hreflang: childHreflang(site.base, pg.path)
   });
 }
 
