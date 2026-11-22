@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem("tilth-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
+<!-- Google tag (gtag.js) — consent-gated, deferred loader -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+window.__tilthGaId='G-1MJEZ4VK26';
+window.__tilthEnableGa=function(){if(window.__tilthGaStarted)return;window.__tilthGaStarted=true;
+gtag('consent','update',{analytics_storage:'granted'});gtag('js',new Date());gtag('config',window.__tilthGaId);
+var done=false;function load(){if(done)return;done=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+window.__tilthGaId;document.head.appendChild(s);}
+if(document.readyState==='complete'){setTimeout(load,0);}else{addEventListener('load',function(){setTimeout(load,0);});}
+['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,load,{once:true,passive:true});});};
+(function(){var c='unset';try{c=localStorage.getItem('tilth-analytics-consent')||'unset';}catch(e){}
+window.__tilthAnalyticsConsent=c;if(c==='granted')window.__tilthEnableGa();})();</script>
+<title>How to Build a Paid-Media Testing Budget | Tilth</title>
+<meta name="description" content="A testing budget is not a percentage of media spend. How to size it from the decision, your cost per outcome and your conversion volume - plus why budget split and traffic split are not the same thing.">
+<link rel="canonical" href="https://wearetilth.com/insights/paid-media-testing-budget/">
+
+<meta name="robots" content="index, follow">
+<meta property="og:site_name" content="Tilth">
+<meta name="twitter:site" content="@Anuja_tilth">
+<meta name="theme-color" content="#101310">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to build a paid-media testing budget">
+<meta property="og:description" content="Not a percentage of spend - the money you can deliberately risk to answer a decision that matters. A practical sizing framework.">
+<meta property="og:url" content="https://wearetilth.com/insights/paid-media-testing-budget/">
+<meta property="og:image" content="https://wearetilth.com/assets/insight-cards/paid-media-testing-budget.webp">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to build a paid-media testing budget">
+<meta name="twitter:description" content="Not a percentage of spend - the money you can deliberately risk to answer a decision that matters. A practical sizing framework.">
+<meta name="twitter:image" content="https://wearetilth.com/assets/insight-cards/paid-media-testing-budget.webp">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/syne-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chivo-variable.woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/brand-v3.css">
+<link rel="stylesheet" href="/assets/consent.css">
+<link rel="stylesheet" href="/assets/core-company.css">
+<link rel="stylesheet" href="/assets/insights.css">
+<script type="module" src="/insights-article.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://wearetilth.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://wearetilth.com/insights/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How to build a paid-media testing budget",
+          "item": "https://wearetilth.com/insights/paid-media-testing-budget/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "How to build a paid-media testing budget",
+      "description": "A testing budget is not a percentage of media spend. How to size it from the decision, your cost per outcome and your conversion volume - plus why budget split and traffic split are not the same thing.",
+      "image": "https://wearetilth.com/assets/insight-cards/paid-media-testing-budget.webp",
+      "datePublished": "2026-11-22",
+      "dateModified": "2026-11-22",
+      "inLanguage": "en-IN",
+      "url": "https://wearetilth.com/insights/paid-media-testing-budget/",
+      "mainEntityOfPage": "https://wearetilth.com/insights/paid-media-testing-budget/",
+      "articleSection": "Paid Ads",
+      "keywords": [
+        "paid media testing budget",
+        "ad testing budget",
+        "paid media experiments",
+        "marketing experiment budget",
+        "test budget allocation",
+        "Google Ads experiments",
+        "paid social testing",
+        "media budget allocation"
+      ],
+      "wordCount": 2640,
+      "author": {
+        "@type": "Person",
+        "name": "Anuja",
+        "jobTitle": "Founder",
+        "url": "https://wearetilth.com/about/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tilth",
+        "url": "https://wearetilth.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://wearetilth.com/favicon.svg"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What percentage of ad budget should go to testing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There isn't one, and the familiar 10 or 20 per cent rules are arbitrary. The right amount is set by what a decision-grade answer costs in your account &mdash; your CPA, your conversion volume, and how large a difference would actually change your behaviour. Two businesses on identical budgets can have completely different experimentation capacity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much should I spend on an ad test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Work backwards from the decision, not forwards from the budget. Establish your baseline cost per outcome, decide how large an improvement would be commercially meaningful, estimate roughly how many outcomes you would need before you would act, and multiply. Then check that against what the business can afford to lose if the test performs badly. If required learning spend exceeds affordable risk, the test isn't viable as designed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I split an experiment 50/50?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not automatically &mdash; and a traffic split and a budget split are different things. Google documents that certain Search, App and Display experiments support budget splits, dividing the total budget between arms, while Performance Max, Demand Gen and Video support traffic splits, dividing how many times ads enter the auction. Google also notes that under a traffic split spend may or may not be affected, since a change that unlocks additional value can cause an arm to spend more. An even traffic split does not guarantee even spend."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long should a paid-media test run?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Long enough to accumulate the outcomes your decision needs &mdash; a function of your volume, not a fixed calendar period. Platform guidance is scoped to the experiment type: Google's experiments FAQ for Shopping and Performance Max recommends at least four to six weeks, or longer with a long conversion delay, and waiting one to two conversion cycles. That's guidance for those experiment types, not a universal rule. Decide the duration in advance and write it down."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many conversions do I need before judging a test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No universal number exists, because it depends on how large a difference you're trying to detect and how noisy your results normally are. A test looking for a very large difference needs far fewer outcomes than one chasing a small one. The useful question isn't how many conversions you have, but whether what you can realistically accumulate is enough to distinguish the effect size that would change your decision. Google's guidance points the same way: to maximise experiment power, pick high-volume campaigns and run longer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should failed experiments count as wasted ad spend?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A test that answers its question has done its job, whichever way it lands. Learning that a channel, offer or audience doesn't work prevents a far more expensive commitment later. What is genuinely wasted is spend on a test that was never capable of producing a readable answer &mdash; that creates the appearance of evidence without the substance. The distinction worth drawing is conclusive versus inconclusive, not success versus failure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a small ad account run meaningful experiments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Often yes &mdash; but on different questions. A small account rarely has the volume to detect a modest difference between two similar options, so testing small refinements mostly produces noise. It can still answer large, structural questions where the expected difference is big: does this channel work at all, does this offer land, is this audience viable. Match the size of the question to the signal available."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many paid-media tests should run at once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fewer than most teams attempt, and the platforms say so directly. Google's experiments FAQ states that running several experiments at once isn't recommended, because they can interfere with each other and make results less reliable, and suggests running them one after another. Beyond the mechanics, every extra simultaneous test divides the same conversion volume into smaller pieces. Sequencing by expected value usually produces more learning per rupee."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="v3 v3-core v3-ins v3-article">
+<header class="v3-headwrap">
+  <div class="v3-head" data-v3-head>
+    <a href="/" class="v3-brandlink" aria-label="Tilth — home">
+      <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    </a>
+    <nav class="v3-navlinks" aria-label="Primary">
+      <a class="v3-navitem" href="/services/">Services</a>
+      <a class="v3-navitem" href="/industries/">Industries</a>
+      <a class="v3-navitem" href="/work/">Work</a>
+      <a class="v3-navitem" href="/approach/">Approach</a>
+      <a class="v3-navitem" href="/insights/" aria-current="true">Insights</a>
+      <a class="v3-navitem" href="/about/">About</a>
+    </nav>
+    <div class="v3-headright">
+      <span class="v3-depth" data-v3-depth aria-hidden="true">SURFACE</span>
+      <button class="v3-themebtn" data-v3-theme type="button" aria-pressed="false" aria-label="Switch between dark and light theme">
+        <span class="v3-theme-dot" aria-hidden="true"></span>
+      </button>
+      <a class="v3-navcta" href="/contact/">Discuss your growth</a>
+      <button class="v3-burger" data-v3-menu-open type="button" aria-expanded="false" aria-controls="v3-menu">MENU</button>
+    </div>
+  </div>
+</header>
+
+<div class="v3-menu" id="v3-menu" data-v3-menu hidden>
+  <div class="v3-menu__top">
+    <img class="v3-logo" data-v3-logo src="/assets/brand/logo-bone.png" alt="Tilth" width="72" height="21">
+    <button class="v3-menu__close" data-v3-menu-close type="button">CLOSE</button>
+  </div>
+  <div class="v3-menu__grid">
+    <nav class="v3-menu__links" aria-label="Menu">
+      <a href="/services/">Services</a>
+      <a href="/industries/">Industries</a>
+      <a href="/work/">Work</a>
+      <a href="/approach/">Approach</a>
+      <a href="/insights/">Insights</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="v3-menu__col">
+      <h2>SERVICES</h2>
+      <a href="/services/growth-strategy-measurement/">Growth Strategy &amp; Measurement</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/paid-media/">Paid Media</a>
+      <a href="/services/seo-ai-search/">SEO, Content &amp; AI Search</a>
+      <a href="/services/affiliate-partnerships/">Affiliate &amp; Partnership Marketing</a>
+      <a href="/services/website-design-development/">Website Design, Development &amp; CRO</a>
+      <a href="/services/brand-creative/">Brand Strategy &amp; Performance Creative</a>
+      <a href="/services/influencer-pr-events/">Influencer, PR &amp; Events</a>
+    </div>
+    <div class="v3-menu__col">
+      <h2>CONTACT</h2>
+      <a class="is-plain" href="mailto:anuja@wearetilth.com">anuja@wearetilth.com</a>
+      <a class="is-plain" href="tel:+918197303330">+91 81973 03330</a>
+    </div>
+  </div>
+  <a class="v3-menu__cta" href="/contact/">Discuss your growth <span aria-hidden="true">→</span></a>
+</div>
+<main id="main">
+
+<article data-article id="article" data-depth-label="SHALLOW">
+  <div data-acol>
+    <header data-ahead>
+      <nav data-crumb aria-label="Breadcrumb"><a href="/">Home</a> <span data-sep aria-hidden="true">/</span> <a href="/insights/">Insights</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">Paid Ads</span></nav>
+      <div data-postmeta data-meta><span data-pm-sec>Paid Ads</span><span data-dot aria-hidden="true">·</span><span>9 min read</span><span data-dot aria-hidden="true">·</span><span>22 Nov 2026</span></div>
+      <h1 data-ah1>How to build a paid-media testing budget</h1>
+      <p data-standfirst>A testing budget is not a percentage of media spend. It is the money you can deliberately risk to answer a decision that matters &mdash; and how much that is depends on your cost per outcome and your conversion volume, not on how large your budget is. Two businesses spending the same amount can have completely different capacity to learn.</p>
+      <div data-byline>
+        <img src="/anuja.jpg" alt="Anuja, Founder of Tilth, a marketing agency in Bengaluru" loading="lazy" decoding="async">
+        <div data-who><span>Anuja Founder, Tilth &middot; 10+ years in performance marketing</span></div>
+      </div>
+    </header>
+    <div data-prose>
+<p>Most media budgets get divided into two buckets: campaigns expected to perform, and everything else. The second bucket is usually sized by habit &mdash; ten per cent, twenty per cent, whatever a framework somewhere suggested.</p>
+    <p>That produces one of two failures. The testing budget is too small to answer anything, so it generates noise that gets read as evidence. Or it is large enough to hurt when it loses, so the team quietly intervenes halfway through and the test answers nothing anyway.</p>
+    <p>A testing budget is not a percentage of spend. <strong>It is the amount of money you can deliberately risk to answer a decision that matters.</strong> That number comes from your unit economics and your conversion volume, not from your budget size &mdash; which is why two businesses spending identical amounts can have completely different capacity to learn.</p>
+
+    <h2>Why percentage-based testing budgets are weak</h2>
+    <p>A percentage rule is indifferent to everything that actually determines whether a test can work. It does not know your cost per acquisition, how many outcomes you generate a month, how variable those outcomes are, or how big a difference would change your mind. It just takes a slice.</p>
+    <p>Ten per cent of a large budget in a high-volume account may fund three simultaneous experiments comfortably. Ten per cent of the same budget in an account with twenty conversions a month funds an experiment that cannot possibly produce a readable answer. The percentage is identical; the usefulness is not.</p>
+
+    <h2>The three kinds of media spend</h2>
+    <p>Before sizing anything, separate the money by how much uncertainty it carries. These deserve different risk tolerances, and collapsing them is how teams end up treating a new-channel bet like a creative refresh.</p>
+    <div data-tbl><table data-stack class="price-table">
+      <thead>
+        <tr><th>Bucket</th><th>What it funds</th><th>Risk profile</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-th="Bucket"><strong>Core</strong></td><td data-th="What it funds">Campaigns with enough evidence to justify continued investment</td><td data-th="Risk profile">Known. Protect it.</td></tr>
+        <tr><td data-th="Bucket"><strong>Iteration</strong></td><td data-th="What it funds">Improving a system that already works &mdash; new creative, landing-page variants, bidding changes, audience expansion, offer tweaks</td><td data-th="Risk profile">Lower. The acquisition engine underneath already functions.</td></tr>
+        <tr><td data-th="Bucket"><strong>Exploration</strong></td><td data-th="What it funds">Genuinely uncertain questions &mdash; new platform, new market, new audience, new offer, a different acquisition route, a major positioning shift</td><td data-th="Risk profile">High. A real chance of no immediate return.</td></tr>
+      </tbody>
+    </table><p class="price-note">Iteration and exploration are both "testing". They should not draw on the same risk budget or be held to the same payback expectation.</p></div>
+
+    <h2>Start with the decision, not the budget</h2>
+    <p>The question "how much should we spend on testing?" has no answer until you know what you are deciding. Work through these in order:</p>
+    <ol>
+      <li><strong>What are we deciding?</strong> Name the choice the result will settle.</li>
+      <li><strong>What result would change our behaviour?</strong> If no plausible outcome changes anything, stop here.</li>
+      <li><strong>How large would the improvement need to be to matter commercially?</strong> Two per cent, ten, twenty-five?</li>
+      <li><strong>How many business outcomes are realistically available</strong> in the test window?</li>
+      <li><strong>How much spend does that many outcomes require?</strong></li>
+      <li><strong>Can the business tolerate that spend if the test loses?</strong></li>
+      <li><strong>What is the opportunity cost</strong> of diverting it from core activity?</li>
+      <li><strong>What will we do if the result is inconclusive?</strong></li>
+    </ol>
+    <p>That last question is the one teams skip, and "inconclusive" is a perfectly valid outcome you should plan for. An underpowered experiment is often worse than no experiment, because it produces a number that looks like evidence and gets acted on.</p>
+
+    <h2>How much signal will the test need?</h2>
+    <p>You do not need a formal power calculation to make a sensible estimate. You need four things you already have: your cost per outcome, your conversion rate, your normal week-to-week variability, and the size of difference that would matter.</p>
+    <p>The logic is simply that smaller differences need more observations. A test asking "does this channel work at all" is looking for a large effect and needs comparatively few outcomes. A test asking "is this landing page three per cent better" is looking for an effect smaller than most accounts' natural noise, and needs far more.</p>
+    <p>So: if your expected cost per acquisition is &#8377;2,000 and a directional read needs materially more than a handful of outcomes, a &#8377;5,000 test budget will not answer much. That is arithmetic, not a benchmark &mdash; substitute your own numbers and the same reasoning applies.</p>
+    <p>Google's guidance points the same way, in its own terms: to maximise experiment power, pick campaigns with high volumes and run experiments for longer.</p>
+
+    <h2>The downside constraint</h2>
+    <p>Signal requirements tell you the floor. The downside tells you the ceiling.</p>
+    <p>Ask plainly: if the treatment underperforms badly for the whole test window, how much can the business lose without creating a commercial problem? Not an uncomfortable month &mdash; an actual problem. That figure is the true cap on the test, and it is usually lower than the number people pick when thinking only about learning.</p>
+    <p>It is also why exploration spend should be ring-fenced. Money you have mentally written off behaves differently from money you expect back, and teams interfere far less with a budget they have already accepted might produce nothing.</p>
+
+    <h2>Required learning spend vs affordable risk</h2>
+    <p>Now compare the two. If the spend required to learn exceeds the spend you can afford to risk, <strong>the test is not viable in its current form</strong>. That is a finding, not a failure, and the options are:</p>
+    <ul>
+      <li>Extend the test period so volume accumulates without raising daily exposure</li>
+      <li>Test a higher-frequency proxy outcome first, accepting it as directional</li>
+      <li>Narrow the scope to a bigger, coarser question</li>
+      <li>Aggregate similar markets or campaigns, where that is methodologically defensible</li>
+      <li>Wait until volume grows</li>
+      <li>Do not run the test, and make the decision another way</li>
+    </ul>
+    <p>The last option is legitimate and under-used. Some decisions are better made on judgement than on an experiment that cannot resolve them.</p>
+
+    <h2>Testing budget is not the same as traffic split</h2>
+    <p>A practical point that causes real confusion. Platforms can allocate test spend for you, but the two mechanisms are different and only one of them controls money.</p>
+    <p>Google documents that certain Search, App and Display experiments support a <strong>budget split</strong>, where the total budget is divided across arms &mdash; a 70-30 split puts 70% of budget on control. Performance Max, Demand Gen and Video instead support a <strong>traffic split</strong>, which divides how many times the ads enter the auction.</p>
+    <p>Those produce different outcomes. Google notes that where only a traffic split is available, it may or may not affect your budgets, because when a tested change unlocks additional value the arm may simply spend more. <strong>An even traffic split does not guarantee even spend.</strong> Google also notes the split cannot be changed once the experiment is set up, so a different allocation means a new experiment.</p>
+    <p>Meta's tooling works differently again: its creative tests run across two to seven cells with one ad per cell, and the test budget is defined by either a daily budget or a percentage of a lifetime budget. Meta is explicit that budget directly affects reach, and that large differences in reach between groups undermine comparability.</p>
+    <p>The common thread is that platform tooling can allocate the spend, but none of it decides whether the spend is commercially justified. That part is yours.</p>
+
+    <h2>Exploration vs validation</h2>
+    <div data-tbl><table data-stack class="price-table">
+      <thead>
+        <tr><th></th><th>Exploration</th><th>Validation</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-th="">Goal</td><td data-th="Exploration">Find promising directions</td><td data-th="Validation">Make a material allocation decision</td></tr>
+        <tr><td data-th="">Evidence standard</td><td data-th="Exploration">Directional; proxy metrics acceptable</td><td data-th="Validation">Enough business outcomes to act on</td></tr>
+        <tr><td data-th="">Budget</td><td data-th="Exploration">Smaller, faster screens</td><td data-th="Validation">Larger, with a real time commitment</td></tr>
+        <tr><td data-th="">Design</td><td data-th="Exploration">Looser</td><td data-th="Validation">Clean control and treatment</td></tr>
+        <tr><td data-th="">What it proves</td><td data-th="Exploration">Worth a closer look</td><td data-th="Validation">Worth reallocating money to</td></tr>
+      </tbody>
+    </table><p class="price-note">The failure mode is using exploratory evidence to justify a scale decision. A promising screen is a reason to run a validation test, not a reason to move the budget.</p></div>
+
+    <h2>Two businesses, one budget</h2>
+    <p>This is the clearest demonstration that budget size is the wrong input. Both spend &#8377;10 lakh a month.</p>
+    <div data-tbl><table data-stack class="price-table">
+      <thead>
+        <tr><th></th><th>Business A</th><th>Business B</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-th="">Cost per acquisition</td><td data-th="Business A">&#8377;500</td><td data-th="Business B">&#8377;20,000</td></tr>
+        <tr><td data-th="">Monthly conversions</td><td data-th="Business A">Around two thousand</td><td data-th="Business B">Twenty to thirty</td></tr>
+        <tr><td data-th="">Core stability</td><td data-th="Business A">Established, predictable</td><td data-th="Business B">Thin, lumpy month to month</td></tr>
+        <tr><td data-th="">Realistic testing capacity</td><td data-th="Business A">Several concurrent tests, including modest refinements</td><td data-th="Business B">One test at a time, on large structural questions only</td></tr>
+        <tr><td data-th="">Sensible cadence</td><td data-th="Business A">Weeks</td><td data-th="Business B">Quarters, or a proxy outcome instead</td></tr>
+      </tbody>
+    </table><p class="price-note">Illustrative figures. Identical media budgets, completely different experimentation capacity &mdash; because capacity comes from outcome volume, not spend.</p></div>
+    <p>Business B is not barred from learning. It has to learn differently: bigger questions, longer windows, proxy metrics earlier in the funnel, and more weight on judgement. Applying Business A's testing cadence to it would burn budget generating unreadable results.</p>
+
+    <h2>When not to run the test</h2>
+    <ul>
+      <li>Conversion volume is too low to detect the difference you care about</li>
+      <li>The baseline itself is unstable, so there is nothing to compare against</li>
+      <li>Tracking is unreliable &mdash; fix that first, or the test measures your tracking</li>
+      <li>Several major variables will change at once</li>
+      <li>The business cannot tolerate the likely downside</li>
+      <li>No plausible result would change a decision</li>
+      <li>The window overlaps an abnormal seasonal event you cannot control for</li>
+      <li>The team will intervene repeatedly while it runs</li>
+      <li>There is no agreed success metric before launch</li>
+      <li>The only reason for the experiment is that the platform suggested one</li>
+    </ul>
+
+    <h2>Prioritising a portfolio of tests</h2>
+    <p>Running everything at once is the default failure. It is also discouraged by the platforms: Google states that running several experiments simultaneously is not recommended, because they can interfere with each other and make results less reliable, and suggests running them sequentially instead. Every parallel test also splits the same conversion volume into smaller, noisier pieces.</p>
+    <p>Rank candidates on expected upside, decision importance, cost to test, signal availability, reversibility and implementation effort. A high-upside, cheap, fast, reversible test should go first almost every time. A low-signal, expensive, hard-to-reverse test needs a much higher evidence bar before it earns budget &mdash; and often deserves a cheap exploratory screen first.</p>
+
+    <h2>A simple operating model</h2>
+    <p>Keep one record per test. It does not need to be sophisticated; it needs to exist and be written before launch:</p>
+    <ul>
+      <li>Hypothesis, and the business decision it informs</li>
+      <li>Control and treatment</li>
+      <li>Primary metric, and the baseline for it</li>
+      <li>The smallest difference that would matter</li>
+      <li>Planned spend and duration &mdash; then actual spend and duration</li>
+      <li>Result, decision taken, and confidence or limitations</li>
+      <li>Next action</li>
+    </ul>
+    <p>The gap between planned and actual is the most useful column, because it exposes the tests nobody let finish. For creative specifically, this sits naturally alongside the learning record in our <a href="/insights/paid-social-creative-testing-framework/">creative testing framework</a>.</p>
+
+    <h2>Common mistakes</h2>
+    <ul>
+      <li><strong>Setting the budget as a percentage</strong> and discovering afterwards what it can answer.</li>
+      <li><strong>Treating iteration and exploration as one bucket</strong> with one payback expectation.</li>
+      <li><strong>Running tests that cannot change a decision</strong> whatever the result.</li>
+      <li><strong>Reading an underpowered result</strong> as a finding.</li>
+      <li><strong>Assuming an even traffic split</strong> means even spend.</li>
+      <li><strong>Intervening mid-test</strong> when the treatment looks bad early.</li>
+      <li><strong>Running many tests at once</strong> and dividing thin volume further.</li>
+      <li><strong>Scaling on exploratory evidence</strong> before validating it.</li>
+      <li><strong>Calling an inconclusive test a failure</strong>, and the spend wasted.</li>
+    </ul>
+
+    <h2>The recommendation</h2>
+    <p>Stop setting the testing budget first. Decide what you need to know, work out what a readable answer costs in your account, and check that against what you can afford to lose. If those two numbers do not meet, change the question rather than running the test anyway.</p>
+    <p>Protect the core, hold iteration and exploration to different standards, run fewer tests at a time than feels ambitious, and write down what you expected before you find out. Over a year that produces more usable learning than any percentage rule, and it costs less.</p>
+    <p>Where the question is whether the spend is profitable rather than whether it is better, that is a <a href="/insights/break-even-roas/">break-even</a> calculation; where it is whether the spend caused anything at all, that needs <a href="/insights/geo-holdout-test-marketing/">an incrementality test</a>. And if you are starting from nothing, the <a href="/insights/first-90-days-new-ad-account/">first 90 days</a> have their own sequence. If you want this structured properly against your own numbers, that is <a href="/services/paid-media/">paid media</a> and <a href="/services/growth-strategy-measurement/">measurement</a> work.</p>
+    </div>
+      <section data-afaq aria-labelledby="faq-h">
+        <h2 id="faq-h">Paid-media testing budgets &mdash; FAQs</h2>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b0" aria-controls="faq-p0" aria-expanded="true"><span>What percentage of ad budget should go to testing?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p0" role="region" aria-labelledby="faq-b0"><div><p>There isn't one, and the familiar 10 or 20 per cent rules are arbitrary. The right amount is set by what a decision-grade answer costs <em>in your account</em> &mdash; your CPA, your conversion volume, and how large a difference would actually change your behaviour. Two businesses on identical budgets can have completely different experimentation capacity.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b1" aria-controls="faq-p1" aria-expanded="false"><span>How much should I spend on an ad test?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p>Work backwards from the decision, not forwards from the budget. Establish your baseline cost per outcome, decide how large an improvement would be commercially meaningful, estimate roughly how many outcomes you would need before you would act, and multiply. Then check that against what the business can afford to lose if the test performs badly. If required learning spend exceeds affordable risk, the test isn't viable as designed.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b2" aria-controls="faq-p2" aria-expanded="false"><span>Should I split an experiment 50/50?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p>Not automatically &mdash; and a traffic split and a budget split are different things. Google documents that certain Search, App and Display experiments support <strong>budget splits</strong>, dividing the total budget between arms, while Performance Max, Demand Gen and Video support <strong>traffic splits</strong>, dividing how many times ads enter the auction. Google also notes that under a traffic split spend may or may not be affected, since a change that unlocks additional value can cause an arm to spend more. An even traffic split does not guarantee even spend.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b3" aria-controls="faq-p3" aria-expanded="false"><span>How long should a paid-media test run?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p>Long enough to accumulate the outcomes your decision needs &mdash; a function of your volume, not a fixed calendar period. Platform guidance is scoped to the experiment type: Google's experiments FAQ for Shopping and Performance Max recommends at least four to six weeks, or longer with a long conversion delay, and waiting one to two conversion cycles. That's guidance for those experiment types, not a universal rule. Decide the duration in advance and write it down.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b4" aria-controls="faq-p4" aria-expanded="false"><span>How many conversions do I need before judging a test?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p>No universal number exists, because it depends on how large a difference you're trying to detect and how noisy your results normally are. A test looking for a very large difference needs far fewer outcomes than one chasing a small one. The useful question isn't how many conversions you have, but whether what you can realistically accumulate is enough to distinguish the effect size that would change your decision. Google's guidance points the same way: to maximise experiment power, pick high-volume campaigns and run longer.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b5" aria-controls="faq-p5" aria-expanded="false"><span>Should failed experiments count as wasted ad spend?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p5" role="region" aria-labelledby="faq-b5"><div><p>A test that answers its question has done its job, whichever way it lands. Learning that a channel, offer or audience doesn't work prevents a far more expensive commitment later. What is genuinely wasted is spend on a test that was never capable of producing a readable answer &mdash; that creates the appearance of evidence without the substance. The distinction worth drawing is conclusive versus inconclusive, not success versus failure.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b6" aria-controls="faq-p6" aria-expanded="false"><span>Can a small ad account run meaningful experiments?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p6" role="region" aria-labelledby="faq-b6"><div><p>Often yes &mdash; but on different questions. A small account rarely has the volume to detect a modest difference between two similar options, so testing small refinements mostly produces noise. It can still answer large, structural questions where the expected difference is big: does this channel work at all, does this offer land, is this audience viable. Match the size of the question to the signal available.</p></div></div>
+        </div>
+        <div data-faq-item>
+          <h3><button type="button" data-faq-btn id="faq-b7" aria-controls="faq-p7" aria-expanded="false"><span>How many paid-media tests should run at once?</span><span data-faq-ic aria-hidden="true">+</span></button></h3>
+          <div data-faq-ans id="faq-p7" role="region" aria-labelledby="faq-b7"><div><p>Fewer than most teams attempt, and the platforms say so directly. Google's experiments FAQ states that running several experiments at once isn't recommended, because they can interfere with each other and make results less reliable, and suggests running them one after another. Beyond the mechanics, every extra simultaneous test divides the same conversion volume into smaller pieces. Sequencing by expected value usually produces more learning per rupee.</p></div></div>
+        </div>
+      </section>
+    <div data-bio>
+      <img src="/anuja.jpg" alt="Anuja, Founder of Tilth" loading="lazy" decoding="async">
+      <p><strong>Anuja</strong> is the founder of <a href="/marketing-agency-bengaluru/">Tilth, a foundation-first marketing agency in Bengaluru</a>. She has 10+ years of hands-on growth experience across 10+ industries, helping brands spend on marketing they can actually measure. <a href="/about/">Read her story &rarr;</a></p>
+    </div>
+    <aside data-acta aria-labelledby="acta-h">
+      <div data-eyebrow>Next step</div>
+      <h2 id="acta-h">Want your testing budget sized properly?</h2>
+      <p>A Foundation Audit works out what a decision-grade answer actually costs in your account, what you can afford to risk, and which tests are worth running this quarter. No pitch attached.</p>
+      <a data-btn href="/contact/"><span>Discuss your growth project</span> <span aria-hidden="true">&rarr;</span></a>
+    </aside>
+  </div>
+</article>
+
+</main>
+<footer class="v3-foot">
+  <h2 class="v3-foot__k">WORKING ACROSS TIME ZONES</h2>
+  <div class="v3-clocks">
+    <div class="v3-clock" data-v3-clock="Asia/Kolkata">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>BENGALURU</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Asia/Dubai">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>DUBAI</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="Europe/London">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>LONDON</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+    <div class="v3-clock" data-v3-clock="America/New_York">
+      <span class="v3-clock__city"><span class="v3-clock__dot" aria-hidden="true"></span>NEW YORK</span>
+      <span class="v3-clock__t" data-time>—<span class="v3-clock__suffix"></span></span>
+    </div>
+  </div>
+  <!-- Register G-2: /terms/ and /cookie-policy/ join /privacy/ in COMPANY so all
+       three legal documents are crawlable from every v3 page. The legacy footer
+       already linked all three, so without this the two non-privacy documents
+       lost an inbound link on every page that migrated to v3. -->
+  <div class="v3-footgrid">
+    <div class="v3-footcol"><h2>EXPLORE</h2><a href="/services/">Services</a><a href="/approach/">Approach</a><a href="/insights/">Insights</a><a href="/tools/">Tools</a></div>
+    <div class="v3-footcol"><h2>COMPANY</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/work/">Work</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms of Service</a><a href="/cookie-policy/">Cookie Policy</a><a href="/cookie-policy/" data-tilth-consent-open>Cookie settings</a></div>
+    <div class="v3-footcol"><h2>ELSEWHERE</h2><a href="https://www.linkedin.com/company/tilth-in/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/tilth.in/" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Anuja_tilth" target="_blank" rel="noopener">X / Twitter</a></div>
+    <div class="v3-footcol"><h2>WHERE</h2><span>Bengaluru, India</span><span>Working across India and the US</span></div>
+  </div>
+  <div class="v3-wordmarkwrap">
+    <div class="v3-wordmark" data-v3-wordmark>
+      <img data-v3-logo-big src="/assets/brand/logo-bone.png" alt="" width="600" height="150">
+      <div class="v3-wm-veil" data-v3-wm-veil aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+  <div class="v3-footbottom"><span>© 2026 TILTH</span><span>DEPTH BEFORE GROWTH</span></div>
+</footer>
+<script src="/brand-v3.js" defer></script>
+<script src="/analytics.js" defer></script>
+<script src="/consent.js" defer></script>
+</body>
+</html>

@@ -94,6 +94,7 @@ CARDS = {
     "fintech-marketing-compliance-india":         (["Compliance and", "fintech growth"], "DEEP"),
     "geo-holdout-test-marketing":                 (["Geo holdout", "testing"], "DEEP"),
     "server-side-tracking-worth-it":              (["Server-side", "tracking"], "DEEP"),
+    "paid-media-testing-budget":                  (["Testing", "budget"], "MID"),
     "paid-social-creative-testing-framework":      (["Creative testing", "paid social"], "MID"),
     "first-90-days-new-ad-account":               (["First 90 days", "new ad account"], "FOUNDATION"),
     "first-marketing-hire-startup":               (["Your first", "marketing hire"], "SHALLOW"),
