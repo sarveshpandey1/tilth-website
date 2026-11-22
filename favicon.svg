@@ -1,7 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="10" fill="#F4EFE6"/>
-  <ellipse cx="32" cy="33" rx="22" ry="26" fill="none" stroke="#2C4A3A" stroke-width="3.5"/>
-  <rect x="20" y="20" width="24" height="6" rx="1.5" fill="#2C4A3A"/>
-  <rect x="29" y="26" width="6" height="16" rx="1" fill="#2C4A3A"/>
-  <circle cx="32" cy="46" r="3.5" fill="#C57A5C"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Tilth">
+  <path d="M9.05 4.48L54.95 4.48L55.16 4.69L56.18 16.19L56.08 17.32L55.05 17.11L53.92 13.52L52.38 11.05L50.53 9.20L47.97 7.66L44.48 6.74L39.55 6.53L36.88 6.94L35.95 7.77L35.65 8.48L35.54 49.87L35.75 52.13L36.36 54.49L37.80 56.44L38.83 57.16L40.57 57.88L43.76 58.39L43.96 59.21L43.76 59.42L35.54 59.42L34.82 59.11L34.11 57.98L33.69 56.54L32.36 47.30L31.64 46.99L31.23 47.71L30.10 55.93L29.07 58.80L28.05 59.42L19.93 59.31L19.83 58.60L20.04 58.39L23.01 57.88L25.58 56.64L26.92 55.21L27.94 52.13L28.25 48.12L28.25 10.54L28.05 8.48L27.64 7.56L27.02 7.05L24.25 6.53L19.42 6.74L16.03 7.66L13.88 8.90L12.03 10.54L9.87 13.82L8.84 17.11L7.92 17.32L7.71 16.49L8.95 4.58Z" fill="#BEF54F" stroke="#101310" stroke-width="3.84" stroke-linejoin="round" stroke-linecap="round" paint-order="stroke"/>
 </svg>
