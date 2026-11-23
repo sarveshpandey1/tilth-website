@@ -20,13 +20,57 @@
 // Prototype-only code is not ported: the .dc runtime, the review controls and
 // the display-fit safeguard (the ladder in core-company.css is authored to fit
 // and measured at all 12 widths, as in the Industries family).
-import { caseStudies, brandExperience, brandExperienceLabel, homeV3 } from "../data.mjs";
+import { caseStudies, brandExperience, brandExperienceLabel, homeV3, services } from "../data.mjs";
 import { breadcrumbs, esc } from "../render.mjs";
 
 const path = "/work/";
 const bc = breadcrumbs([{ name: "Home", path: "/" }, { name: "Work", path }]);
 
 const num = i => String(i + 1).padStart(2, "0");
+
+// Underline treatment for a link inside body copy.
+//
+// --line2, NOT --ichip. Other templates underline with --ichip, but every one
+// of those links sits inside a [data-inv] section, where --ichip is the dark
+// ink intended for a light surface. Both links here are on non-inverted
+// (dark) sections, where --ichip resolves to rgba(16,19,16,.22) and is
+// invisible -- verified in the browser. --line2 is the token the page's own
+// [data-textlink] underline uses, and it flips correctly with the theme.
+const LINK = `style="border-bottom:1px solid var(--line2);padding-bottom:1px"`;
+
+// servicesInvolved[] stores service NAMES; services[] is the source of truth
+// for name -> route. Built from that array rather than from slug guessing, so
+// a renamed service cannot silently produce a dead link: a name with no exact
+// match simply renders as text, exactly as it does today.
+const SERVICE_HREF = new Map(services.filter(s => s.slug && s.name).map(s => [s.name, `/services/${s.slug}/`]));
+const serviceLink = name => {
+  const href = SERVICE_HREF.get(name);
+  return href ? `<a href="${href}" ${LINK}>${esc(name)}</a>` : esc(name);
+};
+
+// Related reading, keyed on the record slug. An explicit reviewed map, never
+// inferred from industry or keyword overlap: each article was checked against
+// what that engagement actually involved, and a record with no genuinely
+// relevant article would simply carry none. Anchor text is each article's own
+// H1, shortened -- nothing here characterises the engagement beyond what the
+// approved record already states.
+const RELATED_READING = {
+  // Tracking and conversion events rebuilt, then scaled against verified return.
+  "edtech-paid-media": [
+    ["/insights/ga4-conversion-tracking/", "GA4 conversion tracking: the setup checklist before you scale ads"],
+    ["/insights/break-even-roas/", "Break-even ROAS: the ROAS your ads actually need"]
+  ],
+  // Partner validation, commercial model and tracking, built ground up.
+  "crypto-affiliate": [
+    ["/insights/affiliate-program-not-converting/", "Why your affiliate program isn't driving revenue"],
+    ["/insights/marketing-attribution-explained-simply/", "Marketing attribution, explained simply"]
+  ],
+  // Paid acquisition across Google Ads and Meta for a US product.
+  "demi-ai": [
+    ["/insights/google-ads-vs-meta-ads-startup/", "Google Ads vs Meta Ads: which should a startup start with?"],
+    ["/insights/first-90-days-new-ad-account/", "What to do in the first 90 days of a new ad account"]
+  ]
+};
 
 // Approved anonymous records only. The tilde takes the shared [data-approx]
 // treatment so "~0%" reads as an approximation in Chivo rather than as Syne's
@@ -45,7 +89,8 @@ const plates = records.map((c, i) => `
           <li>${approx(m)}</li>`).join("")}
         </ul>
         <p data-psum>${esc(c.summary)}</p>
-        ${(c.servicesInvolved || []).length ? `<p data-pservices style="margin:16px 0 0;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.12em;line-height:1.6;color:var(--stone)"><em>Services involved: ${c.servicesInvolved.map(esc).join(" · ")}</em></p>` : ""}
+        ${(c.servicesInvolved || []).length ? `<p data-pservices style="margin:16px 0 0;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.12em;line-height:1.6;color:var(--stone)"><em>Services involved: ${c.servicesInvolved.map(serviceLink).join(" · ")}</em></p>` : ""}
+        ${(RELATED_READING[c.slug] || []).length ? `<p data-pread style="margin:10px 0 0;font-size:14px;line-height:1.65;color:var(--stone)">Related reading: ${RELATED_READING[c.slug].map(([href, label]) => `<a href="${href}" ${LINK}>${esc(label)}</a>`).join(" · ")}</p>` : ""}
       </article>`).join("");
 
 // Text-only markers, one name per ruled line — never logos, and never an
@@ -67,7 +112,7 @@ const main = `
   <nav data-crumb aria-label="Breadcrumb"><a href="/">HOME</a> <span data-sep aria-hidden="true">/</span> <span aria-current="page">WORK</span></nav>
   <div data-eyebrow>Work</div>
   <h1 data-h1>Proof, not <em>promises</em>.</h1>
-  <p data-lede>Outcomes first, and the experience behind them. Results are anonymised to respect client confidentiality, unless a brand has agreed to be named.</p>
+  <p data-lede>Outcomes first, and the experience behind them — <a href="/services/performance-marketing/" ${LINK}>paid acquisition</a>, <a href="/services/growth-strategy-measurement/" ${LINK}>measurement</a> and <a href="/services/affiliate-partnerships/" ${LINK}>partner programs</a>, across India and the US. Results are anonymised to respect client confidentiality, unless a brand has agreed to be named.</p>
   <div data-actions>
     <a data-btn href="/contact/">Discuss your growth project <span aria-hidden="true">&rarr;</span></a>
     <a data-textlink href="/services/"><span>Explore services &rarr;</span></a>
@@ -98,7 +143,7 @@ ${records.length ? `
       <div data-eyebrow>Result snapshots</div>
       <h2 id="cs-h" data-h2>Outcomes from real engagements.</h2>
     </div>
-    <p data-body>Selected experience from our founder and core team. Figures as achieved; anonymised unless named with permission.</p>
+    <p data-body>Selected experience from our founder and core team. Figures as achieved; anonymised unless named with permission. The method behind them is set out in <a href="/approach/" ${LINK}>our approach</a>.</p>
   </div>
   <div data-plates>${plates}
   </div>
@@ -112,7 +157,7 @@ ${records.length ? `
       <p data-cta-p>Start with a conversation. We'll look at where growth is getting stuck and whether there's a clear next step.</p>
       <div data-cta-actions>
         <a data-btn href="/contact/">Discuss your growth project <span aria-hidden="true">&rarr;</span></a>
-        <a data-textlink href="/contact/"><span>Explore services &rarr;</span></a>
+        <a data-textlink href="/services/"><span>Explore services &rarr;</span></a>
       </div>
     </div>
   </div>
@@ -125,7 +170,11 @@ export default {
   shellClass: "v3-core v3-work",
   headExtra: `<link rel="stylesheet" href="/assets/core-company.css">`,
   title: "Our Work — Growth Marketing Results | Tilth",
-  description: "Selected growth marketing engagements and anonymous result snapshots — outcomes over vanity metrics. Named case studies added as clients approve.",
+  // "Named case studies added as clients approve" was written before any named
+  // record existed; the Demi.ai record is published and named, so that sentence
+  // is now inaccurate. Replaced with the confidentiality position the page
+  // itself states. Intent and length are unchanged; the title is untouched.
+  description: "Selected growth marketing engagements and result snapshots — outcomes over vanity metrics. Anonymised unless a brand has agreed to be named.",
   ogTitle: "Our work — proof, not promises",
   ogDescription: "Anonymous result snapshots and selected experience across ambitious brands.",
   schema: [bc.schema],
