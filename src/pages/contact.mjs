@@ -22,7 +22,7 @@
 // and — explicitly — the review submit guard. The prototype intercepts a valid
 // submit outside wearetilth.com so a design review never sends a real enquiry;
 // production must post as authored, so that guard stays out.
-import { site, brandExperience, brandExperienceLabel } from "../data.mjs";
+import { site, brandExperiencePublic, brandExperienceLabel } from "../data.mjs";
 import { breadcrumbs, esc, orgSchema } from "../render.mjs";
 
 const path = "/contact/";
@@ -50,7 +50,7 @@ const budgets = ["Not sure yet", "Under ₹10L / ~US$12K", "₹10L–₹25L / ~U
 // their name on this page. Derived here, and the block is omitted when empty.
 // Canonical founder brand-experience list (content pack §3) — brands our
 // founder has worked with, not Tilth clients.
-const approvedClients = brandExperience;
+const approvedClients = brandExperiencePublic;
 
 // ONE ENTITY, ONE SHAPE (register C-6, reconciled in Phase 8).
 // This route used to publish a reduced node under the SAME @id as the

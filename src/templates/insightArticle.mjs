@@ -47,6 +47,7 @@
 // ART_HTML data block and the review title observer.
 import { insightArticles } from "../insights-content.mjs";
 import { esc } from "../render.mjs";
+import { founderPortraitPublic } from "../data.mjs";
 
 const HEAD_EXTRA = `<link rel="stylesheet" href="/assets/core-company.css">
 <link rel="stylesheet" href="/assets/insights.css">
@@ -99,16 +100,16 @@ function articleMain(a) {
       <div data-postmeta data-meta><span data-pm-sec>${esc(a.section)}</span><span data-dot aria-hidden="true">·</span><span>${esc(a.readTime)}</span><span data-dot aria-hidden="true">·</span><span>${esc(a.date)}</span></div>
       <h1 data-ah1>${a.h1}</h1>
       <p data-standfirst>${a.standfirst}</p>
-      <div data-byline>
-        ${a.bylineImg}
+      <div data-byline>${founderPortraitPublic ? `
+        ${a.bylineImg}` : ""}
         <div data-who><span>${a.bylineWho}</span></div>
       </div>
     </header>
     <div data-prose>
 ${a.bodyHtml}
     </div>${faqBlock(a)}
-    <div data-bio>
-      ${a.bio.img}
+    <div data-bio${founderPortraitPublic ? "" : " data-noportrait"}>${founderPortraitPublic ? `
+      ${a.bio.img}` : ""}
       <p>${a.bio.html}</p>
     </div>
     <aside data-acta aria-labelledby="acta-h">

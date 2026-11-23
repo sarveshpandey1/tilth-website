@@ -69,7 +69,7 @@
 // so the eight [data-fit] hooks are dropped as they were in Core Company and
 // Insights.
 import { esc } from "../render.mjs";
-import { site, proofFor } from "../data.mjs";
+import { site, proofFor, founderPortraitPublic } from "../data.mjs";
 
 const path = "/marketing-agency-bengaluru/";
 const url = site.base + path;
@@ -227,8 +227,8 @@ const main = `
 <section id="experience" data-sec data-bl-flush data-depth-label="DEEP" aria-labelledby="exp-h">
   <h2 id="exp-h" data-h2>Experience from the founder and core team.</h2>
   <div data-bl-exp>
-    <div data-bl-founder id="founder">
-      <figure><img src="/anuja.jpg" alt="Anuja, Founder of Tilth" width="560" height="700" loading="lazy" decoding="async"><figcaption>Anuja — Founder, Tilth</figcaption></figure>
+    <div data-bl-founder${founderPortraitPublic ? "" : " data-noportrait"} id="founder">${founderPortraitPublic ? `
+      <figure><img src="/anuja.jpg" alt="Anuja, Founder of Tilth" width="560" height="700" loading="lazy" decoding="async"><figcaption>Anuja — Founder, Tilth</figcaption></figure>` : ""}
       <div>
         <h3>Founder</h3>
         <p data-bl-p>${FOUNDER_BIO}</p>

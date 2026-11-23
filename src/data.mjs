@@ -35,9 +35,9 @@ export const site = {
 // confirmed casing. No durations in the strip.
 export const brandExperienceLabel = "Selected brands our founder has worked with";
 export const brandExperience = [
-  { name: "Pi42", logo: null },
-  { name: "Shark Exchange", logo: null },
-  { name: "GammaFloww", logo: null },
+  { name: "Pi42", logo: null, public: false },
+  { name: "Shark Exchange", logo: null, public: false },
+  { name: "GammaFloww", logo: null, public: false },
   { name: "Demi.ai", logo: null },
   { name: "Density Exchange", logo: null },
   { name: "CareerLabs", logo: null },
@@ -46,6 +46,25 @@ export const brandExperience = [
   { name: "Page 3", logo: null },
   { name: "PayDirect", logo: null }
 ];
+
+// The single public-visibility gate for the list above. `public: false`
+// hides a name from every rendered surface without deleting, renaming or
+// reordering the record -- the canonical list stays complete for internal
+// reference and for restoration. To publish a hidden brand again, drop its
+// `public: false` and rebuild. Home, Work and Contact all read this derived
+// list, so no page filters independently.
+export const brandExperiencePublic = brandExperience.filter(b => b.public !== false);
+
+// Public visibility of the founder portrait.
+//
+// The image file stays in the repository and team[].photo below is
+// unchanged; this flag alone decides whether the face is rendered anywhere
+// or shipped in the Pages artifact. Set it to true and rebuild to restore
+// the portrait everywhere at once.
+//
+// Her name, title, biography, founder-led positioning and Person schema are
+// deliberately unaffected -- this hides a photograph, not an identity.
+export const founderPortraitPublic = false;
 
 // Services (Brief §23). prominence: "featured" gets visual weight; "standard" is secondary.
 export const services = [
