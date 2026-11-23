@@ -1,0 +1,111 @@
+name: Deploy site to GitHub Pages
+
+# Publishes the site from an artifact containing only production files.
+#
+# Legacy branch publishing served the repository root verbatim, so every
+# tracked file -- src/, build.mjs, package manifests, repo configuration --
+# was also a public 200 on wearetilth.com. This workflow publishes a filtered
+# copy instead.
+#
+# The site build does NOT run here. Generated HTML stays committed to the
+# repository and is reviewed in the PR that changes it; this workflow ships
+# exactly those reviewed bytes. That also keeps rollback trivial: main still
+# holds the complete built site and the CNAME file, so re-selecting
+# "Deploy from a branch" in Settings restores the previous behaviour.
+#
+# Note: with a custom Actions workflow GitHub ignores the repository CNAME
+# file and the custom domain is held in Settings -> Pages, so CNAME is
+# excluded from the artifact but deliberately kept in the repository as the
+# rollback carrier.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # `git archive HEAD` is the committed tree exactly -- no untracked or
+      # ignored files, no .git, and byte-identical to what was reviewed.
+      #
+      # core.autocrlf/core.eol are pinned explicitly because `git archive`
+      # honours them: with autocrlf=true it rewrites every text file to CRLF.
+      # Linux runners default to false, so this is belt-and-braces rather than
+      # a live bug -- but without it the bytes served would depend on runner
+      # configuration, and the whole point of this workflow is that the
+      # deployed bytes are the reviewed bytes.
+      - name: Copy the committed tree into _site
+        run: |
+          set -euo pipefail
+          rm -rf _site
+          mkdir _site
+          git -c core.autocrlf=false -c core.eol=lf archive HEAD | tar -x -C _site
+          echo "copied $(find _site -type f | wc -l) files"
+
+      # Exclude-list, never an allow-list: this step can only drop what it
+      # names, so a file the site needs cannot be silently omitted.
+      - name: Remove non-production files from _site
+        run: |
+          set -euo pipefail
+
+          # build inputs and CI
+          rm -rf _site/src _site/.github
+          rm -f  _site/build.mjs _site/package.json _site/package-lock.json
+
+          # repository configuration (CNAME is ignored in this publishing mode)
+          rm -f  _site/.gitignore _site/.gitattributes _site/vercel.json _site/CNAME
+
+          # documentation that stays tracked for the workflow / repo
+          rm -f  _site/CLAUDE.md _site/ACCESSIBILITY_REPORT.md _site/tools/README.md
+
+          # tools/ holds both the published calculators and a Node sub-project.
+          # Remove only the Node-only files. tools/lib/{analytics,benchmarks,
+          # calc,format,registry}.js are loaded by the BROWSER at runtime and
+          # must remain -- never exclude tools/lib wholesale.
+          rm -f  _site/tools/package.json \
+                 _site/tools/package-lock.json \
+                 _site/tools/lib/package.json \
+                 _site/tools/generate-insight-cards.py \
+                 _site/tools/run-insight-card-generator.cjs \
+                 _site/tools/requirements-insight-cards.txt
+          rm -f  _site/tools/lib/*.test.js
+
+          # local-only artefact; gitignored, so absent from `git archive`
+          rm -f  _site/index.original.html
+
+          # Jekyll does not run for a custom workflow, but this costs one empty
+          # file and removes the question.
+          touch _site/.nojekyll
+
+          echo "artifact now has $(find _site -type f | wc -l) files"
+
+      # Fails the deploy if the artifact is incomplete or leaks source files.
+      - name: Assert the publish directory
+        run: node .github/scripts/assert-publish-dir.mjs _site
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
