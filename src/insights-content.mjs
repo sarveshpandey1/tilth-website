@@ -3309,7 +3309,7 @@ export const insightArticles = [
     <h2>5. Do you have one source of truth, and do you know its limits?</h2>
     <p>Every platform claims credit under its own attribution settings, which is why summing platform-reported revenue routinely exceeds what the business actually took. Pick one source for decisions — usually your order system, segmented by channel as well as you can — and treat platform numbers as directional signals about delivery rather than as accounting.</p>
     <p>Then hold the whole picture with a blended view: total marketing spend against total new-customer contribution, often tracked as MER. Blended cannot tell you which channel to cut, and channel-level cannot tell you whether the overall machine is profitable. You need both, and you need to know which question you are asking.</p>
-    <p>Be careful with incrementality. Channel reports measure attributed conversions, not caused ones, and some share of what retargeting and brand search report would have happened anyway. The honest way to find out is a holdout or a deliberate spend change observed over a full purchase cycle — not a dashboard comparison, and not a model you cannot audit.</p>
+    <p>Be careful with incrementality. Channel reports measure attributed conversions, not caused ones, and some share of what retargeting and brand search report would have happened anyway. The honest way to find out is <a href="/insights/geo-holdout-test-marketing/">a holdout or a deliberate spend change</a> observed over a full purchase cycle — not a dashboard comparison, and not a model you cannot audit.</p>
 
     <h2>6. Do you know your payback window?</h2>
     <p>Profitable and affordable are different tests. A customer who repays acquisition cost over nine months may be a good investment and still break a business that needs the cash in two. Decide the payback period your cash flow can carry, measure against it, and treat it as a constraint on growth rate rather than a detail.</p>
@@ -4059,7 +4059,7 @@ export const insightArticles = [
     </table><p class="price-note">A decision aid, not a scorecard. Two or three strong signals in one column usually settle it.</p></div>
 
     <h2>The creative capacity question nobody asks early enough</h2>
-    <p>This factor decides the outcome more often than any other and almost never gets discussed before launch. On Search, your ad is text against a known query and a campaign can run for weeks on the same assets. On Meta, creative fatigue is the normal state of affairs: performance decays, and new creative is how you recover it. If nobody on your team can produce new concepts every few weeks, Meta will look like a platform problem when it's a production problem. Be honest about that capacity before choosing. Matching channel choice to what a team can actually sustain is most of what sensible <a href="/services/performance-marketing/">performance marketing</a> planning involves.</p>
+    <p>This factor decides the outcome more often than any other and almost never gets discussed before launch. On Search, your ad is text against a known query and a campaign can run for weeks on the same assets. On Meta, <a href="/insights/paid-social-creative-testing-framework/">creative fatigue is the normal state of affairs</a>: performance decays, and new creative is how you recover it. If nobody on your team can produce new concepts every few weeks, Meta will look like a platform problem when it's a production problem. Be honest about that capacity before choosing. Matching channel choice to what a team can actually sustain is most of what sensible <a href="/services/performance-marketing/">performance marketing</a> planning involves.</p>
 
     <h2>Why splitting a small budget usually fails</h2>
     <p>A mature programme runs both: search to capture demand, Meta to build and re-engage the audiences that create it. But the maths of starting with both is unkind. Splitting a constrained test budget across two platforms often leaves neither with enough volume to answer the question you launched it to answer. Google does recommend at least 30 conversions when evaluating Smart Bidding performance, but that's a platform benchmark for judging a bidding strategy, not a universal campaign minimum — work out the evidence your own objective, sales cycle and conversion value actually require, then check whether half the budget can buy it. Usually it can't, and you've paid for two shrugs instead of one answer. Proving one channel cleanly, then funding the second properly, gets you to a two-channel programme faster than starting there.</p>
@@ -4286,7 +4286,7 @@ export const insightArticles = [
     <ol>
       <li><strong>What's inside the fee and what's billed separately?</strong> Media, tools, creative, landing pages, tracking.</li>
       <li><strong>Who does the work, and how much of their month do I get?</strong> Named people and rough hours, not titles.</li>
-      <li><strong>What happens in month one?</strong> A credible answer audits and fixes measurement before scaling spend. "We'll launch campaigns in week one" is a warning, not a feature.</li>
+      <li><strong>What happens in month one?</strong> A credible answer <a href="/insights/first-90-days-new-ad-account/">audits and fixes measurement before scaling spend</a>. "We'll launch campaigns in week one" is a warning, not a feature.</li>
       <li><strong>What are we measuring, and in whose system?</strong> If the agency's dashboard is the only scoreboard, you don't have one.</li>
       <li><strong>What's the exit?</strong> Notice period, and who owns the accounts, pixels, tags and creative files afterwards. In writing.</li>
     </ol>
@@ -4831,7 +4831,7 @@ export const insightArticles = [
     <p>This is the audit we run at Tilth, and it's deliberately unglamorous. It checks the plumbing. Below is what a real marketing foundation audit reviews, in the order that matters.</p>
 
     <h2>1. Measurement — is the data even true?</h2>
-    <p>Everything downstream depends on this. The audit confirms conversions actually fire, on the right pages, for the right actions: <a href="/insights/ga4-conversion-tracking/">GA4 events</a>, the Meta pixel and Conversions API, server-side where it applies, and deduplication between browser and server. Then the unglamorous checks — is a "conversion" defined as the thing you actually sell, do purchase events carry real value and currency, and does platform-reported revenue reconcile against your backend? If tracking is wrong, every report after it is fiction.</p>
+    <p>Everything downstream depends on this. The audit confirms conversions actually fire, on the right pages, for the right actions: <a href="/insights/ga4-conversion-tracking/">GA4 events</a>, the Meta pixel and Conversions API, <a href="/insights/server-side-tracking-worth-it/">server-side where it applies</a>, and deduplication between browser and server. Then the unglamorous checks — is a "conversion" defined as the thing you actually sell, do purchase events carry real value and currency, and does platform-reported revenue reconcile against your backend? If tracking is wrong, every report after it is fiction.</p>
 
     <h2>2. Economics — can you afford the customers you're buying?</h2>
     <p>Measurement tells you what happened; economics tells you whether it was worth it. The audit works out real CAC, contribution margin after returns and discounts, what LTV assumptions are actually evidenced rather than hoped for, repeat-purchase behaviour, and the break-even ROAS or MER that follows. Plenty of accounts are tracked perfectly and still unprofitable, because nobody calculated what a customer could cost. Our <a href="/tools/ltv-cac-calculator/">LTV:CAC calculator</a> covers the arithmetic if you want to sanity-check it yourself first.</p>
@@ -5142,7 +5142,7 @@ export const insightArticles = [
 
     <h2>2. Is the Conversions API running alongside the pixel?</h2>
     <p>Browser-side collection is fragile for ordinary technical reasons. Meta's documentation points to events the pixel may lose to network connectivity issues or page loading errors, plus events that happen offline or later and that a browser tag was never going to capture at all. The Conversions API sends those server-to-server, and Meta recommends running it <em>alongside</em> the pixel rather than instead of it — a redundant setup — so the goal is both sources, deduplicated, not a choice between them.</p>
-    <p>One thing it is not: a way around someone's privacy choice. Server-side collection is still your collection, and it remains subject to whatever consent and data-use obligations apply to you — Meta documents data processing options such as Limited Data Use for exactly that reason, and expects the advertiser to get this right rather than treating the server path as unrestricted. Use the Conversions API to stop losing events you are entitled to measure, not to re-collect events from people who declined.</p>
+    <p>One thing it is not: a way around someone's privacy choice. <a href="/insights/server-side-tracking-worth-it/">Server-side collection</a> is still your collection, and it remains subject to whatever consent and data-use obligations apply to you — Meta documents data processing options such as Limited Data Use for exactly that reason, and expects the advertiser to get this right rather than treating the server path as unrestricted. Use the Conversions API to stop losing events you are entitled to measure, not to re-collect events from people who declined.</p>
 
     <h2>3. Are the two sources actually deduplicated?</h2>
     <p>This is where reported performance most often becomes fiction. Meta's recommended method matches on event identity: the pixel's <code>eventID</code> must equal the Conversions API's <code>event_id</code>, and the pixel's event name must equal the server <code>event_name</code>. Deduplication applies to events received within 48 hours of the first event carrying that ID, and where a server and browser event arrive within about five minutes of each other Meta favours the browser event.</p>
@@ -5325,7 +5325,7 @@ export const insightArticles = [
     <h2>Questions about process</h2>
 
     <h3><span class="qn">01.</span>What exactly will exist at day 30, 60 and 90?</h3>
-    <p class="flag good"><strong>Green flag:</strong> named deliverables with dates — measurement verified, a tested hypothesis list, a first read on which channel clears your economics.</p>
+    <p class="flag good"><strong>Green flag:</strong> named deliverables with dates — measurement verified, a tested hypothesis list, a first read on <a href="/insights/first-90-days-new-ad-account/">which channel clears your economics</a>.</p>
     <p class="flag bad"><strong>Red flag:</strong> "we'll launch campaigns in week one", or a timeline made of activity rather than outputs you could check.</p>
 
     <h3><span class="qn">02.</span>How will you verify my tracking before you scale anything?</h3>
@@ -5978,7 +5978,7 @@ export const insightArticles = [
 
     <h2>Test budget and scale budget are different money</h2>
     <p>A test budget buys information: enough spend, concentrated enough, to find out whether a channel can work. A scale budget buys customers from a channel you've already proven. They have different success criteria and shouldn't be reported together — a test that produces a clear "no" has done its job, and judging it on CAC will teach you to stop testing.</p>
-    <p>Practically: go deep on one or two channels rather than thin across six, ring-fence a smaller amount for genuine experiments, and keep a modest consistent line for things that compound slowly. Proportions depend on your stage, whether demand for your category already exists, and your sales cycle — a sixty-day cycle means a thirty-day test measures leads, not customers. Deciding that deliberately rather than by default is the core of <a href="/services/performance-marketing/">performance marketing planning</a>. (Fees are broken down in <a href="/insights/marketing-agency-cost-india/">what a marketing agency costs in India</a>, and whether to hire at all in <a href="/insights/agency-vs-freelancer-vs-inhouse/">agency vs freelancer vs in-house</a>.)</p>
+    <p>Practically: go deep on one or two channels rather than thin across six, <a href="/insights/paid-media-testing-budget/">ring-fence a smaller amount for genuine experiments</a>, and keep a modest consistent line for things that compound slowly. Proportions depend on your stage, whether demand for your category already exists, and your sales cycle — a sixty-day cycle means a thirty-day test measures leads, not customers. Deciding that deliberately rather than by default is the core of <a href="/services/performance-marketing/">performance marketing planning</a>. (Fees are broken down in <a href="/insights/marketing-agency-cost-india/">what a marketing agency costs in India</a>, and whether to hire at all in <a href="/insights/agency-vs-freelancer-vs-inhouse/">agency vs freelancer vs in-house</a>.)</p>
 
     <h2>Mistakes that waste an early budget</h2>
     <ul>
@@ -6173,7 +6173,7 @@ export const insightArticles = [
 
     <h2>Three caveats that separate good from busy</h2>
     <p><strong>Measurable isn't incremental.</strong> A channel can be credited with revenue that was arriving anyway — branded search is the standard example. Attribution shares out credit; it doesn't establish cause.</p>
-    <p><strong>Platform ROAS isn't profitability.</strong> It's revenue over spend before cost of goods, returns and discounts, so it can look healthy on a business losing money. Judge against contribution margin and a break-even you calculated.</p>
+    <p><strong>Platform ROAS isn't profitability.</strong> It's revenue over spend before cost of goods, returns and discounts, so it can look healthy on a business losing money. Judge against contribution margin and <a href="/insights/break-even-roas/">a break-even you calculated</a>.</p>
     <p><strong>Measurement quality sets the ceiling.</strong> Everything here rests on tracked outcomes, so if the tracking is wrong the whole thing is confidently wrong. <a href="/services/growth-strategy-measurement/">Measurement</a> isn't a support function here; it's load-bearing.</p>
 
     <h2>Brand and performance aren't opponents</h2>
