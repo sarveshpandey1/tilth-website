@@ -215,11 +215,11 @@ const main = `
   <div data-bl-pair>
     <div>
       <h2 id="who-h" data-h2>Who we work with</h2>
-      <p data-bl-p>We work with founders and marketing leads who own their numbers — early-stage startups, D2C brands, and growing businesses in Bengaluru and across India who are tired of busy dashboards that don't explain where the money went. If you're spending on marketing but can't say what's working, that's exactly the gap we close.</p>
+      <p data-bl-p>We work with founders and marketing leads who own their numbers — early-stage startups, D2C brands, and growing businesses in Bangalore and across India who are tired of busy dashboards that don't explain where the money went. If you're spending on marketing but can't say what's working, that's exactly the gap we close.</p>
     </div>
     <div>
       <h2 id="areas-h" data-h2>Areas we serve</h2>
-      <p data-bl-p>Tilth is based in <strong>Bengaluru, Karnataka</strong> and works with brands across India and the US. We know the local startup and D2C ecosystem well, and the work is fully remote-friendly — so whether you're in Koramangala, Indiranagar, or another city entirely, the foundation-first approach is the same.</p>
+      <p data-bl-p>Tilth is based in <strong>Bengaluru, Karnataka</strong> and works with brands across India and the US. We know the local startup and D2C ecosystem well, and the work is fully remote-friendly — so whether you're in Koramangala, Indiranagar, elsewhere in Bangalore, or another city entirely, the foundation-first approach is the same.</p>
     </div>
   </div>
 </section>
