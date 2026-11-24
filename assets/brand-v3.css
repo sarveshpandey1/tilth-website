@@ -682,6 +682,33 @@ html[data-theme="light"] .v3-theme-dot { transform: rotate(180deg); }
 /* founder */
 .v3-portrait { aspect-ratio: 4 / 5; max-width: 400px; width: 100%; overflow: hidden; background: var(--raise); }
 .v3-portrait img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.08); }
+
+/* Founder credential stack — the text-led composition that holds the column the
+   portrait used to occupy. Typography and existing tokens only: no avatar, no
+   silhouette, no decorative placeholder. Deliberately not a card with a border
+   box; the moss rule and the ruled fact rows carry the structure. */
+.v3-fcard { max-width: 400px; width: 100%; }
+.v3-fcard__name { font-family: Syne, sans-serif; font-weight: 800; font-size: 44px; line-height: .92; letter-spacing: -.04em; text-transform: uppercase; color: var(--fg); }
+@media (min-width: 768px) { .v3-fcard__name { font-size: 60px; } }
+@media (min-width: 1440px) { .v3-fcard__name { font-size: 68px; } }
+.v3-fcard__role { margin-top: 9px; padding-bottom: 15px; border-bottom: 2px solid var(--mosstext); color: var(--mosstext); }
+.v3-fcard__label { margin-top: 18px; color: var(--stone); }
+/* Mobile and tablet: one compact run, not six ruled rows. The section stacks
+   below 1024px, so six full-height rows would put a second biography above the
+   real one. Separators come from the list, so the markup stays one list. */
+.v3-fcard__sectors { list-style: none; margin: 9px 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 7px; }
+.v3-fcard__sectors li { font-family: Syne, sans-serif; font-weight: 700; font-size: 16px; line-height: 1.45; letter-spacing: -.01em; text-transform: uppercase; color: var(--fg); }
+.v3-fcard__sectors li + li::before { content: "·"; margin-right: 7px; font-weight: 400; color: var(--stone); }
+/* Desktop: the split becomes two columns, so the ruled rows return and give the
+   founder column the height the portrait used to hold. */
+@media (min-width: 1024px) {
+  .v3-fcard__role { margin-top: 10px; padding-bottom: 22px; }
+  .v3-fcard__label { margin-top: 26px; }
+  .v3-fcard__sectors { display: block; margin-top: 14px; }
+  .v3-fcard__sectors li { padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 23px; line-height: 1.1; letter-spacing: -.02em; }
+  .v3-fcard__sectors li + li::before { content: none; }
+  .v3-fcard__sectors li:last-child { border-bottom: 0; }
+}
 .v3-textlink { display: inline-block; margin-top: 22px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: .14em; color: var(--stone); border-bottom: 1px solid var(--line); padding-bottom: 4px; }
 
 /* contact (moss) */

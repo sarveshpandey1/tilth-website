@@ -20,7 +20,7 @@
 // Prototype-only code is not ported: the .dc runtime, the review controls and
 // the display-fit safeguard (the ladder in core-company.css is authored to fit
 // and measured at all 12 widths, as in the Industries family).
-import { caseStudies, brandExperience, brandExperienceLabel, homeV3, services } from "../data.mjs";
+import { caseStudies, brandExperiencePublic, brandExperienceLabel, homeV3, services } from "../data.mjs";
 import { breadcrumbs, esc } from "../render.mjs";
 
 const path = "/work/";
@@ -97,7 +97,7 @@ const plates = records.map((c, i) => `
 // inline "A · B" run, whose separator strands at the start of a line.
 // Source is the canonical founder brand-experience list (content pack §3), so
 // these are explicitly brands our founder has worked with, not Tilth clients.
-const markers = brandExperience.map(b => `<li>${esc(b.name)}</li>`).join("");
+const markers = brandExperiencePublic.map(b => `<li>${esc(b.name)}</li>`).join("");
 
 // The shared proof strip, the same component the homepage carries (§8). Work is
 // the deepest proof page, so it leads with the credibility strip before the

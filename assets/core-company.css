@@ -334,6 +334,16 @@ body.v3-core { margin: 0; }
 @media (min-width: 1280px) { .v3-about [data-portrait] { max-width: 340px; } }
 .v3-about [data-portrait] img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; filter: grayscale(1) contrast(1.08); background: var(--raise); }
 .v3-about [data-portrait] figcaption { margin-top: 14px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10.5px; letter-spacing: .14em; line-height: 1.5; color: var(--stone); text-transform: uppercase; }
+/* Without the portrait the section is a single text column, so the 300/340px
+   media track is dropped rather than left standing empty. The name and title
+   the figcaption used to carry move into the copy column as its heading. */
+.v3-about [data-founder][data-noportrait] { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px)  { .v3-about [data-founder][data-noportrait] { grid-template-columns: minmax(0, 1fr); } }
+@media (min-width: 1280px) { .v3-about [data-founder][data-noportrait] { grid-template-columns: minmax(0, 1fr); } }
+.v3-about [data-fname] { font-family: Syne, sans-serif; font-weight: 800; font-size: 34px; line-height: 1; letter-spacing: -.035em; text-transform: uppercase; color: var(--fg); }
+@media (min-width: 900px) { .v3-about [data-fname] { font-size: 42px; } }
+.v3-about [data-frole] { margin-top: 10px; padding-bottom: 18px; border-bottom: 2px solid var(--mosstext); font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10.5px; letter-spacing: .14em; line-height: 1.5; color: var(--mosstext); text-transform: uppercase; }
+.v3-about [data-noportrait] [data-quote] { margin-top: 26px; }
 .v3-about [data-quote] { margin: 0 0 26px; font-family: Syne, sans-serif; font-weight: 700; font-size: 28px; line-height: 1.04; letter-spacing: -.035em; text-transform: uppercase; text-wrap: balance; max-width: 820px; }
 @media (min-width: 620px)  { .v3-about [data-quote] { font-size: 36px; } }
 @media (min-width: 1024px) { .v3-about [data-quote] { font-size: 44px; } }

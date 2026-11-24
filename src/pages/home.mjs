@@ -2,7 +2,7 @@
 // Copy and structure come from the design; brands, services and contact details
 // come from the existing content model. SEO, schema and the FormSubmit contact
 // integration are carried over unchanged.
-import { site, brandExperience, brandExperienceLabel, homeV3 } from "../data.mjs"
+import { site, brandExperiencePublic, brandExperienceLabel, homeV3, team, founderPortraitPublic } from "../data.mjs"
 import { globalHreflang } from "../content-regional.mjs";
 import { orgSchema, websiteSchema, esc } from "../render.mjs";
 
@@ -14,7 +14,19 @@ const FORM_ACTION = "https://formsubmit.co/1312a0b0464cf419c03910b58a623861";
 // purely visual duplicate and is hidden from assistive tech, so ten names are
 // announced rather than twenty (same contract as the previous build).
 const brandItem = (b, hidden) => `<li class="v3-brand" data-v3-brand${hidden ? ' aria-hidden="true"' : ""}>${esc(b.name)}</li>`;
-const brandSet = hidden => brandExperience.map(b => brandItem(b, hidden)).join("");
+const brandSet = hidden => brandExperiencePublic.map(b => brandItem(b, hidden)).join("");
+
+// Founder plate. Stands in the column the portrait used to hold, so the
+// mid-aligned split stays a two-column split rather than leaving a dead half.
+//
+// It deliberately does NOT restate the years, industry count or market pair:
+// all three are already in the stats strip at the top of this page, and the
+// section's own heading and lede say them again. Repeating them a third time
+// would be filler. What is missing from the page is who she is and which
+// sectors that experience covers, so the plate carries the name, the title and
+// the sector list from the approved founder bio in team[] -- nothing invented.
+const founder = team.find(t => t.approved && /founder/i.test(t.title || "")) || team[0];
+const FOUNDER_SECTORS = ["Fintech", "SaaS", "D2C", "Edtech", "Consumer", "Fitness"];
 
 const stat = s => `<div class="v3-stat">
       <div class="v3-stat__v${s.tone ? ` is-${s.tone}` : ""}" data-num>${esc(s.v)}${s.unit ? `<span class="unit">${esc(s.unit)}</span>` : ""}</div>
@@ -250,7 +262,16 @@ const main = `
 
 <section id="founder" data-depth-label="FOUNDER" style="padding:0 var(--pad) var(--sy)">
   <div class="v3-split v3-split--mid">
-    <div class="v3-portrait v3-reveal"><img src="/anuja.jpg" alt="Anuja, founder of Tilth" width="400" height="500" loading="lazy" decoding="async"></div>
+    ${founderPortraitPublic
+      ? `<div class="v3-portrait v3-reveal"><img src="${esc(founder.photo)}" alt="${esc(founder.name)}, founder of Tilth" width="400" height="500" loading="lazy" decoding="async"></div>`
+      : `<div class="v3-fcard v3-reveal">
+      <div class="v3-fcard__name" data-num>${esc(founder.name)}</div>
+      <div class="v3-mono v3-fcard__role">${esc(founder.title)}</div>
+      <div class="v3-mono v3-fcard__label">Selected sectors</div>
+      <ul class="v3-fcard__sectors">${FOUNDER_SECTORS.map(s => `
+        <li>${esc(s)}</li>`).join("")}
+      </ul>
+    </div>`}
     <div>
       <div class="v3-mono v3-eyebrow v3-reveal">06 — FOUNDER-LED</div>
       <h2 class="v3-h2 v3-reveal" style="max-width:15ch">10+ years. 10+ industries. Patterns repeat. <span data-acc>Foundations matter</span>.</h2>

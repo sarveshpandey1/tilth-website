@@ -1,5 +1,5 @@
 // Shared shell + components for generated pages. Outputs plain static HTML for GitHub Pages.
-import { site, caseStudies, services } from "./data.mjs";
+import { site, caseStudies, services, founderPortraitPublic } from "./data.mjs";
 
 export const esc = (s = "") => String(s)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -50,7 +50,10 @@ export function orgSchema() {
     "@type": ["ProfessionalService", "MarketingAgency"], "@id": `${site.base}/#org`,
     name: site.brand, url: `${site.base}/`, email: site.email, telephone: `+${site.phoneHref.replace(/^\+?/, "")}`,
     description: "Performance-led growth marketing agency, India-rooted and working with brands across India and the US. Foundation-first strategy, execution and measurement.",
-    slogan: site.tagline, logo: `${site.base}/assets/brand/logo-carbon.png`, image: `${site.base}/anuja.jpg`,
+    slogan: site.tagline, logo: `${site.base}/assets/brand/logo-carbon.png`,
+    // Organization.image pointed at the founder portrait. Emitted only while
+    // the portrait is public; `logo` is unconditional and unchanged.
+    ...(founderPortraitPublic ? { image: `${site.base}/anuja.jpg` } : {}),
     address: { "@type": "PostalAddress", addressLocality: site.address.locality, addressRegion: site.address.region, addressCountry: site.address.country },
     areaServed: [{ "@type": "Country", name: "United States" }, { "@type": "Country", name: "India" }],
     sameAs: Object.values(site.social)

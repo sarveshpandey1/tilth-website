@@ -20,7 +20,7 @@
 //
 // Prototype-only code is not ported: the .dc runtime, the review approval
 // switches and the display-fit safeguard.
-import { site, team, proofFor } from "../data.mjs";
+import { site, team, proofFor, founderPortraitPublic } from "../data.mjs";
 import { breadcrumbs, esc } from "../render.mjs";
 
 const path = "/about/";
@@ -62,7 +62,11 @@ const proof = records.map(c => `
 
 const personSchema = founder ? {
   "@type": "Person", "@id": `${site.base}/#anuja`, name: founder.name, jobTitle: "Founder",
-  worksFor: { "@id": `${site.base}/#org` }, url: site.base + path, image: site.base + founder.photo,
+  // `image` is emitted only while the portrait is public. Person stays a valid
+  // Person either way: @type, name, jobTitle, worksFor, url and knowsAbout are
+  // unconditional, and image is an optional property.
+  worksFor: { "@id": `${site.base}/#org` }, url: site.base + path,
+  ...(founderPortraitPublic ? { image: site.base + founder.photo } : {}),
   knowsAbout: ["Performance marketing", "Growth strategy", "SEO", "Affiliate marketing", "Marketing measurement"]
 } : null;
 
@@ -96,12 +100,14 @@ const main = `
 ${founder ? `
 <section id="founder" data-sec data-depth-label="DEEP" aria-labelledby="founder-h">
   <h2 id="founder-h" data-founder-h>Founder</h2>
-  <div data-founder class="v3-reveal">
+  <div data-founder${founderPortraitPublic ? "" : " data-noportrait"} class="v3-reveal">${founderPortraitPublic ? `
     <figure data-portrait>
       <img src="${founder.photo}" alt="${esc(founder.name)}, ${esc(founder.title)}" width="560" height="700" loading="lazy" decoding="async">
       <figcaption>${esc(founder.name)} &mdash; ${esc(founder.title)}</figcaption>
-    </figure>
-    <div data-fcopy>
+    </figure>` : ""}
+    <div data-fcopy>${founderPortraitPublic ? "" : `
+      <div data-fname>${esc(founder.name)}</div>
+      <div data-frole>${esc(founder.title)}</div>`}
       <blockquote data-quote>Ten-plus years. Ten-plus industries. Patterns repeat; <span data-accent>foundations matter</span>.</blockquote>
       <p data-body>${esc(founder.name)} has ${esc(bioClause)} — running paid media, building affiliate programs and rebuilding the measurement underneath growth, for brands in India and the US. Tilth is the result: a foundation-first partner for brands that want growth to last.</p>
       <a data-textlink href="/work/"><span>See the work &rarr;</span></a>

@@ -90,6 +90,11 @@ jobs:
           # local-only artefact; gitignored, so absent from `git archive`
           rm -f  _site/index.original.html
 
+          # Founder portrait. Not rendered on any public page any more
+          # (src/data.mjs founderPortraitPublic), so it is not published.
+          # The file stays tracked in the repository for restoration.
+          rm -f  _site/anuja.jpg
+
           # Jekyll does not run for a custom workflow, but this costs one empty
           # file and removes the question.
           touch _site/.nojekyll

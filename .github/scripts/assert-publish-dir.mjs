@@ -68,7 +68,10 @@ const REQUIRED_FILES = [
   "apple-touch-icon.png",
   "web-app-manifest-192x192.png",
   "web-app-manifest-512x512.png",
-  "anuja.jpg",
+  // anuja.jpg is deliberately absent: the founder portrait is no longer
+  // rendered on any public page (src/data.mjs founderPortraitPublic), so it is
+  // excluded from the artifact and must not be asserted as required. The file
+  // stays in the repository for restoration.
   "styles.css",
   "assets/fonts/fonts.css",
   "nav.js",
