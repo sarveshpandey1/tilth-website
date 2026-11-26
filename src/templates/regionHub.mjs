@@ -232,7 +232,11 @@ function inline(paragraph, index, links) {
     const needle = esc(l.text);
     const at = html.indexOf(needle);
     if (at < 0) throw new Error(`Regional inlineLinks: "${l.text}" not found in paragraph ${index}`);
-    html = html.slice(0, at) + `<a href="${l.href}">${needle}</a>` + html.slice(at + needle.length);
+    // Same resolution as every card: an inline link may carry a `regional`
+    // target and upgrades to it only once that route is live, so an in-prose
+    // link can never point at a route that does not exist. A link with no
+    // `regional` key resolves to its own href, unchanged.
+    html = html.slice(0, at) + `<a href="${resolveHref(l)}">${needle}</a>` + html.slice(at + needle.length);
   }
   return html;
 }
@@ -292,10 +296,16 @@ const ledgerSection = (s, { lead = false } = {}) => `
 // A run row keeps its own <section> and H2 so the outline is unchanged; the H2
 // runs on the smaller --rgrun step and is deliberately outside the no-break
 // helper, which only touches display-scale headings.
+//
+// The paragraph goes through inline() for the same reason sectionBody() does:
+// a one-paragraph prose section is rendered HERE rather than by ledgerSection,
+// so without this an `inlineLinks` entry declared on a run row would be
+// silently dropped instead of applied. inline() with no links returns exactly
+// esc(paragraph), so every run row that declares none stays byte-identical.
 const runRow = s => `
       <section id="${s.id}" data-rg-row data-rg-type="prose" aria-labelledby="${s.id}-h">
         <div><span data-rg-eb>${esc(s.eyebrow)}</span><h2 id="${s.id}-h">${esc(s.h2)}</h2></div>
-        <p data-rg-p>${esc(s.paragraphs[0])}</p>
+        <p data-rg-p>${inline(s.paragraphs[0], 0, s.inlineLinks)}</p>
       </section>`;
 
 const proofSection = (records) => `
